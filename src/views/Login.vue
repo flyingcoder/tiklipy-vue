@@ -1,3 +1,32 @@
+<script setup>
+    import { ref } from "vue"
+    import { getAuth, signInWithEmailAndPassword } from "firebase/auth"
+    import { useRouter } from 'vue-router'
+
+    const router = useRouter();
+    const email = ref("");
+    const password = ref("");
+    const errMsg = ref()
+    const signIn = () => {
+        const auth = getAuth()
+        signInWithEmailAndPassword(auth, email.value, password.value)
+            .then((data) => {
+                console.log(auth.currentUser)
+                router.push('/dashboard')
+            })
+            .catch((err) => {
+                errMsg.value = "Email or password was incorrect."
+            });
+    };
+
+    const signInWithGoogle = () => {
+
+    };
+
+    const signInWithFacebook = () => {
+
+    };
+</script>
 <template>
     <div class="p-8 bg-white rounded shadow-md w-96">
         <h1 class="mb-4 text-2xl font-semibold">Sign In</h1>
@@ -30,32 +59,3 @@
         </div>
     </div>
 </template>
-<script setup>
-    import { ref } from "vue"
-    import { getAuth, signInWithEmailAndPassword } from "firebase/auth"
-    import { useRouter } from 'vue-router'
-
-    const router = useRouter();
-    const email = ref("");
-    const password = ref("");
-    const errMsg = ref()
-    const signIn = () => {
-        const auth = getAuth()
-        signInWithEmailAndPassword(auth, getAuth(), email.value, password.value)
-            .then((data) => {
-                console.log(auth.currentUser)
-                router.push('/dasboard')
-            })
-            .catch((err) => {
-                errMsg.value = "Email or password was incorrect."
-            });
-    };
-
-    const signInWithGoogle = () => {
-
-    };
-
-    const signInWithFacebook = () => {
-
-    };
-</script>

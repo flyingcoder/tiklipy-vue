@@ -8,10 +8,10 @@
     const password = ref("");
     const register = () => {
         const auth = getAuth()
-        createUserWithEmailAndPassword(auth, getAuth(), email.value, password.value)
+        createUserWithEmailAndPassword(auth, email.value, password.value)
             .then((data) => {
                 console.log(auth.currentUser)
-                router.push('/dasboard')
+                router.push('/dashboard')
             })
             .catch((err) => {
                 console.log(err.message)

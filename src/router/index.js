@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
+import { getAuth } from "firebase/auth";
 
 const router = createRouter({
     history:createWebHistory(),
@@ -20,9 +21,8 @@ router.beforeEach((to, from, next) =>  {
     if(to.matched.some((record) => record.meta.requiresAuth )) {
         if(getAuth().currentUser)
             next();
-
-        alert("intruder");
-        next("/");
+        
+        next("/login");
     } else {
         next();
     }
