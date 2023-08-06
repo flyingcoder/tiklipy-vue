@@ -3,7 +3,7 @@
 </script>
 
 <template>
-    <div>
+    <div style="color: red">
         Pricing
     </div>
 </template>

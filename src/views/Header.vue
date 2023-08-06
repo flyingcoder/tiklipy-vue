@@ -23,7 +23,7 @@
 </script>
 
 <template>
-    <nav class="flex flex-wrap items-center justify-between p-8 text-base bg-teal-500">
+    <!-- <nav class="flex flex-wrap items-center justify-between p-8 text-base bg-teal-500">
         <div class="flex items-center flex-shrink-0 mr-6 text-white">
             <router-link class="text-teal-200 hover:text-white" to="/">
                 <svg class="w-8 h-8 mr-2 fill-current" width="54" height="54" viewBox="0 0 54 54" xmlns="http://www.w3.org/2000/svg"><path d="M13.5 22.1c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05zM0 38.3c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05z"/></svg>
@@ -46,5 +46,43 @@
                 <a href="#" @click="handleSignOut" v-if="isLoggedIn" class="inline-block px-4 py-2 mt-4 text-sm leading-none text-white border border-white rounded hover:border-transparent hover:text-teal-500 hover:bg-white lg:mt-0">Sign Out</a>
             </div>
         </div>
-    </nav>
+    </nav> -->
+    <header>
+      <div class="header-2">
+  
+        <nav class="bg-white py-2 md:py-4 h-24 flex">
+          <div class="px-4 mx-16 md:flex md:items-center w-full">
+  
+            <div class="flex justify-between items-center">
+              <a href="#" class="sm:order-1 text-4xl font-bold text-indigo-600 logo-text">
+                <img src="/public/tiklipy-logo-indigo.png" alt="Logo" width="130" height="130">
+              </a>
+              <button class="border border-solid border-gray-600 px-3 py-1 rounded text-gray-600 opacity-50 hover:opacity-75 md:hidden">
+                <i class="fas fa-bars"></i>
+              </button>
+            </div>
+  
+            <div x-ref="navbarCollapse" class="hidden md:flex flex-col md:flex-row md:ml-auto mt-3 md:mt-0">
+              <div class="flex">
+                <div class="relative flex text-gray-600 focus-within:text-gray-400">
+                  <span class="absolute inset-y-0 left-0 flex items-center pl-2">
+                    <button type="submit" class="p-1 focus:outline-none focus:shadow-outline">
+                      <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="text-black w-6 h-6"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                    </button>
+                  </span>
+                  <input type="text" name="q" class="w-96 py-2 text-sm bg-gray-200 rounded-md pl-12 text-base focus:outline-none focus:text-gray-900" placeholder="Search" autocomplete="off">
+                </div>
+              </div>
+              <a href="#">
+                <div class="m-1 ml-7 mr-2 w-10 h-10 relative flex justify-center items-center rounded-full bg-blue-500 text-xl text-white uppercase">
+                  <i class="fa-regular fa-user"></i>
+                </div>
+              </a>
+            </div>
+            
+          </div>
+        </nav>
+  
+      </div>
+    </header>
 </template>

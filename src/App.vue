@@ -1,6 +1,6 @@
 <script setup>
-  import Header from './views/Header.vue'
-  
+  import Header from './views/Header.vue';
+  import Footer from './views/Footer.vue';
 </script>
 <template>
   <!--nav>
@@ -10,6 +10,7 @@
     <router-link class="px-2" to="/dashboard">Dashboard</router-link>
     <button @click="handleSignOut" v-if="isLoggedIn">Sign Out</button>
   </!nav-->
-  <Header />
-  <router-view />
+  <Header/>
+  <router-view class="mx-16 px-4 "/>
+  <Footer />
 </template>

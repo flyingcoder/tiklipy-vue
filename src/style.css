@@ -18,7 +18,8 @@
   -webkit-text-size-adjust: 100%;
 }
 
-a {
+a,
+footer {
   font-weight: 500;
   color: #646cff;
   text-decoration: inherit;
