@@ -1,25 +1,6 @@
 <script setup>
-  import { onMounted, ref } from "vue";
-  import { useRouter } from "vue-router";
-  import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
   import Header from './views/Header.vue'
-
-  const router = useRouter();
-  const isLoggedIn = ref(false);
-
-  let auth;
-  onMounted(() => {
-    auth = getAuth();
-    onAuthStateChanged(auth, (user) => {
-      isLoggedIn.value =  (user) ? true : false; 
-    });
-  });
-
-  const handleSignOut =  () => {
-    signOut(auth).then(() => {
-      router.push('sign-in');
-    })
-  };
+  
 </script>
 <template>
   <!--nav>

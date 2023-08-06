@@ -1,10 +1,34 @@
-<script setup></script>
+<script setup>
+ import { onMounted, ref } from "vue";
+  import { useRouter } from "vue-router";
+  import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
+  
+
+  const router = useRouter();
+  const isLoggedIn = ref(false);
+
+  let auth;
+  onMounted(() => {
+    auth = getAuth();
+    onAuthStateChanged(auth, (user) => {
+      isLoggedIn.value = (user) ? true : false; 
+    });
+  });
+
+  const handleSignOut =  () => {
+    signOut(auth).then(() => {
+      router.push('sign-in');
+    })
+  };
+</script>
 
 <template>
     <nav class="flex flex-wrap items-center justify-between p-8 text-base bg-teal-500">
         <div class="flex items-center flex-shrink-0 mr-6 text-white">
-            <svg class="w-8 h-8 mr-2 fill-current" width="54" height="54" viewBox="0 0 54 54" xmlns="http://www.w3.org/2000/svg"><path d="M13.5 22.1c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05zM0 38.3c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05z"/></svg>
-            <span class="text-xl font-semibold tracking-tight">Tailwind CSS</span>
+            <router-link class="text-teal-200 hover:text-white" to="/">
+                <svg class="w-8 h-8 mr-2 fill-current" width="54" height="54" viewBox="0 0 54 54" xmlns="http://www.w3.org/2000/svg"><path d="M13.5 22.1c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05zM0 38.3c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05z"/></svg>
+                <span class="text-xl font-semibold tracking-tight">Tailwind CSS</span>
+            </router-link>
         </div>
         <div class="block lg:hidden">
             <button class="flex items-center px-3 py-2 text-teal-200 border border-teal-400 rounded hover:text-white hover:border-white">
@@ -13,18 +37,12 @@
         </div>
         <div class="flex-grow block w-full lg:flex lg:items-center lg:w-auto">
             <div class="text-sm lg:flex-grow">
-            <a href="#responsive-header" class="block mt-4 mr-4 text-teal-200 lg:inline-block lg:mt-0 hover:text-white">
-                Docs
-            </a>
-            <a href="#responsive-header" class="block mt-4 mr-4 text-teal-200 lg:inline-block lg:mt-0 hover:text-white">
-                Examples
-            </a>
-            <a href="#responsive-header" class="block mt-4 text-teal-200 lg:inline-block lg:mt-0 hover:text-white">
-                Blog
-            </a>
+                <router-link class="px-2 text-teal-200 hover:text-white" to="/pricing">Pricing</router-link>
+                <router-link class="px-2 text-teal-200 hover:text-white" to="/blog">Blog</router-link>
             </div>
             <div>
-            <a href="#" class="inline-block px-4 py-2 mt-4 text-sm leading-none text-white border border-white rounded hover:border-transparent hover:text-teal-500 hover:bg-white lg:mt-0">Download</a>
+                <router-link v-if="!isLoggedIn" class="px-2 text-teal-200" to="/sign-in">Sign in</router-link>
+                <a href="#" @click="handleSignOut" class="inline-block px-4 py-2 mt-4 text-sm leading-none text-white border border-white rounded hover:border-transparent hover:text-teal-500 hover:bg-white lg:mt-0">Sign Out</a>
             </div>
         </div>
     </nav>

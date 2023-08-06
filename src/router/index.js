@@ -7,16 +7,24 @@ const router = createRouter({
         { 
             path: "/",
             name: 'home', 
-            component: () => import("../views/guest/Home.vue") },
-        { 
+            component: () => import("../views/guest/Home.vue") 
+        },{ 
+            path: "/pricing",
+            name: 'pricing', 
+            component: () => import("../views/guest/Pricing.vue") 
+        },{ 
+            path: "/blog",
+            name: 'blog', 
+            component: () => import("../views/guest/Blog.vue") 
+        },{ 
             path: "/sign-up", 
             name: 'sign-up',
-            component: () => import("../views/sign/Up.vue") },
-        { 
+            component: () => import("../views/sign/Up.vue") 
+        },{ 
             path:"/sign-in",
             name: 'sign-in',
-            component: () => import('../views/sign/In.vue') },
-        { 
+            component: () => import('../views/sign/In.vue') 
+        },{ 
             path:"/dashboard",
             name: 'dashboard',
             component: () => import('../views/members/Dashboard.vue'),
