@@ -6,8 +6,26 @@ const router = createRouter({
         { path: "/", component: () => import("../views/Home.vue") },
         { path: "/register", component: () => import("../views/Register.vue") },
         { path:"/login", component: () => import('../views/Login.vue') },
-        { path:"/dashboard", component: () => import('../views/Dashboard.vue') },
+        { 
+            path:"/dashboard", 
+            component: () => import('../views/Dashboard.vue'),
+            meta: {
+                requiresAuth: true
+            } 
+        },
     ],
+});
+
+router.beforeEach((to, from, next) =>  {
+    if(to.matched.some((record) => record.meta.requiresAuth )) {
+        if(getAuth().currentUser)
+            next();
+
+        alert("intruder");
+        next("/");
+    } else {
+        next();
+    }
 });
 
 export default router;
