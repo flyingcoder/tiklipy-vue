@@ -4,12 +4,22 @@ import { getAuth, onAuthStateChanged } from "firebase/auth";
 const router = createRouter({
     history:createWebHistory(),
     routes:[
-        { path: "/", component: () => import("../views/Home.vue") },
-        { path: "/register", component: () => import("../views/Register.vue") },
-        { path:"/login", component: () => import('../views/Login.vue') },
         { 
-            path:"/dashboard", 
-            component: () => import('../views/Dashboard.vue'),
+            path: "/",
+            name: 'home', 
+            component: () => import("../views/guest/Home.vue") },
+        { 
+            path: "/sign-up", 
+            name: 'sign-up',
+            component: () => import("../views/sign/Up.vue") },
+        { 
+            path:"/sign-in",
+            name: 'sign-in',
+            component: () => import('../views/sign/In.vue') },
+        { 
+            path:"/dashboard",
+            name: 'dashboard',
+            component: () => import('../views/members/Dashboard.vue'),
             meta: {
                 requiresAuth: true
             } 
@@ -22,8 +32,8 @@ router.beforeEach(async (to, from, next) =>  {
     if(to.matched.some((record) => record.meta.requiresAuth )) {
         if(await getCurrentUser())
             next();
-        
-        next("/login");
+        else
+            next("sign-in");
     } else {
         next();
     }

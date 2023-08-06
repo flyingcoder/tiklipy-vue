@@ -1,17 +1,22 @@
 <script setup>
     import { ref } from "vue"
-    import { getAuth, createUserWithEmailAndPassword } from "firebase/auth"
     import { useRouter } from 'vue-router'
+    import { getAuth, 
+        createUserWithEmailAndPassword,
+        GoogleAuthProvider,
+        signInWithPopup, 
+    } from "firebase/auth"
+    
 
     const router = useRouter();
     const email = ref("");
     const password = ref("");
-    const register = () => {
+    const signUp = () => {
         const auth = getAuth()
         createUserWithEmailAndPassword(auth, email.value, password.value)
-            .then((data) => {
+            .then(() => {
                 console.log(auth.currentUser)
-                router.push('/dashboard')
+                router.push('dashboard')
             })
             .catch((err) => {
                 console.log(err.message)
@@ -19,7 +24,15 @@
     };
 
     const signInWithGoogle = () => {
-
+        const provide = new GoogleAuthProvider();
+        signInWithPopup(getAuth(), provider)
+            .then((res) => {
+                console.log(res.user);
+                router.push('dashboard')
+            })
+            .catch((error) => {
+                console.log(error.message)
+            })
     };
 
     const signInWithFacebook = () => {
@@ -29,7 +42,7 @@
 
 <template>
     <div class="p-8 bg-white rounded shadow-md w-96">
-        <h1 class="mb-4 text-2xl font-semibold">Register</h1>
+        <h1 class="mb-4 text-2xl font-semibold">Sign up</h1>
             <div class="mb-4">
                 <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
                 <input v-model="email" type="email" id="email" name="email" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
@@ -38,7 +51,7 @@
                 <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
                 <input v-model="password" type="password" id="password" name="password" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
             </div>
-            <button @click="register" type="submit" class="w-full px-4 py-2 text-white bg-indigo-600 rounded hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-200 focus:ring-opacity-50">
+            <button @click="signUp" type="submit" class="w-full px-4 py-2 text-white bg-indigo-600 rounded hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-200 focus:ring-opacity-50">
                 Register
             </button>
         <div class="mt-4">

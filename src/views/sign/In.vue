@@ -7,14 +7,14 @@
     const email = ref("");
     const password = ref("");
     const errMsg = ref()
-    const signIn = () => {
+    const signIn = async () => {
         const auth = getAuth()
-        signInWithEmailAndPassword(auth, email.value, password.value)
-            .then((data) => {
+        await signInWithEmailAndPassword(auth, email.value, password.value)
+            .then(() => {
                 console.log(auth.currentUser)
-                router.push('/dashboard')
+                router.push('dashboard')
             })
-            .catch((err) => {
+            .catch(() => {
                 errMsg.value = "Email or password was incorrect."
             });
     };
@@ -40,7 +40,7 @@
                 <input v-model="password" type="password" id="password" name="password" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
             </div>
             <button @click="signIn" type="submit" class="w-full px-4 py-2 text-white bg-indigo-600 rounded hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-200 focus:ring-opacity-50">
-                Register
+                Login
             </button>
         <div class="mt-4">
             <p class="text-sm text-center text-gray-600">Or sign up using:</p>
