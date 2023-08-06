@@ -41,8 +41,9 @@
                 <router-link class="px-2 text-teal-200 hover:text-white" to="/blog">Blog</router-link>
             </div>
             <div>
+                <router-link v-if="!isLoggedIn" class="px-2 text-teal-200" to="/sign-up">Sign Up</router-link>
                 <router-link v-if="!isLoggedIn" class="px-2 text-teal-200" to="/sign-in">Sign in</router-link>
-                <a href="#" @click="handleSignOut" class="inline-block px-4 py-2 mt-4 text-sm leading-none text-white border border-white rounded hover:border-transparent hover:text-teal-500 hover:bg-white lg:mt-0">Sign Out</a>
+                <a href="#" @click="handleSignOut" v-if="isLoggedIn" class="inline-block px-4 py-2 mt-4 text-sm leading-none text-white border border-white rounded hover:border-transparent hover:text-teal-500 hover:bg-white lg:mt-0">Sign Out</a>
             </div>
         </div>
     </nav>
