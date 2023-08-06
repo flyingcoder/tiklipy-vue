@@ -1,13 +1,15 @@
 <script setup>
     import { ref } from "vue"
     import { getAuth, createUserWithEmailAndPassword } from "firebase/auth"
-    
+    import { useRouter } from 'vue-router'
+
     const email = ref("");
     const password = ref("");
     const register = () => {
         createUserWithEmailAndPassword(getAuth(), email.value, password.value)
             .then((data) => {
                 console.log(data)
+                router.push('/dasboard')
             })
             .catch((err) => {
                 console.log(err.message)
