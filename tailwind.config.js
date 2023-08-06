@@ -7,6 +7,9 @@ export default {
     'node_modules/flowbite/**/*.{js,jsx,ts,tsx}',
   ],
   theme: {
+    colors: {
+      'main-color': '#646cff'
+    },
     extend: {},
   },
   plugins: [
