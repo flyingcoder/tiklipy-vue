@@ -1,7 +1,12 @@
 <script setup>
     import { ref } from "vue"
-    import { getAuth, signInWithEmailAndPassword } from "firebase/auth"
     import { useRouter } from 'vue-router'
+    import { getAuth, 
+        signInWithEmailAndPassword,
+        GoogleAuthProvider,
+        FacebookAuthProvider,
+        signInWithPopup, 
+    } from "firebase/auth"
 
     const router = useRouter();
     const email = ref("");
@@ -20,11 +25,24 @@
     };
 
     const signInWithGoogle = () => {
-
+        const provider = new GoogleAuthProvider();
+        signInWithPopup(getAuth(), provider)
+            .then((res) => {
+                console.log(res.user);
+                router.push('dashboard')
+            })
+            .catch((error) => {
+                console.log(error.message)
+            })
     };
 
     const signInWithFacebook = () => {
-
+        const provider =  new FacebookAuthProvider();
+        signInWithPopup(getAuth(), provider)
+            .then((res) =>  {
+                console.log(res.user);
+                router.push('dashboard')
+            })
     };
 </script>
 <template>

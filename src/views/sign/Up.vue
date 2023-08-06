@@ -4,6 +4,7 @@
     import { getAuth, 
         createUserWithEmailAndPassword,
         GoogleAuthProvider,
+        FacebookAuthProvider,
         signInWithPopup, 
     } from "firebase/auth"
     
@@ -24,7 +25,7 @@
     };
 
     const signInWithGoogle = () => {
-        const provide = new GoogleAuthProvider();
+        const provider = new GoogleAuthProvider();
         signInWithPopup(getAuth(), provider)
             .then((res) => {
                 console.log(res.user);
@@ -36,7 +37,12 @@
     };
 
     const signInWithFacebook = () => {
-
+        const provider =  new FacebookAuthProvider();
+        signInWithPopup(getAuth(), provider)
+            .then((res) =>  {
+                console.log(res.user);
+                router.push('dashboard')
+            })
     };
 </script>
 
