@@ -2,6 +2,8 @@
  import { onMounted, ref } from "vue";
   import { useRouter } from "vue-router";
   import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
+  import SignUp from './sign/Up.vue';
+  import SignIn from './sign/In.vue';
   
 
   const router = useRouter();
@@ -23,66 +25,70 @@
 </script>
 
 <template>
-    <!-- <nav class="flex flex-wrap items-center justify-between p-8 text-base bg-teal-500">
-        <div class="flex items-center flex-shrink-0 mr-6 text-white">
-            <router-link class="text-teal-200 hover:text-white" to="/">
-                <svg class="w-8 h-8 mr-2 fill-current" width="54" height="54" viewBox="0 0 54 54" xmlns="http://www.w3.org/2000/svg"><path d="M13.5 22.1c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05zM0 38.3c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05z"/></svg>
-                <span class="text-xl font-semibold tracking-tight">Tailwind CSS</span>
-            </router-link>
-        </div>
-        <div class="block lg:hidden">
-            <button class="flex items-center px-3 py-2 text-teal-200 border border-teal-400 rounded hover:text-white hover:border-white">
-            <svg class="w-3 h-3 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
-            </button>
-        </div>
-        <div class="flex-grow block w-full lg:flex lg:items-center lg:w-auto">
-            <div class="text-sm lg:flex-grow">
-                <router-link class="px-2 text-teal-200 hover:text-white" to="/pricing">Pricing</router-link>
-                <router-link class="px-2 text-teal-200 hover:text-white" to="/blog">Blog</router-link>
-            </div>
-            <div>
-                <router-link v-if="!isLoggedIn" class="px-2 text-teal-200" to="/sign-up">Sign Up</router-link>
-                <router-link v-if="!isLoggedIn" class="px-2 text-teal-200" to="/sign-in">Sign in</router-link>
-                <a href="#" @click="handleSignOut" v-if="isLoggedIn" class="inline-block px-4 py-2 mt-4 text-sm leading-none text-white border border-white rounded hover:border-transparent hover:text-teal-500 hover:bg-white lg:mt-0">Sign Out</a>
-            </div>
-        </div>
-    </nav> -->
+    
     <header>
-      <div class="header-2">
-  
-        <nav class="bg-white py-2 md:py-4 h-24 flex">
-          <div class="px-4 mx-16 md:flex md:items-center w-full">
-  
-            <div class="flex justify-between items-center">
-              <a href="#" class="sm:order-1 text-4xl font-bold text-indigo-600 logo-text">
-                <img src="/public/tiklipy-logo-indigo.png" alt="Logo" width="130" height="130">
-              </a>
-              <button class="border border-solid border-gray-600 px-3 py-1 rounded text-gray-600 opacity-50 hover:opacity-75 md:hidden">
-                <i class="fas fa-bars"></i>
-              </button>
-            </div>
-  
-            <div x-ref="navbarCollapse" class="hidden md:flex flex-col md:flex-row md:ml-auto mt-3 md:mt-0">
-              <div class="flex">
-                <div class="relative flex text-gray-600 focus-within:text-gray-400">
-                  <span class="absolute inset-y-0 left-0 flex items-center pl-2">
-                    <button type="submit" class="p-1 focus:outline-none focus:shadow-outline">
-                      <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="text-black w-6 h-6"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-                    </button>
-                  </span>
-                  <input type="text" name="q" class="w-96 py-2 text-sm bg-gray-200 rounded-md pl-12 text-base focus:outline-none focus:text-gray-900" placeholder="Search" autocomplete="off">
-                </div>
+      <nav class="bg-white border-gray-200 dark:bg-gray-900 mx-14">
+          <div class="flex flex-wrap items-center justify-between mx-auto px-4 py-6">
+              <div class="flex items-center md:order-3">
+                <a class="text-white focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">&nbsp;</a>
+                <a data-modal-target="signin-modal" data-modal-toggle="signin-modal" class="cursor-pointer text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-lg px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800">Login</a>
+                <a data-modal-target="signup-modal" data-modal-toggle="signup-modal" class="cursor-pointer text-white bg-main-color focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-lg px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 dark:bg-blue-600 focus:outline-none dark:focus:ring-blue-800">Sign up</a>
+                <a href="#" class="text-white bg-main-color focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" @click="handleSignOut" v-if="isLoggedIn">Logout</a>
+                <button data-collapse-toggle="mega-menu" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="mega-menu" aria-expanded="false">
+                    <span class="sr-only">Open main menu</span>
+                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+                    </svg>
+                </button>
               </div>
-              <a href="#">
-                <div class="m-1 ml-7 mr-2 w-10 h-10 relative flex justify-center items-center rounded-full bg-blue-500 text-xl text-white uppercase">
-                  <i class="fa-regular fa-user"></i>
-                </div>
-              </a>
-            </div>
-            
+              
+              <div class="md:order-2">
+                <a href="https://flowbite.com" class="flex items-center">
+                    <img src="/public/tiklipy-logo-indigo.png" class="h-12 mr-3" alt="Flowbite Logo" />
+                </a>
+              </div>
+              
+              <div id="mega-menu" class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1">
+                  <ul class="flex flex-col mt-4 font-medium md:flex-row md:space-x-12 md:mt-0 text-lg">
+                      <li>
+                          <a href="#" class="block py-2 pl-3 pr-4 text-blue-600 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-blue-500 md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700" aria-current="page">Features</a>
+                      </li>
+                      <li>
+                          <a href="/pricing" class="block py-2 pl-3 pr-4 text-gray-900 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">Pricing</a>
+                      </li>
+                      <li>
+                          <button id="mega-menu-dropdown-button" data-dropdown-toggle="mega-menu-dropdown" class="flex items-center bg-transparent justify-between w-full py-2 pl-3 pr-4 font-medium text-gray-900 border-b border-gray-100 md:w-auto hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">
+                              About <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+        </svg>
+                          </button>
+                          <div id="mega-menu-dropdown" class="absolute z-10 hidden w-auto text-sm bg-white border border-gray-100 rounded-lg shadow-md dark:border-gray-700 md:grid-cols-3 dark:bg-gray-700">
+                              <div class="p-4">
+                                  <ul class="space-y-4">
+                                      <li>
+                                          <a href="#" class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500">
+                                              Blog
+                                          </a>
+                                      </li>
+                                      <li>
+                                          <a href="#" class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500">
+                                              Post
+                                          </a>
+                                      </li>
+                                      <li>
+                                          <a href="#" class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500">
+                                              About
+                                          </a>
+                                      </li>
+                                  </ul>
+                              </div>
+                          </div>
+                      </li>
+                  </ul>
+              </div>
           </div>
-        </nav>
-  
-      </div>
-    </header>
+      </nav>
+  </header>
+  <SignUp />
+    <SignIn />
 </template>
