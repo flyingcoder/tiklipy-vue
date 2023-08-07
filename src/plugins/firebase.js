@@ -1,4 +1,5 @@
-import { initializeApp } from "firebase/app";
+import { getApps, initializeApp } from "firebase/app";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 const firebaseConfig = {
     apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
@@ -10,6 +11,22 @@ const firebaseConfig = {
     measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
 };
 
-const app = initializeApp(firebaseConfig);
+const apps = getApps();
+const firebaseApp = !apps.length ? initializeApp(firebaseConfig) : apps[0];
+const Auth = getAuth(firebaseApp);
 
-export default app;
+//request user from firebase local state
+const getCurrentUser = () => {
+    return new Promise((resolve, reject) => {
+        const removeListener = onAuthStateChanged(
+            Auth,
+            (user) => {
+                removeListener();
+                resolve(user);
+            },
+            reject
+        )
+    })
+};
+
+export default { firebaseApp, Auth, getCurrentUser };

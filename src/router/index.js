@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { getCurrentUser } from "@/plugins/firebase";
 
 const router = createRouter({
     history:createWebHistory(),
@@ -55,18 +55,5 @@ router.beforeEach(async (to, from, next) =>  {
         next();
     }
 });
-//request user from firebase local state
-const getCurrentUser = () => {
-    return new Promise((resolve, reject) => {
-        const removeListener = onAuthStateChanged(
-            getAuth(),
-            (user) => {
-                removeListener();
-                resolve(user);
-            },
-            reject
-        )
-    })
-}
 
 export default router;
