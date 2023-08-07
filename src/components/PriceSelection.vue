@@ -57,8 +57,8 @@
 
 <template>
     <div class="mt-10 text-center">
-        <h2 class="my-4 text-4xl font-bold text-center text-black">Teacher-Friendly Pricing</h2>
-        <p class="text-lg text-center text-black">Elevate efficiency and enhance work quality, all for the price of two cokes</p>
+        <h2 class="my-4 text-4xl font-bold text-center text-gray-800">Teacher-Friendly Pricing</h2>
+        <p class="text-lg text-center text-gray-800">Elevate efficiency and enhance work quality, all for the price of two cokes</p>
         
         <div v-for="(product, index) in products" :key="index + '-product'" 
             class="flex justify-center items-stretch w-4/6 mx-auto mt-10">
