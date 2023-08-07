@@ -3,9 +3,7 @@
     import { useRouter } from "vue-router";
     import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
     import SignUp from './sign/Up.vue';
-    import { Modal } from 'flowbite-vue';
     
-    const size = ref("lg");
     const router = useRouter();
     const isLoggedIn = ref(false);
 

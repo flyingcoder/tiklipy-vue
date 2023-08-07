@@ -29,4 +29,4 @@ const getCurrentUser = () => {
     })
 };
 
-export default { firebaseApp, Auth, getCurrentUser };
+export { firebaseApp, Auth, getCurrentUser };
