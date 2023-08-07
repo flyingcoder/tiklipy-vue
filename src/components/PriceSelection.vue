@@ -68,7 +68,7 @@
                 <h5 class="mb-4 text-xl font-medium text-gray-500 capitalize dark:text-gray-400">
                     {{ price.interval }}ly Plan
                 </h5>
-                <div class="flex items-baseline text-gray-900 dark:text-white">
+                <div class="flex items-baseline text-gray-900 dark:text-white justify-center">
                     <span class="text-3xl font-semibold">
                         $
                     </span>
