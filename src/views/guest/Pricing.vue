@@ -6,7 +6,7 @@
     
     <div class="flex w-2/4 mx-auto mt-10">
 
-        <div class="w-full mx-auto max-w-sm p-4 bg-white border border-gray-200 border-none rounded-lg shadow-none hover:bg-transparent sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+        <div class="w-full mx-auto max-w-sm p-4 bg-white border border-gray-200 border-none rounded-lg shadow-none sm:p-8 dark:bg-gray-800 dark:border-gray-700">
             <h5 class="mb-4 text-xl font-medium text-gray-500 dark:text-gray-400">Montly Plan</h5>
             <div class="flex items-baseline text-gray-900 dark:text-white">
                 <span class="text-3xl font-semibold">₱</span>
@@ -51,7 +51,7 @@
             <button type="button" class="text-white bg-main-color hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-200 dark:focus:ring-blue-900 font-medium rounded-lg text-lg px-5 py-2.5 inline-flex justify-center w-full text-center">Try Free for 7 Days!</button>
         </div>
 
-        <div class="w-full mx-auto max-w-sm p-4 bg-white border border-gray-200 border-none rounded-lg shadow-none hover:bg-transparent sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+        <div class="w-full mx-auto max-w-sm p-4 bg-white border border-gray-200 border-none rounded-lg shadow-none sm:p-8 dark:bg-gray-800 dark:border-gray-700">
             <h5 class="mb-4 text-xl font-medium text-gray-500 dark:text-gray-400">Yearly Plan</h5>
             <div class="flex items-baseline text-gray-900 dark:text-white">
                 <span class="text-3xl font-semibold">₱</span>
