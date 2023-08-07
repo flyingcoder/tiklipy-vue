@@ -57,11 +57,11 @@
 
 <template>
     <div class="mt-10 text-center">
-        <h2 class="my-4 text-4xl font-bold">Teacher-Friendly Pricing</h2>
-        <p class="text-lg">Elevate efficiency and enhance work quality, all for the price of two cokes</p>
+        <h2 class="my-4 text-4xl font-bold text-center text-black">Teacher-Friendly Pricing</h2>
+        <p class="text-lg text-center text-black">Elevate efficiency and enhance work quality, all for the price of two cokes</p>
         
         <div v-for="(product, index) in products" :key="index + '-product'" 
-            class="flex items-stretch w-4/6 mx-auto mt-10">
+            class="flex justify-center items-stretch w-4/6 mx-auto mt-10">
             <div v-for="(price, priceIndex) in product.prices"
                 :key="priceIndex + '-price'"
                 class="w-full max-w-sm p-4 mx-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
