@@ -1,6 +1,6 @@
 <script setup>
     import { onMounted, ref } from "vue";
-    import { Auth } from "../plugins/firebase";
+    import SignUp from './views/sign/Up.vue';
     import {
         getFirestore,
         getDocs,
@@ -8,12 +8,12 @@
         query,
         collection,
         orderBy,
-        addDoc,
-        onSnapshot,
     } from "firebase/firestore";
     
     const products = ref([]);
     const isLoading = ref(false);
+    const showRegister = ref(false);
+    const selectedPrice = ref();
 
     onMounted(() => {
         fetchProducts();
@@ -21,31 +21,8 @@
 
     const createSub = async (price_id) => {
         isLoading.value = true;
-        const params = {
-            price: price_id,
-            success_url: window.location.origin,
-            cancel_url: window.location.origin,
-        };
-
-        const subDoc = await addDoc(
-            collection(
-                getFirestore(),
-                "customers",
-                Auth.currentUser.uid,
-                "checkout_sessions"
-            ), params
-        );
-
-        onSnapshot(subDoc, (snap) => {
-            const { error, url } = snap.data();
-
-            if(error) {
-                console.error('An error occored: ${error.message}');
-                isLoading.value = false
-            }
-
-            if(url) window.location.assign(url);
-        });
+        showRegister.value = true;
+        selectedPrice.value = price_id;
     };
 
     const fetchProducts = async () => {
@@ -82,13 +59,12 @@
                     };
                 })
             });
-            
-            console.log(products);
         });
     };
 </script>
 
 <template>
+    <SignUp :show-modal="showRegister" :price-id="selectedPrice"/>
     <div class="mt-10 text-center">
         <h2 class="my-4 text-4xl font-bold text-center text-gray-800">Teacher-Friendly Pricing</h2>
         <p class="text-lg text-center text-gray-800">Elevate efficiency and enhance work quality, all for the price of two cokes</p>
@@ -165,5 +141,4 @@
             </div>
         </div>
     </div>
-    
 </template>
