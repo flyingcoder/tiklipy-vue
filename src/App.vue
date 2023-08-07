@@ -4,6 +4,6 @@
 </script>
 <template>
   <Header />
-  <router-view />
+  <router-view class="lg:container md:mx-auto "/>
   <Footer />
 </template>
