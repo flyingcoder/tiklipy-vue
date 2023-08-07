@@ -40,7 +40,7 @@
                 <div class="flex items-center md:order-3">
                 
                     <a class="text-white focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">&nbsp;</a>
-                    <a data-modal-target="signin-modal" data-modal-toggle="signin-modal" class="cursor-pointer text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-lg px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800">Login</a>
+                    <a data-modal-target="signin-modal" data-modal-toggle="signin-modal" class="cursor-pointer text-gray-800 dark:text-white focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-lg px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800">Login</a>
                     <a @click="showModal" type="button" class="cursor-pointer text-white bg-main-color focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-lg px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 dark:bg-blue-600 focus:outline-none dark:focus:ring-blue-800 hover:text-white">Sign up</a>
                     <a href="#" class="text-white bg-main-color focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" @click="handleSignOut" v-if="isLoggedIn">Logout</a>
                     <button data-collapse-toggle="mega-menu" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="mega-menu" aria-expanded="false">
@@ -60,45 +60,42 @@
                 <div id="mega-menu" class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1">
                     <ul class="flex flex-col mt-4 font-medium md:flex-row md:space-x-12 md:mt-0 text-lg">
                         <li>
-                            <a href="#" class="block py-2 pl-3 pr-4 text-main-color border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-main-color md:p-0 dark:text-blue-500 md:dark:hover:text-main-color dark:hover:bg-gray-700 dark:hover:text-main-color md:dark:hover:bg-transparent dark:border-gray-700" aria-current="page">Features</a>
+                            <router-link to="/features" class="block py-2 pl-3 pr-4 text-gray-900 border-b border-gray-100 dark:text-white dark:hover:text-main-color dark:hover:bg-gray-700 dark:border-gray-700"
+                                        active-class="text-main-color dark:text-white">Features</router-link>
                         </li>
                         <li>
-                            <router-link to="/pricing">
-                                <a href="" class="block py-2 pl-3 pr-4 text-gray-900 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-main-color md:p-0 dark:text-white md:dark:hover:text-main-color dark:hover:bg-gray-700 dark:hover:text-main-color md:dark:hover:bg-transparent dark:border-gray-700">Pricing</a>
-                            </router-link>
-                            
+                            <router-link to="/pricing" class="block py-2 pl-3 pr-4 text-gray-900 border-b border-gray-100 dark:text-white dark:hover:text-main-color dark:hover:bg-gray-700 dark:border-gray-700"
+                                        active-class="text-main-color dark:text-white">Pricing</router-link>
                         </li>
                         <li>
-                            <button id="mega-menu-dropdown-button" data-dropdown-toggle="mega-menu-dropdown" class="flex items-center bg-transparent justify-between w-full py-2 pl-3 pr-4 font-medium text-gray-900 border-b border-gray-100 md:w-auto hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-main-color md:p-0 dark:text-white md:dark:hover:text-main-color dark:hover:bg-gray-700 dark:hover:text-main-color md:dark:hover:bg-transparent dark:border-gray-700">
-                                About <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
-        </svg>
+                            <button id="mega-menu-dropdown-button" data-dropdown-toggle="mega-menu-dropdown"
+                                    class="flex items-center bg-transparent justify-between w-full py-2 pl-3 pr-4 font-medium text-gray-900 border-b border-gray-100 md:w-auto dark:text-white dark:hover:text-main-color dark:hover:bg-gray-700 dark:border-gray-700"
+                            >
+                                About
+                                <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                    viewBox="0 0 10 6">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="m1 1 4 4 4-4"/>
+                                </svg>
                             </button>
-                            <div id="mega-menu-dropdown" class="absolute z-10 hidden w-auto text-sm bg-white border border-gray-100 rounded-lg shadow-md dark:border-gray-700 md:grid-cols-3 dark:bg-gray-700">
+                            <div id="mega-menu-dropdown"
+                                class="absolute z-10 hidden w-auto text-sm bg-white border border-gray-100 rounded-lg shadow-md dark:border-gray-700 md:grid-cols-3 dark:bg-gray-700">
                                 <div class="p-4">
                                     <ul class="space-y-4">
                                         <li>
-                                            <router-link to="/blog">
-                                                <a href="#" class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500">
-                                                    Blog
-                                                </a>
-                                            </router-link>
-                                            
+                                            <router-link to="/blog"
+                                                        class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500"
+                                                        active-class="text-blue-600 dark:text-blue-500">Blog</router-link>
                                         </li>
                                         <li>
-                                            <router-link to="/posts">
-                                                <a href="#" class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500">
-                                                    Post
-                                                </a>
-                                            </router-link>
-                                            
+                                            <router-link to="/posts"
+                                                        class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500"
+                                                        active-class="text-blue-600 dark:text-blue-500">Post</router-link>
                                         </li>
                                         <li>
-                                            <router-link to="/about">
-                                                <a href="#" class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500">
-                                                    About
-                                                </a>
-                                            </router-link>
+                                            <router-link to="/about"
+                                                        class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500"
+                                                        active-class="text-blue-600 dark:text-blue-500">About</router-link>
                                         </li>
                                     </ul>
                                 </div>
