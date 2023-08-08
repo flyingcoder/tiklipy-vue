@@ -1,7 +1,7 @@
 <script setup>
   import { ref } from 'vue';
-  import Header from './views/Header.vue';
-  import Footer from './views/Footer.vue';
+  import Header from './views/layouts/Header.vue';
+  import Footer from './views/layouts/Footer.vue';
   import SignIn from './views/sign/In.vue';
 
   const showLogin = ref(false);
