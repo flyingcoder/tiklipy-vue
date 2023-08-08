@@ -8,14 +8,11 @@
         signInWithPopup, 
     } from "firebase/auth"
 
-    defineProps({
-        isShowLogin: Boolean,
-    });
-
     const router = useRouter();
     const email = ref("");
     const password = ref("");
     const errMsg = ref();
+    const isLoading = ref(false);
     
     const signIn = async () => {
         isLoading.value = true;
