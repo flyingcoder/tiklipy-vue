@@ -31,10 +31,10 @@
                     Write
                 </div>
             </div>
-            <div class="grid grid-cols-4 gap-4 p-7">
-                <div class="col-span-3">
-                    <div class="w-full generated-value">
-                        <h1 class="text-2xl font-bold mb-6">Assessment Title: Exploring Health Project</h1>
+            <div class="grid grid-cols-6 gap-4 p-9">
+                <div class="col-span-4">
+                    <div class="w-full generated-value py-4">
+                        <h1 class="text-xl font-bold mb-6">Assessment Title: Exploring Health Project</h1>
         
                         <!-- Objective -->
                         <section class="mb-6">
@@ -105,27 +105,27 @@
                         </section>
                     </div>
                     <div class="block">
-                        <div>444 words</div>
+                        <div class="mt-9 mb-4 text-gray-500">444 words</div>
                         <div class="flex">
-                            <Button color="default">
+                            <Button color="default" class="mr-3 bg-indigo-600 py-3 font-semibold">
                                 <template #prefix>
-                                    <svg class="mr-2 -ml-1 w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
+                                    <svg class=" w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
                                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m7.708 2.292.706-.706A2 2 0 0 1 9.828 1h6.239A.97.97 0 0 1 17 2v12a.97.97 0 0 1-.933 1H15M6 5v4a1 1 0 0 1-1 1H1m11-4v12a.97.97 0 0 1-.933 1H1.933A.97.97 0 0 1 1 18V9.828a2 2 0 0 1 .586-1.414l2.828-2.828A2 2 0 0 1 5.828 5h5.239A.97.97 0 0 1 12 6Z"/>
                                     </svg>
                                 </template>
                                 Copy
                             </Button>
-                            <Button color="default">
+                            <Button color="default" class="mr-3 bg-indigo-600 py-3 font-semibold">
                                 <template #prefix>
-                                    <svg class="mr-2 -ml-1 w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 20">
+                                    <svg class=" w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 20">
                                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m13 19-6-5-6 5V2a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v17Z"/>
                                     </svg>
                                 </template>
                                 Save
                             </Button>
-                            <Button class="bg-indigo-800">
+                            <Button class="bg-indigo-600 font-semibold py-3">
                                 <template #prefix>
-                                    <svg class="mr-2 -ml-1 w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 18">
+                                    <svg class=" w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 18">
                                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 14 3-3m-3 3 3 3m-3-3h16v-3m2-7-3 3m3-3-3-3m3 3H3v3"/>
                                     </svg>
                                 </template>
@@ -135,8 +135,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="cols-span-1">
-                    <div class="bg-white p-6 rounded-xl">
+                <div class="col-span-2">
+                    <div class="bg-white p-6 rounded-3xl">
                         <h2 class="text-2xl font-bold text-gray-800 leading-snug">Create an alternative Assessment</h2>
                         <p class="text-lg text-gray-500 mt-2 mb-4">Measure student learning through creative approaches.</p>
                         <div class="flex bg-indigo-100 rounded-lg p-4 mb-10">
@@ -148,15 +148,24 @@
                                 <p class="text-main-color text-sm">Differentiate a formative assessment by having students show what they know with a creative challenge that involves critical thinking.</p>
                             </div>
                         </div>
-                        <Input required placeholder="" class="mb-3" label="Type of Alternative Assessment" />
-                        <Select v-model="selected" label="Grade Level or Subject" class="mb-7" :options="countries" />
+                        <div class="mb-7">
+                            <label class="text-gray-700 font-semibold mb-1 block" for="assessment-type">Type of Alternative Assessment</label>
+                            <Select v-model="selected" class="mb-7 bg-transparent-input" :options="countries" />
+                        </div>
+                        <div class="mb-7">
+                            <label class="text-gray-700 font-semibold mb-1 block" for="assessment-type">Grade Level or Subject</label>
+                            <Input required placeholder="E.g.. 6th Grade" id="assessment-type" class="bg-transparent placeholder-gray-500"/>
+                        </div>
+                        
                         <div class="mb-6">
-                            <Textarea rows="4" placeholder="State the general topic or paste an official standard" v-model="topic" label="Topic or Standard" />
+                            <label class="text-gray-700 font-semibold mb-1 block" for="assessment-type">Topic or Standard</label>
+                            <Textarea rows="8" placeholder="State the general topic or paste an official standard" class="bg-transparent-input placeholder-gray-500" label="" v-model="topic"/>
                         </div>
                         <div class="mb-6">
-                            <Textarea rows="4" placeholder="Is there any additional information you would like noted?" v-model="information" label="Additional Information" />
+                            <label class="text-gray-700 font-semibold mb-1 block" for="assessment-type">Additional Information</label>
+                            <Textarea rows="8" placeholder="Is there any additional information you would like noted?" class="bg-transparent-input placeholder-gray-500" label="" v-model="information" />
                         </div>
-                        <Button size="lg" class="w-full">Go Fetch</Button>
+                        <Button size="lg" class="w-full bg-indigo-600 text-lg font-semibold">Go Fetch!</Button>
                     </div>
                 </div>
             </div>
