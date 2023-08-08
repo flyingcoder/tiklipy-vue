@@ -90,7 +90,7 @@
 <template>
   <Modal size="lg" v-if="showModal" @close="showModal = !showModal" persistent>
     <template #header>
-      <div class="w-full">
+      <div class="w-full text-black">
         <img class="w-32 m-auto" src="/tiklipy-logo-indigo.png" alt="tiklipy logo indigo color">
         <h2 class="text-2xl text-center">Account Registration</h2>
         <p class="text-lg text-center">
@@ -99,7 +99,7 @@
       </div>
     </template>
     <template #body>
-      <div class="items-center justify-center w-full">
+      <div class="items-center justify-center w-full text-black">
         <p class="text-sm text-center">Register with Emal and Password</p>
         <div class="my-2">
           <label for="email" class="block mb-2 text-sm font-medium">
@@ -117,21 +117,23 @@
           {{ isLoading ? "Loading..." : "Register" }}
         </button>
       </div>
-      <div class="inline-flex items-center justify-center w-full">
+      <div class="inline-flex items-center justify-center w-full text-black">
           <hr class="w-64 h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
           <span class="absolute px-3 font-medium text-gray-900 -translate-x-1/2 bg-white left-1/2 dark:text-white dark:bg-gray-900">
             or
           </span>
       </div>
-      <p class="text-center">Sign up with</p>
-      <button  @click="signInWithFacebook" class="flex items-center justify-center w-full py-2 my-3 bg-transparent border-gray-300 hover:bg-indigo-200 hover:border-s-gray-100">
-        <img src="/facebook-logo.svg" class="w-5" alt="">
-        <b class="ml-2">Facebook</b>
-      </button>
-      <button @click="signInWithGoogle" class="flex items-center justify-center w-full py-2 bg-transparent border-gray-300 hover:bg-indigo-200 hover:border-s-gray-100">
-        <img src="/google-logo.svg" class="w-5 " alt="">
-        <b class="ml-2">Google</b>
-      </button>
+      <p class="text-center text-black">Sign up with</p>
+      <div class="grid grid-cols-2 gap-4">
+        <button  @click="signInWithFacebook" class="flex text-black items-center justify-center w-full py-2 my-3 bg-transparent border-gray-300">
+          <img src="/facebook-logo.svg" class="w-5" alt="">
+          <b class="ml-2">Facebook</b>
+        </button>
+        <button @click="signInWithGoogle" class="flex text-black items-center justify-center w-full py-2 my-3 bg-transparent border-gray-300 ">
+          <img src="/google-logo.svg" class="w-5 " alt="">
+          <b class="ml-2">Google</b>
+        </button>
+      </div>
     </template>
   </Modal>
 </template>

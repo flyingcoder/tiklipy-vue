@@ -54,30 +54,30 @@
 
 <template>
     <div class="flex items-center justify-center pt-20">
-        <div class="max-w-md bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <div class="max-w-md bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 lg:w-2/5 sm:w-96">
             <div class="w-full px-8 py-6 text-gray-200 bg-gray-800 rounded-t-lg">
                 <router-link :to="{ name: 'home' }">
                     <img class="w-32 mx-auto mb-4" src="/tiklipy-logo-indigo.png" alt="tiklipy logo indigo color">
                 </router-link>
-                <h2 class="w-full text-2xl text-center">Sign in to Start!</h2>
-                <p class="text-lg text-center">
+                <h2 class="w-full text-2xl text-center font-semibold">Sign in to Start!</h2>
+                <p class="text-lg text-center font-semibold">
                     Start generating fantastic lessons!
                 </p>
             </div>
 
-            <div class="items-center justify-center w-full px-6">
-                <p class="mt-4 text-sm text-center">Login with Emal & Password</p>
+            <div class="items-center justify-center w-full px-6 text-black">
+                <p class="mt-4 text-sm text-center font-semibold">Login with Email & Password</p>
                 <div class="my-2">
-                    <label for="email" class="block mb-2 text-sm font-medium">
-                    Email</label>
-                    <input v-model="email" type="email" id="email" class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
-                    placeholder="Enter a valid email">
+                    <div>
+                        <label for="email" class="block text-sm font-semibold mb-1 text-gray-700 dark:text-white">Email</label>
+                        <input type="email" v-model="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-600 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter a valid email">
+                    </div>
                 </div>
                 <div class="mb-2">
-                    <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                    Password</label>
-                    <input v-model="password" type="password" id="password" class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
-                    placeholder="Enter a password">
+                    <div>
+                        <label for="password" class="block text-sm font-semibold mb-1 text-gray-700 dark:text-white">Password</label>
+                        <input type="password" v-model="password" id="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-600 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter a password">
+                    </div>
                 </div>
                 <button @click="signIn"  :disabled="!email || !password" :class="(!email || !password) || isLoading ? 'cursor-not-allowed bg-gray-500 hover:bg-gray-500' : 'bg-blue-500 hover:bg-blue-700'" class="w-full px-4 py-2 mt-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700">
                     {{ isLoading ? "Loading..." : "Login" }}
@@ -89,17 +89,20 @@
                 or
                 </span>
             </div>
-            <p class="text-center">Sign in with</p>
-            <div class="px-6 pb-6">
-                <button  @click="signInWithFacebook" class="flex items-center justify-center w-full py-2 my-3 bg-transparent border-gray-300 hover:bg-indigo-200 hover:border-s-gray-100">
+            <p class="text-center text-black font-semibold">Sign in with</p>
+            <div class="px-6 flex text-black">
+                <button @click="signInWithFacebook" class="flex items-center justify-center w-full py-2 mt-3 bg-transparent border-gray-300">
                     <img src="/facebook-logo.svg" class="w-5" alt="">
                     <b class="ml-2">Facebook</b>
                 </button>
-                <button @click="signInWithGoogle" class="flex items-center justify-center w-full py-2 bg-transparent border-gray-300 hover:bg-indigo-200 hover:border-s-gray-100">
-                    <img src="/google-logo.svg" class="w-5 " alt="">
+            </div>
+            <div class="px-6 pb-6 flex text-black">
+                <button @click="signInWithGoogle" class="flex items-center justify-center w-full py-2 mt-3 bg-transparent border-gray-300">
+                    <img src="/google-logo.svg" class="w-5" alt="">
                     <b class="ml-2">Google</b>
                 </button>
             </div>
+
            
         </div>
     </div>
