@@ -2,10 +2,10 @@ import './style.css'
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
-import firebase from './plugins/firebase'
+import { firebaseApp } from './plugins/firebase'
 import { getAnalytics } from "firebase/analytics";
 
-getAnalytics(firebase)
+getAnalytics(firebaseApp)
 
 const app = createApp(App)
 

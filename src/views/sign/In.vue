@@ -12,6 +12,7 @@
     const email = ref("");
     const password = ref("");
     const errMsg = ref()
+    
     const signIn = async () => {
         const auth = getAuth()
         await signInWithEmailAndPassword(auth, email.value, password.value)

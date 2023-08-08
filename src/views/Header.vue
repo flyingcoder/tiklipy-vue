@@ -2,21 +2,9 @@
     import { onMounted, ref } from "vue";
     import { useRouter } from "vue-router";
     import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
-    import SignUp from './sign/Up.vue';
-    import { Modal } from 'flowbite-vue';
     
-    const size = ref("lg");
     const router = useRouter();
     const isLoggedIn = ref(false);
-
-    const isShowModal = ref(false);
-
-    function closeModal() {
-        isShowModal.value = false;
-    }
-    function showModal() {
-        isShowModal.value = true;
-    }
 
     let auth;
     onMounted(() => {
@@ -33,16 +21,22 @@
     };
 </script>
 <template>
-    <SignUp />
-    <header>
+    <header class="bg-white">
         <nav class="border-gray-200 dark:bg-gray-900 mx-14">
             <div class="flex flex-wrap items-center justify-between px-4 py-6 mx-auto">
                 <div class="flex items-center md:order-3">
-                
-                    <a class="text-white focus:ring-4 px-16 focus:ring-blue-300 font-medium rounded-lg text-sm py-2 md:px-16 md:py-2.5 mr-1 md:mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">&nbsp;</a>
-                    <a data-modal-target="signin-modal" data-modal-toggle="signin-modal" class="cursor-pointer text-gray-800 dark:text-white focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-lg px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800">Login</a>
-                    <a @click="showModal" type="button" class="cursor-pointer text-white bg-main-color focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-lg px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 dark:bg-blue-600 focus:outline-none dark:focus:ring-blue-800 hover:text-white">Sign up</a>
-                    <a href="#" class="text-white bg-main-color focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" @click="handleSignOut" v-if="isLoggedIn">Logout</a>
+                    <a class="text-white focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+                      &nbsp;remove me later
+                    </a>
+                    <a v-if="!isLoggedIn" @click="$emit('login')" class="cursor-pointer text-gray-800 dark:text-white focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-lg px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800">
+                      Login
+                    </a>
+                    <router-link v-if="!isLoggedIn" to="/pricing" class="cursor-pointer text-white bg-main-color focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-lg px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 dark:bg-blue-600 focus:outline-none dark:focus:ring-blue-800 hover:text-white">
+                      Sign up
+                    </router-link>  
+                    <a @click="handleSignOut" v-if="isLoggedIn" href="#" class="text-white bg-main-color focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+                      Logout
+                    </a>
                     <button data-collapse-toggle="mega-menu" type="button" class="inline-flex items-center justify-center w-10 h-10 p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="mega-menu" aria-expanded="false">
                         <span class="sr-only">Open main menu</span>
                         <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
@@ -58,7 +52,7 @@
                 </div>
                 
                 <div id="mega-menu" class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1">
-                    <ul class="flex flex-col mt-4 text-lg font-medium md:flex-row md:space-x-12 md:mt-0">
+                    <ul v-if="!isLoggedIn" class="flex flex-col mt-4 text-lg font-medium md:flex-row md:space-x-12 md:mt-0">
                         <li>
                             <router-link to="/features" class="block py-2 pl-3 pr-4 text-gray-900 border-b border-gray-100 dark:text-white dark:hover:text-main-color dark:hover:bg-gray-700 dark:border-gray-700"
                                         active-class="text-main-color dark:text-white">Features</router-link>

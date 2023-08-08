@@ -1,5 +1,6 @@
 <script setup>
     import { onMounted, ref } from "vue";
+    import SignUp from './../views/sign/Up.vue';
     import {
         getFirestore,
         getDocs,
@@ -10,10 +11,19 @@
     } from "firebase/firestore";
     
     const products = ref([]);
+    const isLoading = ref(false);
+    const showRegister = ref(false);
+    const selectedPrice = ref();
 
     onMounted(() => {
         fetchProducts();
     });
+
+    const createSub = async (price_id) => {
+        isLoading.value = true;
+        showRegister.value = true;
+        selectedPrice.value = price_id;
+    };
 
     const fetchProducts = async () => {
         const productsRes = await getDocs(
@@ -49,26 +59,25 @@
                     };
                 })
             });
-            
-            console.log(products);
         });
     };
 </script>
 
 <template>
+    <SignUp :show-modal="showRegister" :selected-price="selectedPrice"/>
     <div class="mt-10 text-center">
         <h2 class="my-4 text-4xl font-bold text-center text-gray-800">Teacher-Friendly Pricing</h2>
         <p class="text-lg text-center text-gray-800">Elevate efficiency and enhance work quality, all for the price of two cokes</p>
         
         <div v-for="(product, index) in products" :key="index + '-product'" 
-            class="flex justify-center items-stretch w-4/6 mx-auto mt-10">
+            class="flex items-stretch justify-center w-4/6 mx-auto mt-10">
             <div v-for="(price, priceIndex) in product.prices"
                 :key="priceIndex + '-price'"
                 class="w-full max-w-sm p-4 mx-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
                 <h5 class="mb-4 text-xl font-medium text-gray-500 capitalize dark:text-gray-400">
                     {{ price.interval }}ly Plan
                 </h5>
-                <div class="flex items-baseline text-gray-900 dark:text-white justify-center">
+                <div class="flex items-baseline justify-center text-gray-900 dark:text-white">
                     <span class="text-3xl font-semibold">
                         $
                     </span>
@@ -124,9 +133,12 @@
                         </span>
                     </li>
                 </ul>
-                <button type="button" class="text-white bg-main-color hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-200 dark:focus:ring-blue-900 font-medium rounded-lg text-lg px-5 py-2.5 inline-flex justify-center w-full text-center">Try Free for 7 Days!</button>
+                <button :class="isLoading ? 'bg-gray-500 hover:bg-gra-500 cursor-not-allowed' : 'bg-main-color hover:bg-blue-700'" 
+                    :disabled="!price.id || isLoading" @click="createSub(price.id)" type="button" 
+                    class="text-white focus:ring-4 focus:outline-none focus:ring-blue-200 dark:focus:ring-blue-900 font-medium rounded-lg text-lg px-5 py-2.5 inline-flex justify-center w-full text-center">
+                    {{ isLoading ? "Loading..." : "Try Free for 7 Days!" }}
+                </button>
             </div>
         </div>
     </div>
-    
 </template>
