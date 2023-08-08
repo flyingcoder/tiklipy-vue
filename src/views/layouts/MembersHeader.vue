@@ -34,10 +34,10 @@
                     </router-link>
                     <router-link :to="{ name: 'consult' }" active-class="text-main-color dark:text-white" class="block px-3 py-2 text-lg font-medium text-gray-900 divide-gray-100 dark:hover:text-main-color md:border-0 md:p-0">
                         <i class="pb-1 mr-1 text-lg ti ti-atom"></i> Consult
-                    </router-link>  
-                    <a @click="handleSignOut" v-if="isLoggedIn" href="#" class="text-white bg-main-color focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
-                      Logout
-                    </a>
+                    </router-link>
+                    <button @click="handleSignOut" v-if="isLoggedIn" type="button" class="text-white ml-2 bg-main-color focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+                        Logout
+                    </button>  
                     <button data-collapse-toggle="mega-menu" type="button" class="inline-flex items-center justify-center w-10 h-10 p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="mega-menu" aria-expanded="false">
                         <span class="sr-only">Open main menu</span>
                         <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
@@ -55,7 +55,7 @@
                 <div id="mega-menu" class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1">
                     <ul class="flex flex-col mt-4 space-x-0 font-medium font-body md:mt-0 md:flex-row md:text-sm md:font-medium md:space-x-4 lg:space-x-6 xl:space-x-8 navbar">
                         <li class="dropdown">
-                            <router-link to="lessons" class="block px-3 py-2 text-lg font-medium text-gray-900 divide-gray-100 dark:hover:text-main-color md:border-0 md:p-0">
+                            <router-link :to="{ name: 'lessons' }" class="block px-3 py-2 text-lg font-medium text-gray-900 divide-gray-100 dark:hover:text-main-color md:border-0 md:p-0">
                                 <i class="pb-1 mr-1 text-lg ti ti-book"></i> Lessons
                             </router-link>
                         </li>
