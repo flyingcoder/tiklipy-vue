@@ -25,7 +25,7 @@
     <header class="bg-white">
         <nav class="border-gray-200 dark:bg-gray-900 mx-14">
             <div class="flex flex-wrap items-center justify-between px-4 py-6 mx-auto">
-                <div class="flex items-center md:order-3 relative z-1">
+                <div class="flex items-center md:order-3 relative z-10">
                     <a v-if="!isLoggedIn" @click="$emit('loginIsClick')" class="cursor-pointer text-gray-800 dark:text-white focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-lg px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800">
                       Login
                     </a>
@@ -52,7 +52,7 @@
                     </router-link>
                 </div>
                 
-                <div id="mega-menu" class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1 relative z-1">
+                <div id="mega-menu" class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1 relative z-10">
                     <ul class="flex flex-col mt-4 space-x-0 font-medium font-body md:mt-0 md:flex-row md:text-sm md:font-medium md:space-x-4 lg:space-x-6 xl:space-x-8 navbar">
                         <li class="dropdown">
                             <router-link :to="{ name: 'lessons' }" class="block px-3 py-2 text-lg font-medium text-gray-900 divide-gray-100 dark:hover:text-main-color md:border-0 md:p-0">
