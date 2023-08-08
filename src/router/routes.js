@@ -1,7 +1,7 @@
 import {
     Dashboard, Account, Consult, Lessons, Lesson, Visuals, Visual,
     Assesments, Assesment, Quizes, Homeworks, Tests, Home, Help,
-    Blogs, Blog, About, Pricing, Features,
+    Blogs, Blog, About, Pricing, Features, Terms, Privacy, License,
 } from './components';
 
 const routes = [
@@ -28,10 +28,13 @@ const routes = [
     { path: '/help', name: 'help', component: Help },
     { path: '/blogs', name: 'blogs', component: Blogs },
     { path: '/blogs/:slug', name: 'blog', component: Blog },
-    { path: '/terms', name: 'terms', component: Terms },
-    { path: '/privacy', name: 'privacy', component: Privacy },
     { path: '/pricing', name: 'pricing', component: Pricing },
     { path: '/features', name: 'features', component: Features },
+    { path: '/legal', children: [
+        { path: 'license', name: 'license', component: License },
+        { path: 'terms', name: 'terms', component: Terms },
+        { path: 'privacy', name: 'privacy', component: Privacy },
+    ],},
 ];
 
 export default routes;
