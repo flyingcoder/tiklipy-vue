@@ -93,13 +93,15 @@
 
 <template>
     <Modal size="lg" v-if="showModal" @close="showModal = !showModal">
-      <template #body>
-        <div class="w-full" style="margin-top: -35px;">
+      <template #header>
+        <div class="w-full">
           <h2 class="w-full text-2xl text-center">Account Registration</h2>
           <p class="text-lg text-center">
             Just a few more step to greatness...
           </p>
         </div>
+      </template>
+      <template #body>
         <div class="items-center justify-center w-full">
           <p class="mt-4 text-sm text-center">Register with Emal and Password</p>
           <div class="my-2">

@@ -77,12 +77,7 @@
                                 <div class="p-4">
                                     <ul class="space-y-4">
                                         <li>
-                                            <router-link to="/blog"
-                                                        class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500"
-                                                        active-class="text-blue-600 dark:text-blue-500">Blog</router-link>
-                                        </li>
-                                        <li>
-                                            <router-link to="/posts"
+                                            <router-link to="/blogs"
                                                         class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500"
                                                         active-class="text-blue-600 dark:text-blue-500">Post</router-link>
                                         </li>
