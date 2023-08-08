@@ -91,13 +91,13 @@
             </div>
             <p class="text-center text-black font-semibold">Sign in with</p>
             <div class="px-6 flex text-black">
-                <button @click="signInWithFacebook" class="flex items-center justify-center w-full py-2 my-3 bg-transparent border-gray-300">
+                <button @click="signInWithFacebook" class="flex items-center justify-center w-full py-2 mt-3 bg-transparent border-gray-300">
                     <img src="/facebook-logo.svg" class="w-5" alt="">
                     <b class="ml-2">Facebook</b>
                 </button>
             </div>
-            <div class="px-6 pb-6 flex text-black mb-4">
-                <button @click="signInWithGoogle" class="flex items-center justify-center w-full py-2 my-3 bg-transparent border-gray-300">
+            <div class="px-6 pb-6 flex text-black">
+                <button @click="signInWithGoogle" class="flex items-center justify-center w-full py-2 mt-3 bg-transparent border-gray-300">
                     <img src="/google-logo.svg" class="w-5" alt="">
                     <b class="ml-2">Google</b>
                 </button>
