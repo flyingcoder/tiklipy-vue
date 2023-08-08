@@ -1,7 +1,8 @@
 import {
     Dashboard, Account, Consult, Lessons, Lesson, Visuals, Visual,
     Assesments, Assesment, Quizes, Homeworks, Tests, Home, Help,
-    Blogs, Blog, About, Pricing, Features, Terms, Privacy, License,
+    Blogs, Blog, About, Pricing, Features, Terms, Privacy, License, 
+    GenerateForm, 
 } from './components';
 
 const routes = [
@@ -32,6 +33,7 @@ const routes = [
     
     // Enzo Changed
     { path: '/lessons', name: 'lessons', component: Lessons },
+    { path: '/generate-form', name: 'generate-form', component: GenerateForm },
 
     { path: '/legal', children: [
         { path: 'license', name: 'license', component: License },

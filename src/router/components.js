@@ -11,6 +11,7 @@ import Assesment from '../views/members/Assesment.vue';
 import Quizes from '../views/members/Quizes.vue';
 import Homeworks from '../views/members/Homeworks.vue';
 import Tests from '../views/members/Tests.vue';
+import GenerateForm from '../views/members/Generate-Form.vue';
 //guest components
 import Home from '../views/Home.vue';
 import Help from '../views/Help.vue';
@@ -45,5 +46,6 @@ export {
     Features,
     Terms,
     Privacy,
-    License
+    License,
+    GenerateForm
 };
