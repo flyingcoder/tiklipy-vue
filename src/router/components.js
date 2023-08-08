@@ -21,6 +21,7 @@ import Pricing from '../views/Pricing.vue';
 import Features from '../views/Features.vue';
 import Terms from '../views/Terms.vue';
 import Privacy from '../views/Privacy.vue';
+import License from '../views/License.vue';
 
 export {
     Dashboard,
@@ -43,5 +44,6 @@ export {
     Pricing,
     Features,
     Terms,
-    Privacy
+    Privacy,
+    License
 };
