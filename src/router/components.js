@@ -22,6 +22,8 @@ import Features from '../views/Features.vue';
 import Terms from '../views/Terms.vue';
 import Privacy from '../views/Privacy.vue';
 import License from '../views/License.vue';
+import GuestsLayout from '../views/Index.vue';
+import MembersLayout from '../views/members/Index.vue';
 
 export {
     Dashboard,
@@ -45,5 +47,7 @@ export {
     Features,
     Terms,
     Privacy,
-    License
+    License,
+    GuestsLayout,
+    MembersLayout
 };

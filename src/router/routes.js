@@ -1,7 +1,8 @@
 import {
     Dashboard, Account, Consult, Lessons, Lesson, Visuals, Visual,
     Assesments, Assesment, Quizes, Homeworks, Tests, Home, Help,
-    Blogs, Blog, About, Pricing, Features, Terms, Privacy, License,
+    Blogs, Blog, About, Pricing, Features, Terms, Privacy, License, 
+    MembersLayout, GuestsLayout
 } from './components';
 
 const routes = [
@@ -23,18 +24,23 @@ const routes = [
         ],
     },
     //main pages routes
-    { path: '/', name: 'home', component: Home },
-    { path: '/about', name: 'about', component: About },
-    { path: '/help', name: 'help', component: Help },
-    { path: '/blogs', name: 'blogs', component: Blogs },
-    { path: '/blogs/:slug', name: 'blog', component: Blog },
-    { path: '/pricing', name: 'pricing', component: Pricing },
-    { path: '/features', name: 'features', component: Features },
-    { path: '/legal', children: [
-        { path: 'license', name: 'license', component: License },
-        { path: 'terms', name: 'terms', component: Terms },
-        { path: 'privacy', name: 'privacy', component: Privacy },
-    ],},
+    { 
+        path: '/', 
+        name: 'home', 
+        component: GuestsLayout,
+        children: [
+            { path: '/', name: 'home', component: Home },
+            { path: '/about', name: 'about', component: About },
+            { path: '/help', name: 'help', component: Help },
+            { path: '/blogs', name: 'blogs', component: Blogs },
+            { path: '/blogs/:slug', name: 'blog', component: Blog },
+            { path: '/pricing', name: 'pricing', component: Pricing },
+            { path: '/features', name: 'features', component: Features },
+            { path: '/legal/license', name: 'license', component: License },
+            { path: '/legal/terms', name: 'terms', component: Terms },
+            { path: '/legal/privacy', name: 'privacy', component: Privacy },
+        ]
+    },
 ];
 
 export default routes;
