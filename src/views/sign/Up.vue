@@ -1,28 +1,69 @@
 <script setup>
-    import { ref } from "vue"
-    import { useRouter } from 'vue-router'
+    import { ref, defineProps } from "vue";
+    import { useRouter } from 'vue-router';
+    import { Modal } from 'flowbite-vue';
+    import { Auth } from './../../plugins/firebase';
+    import { addDoc,
+        getFirestore,
+        collection,
+        onSnapshot, 
+    } from "firebase/firestore";
     import { getAuth, 
         createUserWithEmailAndPassword,
         GoogleAuthProvider,
         FacebookAuthProvider,
-        signInWithPopup, 
-    } from "firebase/auth"
+        signInWithPopup,
+    } from "firebase/auth";
 
     const router = useRouter();
     const email = ref("");
     const password = ref("");
+    const isInputReady = ref(false);
+
+    defineProps({
+      selectedPrice: String,
+      showModal: Boolean,
+    });
     
     const signUp = () => {
         const auth = getAuth()
         createUserWithEmailAndPassword(auth, email.value, password.value)
             .then(() => {
-                console.log(auth.currentUser)
+                subscribeCustomer();
                 router.push('dashboard')
             })
             .catch((err) => {
                 console.log(err.message)
             })
     };
+
+    const subscribeCustomer = async () => {
+      const params = {
+            price: selectedPrice,
+            success_url: window.location.origin,
+            cancel_url: window.location.origin,
+        };
+
+        const subDoc = await addDoc(
+            collection(
+                getFirestore(),
+                "customers",
+                Auth.currentUser.uid,
+                "checkout_sessions"
+            ), params
+        );
+
+        onSnapshot(subDoc, (snap) => {
+            const { error, url } = snap.data();
+
+            if(error) {
+                console.error('An error occored: ${error.message}');
+                isLoading.value = false
+            }
+
+            if(url) window.location.assign(url);
+        });
+    }
 
     const signInWithGoogle = () => {
         const provider = new GoogleAuthProvider();
@@ -47,28 +88,49 @@
 </script>
 
 <template>
-    <Modal :size="size" v-if="isShowModal" @close="closeModal">
-      <template #header>
-        <div class="flex items-center text-lg">
-          Terms of Service
-        </div>
-      </template>
+    <Modal size="lg" v-if="showModal" @close="showModal = !showModal">
       <template #body>
-        <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-          With less than a month to go before the European Union enacts new consumer privacy laws for its citizens, companies around the world are updating their terms of service agreements to comply.
-        </p>
-        <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-          The European Union’s General Data Protection Regulation (G.D.P.R.) goes into effect on May 25 and is meant to ensure a common set of data rights in the European Union. It requires organizations to notify users as soon as possible of high-risk data breaches that could personally affect them.
-        </p>
-      </template>
-      <template #footer>
-        <div class="flex justify-between">
-          <button @click="closeModal" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">
-            Decline
+        <div class="w-full" style="margin-top: -35px;">
+          <h2 class="w-full text-2xl text-center">Account Registration</h2>
+          <p class="text-lg text-center">
+            Just a few more step to greatness...
+          </p>
+        </div>
+        <div class="items-center justify-center w-full">
+          <p class="mt-4 text-sm text-center">Register with Emal and Password</p>
+          <div class="my-2">
+            <label for="email" class="block mb-2 text-sm font-medium">
+              Email</label>
+            <input v-model="email" type="email" id="email" class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
+              placeholder="Enter a valid email">
+          </div>
+          <div class="mb-2">
+            <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+              Password</label>
+            <input v-model="password" type="password" id="password" class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
+              placeholder="Enter a password">
+          </div>
+          <button :disabled="isInputReady" @click="signUp" class="w-full px-4 py-2 mt-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700">
+            Register
           </button>
-          <button @click="closeModal" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-            I accept
-          </button>
+        </div>
+        <div class="inline-flex items-center justify-center w-full">
+            <hr class="w-64 h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+            <span class="absolute px-3 font-medium text-gray-900 -translate-x-1/2 bg-white left-1/2 dark:text-white dark:bg-gray-900">
+              or
+            </span>
+        </div>
+        <div class="flex justify-center mt-2 space-x-2">
+            <button disabled @click="signInWithFacebook" class="flex items-center justify-center px-4 py-2 text-white bg-blue-500 rounded cursor-not-allowed hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-200 focus:ring-opacity-50">
+                <span class="sr-only">Facebook</span>
+                <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M14 4v3h-2V4c0-.6.4-1 1-1h2V0h-3c-2.2 0-4 1.8-4 4v3H6v3h2v8h4V10h2l1-3h-3V4h2z"/></svg>
+                Facebook
+            </button>
+            <button @click="signInWithGoogle" class="flex items-center justify-center px-4 py-2 text-white bg-red-600 rounded hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-200 focus:ring-opacity-50">
+                <span class="sr-only">Google</span>
+                <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 0C4.5 0 0 4.5 0 10s4.5 10 10 10 10-4.5 10-10S15.5 0 10 0zm5.7 10.7h-2.6V8.1h-2V10.7h-2.6v2.1h2.6v2.6h2v-2.6h2.6V10.7z"/></svg>
+                Google
+            </button>
         </div>
       </template>
     </Modal>

@@ -1,6 +1,6 @@
 <script setup>
     import { onMounted, ref } from "vue";
-    import SignUp from './views/sign/Up.vue';
+    import SignUp from './../views/sign/Up.vue';
     import {
         getFirestore,
         getDocs,
@@ -64,7 +64,7 @@
 </script>
 
 <template>
-    <SignUp :show-modal="showRegister" :price-id="selectedPrice"/>
+    <SignUp :show-modal="showRegister" :selected-price="selectedPrice"/>
     <div class="mt-10 text-center">
         <h2 class="my-4 text-4xl font-bold text-center text-gray-800">Teacher-Friendly Pricing</h2>
         <p class="text-lg text-center text-gray-800">Elevate efficiency and enhance work quality, all for the price of two cokes</p>
