@@ -21,7 +21,7 @@
     };
 </script>
 <template>
-    <header>
+    <header class="bg-white">
         <nav class="border-gray-200 dark:bg-gray-900 mx-14">
             <div class="flex flex-wrap items-center justify-between px-4 py-6 mx-auto">
                 <div class="flex items-center md:order-3">

@@ -9,7 +9,9 @@
 </script>
 <template>
   <Header @login="showLogin = !showLogin" />
-  <router-view class="lg:container md:mx-auto "/>
+  <section class="min-h-screen">
+    <router-view class="lg:container md:mx-auto"/>
+  </section>
   <Footer />
   <SignIn :show-modal="showLogin" />
 </template>
