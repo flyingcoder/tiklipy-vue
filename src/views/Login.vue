@@ -59,8 +59,8 @@
                 <router-link :to="{ name: 'home' }">
                     <img class="w-32 mx-auto mb-4" src="/tiklipy-logo-indigo.png" alt="tiklipy logo indigo color">
                 </router-link>
-                <h2 class="w-full text-2xl text-center">Sign in to Start!</h2>
-                <p class="text-lg text-center">
+                <h2 class="w-full text-2xl text-center font-semibold">Sign in to Start!</h2>
+                <p class="text-lg text-center font-semibold">
                     Start generating fantastic lessons!
                 </p>
             </div>
