@@ -17,7 +17,7 @@
 </script>
 <template>
     <div class="container text-black mt-16">
-        <div class="bg-gray-100 rounded-xl shadow-md">
+        <div class="bg-white rounded-xl shadow-md">
             <div class="flex bg-indigo-500 px-9 py-4 rounded-t-3xl">
                 <div>
                     <button type="button" disabled class="text-blue-700 bg-gray-100 bg-opacity-30 border focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-xl p-2.5 text-center inline-flex items-center dark:hover:text-white hover:border-transparent">
@@ -136,7 +136,7 @@
                     </div>
                 </div>
                 <div class="col-span-2">
-                    <div class="bg-white p-6 rounded-3xl">
+                    <div class="bg-gray-100 p-6 rounded-3xl">
                         <h2 class="text-2xl font-bold text-gray-800 leading-snug">Create an alternative Assessment</h2>
                         <p class="text-lg text-gray-500 mt-2 mb-4">Measure student learning through creative approaches.</p>
                         <div class="flex bg-indigo-100 rounded-lg p-4 mb-10">
@@ -154,7 +154,7 @@
                         </div>
                         <div class="mb-7">
                             <label class="text-gray-700 font-semibold mb-1 block" for="assessment-type">Grade Level or Subject</label>
-                            <Input required placeholder="E.g.. 6th Grade" id="assessment-type" class="bg-transparent placeholder-gray-500"/>
+                            <Input required placeholder="E.g.. 6th Grade" id="assessment-type" class="bg-white placeholder-gray-500"/>
                         </div>
                         
                         <div class="mb-6">

@@ -58,13 +58,13 @@
       <div class="w-full">
         <img class="w-32 m-auto" src="/tiklipy-logo-indigo.png" alt="tiklipy logo indigo color">
         <h2 class="text-2xl text-center">Sign in to Start!</h2>
-        <p class="text-lg text-center">
+        <p class="text-lg text-center text-black">
             Start generating fantastic lessons!
         </p>
       </div>
     </template>
     <template #body>
-      <div class="items-center justify-center w-full">
+      <div class="items-center justify-center w-full text-black">
         <p class="text-sm text-center">Login with Emal & Password</p>
         <div class="my-2">
           <label for="email" class="block mb-2 text-sm font-medium">
