@@ -38,6 +38,6 @@
   <section class="min-h-screen">
     <router-view class="lg:container md:mx-auto"/>
   </section>
-  <Footer />
+  <Footer class="bg-white" />
   <SignIn :is-show-login="showLogin" />
 </template>
