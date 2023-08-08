@@ -20,7 +20,7 @@
     const password = ref("");
     const isLoading = ref(false);
 
-    defineProps({
+    const props = defineProps({
       selectedPrice: String,
       showModal: Boolean,
     });
@@ -61,19 +61,16 @@
                 isLoading.value = false
             }
 
-            //if(url) window.location.assign(url);
-
-            router.push('dashboard');
+            if(url) window.location.assign(url);
         });
     }
 
     const signInWithGoogle = () => {
-        props.showModal = false;
+        
         const provider = new GoogleAuthProvider();
         signInWithPopup(getAuth(), provider)
             .then((res) => {
-                console.log(res.user);
-                router.push('dashboard')
+                subscribeCustomer();
             })
             .catch((error) => {
                 console.log(error.message)
@@ -85,17 +82,17 @@
         const provider =  new FacebookAuthProvider();
         signInWithPopup(getAuth(), provider)
             .then((res) =>  {
-                console.log(res.user);
-                router.push('dashboard')
+              subscribeCustomer();
             })
     };
 </script>
 
 <template>
-    <Modal size="lg" v-if="showModal" @close="showModal = !showModal">
+    <Modal size="lg" v-if="showModal" @close="showModal = !showModal" persistent>
       <template #header>
         <div class="w-full">
-          <h2 class="w-full text-2xl text-center">Account Registration</h2>
+          <img class="w-32 m-auto" src="/tiklipy-logo-indigo.png" alt="tiklipy logo indigo color">
+          <h2 class="text-2xl text-center">Account Registration</h2>
           <p class="text-lg text-center">
             Just a few more step to greatness...
           </p>
@@ -103,7 +100,7 @@
       </template>
       <template #body>
         <div class="items-center justify-center w-full">
-          <p class="mt-4 text-sm text-center">Register with Emal and Password</p>
+          <p class="text-sm text-center">Register with Emal and Password</p>
           <div class="my-2">
             <label for="email" class="block mb-2 text-sm font-medium">
               Email</label>
@@ -116,7 +113,7 @@
             <input v-model="password" type="password" id="password" class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
               placeholder="Enter a password">
           </div>
-          <button :disabled="!email || !password" :class="(!email || !password) || isLoading ? 'cursor-not-allowed bg-gray-500 hover:bg-gray-500' : 'bg-blue-500 hover:bg-blue-700'" @click="signUp" class="w-full px-4 py-2 mt-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700">
+          <button :disabled="!email || !password" :class="(!email || !password) || isLoading ? 'cursor-not-allowed bg-gray-500 hover:bg-gray-500' : 'bg-blue-500 hover:bg-blue-700'" @click="signUp" class="w-full py-2 mt-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700">
             {{ isLoading ? "Loading..." : "Register" }}
           </button>
         </div>
@@ -126,18 +123,15 @@
               or
             </span>
         </div>
-        <div class="flex justify-center mt-2 space-x-2">
-            <button disabled @click="signInWithFacebook" class="flex items-center justify-center px-4 py-2 text-white bg-blue-500 rounded cursor-not-allowed hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-200 focus:ring-opacity-50">
-                <span class="sr-only">Facebook</span>
-                <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M14 4v3h-2V4c0-.6.4-1 1-1h2V0h-3c-2.2 0-4 1.8-4 4v3H6v3h2v8h4V10h2l1-3h-3V4h2z"/></svg>
-                Facebook
-            </button>
-            <button @click="signInWithGoogle" class="flex items-center justify-center px-4 py-2 text-white bg-red-600 rounded hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-200 focus:ring-opacity-50">
-                <span class="sr-only">Google</span>
-                <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 0C4.5 0 0 4.5 0 10s4.5 10 10 10 10-4.5 10-10S15.5 0 10 0zm5.7 10.7h-2.6V8.1h-2V10.7h-2.6v2.1h2.6v2.6h2v-2.6h2.6V10.7z"/></svg>
-                Google
-            </button>
-        </div>
+        <p class="text-center">Sign in with</p>
+        <button  @click="signInWithFacebook" class="flex items-center justify-center w-full py-2 my-3 bg-transparent border-gray-300 hover:bg-indigo-200 hover:border-s-gray-100">
+          <img src="/facebook-logo.svg" class="w-5" alt="">
+          <b class="ml-2">Facebook</b>
+        </button>
+        <button @click="signInWithGoogle" class="flex items-center justify-center w-full py-2 bg-transparent border-gray-300 hover:bg-indigo-200 hover:border-s-gray-100">
+          <img src="/google-logo.svg" class="w-5 " alt="">
+          <b class="ml-2">Google</b>
+        </button>
       </template>
     </Modal>
 </template>
