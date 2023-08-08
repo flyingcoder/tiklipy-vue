@@ -46,9 +46,9 @@
                     </button>
                 </div>
                 
-                <div class="md:order-2">
+                <div class="md:order-2 absolute inset-x-0">
                 <a href="https://flowbite.com" class="flex items-center">
-                    <img src="/public/tiklipy-logo-indigo.png" class="h-12 mr-3" alt="Flowbite Logo" />
+                    <img src="/public/tiklipy-logo-indigo.png" class="h-12 m-auto" alt="Flowbite Logo" />
                 </a>
                 </div>
                 
