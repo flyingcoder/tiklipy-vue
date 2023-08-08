@@ -13,11 +13,14 @@
                         <h2 class="text-gray-800 text-3xl mt-2 mb-3">Get Ready for the New School Year</h2>
                     </div>
                     <div>
-                        <button type="button" class="text-white bg-main-color  focus:ring-4 focus:outline-none  font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#1da1f2]/55 mr-2 mb-2">
+                        <router-link :to="{name: 'generate'}" class="text-white bg-main-color  focus:ring-4 focus:outline-none  font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#1da1f2]/55 mr-2 mb-2">
                             <svg class="w-3 h-3 text-white mr-2 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
                             </svg>
                             Generate
+                        </router-link>
+                        <button type="button"  >
+                            
                         </button>
                     </div>
                 </div>

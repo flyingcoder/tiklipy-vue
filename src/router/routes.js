@@ -2,7 +2,7 @@ import {
     Dashboard, Account, Consult, Lessons, Lesson, Visuals, Visual,
     Assesments, Assesment, Quizes, Homeworks, Tests, Home, Help,
     Blogs, Blog, About, Pricing, Features, Terms, Privacy, License, 
-    MembersLayout, GuestsLayout, Projects, Activities
+    MembersLayout, GuestsLayout, Projects, Activities, GenerateForm
 } from './components';
 
 const routes = [
@@ -41,6 +41,7 @@ const routes = [
             { path: '/visuals/:id', name: 'visual', component: Visual },
             { path: '/projects', name: 'projects', component: Projects },
             { path: '/activities', name: 'activities', component: Activities },
+            { path: '/generate-form', name: 'generate', component: GenerateForm },
         ],
     },
 ];
