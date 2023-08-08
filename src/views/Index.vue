@@ -31,5 +31,5 @@
     <router-view class="lg:container md:mx-auto"/>
   </section>
   <Footer class="bg-white" />
-  <SignIn :is-show-login="showLogin" />
+  <SignIn v-if="showLogin" />
 </template>
