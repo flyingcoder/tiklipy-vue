@@ -75,6 +75,9 @@ button:focus-visible {
 .card {
   padding: 2em;
 }
+.no-icon svg {
+  display: none;
+}
 
 @media (prefers-color-scheme: light) {
   :root {
