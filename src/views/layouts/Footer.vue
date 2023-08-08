@@ -1,33 +1,11 @@
 <script setup>
-    import { onMounted, ref } from "vue";
-    import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
     import { Input, Button } from 'flowbite-vue'
-
-    const isLoggedIn = ref(false);
-
-    let auth;
-    onMounted(() => {
-        auth = getAuth();
-        onAuthStateChanged(auth, (user) => {
-        isLoggedIn.value = !!user;
-        });
-    });
 </script>
 
 <template>
     <div>
         <div class="container mx-auto">
-            <footer v-if="isLoggedIn" class="mt-10">
-                <div class="bottom-0 justify-between px-4 py-10 mx-16 font-light text-center md:flex md:items-center md:text-left" style="width: -webkit-fill-available">
-                    <div class="mb-6 text-sm font-medium md:mb-0">© 2023 Tiklipy. All rights reserved.</div>
-                    <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
-                        <a href="#" class="block text-sm">Terms</a>
-                        <a href="#" class="block text-sm">Privacy</a>
-                        <a href="#" class="block text-sm">License</a>
-                    </div>
-                </div>
-            </footer>
-            <footer v-if="!isLoggedIn" class="dark:bg-gray-900">
+            <footer class="dark:bg-gray-900">
                 <div class="mx-auto w-full max-w-screen-xl p-4 py-16 lg:py-20">
                     <div class="md:flex md:justify-between">
                         <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-4">
@@ -84,10 +62,7 @@
                         <div class="block w-96">
                             <div class="flex text-gray-700 mb-5 font-semibold">Subscribe to Our Newsletter</div>
                             <div class="w-full">
-                                <Input size="lg" placeholder="Email Address">
-                                    <template #prefix>
-                                    <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-                                    </template>
+                                <Input size="lg" placeholder="Email Address" class="bg-transparent-input">
                                     <template #suffix>
                                     <Button class="bg-main-color hover:bg-main-color">Join</Button>
                                     </template>
@@ -130,7 +105,6 @@
                     </div>
                 </div>
             </footer>
-
         </div>
     </div>
     
