@@ -5,23 +5,23 @@
 
 <template>
     <div class="mt-16">
-        <div class="mb-7">
-            <Breadcrumb class="text-gray-800">
-                <BreadcrumbItem href="#" class="no-icon text-gray-600 hover:text-gray-800 transition duration-300">
-                    Ticklipy
-                </BreadcrumbItem>
-                <BreadcrumbItem href="#" class="text-gray-600 hover:text-gray-800 transition duration-300">
-                    Members
-                </BreadcrumbItem>
-                <BreadcrumbItem class="text-gray-800 font-semibold">
-                    Dashboard
-                </BreadcrumbItem>
-            </Breadcrumb>
-        </div>
         <div class="mb-16">
             <div class="block justify-center font-semibold">
                 <span class="text-purple-600 tracking-wider text-sm uppercase mt-0 mb-1 font-poppins font-bold leading-6">WELCOME BACK</span>
-                <h2 class="text-gray-800 text-3xl mt-2">Get Ready for the New School Year</h2>
+                <h2 class="text-gray-800 text-3xl mt-2 mb-3">Get Ready for the New School Year</h2>
+                <div class="mb-4">
+                    <Breadcrumb class="text-gray-800">
+                        <BreadcrumbItem href="#" class="no-icon text-gray-600 hover:text-gray-800 transition duration-300">
+                            Ticklipy
+                        </BreadcrumbItem>
+                        <BreadcrumbItem href="#" class="text-gray-600 hover:text-gray-800 transition duration-300">
+                            Members
+                        </BreadcrumbItem>
+                        <BreadcrumbItem class="text-gray-800 font-semibold">
+                            Dashboard
+                        </BreadcrumbItem>
+                    </Breadcrumb>
+                </div>
             </div>
             <div class="grid pt-10 grid-cols-4 md:grid-cols-2 sm:grid-cols-1 lg:grid-cols-3 gap-4">
                 <the-card href="#" class="w-full border-none rounded-lg shadow-none hover:bg-white hover:shadow-md" style="max-width: 100% !important">
