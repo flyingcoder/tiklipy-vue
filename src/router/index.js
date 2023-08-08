@@ -13,7 +13,7 @@ router.beforeEach(async (to, from, next) =>  {
         if(await getCurrentUser())
             next();
         else
-            next("sign-in");
+            next("login");
     } else {
         next();
     }

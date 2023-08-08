@@ -25,6 +25,7 @@ import Features from '../views/Features.vue';
 import Terms from '../views/Terms.vue';
 import Privacy from '../views/Privacy.vue';
 import License from '../views/License.vue';
+import Login from '../views/Login.vue';
 //layouts
 import GuestsLayout from '../views/Index.vue';
 import MembersLayout from '../views/members/Index.vue';
@@ -56,5 +57,6 @@ export {
     GuestsLayout,
     MembersLayout,
     Projects,
-    Activities
+    Activities,
+    Login
 };

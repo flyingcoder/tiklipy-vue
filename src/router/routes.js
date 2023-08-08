@@ -2,14 +2,13 @@ import {
     Dashboard, Account, Consult, Lessons, Lesson, Visuals, Visual,
     Assesments, Assesment, Quizes, Homeworks, Tests, Home, Help,
     Blogs, Blog, About, Pricing, Features, Terms, Privacy, License, 
-    MembersLayout, GuestsLayout, Projects, Activities, GenerateForm
+    MembersLayout, GuestsLayout, Projects, Activities, GenerateForm, Login
 } from './components';
 
 const routes = [
     //main pages routes
     { 
         path: '/', 
-        name: 'home', 
         component: GuestsLayout,
         children: [
             { path: '/', name: 'home', component: Home },
@@ -44,6 +43,7 @@ const routes = [
             { path: '/generate-form', name: 'generate', component: GenerateForm },
         ],
     },
+    { path: '/login', name: 'login', component: Login },
 ];
 
 export default routes;
