@@ -39,7 +39,7 @@
             <div class="flex flex-wrap items-center justify-between px-4 py-6 mx-auto">
                 <div class="flex items-center md:order-3">
                 
-                    <a class="text-white focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">&nbsp;</a>
+                    <a class="text-white focus:ring-4 px-16 focus:ring-blue-300 font-medium rounded-lg text-sm py-2 md:px-16 md:py-2.5 mr-1 md:mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">&nbsp;</a>
                     <a data-modal-target="signin-modal" data-modal-toggle="signin-modal" class="cursor-pointer text-gray-800 dark:text-white focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-lg px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800">Login</a>
                     <a @click="showModal" type="button" class="cursor-pointer text-white bg-main-color focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-lg px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 dark:bg-blue-600 focus:outline-none dark:focus:ring-blue-800 hover:text-white">Sign up</a>
                     <a href="#" class="text-white bg-main-color focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" @click="handleSignOut" v-if="isLoggedIn">Logout</a>
