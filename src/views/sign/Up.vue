@@ -123,7 +123,7 @@
               or
             </span>
         </div>
-        <p class="text-center">Sign in with</p>
+        <p class="text-center">Sign up with</p>
         <button  @click="signInWithFacebook" class="flex items-center justify-center w-full py-2 my-3 bg-transparent border-gray-300 hover:bg-indigo-200 hover:border-s-gray-100">
           <img src="/facebook-logo.svg" class="w-5" alt="">
           <b class="ml-2">Facebook</b>
