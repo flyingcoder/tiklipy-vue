@@ -19,6 +19,8 @@ import Blog from '../views/Blog.vue';
 import About from '../views/About.vue';
 import Pricing from '../views/Pricing.vue';
 import Features from '../views/Features.vue';
+import Terms from '../views/Terms.vue';
+import Privacy from '../views/Privacy.vue';
 
 export {
     Dashboard,
@@ -39,5 +41,7 @@ export {
     Blog,
     About,
     Pricing,
-    Features
+    Features,
+    Terms,
+    Privacy
 };
