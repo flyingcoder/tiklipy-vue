@@ -1,5 +1,5 @@
 <script setup>
-    import { ref, defineProps } from "vue";
+    import { ref, defineProps, watch } from "vue";
     import { useRouter } from 'vue-router';
     import { Modal } from 'flowbite-vue';
     import { Auth } from './../../plugins/firebase';
@@ -18,7 +18,7 @@
     const router = useRouter();
     const email = ref("");
     const password = ref("");
-    const isInputReady = ref(false);
+    const isLoading = ref(false);
 
     defineProps({
       selectedPrice: String,
@@ -26,20 +26,20 @@
     });
     
     const signUp = () => {
-        const auth = getAuth()
-        createUserWithEmailAndPassword(auth, email.value, password.value)
-            .then(() => {
-                subscribeCustomer();
-                router.push('dashboard')
-            })
-            .catch((err) => {
-                console.log(err.message)
-            })
+      isLoading.value = true;
+      const auth = getAuth()
+      createUserWithEmailAndPassword(auth, email.value, password.value)
+          .then(() => {
+              subscribeCustomer();
+          })
+          .catch((err) => {
+              console.log(err.message)
+          })
     };
 
     const subscribeCustomer = async () => {
       const params = {
-            price: selectedPrice,
+            price: props.selectedPrice,
             success_url: window.location.origin,
             cancel_url: window.location.origin,
         };
@@ -61,11 +61,14 @@
                 isLoading.value = false
             }
 
-            if(url) window.location.assign(url);
+            //if(url) window.location.assign(url);
+
+            router.push('dashboard');
         });
     }
 
     const signInWithGoogle = () => {
+        props.showModal = false;
         const provider = new GoogleAuthProvider();
         signInWithPopup(getAuth(), provider)
             .then((res) => {
@@ -78,6 +81,7 @@
     };
 
     const signInWithFacebook = () => {
+        props.showModal = false;
         const provider =  new FacebookAuthProvider();
         signInWithPopup(getAuth(), provider)
             .then((res) =>  {
@@ -110,8 +114,8 @@
             <input v-model="password" type="password" id="password" class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
               placeholder="Enter a password">
           </div>
-          <button :disabled="isInputReady" @click="signUp" class="w-full px-4 py-2 mt-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700">
-            Register
+          <button :disabled="!email || !password" :class="(!email || !password) || isLoading ? 'cursor-not-allowed bg-gray-500 hover:bg-gray-500' : 'bg-blue-500 hover:bg-blue-700'" @click="signUp" class="w-full px-4 py-2 mt-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700">
+            {{ isLoading ? "Loading..." : "Register" }}
           </button>
         </div>
         <div class="inline-flex items-center justify-center w-full">
