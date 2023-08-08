@@ -4,12 +4,15 @@
   import Footer from './../layouts/MembersFooter.vue';
   import Preloader from './../../components/Preloader.vue';
   import { getCurrentUser } from './../../plugins/firebase';
+  import { useRouter } from "vue-router"
 
   const showLogin = ref(false);
   const loading = ref(true);
+  const router = useRouter();
 
   onMounted(() => {
     user();
+    router.push({ name: 'dashboard' });
   });
 
   const user = async () => {

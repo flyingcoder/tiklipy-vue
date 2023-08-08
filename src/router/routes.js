@@ -2,26 +2,10 @@ import {
     Dashboard, Account, Consult, Lessons, Lesson, Visuals, Visual,
     Assesments, Assesment, Quizes, Homeworks, Tests, Home, Help,
     Blogs, Blog, About, Pricing, Features, Terms, Privacy, License, 
-    MembersLayout, GuestsLayout
+    MembersLayout, GuestsLayout, Projects, Activities
 } from './components';
 
 const routes = [
-    { 
-        path: "/members", name: 'register', component: Dashboard,
-        meta: { requiresAuth: true },
-        children: [
-            { path: '/account', name: 'account', component: Account },
-            { path: '/consult', name: 'consult', component: Consult },
-            { path: '/assesments', name: 'assesments', component: Assesments },
-            { path: '/assesments/:type/:id', name: 'assesment', component: Assesment },
-            { path: '/lessons/:id', name: 'lesson', component: Lesson },
-            { path: '/quizes', name: 'quizes', component: Quizes },
-            { path: '/homeworks', name: 'homeworks', component: Homeworks },
-            { path: '/tests', name: 'tests', component: Tests },
-            { path: '/visuals', name: 'visuals', component: Visuals },
-            { path: '/visuals/:id', name: 'visual', component: Visual },
-        ],
-    },
     //main pages routes
     { 
         path: '/', 
@@ -39,6 +23,24 @@ const routes = [
             { path: '/legal/terms', name: 'terms', component: Terms },
             { path: '/legal/privacy', name: 'privacy', component: Privacy },
         ]
+    },{ 
+        path: "/members", component: MembersLayout,
+        meta: { requiresAuth: true },
+        children: [
+            { path: '/dash', name: 'dashboard', component: Dashboard },
+            { path: '/account', name: 'account', component: Account },
+            { path: '/consult', name: 'consult', component: Consult },
+            { path: '/assesments', name: 'assesments', component: Assesments },
+            { path: '/assesments/:type/:id', name: 'assesment', component: Assesment },
+            { path: '/lessons/:id', name: 'lesson', component: Lesson },
+            { path: '/quizes', name: 'quizes', component: Quizes },
+            { path: '/homeworks', name: 'homeworks', component: Homeworks },
+            { path: '/tests', name: 'tests', component: Tests },
+            { path: '/visuals', name: 'visuals', component: Visuals },
+            { path: '/visuals/:id', name: 'visual', component: Visual },
+            { path: '/projects', name: 'projects', component: Projects },
+            { path: '/activities', name: 'activities', component: Activities },
+        ],
     },
 ];
 

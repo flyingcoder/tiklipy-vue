@@ -31,6 +31,9 @@
                     </a>
                     <router-link v-if="!isLoggedIn" to="/pricing" class="cursor-pointer text-white bg-main-color focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-lg px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 dark:bg-blue-600 focus:outline-none dark:focus:ring-blue-800 hover:text-white">
                       Sign up
+                    </router-link>
+                    <router-link :to="{ name: 'consult' }" active-class="text-main-color dark:text-white" class="block px-3 py-2 text-lg font-medium text-gray-900 divide-gray-100 dark:hover:text-main-color md:border-0 md:p-0">
+                        <i class="pb-1 mr-1 text-lg ti ti-atom"></i> Consult
                     </router-link>  
                     <a @click="handleSignOut" v-if="isLoggedIn" href="#" class="text-white bg-main-color focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
                       Logout
@@ -44,93 +47,23 @@
                 </div>
                 
                 <div class="absolute inset-x-0 md:order-2">
-                <a href="https://flowbite.com" class="flex items-center">
-                    <img src="/public/tiklipy-logo-indigo.png" class="h-12 m-auto" alt="Flowbite Logo" />
-                </a>
+                    <router-link :to="{ name: 'dashboard' }" class="flex items-center">
+                        <img src="/public/tiklipy-logo-black.png" class="h-12 m-auto" alt="Tiklipy Logo" />
+                    </router-link>
                 </div>
                 
                 <div id="mega-menu" class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1">
-                    <ul class="flex flex-col mt-4 text-lg font-medium md:flex-row md:space-x-12 md:mt-0">
-                        <li>
-                            <router-link to="/features" active-class="text-main-color dark:text-white" class="block py-2 pl-3 pr-4 text-gray-900 dark:text-white dark:hover:text-main-color dark:hover:bg-gray-700 dark:border-gray-700" >
+                    <ul class="flex flex-col mt-4 space-x-0 font-medium font-body md:mt-0 md:flex-row md:text-sm md:font-medium md:space-x-4 lg:space-x-6 xl:space-x-8 navbar">
+                        <li class="dropdown">
+                            <router-link to="lessons" class="block px-3 py-2 text-lg font-medium text-gray-900 divide-gray-100 dark:hover:text-main-color md:border-0 md:p-0">
                                 <i class="pb-1 mr-1 text-lg ti ti-book"></i> Lessons
                             </router-link>
                         </li>
-                        <li>
-                            <router-link to="/pricing" class="block py-2 pl-3 pr-4 text-gray-900 dark:text-white dark:hover:text-main-color dark:hover:bg-gray-700 dark:border-gray-700"
-                                        active-class="text-main-color dark:text-white">Pricing</router-link>
-                        </li>
-                        <li v-if="isLoggedIn">
-                            <button id="mega-menu-dropdown-button" data-dropdown-toggle="mega-menu-dropdown"
-                                    class="flex items-center justify-between w-full py-2 pl-3 pr-4 font-medium text-gray-900 bg-transparent border-b border-gray-100 md:w-auto dark:text-white dark:hover:text-main-color dark:hover:bg-gray-700 dark:border-gray-700"
-                            >
-                                Assesment
-                                <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                    viewBox="0 0 10 6">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="m1 1 4 4 4-4"/>
-                                </svg>
-                            </button>
-                            <div id="mega-menu-dropdown"
-                                class="absolute z-10 hidden w-auto text-sm bg-white border border-gray-100 rounded-lg shadow-md dark:border-gray-700 md:grid-cols-3 dark:bg-gray-700">
-                                <div class="p-4">
-                                    <ul class="space-y-4">
-                                        <li>
-                                            <router-link to="/blogs"
-                                                        class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500"
-                                                        active-class="text-blue-600 dark:text-blue-500">Post</router-link>
-                                        </li>
-                                        <li>
-                                            <router-link to="/about"
-                                                        class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500"
-                                                        active-class="text-blue-600 dark:text-blue-500">About</router-link>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </li>
-                        <li v-if="!isLoggedIn">
-                            <button id="mega-menu-dropdown-button" data-dropdown-toggle="mega-menu-dropdown"
-                                    class="flex items-center justify-between w-full py-2 pl-3 pr-4 font-medium text-gray-900 bg-transparent md:w-auto dark:text-white dark:hover:text-main-color dark:hover:bg-gray-700 dark:border-gray-700"
-                            >
-                                About
-                                <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                    viewBox="0 0 10 6">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="m1 1 4 4 4-4"/>
-                                </svg>
-                            </button>
-                            <div id="mega-menu-dropdown"
-                                class="absolute z-10 hidden w-auto text-sm bg-white border border-gray-100 rounded-lg shadow-md dark:border-gray-700 md:grid-cols-3 dark:bg-gray-700">
-                                <div class="p-4">
-                                    <ul class="space-y-4">
-                                        <li>
-                                            <router-link to="/blogs"
-                                                        class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500"
-                                                        active-class="text-blue-600 dark:text-blue-500">Post</router-link>
-                                        </li>
-                                        <li>
-                                            <router-link to="/about"
-                                                        class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500"
-                                                        active-class="text-blue-600 dark:text-blue-500">About</router-link>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                    <ul class="flex flex-col mt-4 space-x-0 font-medium font-body md:mt-0 md:flex-row md:text-sm md:font-medium md:space-x-4 lg:space-x-6 xl:space-x-8 navbar">
 
                         <li class="dropdown">
-                            <a href="lesson.html" class="block px-3 py-2 text-lg font-medium text-gray-900 divide-gray-100 dark:hover:text-main-color md:border-0 md:p-0">
-                                <i class="pb-1 mr-1 text-lg ti ti-book"></i> Lessons
-                            </a>
-                        </li>
-
-                        <li class="dropdown">
-                            <a href="lesson.html" class="block px-3 py-2 text-lg font-medium text-gray-900 divide-gray-100 dark:hover:text-main-color md:border-0 md:p-0">
+                            <router-link :to="{ name: 'visuals' }" class="block px-3 py-2 text-lg font-medium text-gray-900 divide-gray-100 dark:hover:text-main-color md:border-0 md:p-0">
                                 <i class="pb-1 mr-1 text-lg ti ti-presentation"></i> Visual Aid
-                            </a>
+                            </router-link>
                         </li>
 
                         <li class="dropdown">
@@ -148,39 +81,33 @@
                                 <div class="w-44">
                                     <ul class="space-y-2 text-black">
                                         <li class="hover:bg-gray-50">
-                                            <a href="#" class="block px-4 py-2 text-base font-semibold text-gray-900 transition duration-300 dark:text-gray-100 hover:text-main-color">
-                                            Quizzes
-                                            </a>
+                                            <router-link :to="{name: 'quizzes'}" class="block px-4 py-2 text-base font-semibold text-gray-900 transition duration-300 dark:text-gray-100 hover:text-main-color">
+                                                <i class="mr-2 text-lg ti ti-checkbox"></i> Quizzes
+                                            </router-link>
                                         </li>
                                         <li class="hover:bg-gray-50">
-                                            <a href="#" class="block px-4 py-2 text-base font-semibold text-gray-900 transition duration-300 dark:text-gray-100 hover:text-main-color">
-                                            Homeworks
-                                            </a>
-                                        </li>   
-                                        <li class="hover:bg-gray-50">
-                                            <a href="#" class="block px-4 py-2 text-base font-semibold text-gray-900 transition duration-300 dark:text-gray-100 hover:text-main-color">
-                                            Projects
-                                            </a>
+                                            <router-link :to="{name: 'homeworks' }" class="block px-4 py-2 text-base font-semibold text-gray-900 transition duration-300 dark:text-gray-100 hover:text-main-color">
+                                                <i class="mr-2 text-lg ti ti-checkbox"></i> Homeworks
+                                            </router-link>
                                         </li>
                                         <li class="hover:bg-gray-50">
-                                            <a href="#" class="block px-4 py-2 text-base font-semibold text-gray-900 transition duration-300 dark:text-gray-100 hover:text-main-color">
-                                            Tests
-                                            </a>
+                                            <router-link :to="{name: 'tests' }" class="block px-4 py-2 text-base font-semibold text-gray-900 transition duration-300 dark:text-gray-100 hover:text-main-color">
+                                                <i class="mr-2 text-lg ti ti-checkbox"></i> Tests
+                                            </router-link>
                                         </li>
                                         <li class="hover:bg-gray-50">
-                                            <a href="#" class="block px-4 py-2 text-base font-semibold text-gray-900 transition duration-300 dark:text-gray-100 hover:text-main-color">
-                                            Custom Activities
-                                            </a>
+                                            <router-link :to="{name: 'projects' }" class="block px-4 py-2 text-base font-semibold text-gray-900 transition duration-300 dark:text-gray-100 hover:text-main-color">
+                                                <i class="mr-2 text-lg ti ti-checkbox"></i> Projects
+                                            </router-link>
+                                        </li>
+                                        <li class="hover:bg-gray-50">
+                                            <router-link :to="{name: 'activities' }" class="block px-4 py-2 text-base font-semibold text-gray-900 transition duration-300 dark:text-gray-100 hover:text-main-color">
+                                                <i class="mr-2 text-lg ti ti-checkbox"></i> Activities
+                                            </router-link>
                                         </li>
                                     </ul>
                                 </div>
                             </dropdown>
-                        </li>
-
-                        <li>
-                            <a href="consult.html" class="block px-3 py-2 text-lg font-medium text-gray-900 divide-gray-100 dark:hover:text-main-color md:border-0 md:p-0">
-                                <i class="pb-1 mr-1 text-lg ti ti-atom"></i> Consult
-                            </a>
                         </li>
                     </ul>
                 </div>

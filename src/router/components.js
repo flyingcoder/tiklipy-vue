@@ -11,6 +11,8 @@ import Assesment from '../views/members/Assesment.vue';
 import Quizes from '../views/members/Quizes.vue';
 import Homeworks from '../views/members/Homeworks.vue';
 import Tests from '../views/members/Tests.vue';
+import Projects from '../views/members/Projects.vue';
+import Activities from '../views/members/Activities.vue';
 //guest components
 import Home from '../views/Home.vue';
 import Help from '../views/Help.vue';
@@ -22,6 +24,7 @@ import Features from '../views/Features.vue';
 import Terms from '../views/Terms.vue';
 import Privacy from '../views/Privacy.vue';
 import License from '../views/License.vue';
+//layouts
 import GuestsLayout from '../views/Index.vue';
 import MembersLayout from '../views/members/Index.vue';
 
@@ -49,5 +52,7 @@ export {
     Privacy,
     License,
     GuestsLayout,
-    MembersLayout
+    MembersLayout,
+    Projects,
+    Activities
 };
