@@ -11,10 +11,9 @@ const routes = [
         children: [
             { path: '/account', name: 'account', component: Account },
             { path: '/consult', name: 'consult', component: Consult },
-            { path: '/lessons', name: 'lessons', component: Lessons },
-            { path: '/lessons/:id', name: 'lesson', component: Lesson },
             { path: '/assesments', name: 'assesments', component: Assesments },
             { path: '/assesments/:type/:id', name: 'assesment', component: Assesment },
+            { path: '/lessons/:id', name: 'lesson', component: Lesson },
             { path: '/quizes', name: 'quizes', component: Quizes },
             { path: '/homeworks', name: 'homeworks', component: Homeworks },
             { path: '/tests', name: 'tests', component: Tests },
@@ -30,6 +29,10 @@ const routes = [
     { path: '/blogs/:slug', name: 'blog', component: Blog },
     { path: '/pricing', name: 'pricing', component: Pricing },
     { path: '/features', name: 'features', component: Features },
+    
+    // Enzo Changed
+    { path: '/lessons', name: 'lessons', component: Lessons },
+
     { path: '/legal', children: [
         { path: 'license', name: 'license', component: License },
         { path: 'terms', name: 'terms', component: Terms },
