@@ -8,10 +8,10 @@
 
 </script>
 <template>
-  <Header @login="showLogin = !showLogin" />
+  <Header @login-is-click="showLogin = !showLogin" />
   <section class="min-h-screen">
     <router-view class="lg:container md:mx-auto"/>
   </section>
   <Footer />
-  <SignIn :show-modal="showLogin" />
+  <SignIn :is-show-login="showLogin" />
 </template>
