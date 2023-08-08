@@ -18,30 +18,6 @@
 <template>
     <div class="container text-black mt-16">
         <div class="grid grid-cols-4 gap-4">
-            <div class="cols-span-1">
-                <div class="bg-white p-6 rounded-xl">
-                    <h2 class="text-2xl font-bold text-gray-800 leading-snug">Create an alternative Assessment</h2>
-                    <p class="text-lg text-gray-500 mt-2 mb-4">Measure student learning through creative approaches.</p>
-                    <div class="flex bg-indigo-100 rounded-lg p-4 mb-10">
-                        <div class="mr-2">
-                            <i class="ti ti-check mr-1 pb-1 text-lg text-main-color"></i>
-                        </div>
-                        <div class="block">
-                            <div class="font-semibold mb-1 text-gray-700">For Example:</div>
-                            <p class="text-main-color text-sm">Differentiate a formative assessment by having students show what they know with a creative challenge that involves critical thinking.</p>
-                        </div>
-                    </div>
-                    <Input required placeholder="" class="mb-3" label="Type of Alternative Assessment" />
-                    <Select v-model="selected" label="Grade Level or Subject" class="mb-7" :options="countries" />
-                    <div class="mb-6">
-                        <Textarea rows="4" placeholder="State the general topic or paste an official standard" v-model="topic" label="Topic or Standard" />
-                    </div>
-                    <div class="mb-6">
-                        <Textarea rows="4" placeholder="Is there any additional information you would like noted?" v-model="information" label="Additional Information" />
-                    </div>
-                    <Button size="lg" class="w-full">Go Fetch</Button>
-                </div>
-            </div>
             <div class="col-span-3">
                 <div class="h-full w-full generated-value px-4">
                     <h1 class="text-2xl font-bold mb-6">Assessment Title: Exploring Health Project</h1>
@@ -137,6 +113,30 @@
                         </Button>
 
                     </div>
+                </div>
+            </div>
+            <div class="cols-span-1">
+                <div class="bg-white p-6 rounded-xl">
+                    <h2 class="text-2xl font-bold text-gray-800 leading-snug">Create an alternative Assessment</h2>
+                    <p class="text-lg text-gray-500 mt-2 mb-4">Measure student learning through creative approaches.</p>
+                    <div class="flex bg-indigo-100 rounded-lg p-4 mb-10">
+                        <div class="mr-2">
+                            <i class="ti ti-check mr-1 pb-1 text-lg text-main-color"></i>
+                        </div>
+                        <div class="block">
+                            <div class="font-semibold mb-1 text-gray-700">For Example:</div>
+                            <p class="text-main-color text-sm">Differentiate a formative assessment by having students show what they know with a creative challenge that involves critical thinking.</p>
+                        </div>
+                    </div>
+                    <Input required placeholder="" class="mb-3" label="Type of Alternative Assessment" />
+                    <Select v-model="selected" label="Grade Level or Subject" class="mb-7" :options="countries" />
+                    <div class="mb-6">
+                        <Textarea rows="4" placeholder="State the general topic or paste an official standard" v-model="topic" label="Topic or Standard" />
+                    </div>
+                    <div class="mb-6">
+                        <Textarea rows="4" placeholder="Is there any additional information you would like noted?" v-model="information" label="Additional Information" />
+                    </div>
+                    <Button size="lg" class="w-full">Go Fetch</Button>
                 </div>
             </div>
         </div>

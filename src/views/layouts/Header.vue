@@ -25,17 +25,17 @@
     <header class="bg-white">
         <nav class="border-gray-200 dark:bg-gray-900 mx-14">
             <div class="flex flex-wrap items-center justify-between px-4 py-6 mx-auto">
-                <div class="flex items-center md:order-3">
-                    <a v-if="!isLoggedIn" class="text-white focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
-                      &nbsp;
-                    </a>
+                <div class="flex items-center md:order-3 relative z-1">
                     <a v-if="!isLoggedIn" @click="$emit('loginIsClick')" class="cursor-pointer text-gray-800 dark:text-white focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-lg px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800">
                       Login
                     </a>
                     <router-link v-if="!isLoggedIn" to="/pricing" class="cursor-pointer text-white bg-main-color focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-lg px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 dark:bg-blue-600 focus:outline-none dark:focus:ring-blue-800 hover:text-white">
                       Sign up
+                    </router-link>
+                    <router-link v-if="isLoggedIn" :to="{ name: 'dashboard' }" active-class="text-main-color dark:text-white" class="block px-3 py-2 text-lg font-medium text-gray-900 divide-gray-100 dark:hover:text-main-color md:border-0 md:p-0">
+                        <i class="pb-1 mr-1 text-lg ti ti-atom"></i> Portal
                     </router-link>  
-                    <a @click="handleSignOut" v-if="isLoggedIn" href="#" class="text-white bg-main-color focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+                    <a @click="handleSignOut" v-if="isLoggedIn" href="#" class="text-white bg-main-color ml-2 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
                       Logout
                     </a>
                     <button data-collapse-toggle="mega-menu" type="button" class="inline-flex items-center justify-center w-10 h-10 p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="mega-menu" aria-expanded="false">
@@ -46,17 +46,18 @@
                     </button>
                 </div>
                 
-                <div class="md:order-2 absolute inset-x-0">
+                <div class="absolute inset-x-0 md:order-2 z-0">
                 <a href="https://flowbite.com" class="flex items-center">
                     <img src="/public/tiklipy-logo-indigo.png" class="h-12 m-auto" alt="Flowbite Logo" />
                 </a>
                 </div>
                 
-                <div id="mega-menu" class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1">
-                    <ul v-if="!isLoggedIn" class="flex flex-col mt-4 text-lg font-medium md:flex-row md:space-x-12 md:mt-0">
+                <div id="mega-menu" class="relative z-10 items-center justify-between hidden w-full md:flex md:w-auto md:order-1">
+                    <ul class="flex flex-col mt-4 text-lg font-medium md:flex-row md:space-x-12 md:mt-0">
                         <li>
-                            <router-link to="/features" class="block py-2 pl-3 pr-4 text-gray-900 dark:text-white dark:hover:text-main-color dark:hover:bg-gray-700 dark:border-gray-700"
-                                        active-class="text-main-color dark:text-white">Features</router-link>
+                            <router-link to="/features" active-class="text-main-color dark:text-white" class="block py-2 pl-3 pr-4 text-gray-900 dark:text-white dark:hover:text-main-color dark:hover:bg-gray-700 dark:border-gray-700" >
+                                <i class="pb-1 mr-1 text-lg ti ti-book"></i> Features
+                            </router-link>
                         </li>
                         <li>
                             <router-link to="/pricing" class="block py-2 pl-3 pr-4 text-gray-900 dark:text-white dark:hover:text-main-color dark:hover:bg-gray-700 dark:border-gray-700"
@@ -91,7 +92,7 @@
                                 </div>
                             </div>
                         </li>
-                        <li v-if="!isLoggedIn">
+                        <li>
                             <button id="mega-menu-dropdown-button" data-dropdown-toggle="mega-menu-dropdown"
                                     class="flex items-center justify-between w-full py-2 pl-3 pr-4 font-medium text-gray-900 bg-transparent md:w-auto dark:text-white dark:hover:text-main-color dark:hover:bg-gray-700 dark:border-gray-700"
                             >
@@ -119,70 +120,6 @@
                                     </ul>
                                 </div>
                             </div>
-                        </li>
-                    </ul>
-                    <ul v-if="isLoggedIn" class="font-body mt-4 flex flex-col font-medium md:mt-0 md:flex-row md:text-sm md:font-medium space-x-0 md:space-x-4 lg:space-x-6 xl:space-x-8 navbar">
-
-                        <li class="dropdown">
-                            <a href="lesson.html" class="block py-2 px-3 text-gray-900 text-lg dark:hover:text-main-color divide-gray-100 font-medium md:border-0 md:p-0">
-                                <i class="ti ti-book mr-1 pb-1 text-lg"></i> Lessons
-                            </a>
-                        </li>
-
-                        <li class="dropdown">
-                            <a href="lesson.html" class="block py-2 px-3 text-lg text-gray-900 dark:hover:text-main-color divide-gray-100 font-medium md:border-0 md:p-0">
-                                <i class="ti ti-presentation mr-1 pb-1 text-lg"></i> Visual Aid
-                            </a>
-                        </li>
-
-                        <li class="dropdown">
-                            <dropdown placement="bottom">
-                                <template #trigger="{ toggle }">
-                                    <a
-                                    class="flex items-center bg-transparent cursor-pointer text-lg text-gray-900 dark:text-gray-100 transition duration-300 hover:text-main-color"
-                                    @click="toggle"
-                                    >
-                                    <i class="ti ti-checkbox mr-2 text-lg"></i>
-                                    Assesment
-                                    <i class="ti ti-chevron-down ml-auto"></i>
-                                    </a>
-                                </template>
-                                <div class="w-44">
-                                    <ul class="text-black space-y-2">
-                                        <li class="hover:bg-gray-50">
-                                            <a href="#" class="block font-semibold text-base px-4 py-2 text-gray-900 dark:text-gray-100 hover:text-main-color transition duration-300">
-                                            Quizzes
-                                            </a>
-                                        </li>
-                                        <li class="hover:bg-gray-50">
-                                            <a href="#" class="block font-semibold text-base px-4 py-2 text-gray-900 dark:text-gray-100 hover:text-main-color transition duration-300">
-                                            Homeworks
-                                            </a>
-                                        </li>   
-                                        <li class="hover:bg-gray-50">
-                                            <a href="#" class="block font-semibold text-base px-4 py-2 text-gray-900 dark:text-gray-100 hover:text-main-color transition duration-300">
-                                            Projects
-                                            </a>
-                                        </li>
-                                        <li class="hover:bg-gray-50">
-                                            <a href="#" class="block font-semibold text-base px-4 py-2 text-gray-900 dark:text-gray-100 hover:text-main-color transition duration-300">
-                                            Tests
-                                            </a>
-                                        </li>
-                                        <li class="hover:bg-gray-50">
-                                            <a href="#" class="block font-semibold text-base px-4 py-2 text-gray-900 dark:text-gray-100 hover:text-main-color transition duration-300">
-                                            Custom Activities
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </dropdown>
-                        </li>
-
-                        <li>
-                            <a href="consult.html" class="block py-2 px-3 text-lg text-gray-900 dark:hover:text-main-color divide-gray-100 font-medium md:border-0 md:p-0">
-                                <i class="ti ti-atom mr-1 pb-1 text-lg"></i> Consult
-                            </a>
                         </li>
                     </ul>
                 </div>
