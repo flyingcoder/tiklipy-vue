@@ -6,7 +6,7 @@
     <div>
         <div class="container mx-auto">
             <footer class="dark:bg-gray-900">
-                <div class="mx-auto w-full max-w-screen-xl p-4 py-16 lg:py-20">
+                <div class="mx-auto w-full p-4 py-16 lg:py-20">
                     <div class="flex flex-row flex-wrap justify-between">
                         <div class="basis-full lg:basis-2/12">
                                 <div class="mb-6 md:mb-0">
@@ -67,7 +67,7 @@
                                     <Button class="max-xs:hidden bg-main-color hover:bg-main-color">Join</Button>
                                     </template>
                                 </Input>
-                                <Button class="xs:hidden w-full mt-3 py-4  bg-main-color hover:bg-main-color">Join</Button>
+                                <Button class="!text-base xs:hidden w-full mt-3 py-4  bg-main-color hover:bg-main-color">Join</Button>
                             </div>
                             <div class="max-xs:text-black mt-3  text-sm">We care about your privacy</div>
                         </div>
