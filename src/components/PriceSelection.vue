@@ -66,14 +66,14 @@
 <template>
     <SignUp :show-modal="showRegister" :selected-price="selectedPrice"/>
     <div class="mt-10 text-center">
-        <h2 class="my-4 text-4xl font-bold text-center text-gray-800">Teacher-Friendly Pricing</h2>
-        <p class="text-lg text-center text-gray-800">Elevate efficiency and enhance work quality, all for the price of two cokes</p>
+        <h2 class="m-4 text-4xl font-bold text-center text-gray-800">Teacher-Friendly Pricing</h2>
+        <p class="mx-5 text-lg text-center text-gray-800">Elevate efficiency and enhance work quality, all for the price of two cokes</p>
         
         <div v-for="(product, index) in products" :key="index + '-product'" 
-            class="flex items-stretch justify-center w-4/6 mx-auto mt-10">
+            class=" flex flex-wrap items-stretch justify-center mx-auto mt-10">
             <div v-for="(price, priceIndex) in product.prices"
                 :key="priceIndex + '-price'"
-                class="w-full max-w-sm p-4 mx-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+                class="max-midlg:mb-10 w-full max-w-sm p-4 mx-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
                 <h5 class="mb-4 text-xl font-medium text-gray-500 capitalize dark:text-gray-400">
                     {{ price.interval }}ly Plan
                 </h5>
@@ -89,14 +89,14 @@
                     </span>
                 </div>
                 <ul role="list" class="space-y-5 my-7">
-                    <li class="items-center text-lg text-gray-500">
+                    <li class="max-xs:text-base items-center text-lg text-gray-500">
                         After 7-Day Free Trial
                     </li>
                     <li class="flex items-center py-2 space-x-3">
                         <svg class="flex-shrink-0 w-5 h-5 text-main-color dark:text-blue-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"/>
                         </svg>
-                        <span class="text-lg font-normal leading-tight text-gray-500 dark:text-gray-400">
+                        <span class="max-xs:text-sm	 text-lg font-normal leading-tight text-gray-500 dark:text-gray-400">
                             Effortless Lesson Planning
                         </span>
                     </li>
@@ -104,7 +104,7 @@
                         <svg class="flex-shrink-0 w-5 h-5 text-main-color dark:text-blue-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"/>
                         </svg>
-                        <span class="text-lg font-normal leading-tight text-gray-500 dark:text-gray-400">
+                        <span class="max-xs:text-sm	 text-lg font-normal leading-tight text-gray-500 dark:text-gray-400">
                             Dynamic Assessment Generation
                         </span>
                     </li>
@@ -112,7 +112,7 @@
                         <svg class="flex-shrink-0 w-5 h-5 text-main-color dark:text-blue-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"/>
                         </svg>
-                        <span class="text-lg font-normal leading-tight text-gray-500 dark:text-gray-400">
+                        <span class="max-xs:text-sm	 text-lg font-normal leading-tight text-gray-500 dark:text-gray-400">
                             50+ more teaching tools
                         </span>
                     </li>
@@ -120,7 +120,7 @@
                         <svg class="flex-shrink-0 w-5 h-5 text-main-color dark:text-blue-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"/>
                         </svg>
-                        <span class="text-lg font-normal leading-tight text-gray-500 dark:text-gray-400">
+                        <span class="max-xs:text-sm	 text-lg font-normal leading-tight text-gray-500 dark:text-gray-400">
                             Dedicated Customer Support
                         </span>
                     </li>
@@ -128,7 +128,7 @@
                         <svg class="flex-shrink-0 w-5 h-5 text-main-color dark:text-blue-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"/>
                         </svg>
-                        <span class="text-lg font-normal leading-tight text-gray-500 dark:text-gray-400">
+                        <span class="max-xs:text-sm	 text-lg font-normal leading-tight text-gray-500 dark:text-gray-400">
                             Cancel Anytime
                         </span>
                     </li>
