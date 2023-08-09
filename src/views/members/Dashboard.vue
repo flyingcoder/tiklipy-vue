@@ -4,7 +4,7 @@
 </script>
 
 <template>
-    <div class="mt-16 px-4">
+    <div class="mt-7 px-4">
         <div class="mb-16">
             <div class="block justify-center font-semibold">
                 <span class="text-purple-600 tracking-wider text-sm uppercase mt-0 mb-1 font-poppins font-bold leading-6">WELCOME BACK</span>
