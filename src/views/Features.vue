@@ -9,6 +9,6 @@
         </div>
     </div>
     <div class="feature-image max-w-screen-lg max-lg:px-10 mx-auto mb-[5vh]">
-        <img src="/public/Features.png" alt="">
+        <img class="transition duration-150 ease-linear hover:skew-x-[0.5deg]" src="/public/Features.png" alt="">
     </div>
 </template>
