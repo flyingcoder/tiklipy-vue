@@ -20,13 +20,10 @@
                                 <h2 class="mb-6 text-xs font-semibold text-gray-600 uppercase dark:text-white">Product</h2>
                                 <ul class="text-gray-500 dark:text-gray-400 font-medium">
                                     <li class="mb-4">
-                                        <a href="https://flowbite.com/" class=" text-gray-900 font-semibold">Tutorials</a>
+                                        <router-link :to="{name: 'pricing'}" class="text-gray-900 font-semibold">Pricing</router-link>
                                     </li>
                                     <li class="mb-4">
-                                        <a href="https://tailwindcss.com/" class="text-gray-900 font-semibold">Pricing</a>
-                                    </li>
-                                    <li class="mb-4">
-                                        <a href="https://tailwindcss.com/" class="text-gray-900 font-semibold">Send A Gift</a>
+                                        <a href="" class="text-gray-900 font-semibold">Send A Gift</a>
                                     </li>
                                 </ul>
                             </div>
@@ -34,10 +31,7 @@
                                 <h2 class="mb-6 text-xs font-semibold text-gray-600 uppercase dark:text-white">Resources</h2>
                                 <ul class="text-gray-500 dark:text-gray-400 font-medium">
                                     <li class="mb-4">
-                                        <a href="https://github.com/themesberg/flowbite" class="text-gray-900 font-semibold">Blog</a>
-                                    </li>
-                                    <li class="mb-4">
-                                        <a href="https://discord.gg/4eeurUVvTy" class="text-gray-900 font-semibold">Help Center</a>
+                                        <router-link :to="{name: 'blogs'}" class="text-gray-900 font-semibold">Blog</router-link>
                                     </li>
                                     <li class="mb-4">
                                         <a href="https://discord.gg/4eeurUVvTy" class="text-gray-900 font-semibold">FAQs</a>
@@ -48,10 +42,7 @@
                                 <h2 class="mb-6 text-xs font-semibold text-gray-600 uppercase dark:text-white">Company</h2>
                                 <ul class="text-gray-500 dark:text-gray-400 font-medium">
                                     <li class="mb-4">
-                                        <a href="#" class="text-gray-900 font-semibold">About</a>
-                                    </li>
-                                    <li class="mb-4">
-                                        <a href="#" class="text-gray-900 font-semibold">Media Kit</a>
+                                        <router-link :to="{name: 'about'}" class="text-gray-900 font-semibold">About</router-link>
                                     </li>
                                     <li class="mb-4">
                                         <a href="#" class="text-gray-900 font-semibold">Contact</a>

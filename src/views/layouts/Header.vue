@@ -76,20 +76,28 @@
                             </button>
                             <div id="mega-menu-dropdown"
                                 class="absolute z-10 hidden w-auto text-sm bg-white border border-gray-100 rounded-lg shadow-md dark:border-gray-700 md:grid-cols-3 dark:bg-gray-700">
-                                <div class="w-36">
+                                <div class="w-80">
                                     <ul class="space-y-4">
                                         <router-link to="/blogs"
                                                         class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500"
                                                         active-class="text-blue-600 dark:text-blue-500">
-                                            <li class="px-4 py-3 hover:bg-gray-50 font-semibold">
-                                                Post
+                                            <li class="p-5 hover:bg-gray-50 font-semibold flex">
+                                                <div class="pr-1"><i class="pb-1 mr-1 text-2xl ti ti-align-left"></i></div>
+                                                <div class="px-2">
+                                                    <div class="pb-1 text-base font-semibold">Post</div>
+                                                    <p class="font-light tracking-wide">Compelling Tales of Tiklipy: A Journey through Education and Teaching</p>
+                                                </div>
                                             </li>
                                         </router-link>
                                         <router-link to="/about"
                                                         class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500"
                                                         active-class="text-blue-600 dark:text-blue-500">
-                                            <li class="px-4 py-3 hover:bg-gray-50 font-semibold">
-                                                About
+                                            <li class="p-5 hover:bg-gray-50 font-semibold flex">
+                                                <div class="pr-1"><i class="pb-1 mr-1 text-2xl ti ti-info-circle"></i></div>
+                                                <div class="px-2">
+                                                    <div class="pb-1 text-base font-semibold">About</div>
+                                                    <p class="font-light tracking-wide">Discover Our Vision to Transform the Landscape of Education.</p>
+                                                </div>
                                             </li>
                                         </router-link>
                                     </ul>
