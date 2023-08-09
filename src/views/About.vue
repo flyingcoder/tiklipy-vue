@@ -3,9 +3,9 @@
 </script>
 <template>
     <div class="block py-8 my-10 text-black px-2">
-        <div class="max-w-screen-sm	 mx-auto pb-40 pt-1">
+        <div class="max-w-screen-midlg	 mx-auto pb-40 pt-1">
             <div class="block">
-                <div class="text-4xl text-center text-gray-800 font-bold mb-8">
+                <div class="text-4xl lg:text-7xl text-center text-gray-800 font-bold mb-8">
                     Forging an innovative route to reshape<br> the landscape of education.
                 </div>
                 <div class="text-gray-800 text-lg text-center font-base">
