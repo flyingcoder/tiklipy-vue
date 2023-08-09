@@ -54,23 +54,23 @@
                 
                 <div id="mega-menu" class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1 relative z-10">
                     <ul class="flex flex-col mt-4 space-x-0 font-medium font-body md:mt-0 md:flex-row md:text-sm md:font-medium md:space-x-4 lg:space-x-6 xl:space-x-8 navbar">
-                        <li class="dropdown">
+                        <li class="dropdown self-center">
                             <router-link :to="{ name: 'lessons' }" class="block px-3 py-2 text-lg font-medium text-gray-900 divide-gray-100 dark:hover:text-main-color md:border-0 md:p-0">
                                 <i class="pb-1 mr-1 text-lg ti ti-book"></i> Lessons
                             </router-link>
                         </li>
 
-                        <li class="dropdown">
+                        <li class="dropdown self-center">
                             <router-link :to="{ name: 'visuals' }" class="block px-3 py-2 text-lg font-medium text-gray-900 divide-gray-100 dark:hover:text-main-color md:border-0 md:p-0">
                                 <i class="pb-1 mr-1 text-lg ti ti-presentation"></i> Visual Aid
                             </router-link>
                         </li>
 
-                        <li class="dropdown">
+                        <li class="dropdown self-center">
                             <dropdown placement="bottom">
                                 <template #trigger="{ toggle }">
                                     <a
-                                    class="flex items-center text-lg text-gray-900 transition duration-300 bg-transparent cursor-pointer dark:text-gray-100 hover:text-main-color"
+                                    class="flex items-center text-lg text-gray-900 transition duration-300 bg-transparent hover:border-transparent focus:border-transparent cursor-pointer dark:text-gray-100 hover:text-main-color"
                                     @click="toggle"
                                     >
                                     <i class="mr-2 text-lg ti ti-checkbox"></i>
@@ -80,7 +80,10 @@
                                 </template>
                                 <div class="w-44">
                                     <ul class="space-y-2 text-black">
-                                        <li class="hover:bg-gray-50">
+                                        <router-link :to="{name: 'quizzes'}" class="block px-4 py-2 text-base font-semibold text-gray-900 transition duration-300 dark:text-gray-100 hover:text-main-color">
+                                <i class="mr-2 text-lg ti ti-checkbox"></i> Quizzes
+                            </router-link>
+                                        <!-- <li class="hover:bg-gray-50">
                                             <router-link :to="{name: 'quizzes'}" class="block px-4 py-2 text-base font-semibold text-gray-900 transition duration-300 dark:text-gray-100 hover:text-main-color">
                                                 <i class="mr-2 text-lg ti ti-checkbox"></i> Quizzes
                                             </router-link>
@@ -104,7 +107,7 @@
                                             <router-link :to="{name: 'activities' }" class="block px-4 py-2 text-base font-semibold text-gray-900 transition duration-300 dark:text-gray-100 hover:text-main-color">
                                                 <i class="mr-2 text-lg ti ti-checkbox"></i> Activities
                                             </router-link>
-                                        </li>
+                                        </li> -->
                                     </ul>
                                 </div>
                             </dropdown>

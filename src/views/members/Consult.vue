@@ -408,7 +408,7 @@
                             </div>
                             <div class="flex flex-col leading-tight">
                                 <div class="text-xl mt-1 flex items-center font-medium">
-                                    <span class="text-gray-700 mr-3 dark:text-slate-200">EscolAssist Bot</span>
+                                    <span class="text-gray-700 mr-3 dark:text-slate-200">Ticklipy Bot</span>
                                 </div>
                             </div>
                         </div>
