@@ -76,9 +76,15 @@
                         <div class="flex">
                             <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="https://flowbite.com/" class="hover:underline">Ticklipy™</a>.&nbsp; All Rights Reserved.</span>
                             <div class="grid grid-cols-1 gap-4 md:grid-cols-3 ml-7">
-                                <a href="#" class="block text-sm">Terms</a>
-                                <a href="#" class="block text-sm">Privacy</a>
-                                <a href="#" class="block text-sm">License</a>
+                                <router-link :to="{name: 'terms'}">
+                                    <a class="block text-sm">Terms</a>
+                                </router-link>
+                                <router-link :to="{name: 'privacy'}">
+                                    <a class="block text-sm">Privacy</a>
+                                </router-link>
+                                <router-link :to="{name: 'license'}">
+                                    <a class="block text-sm">License</a>
+                                </router-link>
                             </div>
                         </div>
                         
