@@ -8,7 +8,8 @@ export default {
   ],
   theme: {
     colors: {
-      'main-color': '#646cff'
+      'main-color': '#646cff',
+      'secondary-color': '#818cf8'
     },
     extend: {},
   },
