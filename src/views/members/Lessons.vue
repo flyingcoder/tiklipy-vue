@@ -2,7 +2,7 @@
     import { Breadcrumb, BreadcrumbItem } from 'flowbite-vue'
 </script>
 <template>
-    <div class="mt-16">
+    <div class="mt-7">
         <div class="block justify-center font-semibold mb-6">
             <div class="flex justify-between items-center">
                 <div>

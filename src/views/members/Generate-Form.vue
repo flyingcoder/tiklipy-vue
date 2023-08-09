@@ -16,7 +16,7 @@
 
 </script>
 <template>
-    <div class="container text-black mt-16">
+    <div class="container text-black mt-7">
         <div class="bg-white rounded-xl shadow-md">
             <div class="flex bg-indigo-500 px-9 py-4 rounded-t-3xl">
                 <div>
