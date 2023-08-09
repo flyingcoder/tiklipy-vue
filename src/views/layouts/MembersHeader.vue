@@ -80,11 +80,8 @@
                                 </template>
                                 <div class="w-44">
                                     <ul class="space-y-2 text-black">
-                                        <router-link :to="{name: 'quizzes'}" class="block px-4 py-2 text-base font-semibold text-gray-900 transition duration-300 dark:text-gray-100 hover:text-main-color">
-                                <i class="mr-2 text-lg ti ti-checkbox"></i> Quizzes
-                            </router-link>
-                                        <!-- <li class="hover:bg-gray-50">
-                                            <router-link :to="{name: 'quizzes'}" class="block px-4 py-2 text-base font-semibold text-gray-900 transition duration-300 dark:text-gray-100 hover:text-main-color">
+                                        <li class="hover:bg-gray-50">
+                                            <router-link :to="{name: 'quizes'}" class="block px-4 py-2 text-base font-semibold text-gray-900 transition duration-300 dark:text-gray-100 hover:text-main-color">
                                                 <i class="mr-2 text-lg ti ti-checkbox"></i> Quizzes
                                             </router-link>
                                         </li>
@@ -107,7 +104,7 @@
                                             <router-link :to="{name: 'activities' }" class="block px-4 py-2 text-base font-semibold text-gray-900 transition duration-300 dark:text-gray-100 hover:text-main-color">
                                                 <i class="mr-2 text-lg ti ti-checkbox"></i> Activities
                                             </router-link>
-                                        </li> -->
+                                        </li>
                                     </ul>
                                 </div>
                             </dropdown>
