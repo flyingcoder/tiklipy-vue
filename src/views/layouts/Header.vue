@@ -25,7 +25,7 @@
     <header class="bg-white">
         <nav class="border-gray-200 dark:bg-gray-900 max-w-screen-2xl mx-auto">
             <div class="flex flex-wrap items-center justify-between px-4 py-6 mx-auto max-lg:justify-end">
-                <div class="flex items-center md:order-3 relative z-10">
+                <div class="flex items-center lg:order-3 relative z-10">
                     <a v-if="!isLoggedIn" @click="$emit('loginIsClick')" class="cursor-pointer text-gray-800 dark:text-white focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-lg px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800">
                       Login
                     </a>
@@ -52,8 +52,8 @@
                 </a>
                 </div>
                 
-                <div id="mega-menu" class="relative z-10 items-center justify-between hidden w-full lg:flex md:w-auto md:order-1">
-                    <ul class="flex flex-col mt-4 text-lg font-medium md:flex-row md:space-x-1 md:mt-0 ">
+                <div id="mega-menu" class="relative z-10 items-center justify-between hidden w-full lg:flex lg:w-auto lg:order-1">
+                    <ul class="flex flex-col mt-4 text-lg font-medium lg:flex-row lg:space-x-1 lg:mt-0 ">
                         <li>
                             <router-link to="/features" active-class="text-main-color dark:text-white" class="text-base block py-2 pl-3 pr-4 text-gray-900 dark:text-white dark:hover:text-main-color dark:hover:bg-gray-700 dark:border-gray-700" >
                                 Features
