@@ -56,7 +56,7 @@
                     <ul class="flex flex-col mt-4 text-lg font-medium md:flex-row md:space-x-1 md:mt-0 ">
                         <li>
                             <router-link to="/features" active-class="text-main-color dark:text-white" class="text-base block py-2 pl-3 pr-4 text-gray-900 dark:text-white dark:hover:text-main-color dark:hover:bg-gray-700 dark:border-gray-700" >
-                                <i class="pb-1 mr-1 text-lg ti ti-book"></i> Features
+                                Features
                             </router-link>
                         </li>
                         <li>
