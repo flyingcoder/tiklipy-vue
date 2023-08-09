@@ -27,6 +27,27 @@
 
 }
 
+
+#messages::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: none;
+	border-radius: 10px;
+	background-color: transparent;
+}
+
+#messages::-webkit-scrollbar
+{
+	width: 6px;
+	background-color: transparent;
+}
+
+#messages::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #cecaca79;
+}
+
 a,
 footer {
   font-weight: 500;
