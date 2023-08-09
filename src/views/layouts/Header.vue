@@ -94,7 +94,7 @@
                         </li>
                         <li>
                             <button id="mega-menu-dropdown-button" data-dropdown-toggle="mega-menu-dropdown"
-                                    class="flex items-center justify-between w-full py-2 pl-3 pr-4 font-medium text-gray-900 bg-transparent md:w-auto dark:text-white dark:hover:text-main-color dark:hover:bg-gray-700 dark:border-gray-700"
+                                    class="flex items-center justify-between w-full py-2 pl-3 pr-4 font-medium text-gray-900 bg-transparent md:w-auto focus:outline-none hover:border-transparent hover:text-main-color dark:text-white focus:border-transparent focus:ring-0"
                             >
                                 About
                                 <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -105,18 +105,22 @@
                             </button>
                             <div id="mega-menu-dropdown"
                                 class="absolute z-10 hidden w-auto text-sm bg-white border border-gray-100 rounded-lg shadow-md dark:border-gray-700 md:grid-cols-3 dark:bg-gray-700">
-                                <div class="p-4">
+                                <div class="w-36">
                                     <ul class="space-y-4">
-                                        <li>
-                                            <router-link to="/blogs"
+                                        <router-link to="/blogs"
                                                         class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500"
-                                                        active-class="text-blue-600 dark:text-blue-500">Post</router-link>
-                                        </li>
-                                        <li>
-                                            <router-link to="/about"
+                                                        active-class="text-blue-600 dark:text-blue-500">
+                                            <li class="px-4 py-3 hover:bg-gray-50 font-semibold">
+                                                Post
+                                            </li>
+                                        </router-link>
+                                        <router-link to="/about"
                                                         class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500"
-                                                        active-class="text-blue-600 dark:text-blue-500">About</router-link>
-                                        </li>
+                                                        active-class="text-blue-600 dark:text-blue-500">
+                                            <li class="px-4 py-3 hover:bg-gray-50 font-semibold">
+                                                About
+                                            </li>
+                                        </router-link>
                                     </ul>
                                 </div>
                             </div>
