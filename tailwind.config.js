@@ -15,6 +15,8 @@ export default {
       screens: {
         'xs': '479px',
         // => @media (min-width: 479px) { ... }
+        'midlg': '829px',
+        // => @media (min-width: 479px) { ... }
       },
       flexBasis: {
         '1/2': '50%',
