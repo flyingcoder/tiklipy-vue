@@ -11,13 +11,13 @@
     onMounted(() => {
         auth = getAuth();
         onAuthStateChanged(auth, (user) => {
-        isLoggedIn.value = !!user;
+            isLoggedIn.value = !!user;
         });
     });
 
     const handleSignOut = () => {
         signOut(auth).then(() => {
-        router.push('sign-in');
+            router.push({name: 'login'});
         });
     };
 </script>
@@ -25,7 +25,7 @@
     <header class="bg-white">
         <nav class="border-gray-200 dark:bg-gray-900 mx-14">
             <div class="flex flex-wrap items-center justify-between px-4 py-6 mx-auto">
-                <div class="flex items-center md:order-3 relative z-10">
+                <div class="relative z-10 flex items-center md:order-3">
                     <a v-if="!isLoggedIn" @click="$emit('loginIsClick')" class="cursor-pointer text-gray-800 dark:text-white focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-lg px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800">
                       Login
                     </a>
@@ -46,7 +46,7 @@
                     </button>
                 </div>
                 
-                <div class="absolute inset-x-0 md:order-2 z-0">
+                <div class="absolute inset-x-0 z-0 md:order-2">
                 <a href="https://flowbite.com" class="flex items-center">
                     <img src="/public/tiklipy-logo-indigo.png" class="h-12 m-auto" alt="Flowbite Logo" />
                 </a>
