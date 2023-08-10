@@ -3,26 +3,6 @@
 </script>
 <template>
     <div class="mt-7 px-3">
-        <div class="max-lg:pl-8 block justify-center font-semibold mb-6">
-            <div class="flex justify-between items-center">
-                <div>
-                    <h2 class="text-gray-800 text-3xl mt-2 mb-3">Activities</h2>
-                </div>
-            </div>
-            <div class="mb-4">
-                <Breadcrumb class="text-gray-800">
-                    <BreadcrumbItem href="#" class="no-icon text-gray-600 hover:text-gray-800 transition duration-300">
-                        Tiklipy
-                    </BreadcrumbItem>
-                    <BreadcrumbItem href="#" class="text-gray-600 hover:text-gray-800 transition duration-300">
-                        Members
-                    </BreadcrumbItem>
-                    <BreadcrumbItem class="text-gray-800 font-semibold">
-                        Activities
-                    </BreadcrumbItem>
-                </Breadcrumb>
-            </div>
-        </div>
         <div class="flex flex-wrap max-lg:justify-center">
             <div class=" w-[30rem] bg-white rounded-lg sm:mr-5 mb-5 flex">
                 <router-link :to="{name: 'lesson', params: { id: 1 }}" class="bg-[url('/public/p-1.png')] bg-no-repeat bg-contain items-center bg-white rounded-lg  md:flex-row md:max-w-xl hover:shadow-lg transition delay-75 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">

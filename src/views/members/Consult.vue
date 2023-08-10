@@ -20,24 +20,7 @@
 
 <template>
     <div class="container mx-auto px-2 relative pb-14 mt-7">
-        <div class="block justify-center font-semibold">
-                <div class="justify-between items-center ">
-                    <h2 class="text-gray-800 text-3xl mt-2 mb-3">Consult</h2>
-                </div>
-                <div class="mb-4">
-                    <Breadcrumb class="text-gray-800">
-                        <BreadcrumbItem href="#" class="no-icon text-gray-600 hover:text-gray-800 transition duration-300">
-                            Tiklipy
-                        </BreadcrumbItem>
-                        <BreadcrumbItem href="#" class="text-gray-600 hover:text-gray-800 transition duration-300">
-                            Members
-                        </BreadcrumbItem>
-                        <BreadcrumbItem class="text-gray-800 font-semibold">
-                            Consult
-                        </BreadcrumbItem>
-                    </Breadcrumb>
-                </div>
-            </div>
+        
     <div class="grid lg:grid-cols-12 gap-4">
       <div class="col-span-12 lg:col-span-3">
         <div class=" h-full bg-white rounded-xl shadow-md">
