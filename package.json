@@ -9,7 +9,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "animate.css": "^4.1.1",
     "firebase": "^10.1.0",
     "flowbite": "^1.8.1",
     "flowbite-vue": "^0.0.17-next.0",
