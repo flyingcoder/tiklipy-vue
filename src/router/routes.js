@@ -2,7 +2,8 @@ import {
     Dashboard, Account, Consult, Lessons, Lesson, Visuals, Visual,
     Assesments, Assesment, Quizes, Homeworks, Tests, Home, Help,
     Blogs, Blog, About, Pricing, Features, Terms, Privacy, License, 
-    MembersLayout, GuestsLayout, Projects, Activities, GenerateForm, Login
+    MembersLayout, GuestsLayout, Projects, Activities, GenerateForm, 
+    Login, SendGift
 } from './components';
 
 const routes = [
@@ -21,6 +22,7 @@ const routes = [
             { path: '/legal/license', name: 'license', component: License },
             { path: '/legal/terms', name: 'terms', component: Terms },
             { path: '/legal/privacy', name: 'privacy', component: Privacy },
+            { path: '/send-gifts', name: 'gifts', component: SendGift }
         ]
     },{ 
         path: "/members", component: MembersLayout,

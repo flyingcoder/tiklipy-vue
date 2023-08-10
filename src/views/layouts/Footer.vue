@@ -6,52 +6,43 @@
     <div>
         <div class="container mx-auto">
             <footer class="dark:bg-gray-900">
-                <div class="mx-auto w-full max-w-screen-xl p-4 py-16 lg:py-20">
-                    <div class="md:flex md:justify-between">
-                        <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-4">
-                            <div class="w-48">
+                <div class="mx-auto w-full p-4 py-16 lg:py-20">
+                    <div class="flex flex-row flex-wrap justify-between">
+                        <div class="basis-full lg:basis-2/12">
                                 <div class="mb-6 md:mb-0">
-                                    <a href="https://flowbite.com/" class="flex items-center">
-                                        <img src="/public/tiklipy-logo-indigo.png" height="48" width="108" class="mr-3" alt="Ticklipy Logo" />
+                                    <a href="https://flowbite.com/" class="max-xs:justify-center flex items-center">
+                                        <img src="/public/tiklipy-logo-indigo.png" height="48" width="250" class="mr-3" alt="Ticklipy Logo" />
                                     </a>
                                 </div>
                             </div>
-                            <div class="w-52">
+                        <div class="max-xs:text-center max-lg:py-7 flex flex-row flex-wrap basis-full lg:basis-5/12">
+                            <div class="max-xs:py-3 max-xs:basis-full basis-1/3">
                                 <h2 class="mb-6 text-xs font-semibold text-gray-600 uppercase dark:text-white">Product</h2>
                                 <ul class="text-gray-500 dark:text-gray-400 font-medium">
                                     <li class="mb-4">
-                                        <a href="https://flowbite.com/" class=" text-gray-900 font-semibold">Tutorials</a>
+                                        <router-link :to="{name: 'pricing'}" class="text-gray-900 font-semibold">Pricing</router-link>
                                     </li>
                                     <li class="mb-4">
-                                        <a href="https://tailwindcss.com/" class="text-gray-900 font-semibold">Pricing</a>
-                                    </li>
-                                    <li class="mb-4">
-                                        <a href="https://tailwindcss.com/" class="text-gray-900 font-semibold">Send A Gift</a>
+                                        <a href="" class="text-gray-900 font-semibold">Send A Gift</a>
                                     </li>
                                 </ul>
                             </div>
-                            <div class="w-52">
+                            <div class="max-xs:py-3 max-xs:basis-full basis-1/3">
                                 <h2 class="mb-6 text-xs font-semibold text-gray-600 uppercase dark:text-white">Resources</h2>
                                 <ul class="text-gray-500 dark:text-gray-400 font-medium">
                                     <li class="mb-4">
-                                        <a href="https://github.com/themesberg/flowbite" class="text-gray-900 font-semibold">Blog</a>
-                                    </li>
-                                    <li class="mb-4">
-                                        <a href="https://discord.gg/4eeurUVvTy" class="text-gray-900 font-semibold">Help Center</a>
+                                        <router-link :to="{name: 'blogs'}" class="text-gray-900 font-semibold">Blog</router-link>
                                     </li>
                                     <li class="mb-4">
                                         <a href="https://discord.gg/4eeurUVvTy" class="text-gray-900 font-semibold">FAQs</a>
                                     </li>
                                 </ul>
                             </div>
-                            <div class="w-52">
+                            <div class="max-xs:py-3 max-xs:basis-full basis-1/3">
                                 <h2 class="mb-6 text-xs font-semibold text-gray-600 uppercase dark:text-white">Company</h2>
                                 <ul class="text-gray-500 dark:text-gray-400 font-medium">
                                     <li class="mb-4">
-                                        <a href="#" class="text-gray-900 font-semibold">About</a>
-                                    </li>
-                                    <li class="mb-4">
-                                        <a href="#" class="text-gray-900 font-semibold">Media Kit</a>
+                                        <router-link :to="{name: 'about'}" class="text-gray-900 font-semibold">About</router-link>
                                     </li>
                                     <li class="mb-4">
                                         <a href="#" class="text-gray-900 font-semibold">Contact</a>
@@ -59,30 +50,37 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="block w-96">
-                            <div class="flex text-gray-700 mb-5 font-semibold">Subscribe to Our Newsletter</div>
+                        <div class="max-xs:text-center basis-full lg:basis-3/12">
+                            <div class="text-gray-700 mb-5 font-semibold">Subscribe to Our Newsletter</div>
                             <div class="w-full">
                                 <Input size="lg" placeholder="Email Address" class="bg-transparent-input">
                                     <template #suffix>
-                                    <Button class="bg-main-color hover:bg-main-color">Join</Button>
+                                    <Button class="max-xs:hidden bg-main-color hover:bg-main-color">Join</Button>
                                     </template>
                                 </Input>
+                                <Button class="!text-base xs:hidden w-full mt-3 py-4  bg-main-color hover:bg-main-color">Join</Button>
                             </div>
-                            <div class="flex text-black mt-3 text-sm">We care about your privacy</div>
+                            <div class="max-xs:text-black mt-3  text-sm">We care about your privacy</div>
                         </div>
                     </div>
                     <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:mb-8 mt-16" />
-                    <div class="sm:flex sm:items-center sm:justify-between">
-                        <div class="flex">
-                            <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="https://flowbite.com/" class="hover:underline">Ticklipy™</a>.&nbsp; All Rights Reserved.</span>
-                            <div class="grid grid-cols-1 gap-4 md:grid-cols-3 ml-7">
-                                <a href="#" class="block text-sm">Terms</a>
-                                <a href="#" class="block text-sm">Privacy</a>
-                                <a href="#" class="block text-sm">License</a>
+                    <div class="flex max-md:flex-col-reverse justify-between">
+                        <div class="flex flex-wrap">
+                            <span class="md:mr-5 max-md:basis-full text-sm text-gray-500 max-md:text-center dark:text-gray-400 max-md:py-5">© 2023 <a href="https://flowbite.com/" class="hover:underline">Ticklipy™</a>.&nbsp; All Rights Reserved.</span>
+                            <div class="max-md:basis-full flex flex-warp max-md:justify-center">
+                                <router-link :to="{name: 'terms'}">
+                                    <a class="mx-1 block text-sm">Terms</a>
+                                </router-link>
+                                <router-link :to="{name: 'privacy'}">
+                                    <a class="mx-1 block text-sm">Privacy</a>
+                                </router-link>
+                                <router-link :to="{name: 'license'}">
+                                    <a class="mx-1 block text-sm">License</a>
+                                </router-link>
                             </div>
                         </div>
                         
-                        <div class="flex mt-4 space-x-5 sm:justify-center sm:mt-0">
+                        <div class="flex mt-4 space-x-5 max-md:justify-center sm:mt-0">
                             <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
                                 <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 8 19">
                                         <path fill-rule="evenodd" d="M6.135 3H8V0H6.135a4.147 4.147 0 0 0-4.142 4.142V6H0v3h2v9.938h3V9h2.021l.592-3H5V3.591A.6.6 0 0 1 5.592 3h.543Z" clip-rule="evenodd"/>
