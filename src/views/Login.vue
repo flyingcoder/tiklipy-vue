@@ -1,4 +1,5 @@
 <script setup>
+    import 'animate.css';
     import { ref, defineProps } from "vue"
     import { useRouter } from "vue-router"
     import { getAuth, 
@@ -13,6 +14,8 @@
     const password = ref("");
     const errMsg = ref();
     const isLoading = ref(false);
+    const hasError = ref(false)
+    const wrongCred = ref(false)
     
     const signIn = async () => {
         isLoading.value = true;
@@ -22,9 +25,16 @@
                 console.log(auth.currentUser)
                 router.push({ name: 'dashboard' });
             })
-            .catch(() => {
-                errMsg.value = "Email or password was incorrect."
-            }).finally(() => isLoading.value = false );
+            .catch((error) => {
+                console.log(error.message)
+                hasError.value = true
+                wrongCred.value = true
+            }).finally(() => {
+                isLoading.value = false ;
+                setTimeout(() => {
+                    hasError.value = false;
+                }, 2000);
+            });
     };
 
     const signInWithGoogle = () => {
@@ -66,20 +76,21 @@
             </div>
 
             <div class="items-center justify-center w-full px-6 text-black">
-                <p class="mt-4 text-sm text-center font-semibold">Login with Email & Password</p>
+                <p :class="hasError ? 'hidden':'visible'" class="mt-4 text-sm text-center font-semibold">Login with Email & Password</p>
+                <p :class="hasError ? 'visible':'hidden'" class="mt-4 text-sm text-center font-semibold text-red-500">Invalid Email or Password</p>
                 <div class="my-2">
                     <div>
                         <label for="email" class="block text-sm font-semibold mb-1 text-gray-700 dark:text-white">Email</label>
-                        <input type="email" v-model="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-600 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter a valid email">
+                        <input type="email" v-model="email" id="email" :class="hasError||wrongCred ? 'border-red-500':''"  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-600 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter a valid email">
                     </div>
                 </div>
                 <div class="mb-2">
                     <div>
                         <label for="password" class="block text-sm font-semibold mb-1 text-gray-700 dark:text-white">Password</label>
-                        <input type="password" v-model="password" id="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-600 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter a password">
+                        <input type="password" v-model="password" id="password" :class="hasError||wrongCred ? 'border-red-500':''" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-600 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter a password">
                     </div>
                 </div>
-                <button @click="signIn"  :disabled="!email || !password" :class="(!email || !password) || isLoading ? 'cursor-not-allowed bg-gray-500 hover:bg-gray-500' : 'bg-blue-500 hover:bg-blue-700'" class="w-full px-4 py-2 mt-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700">
+                <button @click="signIn"  :disabled="!email || !password" :class="[(!email || !password) || isLoading ? 'cursor-not-allowed bg-gray-500 hover:bg-gray-500' : 'bg-blue-500 hover:bg-blue-700', hasError?'animate__hinge z-10':'']" class="w-full px-4 py-2 mt-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700">
                     {{ isLoading ? "Loading..." : "Login" }}
                 </button>
             </div>

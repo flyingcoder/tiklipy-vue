@@ -1,18 +1,55 @@
 <script setup>
-    import { ref } from 'vue'
+    import { ref, watch  } from 'vue'
     import { Input } from 'flowbite-vue';
     import { Select } from 'flowbite-vue';
-    import { Textarea } from 'flowbite-vue'
-    import { Button } from 'flowbite-vue'
+    import { Textarea } from 'flowbite-vue';
+    import { Button } from 'flowbite-vue';
+    import { Toggle } from 'flowbite-vue';
+    
 
-    let selected = ref('')
-    const message = ref('')
+    const toggleAssesment = ref(false);
+    const toggleHomework = ref(false);
+    const selectGrade = ref('1');
+    const selectSubject = ref('Math');
+    const asssesmentQuestionType = ref('');
+    const homeworkQuestionType = ref('');
+    const message = ref('');
 
-    const countries = [
-    { value: 'us', name: 'United States' },
-    { value: 'ca', name: 'Canada' },
-    { value: 'fr', name: 'France' },
-    ]
+    const questionType = ref([
+    { value: 'MC', name: 'Multiple Choice' },
+    { value: 'T/F', name: 'True/False' },
+    { value: 'Enumeration', name: 'Enumeration' },
+    { value: 'Essay', name: 'Essay' },
+    { value: 'Oral', name: 'Oral' },
+    { value: 'short answer', name: 'Short Answer' },
+    { value: 'computational', name: 'Computational' },
+    ]);
+
+    const subject = ref([
+    { value: 'Math', name: 'Math' },
+    { value: 'Science', name: 'Science' },
+    { value: 'PE', name: 'Physical Education' },
+    { value: 'English', name: 'English' },
+    { value: 'AralPan', name: 'Araling Panlipunan' },
+    { value: 'TLE', name: 'Technology and Livelihood Education' },
+    { value: 'ESP', name: 'Edukasyon sa Pagpapakatao' },
+    { value: 'Music', name: 'Music' }
+    ]);
+
+    const gradeLevel = ref([
+    { value: '1', name: 'Grade 1' },
+    { value: '2', name: 'Grade 2' },
+    { value: '3', name: 'Grade 3' },
+    { value: '4', name: 'Grade 4' },
+    { value: '5', name: 'Grade 5' },
+    { value: '6', name: 'Grade 6' },
+    { value: '7', name: 'Grade 7' },
+    { value: '8', name: 'Grade 8' },
+    { value: '9', name: 'Grade 9' },
+    { value: '10', name: 'Grade 10' },
+    { value: '11', name: 'Grade 11' },
+    { value: '12', name: 'Grade 12' },
+    ]);
 
 </script>
 <template>
@@ -137,35 +174,57 @@
                 </div>
                 <div class="col-span-2">
                     <div class="bg-gray-100 p-6 rounded-3xl">
-                        <h2 class="text-2xl font-bold text-gray-800 leading-snug">Devise an alternate form of assessment.</h2>
-                        <p class="text-lg text-gray-500 mt-2 mb-4">Evaluate student comprehension using innovative assessment methods.</p>
-                        <div class="flex bg-indigo-100 rounded-lg p-4 mb-10">
-                            <div class="mr-2">
-                                <i class="ti ti-check mr-1 pb-1 text-lg text-main-color"></i>
+                        <h2 class="text-2xl font-bold text-gray-800 leading-snug mb-10">Enter Your Upcoming Lesson</h2>
+                        <form>
+                            <div class="mb-4">
+                                <label class="text-gray-700 font-semibold mb-1 block">Select Grade level</label>
+                                <Select v-model="selectGrade" placeholder="Please select Grade level" class="mb-7 bg-transparent-input" :options="gradeLevel" />
                             </div>
-                            <div class="block">
-                                <div class="font-semibold mb-1 text-gray-700">For Example:</div>
-                                <p class="text-main-color text-sm">Distinguish formative assessment by tasking students with a creative challenge that demonstrates their understanding and critical thinking.</p>
+                            <div class="mb-4">
+                                <label class="text-gray-700 font-semibold mb-1 block" >Select Subject</label>
+                                <Select v-model="selectSubject" placeholder="Please select Grade level" class="mb-7 bg-transparent-input" :options="subject" />
                             </div>
-                        </div>
-                        <div class="mb-7">
-                            <label class="text-gray-700 font-semibold mb-1 block" for="assessment-type">Alternative Assessment Type</label>
-                            <Select v-model="selected" class="mb-7 bg-transparent-input" :options="countries" />
-                        </div>
-                        <div class="mb-7">
-                            <label class="text-gray-700 font-semibold mb-1 block" for="assessment-type">Grade Level or Academic Area</label>
-                            <Input required placeholder="For example, 6th grade." id="assessment-type" class="bg-white placeholder-gray-500"/>
-                        </div>
-                        
-                        <div class="mb-6">
-                            <label class="text-gray-700 font-semibold mb-1 block" for="assessment-type">Specific Subject Matter or Learning Standard</label>
-                            <Textarea rows="8" placeholder="Provide the overarching subject or paste an official educational standard." class="bg-transparent-input placeholder-gray-500" label="" v-model="topic"/>
-                        </div>
-                        <div class="mb-6">
-                            <label class="text-gray-700 font-semibold mb-1 block" for="assessment-type">Supplementary Details</label>
-                            <Textarea rows="8" placeholder="Is there any other information you would like to include?" class="bg-transparent-input placeholder-gray-500" label="" v-model="information" />
-                        </div>
-                        <Button size="lg" class="w-full bg-indigo-600 text-lg font-semibold">Go Fetch!</Button>
+                            <div class="mb-4">
+                                <label for="email" class="text-gray-700 font-semibold mb-1 block">Topic</label>
+                                <input type="email" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="Lesson Topic" required>
+                            </div>
+
+                             <!-- Assessment Toggle -->
+                            <div class="mb-4">
+                                <div class="flex items-center mb-6">
+                                    <label :class="toggleAssesment? '':''" class="mr-3 text-gray-700 font-semibold">Assesment </label>
+                                    <Toggle v-model="toggleAssesment" label="" />
+                                </div>
+                                <div :class="toggleAssesment? 'visible':'hidden'" class="">
+                                    <div class="basis-2/3 mb-2">
+                                        <Select v-model="asssesmentQuestionType" placeholder="Select Question Type" class=" bg-transparent-input" :options="questionType" />
+                                    </div>
+                                    <div class="mb-6 basis-1/3 ">
+                                        <input type="number" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="Number of Questions" required>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Homework Toggle -->
+                            <div class="mb-6">
+                                <div class="flex items-center mb-6">
+                                    <label :class="toggleHomework? '':''" class="mr-3 text-gray-700 font-semibold">Homework </label>
+                                    <Toggle v-model="toggleHomework" label="" />
+                                </div>
+                                <div :class="toggleHomework? 'visible':'hidden'" class="">
+                                    <div class="basis-2/3 mb-2">
+                                        <Select v-model="homeworkQuestionType" placeholder="Select Question Type" class=" bg-transparent-input" :options="questionType" />
+                                    </div>
+                                    <div class="mb-6 basis-1/3 ">
+                                        <input type="number" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="Number of Questions" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-6">
+                                <Textarea rows="4" placeholder="Additional instruction..." v-model="message" label="Your message" />
+                            </div>
+                            <Button type="submit" size="lg" class="w-full bg-indigo-600 text-lg font-semibold">Generate Topic with Tiklipy!</Button>
+                        </form>
                     </div>
                 </div>
             </div>
