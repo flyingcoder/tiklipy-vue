@@ -10,7 +10,7 @@
                 <span class="text-purple-600 tracking-wider text-sm uppercase mt-0 mb-1 font-poppins font-bold leading-6">WELCOME BACK</span>
                 <div class="flex flex-wrap justify-between items-center ">
                     <div>
-                        <h2 class="text-gray-800 text-3xl mt-2 mb-3">Get Ready for the New School Year</h2>
+                        <h2 class="text-gray-800 text-3xl mt-2 mb-3">Prepare yourself for the upcoming academic year.</h2>
                     </div>
                     <div>
                         <router-link :to="{name: 'generate'}" class="text-white bg-main-color hover:text-white focus:ring-4 focus:outline-none  font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#1da1f2]/55 mr-2 mb-2">
@@ -24,7 +24,7 @@
                 <div class="mb-4">
                     <Breadcrumb class="text-gray-800">
                         <BreadcrumbItem href="#" class="no-icon text-gray-600 hover:text-gray-800 transition duration-300">
-                            Ticklipy
+                            Tiklipy
                         </BreadcrumbItem>
                         <BreadcrumbItem href="#" class="text-gray-600 hover:text-gray-800 transition duration-300">
                             Members
@@ -46,9 +46,9 @@
                         </svg>
                         <div class="font-medium text-lg group-hover:text-gray-500">Newsletter</div>
                         <a href="#">
-                            <h5 class="my-4 text-2xl font-semibold tracking-tight text-gray-900 group-hover:text-white dark:text-white">Create a Newsletter, Blog Post, or Class Update</h5>
+                            <h5 class="my-4 text-2xl font-semibold tracking-tight text-gray-900 group-hover:text-white dark:text-white">Generate a Newsletter, Blog Entry, or Class Update.</h5>
                         </a>
-                        <p class="mb-3 text-lg font-normal text-gray-500 dark:text-gray-400">Instantly generate custom letters and updates. </p>
+                        <p class="mb-3 text-lg font-normal text-gray-500 dark:text-gray-400">Effortlessly create personalized letters and updates in an instant.</p>
                     </div>
                 </the-card>
                 <the-card href="#" class="w-full border-none rounded-lg shadow-none hover:bg-white hover:shadow-md bg-[url('/public/p-1.png')] bg-no-repeat bg-contain" style="max-width: 100% !important">
@@ -61,9 +61,9 @@
                         </svg>
                         <div class="font-medium text-lg group-hover:text-gray-500">Lesson Planning</div>
                         <a href="#">
-                            <h5 class="my-4 text-2xl font-semibold tracking-tight text-gray-900 group-hover:text-white dark:text-white">Generate a Five-E  Lesson Plan </h5>
+                            <h5 class="my-4 text-2xl font-semibold tracking-tight text-gray-900 group-hover:text-white dark:text-white">Create a Five-E Model Lesson Plan.</h5>
                         </a>
-                        <p class="mb-3 text-lg font-normal text-gray-500 dark:text-gray-400">Design a lesson that promotes active learning through five distinct stages. </p>
+                        <p class="mb-3 text-lg font-normal text-gray-500 dark:text-gray-400">Devise a lesson plan that encourages active learning by incorporating five distinct stages.</p>
                     </div>
                 </the-card>
                 <the-card href="#" class="w-full border-none rounded-lg shadow-none hover:bg-white hover:shadow-md bg-[url('/public/p-1.png')] bg-no-repeat bg-contain" style="max-width: 100% !important">
@@ -77,9 +77,9 @@
                         </svg>
                         <div class="font-medium text-lg group-hover:text-gray-500">Email</div>
                         <a href="#">
-                            <h5 class="my-4 text-2xl font-semibold tracking-tight text-gray-900 group-hover:text-white dark:text-white">Write an Email</h5>
+                            <h5 class="my-4 text-2xl font-semibold tracking-tight text-gray-900 group-hover:text-white dark:text-white">Produce an E-letter</h5>
                         </a>
-                        <p class="mb-3 text-lg font-normal text-gray-500 dark:text-gray-400">Generate effective emails with personalized tone and content. </p>
+                        <p class="mb-3 text-lg font-normal text-gray-500 dark:text-gray-400">Produce impactful emails with tailored style and substance.</p>
                     </div>
                 </the-card>
                 <the-card href="#" class="w-full border-none rounded-lg shadow-none hover:bg-white hover:shadow-md bg-[url('/public/p-1.png')] bg-no-repeat bg-contain" style="max-width: 100% !important">
@@ -92,17 +92,17 @@
                         </svg>
                         <div class="font-medium text-lg group-hover:text-gray-500">Curriculum</div>
                         <a href="#">
-                            <h5 class="my-4 text-2xl font-semibold tracking-tight text-gray-900 group-hover:text-white dark:text-white">Generate an Article, Passage, or Short Story</h5>
+                            <h5 class="my-4 text-2xl font-semibold tracking-tight text-gray-900 group-hover:text-white dark:text-white">Create an Article, Passage, or Brief Narrative.</h5>
                         </a>
-                        <p class="mb-3 text-lg font-normal text-gray-500 dark:text-gray-400">Instantly create content that is tailored to your individual needs and requirements.</p>
+                        <p class="mb-3 text-lg font-normal text-gray-500 dark:text-gray-400">Effortlessly generate content that is customized to match your specific needs and preferences.</p>
                     </div>
                 </the-card>
             </div>
         </div>
         <div class="mb-16">
             <div class="block justify-center font-semibold">
-                <span class="text-purple-600 tracking-wider text-sm uppercase mt-0 mb-1 font-poppins font-bold leading-6">ESSENTIALS</span>
-                <h2 class="text-gray-800 text-3xl mt-2">Focus on the Basics</h2>
+                <span class="text-purple-600 tracking-wider text-sm uppercase mt-0 mb-1 font-poppins font-bold leading-6">FUNDAMENTALS</span>
+                <h2 class="text-gray-800 text-3xl mt-2">Concentrate on the fundamentals.</h2>
             </div>
             <div class="grid pt-10 grid-cols-1 md:grid-cols-2 sm:grid-cols-1 lg:grid-cols-3 gap-4">
                 <the-card href="#" class="w-full border-none rounded-lg shadow-none hover:bg-white hover:shadow-md bg-[url('/public/p-1.png')] bg-no-repeat bg-contain" style="max-width: 100% !important">
@@ -115,9 +115,9 @@
                         </svg>
                         <div class="font-medium text-lg group-hover:text-gray-500">Relationships</div>
                         <a href="#">
-                            <h5 class="my-4 text-2xl font-semibold tracking-tight text-gray-900 group-hover:text-white dark:text-white">Produce Feedback or Constructive Criticism</h5>
+                            <h5 class="my-4 text-2xl font-semibold tracking-tight text-gray-900 group-hover:text-white dark:text-white">Generate Feedback or Offer Constructive Criticism.</h5>
                         </a>
-                        <p class="mb-3 text-lg font-normal text-gray-500 dark:text-gray-400">Provide colleagues and students with valuable support and guidance.</p>
+                        <p class="mb-3 text-lg font-normal text-gray-500 dark:text-gray-400">Offer valuable assistance and direction to both colleagues and students.</p>
                     </div>
                 </the-card>
                 <the-card href="#" class="w-full border-none rounded-lg shadow-none hover:bg-white hover:shadow-md bg-[url('/public/p-1.png')] bg-no-repeat bg-contain" style="max-width: 100% !important">
@@ -130,9 +130,9 @@
                         </svg>
                         <div class="font-medium text-lg group-hover:text-gray-500">Classroom</div>
                         <a href="#">
-                            <h5 class="my-4 text-2xl font-semibold tracking-tight text-gray-900 group-hover:text-white dark:text-white">Manage Problem Behavior</h5>
+                            <h5 class="my-4 text-2xl font-semibold tracking-tight text-gray-900 group-hover:text-white dark:text-white">Effectively Oversee Problematic Behavior.</h5>
                         </a>
-                        <p class="mb-3 text-lg font-normal text-gray-500 dark:text-gray-400">Discover effective strategies for handling challenging behavior. </p>
+                        <p class="mb-3 text-lg font-normal text-gray-500 dark:text-gray-400">Explore successful approaches to managing difficult behavior. </p>
                     </div>
                 </the-card>
                 <the-card href="#" class="w-full border-none rounded-lg shadow-none hover:bg-white hover:shadow-md bg-[url('/public/p-1.png')] bg-no-repeat bg-contain" style="max-width: 100% !important">
@@ -145,9 +145,9 @@
                         </svg>
                         <div class="font-medium text-lg group-hover:text-gray-500">Language Arts</div>
                         <a href="#">
-                            <h5 class="my-4 text-2xl font-semibold tracking-tight text-gray-900 group-hover:text-white dark:text-white">Generate Comprehension Questions</h5>
+                            <h5 class="my-4 text-2xl font-semibold tracking-tight text-gray-900 group-hover:text-white dark:text-white">Create Questions to Assess Understanding.</h5>
                         </a>
-                        <p class="mb-3 text-lg font-normal text-gray-500 dark:text-gray-400">Quickly craft a variety of engaging questions based on any written text.</p>
+                        <p class="mb-3 text-lg font-normal text-gray-500 dark:text-gray-400">Efficiently generate a multitude of interesting questions from any written material.</p>
                     </div>
                 </the-card>
                 <the-card href="#" class="w-full border-none rounded-lg shadow-none hover:bg-white hover:shadow-md bg-[url('/public/p-1.png')] bg-no-repeat bg-contain" style="max-width: 100% !important">
@@ -160,9 +160,9 @@
                         </svg>
                         <div class="font-medium text-lg group-hover:text-gray-500">Curriculum</div>
                         <a href="#">
-                            <h5 class="my-4 text-2xl font-semibold tracking-tight text-gray-900 group-hover:text-white dark:text-white">Simplify a Concept </h5>
+                            <h5 class="my-4 text-2xl font-semibold tracking-tight text-gray-900 group-hover:text-white dark:text-white">Make a Complex Idea Easy to Understand.</h5>
                         </a>
-                        <p class="mb-3 text-lg font-normal text-gray-500 dark:text-gray-400">Make a topic or standard more accessible by discovering clear and simplified explanations. </p>
+                        <p class="mb-3 text-lg font-normal text-gray-500 dark:text-gray-400">Make a subject or standard easier to understand by finding clear and simplified explanations.</p>
                     </div>
                 </the-card>
                 
@@ -170,8 +170,8 @@
         </div>
         <div class="mb-16">
             <div class="block justify-center font-semibold">
-                <span class="text-purple-600 tracking-wider text-sm uppercase mt-0 mb-1 font-poppins font-bold leading-6">TRY SOMETHING NEW</span>
-                <h2 class="text-gray-800 text-3xl mt-2">Shortcuts You Should Know About</h2>
+                <span class="text-purple-600 tracking-wider text-sm uppercase mt-0 mb-1 font-poppins font-bold leading-6">TRY A NEW APPROACH</span>
+                <h2 class="text-gray-800 text-3xl mt-2">Useful Quick Tips</h2>
             </div>
             <div class="grid pt-10 grid-cols-1 md:grid-cols-2 sm:grid-cols-1 lg:grid-cols-3 gap-4">
                 <the-card href="#" class="w-full border-none rounded-lg shadow-none hover:bg-white hover:shadow-md bg-[url('/public/p-1.png')] bg-no-repeat bg-contain" style="max-width: 100% !important">
@@ -184,9 +184,9 @@
                         </svg>
                         <div class="font-medium text-lg group-hover:text-gray-500">Curriculum</div>
                         <a href="#">
-                            <h5 class="my-4 text-2xl font-semibold tracking-tight text-gray-900 group-hover:text-white dark:text-white">Complete an Analogy</h5>
+                            <h5 class="my-4 text-2xl font-semibold tracking-tight text-gray-900 group-hover:text-white dark:text-white">Create an Analogy</h5>
                         </a>
-                        <p class="mb-3 text-lg font-normal text-gray-500 dark:text-gray-400">Enhance comprehension by creating links between concepts. </p>
+                        <p class="mb-3 text-lg font-normal text-gray-500 dark:text-gray-400">Improve understanding through concept connections </p>
                     </div>
                 </the-card>
                 <the-card href="#" class="w-full border-none rounded-lg shadow-none hover:bg-white hover:shadow-md bg-[url('/public/p-1.png')] bg-no-repeat bg-contain" style="max-width: 100% !important">
@@ -199,9 +199,9 @@
                         </svg>
                         <div class="font-medium text-lg group-hover:text-gray-500">Language Arts</div>
                         <a href="#">
-                            <h5 class="my-4 text-2xl font-semibold tracking-tight text-gray-900 group-hover:text-white dark:text-white">Critically Analyze a Piece of Text </h5>
+                            <h5 class="my-4 text-2xl font-semibold tracking-tight text-gray-900 group-hover:text-white dark:text-white">Conduct a Thorough Text Analysis</h5>
                         </a>
-                        <p class="mb-3 text-lg font-normal text-gray-500 dark:text-gray-400">Objectively examine written work to evaluate its strengths and weaknesses.</p>
+                        <p class="mb-3 text-lg font-normal text-gray-500 dark:text-gray-400">Unbiasedly assess written content to identify its merits and shortcomings.</p>
                     </div>
                 </the-card>
                 <the-card href="#" class="w-full border-none rounded-lg shadow-none hover:bg-white hover:shadow-md bg-[url('/public/p-1.png')] bg-no-repeat bg-contain" style="max-width: 100% !important">
@@ -214,9 +214,9 @@
                         </svg>
                         <div class="font-medium text-lg group-hover:text-gray-500">Science and Math</div>
                         <a href="#">
-                            <h5 class="my-4 text-2xl font-semibold tracking-tight text-gray-900 group-hover:text-white dark:text-white">Find a Science or Math Experiment</h5>
+                            <h5 class="my-4 text-2xl font-semibold tracking-tight text-gray-900 group-hover:text-white dark:text-white">Discover a Science or Math Experiment.</h5>
                         </a>
-                        <p class="mb-3 text-lg font-normal text-gray-500 dark:text-gray-400">Discover engaging ways to test theories and hypotheses through hands-on experimentation.</p>
+                        <p class="mb-3 text-lg font-normal text-gray-500 dark:text-gray-400">Find interactive methods to validate theories and hypotheses through practical experiments.</p>
                     </div>
                 </the-card>
                 <the-card href="#" class="w-full border-none rounded-lg shadow-none hover:bg-white hover:shadow-md bg-[url('/public/p-1.png')] bg-no-repeat bg-contain" style="max-width: 100% !important">
@@ -229,9 +229,9 @@
                         </svg>
                         <div class="font-medium text-lg group-hover:text-gray-500">Curriculum </div>
                         <a href="#">
-                            <h5 class="my-4 text-2xl font-semibold tracking-tight text-gray-900 group-hover:text-white dark:text-white">Find Similarities and Differences</h5>
+                            <h5 class="my-4 text-2xl font-semibold tracking-tight text-gray-900 group-hover:text-white dark:text-white">Identify Similarities and Differences.</h5>
                         </a>
-                        <p class="mb-3 text-lg font-normal text-gray-500 dark:text-gray-400">Identify similarities and differences between two ideas.</p>
+                        <p class="mb-3 text-lg font-normal text-gray-500 dark:text-gray-400">Recognize the commonalities and distinctions between two concepts.</p>
                     </div>
                 </the-card>
                 <the-card href="#" class="w-full border-none rounded-lg shadow-none hover:bg-white hover:shadow-md" style="max-width: 100% !important">
@@ -244,9 +244,9 @@
                         </svg>
                         <div class="font-medium text-lg group-hover:text-gray-500">Organization</div>
                         <a href="#">
-                            <h5 class="my-4 text-2xl font-semibold tracking-tight text-gray-900 group-hover:text-white dark:text-white">Generate a List</h5>
+                            <h5 class="my-4 text-2xl font-semibold tracking-tight text-gray-900 group-hover:text-white dark:text-white">Create A List</h5>
                         </a>
-                        <p class="mb-3 text-lg font-normal text-gray-500 dark:text-gray-400">Identify and organize key information around any subject matter.</p>
+                        <p class="mb-3 text-lg font-normal text-gray-500 dark:text-gray-400">Recognize and structure essential details related to any topic.</p>
                     </div>
                 </the-card>
             </div>

@@ -137,33 +137,33 @@
                 </div>
                 <div class="col-span-2">
                     <div class="bg-gray-100 p-6 rounded-3xl">
-                        <h2 class="text-2xl font-bold text-gray-800 leading-snug">Create an alternative Assessment</h2>
-                        <p class="text-lg text-gray-500 mt-2 mb-4">Measure student learning through creative approaches.</p>
+                        <h2 class="text-2xl font-bold text-gray-800 leading-snug">Devise an alternate form of assessment.</h2>
+                        <p class="text-lg text-gray-500 mt-2 mb-4">Evaluate student comprehension using innovative assessment methods.</p>
                         <div class="flex bg-indigo-100 rounded-lg p-4 mb-10">
                             <div class="mr-2">
                                 <i class="ti ti-check mr-1 pb-1 text-lg text-main-color"></i>
                             </div>
                             <div class="block">
                                 <div class="font-semibold mb-1 text-gray-700">For Example:</div>
-                                <p class="text-main-color text-sm">Differentiate a formative assessment by having students show what they know with a creative challenge that involves critical thinking.</p>
+                                <p class="text-main-color text-sm">Distinguish formative assessment by tasking students with a creative challenge that demonstrates their understanding and critical thinking.</p>
                             </div>
                         </div>
                         <div class="mb-7">
-                            <label class="text-gray-700 font-semibold mb-1 block" for="assessment-type">Type of Alternative Assessment</label>
+                            <label class="text-gray-700 font-semibold mb-1 block" for="assessment-type">Alternative Assessment Type</label>
                             <Select v-model="selected" class="mb-7 bg-transparent-input" :options="countries" />
                         </div>
                         <div class="mb-7">
-                            <label class="text-gray-700 font-semibold mb-1 block" for="assessment-type">Grade Level or Subject</label>
-                            <Input required placeholder="E.g.. 6th Grade" id="assessment-type" class="bg-white placeholder-gray-500"/>
+                            <label class="text-gray-700 font-semibold mb-1 block" for="assessment-type">Grade Level or Academic Area</label>
+                            <Input required placeholder="For example, 6th grade." id="assessment-type" class="bg-white placeholder-gray-500"/>
                         </div>
                         
                         <div class="mb-6">
-                            <label class="text-gray-700 font-semibold mb-1 block" for="assessment-type">Topic or Standard</label>
-                            <Textarea rows="8" placeholder="State the general topic or paste an official standard" class="bg-transparent-input placeholder-gray-500" label="" v-model="topic"/>
+                            <label class="text-gray-700 font-semibold mb-1 block" for="assessment-type">Specific Subject Matter or Learning Standard</label>
+                            <Textarea rows="8" placeholder="Provide the overarching subject or paste an official educational standard." class="bg-transparent-input placeholder-gray-500" label="" v-model="topic"/>
                         </div>
                         <div class="mb-6">
-                            <label class="text-gray-700 font-semibold mb-1 block" for="assessment-type">Additional Information</label>
-                            <Textarea rows="8" placeholder="Is there any additional information you would like noted?" class="bg-transparent-input placeholder-gray-500" label="" v-model="information" />
+                            <label class="text-gray-700 font-semibold mb-1 block" for="assessment-type">Supplementary Details</label>
+                            <Textarea rows="8" placeholder="Is there any other information you would like to include?" class="bg-transparent-input placeholder-gray-500" label="" v-model="information" />
                         </div>
                         <Button size="lg" class="w-full bg-indigo-600 text-lg font-semibold">Go Fetch!</Button>
                     </div>

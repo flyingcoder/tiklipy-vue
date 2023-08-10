@@ -27,7 +27,7 @@
                 <div class="mb-4">
                     <Breadcrumb class="text-gray-800">
                         <BreadcrumbItem href="#" class="no-icon text-gray-600 hover:text-gray-800 transition duration-300">
-                            Ticklipy
+                            Tiklipy
                         </BreadcrumbItem>
                         <BreadcrumbItem href="#" class="text-gray-600 hover:text-gray-800 transition duration-300">
                             Members
@@ -408,7 +408,7 @@
                             </div>
                             <div class="flex flex-col leading-tight">
                                 <div class="text-xl mt-1 flex items-center font-medium">
-                                    <span class="text-gray-700 mr-3 dark:text-slate-200">Ticklipy Bot</span>
+                                    <span class="text-gray-700 mr-3 dark:text-slate-200">Tiklipy Bot</span>
                                 </div>
                             </div>
                         </div>
