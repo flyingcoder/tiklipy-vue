@@ -90,7 +90,7 @@
                 </div>
                 <ul role="list" class="space-y-5 my-7">
                     <li class="max-xs:text-base items-center text-lg text-gray-500">
-                        After 7-Day Free Trial
+                        Start with a Free Month
                     </li>
                     <li class="flex items-center py-2 space-x-3">
                         <svg class="flex-shrink-0 w-5 h-5 text-main-color dark:text-blue-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
