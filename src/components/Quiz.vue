@@ -2,15 +2,15 @@
 </script>
 <template>
     <div class="generated-quiz">
-        <header>
-            <h1>English Quiz</h1>
+        <header class="mb-[4rem]">
+            <h1 class="font-bold">English Quiz</h1>
         </header>
 
         <div class="quiz-container">
         
             <form class="quiz-form">
                 <ol>
-                    <li>
+                    <li class="mb-[2rem]">
                         <p><strong>Grammar: Identify the Noun</strong></p>
                         <p>Which word is a noun in the following sentence?</p>
                         <p>"The cat chased the mouse."</p>
@@ -20,7 +20,7 @@
                         <p>d) mouse</p>
                     </li>
         
-                    <li>
+                    <li class="mb-[2rem]">
                         <p><strong>Vocabulary: Synonyms</strong></p>
                         <p>Choose the synonym for the word "happy":</p>
                         <p>a) sad</p>
@@ -29,7 +29,7 @@
                         <p>d) tired</p>
                     </li>
         
-                    <li>
+                    <li class="mb-[2rem]">
                         <p><strong>Reading Comprehension</strong></p>
                         <p>Read the following passage and answer the question:</p>
                         <p>"Alice was excited about her upcoming vacation. She couldn't wait to visit the beach and build sandcastles. Her family would be staying in a cozy cottage near the ocean."</p>
@@ -40,7 +40,7 @@
                         <p>d) Camping in the mountains</p>
                     </li>
         
-                    <li>
+                    <li class="mb-[2rem]">
                         <p><strong>Grammar: Identify the Verb</strong></p>
                         <p>Which word is a verb in the following sentence?</p>
                         <p>"The students are studying for the test."</p>
@@ -50,7 +50,7 @@
                         <p>d) the</p>
                     </li>
         
-                    <li>
+                    <li class="mb-[2rem]">
                         <p><strong>Vocabulary: Antonyms</strong></p>
                         <p>Choose the antonym for the word "big":</p>
                         <p>a) small</p>
@@ -59,7 +59,7 @@
                         <p>d) tiny</p>
                     </li>
         
-                    <li>
+                    <li class="mb-[2rem]">
                         <p><strong>Grammar: Subject-Verb Agreement</strong></p>
                         <p>Select the correct verb to complete the sentence:</p>
                         <p>"The team ________ excited about the upcoming game."</p>
@@ -69,7 +69,7 @@
                         <p>d) be</p>
                     </li>
         
-                    <li>
+                    <li class="mb-[2rem]">
                         <p><strong>Reading Comprehension</strong></p>
                         <p>Read the following sentence and answer the question:</p>
                         <p>"The mysterious old house at the end of the street was rumored to be haunted."</p>
@@ -80,7 +80,7 @@
                         <p>d) It was painted blue.</p>
                     </li>
         
-                    <li>
+                    <li class="mb-[2rem]">
                         <p><strong>Vocabulary: Prefixes and Suffixes</strong></p>
                         <p>What does the prefix "un-" mean in the word "uncertain"?</p>
                         <p>a) not</p>
@@ -89,7 +89,7 @@
                         <p>d) opposite</p>
                     </li>
         
-                    <li>
+                    <li class="mb-[2rem]">
                         <p><strong>Grammar: Capitalization and Punctuation</strong></p>
                         <p>Correct the sentence:</p>
                         <p>"i love to read books."</p>
@@ -99,7 +99,7 @@
                         <p>d) I love To read books.</p>
                     </li>
         
-                    <li>
+                    <li class="">
                         <p><strong>Reading Comprehension</strong></p>
                         <p>Read the following paragraph and answer the question:</p>
                         <p>"John wanted to buy a new bicycle. He saved his allowance for several months and finally had enough money to buy the bike he had been dreaming of. John was thrilled when he rode his new bicycle for the first time."</p>
