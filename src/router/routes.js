@@ -3,7 +3,7 @@ import {
     Assesments, Assesment, Quizes, Homeworks, Tests, Home, Help,
     Blogs, Blog, About, Pricing, Features, Terms, Privacy, License, 
     MembersLayout, GuestsLayout, Projects, Activities, GenerateForm, 
-    Login, SendGift
+    Login, SendGift, FAQ, Featured
 } from './components';
 
 const routes = [
@@ -22,7 +22,9 @@ const routes = [
             { path: '/legal/license', name: 'license', component: License },
             { path: '/legal/terms', name: 'terms', component: Terms },
             { path: '/legal/privacy', name: 'privacy', component: Privacy },
-            { path: '/send-gifts', name: 'gifts', component: SendGift }
+            { path: '/send-gifts', name: 'gifts', component: SendGift },
+            { path: '/faq', name: 'faq', component:  FAQ },
+            { path: '/featured', name: 'featured', component: Featured },
         ]
     },{ 
         path: "/members", component: MembersLayout,
