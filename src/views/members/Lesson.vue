@@ -6,7 +6,7 @@
     import Quiz from '../../components/Quiz.vue';
     import PPT from '../../components/PPT.vue';
 
-    const activeView = ref(null);
+    const activeView = ref('lessonPlan');
 
     const setActiveView = (view) => {
         activeView.value = view;
