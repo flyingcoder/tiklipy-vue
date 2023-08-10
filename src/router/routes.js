@@ -44,7 +44,7 @@ const routes = [
             { path: '/visuals/:id', name: 'visual', component: Visual },
             { path: '/projects', name: 'projects', component: Projects },
             { path: '/activities', name: 'activities', component: Activities },
-            { path: '/generate-form', name: 'generate', component: GenerateForm },
+            { path: '/generate', name: 'generate', component: GenerateForm },
         ],
     },
     { path: '/login', name: 'login', component: Login },
