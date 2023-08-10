@@ -7,9 +7,6 @@
         <div class="text-6xl text-gray-800 font-semibold">The present that simplifies<br> the art of teaching.</div>
         <p class="mt-9 text-lg text-gray-700 leading-9">Demonstrate your gratitude to educators by offering them the gift of more time and a reduced workload. A gift <br> subscription is an ideal choice for both teachers who are already enthusiasts of Tiklipy and those who<br> are just discovering the platform.</p>
         <div class="max-w-md mt-16 bg-gray-100 border border-gray-200 rounded-lg shadow mx-auto dark:bg-gray-800 dark:border-gray-700">
-            <a href="#">
-                <img class="rounded-t-lg" src="/public/giftcard.png" alt="" />
-            </a>
             <div class="p-5 border-b-2">
                 <div class="justify-between flex text-gray-700 text-base font-medium">
                     <div class="self-center">1 Month Subscription</div>

@@ -27,6 +27,8 @@ import Privacy from '../views/Privacy.vue';
 import License from '../views/License.vue';
 import Login from '../views/Login.vue';
 import SendGift from '../views/SendGift.vue';
+import FAQ from '../views/FAQ.vue';
+import Featured from '../components/Features.vue';
 //layouts
 import GuestsLayout from '../views/Index.vue';
 import MembersLayout from '../views/members/Index.vue';
@@ -60,5 +62,7 @@ export {
     Projects,
     Activities,
     Login,
-    SendGift
+    SendGift,
+    FAQ,
+    Featured
 };

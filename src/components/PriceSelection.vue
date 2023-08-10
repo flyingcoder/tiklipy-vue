@@ -66,8 +66,8 @@
 <template>
     <SignUp :show-modal="showRegister" :selected-price="selectedPrice"/>
     <div class="mt-10 text-center">
-        <h2 class="m-4 text-4xl font-bold text-center text-gray-800">Teacher-Friendly Pricing</h2>
-        <p class="mx-5 text-lg text-center text-gray-800">Elevate efficiency and enhance work quality, all for the price of two cokes</p>
+        <h2 class="text-center text-4xl font-semibold text-gray-800">Teacher-Friendly Pricing</h2>
+        <p class="text-center text-black mt-8 text-gray-700 text-xl mb-11">Elevate efficiency and enhance work quality, all for the price of two cokes</p>
         
         <div v-for="(product, index) in products" :key="index + '-product'" 
             class=" flex flex-wrap items-stretch justify-center mx-auto mt-10">

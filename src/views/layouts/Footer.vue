@@ -23,7 +23,7 @@
                                         <router-link :to="{name: 'pricing'}" class="text-gray-900 font-semibold">Pricing</router-link>
                                     </li>
                                     <li class="mb-4">
-                                        <a href="" class="text-gray-900 font-semibold">Send A Gift</a>
+                                        <router-link :to="{name: 'gifts'}" class="text-gray-900 font-semibold">Send A Gift</router-link>
                                     </li>
                                 </ul>
                             </div>
@@ -34,7 +34,7 @@
                                         <router-link :to="{name: 'blogs'}" class="text-gray-900 font-semibold">Blog</router-link>
                                     </li>
                                     <li class="mb-4">
-                                        <a href="https://discord.gg/4eeurUVvTy" class="text-gray-900 font-semibold">FAQs</a>
+                                        <router-link :to="{name: 'faq'}" class="text-gray-900 font-semibold">FAQs</router-link>
                                     </li>
                                 </ul>
                             </div>
