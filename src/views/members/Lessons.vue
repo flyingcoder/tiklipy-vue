@@ -12,7 +12,7 @@
             <div class="mb-4">
                 <Breadcrumb class="text-gray-800">
                     <BreadcrumbItem href="#" class="no-icon text-gray-600 hover:text-gray-800 transition duration-300">
-                        Ticklipy
+                        Tiklipy
                     </BreadcrumbItem>
                     <BreadcrumbItem href="#" class="text-gray-600 hover:text-gray-800 transition duration-300">
                         Members

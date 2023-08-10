@@ -136,7 +136,7 @@
                 <button :class="isLoading ? 'bg-gray-500 hover:bg-gra-500 cursor-not-allowed' : 'bg-main-color hover:bg-blue-700'" 
                     :disabled="!price.id || isLoading" @click="createSub(price.id)" type="button" 
                     class="text-white focus:ring-4 focus:outline-none focus:ring-blue-200 dark:focus:ring-blue-900 font-medium rounded-lg text-lg px-5 py-2.5 inline-flex justify-center w-full text-center">
-                    {{ isLoading ? "Loading..." : "Try Free for 7 Days!" }}
+                    {{ isLoading ? "Loading..." : "Get 1 Month Free Now!" }}
                 </button>
             </div>
         </div>
