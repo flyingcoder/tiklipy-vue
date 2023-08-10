@@ -2,20 +2,20 @@
 </script>
 <template>
     <div class="generated-lesson-plan">
-        <header>
-            <h1>Science Lesson Plan</h1>
-            <h2>Introduction to Photosynthesis</h2>
+        <header class="mb-[4rem]">
+            <h1 class="font-bold ">Science Lesson Plan</h1>
+            <h2 class="text-lg">Introduction to Photosynthesis</h2>
         </header>
 
-        <section>
-            <h3><strong>Objective</strong></h3>
+        <section class="mb-[2rem]">
+            <h3 class=""><strong>Objective</strong></h3>
             <p>
                 By the end of this lesson, students will be able to understand the process of photosynthesis, identify its
                 key components, and explain the importance of photosynthesis in the ecosystem.
             </p>
         </section>
 
-        <section>
+        <section class="mb-[2rem]">
             <h3><strong>Materials</strong></h3>
             <ul>
                 <li>Projector or whiteboard</li>
@@ -25,7 +25,7 @@
             </ul>
         </section>
 
-        <section>
+        <section class="mb-[2rem]">
             <h3><strong>Introduction</strong></h3>
             <p>
                 Begin the lesson by asking students what they know about plants and their importance to the environment.
@@ -34,13 +34,13 @@
             </p>
         </section>
 
-        <section>
+        <section class="mb-[2rem]">
             <h3><strong>Photosynthesis Explanation</strong></h3>
             <p>
                 Use a PowerPoint presentation or the chalkboard to explain the process of photosynthesis step by step.
                 Cover the following points:
             </p>
-            <ul>
+            <ul  class="list-disc ml-5">
                 <li>Definition of photosynthesis</li>
                 <li>The role of chloroplasts in plants</li>
                 <li>The reactants of photosynthesis (carbon dioxide, water, sunlight)</li>
@@ -50,7 +50,7 @@
             </ul>
         </section>
 
-        <section>
+        <section class="mb-[2rem]">
             <h3><strong>Interactive Activity</strong></h3>
             <p>
                 Divide the students into groups of 3-4. Distribute handouts with diagrams of the photosynthesis process.
@@ -59,7 +59,7 @@
             </p>
         </section>
 
-        <section>
+        <section class="mb-[2rem]">
             <h3><strong>Demonstration</strong></h3>
             <p>
                 Conduct a live demonstration of photosynthesis using plant leaves (real or artificial). Show how the leaves
@@ -68,7 +68,7 @@
             </p>
         </section>
 
-        <section>
+        <section class="mb-[2rem]">
             <h3><strong>Review and Discussion</strong></h3>
             <p>
                 Recap the main points of the lesson on photosynthesis. Ask students to share what they found most interesting
@@ -76,7 +76,7 @@
             </p>
         </section>
 
-        <section>
+        <section class="mb-[2rem]">
             <h3><strong>Homework (optional)</strong></h3>
             <p>
                 Assign a short research task for students to find examples of photosynthetic organisms other than plants,
@@ -84,7 +84,7 @@
             </p>
         </section>
 
-        <section>
+        <section class="mb-[2rem]">
             <h3><strong>Assessment</strong></h3>
             <p>
                 Observe students' participation during the interactive activity and discussion to assess their understanding
@@ -93,7 +93,7 @@
             </p>
         </section>
 
-        <section>
+        <section class="mb-[2rem]">
             <h3><strong>Extension Activities</strong></h3>
             <p>
                 For students who show a strong grasp of the topic, encourage them to research more about the impact of

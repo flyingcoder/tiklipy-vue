@@ -4,10 +4,10 @@
     <div class="generated-homework">
         <div class="p-8">
             <header class="mb-6">
-                <h1 class="text-3xl font-semibold">English Homework - Creative Writing</h1>
+                <h1 class="text-3xl font-bold">English Homework - Creative Writing</h1>
             </header>
             
-            <div class="bg-gray-100 p-6 rounded-lg mb-6">
+            <div class="bg-yellow-100 p-6 rounded-lg mb-6">
                 <h2 class="text-xl font-semibold mb-4">Instructions:</h2>
                 <p>
                     Write a short story that showcases your creativity and imagination. Your story should have a clear beginning,
@@ -37,7 +37,7 @@
                 </ul>
             </div>
 
-            <div class="bg-gray-100 p-6 rounded-lg mb-6">
+            <div class="bg-indigo-100 p-6 rounded-lg mb-6">
                 <h2 class="text-xl font-semibold mb-4">Requirements:</h2>
                 <ul class="list-disc pl-6 mt-4">
                     <li>The short story should be at least 500 words long but not exceed 1000 words.</li>
@@ -46,7 +46,7 @@
                 </ul>
             </div>
 
-            <div class="bg-gray-100 p-6 rounded-lg mb-6">
+            <div class="bg-green-100 p-6 rounded-lg mb-6">
                 <h2 class="text-xl font-semibold mb-4">Submission:</h2>
                 <p>
                     Submit your completed short story as a typed document (Microsoft Word or PDF) to the English teacher's email by the
@@ -55,7 +55,7 @@
                 </p>
             </div>
 
-            <div class="bg-gray-100 p-6 rounded-lg mb-6">
+            <div class="bg-red-100 p-6 rounded-lg mb-6">
                 <h2 class="text-xl font-semibold mb-4">Grading Criteria:</h2>
                 <p>
                     Your short story will be evaluated based on creativity, plot development, character portrayal, language usage, and
