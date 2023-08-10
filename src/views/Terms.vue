@@ -15,7 +15,7 @@
 
             <div class="mt-8">
                 <h2 class="text-2xl font-semibold mb-4">Your Presence on Tiklipy Platform</h2>
-                <p>By using our web pages located at https://www.ticklipy.com ("Site"), you agree to abide by these terms of service. Please note that your presence and usage of the Tiklipy platform are subject to your acceptance of these terms, irrespective of whether you possess an account or an active subscription.</p>
+                <p>By using our web pages located at https://www.tiklipy.com ("Site"), you agree to abide by these terms of service. Please note that your presence and usage of the Tiklipy platform are subject to your acceptance of these terms, irrespective of whether you possess an account or an active subscription.</p>
             </div>
 
             <div class="mt-8">
@@ -66,7 +66,7 @@
 
                 <div class="mt-3">
                     <h3 class="text-xl font-semibold mb-4">Communications</h3>
-                    <p>By creating an account on our Service, you consent to receiving newsletters, marketing materials, and other information from us. You can opt out of these communications by using the unsubscribe link or contacting us at help@ticklipy.com. By visiting https://www.ticklipy.com or sending emails to Tiklipy, you agree to receive electronic communications. You acknowledge that electronic communications, including emails and notices on the Site, fulfill any legal requirements for written communication.</p>
+                    <p>By creating an account on our Service, you consent to receiving newsletters, marketing materials, and other information from us. You can opt out of these communications by using the unsubscribe link or contacting us at help@tiklipy.com. By visiting https://www.tiklipy.com or sending emails to Tiklipy, you agree to receive electronic communications. You acknowledge that electronic communications, including emails and notices on the Site, fulfill any legal requirements for written communication.</p>
                 </div>
             </div>
 
@@ -91,7 +91,7 @@
 
                 <div class="mt-3">
                     <h3 class="text-xl font-semibold mb-4">Intellectual Property Rights</h3>
-                    <p>You have a non-exclusive, non-transferable license to access and use https://www.ticklipy.com strictly as outlined in these terms. You may not modify, reverse engineer, publish, or exploit any content without authorization. While you obtain a license to use generated content, it's for personal use and is not transferable.</p>
+                    <p>You have a non-exclusive, non-transferable license to access and use https://www.tiklipy.com strictly as outlined in these terms. You may not modify, reverse engineer, publish, or exploit any content without authorization. While you obtain a license to use generated content, it's for personal use and is not transferable.</p>
                     <p>We own Tiklipy's content, excluding subscriber-generated content, including design, trademarks, and intellectual property. You are prohibited from unauthorized use or modification of protected content. Subscriber-generated content is governed by the Tiklipy End User License Agreement.</p>
                 </div>
 
@@ -108,7 +108,7 @@
                 <div class="mt-3">
                     <h3 class="text-xl font-semibold mb-4">Linking to and From Tiklipy</h3>
                     <p>You need permission to link to Tiklipy, and we can revoke that permission at our discretion.</p>
-                    <p>Tiklipy may contain links to third-party sites. We aren't responsible for their content and link inclusion doesn't imply endorsement. Some services on https://www.ticklipy.com are provided by third parties, and you consent to sharing information with them.</p>
+                    <p>Tiklipy may contain links to third-party sites. We aren't responsible for their content and link inclusion doesn't imply endorsement. Some services on https://www.tiklipy.com are provided by third parties, and you consent to sharing information with them.</p>
                 </div>
 
                 <div class="mt-3">
