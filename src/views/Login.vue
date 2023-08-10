@@ -16,23 +16,25 @@
         isLoading.value = true;
 
         const auth = getAuth();
-
         const db = getFirestore();
 
-        const subsRef = collection(
-            db,
-            "customers", auth.currentUser.uid, "subscriptions"
-        );
+        if(auth.currentUser) {
+            const subsRef = collection(
+                db,
+                "customers", auth.currentUser.uid, "subscriptions"
+            );
 
-        const subsQuery = query(
-            subsRef,
-            where("status", "in", ["trialing", "active", "past_due", "unpaid"])
-        );
+            const subsQuery = query(
+                subsRef,
+                where("status", "in", ["trialing", "active", "past_due", "unpaid"])
+            );
 
-        subscription.value = await getDocs(subsQuery)
-            .then((sub) => sub.docs.length > 0 ? sub.docs[0].data() : null);
-
-        isLoading.value = false;
+            subscription.value = await getDocs(subsQuery)
+                .then((sub) => sub.docs.length > 0 ? sub.docs[0].data() : null);
+            console.log(auth.currentUser.uid);
+            isLoading.value = false;
+        }
+        
     };
 
     onMounted(() => {
