@@ -112,7 +112,7 @@
           <input v-model="password" type="password" id="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main-color focus:border-main-color block w-full p-2.5 dark:border-gray-600 dark:text-white dark:focus:ring-main-color dark:focus:border-main-color" 
             placeholder="Enter a password">
         </div>
-        <button :disabled="!email || !password" :class="(!email || !password) || isLoading ? 'cursor-not-allowed bg-gray-500 hover:bg-gray-500' : 'bg-main-color hover:bg-secondary-color '" @click="signUp" class="border-0 w-full py-2 mt-2 font-bold text-white bg-main-color rounded hover:bg-secondary-color">
+        <button :disabled="!email || !password" :class="(!email || !password) || isLoading ? 'cursor-not-allowed bg-gray-500 hover:bg-gray-500' : 'bg-main-color hover:bg-secondary-color '" @click="signUp" class="w-full py-2 mt-2 font-bold text-white border-0 rounded bg-main-color hover:bg-secondary-color">
           {{ isLoading ? "Loading..." : "Register" }}
         </button>
       </div>
@@ -128,7 +128,7 @@
           <img src="/google-logo.svg" class="w-5 " alt="">
           <b class="ml-2">Google</b>
         </button>
-        <button  @click="signInWithFacebook" class="hover:!border-secondary-color flex items-center justify-center w-full py-2 my-3 text-black bg-transparent border-gray-300">
+        <button v-if="false" class="hover:!border-secondary-color flex items-center justify-center w-full py-2 my-3 text-black bg-transparent border-gray-300">
           <img src="/facebook-logo.svg" class="w-5" alt="">
           <b class="ml-2">Facebook</b>
         </button>
