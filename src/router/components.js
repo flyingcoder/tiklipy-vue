@@ -30,8 +30,8 @@ import SendGift from '../views/SendGift.vue';
 import FAQ from '../views/FAQ.vue';
 import Featured from '../components/Features.vue';
 //layouts
-import GuestsLayout from '../views/Index.vue';
-import MembersLayout from '../views/members/Index.vue';
+import GuestsLayout from '../views/GuestIndex.vue';
+import MembersLayout from '../views/members/MembersIndex.vue';
 
 export {
     Dashboard,
