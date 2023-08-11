@@ -1,5 +1,7 @@
 <script setup>
     import { ref, onMounted } from 'vue';
+    import { Auth } from '../../plugins/firebase';
+    import { getDoc, addDoc, getFirestore, collection, onSnapshot } from "firebase/firestore";
 
     const messages = ref([
         {
@@ -16,9 +18,38 @@
         }
     ]);
 
-    onMounted(() => [
+    onMounted(() => {
+        gptRef();
+        console.log('testing');
+    });
+
+    const gptRef = async () => {
         
-    ]);
+        const db = getFirestore();
+        const prompts = {
+            prompt: 'testing'
+        }
+
+        const gptRef = collection(
+            db,
+            "customers",
+            Auth.currentUser.uid,
+            "generates"
+        );
+
+        const subDoc = await addDoc(gptRef, prompts);
+
+        onSnapshot(subDoc,  (snap) => {
+            const { error, doc } = snap.data();
+
+            console.log(snap.data());
+
+            if(error) {
+                console.error('An error occored: ${error.message}');
+                isLoading.value = false
+            }
+        });
+    };
 </script>
 
 <template>
