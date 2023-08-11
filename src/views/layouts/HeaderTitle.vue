@@ -4,7 +4,7 @@ import { Breadcrumb, BreadcrumbItem } from 'flowbite-vue'
 <template>
     <div class="mt-7 px-4 lg:container md:mx-auto">
         <div class="block justify-center font-semibold">
-            <span class="text-purple-600 tracking-wider text-sm uppercase mt-0 mb-1 font-poppins font-bold leading-6">WELCOME BACK</span>
+            <span class="text-main-color tracking-wider text-sm uppercase mt-0 mb-1 font-poppins font-bold leading-6">WELCOME BACK</span>
             <div class="flex flex-wrap justify-between items-center ">
                 <div>
                     <h2 class="text-gray-800 text-3xl mt-2 mb-3">Prepare yourself for the upcoming academic year.</h2>

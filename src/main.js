@@ -5,11 +5,12 @@ import App from './App.vue'
 import router from './router'
 import { firebaseApp } from './plugins/firebase'
 import { getAnalytics } from "firebase/analytics";
+import 'sweetalert2/dist/sweetalert2.min.css';
 
-getAnalytics(firebaseApp)
+getAnalytics(firebaseApp);
 
-const app = createApp(App)
+const app = createApp(App);
 
-app.use(router)
+app.use(router);
 
-app.mount('#app')
+app.mount('#app');

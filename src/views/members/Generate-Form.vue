@@ -53,7 +53,7 @@
 
 </script>
 <template>
-    <div class="container text-black mt-7">
+    <div class="container text-black mt-7 px-3 mx-auto">
         <div class="bg-white rounded-xl shadow-md">
             <div class="flex bg-indigo-500 px-9 py-4 rounded-t-3xl">
                 <div>
@@ -68,8 +68,8 @@
                     Write
                 </div>
             </div>
-            <div class="grid grid-cols-6 gap-4 p-9">
-                <div class="col-span-4">
+            <div class="flex flex-wrap max-lg:flex-col-reverse  gap-4 p-3 sm:p-9">
+                <div class="w-full lg:w-[68%] col-span-4">
                     <div class="w-full generated-value py-4">
                         <h1 class="text-xl font-bold mb-6">Assessment Title: Exploring Health Project</h1>
         
@@ -172,7 +172,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-span-2">
+                <div class="w-full lg:w-[30%] col-span-2">
                     <div class="bg-gray-100 p-6 rounded-3xl">
                         <h2 class="text-2xl font-bold text-gray-800 leading-snug mb-10">Enter Your Upcoming Lesson</h2>
                         <form>
@@ -223,7 +223,7 @@
                             <div class="mb-6">
                                 <Textarea rows="4" placeholder="Additional instruction..." v-model="message" label="Your message" />
                             </div>
-                            <Button type="submit" size="lg" class="w-full bg-indigo-600 text-lg font-semibold">Generate Topic with Tiklipy!</Button>
+                            <Button type="submit" size="lg" class="w-full bg-indigo-600 text-sm lg:text-[0.775rem] xl:text-lg font-semibold">Generate Topic with Tiklipy!</Button>
                         </form>
                     </div>
                 </div>
