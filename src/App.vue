@@ -11,8 +11,10 @@
             .then((user) => {
               console.log(user);
               if(user) {
-                if(!user.subscription)
+                console.log(user)
+                if(!user.subscription) {
                   signOut(Auth)
+                }
               }
             })
   });
