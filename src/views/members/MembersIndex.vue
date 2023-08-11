@@ -4,13 +4,12 @@
   import Footer from '../layouts/MembersFooter.vue';
   import Preloader from '../../components/Preloader.vue';
   import HeaderTitle from '../layouts/HeaderTitle.vue';
-  import { getCurrentUser, fetchSubscription } from '../../plugins/firebase';
+  import { getCurrentUser } from '../../plugins/firebase';
   import { useRouter } from "vue-router"
   
   const showLogin = ref(false);
   const loading = ref(true);
   const router = useRouter();
-  const subscription = ref(null);
   const userDoc = ref(null);
 
   onMounted(() => {
@@ -20,15 +19,8 @@
 
   const user = async () => {
     await getCurrentUser()
-      .then(async (res) => {
-
+      .then((res) => {
         userDoc.value = res;
-
-        await fetchSubscription(res.uid)
-            .then((sub) => {
-              subscription.value = sub.docs.length > 0 ? sub.docs[0].data() : null
-            });
-        
         loading.value = false;
         
       }).catch((error) => {
