@@ -19,6 +19,8 @@
     const email = ref("");
     const password = ref("");
     const isLoading = ref(false);
+    const hasError = ref(false);
+
 
     const props = defineProps({
       selectedPrice: String,
@@ -32,9 +34,10 @@
           .then(() => {
               subscribeCustomer();
           })
-          .catch((err) => {
+          .catch((err) => {   
               console.log(err.message)
-          })
+              hasError.value = true
+          }).finally(() => { isLoading.value = false ;});
     };
 
     const subscribeCustomer = async () => {
@@ -99,20 +102,17 @@
     </template>
     <template #body>
       <div class="items-center justify-center w-full text-black">
-        <p class="text-sm text-center">Register with Emal and Password</p>
+        <p :class="hasError ? 'visible':'hidden'" class="mt-4 text-sm font-semibold text-center text-red-500">Please Enter a Valid Email Address</p>
         <div class="my-2">
-          <label for="email" class="block mb-2 text-sm font-medium">
-            Email</label>
-          <input v-model="email" type="email" id="email" class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
-            placeholder="Enter a valid email">
+          <label for="email" class="block mb-1 text-sm font-semibold text-gray-700 dark:text-white">Email</label>
+          <input type="email" v-model="email" id="email" :class="hasError ? 'border-red-500':''"  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main-color focus:border-main-color block w-full p-2.5 dark:border-gray-600 dark:text-white dark:focus:ring-main-color dark:focus:border-main-color" placeholder="Enter a valid email">
         </div>
         <div class="mb-2">
-          <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-            Password</label>
-          <input v-model="password" type="password" id="password" class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
+          <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
+          <input v-model="password" type="password" id="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main-color focus:border-main-color block w-full p-2.5 dark:border-gray-600 dark:text-white dark:focus:ring-main-color dark:focus:border-main-color" 
             placeholder="Enter a password">
         </div>
-        <button :disabled="!email || !password" :class="(!email || !password) || isLoading ? 'cursor-not-allowed bg-gray-500 hover:bg-gray-500' : 'bg-blue-500 hover:bg-blue-700'" @click="signUp" class="w-full py-2 mt-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700">
+        <button :disabled="!email || !password" :class="(!email || !password) || isLoading ? 'cursor-not-allowed bg-gray-500 hover:bg-gray-500' : 'bg-main-color hover:bg-secondary-color '" @click="signUp" class="border-0 w-full py-2 mt-2 font-bold text-white bg-main-color rounded hover:bg-secondary-color">
           {{ isLoading ? "Loading..." : "Register" }}
         </button>
       </div>
@@ -123,14 +123,14 @@
           </span>
       </div>
       <p class="text-center text-black">Sign up with</p>
-      <div class="grid grid-cols-2 gap-4">
-        <button  @click="signInWithFacebook" class="flex items-center justify-center w-full py-2 my-3 text-black bg-transparent border-gray-300">
-          <img src="/facebook-logo.svg" class="w-5" alt="">
-          <b class="ml-2">Facebook</b>
-        </button>
-        <button @click="signInWithGoogle" class="flex items-center justify-center w-full py-2 my-3 text-black bg-transparent border-gray-300 ">
+      <div class="">
+        <button @click="signInWithGoogle" class="hover:!border-secondary-color flex items-center justify-center w-full py-2 my-3 text-black bg-transparent border-gray-300 ">
           <img src="/google-logo.svg" class="w-5 " alt="">
           <b class="ml-2">Google</b>
+        </button>
+        <button  @click="signInWithFacebook" class="hover:!border-secondary-color flex items-center justify-center w-full py-2 my-3 text-black bg-transparent border-gray-300">
+          <img src="/facebook-logo.svg" class="w-5" alt="">
+          <b class="ml-2">Facebook</b>
         </button>
       </div>
     </template>
