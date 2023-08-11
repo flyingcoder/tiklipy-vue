@@ -11,7 +11,7 @@ import Assesment from '../views/members/Assesment.vue';
 import Quizes from '../views/members/Quizes.vue';
 import Homeworks from '../views/members/Homeworks.vue';
 import Tests from '../views/members/Tests.vue';
-import GenerateForm from '../views/members/Generate-Form.vue';
+import GenerateForm from '../views/members/GenerateForm.vue';
 import Projects from '../views/members/Projects.vue';
 import Activities from '../views/members/Activities.vue';
 //guest components

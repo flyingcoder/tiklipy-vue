@@ -28,7 +28,9 @@
   <Preloader v-if="loading" />
   <Header @login-is-click="showLogin = !showLogin" />
   <section class="min-h-screen midlg:px-10">
-    <router-view class="lg:container md:mx-auto"/>
+    <div class="lg:container md:mx-auto">
+      <router-view />
+    </div>
   </section>
   <Footer class="bg-white" />
   <SignIn v-if="showLogin" />

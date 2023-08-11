@@ -28,30 +28,35 @@ const getCurrentUser = () => {
     return new Promise((resolve, reject) => {
         const removeListener = onAuthStateChanged(
             Auth,
-            (user) => {
-                removeListener();
-                resolve(user);
+            async (user) => {
+                await fetchSubscription(user.uid)
+                        .then((sub) => {
+                            let subs = sub.docs.length > 0 ? sub.docs[0].data() : null;
+                            user.subscription = subs;
+                            removeListener();
+                            resolve(user);
+                        });
             },
             reject
         )
     })
 };
 
-  const fetchSubscription = (uid) => {
+const fetchSubscription = (uid) => {
 
-      const subsRef = collection(
-          getFirestore(),
-          "customers", 
-          uid,
-          "subscriptions"
-      );
-      const subsQuery = query(
-          subsRef,
-          where("status", "in", ["trialing", "active", "past_due", "unpaid"])
-      );
-      return getDocs(subsQuery);
+    const subsRef = collection(
+        getFirestore(),
+        "customers", 
+        uid,
+        "subscriptions"
+    );
 
-      //.then((sub) => sub.docs.length > 0 ? sub.docs[0].data() : null)
-  };
+    const subsQuery = query(
+        subsRef,
+        where("status", "in", ["trialing", "active", "past_due", "unpaid"])
+    );
+
+    return getDocs(subsQuery);
+};
 
 export { firebaseApp, Auth, getCurrentUser, fetchSubscription };

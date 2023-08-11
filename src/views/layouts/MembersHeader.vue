@@ -2,7 +2,6 @@
     import { onMounted, ref } from "vue";
     import { useRouter } from "vue-router";
     import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
-    import { Dropdown, ListGroup, ListGroupItem } from 'flowbite-vue';
     
     const router = useRouter();
     const isLoggedIn = ref(false);
