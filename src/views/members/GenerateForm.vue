@@ -14,6 +14,9 @@
     const asssesmentQuestionType = ref('');
     const homeworkQuestionType = ref('');
     const message = ref('');
+    const topic = ref('');
+    const homeworkNumberOfQuestions = ref('');
+    const AssessmentNumberOfQuestions = ref('');
 
     const questionType = ref([
     { value: 'MC', name: 'Multiple Choice' },
@@ -54,7 +57,7 @@
 </script>
 <template>
     <div class="container text-black mt-7 px-3 mx-auto">
-        <div class="bg-white rounded-xl shadow-md">
+        <div class="bg-white rounded-t-3xl shadow-md">
             <div class="flex bg-indigo-500 px-9 py-4 rounded-t-3xl">
                 <div>
                     <button type="button" disabled class="text-blue-700 bg-gray-100 bg-opacity-30 border focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-xl p-2.5 text-center inline-flex items-center dark:hover:text-white hover:border-transparent">
@@ -68,7 +71,7 @@
                     Write
                 </div>
             </div>
-            <div class="flex flex-wrap max-lg:flex-col-reverse  gap-4 p-3 sm:p-9">
+            <div class="flex flex-wrap   gap-4 p-3 sm:p-9">
                 <div class="w-full lg:w-[68%] col-span-4">
                     <div class="w-full generated-value py-4">
                         <h1 class="text-xl font-bold mb-6">Assessment Title: Exploring Health Project</h1>
@@ -144,7 +147,7 @@
                     <div class="block">
                         <div class="mt-9 mb-4 text-gray-500">444 words</div>
                         <div class="flex">
-                            <Button color="default" class="mr-3 bg-indigo-600 py-3 font-semibold">
+                            <Button color="default" class="mr-3 bg-main-color hover:bg-secondary-color border-0 py-3 font-semibold">
                                 <template #prefix>
                                     <svg class=" w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
                                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m7.708 2.292.706-.706A2 2 0 0 1 9.828 1h6.239A.97.97 0 0 1 17 2v12a.97.97 0 0 1-.933 1H15M6 5v4a1 1 0 0 1-1 1H1m11-4v12a.97.97 0 0 1-.933 1H1.933A.97.97 0 0 1 1 18V9.828a2 2 0 0 1 .586-1.414l2.828-2.828A2 2 0 0 1 5.828 5h5.239A.97.97 0 0 1 12 6Z"/>
@@ -152,7 +155,7 @@
                                 </template>
                                 Copy
                             </Button>
-                            <Button color="default" class="mr-3 bg-indigo-600 py-3 font-semibold">
+                            <Button color="default" class="mr-3 bg-main-color hover:bg-secondary-color border-0 py-3 font-semibold">
                                 <template #prefix>
                                     <svg class=" w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 20">
                                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m13 19-6-5-6 5V2a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v17Z"/>
@@ -160,7 +163,7 @@
                                 </template>
                                 Save
                             </Button>
-                            <Button class="bg-indigo-600 font-semibold py-3">
+                            <Button class="bg-main-color hover:bg-secondary-color border-0 font-semibold py-3">
                                 <template #prefix>
                                     <svg class=" w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 18">
                                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 14 3-3m-3 3 3 3m-3-3h16v-3m2-7-3 3m3-3-3-3m3 3H3v3"/>
@@ -185,22 +188,25 @@
                                 <Select v-model="selectSubject" placeholder="Please select Grade level" class="mb-7 bg-transparent-input" :options="subject" />
                             </div>
                             <div class="mb-4">
-                                <label for="email" class="text-gray-700 font-semibold mb-1 block">Topic</label>
-                                <input type="email" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="Lesson Topic" required>
+                                <label for="" class="text-gray-700 font-semibold mb-1 block">Topic</label>
+                                <input v-model="topic" type="text" id="text" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="Lesson Topic" required>
                             </div>
 
                              <!-- Assessment Toggle -->
                             <div class="mb-4">
                                 <div class="flex items-center mb-6">
                                     <label :class="toggleAssesment? '':''" class="mr-3 text-gray-700 font-semibold">Assesment </label>
-                                    <Toggle v-model="toggleAssesment" label="" />
+                                    <label class="relative inline-flex items-center cursor-pointer">
+                                        <input v-model="toggleAssesment" type="checkbox" value="" class="sr-only peer" >
+                                        <div  class="w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-secondary-color dark:peer-focus:ring-secondary-color dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-main-color"></div>
+                                    </label>
                                 </div>
                                 <div :class="toggleAssesment? 'visible':'hidden'" class="">
                                     <div class="basis-2/3 mb-2">
                                         <Select v-model="asssesmentQuestionType" placeholder="Select Question Type" class=" bg-transparent-input" :options="questionType" />
                                     </div>
                                     <div class="mb-6 basis-1/3 ">
-                                        <input type="number" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="Number of Questions" required>
+                                        <input v-model="assessmentNumberOfQuestions" type="number" id="text" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="Number of Questions" required>
                                     </div>
                                 </div>
                             </div>
@@ -209,25 +215,28 @@
                             <div class="mb-6">
                                 <div class="flex items-center mb-6">
                                     <label :class="toggleHomework? '':''" class="mr-3 text-gray-700 font-semibold">Homework </label>
-                                    <Toggle v-model="toggleHomework" label="" />
+                                    <label class="relative inline-flex items-center cursor-pointer">
+                                        <input v-model="toggleHomework" type="checkbox" value="" class="sr-only peer" >
+                                        <div  class="w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-secondary-color dark:peer-focus:ring-secondary-color dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-main-color"></div>
+                                    </label>
                                 </div>
                                 <div :class="toggleHomework? 'visible':'hidden'" class="">
                                     <div class="basis-2/3 mb-2">
                                         <Select v-model="homeworkQuestionType" placeholder="Select Question Type" class=" bg-transparent-input" :options="questionType" />
                                     </div>
                                     <div class="mb-6 basis-1/3 ">
-                                        <input type="number" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="Number of Questions" required>
+                                        <input v-model="homeworkNumberOfQuestions" type="number" id="text" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="Number of Questions" required>
                                     </div>
                                 </div>
                             </div>
                             <div class="mb-6">
                                 <Textarea rows="4" placeholder="Additional instruction..." v-model="message" label="Your message" />
                             </div>
-                            <Button type="submit" size="lg" class="w-full bg-indigo-600 text-sm lg:text-[0.775rem] xl:text-lg font-semibold">Generate Topic with Tiklipy!</Button>
+                            <Button type="submit" size="lg" class="w-full bg-main-color hover:bg-secondary-color border-0 text-sm lg:text-[0.775rem] xl:text-lg font-semibold">Generate Topic with Tiklipy!</Button>
                         </form>
                     </div>
                 </div>
-            </div>
+            </div> 
         </div>
         
     </div>
