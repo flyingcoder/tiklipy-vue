@@ -2,13 +2,7 @@
     import { Breadcrumb, BreadcrumbItem } from 'flowbite-vue'
     import { ref } from 'vue';
     import { useRoute } from 'vue-router';
-
     const route = useRoute();
-
-    const getDisplayName = (routeName) => {
-        const matchedRoute = route.matched.find(r => r.name === routeName);
-        return matchedRoute && matchedRoute.meta && matchedRoute.meta.displayName;
-    };
 </script>
 <template>
     <div class="mt-7 px-4 lg:container md:mx-auto">
@@ -16,7 +10,7 @@
             <span class="text-main-color tracking-wider text-sm uppercase mt-0 mb-1 font-poppins font-bold leading-6">WELCOME BACK</span>
             <div class="flex flex-wrap md:justify-between items-center ">
                 <div>
-                    <h2 class="text-gray-800 text-2xl  lg:text-3xl mt-2 mb-3">Prepare yourself for the upcoming academic year.</h2>
+                    <h2 class="text-gray-800 text-2xl  lg:text-3xl mt-2 mb-3">{{ route.meta.siteDescription }}</h2>
                 </div>
                 <div class="w-full md:w-max flex justify-end	">
                     <router-link :to="{name: 'generate'}" class="max-sm:w-full max-sm:justify-center text-white bg-main-color hover:text-white focus:ring-4 focus:outline-none  font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#1da1f2]/55 mr-2 mb-2">
