@@ -86,7 +86,7 @@
         position: fixed;
         top: 0;
         left: 0;
-        background: #111827;
+        background: #f3f4f6;
         height: 100%;
         width: 100%;
         opacity: 0;
@@ -103,7 +103,7 @@
         --dur: 3s;
         margin: auto;
         position: relative;
-        width: 8em;
+        width: 6em;
         display: flex;
         height: 100%;
         font-size: 16px;
@@ -130,8 +130,8 @@
         box-shadow: -0.125em -0.125em 0 hsla(var(--hue),10%,10%,0.25) inset;
         top: calc(50% - 0.5em);
         left: calc(50% - 0.5em);
-        width: 1em;
-        height: 1em;
+        width: .75em;
+        height: .75em;
         transition: background-color var(--trans-dur);
     }
     .pl__nucleus-particle:nth-child(2n) {
