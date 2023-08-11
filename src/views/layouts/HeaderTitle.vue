@@ -1,5 +1,14 @@
 <script setup>
-import { Breadcrumb, BreadcrumbItem } from 'flowbite-vue'
+    import { Breadcrumb, BreadcrumbItem } from 'flowbite-vue'
+    import { ref } from 'vue';
+    import { useRoute } from 'vue-router';
+
+    const route = useRoute();
+
+    const getDisplayName = (routeName) => {
+        const matchedRoute = route.matched.find(r => r.name === routeName);
+        return matchedRoute && matchedRoute.meta && matchedRoute.meta.displayName;
+    };
 </script>
 <template>
     <div class="mt-7 px-4 lg:container md:mx-auto">
@@ -20,14 +29,14 @@ import { Breadcrumb, BreadcrumbItem } from 'flowbite-vue'
             </div>
             <div class="mb-4">
                 <Breadcrumb class="text-gray-800">
-                    <BreadcrumbItem href="#" class="no-icon text-gray-600 hover:text-gray-800 transition duration-300">
+                    <BreadcrumbItem href="/dash" class="no-icon text-gray-600 hover:text-gray-800 transition duration-300">
                         Tiklipy
                     </BreadcrumbItem>
-                    <BreadcrumbItem href="#" class="text-gray-600 hover:text-gray-800 transition duration-300">
+                    <BreadcrumbItem href="/members" class="text-gray-600 hover:text-gray-800 transition duration-300">
                         Members
                     </BreadcrumbItem>
                     <BreadcrumbItem class="text-gray-800 font-semibold">
-                        Dashboard
+                        {{ route.meta.displayName }}
                     </BreadcrumbItem>
                 </Breadcrumb>
             </div>
