@@ -14,7 +14,6 @@
 
   onMounted(() => {
     user();
-    router.push({ name: 'dashboard' });
   });
 
   const user = async () => {

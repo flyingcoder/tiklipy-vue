@@ -13,11 +13,7 @@ router.beforeEach(async (to, from, next) =>  {
     if(to.matched.some((record) => record.meta.requiresAuth )) {
         let user = await getCurrentUser();
         if(user) {
-            if(user.subscription.status === 'status') {
-                next();
-            } else {
-                next("pricing");
-            }
+            next();
         } else {
             next("login");
         }

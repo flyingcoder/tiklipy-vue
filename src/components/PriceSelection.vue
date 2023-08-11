@@ -2,7 +2,7 @@
     import { onMounted, ref } from "vue";
     import SignUp from './../views/sign/Up.vue';
     import { useRouter } from 'vue-router';
-    import { Auth } from "../plugins/firebase";
+    import { getCurrentUser, Auth } from "../plugins/firebase";
     import {
         getFirestore,
         getDocs,
@@ -17,17 +17,17 @@
     const isLoading = ref(false);
     const showRegister = ref(false);
     const selectedPrice = ref();
-    const auth = ref()
+    const user = ref();
 
-    onMounted(() => {
+    onMounted(async () => {
         fetchProducts();
-        auth.value = Auth.currentUser;
+        await getCurrentUser()
+                .then((userRes) => user.value = userRes);
     });
 
     const createSub = (price_id) => {
-        if(auth) {
-            console.log(auth)
-            router.push({ name: "account" });
+        if(user) {
+            router.push({ name: 'account' })
         } else {
             isLoading.value = true;
             showRegister.value = true;
