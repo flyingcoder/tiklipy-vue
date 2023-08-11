@@ -10,13 +10,13 @@
     onMounted(() => {
         auth = getAuth();
         onAuthStateChanged(auth, (user) => {
-        isLoggedIn.value = !!user;
+            isLoggedIn.value = !!user;
         });
     });
 
     const handleSignOut = () => {
         signOut(auth).then(() => {
-        router.push({ name: 'login' });
+            router.push({ name: 'login' });
         });
     };
 </script>

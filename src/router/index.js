@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
-import { getCurrentUser, Auth } from "../plugins/firebase";
+import { getCurrentUser } from "../plugins/firebase";
 import routes from "./routes.js";
 
 

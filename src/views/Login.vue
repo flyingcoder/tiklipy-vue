@@ -1,12 +1,13 @@
 <script setup>
     import { onMounted, ref } from "vue";
     import { useRouter } from "vue-router";
-    import { getCurrentUser } from "../plugins/firebase";
-    import { getAuth, 
+    import { getCurrentUser, Auth } from "../plugins/firebase";
+    import {
         signInWithEmailAndPassword,
         GoogleAuthProvider,
         FacebookAuthProvider,
-        signInWithPopup, 
+        signInWithPopup,
+        signOut
     } from "firebase/auth"
 
     const router = useRouter();
@@ -22,17 +23,23 @@
                 .then((user) => {
                     if(user) {
                         router.push({ name: 'dashboard'})
+                    } else {
+                        signOut(user);
                     }
                 });
     })
     
     const signIn = async () => {
         isLoading.value = true;
-        const auth = getAuth()
-        await signInWithEmailAndPassword(auth, email.value, password.value)
-            .then(() => {
-                console.log(auth.currentUser)
-                router.push({ name: 'dashboard' });
+        await signInWithEmailAndPassword(Auth, email.value, password.value)
+            .then((res) => {
+                if(res.user.subscription) {
+                    router.push({ name: 'dashboard' })
+                } else {
+                    signOut(Auth).then(() => {
+                        router.push({ name: 'pricing' });
+                    });
+                }   
             })
             .catch((error) => {
                 console.log(error.message)
@@ -49,10 +56,15 @@
     const signInWithGoogle = () => {
         isLoading.value = true;
         const provider = new GoogleAuthProvider();
-        signInWithPopup(getAuth(), provider)
+        signInWithPopup(Auth, provider)
             .then((res) => {
-                console.log(res.user);
-                router.push({ name: 'dashboard' })
+                if(res.user.subscription) {
+                    router.push({ name: 'dashboard' })
+                } else {
+                    signOut(Auth).then(() => {
+                        router.push({ name: 'pricing' });
+                    });
+                }
             })
             .catch((error) => {
                 console.log(error.message)
@@ -111,7 +123,7 @@
             </div>
             <p class="font-semibold text-center text-black">Sign in with</p>
             <div class="flex px-6 text-black">
-                <button @click="signInWithFacebook" class="flex items-center justify-center w-full py-2 mt-3 bg-transparent border-gray-300 focus:border-gray-300 focus:outline-none">
+                <button v-if="false" class="flex items-center justify-center w-full py-2 mt-3 bg-transparent border-gray-300 focus:border-gray-300 focus:outline-none">
                     <img src="/facebook-logo.svg" class="w-5" alt="">
                     <b class="ml-2">Facebook</b>
                 </button>

@@ -26,7 +26,7 @@
     });
 
     const createSub = (price_id) => {
-        if(user) {
+        if(user.value) {
             router.push({ name: 'account' })
         } else {
             isLoading.value = true;

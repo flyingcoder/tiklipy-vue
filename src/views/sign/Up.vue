@@ -66,7 +66,6 @@
     }
 
     const signInWithGoogle = () => {
-        
         const provider = new GoogleAuthProvider();
         signInWithPopup(getAuth(), provider)
             .then((res) => {
@@ -125,11 +124,11 @@
       </div>
       <p class="text-center text-black">Sign up with</p>
       <div class="grid grid-cols-2 gap-4">
-        <button  @click="signInWithFacebook" class="flex text-black items-center justify-center w-full py-2 my-3 bg-transparent border-gray-300">
+        <button  @click="signInWithFacebook" class="flex items-center justify-center w-full py-2 my-3 text-black bg-transparent border-gray-300">
           <img src="/facebook-logo.svg" class="w-5" alt="">
           <b class="ml-2">Facebook</b>
         </button>
-        <button @click="signInWithGoogle" class="flex text-black items-center justify-center w-full py-2 my-3 bg-transparent border-gray-300 ">
+        <button @click="signInWithGoogle" class="flex items-center justify-center w-full py-2 my-3 text-black bg-transparent border-gray-300 ">
           <img src="/google-logo.svg" class="w-5 " alt="">
           <b class="ml-2">Google</b>
         </button>

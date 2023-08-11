@@ -1,5 +1,8 @@
 import { getApps, initializeApp } from "firebase/app";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { 
+    getAuth, 
+    onAuthStateChanged
+} from "firebase/auth";
 import { 
     getFirestore,
     collection,
@@ -61,4 +64,9 @@ const fetchSubscription = (uid) => {
     return getDocs(subsQuery);
 };
 
-export { firebaseApp, Auth, getCurrentUser, fetchSubscription };
+export { 
+    firebaseApp, 
+    Auth, 
+    getCurrentUser, 
+    fetchSubscription
+};
