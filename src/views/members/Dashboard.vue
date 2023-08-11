@@ -5,7 +5,7 @@
 <template>
     <div class="mt-7 px-4">
         <div class="mb-16">
-            <div class="grid pt-10 grid-cols-1 md:grid-cols-2 sm:grid-cols-1 lg:grid-cols-3 gap-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 sm:grid-cols-1 lg:grid-cols-3 gap-4">
                 <the-card href="#" class="w-full border-none rounded-lg shadow-none hover:bg-white hover:shadow-md bg-[url('/public/p-1.png')] bg-no-repeat bg-contain" style="max-width: 100% !important">
                     <div class="md:p-6 dark:bg-gray-800 dark:border-gray-700">
                         <!-- <svg class="w-7 h-7 mb-9  text-main-color dark:text-gray-400 mb-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
