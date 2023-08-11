@@ -29,7 +29,7 @@
             </div>
             <div class="mb-4">
                 <Breadcrumb class="text-gray-800">
-                    <BreadcrumbItem href="/dash" class="no-icon text-gray-600 hover:text-gray-800 transition duration-300">
+                    <BreadcrumbItem href="/" class="no-icon text-gray-600 hover:text-gray-800 transition duration-300">
                         Tiklipy
                     </BreadcrumbItem>
                     <BreadcrumbItem href="/members" class="text-gray-600 hover:text-gray-800 transition duration-300">
