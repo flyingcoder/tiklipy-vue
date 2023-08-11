@@ -78,7 +78,7 @@
             <LessonPlan v-if="isViewActive('lessonPlan')" />
             <Homework v-if="isViewActive('homework')" />
             <Quiz v-if="isViewActive('quiz')" />
-            <PPT v-if="isViewActive('ppt')" />
+            <PPT v-if="isViewActive('ppt')" @click="$emit(hidePowerPoint)" />
         </div>
     </div>
 </template>
