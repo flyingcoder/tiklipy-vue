@@ -56,18 +56,19 @@
                     <ul class="flex flex-col mt-4 text-lg font-medium lg:flex-row lg:space-x-1 lg:mt-0 ">
                         <li>
                             <router-link to="/features" active-class="text-main-color dark:text-white" class="block py-2 pl-3 pr-4 text-base text-gray-900 dark:text-white dark:hover:text-main-color dark:hover:bg-gray-700 dark:border-gray-700" >
-                                Features
+                                <i class="pb-1 mr-1 text-lg ti ti-stars"></i> Features
                             </router-link>
                         </li>
                         <li>
-                            <router-link to="/pricing" class="block py-2 pl-3 pr-4 text-base text-gray-900 dark:text-white dark:hover:text-main-color dark:hover:bg-gray-700 dark:border-gray-700"
-                                        active-class="text-main-color dark:text-white">Pricing</router-link>
+                            <router-link to="/pricing" class="block py-2 pl-3 pr-4 text-base text-gray-900 dark:text-white dark:hover:text-main-color dark:hover:bg-gray-700 dark:border-gray-700" active-class="text-main-color dark:text-white">
+                                <i class="pb-1 mr-1 text-lg ti ti-tag"></i> Pricing
+                            </router-link>
                         </li>
                         <li>
                             <button id="mega-menu-dropdown-button" data-dropdown-toggle="mega-menu-dropdown"
                                     class="flex items-center justify-between w-full py-2 pl-3 pr-4 text-base font-medium text-gray-900 bg-transparent md:w-auto focus:outline-none hover:border-transparent hover:text-main-color dark:text-white focus:border-transparent focus:ring-0"
                             >
-                                About
+                            <i class="pb-1 mr-1 text-lg ti ti-info-circle"></i> About
                                 <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                                     viewBox="0 0 10 6">
                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
