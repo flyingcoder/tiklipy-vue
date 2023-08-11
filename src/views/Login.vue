@@ -33,13 +33,7 @@
         isLoading.value = true;
         await signInWithEmailAndPassword(Auth, email.value, password.value)
             .then((res) => {
-                if(res.user.subscription) {
-                    router.push({ name: 'dashboard' })
-                } else {
-                    signOut(Auth).then(() => {
-                        router.push({ name: 'pricing' });
-                    });
-                }   
+                router.go({name: 'dashboard'})
             })
             .catch((error) => {
                 console.log(error.message)

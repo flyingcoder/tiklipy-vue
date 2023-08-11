@@ -2,7 +2,7 @@
     import { ref, defineProps, watch } from "vue";
     import { useRouter } from 'vue-router';
     import { Modal } from 'flowbite-vue';
-    import { Auth } from './../../plugins/firebase';
+    import { Auth, getCurrentUser } from './../../plugins/firebase';
     import { addDoc,
         getFirestore,
         collection,
@@ -29,9 +29,8 @@
     
     const signUp = () => {
       isLoading.value = true;
-      const auth = getAuth()
-      createUserWithEmailAndPassword(auth, email.value, password.value)
-          .then(() => {
+      createUserWithEmailAndPassword(Auth, email.value, password.value)
+          .then((res) => {
               subscribeCustomer();
           })
           .catch((err) => {   
@@ -68,11 +67,22 @@
         });
     }
 
+    const checkSubscription = async () => {
+      await getCurrentUser()
+                .then((user) => {
+                  if(!user.subscription) {
+                    subscribeCustomer();
+                  } else {
+                    router.go({ name: 'dashboard'});
+                  }
+                });
+    }
+
     const signInWithGoogle = () => {
         const provider = new GoogleAuthProvider();
-        signInWithPopup(getAuth(), provider)
+        signInWithPopup(Auth, provider)
             .then((res) => {
-                subscribeCustomer();
+                checkSubscription();
             })
             .catch((error) => {
                 console.log(error.message)
