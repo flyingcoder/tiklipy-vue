@@ -15,6 +15,7 @@
     const homeworkQuestionType = ref('');
     const message = ref('');
     const topic = ref('');
+    const generatedTopic = ref(false);
     const homeworkNumberOfQuestions = ref('');
     const assessmentNumberOfQuestions = ref('');
 
@@ -73,7 +74,66 @@
             </div>
             <div class="flex flex-wrap   gap-4 p-3 sm:p-9">
                 <div class="w-full lg:w-[68%] col-span-4">
-                    <div class="w-full generated-value py-4">
+                    <div class="w-full generated-value py-4" v-if="!generatedTopic">
+                        <h1 class="text-2xl font-semibold mb-6">Creating Educational Content: Step-by-Step</h1>
+                        <div class="space-y-6">
+                            <!-- Step 1 -->
+                            <div>
+                                <h2 class="text-xl font-semibold">Step 1: Choose Lesson Details</h2>
+                                <p>Select grade level, subject, and enter the topic of your lesson.</p>
+                            </div>
+
+                            <!-- Step 2 -->
+                            <div>
+                                <h2 class="text-xl font-semibold">Step 2: Toggle Assessment and Homework</h2>
+                                <p>Decide on including assessment and/or homework. Toggle switches accordingly.</p>
+                            </div>
+
+                            <!-- Step 3 -->
+                            <div>
+                                <h2 class="text-xl font-semibold">Step 3: Assessment and Homework Specifics</h2>
+                                <p>If enabling assessment or homework, choose question type and quantity.</p>
+                            </div>
+
+                            <!-- Step 4 -->
+                            <div>
+                                <h2 class="text-xl font-semibold">Step 4: Add Additional Instructions</h2>
+                                <p>If needed, provide extra guidance or messages for your lesson.</p>
+                            </div>
+
+                            <!-- Step 5 -->
+                            <div>
+                                <h2 class="text-xl font-semibold">Step 5: Generate the Content</h2>
+                                <p>Click the "Generate Topic with Tiklipy!" button.</p>
+                            </div>
+
+                            <!-- Step 6 -->
+                            <div>
+                                <h2 class="text-xl font-semibold">Step 6: Review and Interact with Content</h2>
+                                <p>Generated content will be displayed on the left side of the screen.</p>
+                                <p>Review and interact with it.</p>
+                            </div>
+
+                            <!-- Step 7 -->
+                            <div>
+                                <h2 class="text-xl font-semibold">Step 7: Copy, Save, or Regenerate</h2>
+                                <p>Use buttons to copy, save, or regenerate content.</p>
+                            </div>
+
+                            <!-- Step 8 -->
+                            <div>
+                                <h2 class="text-xl font-semibold">Step 8: Modify and Refine</h2>
+                                <p>Adjust choices and generate new content if needed.</p>
+                            </div>
+
+                            <!-- Step 9 -->
+                            <div>
+                                <h2 class="text-xl font-semibold">Step 9: Follow Assessment Rubric and Guidelines</h2>
+                                <p>Refer to the rubric for content quality and completeness.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-full generated-value py-4" v-if="generatedTopic">
                         <h1 class="text-xl font-bold mb-6">Assessment Title: Exploring Health Project</h1>
         
                         <!-- Objective -->
