@@ -16,7 +16,7 @@
     const message = ref('');
     const topic = ref('');
     const homeworkNumberOfQuestions = ref('');
-    const AssessmentNumberOfQuestions = ref('');
+    const assessmentNumberOfQuestions = ref('');
 
     const questionType = ref([
     { value: 'MC', name: 'Multiple Choice' },
