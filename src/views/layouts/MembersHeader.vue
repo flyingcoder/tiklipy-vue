@@ -61,13 +61,13 @@
                 <div id="mega-menu" :class="{'hidden': isMenuHidden}" class="relative z-10 items-center justify-between w-full lg:flex lg:w-auto lg:order-1">
                     <ul class="flex flex-col mt-4 text-lg font-medium md:flex-row md:space-x-4 md:mt-0">
                         <li class="self-center dropdown">
-                            <router-link :to="{ name: 'lessons' }" class="block px-3 py-2 text-lg font-medium text-gray-900 divide-gray-100 dark:hover:text-main-color md:border-0 md:p-0">
+                            <router-link :to="{ name: 'lessons' }" class="block px-3 py-2 text-base font-medium text-gray-900 divide-gray-100 dark:hover:text-main-color md:border-0 md:p-0">
                                 <i class="pb-1 mr-1 text-lg ti ti-book"></i> Lessons
                             </router-link>
                         </li>
 
                         <li class="self-center dropdown">
-                            <router-link :to="{ name: 'visuals' }" class="block px-3 py-2 text-lg font-medium text-gray-900 divide-gray-100 dark:hover:text-main-color md:border-0 md:p-0">
+                            <router-link :to="{ name: 'visuals' }" class="block px-3 py-2 text-base font-medium text-gray-900 divide-gray-100 dark:hover:text-main-color md:border-0 md:p-0">
                                 <i class="pb-1 mr-1 text-lg ti ti-presentation"></i> Visual Aid
                             </router-link>
                         </li>
@@ -76,7 +76,7 @@
                             <dropdown placement="bottom">
                                 <template #trigger="{ toggle }">
                                     <a
-                                    class="flex items-center text-lg text-gray-900 transition duration-300 bg-transparent cursor-pointer hover:border-transparent focus:border-transparent dark:text-gray-100 hover:text-main-color"
+                                    class="flex items-center text-base text-gray-900 transition duration-300 bg-transparent cursor-pointer hover:border-transparent focus:border-transparent dark:text-gray-100 hover:text-main-color"
                                     @click="toggle"
                                     >
                                     <i class="mr-2 text-lg ti ti-checkbox"></i>
