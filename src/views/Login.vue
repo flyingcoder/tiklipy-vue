@@ -1,6 +1,5 @@
 <script setup>
-    import 'animate.css';
-    import { ref, defineProps } from "vue"
+    import { ref } from "vue"
     import { useRouter } from "vue-router"
     import { getAuth, 
         signInWithEmailAndPassword,
@@ -69,24 +68,24 @@
                 <router-link :to="{ name: 'home' }">
                     <img class="w-32 mx-auto mb-4" src="/tiklipy-logo-indigo.png" alt="tiklipy logo indigo color">
                 </router-link>
-                <h2 class="w-full text-2xl text-center font-semibold">Sign in to Start!</h2>
-                <p class="text-lg text-center font-semibold">
+                <h2 class="w-full text-2xl font-semibold text-center">Sign in to Start!</h2>
+                <p class="text-lg font-semibold text-center">
                     Start generating fantastic lessons!
                 </p>
             </div>
 
             <div class="items-center justify-center w-full px-6 text-black">
-                <p :class="hasError ? 'hidden':'visible'" class="mt-4 text-sm text-center font-semibold">Login with Email & Password</p>
-                <p :class="hasError ? 'visible':'hidden'" class="mt-4 text-sm text-center font-semibold text-red-500">Invalid Email or Password</p>
+                <p :class="hasError ? 'hidden':'visible'" class="mt-4 text-sm font-semibold text-center">Login with Email & Password</p>
+                <p :class="hasError ? 'visible':'hidden'" class="mt-4 text-sm font-semibold text-center text-red-500">Invalid Email or Password</p>
                 <div class="my-2">
                     <div>
-                        <label for="email" class="block text-sm font-semibold mb-1 text-gray-700 dark:text-white">Email</label>
+                        <label for="email" class="block mb-1 text-sm font-semibold text-gray-700 dark:text-white">Email</label>
                         <input type="email" v-model="email" id="email" :class="hasError||wrongCred ? 'border-red-500':''"  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-600 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter a valid email">
                     </div>
                 </div>
                 <div class="mb-2">
                     <div>
-                        <label for="password" class="block text-sm font-semibold mb-1 text-gray-700 dark:text-white">Password</label>
+                        <label for="password" class="block mb-1 text-sm font-semibold text-gray-700 dark:text-white">Password</label>
                         <input type="password" v-model="password" id="password" :class="hasError||wrongCred ? 'border-red-500':''" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-600 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter a password">
                     </div>
                 </div>
@@ -100,15 +99,15 @@
                 or
                 </span>
             </div>
-            <p class="text-center text-black font-semibold">Sign in with</p>
-            <div class="px-6 flex text-black">
-                <button @click="signInWithFacebook" class="flex items-center justify-center w-full py-2 mt-3 bg-transparent focus:border-gray-300 focus:outline-none border-gray-300">
+            <p class="font-semibold text-center text-black">Sign in with</p>
+            <div class="flex px-6 text-black">
+                <button @click="signInWithFacebook" class="flex items-center justify-center w-full py-2 mt-3 bg-transparent border-gray-300 focus:border-gray-300 focus:outline-none">
                     <img src="/facebook-logo.svg" class="w-5" alt="">
                     <b class="ml-2">Facebook</b>
                 </button>
             </div>
-            <div class="px-6 pb-6 flex text-black">
-                <button @click="signInWithGoogle" class="flex items-center justify-center w-full py-2 mt-3 bg-transparent focus:border-gray-300 focus:outline-none border-gray-300">
+            <div class="flex px-6 pb-6 text-black">
+                <button @click="signInWithGoogle" class="flex items-center justify-center w-full py-2 mt-3 bg-transparent border-gray-300 focus:border-gray-300 focus:outline-none">
                     <img src="/google-logo.svg" class="w-5" alt="">
                     <b class="ml-2">Google</b>
                 </button>

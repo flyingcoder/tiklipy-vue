@@ -1,5 +1,13 @@
 import { getApps, initializeApp } from "firebase/app";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { 
+    getFirestore,
+    collection,
+    query,
+    where,
+    getDocs
+  } from "firebase/firestore";
+
 
 const firebaseConfig = {
     apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
@@ -29,4 +37,21 @@ const getCurrentUser = () => {
     })
 };
 
-export { firebaseApp, Auth, getCurrentUser };
+  const fetchSubscription = (uid) => {
+
+      const subsRef = collection(
+          getFirestore(),
+          "customers", 
+          uid,
+          "subscriptions"
+      );
+      const subsQuery = query(
+          subsRef,
+          where("status", "in", ["trialing", "active", "past_due", "unpaid"])
+      );
+      return getDocs(subsQuery);
+
+      //.then((sub) => sub.docs.length > 0 ? sub.docs[0].data() : null)
+  };
+
+export { firebaseApp, Auth, getCurrentUser, fetchSubscription };

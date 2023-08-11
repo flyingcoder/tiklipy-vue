@@ -17,22 +17,22 @@
 
     const handleSignOut = () => {
         signOut(auth).then(() => {
-        router.push('sign-in');
+        router.push({ name: 'login' });
         });
     };
 </script>
 <template>
     <header class="bg-white">
-        <nav class="border-gray-200 dark:bg-gray-900 max-w-screen-2xl mx-auto">
+        <nav class="mx-auto border-gray-200 dark:bg-gray-900 max-w-screen-2xl">
             <div class="flex flex-wrap items-center justify-between px-4 py-6 mx-auto max-lg:justify-end">
-                <div class="flex items-center lg:order-3 relative z-10">
+                <div class="relative z-10 flex items-center lg:order-3">
                     <a v-if="!isLoggedIn" @click="$emit('loginIsClick')" class="cursor-pointer text-gray-800 dark:text-white focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-lg px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800">
                       Login
                     </a>
                     <router-link v-if="!isLoggedIn" to="/pricing" class="cursor-pointer text-white bg-main-color focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-lg px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 dark:bg-blue-600 focus:outline-none dark:focus:ring-blue-800 hover:text-white">
                       Sign up
                     </router-link>
-                    <router-link :to="{ name: 'consult' }" active-class="text-main-color dark:text-white" class="max-xs:hidden block px-3 py-2 text-lg font-medium text-gray-900 divide-gray-100 dark:hover:text-main-color md:border-0 md:p-0">
+                    <router-link :to="{ name: 'consult' }" active-class="text-main-color dark:text-white" class="block px-3 py-2 text-lg font-medium text-gray-900 divide-gray-100 max-xs:hidden dark:hover:text-main-color md:border-0 md:p-0">
                         <i class="pb-1 mr-1 text-lg ti ti-atom"></i> Consult
                     </router-link>
                     <button @click="handleSignOut" v-if="isLoggedIn" type="button" class="max-xs:hidden text-white bg-main-color ml-2 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
@@ -46,7 +46,7 @@
                     </button>
                 </div>
                 
-                <div class="absolute inset-x-0 top-4 md:order-2 z-0">
+                <div class="absolute inset-x-0 z-0 top-4 md:order-2">
                     <router-link :to="{ name: 'dashboard' }" class="flex items-center">
                         <img src="/public/tiklipy-logo-black.png" class="h-12 ml-4 sm:mx-auto relative top-[5px]" alt="Tiklipy Logo" />
                     </router-link>
@@ -54,23 +54,23 @@
                 
                 <div id="mega-menu" class="relative z-10 items-center justify-between hidden w-full lg:flex lg:w-auto lg:order-1">
                     <ul class="flex flex-col mt-4 text-lg font-medium md:flex-row md:space-x-4 md:mt-0">
-                        <li class="dropdown self-center">
+                        <li class="self-center dropdown">
                             <router-link :to="{ name: 'lessons' }" class="block px-3 py-2 text-lg font-medium text-gray-900 divide-gray-100 dark:hover:text-main-color md:border-0 md:p-0">
                                 <i class="pb-1 mr-1 text-lg ti ti-book"></i> Lessons
                             </router-link>
                         </li>
 
-                        <li class="dropdown self-center">
+                        <li class="self-center dropdown">
                             <router-link :to="{ name: 'visuals' }" class="block px-3 py-2 text-lg font-medium text-gray-900 divide-gray-100 dark:hover:text-main-color md:border-0 md:p-0">
                                 <i class="pb-1 mr-1 text-lg ti ti-presentation"></i> Visual Aid
                             </router-link>
                         </li>
 
-                        <li class="dropdown self-center">
+                        <li class="self-center dropdown">
                             <dropdown placement="bottom">
                                 <template #trigger="{ toggle }">
                                     <a
-                                    class="flex items-center text-lg text-gray-900 transition duration-300 bg-transparent hover:border-transparent focus:border-transparent cursor-pointer dark:text-gray-100 hover:text-main-color"
+                                    class="flex items-center text-lg text-gray-900 transition duration-300 bg-transparent cursor-pointer hover:border-transparent focus:border-transparent dark:text-gray-100 hover:text-main-color"
                                     @click="toggle"
                                     >
                                     <i class="mr-2 text-lg ti ti-checkbox"></i>
