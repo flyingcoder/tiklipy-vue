@@ -28,7 +28,6 @@
   <Preloader v-if="loading" />
   <Header @login-is-click="showLogin = !showLogin" />
   <section class="min-h-screen midlg:px-10">
-    <HeaderTitle v-if="$route.name !== 'visuals'"/>
     <div class="lg:container md:mx-auto">
       <router-view />
     </div>
