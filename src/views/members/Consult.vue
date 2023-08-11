@@ -63,6 +63,11 @@
                     <div id="ChatBox" class="h-full" data-simplebar>
                         <div class="" id="Chat">
                             <ul class="list-group">
+                                <li class="flex items-center p-2 border-b border-dashed list-group-item border-slate-200 dark:border-slate-700">
+                                    <button class="w-full px-4 py-2 mt-2 font-bold text-white rounded bg-main-color hover:bg-secondary-color">
+                                        <i class="pb-1 mr-1 text-lg ti ti-plus"></i> New Chat
+                                    </button>
+                                </li>
                                 <li
                                     class="flex items-center p-4 border-b border-dashed list-group-item border-slate-200 dark:border-slate-700 unread bg-slate-50 dark:bg-slate-700">
                                     <a href="">
@@ -138,12 +143,12 @@
                                                     </svg>
                                                 </span>
                                                 <img class="object-cover object-center w-full h-full overflow-hidden rounded"
-                                                    src="/public/avatar/avatar-4.jpg" alt="logo" />
+                                                    src="/public/avatar/avatar-9.jpg" alt="logo" />
                                             </div>
                                             <div class="ml-2">
                                                 <div
                                                     class="text-gray-800 cursor-pointer hover:text-gray-900 focus:text-gray-500 dark:text-gray-100 focus:outline-none">
-                                                    <h5 class="text-sm font-medium ">David Ward</h5>
+                                                    <h5 class="text-sm font-medium ">Victor Harrison</h5>
                                                 </div>
                                                 <p
                                                     class="flex-wrap w-40 text-xs font-medium text-gray-500 truncate focus:outline-none dark:text-gray-400">
@@ -154,39 +159,8 @@
                                     <div class="self-center ml-auto text-center">
                                         <p
                                             class="text-xs font-medium text-gray-500 focus:outline-none dark:text-gray-400">
-                                            04
-                                            Apr</p>
-                                    </div>
-                                </li>
-                                <li
-                                    class="flex items-center p-4 border-b border-dashed list-group-item border-slate-200 dark:border-slate-700">
-                                    <a href="">
-                                        <div class="flex items-center">
-                                            <div class="relative rounded w-9 h-9">
-                                                <span class="absolute text-green-500 -left-1 -top-1">
-                                                    <svg width="12" height="12">
-                                                        <circle cx="4" cy="4" r="4" fill="currentColor"></circle>
-                                                    </svg>
-                                                </span>
-                                                <img class="object-cover object-center w-full h-full overflow-hidden rounded"
-                                                    src="/public/avatar/avatar-6.jpg" alt="logo" />
-                                            </div>
-                                            <div class="ml-2">
-                                                <div
-                                                    class="text-gray-800 cursor-pointer hover:text-gray-900 focus:text-gray-500 dark:text-gray-100 focus:outline-none">
-                                                    <h5 class="text-sm font-medium ">Virgil Locklin</h5>
-                                                </div>
-                                                <p
-                                                    class="flex-wrap w-40 text-xs font-medium text-gray-500 truncate focus:outline-none dark:text-gray-400">
-                                                    Good morning! Congratulations Friend Congratulations Friend</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <div class="self-center ml-auto text-center">
-                                        <p
-                                            class="text-xs font-medium text-gray-500 focus:outline-none dark:text-gray-400">
-                                            03
-                                            Apr</p>
+                                            07:10
+                                            AM</p>
                                     </div>
                                 </li>
                                 <li
@@ -200,12 +174,12 @@
                                                     </svg>
                                                 </span>
                                                 <img class="object-cover object-center w-full h-full overflow-hidden rounded"
-                                                    src="/public/avatar/avatar-5.jpg" alt="logo" />
+                                                    src="/public/avatar/avatar-9.jpg" alt="logo" />
                                             </div>
                                             <div class="ml-2">
                                                 <div
                                                     class="text-gray-800 cursor-pointer hover:text-gray-900 focus:text-gray-500 dark:text-gray-100 focus:outline-none">
-                                                    <h5 class="text-sm font-medium ">John Martinez</h5>
+                                                    <h5 class="text-sm font-medium ">Victor Harrison</h5>
                                                 </div>
                                                 <p
                                                     class="flex-wrap w-40 text-xs font-medium text-gray-500 truncate focus:outline-none dark:text-gray-400">
@@ -216,194 +190,8 @@
                                     <div class="self-center ml-auto text-center">
                                         <p
                                             class="text-xs font-medium text-gray-500 focus:outline-none dark:text-gray-400">
-                                            2 Apr
-                                        </p>
-                                    </div>
-                                </li>
-                                <li
-                                    class="flex items-center p-4 border-b border-dashed list-group-item border-slate-200 dark:border-slate-700">
-                                    <a href="">
-                                        <div class="flex items-center">
-                                            <div class="relative rounded w-9 h-9">
-                                                <span class="absolute text-slate-300 -left-1 -top-1">
-                                                    <svg width="12" height="12">
-                                                        <circle cx="4" cy="4" r="4" fill="currentColor"></circle>
-                                                    </svg>
-                                                </span>
-                                                <img class="object-cover object-center w-full h-full overflow-hidden rounded"
-                                                    src="/public/avatar/avatar-5.jpg" alt="logo" />
-                                            </div>
-                                            <div class="ml-2">
-                                                <div
-                                                    class="text-gray-800 cursor-pointer hover:text-gray-900 focus:text-gray-500 dark:text-gray-100 focus:outline-none">
-                                                    <h5 class="text-sm font-medium ">John Martinez</h5>
-                                                </div>
-                                                <p
-                                                    class="flex-wrap w-40 text-xs font-medium text-gray-500 truncate focus:outline-none dark:text-gray-400">
-                                                    Good morning! Congratulations Friend Congratulations Friend</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <div class="self-center ml-auto text-center">
-                                        <p
-                                            class="text-xs font-medium text-gray-500 focus:outline-none dark:text-gray-400">
-                                            2 Apr
-                                        </p>
-                                    </div>
-                                </li>
-                                <li
-                                    class="flex items-center p-4 border-b border-dashed list-group-item border-slate-200 dark:border-slate-700">
-                                    <a href="">
-                                        <div class="flex items-center">
-                                            <div class="relative rounded w-9 h-9">
-                                                <span class="absolute text-slate-300 -left-1 -top-1">
-                                                    <svg width="12" height="12">
-                                                        <circle cx="4" cy="4" r="4" fill="currentColor"></circle>
-                                                    </svg>
-                                                </span>
-                                                <img class="object-cover object-center w-full h-full overflow-hidden rounded"
-                                                    src="/public/avatar/avatar-5.jpg" alt="logo" />
-                                            </div>
-                                            <div class="ml-2">
-                                                <div
-                                                    class="text-gray-800 cursor-pointer hover:text-gray-900 focus:text-gray-500 dark:text-gray-100 focus:outline-none">
-                                                    <h5 class="text-sm font-medium ">John Martinez</h5>
-                                                </div>
-                                                <p
-                                                    class="flex-wrap w-40 text-xs font-medium text-gray-500 truncate focus:outline-none dark:text-gray-400">
-                                                    Good morning! Congratulations Friend Congratulations Friend</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <div class="self-center ml-auto text-center">
-                                        <p
-                                            class="text-xs font-medium text-gray-500 focus:outline-none dark:text-gray-400">
-                                            2 Apr
-                                        </p>
-                                    </div>
-                                </li>
-                                <li
-                                    class="flex items-center p-4 border-b border-dashed list-group-item border-slate-200 dark:border-slate-700">
-                                    <a href="">
-                                        <div class="flex items-center">
-                                            <div class="relative rounded w-9 h-9">
-                                                <span class="absolute text-slate-300 -left-1 -top-1">
-                                                    <svg width="12" height="12">
-                                                        <circle cx="4" cy="4" r="4" fill="currentColor"></circle>
-                                                    </svg>
-                                                </span>
-                                                <img class="object-cover object-center w-full h-full overflow-hidden rounded"
-                                                    src="/public/avatar/avatar-5.jpg" alt="logo" />
-                                            </div>
-                                            <div class="ml-2">
-                                                <div
-                                                    class="text-gray-800 cursor-pointer hover:text-gray-900 focus:text-gray-500 dark:text-gray-100 focus:outline-none">
-                                                    <h5 class="text-sm font-medium ">John Martinez</h5>
-                                                </div>
-                                                <p
-                                                    class="flex-wrap w-40 text-xs font-medium text-gray-500 truncate focus:outline-none dark:text-gray-400">
-                                                    Good morning! Congratulations Friend Congratulations Friend</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <div class="self-center ml-auto text-center">
-                                        <p
-                                            class="text-xs font-medium text-gray-500 focus:outline-none dark:text-gray-400">
-                                            2 Apr
-                                        </p>
-                                    </div>
-                                </li>
-                                <li
-                                    class="flex items-center p-4 border-b border-dashed list-group-item border-slate-200 dark:border-slate-700">
-                                    <a href="">
-                                        <div class="flex items-center">
-                                            <div class="relative rounded w-9 h-9">
-                                                <span class="absolute text-slate-300 -left-1 -top-1">
-                                                    <svg width="12" height="12">
-                                                        <circle cx="4" cy="4" r="4" fill="currentColor"></circle>
-                                                    </svg>
-                                                </span>
-                                                <img class="object-cover object-center w-full h-full overflow-hidden rounded"
-                                                    src="/public/avatar/avatar-5.jpg" alt="logo" />
-                                            </div>
-                                            <div class="ml-2">
-                                                <div
-                                                    class="text-gray-800 cursor-pointer hover:text-gray-900 focus:text-gray-500 dark:text-gray-100 focus:outline-none">
-                                                    <h5 class="text-sm font-medium ">John Martinez</h5>
-                                                </div>
-                                                <p
-                                                    class="flex-wrap w-40 text-xs font-medium text-gray-500 truncate focus:outline-none dark:text-gray-400">
-                                                    Good morning! Congratulations Friend Congratulations Friend</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <div class="self-center ml-auto text-center">
-                                        <p
-                                            class="text-xs font-medium text-gray-500 focus:outline-none dark:text-gray-400">
-                                            2 Apr
-                                        </p>
-                                    </div>
-                                </li>
-                                <li
-                                    class="flex items-center p-4 border-b border-dashed list-group-item border-slate-200 dark:border-slate-700">
-                                    <a href="">
-                                        <div class="flex items-center">
-                                            <div class="relative rounded w-9 h-9">
-                                                <span class="absolute text-slate-300 -left-1 -top-1">
-                                                    <svg width="12" height="12">
-                                                        <circle cx="4" cy="4" r="4" fill="currentColor"></circle>
-                                                    </svg>
-                                                </span>
-                                                <img class="object-cover object-center w-full h-full overflow-hidden rounded"
-                                                    src="/public/avatar/avatar-5.jpg" alt="logo" />
-                                            </div>
-                                            <div class="ml-2">
-                                                <div
-                                                    class="text-gray-800 cursor-pointer hover:text-gray-900 focus:text-gray-500 dark:text-gray-100 focus:outline-none">
-                                                    <h5 class="text-sm font-medium ">John Martinez</h5>
-                                                </div>
-                                                <p
-                                                    class="flex-wrap w-40 text-xs font-medium text-gray-500 truncate focus:outline-none dark:text-gray-400">
-                                                    Good morning! Congratulations Friend Congratulations Friend</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <div class="self-center ml-auto text-center">
-                                        <p
-                                            class="text-xs font-medium text-gray-500 focus:outline-none dark:text-gray-400">
-                                            2 Apr
-                                        </p>
-                                    </div>
-                                </li>
-                                <li
-                                    class="flex items-center p-4 border-b border-dashed list-group-item border-slate-200 dark:border-slate-700">
-                                    <a href="">
-                                        <div class="flex items-center">
-                                            <div class="relative rounded w-9 h-9">
-                                                <span class="absolute text-slate-300 -left-1 -top-1">
-                                                    <svg width="12" height="12">
-                                                        <circle cx="4" cy="4" r="4" fill="currentColor"></circle>
-                                                    </svg>
-                                                </span>
-                                                <img class="object-cover object-center w-full h-full overflow-hidden rounded"
-                                                    src="/public/avatar/avatar-5.jpg" alt="logo" />
-                                            </div>
-                                            <div class="ml-2">
-                                                <div
-                                                    class="text-gray-800 cursor-pointer hover:text-gray-900 focus:text-gray-500 dark:text-gray-100 focus:outline-none">
-                                                    <h5 class="text-sm font-medium ">John Martinez</h5>
-                                                </div>
-                                                <p
-                                                    class="flex-wrap w-40 text-xs font-medium text-gray-500 truncate focus:outline-none dark:text-gray-400">
-                                                    Good morning! Congratulations Friend Congratulations Friend</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <div class="self-center ml-auto text-center">
-                                        <p
-                                            class="text-xs font-medium text-gray-500 focus:outline-none dark:text-gray-400">
-                                            2 Apr
-                                        </p>
+                                            07:10
+                                            AM</p>
                                     </div>
                                 </li>
                             </ul>
@@ -420,7 +208,7 @@
                         class="flex justify-between p-4 border-b border-gray-200 border-dashed sm:items-center dark:border-slate-700">
                         <div class="relative flex items-center space-x-4">
                             <div class="relative">
-                                <img src="/public/logo-sm.png" alt=""
+                                <img src="/public/android-chrome-512x512.png" alt=""
                                     class="w-10 h-10 rounded-full sm:w-16 sm:h-16">
                             </div>
                             <div class="flex flex-col leading-tight">
@@ -441,7 +229,7 @@
                                         <span v-html="m.content.replace(/\n/g, '<br>')" :class="{'rounded-bl-none border border-gray-100 bg-gray-50 text-gray-600 dark:border-slate-800 dark:bg-slate-700 dark:text-slate-400': m.role === 'assistant', 'rounded-br-none bg-blue-500 text-white': m.role === 'user'}" class="inline-block px-4 py-2 rounded-lg"></span>
                                     </div>
                                     </div>
-                                    <img :src="m.role === 'user' ? '/public/avatar/avatar-5.jpg' : '/public/logo-sm.png'" alt="My profile" class="w-8 h-8 rounded-full" :class="{'order-2': m.role === 'user', 'order-1': m.role === 'assistant'}">
+                                    <img :src="m.role === 'user' ? '/public/avatar/avatar-5.jpg' : '/public/android-chrome-512x512.png'" alt="My profile" class="w-8 h-8 rounded-full" :class="{'order-2': m.role === 'user', 'order-1': m.role === 'assistant'}">
                                 </div>
                                 </div>
                             </template>
