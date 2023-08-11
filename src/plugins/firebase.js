@@ -33,12 +33,8 @@ const getCurrentUser = () => {
                         .then((sub) => {
                             let subs = sub.docs.length > 0 ? sub.docs[0].data() : null;
                             user.subscription = subs;
-                            if(subs.status === "active") {
-                                removeListener();
-                                resolve(user);
-                            } else {
-                                reject
-                            }
+                            removeListener();
+                            resolve(user);
                         });
             },
             reject

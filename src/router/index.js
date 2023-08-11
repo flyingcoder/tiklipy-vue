@@ -8,13 +8,16 @@ const router = createRouter({
     routes: routes
 });
 
-const subscription = null;
-
 //make hook async to wait for the user to load
 router.beforeEach(async (to, from, next) =>  {
     if(to.matched.some((record) => record.meta.requiresAuth )) {
-        if(await getCurrentUser()) {
-            next();
+        let user = await getCurrentUser();
+        if(user) {
+            if(user.subscription.status === 'status') {
+                next();
+            } else {
+                next("pricing");
+            }
         } else {
             next("login");
         }
