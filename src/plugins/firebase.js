@@ -29,13 +29,15 @@ const getCurrentUser = () => {
         const removeListener = onAuthStateChanged(
             Auth,
             async (user) => {
-                await fetchSubscription(user.uid)
+                if(user) {
+                    await fetchSubscription(user.uid)
                         .then((sub) => {
                             let subs = sub.docs.length > 0 ? sub.docs[0].data() : null;
                             user.subscription = subs;
-                            removeListener();
-                            resolve(user);
                         });
+                }
+                removeListener();
+                resolve(user);
             },
             reject
         )
