@@ -9,9 +9,7 @@
   onMounted(async () => {
     await getCurrentUser()
             .then((user) => {
-              console.log(user);
               if(user) {
-                console.log(user)
                 if(!user.subscription) {
                   signOut(Auth)
                 }
