@@ -66,7 +66,7 @@
     <div class="container relative px-2 mx-auto pb-14 mt-7">
         
     <div class="grid gap-4 lg:grid-cols-12">
-      <div class="col-span-12 lg:col-span-3">
+      <div class="col-span-12 lg:col-span-4 xl:col-span-3">
         <div class="h-full bg-white shadow-md rounded-xl">
                 <!--end card-header-->
                 <div class="p-0 card-body">
@@ -210,7 +210,7 @@
                 </div><!--end card-body-->
             </div> <!--end card-->
       </div>
-      <div class="h-full col-span-12 lg:col-span-9">
+      <div class="h-full col-span-12 lg:col-span-8 xl:col-span-9">
         <div class="">
           <!-- ... Chat messages and input area ... -->
           <div class="bg-white rounded-xl shadow-md max-h-[500px] flex-1 p:2 sm:p-6 justify-between flex flex-col">
@@ -249,9 +249,8 @@
                         <div class="relative flex">
                             <input type="text" placeholder="e.g: How can I improve my teaching?"
                                 class="w-full py-2 pl-4 text-gray-600 placeholder-gray-400 border border-gray-200 rounded-md focus:outline-none focus:placeholder-gray-400 bg-gray-50 dark:bg-slate-700 dark:border-slate-800">
-                            <div class="absolute inset-y-0 right-0 items-center hidden sm:flex">
-
-                                <button type="button"
+                            <div class=" inset-y-0 right-0 items-center sm:flex ml-2">
+                                <button type="button border-0"
                                     class="inline-flex items-center justify-center px-4 py-2 text-white transition duration-500 ease-in-out bg-blue-500 rounded-md hover:bg-blue-400 focus:outline-none">
                                     <i class="text-lg ti ti-send"></i>
                                 </button>

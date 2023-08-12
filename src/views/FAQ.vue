@@ -1,8 +1,41 @@
 <script setup>
     import { Accordion, AccordionPanel, AccordionHeader, AccordionContent } from 'flowbite-vue';
 </script>
+<style>
+.FAQ button:focus,
+.FAQ button:active,
+.FAQ button:focus-within,
+.FAQ button:target,
+.FAQ button:hover,
+.FAQ button:visited,
+.FAQ button:focus-visible {
+    outline: 0px !important;
+    --tw-ring-opacity:0px !important;
+    background: transparent;
+    border-color:#646cff !important;
+    color: #646cff;
+}
+.FAQ button {
+    color:#000;
+    border: 0px;
+    border-bottom: 1px solid;
+    border-radius: 0px;
+    padding-left: 0!important;
+    padding-right: 0!important;
+}
+.FAQ button.flex.items-center.p-5.w-full.font-medium.text-left.text-gray-500.border.border-gray-200.focus\:ring-4.focus\:ring-gray-200.dark\:focus\:ring-gray-800.dark\:border-gray-700.dark\:text-gray-400.hover\:bg-gray-100.dark\:hover\:bg-gray-800.bg-gray-100.dark\:bg-gray-800.border-t-0.border-b-0.border-x-0, .FAQ button.flex.items-center.p-5.w-full.font-medium.text-left.text-gray-500.border.border-gray-200.focus\:ring-4.focus\:ring-gray-200.dark\:focus\:ring-gray-800.dark\:border-gray-700.dark\:text-gray-400.hover\:bg-gray-100.dark\:hover\:bg-gray-800.bg-gray-100.dark\:bg-gray-800.border-b-0.border-x-0, .FAQ button.flex.items-center.p-5.w-full.font-medium.text-left.text-gray-500.border.border-gray-200.focus\:ring-4.focus\:ring-gray-200.dark\:focus\:ring-gray-800.dark\:border-gray-700.dark\:text-gray-400.hover\:bg-gray-100.dark\:hover\:bg-gray-800.bg-gray-100.dark\:bg-gray-800.border-x-0{
+    border-bottom: 0px !important;
+}
+.FAQ .p-5.border.border-gray-200.dark\:border-gray-700.dark\:bg-gray-900.border-b-0.border-x-0 {
+    border-top: 0px;
+    border-bottom: 1px solid black;
+    padding-left: 0!important;
+    padding-right: 0!important;
+    color:#000 !important;
+}
+</style>
 <template>
-    <div class="container mt-10 px-3 m-auto">
+    <div class="container FAQ mt-10 px-3 m-auto">
         <div class="max-w-3xl mx-auto">
             <div class="block justify-center">
                 <h2 class="text-center text-4xl font-semibold text-gray-800">Frequently Asked Questions</h2>
@@ -13,7 +46,7 @@
                 <accordion-header>What is the billing process like?</accordion-header>
                 <accordion-content>
                     <div>
-                        <p class="mb-2 text-gray-500 dark:text-gray-400">Tiklipy's subscription plan offers convenience and great value. For $10 per month, you can access and utilize all of Tiklipy's features on multiple devices. Our prices are set, and there are no additional charges. Furthermore, you have the flexibility to cancel your subscription at any time.</p>
+                        <p class="mb-2 text-gray-500 dark:text-gray-400 border-0">Tiklipy's subscription plan offers convenience and great value. For $10 per month, you can access and utilize all of Tiklipy's features on multiple devices. Our prices are set, and there are no additional charges. Furthermore, you have the flexibility to cancel your subscription at any time.</p>
                     </div>
                 </accordion-content>
                 </accordion-panel>

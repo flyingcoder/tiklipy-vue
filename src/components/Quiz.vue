@@ -2,8 +2,8 @@
 </script>
 <template>
     <div class="generated-quiz">
-        <header class="mb-[4rem]">
-            <h1 class="font-bold">English Quiz</h1>
+        <header class="mb-[2rem]">
+            <h1 class=" font-bold text-3xl font-bold">English Quiz</h1>
         </header>
 
         <div class="quiz-container">
