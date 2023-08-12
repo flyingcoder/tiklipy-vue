@@ -88,10 +88,10 @@ export const useAuthStore = defineStore("auth", {
                         this.authSuccess = "Log-in successfully!"
                         Swal.fire('Yepey!', this.authSuccess, 'success');
                     })
-                    .catch(() => {
-                        this.authError = "Invalid username or password!"
-                        Swal.fire('Oops!', this.authError, 'error');
-                    })
+                    // .catch(() => {
+                    //     this.authError = "Invalid username or password!"
+                    //     // Swal.fire('Oops!', this.authError, 'error');
+                    // })
         },
         async loginVia(provider) {
             await signInWithPopup(getAuth(), provider)
@@ -100,11 +100,11 @@ export const useAuthStore = defineStore("auth", {
                             this.authSuccess = "You did great!"
                             //Swal.fire('Yepey!', this.authSuccess, 'success');
                         })
-                        .catch((error) => {
-                            console.log(error);
-                            this.authError = "Something went wrong! Try again later."
-                            Swal.fire('Oops!', this.authError, 'error');
-                        })
+                        // .catch((error) => {
+                        //     console.log(error);
+                        //     this.authError = "Something went wrong! Try again later."
+                        //     Swal.fire('Oops!', this.authError, 'error');
+                        // })
         }
     }
 });

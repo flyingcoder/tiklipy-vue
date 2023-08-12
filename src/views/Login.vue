@@ -3,6 +3,8 @@
     import { useRouter } from "vue-router";
     import { Auth } from "../plugins/firebase";
     import { useLoaderStore } from "../stores/loader";
+    import Swal from 'sweetalert2';
+    import 'sweetalert2/dist/sweetalert2.min.css';
     import { useAuthStore } from "../stores/auth";
     import Preloader from "../components/Preloader.vue";
     import {
@@ -29,16 +31,74 @@
         
     });
 
+    const loginFail = () => {
+        Swal.fire({
+            html: `
+                <div style="display: flex; justify-content: space-between;">
+                    <div>
+                        <img src="/public/Invalid-error-bongo-cat.gif" width="" height="" alt="Image 2">
+                    </div>
+                </div>
+                <h2 class="swal2-title !p-0 text-black text-lg text-red-500" id="swal2-title" style="display: block;">Nya-oh! Make sure your email and password are right, meow.</h2> 
+            `,
+            width: 600,
+            padding: '',
+            margin:'',
+            color: '#716add',
+            allowOutsideClick: false,
+            confirmButtonText: 'Okay',
+            backdrop: `
+                rgba(0, 0, 123, 0.4)
+                left top
+                no-repeat
+            `
+        })
+    };
+
+    const googleLoginFailed = () => {
+        Swal.fire({
+            html: `
+                <div style="display: flex; justify-content: space-between;">
+                    <div>
+                        <img src="/public/Invalid-error-bongo-cat.gif" width="" height="" alt="Image 2">
+                    </div>
+                </div>
+
+                <h2 class="swal2-title !p-0 text-black text-lg text-red-500" id="swal2-title" style="display: block;">Nya-oh! We've encountered a slight hiccup in verifying your email and password, meow. Please bear with us or give a little meow for assistance.</h2> 
+            `,
+            width: 600,
+            padding: '',
+            margin:'',
+            color: '#716add',
+            allowOutsideClick: false,
+            confirmButtonText: 'Okay',
+            backdrop: `
+                rgba(0, 0, 123, 0.4)
+                left top
+                no-repeat
+            `
+        })
+    };
+
     const loginVia = (provider) => {
         loaderStore.toggle();
         authStore.loginVia(provider)
             .then(() => {
                 loaderStore.toggle();
-              });
+            })
+            .catch(() => {
+                googleLoginFailed();
+                loaderStore.toggle();
+            });
     }
 
     const login = () => {
-        authStore.login(email.value, password.value);
+        authStore.login(email.value, password.value)
+                .catch(() => {
+                    loginFail();
+                    // this.authError = "Invalid username or password!"
+                    // Swal.fire('Oops!', this.authError, 'error');
+                })
     }
     
     const signIn = async () => {

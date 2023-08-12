@@ -22,7 +22,7 @@
                     </div>
                 </div>
 
-                <h2 class="swal2-title text-black" id="swal2-title" style="display: block;">Visual Aid Feature</h2>
+                <h2 class="swal2-title text-black" id="swal2-title" style="display: block;">Power Point Feature</h2>
                 <p style="margin-top: 1em;" class="text-black">This functionality is currently under development and remains in progress. We will duly inform you as soon as this feature becomes accessible.</p>
                 
             `,

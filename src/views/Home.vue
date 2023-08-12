@@ -9,7 +9,7 @@
                 <h1 class="text-gray-800 font-bold text mb-8 ">The ultimate companion for every teacher.</h1>
                 <p class="text-black mb-10">Empowering educators, Fetchy integrates AI. While meetings and lesson planning continue, your methods evolve radically.</p>
                 <router-link :to="{name:'pricing'}">
-                    <button type="button" class="w-fit bg-main-color text-white focus:ring-4 focus:outline-none focus:ring-blue-200 dark:focus:ring-blue-900 font-medium rounded-lg text-lg px-5 py-2.5 inline-flex justify-center text-center">
+                    <button type="button" class="transition duration-240 rounded-md bg-main-color hover:shadow-md hover:shadow-[#969cf9] hover:bg-secondary-color border-0 w-fit bg-main-color text-white focus:ring-4 focus:outline-none focus:ring-secondary-color dark:focus:ring-main-color font-medium rounded-lg text-lg px-5 py-2.5 inline-flex justify-center text-center">
                         Buy now Get one month FREE!
                     </button>
                 </router-link>
