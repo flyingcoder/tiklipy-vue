@@ -14,11 +14,15 @@ getAnalytics(firebaseApp);
 const app = createApp(App);
 const pinia = createPinia();
 
+// const auth = getAuth();
+
 app.use(pinia);
 app.use(router);
 
 const authStore = useAuthStore();
 authStore.getFirebaseUser();
+
+authStore.fetchSubscription();
 
 const removeListener = authStore.$subscribe((mutations, state) => {
     if(state.authUser) {
