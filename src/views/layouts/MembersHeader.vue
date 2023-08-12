@@ -58,7 +58,7 @@
                     </router-link>
                 </div>
                 
-                <div id="mega-menu" :class="{'hidden': isMenuHidden}" class="relative z-10 items-center justify-between w-full lg:flex lg:w-auto lg:order-1">
+                <div id="mega-menu" :class="{'hidden': isMenuHidden}" class="relative z-10 items-center midlg:justify-between w-full lg:flex lg:w-auto lg:order-1">
                     <ul class="flex flex-col mt-4 text-lg font-medium md:flex-row md:space-x-4 md:mt-0">
                         <li class="self-center dropdown">
                             <router-link :to="{ name: 'lessons' }" class="block px-3 py-2 text-base font-medium text-gray-900 divide-gray-100 dark:hover:text-main-color md:border-0 md:p-0">
