@@ -17,6 +17,13 @@
             })
   });
 
+  //const serverHello = ref({});
+
+  //fetch('/api/v1/hello')
+  //  .then((r) => r.json())
+  //  .then(({ message }) => {
+  //    serverHello.value = message
+  //  })
 </script>
 <template>
   <router-view></router-view>
