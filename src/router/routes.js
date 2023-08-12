@@ -31,7 +31,7 @@ const routes = [
         meta: { requiresAuth: true },
         children: [
             { path: '', name: 'dashboard', component: Dashboard, meta: { displayName: 'Dashboard', siteDescription: 'Effortlessly Generate Diverse Content with Personalized Style and Substance.' } },
-            { path: 'account', name: 'account', component: Account, meta: { displayName: 'Account', siteDescription: '' } },
+            { path: 'account', name: 'account', component: Account, meta: { displayName: 'Account', siteDescription: 'Empowering Your Finances: Seamless Account Management Solutions' } },
             { path: 'consult', name: 'consult', component: Consult, meta: { displayName: 'Consult', siteDescription: 'Personalized consulting for tailored guidance and support.' } },
             { path: 'assessments', name: 'assessments', component: Assesments, meta: { displayName: 'Assessments', siteDescription: 'Measuring Proficiency: Gauging Learning Outcomes and Knowledge Mastery' } },
             { path: 'assessments/:type/:id', name: 'assessment', component: Assesment, meta: { displayName: 'Assessments', siteDescription: 'Measuring Proficiency: Gauging Learning Outcomes and Knowledge Mastery' } },
