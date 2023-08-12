@@ -31,28 +31,47 @@
         
     });
 
-    const showAlert = () => {
+    const loginFail = () => {
         Swal.fire({
             html: `
-                <div>
-                    <img src="/public/hazard.gif" width="" height="" alt="Image 1">
-                </div>
                 <div style="display: flex; justify-content: space-between;">
                     <div>
-                        <img src="/public/bongo-cat.gif" width="" height="" alt="Image 2">
+                        <img src="/public/Invalid-error-bongo-cat.gif" width="" height="" alt="Image 2">
                     </div>
                 </div>
-
-                <h2 class="swal2-title text-black" id="swal2-title" style="display: block;">Visual Aid Feature</h2>
-                <p style="margin-top: 1em;" class="text-black">This functionality is currently under development and remains in progress. We will duly inform you as soon as this feature becomes accessible.</p>
-                
+                <h2 class="swal2-title !p-0 text-black text-lg text-red-500" id="swal2-title" style="display: block;">Nya-oh! Make sure your email and password are right, meow.</h2> 
             `,
             width: 600,
             padding: '',
             margin:'',
             color: '#716add',
             allowOutsideClick: false,
-            confirmButtonText: 'Go Back',
+            confirmButtonText: 'Okay',
+            backdrop: `
+                rgba(0, 0, 123, 0.4)
+                left top
+                no-repeat
+            `
+        })
+    };
+
+    const googleLoginFailed = () => {
+        Swal.fire({
+            html: `
+                <div style="display: flex; justify-content: space-between;">
+                    <div>
+                        <img src="/public/Invalid-error-bongo-cat.gif" width="" height="" alt="Image 2">
+                    </div>
+                </div>
+
+                <h2 class="swal2-title !p-0 text-black text-lg text-red-500" id="swal2-title" style="display: block;">Nya-oh! We've encountered a slight hiccup in verifying your email and password, meow. Please bear with us or give a little meow for assistance.</h2> 
+            `,
+            width: 600,
+            padding: '',
+            margin:'',
+            color: '#716add',
+            allowOutsideClick: false,
+            confirmButtonText: 'Okay',
             backdrop: `
                 rgba(0, 0, 123, 0.4)
                 left top
@@ -66,13 +85,17 @@
         authStore.loginVia(provider)
             .then(() => {
                 loaderStore.toggle();
-              });
+            })
+            .catch(() => {
+                googleLoginFailed();
+                loaderStore.toggle();
+            });
     }
 
     const login = () => {
         authStore.login(email.value, password.value)
                 .catch(() => {
-                    showAlert();
+                    loginFail();
                     // this.authError = "Invalid username or password!"
                     // Swal.fire('Oops!', this.authError, 'error');
                 })
