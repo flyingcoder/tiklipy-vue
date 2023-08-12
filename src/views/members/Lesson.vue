@@ -21,8 +21,8 @@
 </script>
 <template>
     <div class="mt-7 px-3">
-        <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
-            <div class="md:col-span-2 lg:col-span-2 xl:col-span-1 cursor-pointer" @click="setActiveView('lessonPlan')">
+        <div class="flex flex-wrap justify-between mb-6">
+            <div class="w-full sm:w-[49%] lg:w-[32%] cursor-pointer mb-3" @click="setActiveView('lessonPlan')">
                 <div class="bg-white dark:bg-slate-800 shadow  rounded-md w-full p-4 relative overflow-hidden bg-[url('/p-1.png')] bg-no-repeat bg-contain">
                     <div class="flex justify-between xl:gap-x-2 items-cente">
                         <div class="absolute -left-6 -top-4 text-blue-500 p-3 text-center inline-flex items-center justify-center w-32 h-32 ">
@@ -35,7 +35,7 @@
                     </div>
                 </div> <!--end inner-grid--> 
             </div>
-            <div class="md:col-span-2 lg:col-span-2 xl:col-span-1 cursor-pointer" @click="setActiveView('ppt')">
+            <div class="w-full sm:w-[49%] lg:w-[32%] cursor-pointer mb-3" @click="setActiveView('ppt')">
                 <div class="bg-white dark:bg-slate-800 shadow  rounded-md w-full p-4 relative overflow-hidden bg-[url('/p-1.png')] bg-no-repeat bg-contain">
                     <div class="flex justify-between xl:gap-x-2 items-cente">
                         <div class="absolute -left-6 -top-4 text-blue-500 p-3 text-center inline-flex items-center justify-center w-32 h-32 ">
@@ -48,7 +48,7 @@
                     </div>
                 </div> <!--end inner-grid--> 
             </div>
-            <div class="md:col-span-2 lg:col-span-2 xl:col-span-1 cursor-pointer" @click="setActiveView('quiz')">
+            <div class="w-full sm:w-[49%] lg:w-[32%] cursor-pointer mb-3" @click="setActiveView('quiz')">
                 <div class="bg-white dark:bg-slate-800 shadow  rounded-md w-full p-4 relative overflow-hidden bg-[url('/p-1.png')] bg-no-repeat bg-contain">
                     <div class="flex justify-between xl:gap-x-2 items-cente">
                         <div class="absolute -left-6 -top-4 text-blue-500 p-3 text-center inline-flex items-center justify-center w-32 h-32 ">
@@ -61,7 +61,7 @@
                     </div>
                 </div> <!--end inner-grid--> 
             </div>
-            <div class="md:col-span-2 lg:col-span-2 xl:col-span-1 cursor-pointer" @click="setActiveView('homework')">
+            <div class="w-full sm:w-[49%] lg:w-[32%] cursor-pointer mb-3" @click="setActiveView('homework')">
                 <div class="bg-white dark:bg-slate-800 shadow rounded-md w-full p-4 relative overflow-hidden bg-[url('/p-1.png')] bg-no-repeat bg-contain">
                     <div class="flex justify-between xl:gap-x-2 items-cente">
                         <div class="absolute -left-6 -top-4 text-blue-500 p-3 text-center inline-flex items-center justify-center w-32 h-32 ">
@@ -74,7 +74,7 @@
                     </div>
                 </div> <!--end inner-grid--> 
             </div>
-            <div class="md:col-span-2 lg:col-span-2 xl:col-span-1 cursor-pointer" @click="setActiveView('activities')">
+            <div class="w-full sm:w-[49%] lg:w-[32%] cursor-pointer mb-3" @click="setActiveView('activities')">
                 <div class="bg-white dark:bg-slate-800 shadow rounded-md w-full p-4 relative overflow-hidden bg-[url('/p-1.png')] bg-no-repeat bg-contain">
                     <div class="flex justify-between xl:gap-x-2 items-cente">
                         <div class="absolute -left-6 -top-4 text-blue-500 p-3 text-center inline-flex items-center justify-center w-32 h-32 ">
@@ -87,7 +87,7 @@
                     </div>
                 </div> <!--end inner-grid--> 
             </div>
-            <div class="md:col-span-2 lg:col-span-2 xl:col-span-1 cursor-pointer" @click="setActiveView('projects')">
+            <div class="w-full sm:w-[49%] lg:w-[32%] cursor-pointer mb-3" @click="setActiveView('projects')">
                 <div class="bg-white dark:bg-slate-800 shadow rounded-md w-full p-4 relative overflow-hidden bg-[url('/p-1.png')] bg-no-repeat bg-contain">
                     <div class="flex justify-between xl:gap-x-2 items-cente">
                         <div class="absolute -left-6 -top-4 text-blue-500 p-3 text-center inline-flex items-center justify-center w-32 h-32 ">
