@@ -2,6 +2,7 @@
     import { ref, onMounted } from 'vue';
     import { Auth } from '../../plugins/firebase';
     import { getDoc, addDoc, getFirestore, collection, onSnapshot } from "firebase/firestore";
+    import axios from 'axios';
 
     const messages = ref([
         {
@@ -19,9 +20,18 @@
     ]);
 
     onMounted(() => {
-        gptRef();
-        console.log('testing');
+        //gptRef();
+        sendMessage();
     });
+
+    const sendMessage = async () => {
+        let params = {
+            messages: messages
+        };
+        
+        axios.post('localhost:8000/.netlify/functions/consult', params)
+            .then((res) => console.log(res));
+    }
 
     const gptRef = async () => {
         
