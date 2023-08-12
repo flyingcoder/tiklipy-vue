@@ -12,7 +12,7 @@
                     <div class="self-center">1 Month Subscription</div>
                     <div>
                         <span class="pr-3">$10</span>
-                        <Button class="bg-main-color font-semibold">Buy</Button>
+                        <Button class="border-0 bg-main-color font-semibold transition duration-240 rounded-md hover:bg-secondary-color hover:shadow-md hover:shadow-[#646cffa6]">Buy</Button>
                     </div>
                     
                 </div>
@@ -38,7 +38,7 @@
                     <div class="self-center">3 Months Subscription</div>
                     <div>
                         <span class="pr-3">$30</span>
-                        <Button class="bg-main-color font-semibold">Buy</Button>
+                        <Button class="border-0 bg-main-color font-semibold transition duration-240 rounded-md hover:bg-secondary-color hover:shadow-md hover:shadow-[#646cffa6]">Buy</Button>
                     </div>
                     
                 </div>
@@ -64,7 +64,7 @@
                     <div class="self-center">1 Year Subscription</div>
                     <div>
                         <span class="pr-3">$99</span>
-                        <Button class="bg-main-color font-semibold">Buy</Button>
+                        <Button class="border-0 bg-main-color font-semibold transition duration-240 rounded-md hover:bg-secondary-color hover:shadow-md hover:shadow-[#646cffa6]">Buy</Button>
                     </div>
                     
                 </div>

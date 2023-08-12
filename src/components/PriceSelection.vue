@@ -103,7 +103,7 @@
                         Start with a Free Month
                     </li>
                     <li class="flex items-center py-2 space-x-3">
-                        <svg class="flex-shrink-0 w-5 h-5 text-main-color dark:text-blue-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                        <svg class="flex-shrink-0 w-5 h-5 text-main-color dark:text-main-color" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"/>
                         </svg>
                         <span class="text-lg font-normal leading-tight text-gray-500 max-xs:text-sm dark:text-gray-400">
@@ -111,7 +111,7 @@
                         </span>
                     </li>
                     <li class="flex py-2 space-x-3">
-                        <svg class="flex-shrink-0 w-5 h-5 text-main-color dark:text-blue-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                        <svg class="flex-shrink-0 w-5 h-5 text-main-color dark:text-main-color" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"/>
                         </svg>
                         <span class="text-lg font-normal leading-tight text-gray-500 max-xs:text-sm dark:text-gray-400">
@@ -119,7 +119,7 @@
                         </span>
                     </li>
                     <li class="flex py-2 space-x-3">
-                        <svg class="flex-shrink-0 w-5 h-5 text-main-color dark:text-blue-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                        <svg class="flex-shrink-0 w-5 h-5 text-main-color dark:text-main-color" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"/>
                         </svg>
                         <span class="text-lg font-normal leading-tight text-gray-500 max-xs:text-sm dark:text-gray-400">
@@ -127,7 +127,7 @@
                         </span>
                     </li>
                     <li class="flex py-2 space-x-3">
-                        <svg class="flex-shrink-0 w-5 h-5 text-main-color dark:text-blue-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                        <svg class="flex-shrink-0 w-5 h-5 text-main-color dark:text-main-color" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"/>
                         </svg>
                         <span class="text-lg font-normal leading-tight text-gray-500 max-xs:text-sm dark:text-gray-400">
@@ -135,7 +135,7 @@
                         </span>
                     </li>
                     <li class="flex py-2 space-x-3">
-                        <svg class="flex-shrink-0 w-5 h-5 text-main-color dark:text-blue-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                        <svg class="flex-shrink-0 w-5 h-5 text-main-color dark:text-main-color" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"/>
                         </svg>
                         <span class="text-lg font-normal leading-tight text-gray-500 max-xs:text-sm dark:text-gray-400">
@@ -143,9 +143,9 @@
                         </span>
                     </li>
                 </ul>
-                <button :class="isLoading ? 'bg-gray-500 hover:bg-gra-500 cursor-not-allowed' : 'bg-main-color hover:bg-secondary-color border-0'" 
+                <button :class="isLoading ? 'bg-gray-500 hover:bg-gra-500 cursor-not-allowed' : ' hover:bg-secondary-color border-0'" 
                     :disabled="!price.id || isLoading" @click="createSub(price.id)" type="button" 
-                    class="text-white focus:ring-4 focus:outline-none focus:ring-blue-200 dark:focus:ring-blue-900 font-medium rounded-lg text-lg px-5 py-2.5 inline-flex justify-center w-full text-center">
+                    class="transition duration-240 rounded-md bg-main-color hover:shadow-md hover:shadow-[#646cffa6] text-white focus:ring-4 focus:outline-none focus:ring-main-color dark:focus:ring-main-color font-medium rounded-lg text-lg px-5 py-2.5 inline-flex justify-center w-full text-center">
                     {{ isLoading ? "Loading..." : "Get 1 Month Free Now!" }}
                 </button>
             </div>

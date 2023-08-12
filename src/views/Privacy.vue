@@ -10,7 +10,7 @@
                 Embrace the Tiklipy community ("Company," "we," "us," or "our") and trust our dedication to securing your personal information and respecting your privacy. If any inquiries arise regarding our practices or policies concerning your personal data, reach out to us at help@tiklipy.com.
             </p>
             <p class="text-gray-700 leading-7 mb-6">
-                This privacy policy encompasses all data gathered through our website and related services, sales, marketing, and events ("Services"). Upon visiting <a href="https://www.tiklipy.com" class="text-blue-500 underline">https://www.tiklipy.com</a> and utilizing our Services, you entrust your personal data to us. This document transparently outlines our policy ("Policy"), detailing data collection, usage, and your associated rights. We urge you to carefully peruse it. If certain terms are incongruent with your beliefs, please discontinue use of our sites and Services.
+                This privacy policy encompasses all data gathered through our website and related services, sales, marketing, and events ("Services"). Upon visiting <a href="https://www.tiklipy.com" class="text-main-color underline">https://www.tiklipy.com</a> and utilizing our Services, you entrust your personal data to us. This document transparently outlines our policy ("Policy"), detailing data collection, usage, and your associated rights. We urge you to carefully peruse it. If certain terms are incongruent with your beliefs, please discontinue use of our sites and Services.
             </p>
             <p class="text-gray-700 leading-7 mb-6">
                 We encourage you to thoroughly read this privacy policy as it empowers you to make informed decisions about sharing personal data with us.
