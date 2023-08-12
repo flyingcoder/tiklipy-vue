@@ -74,67 +74,73 @@
             </div>
             <!-- Contents -->
             <div class="  flex flex-wrap mt-10 justify-center sm:justify-between">
-                <div class="border-[1px] border-color-main-color sm:w-[49%] midlg:w-[32%] mb-5 bg-[#eeeff46b] hover:bg-red-100 p-5 flex flex-wrap content-between rounded-xl hover:scale-105 ease-linear duration-200 shadow-md hover:shadow-red-200">
+                <div class="border-[1px] border-color-main-color sm:w-[49%] midlg:w-[32%] mb-5  hover:bg-red-100 p-5 2xl:p-10  content-between rounded-xl hover:scale-105 ease-linear duration-200 shadow-sm hover:shadow-red-200">
                     <div class="overflow-hidden  w-full mb-[4rem]">
-                        <img class="rounded-[100px]  bg-main-color w-10 p-2"  src="/195.png" alt="">
+                        <img class="rounded-[10px]  bg-main-color w-12  p-2"  src="/195.png" alt="">
                     </div>
-                    <h2 class="text-black text-[1.2rem] font-semibold mb-2">Simplifying Concepts</h2>
-                    <div class="text-black">Breaking down complex topics for easier understanding.</div>
+                    <div class="">
+                        <h2 class="text-[1.2rem] mb-2 sm:text-2xl text-main-color font-bold dark:text-white">Simplifying Concepts</h2>
+                        <div class="text-black">Breaking down complex topics for easier understanding.</div>
+                    </div>
                 </div>
-                <div class="border-[1px] border-color-main-color sm:w-[49%] midlg:w-[32%] mb-5 bg-[#eeeff46b] hover:bg-green-100 p-5 flex flex-wrap content-between rounded-xl hover:scale-105 ease-linear duration-200 shadow-md hover:shadow-green-200">
+                <div class="border-[1px] border-color-main-color sm:w-[49%] midlg:w-[32%] mb-5  hover:bg-green-100 p-5  2xl:p-10 content-between rounded-xl hover:scale-105 ease-linear duration-200 shadow-sm hover:shadow-green-200">
                     <div class="overflow-hidden  w-full mb-[4rem]">
-                        <img class="rounded-[100px]  bg-main-color w-10 p-2"  src="/73.png" alt="">
+                        <img class="rounded-[10px]  bg-main-color w-12  p-2"  src="/73.png" alt="">
                     </div>
-                    <h2 class="text-black text-[1.2rem] font-semibold mb-2">Crafting Comprehension Questions</h2>
-                    <div class="text-black">Generating engaging queries based on written material.</div>
+                    <div class="">
+                        <h2 class="text-[1.2rem] mb-2 sm:text-2xl text-main-color font-bold dark:text-white">Crafting Comprehension Questions</h2>
+                        <div class="text-black">Generating engaging queries based on written material.</div>
+                    </div>
                 </div>
-                <div class="border-[1px] border-color-main-color sm:w-[49%] midlg:w-[32%] mb-5 bg-[#eeeff46b] hover:bg-yellow-100 p-5 flex flex-wrap content-between rounded-xl hover:scale-105 ease-linear duration-200 shadow-md hover:shadow-yellow-200">
+                <div class="border-[1px] border-color-main-color sm:w-[49%] midlg:w-[32%] mb-5  hover:bg-yellow-100 p-5 2xl:p-10  content-between rounded-xl hover:scale-105 ease-linear duration-200 shadow-sm hover:shadow-yellow-200">
                     <div class="overflow-hidden  w-full mb-[4rem]">
-                        <img class="rounded-[100px]  bg-main-color w-10 p-2"  src="/134.png" alt="">
+                        <img class="rounded-[10px]  bg-main-color w-12  p-2"  src="/134.png" alt="">
                     </div>
-                    <h2 class="text-black text-[1.2rem] font-semibold mb-2">Creating a Positive Classroom Atmospher</h2>
-                    <div class="text-black">Enhancing performance and behavior through a constructive classroom environment.</div>
+                    <div class="">
+                        <h2 class="text-[1.2rem] mb-2 sm:text-2xl text-main-color font-bold dark:text-white">Creating a Positive Classroom Atmospher</h2>
+                        <div class="text-black">Enhancing performance and behavior through a constructive classroom environment.</div>
+                    </div>
                 </div>
-                <div class="border-[1px] border-color-main-color sm:w-[49%] midlg:w-[32%] mb-5 bg-[#eeeff46b] hover:bg-blue-100 p-5 flex flex-wrap content-between rounded-xl hover:scale-105 ease-linear duration-200 shadow-md hover:shadow-blue-200">
+                <div class="border-[1px] border-color-main-color sm:w-[49%] midlg:w-[32%] mb-5  hover:bg-blue-100 p-5 2xl:p-10 content-between rounded-xl hover:scale-105 ease-linear duration-200 shadow-sm hover:shadow-blue-200">
                     <div class="overflow-hidden  w-full mb-[4rem]">
-                        <img class="rounded-[100px]  bg-main-color w-10 p-2"  src="/73.png" alt="">
+                        <img class="rounded-[10px]  bg-main-color w-12  p-2"  src="/73.png" alt="">
                     </div>
-                    <h2 class="text-black text-[1.2rem] font-semibold mb-2">Crafting Newsletters</h2>
+                    <h2 class="text-[1.2rem] mb-2 sm:text-2xl text-main-color font-bold dark:text-white">Crafting Newsletters</h2>
                     <div class="text-black">Generating customized letters, blog posts, and updates instantly.</div>
                 </div>
-                <div class="border-[1px] border-color-main-color sm:w-[49%] midlg:w-[32%] mb-5 bg-[#eeeff46b] hover:bg-teal-100 p-5 flex flex-wrap content-between rounded-xl hover:scale-105 ease-linear duration-200 shadow-md hover:shadow-teal-200">
+                <div class="border-[1px] border-color-main-color sm:w-[49%] midlg:w-[32%] mb-5  hover:bg-teal-100 p-5  2xl:p-10 content-between rounded-xl hover:scale-105 ease-linear duration-200 shadow-sm hover:shadow-teal-200">
                     <div class="overflow-hidden  w-full mb-[4rem]">
-                        <img class="rounded-[100px]  bg-main-color w-10 p-2"  src="/123.png" alt="">
+                        <img class="rounded-[10px]  bg-main-color w-12  p-2"  src="/123.png" alt="">
                     </div>
-                    <h2 class="text-black text-[1.2rem] font-semibold mb-2">Writing Articles and Short Stories</h2>
+                    <h2 class="text-[1.2rem] mb-2 sm:text-2xl text-main-color font-bold dark:text-white">Writing Articles and Short Stories</h2>
                     <div class="text-black">Producing tailored content to meet individual needs.</div>
                 </div>
-                <div class="border-[1px] border-color-main-color sm:w-[49%] midlg:w-[32%] mb-5 bg-[#eeeff46b] hover:bg-red-100 p-5 flex flex-wrap content-between rounded-xl hover:scale-105 ease-linear duration-200 shadow-md hover:shadow-red-200">
+                <div class="border-[1px] border-color-main-color sm:w-[49%] midlg:w-[32%] mb-5 hover:bg-red-100 p-5  2xl:p-10 content-between rounded-xl hover:scale-105 ease-linear duration-200 shadow-sm hover:shadow-red-200">
                     <div class="overflow-hidden  w-full mb-[4rem]">
-                        <img class="rounded-[100px]  bg-main-color w-10 p-2"  src="/185.png" alt="">
+                        <img class="rounded-[10px]  bg-main-color w-12  p-2"  src="/185.png" alt="">
                     </div>
-                    <h2 class="text-black text-[1.2rem] font-semibold mb-2">Exploring History from Various Perspectives</h2>
+                    <h2 class="text-[1.2rem] mb-2 sm:text-2xl text-main-color font-bold dark:text-white">Exploring History from Various Perspectives</h2>
                     <div class="text-black">Examining history through different viewpoints and angles.</div>
                 </div>
-                <div class="border-[1px] border-color-main-color sm:w-[49%] midlg:w-[32%] max-md:mb-5 bg-[#eeeff46b] hover:bg-green-100 p-5 flex flex-wrap content-between rounded-xl hover:scale-105 ease-linear duration-200 shadow-md hover:shadow-green-200">
+                <div class="border-[1px] border-color-main-color sm:w-[49%] midlg:w-[32%] max-midlg:mb-5 hover:bg-green-100 p-5 2xl:p-10 content-between rounded-xl hover:scale-105 ease-linear duration-200 shadow-sm hover:shadow-green-200">
                     <div class="overflow-hidden  w-full mb-[4rem]">
-                        <img class="rounded-[100px]  bg-main-color w-10 p-2"  src="/95.png" alt="">
+                        <img class="rounded-[10px]  bg-main-color w-12  p-2"  src="/95.png" alt="">
                     </div>
-                    <h2 class="text-black text-[1.2rem] font-semibold mb-2">Writing Effective Emails</h2>
+                    <h2 class="text-[1.2rem] mb-2 sm:text-2xl text-main-color font-bold dark:text-white">Writing Effective Emails</h2>
                     <div class="text-black">Generating impactful emails with a personal touch.</div>
                 </div>
-                <div class="border-[1px] border-color-main-color sm:w-[49%] midlg:w-[32%] max-md:mb-5 bg-[#eeeff46b] hover:bg-yellow-100 p-5 flex flex-wrap content-between rounded-xl hover:scale-105 ease-linear duration-200 shadow-md hover:shadow-yellow-200">
+                <div class="border-[1px] border-color-main-color sm:w-[49%] midlg:w-[32%] max-midlg:mb-5  hover:bg-yellow-100 p-5 2xl:p-10 content-between rounded-xl hover:scale-105 ease-linear duration-200 shadow-sm hover:shadow-yellow-200">
                     <div class="overflow-hidden  w-full mb-[4rem]">
-                        <img class="rounded-[100px]  bg-main-color w-10 p-2"  src="/195.png" alt="">
+                        <img class="rounded-[10px]  bg-main-color w-12 p-2"  src="/195.png" alt="">
                     </div>
-                    <h2 class="text-black text-[1.2rem] font-semibold mb-2">Discovering Science and Math Experiments</h2>
+                    <h2 class="text-[1.2rem] mb-2 sm:text-2xl text-main-color font-bold dark:text-white">Discovering Science and Math Experiments</h2>
                     <div class="text-black">Finding captivating ways to test hypotheses through hands-on trials.</div>
                 </div>
-                <div class="border-[1px] border-color-main-color sm:w-[49%] midlg:w-[32%] max-md:mb-5 bg-[#eeeff46b] hover:bg-blue-100 p-5 flex flex-wrap content-between rounded-xl hover:scale-105 ease-linear duration-200 shadow-md hover:shadow-blue-200">
+                <div class="border-[1px] border-color-main-color sm:w-[49%] midlg:w-[32%] max-midlg:mb-5  hover:bg-blue-100 p-5 2xl:p-10 content-between rounded-xl hover:scale-105 ease-linear duration-200 shadow-sm hover:shadow-blue-200">
                     <div class="overflow-hidden  w-full mb-[4rem]">
-                        <img class="rounded-[100px]  bg-main-color w-10 p-2"  src="/123.png" alt="">
+                        <img class="rounded-[10px]  bg-main-color w-12  p-2"  src="/123.png" alt="">
                     </div>
-                    <h2 class="text-black text-[1.2rem] font-semibold mb-2">Generating Volunteer Sign-Up Forms</h2>
+                    <h2 class="text-[1.2rem] mb-2 sm:text-2xl text-main-color font-bold dark:text-white">Generating Volunteer Sign-Up Forms</h2>
                     <div class="text-black">Creating forms to attract and manage volunteers efficiently.</div>
                 </div>
             </div>
