@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import { useAuthStore } from "../stores/auth.js";
 import routes from "./routes.js";
-import { Swal } from "sweetalert2/dist/sweetalert2.js";
+import { Swal, swal } from "sweetalert2/dist/sweetalert2.js";
 
 const router = createRouter({
     history:createWebHistory(),
@@ -17,8 +17,14 @@ router.beforeEach((to, from, next) =>  {
         if(subscribe) {
             next();
         } else {
-            if(user)
+            if(user) {
                 authStore.logout();
+                console.log('pricing')
+                next('/pricing');
+            } else {
+                console.log('this')
+                next('login')  
+            }
         }
     } else {
         next();

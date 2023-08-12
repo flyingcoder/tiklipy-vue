@@ -17,7 +17,7 @@ export const useAuthStore = defineStore("auth", {
         authSubscription: null,
         authError: null,
         authSuccess: null,
-        price: null
+        price: 10,
     }),
     getters: {
         user: (state) => state.authUser,
@@ -36,7 +36,6 @@ export const useAuthStore = defineStore("auth", {
                         this.authUser = null;
                         this.authSubscription = null;
                         this.price = null;
-                        router.push({ name: 'pricing' });
                     });
         },
         async fetchSubscription() {
@@ -55,7 +54,7 @@ export const useAuthStore = defineStore("auth", {
                 price: this.price,
                 success_url: window.location.origin,
                 cancel_url: window.location.origin };
-
+            
             const doc = await addDoc(
                 collection( getFirestore(), "customers", this.authUser.uid, "checkout_sessions" ), 
                 params );
@@ -100,7 +99,7 @@ export const useAuthStore = defineStore("auth", {
                         .then((res) => {
                             this.authUser = res.user
                             this.authSuccess = "You did great!"
-                            Swal.fire('Yepey!', this.authSuccess, 'success');
+                            //Swal.fire('Yepey!', this.authSuccess, 'success');
                         })
                         .catch((error) => {
                             console.log(error);
