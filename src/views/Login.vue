@@ -3,6 +3,8 @@
     import { useRouter } from "vue-router";
     import { Auth } from "../plugins/firebase";
     import { useLoaderStore } from "../stores/loader";
+    import Swal from 'sweetalert2';
+    import 'sweetalert2/dist/sweetalert2.min.css';
     import { useAuthStore } from "../stores/auth";
     import Preloader from "../components/Preloader.vue";
     import {
@@ -29,6 +31,36 @@
         
     });
 
+    const showAlert = () => {
+        Swal.fire({
+            html: `
+                <div>
+                    <img src="/public/hazard.gif" width="" height="" alt="Image 1">
+                </div>
+                <div style="display: flex; justify-content: space-between;">
+                    <div>
+                        <img src="/public/bongo-cat.gif" width="" height="" alt="Image 2">
+                    </div>
+                </div>
+
+                <h2 class="swal2-title text-black" id="swal2-title" style="display: block;">Visual Aid Feature</h2>
+                <p style="margin-top: 1em;" class="text-black">This functionality is currently under development and remains in progress. We will duly inform you as soon as this feature becomes accessible.</p>
+                
+            `,
+            width: 600,
+            padding: '',
+            margin:'',
+            color: '#716add',
+            allowOutsideClick: false,
+            confirmButtonText: 'Go Back',
+            backdrop: `
+                rgba(0, 0, 123, 0.4)
+                left top
+                no-repeat
+            `
+        })
+    };
+
     const loginVia = (provider) => {
         loaderStore.toggle();
         authStore.loginVia(provider)
@@ -38,7 +70,12 @@
     }
 
     const login = () => {
-        authStore.login(email.value, password.value);
+        authStore.login(email.value, password.value)
+                .catch(() => {
+                    showAlert();
+                    // this.authError = "Invalid username or password!"
+                    // Swal.fire('Oops!', this.authError, 'error');
+                })
     }
     
     const signIn = async () => {
