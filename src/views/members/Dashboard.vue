@@ -1,10 +1,20 @@
 <script setup>
-    import { TheCard } from 'flowbite-vue'
+    import { ref, onMounted } from 'vue';
+    import { TheCard } from 'flowbite-vue';
+
+    const animate = ref(false);
+
+    onMounted(() => {
+        animation();
+    });
+    const animation = () => {
+        animate.value = true;
+    };
 </script>
 
 <template>
     <div class=" mt-7 px-3">
-        <div class="mb-16">
+        <div class="mb-16" :class="{'animate__fadeInLeft': animate}">
             <div class="flex flex-wrap items-stretch max-lg:justify-center">
                 <router-link class="flex max-sm:w-full justify-center" :to="{name: 'generate'} ">
                     <the-card href="#" class="w-[30rem] bg-white rounded-lg sm:mr-5 mb-5 flex border-none rounded-lg shadow-none hover:bg-white hover:shadow-md bg-[url('/p-1.png')] bg-no-repeat bg-contain" style="max-width: 100% !important">
