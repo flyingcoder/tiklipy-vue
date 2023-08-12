@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
-import { getCurrentUser } from "../plugins/firebase";
+import { useAuthStore } from "../stores/auth.js";
 import routes from "./routes.js";
-
+import { Swal } from "sweetalert2/dist/sweetalert2.js";
 
 const router = createRouter({
     history:createWebHistory(),
@@ -9,13 +9,16 @@ const router = createRouter({
 });
 
 //make hook async to wait for the user to load
-router.beforeEach(async (to, from, next) =>  {
+router.beforeEach((to, from, next) =>  {
     if(to.matched.some((record) => record.meta.requiresAuth )) {
-        let user = await getCurrentUser();
-        if(user) {
+        const authStore = useAuthStore();
+        let subscribe = authStore.authSubscription;
+        let user = authStore.authUser;
+        if(subscribe) {
             next();
         } else {
-            next("login");
+            if(user)
+                authStore.logout();
         }
     } else {
         next();

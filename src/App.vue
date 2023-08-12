@@ -1,29 +1,34 @@
 <script setup>
   import { onMounted } from 'vue';
   import { useRouter } from 'vue-router';
-  import { getCurrentUser, Auth  } from './plugins/firebase';
-  import { signOut } from "firebase/auth";
+  import { useAuthStore } from './stores/auth';
 
   const router = useRouter();
-  
-  onMounted(async () => {
-    await getCurrentUser()
-            .then((user) => {
-              if(user) {
-                if(!user.subscription) {
-                  signOut(Auth)
-                }
-              }
-            })
+  const authStore = useAuthStore();
+
+  const removeListener = authStore.$onAction((args) => {
+    args.after((result) => {
+      if(args.name === 'loginVia') {
+        args.store.fetchSubscription();
+        console.log(args.store.authUser);
+        //authStore.subscribe();
+        //removeListener();
+      }
+
+      if(args.name === 'fetchSubscription') {
+        if(args.store.authSubscription) {
+          console.log(args.store.authSubscription)
+        }
+      }
+    })
+    
   });
 
-  //const serverHello = ref({});
+  onMounted(() => {
+    
+  });
 
-  //fetch('/api/v1/hello')
-  //  .then((r) => r.json())
-  //  .then(({ message }) => {
-  //    serverHello.value = message
-  //  })
+
 </script>
 <template>
   <router-view></router-view>
