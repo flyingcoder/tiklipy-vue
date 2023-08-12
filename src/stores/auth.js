@@ -101,11 +101,11 @@ export const useAuthStore = defineStore("auth", {
                             this.authSuccess = "You did great!"
                             //Swal.fire('Yepey!', this.authSuccess, 'success');
                         })
-                        .catch((error) => {
-                            console.log(error);
-                            this.authError = "Something went wrong! Try again later."
-                            Swal.fire('Oops!', this.authError, 'error');
-                        })
+                        // .catch((error) => {
+                        //     console.log(error);
+                        //     this.authError = "Something went wrong! Try again later."
+                        //     Swal.fire('Oops!', this.authError, 'error');
+                        // })
         }
     }
 });
