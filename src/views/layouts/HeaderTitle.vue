@@ -23,11 +23,15 @@
             </div>
             <div class="mb-4">
                 <Breadcrumb class="text-gray-800">
-                    <BreadcrumbItem href="/" class="no-icon text-gray-600 hover:text-gray-800 transition duration-300">
-                        Tiklipy
+                    <BreadcrumbItem href="/members" class="no-icon text-gray-600 hover:text-gray-800 transition duration-300">
+                        <router-link :to="{name: 'dashboard'}">
+                            Tiklipy
+                        </router-link> 
                     </BreadcrumbItem>
                     <BreadcrumbItem href="/members" class="text-gray-600 hover:text-gray-800 transition duration-300">
-                        Members
+                        <router-link :to="{name: 'dashboard'}">
+                            Members
+                        </router-link> 
                     </BreadcrumbItem>
                     <BreadcrumbItem class="text-gray-800 font-semibold">
                         {{ route.meta.displayName }}
