@@ -60,7 +60,7 @@
                                 Active
                             </td>
                             <td class="px-6 py-4">
-                                <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                                <a href="#" class="font-medium text-main-color dark:text-main-color hover:underline">Edit</a>
                             </td>
                         </tr>
                         <tr class="bg-white border-b border-[#646cff17] dark:bg-gray-800 dark:border-gray-700">
@@ -77,7 +77,7 @@
                                 Active
                             </td>
                             <td class="px-6 py-4">
-                                <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                                <a href="#" class="font-medium text-main-color dark:text-main-color hover:underline">Edit</a>
                             </td>
                         </tr>
                         <tr class="bg-white dark:bg-gray-800 border-[#646cff17]">
@@ -94,7 +94,7 @@
                                 $99
                             </td>
                             <td class="px-6 py-4">
-                                <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                                <a href="#" class="font-medium text-main-color dark:text-main-color hover:underline">Edit</a>
                             </td>
                         </tr>
                     </tbody>

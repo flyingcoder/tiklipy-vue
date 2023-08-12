@@ -236,7 +236,7 @@
                                 <div :class="{'justify-end': m.role === 'user'}" class="flex items-end">
                                     <div :class="{'order-1': m.role === 'user', 'order-2': m.role === 'assistant'}" class="flex flex-col items-end max-w-xs mx-2 space-y-2 text-sm font-medium md:max-w-lg">
                                     <div class="my-2">
-                                        <span v-html="m.content.replace(/\n/g, '<br>')" :class="{'rounded-bl-none border border-gray-100 bg-gray-50 text-gray-600 dark:border-slate-800 dark:bg-slate-700 dark:text-slate-400': m.role === 'assistant', 'rounded-br-none bg-blue-500 text-white': m.role === 'user'}" class="inline-block px-4 py-2 rounded-lg"></span>
+                                        <span v-html="m.content.replace(/\n/g, '<br>')" :class="{'rounded-bl-none border border-gray-100 bg-gray-50 text-gray-600 dark:border-slate-800 dark:bg-slate-700 dark:text-slate-400': m.role === 'assistant', 'rounded-br-none bg-secondary-color text-white': m.role === 'user'}" class="inline-block px-4 py-2 rounded-lg"></span>
                                     </div>
                                     </div>
                                     <img :src="m.role === 'user' ? '/avatar/avatar-5.jpg' : '/android-chrome-512x512.png'" alt="My profile" class="w-8 h-8 rounded-full" :class="{'order-2': m.role === 'user', 'order-1': m.role === 'assistant'}">
@@ -251,7 +251,7 @@
                                 class="w-full py-2 pl-4 text-gray-600 placeholder-gray-400 border border-gray-200 rounded-md focus:outline-none focus:placeholder-gray-400 bg-gray-50 dark:bg-slate-700 dark:border-slate-800">
                             <div class=" inset-y-0 right-0 items-center sm:flex ml-2">
                                 <button type="button border-0"
-                                    class="inline-flex items-center justify-center px-4 py-2 text-white transition duration-500 ease-in-out bg-blue-500 rounded-md hover:bg-blue-400 focus:outline-none">
+                                    class="inline-flex items-center justify-center px-4 py-2 text-white bg-main-color rounded-md hover:bg-secondary-color border-0 transition duration-240  hover:shadow-md hover:shadow-[#646cffa6] focus:outline-none">
                                     <i class="text-lg ti ti-send"></i>
                                 </button>
                                 <!-- <button type="button"
