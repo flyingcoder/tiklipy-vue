@@ -1,8 +1,18 @@
 <script setup>
-    import { Breadcrumb, BreadcrumbItem } from 'flowbite-vue'
+    import { onMounted } from 'vue';
+import { useLessonStore } from '../../stores/lesson';
+
+    const lessonStore = useLessonStore();
+
+    onMounted(() => {
+        lessonStore.fetchLessons();
+    });
+
+
 </script>
 <template>
-    <div class="mt-7 px-3">
+    {{ lessonStore.lessons }}
+    <div class="px-3 mt-7">
         <div class="flex flex-wrap max-lg:justify-center">
             <div class=" w-[30rem] bg-white rounded-lg sm:mr-5 mb-5 flex">
                 <router-link :to="{name: 'lesson', params: { id: 1 }}" class="bg-[url('/p-1.png')] bg-no-repeat bg-contain items-center bg-white rounded-lg  md:flex-row md:max-w-xl hover:shadow-lg transition delay-75 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
@@ -13,7 +23,7 @@
                         </div>
                         <div class="flex flex-col justify-between leading-normal">
                             <h5 class="mb-2 text-2xl font-bold tracking-tight text-main-color dark:text-white">Literary Analysis: Exploring Classic Literature</h5>
-                            <p class=" font-normal text-gray-500 dark:text-gray-400">Delve into the captivating world of classic literature through this enriching lesson on literary analysis. In this course, students will embark on a journey...</p>
+                            <p class="font-normal text-gray-500 dark:text-gray-400">Delve into the captivating world of classic literature through this enriching lesson on literary analysis. In this course, students will embark on a journey...</p>
                         </div>
                     </div>
                 </router-link>

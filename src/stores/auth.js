@@ -1,6 +1,5 @@
 import { defineStore } from "pinia";
 import { useRouter } from "vue-router";
-import axios from "axios";
 import Swal from "sweetalert2";
 import { getCurrentUser } from "../plugins/firebase";
 import { getFirestore, collection, query, addDoc, onSnapshot, getDocs, where } from "firebase/firestore";
