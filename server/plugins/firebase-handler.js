@@ -1,12 +1,10 @@
-import { initializeApp, getApps } from "firebase-admin/app";
+import { initializeApp, applicationDefault } from "firebase-admin/app";
 
-var serviceAccount = require("../secret/tiklipy-firebase-private-key.json");
 
-const config = { credential: admin.credential.cert(serviceAccount) };
-const apps = getApps();
-const firebase = !apps.length ? initializeApp(config) : apps[0];
+const firebase = initializeApp({
+                    credential: applicationDefault(),
+                    projectId: process.env.VITE_FIREBASE_PROJECTID,
+                });
 
-export {
-    firebase
-};
+export default firebase;
 

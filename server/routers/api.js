@@ -1,6 +1,6 @@
 import express from 'express';
 import lessons from '../handlers/lessons.js';
-import { firebase } from '../plugins/firebase-handler.js';
+import firebase from '../plugins/firebase-handler.js';
 
 const router = express.Router();
 
