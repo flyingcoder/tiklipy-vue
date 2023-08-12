@@ -89,10 +89,10 @@ export const useAuthStore = defineStore("auth", {
                         this.authSuccess = "Log-in successfully!"
                         Swal.fire('Yepey!', this.authSuccess, 'success');
                     })
-                    .catch(() => {
-                        this.authError = "Invalid username or password!"
-                        Swal.fire('Oops!', this.authError, 'error');
-                    })
+                    // .catch(() => {
+                    //     this.authError = "Invalid username or password!"
+                    //     // Swal.fire('Oops!', this.authError, 'error');
+                    // })
         },
         async loginVia(provider) {
             await signInWithPopup(getAuth(), provider)
