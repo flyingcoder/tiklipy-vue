@@ -23,10 +23,10 @@
     <div class="mt-7 px-3">
         <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
             <div class="md:col-span-2 lg:col-span-2 xl:col-span-1 cursor-pointer" @click="setActiveView('lessonPlan')">
-                <div class="bg-white dark:bg-slate-800 shadow  rounded-md w-full p-4 relative overflow-hidden bg-[url('/public/p-1.png')] bg-no-repeat bg-contain">
+                <div class="bg-white dark:bg-slate-800 shadow  rounded-md w-full p-4 relative overflow-hidden bg-[url('/p-1.png')] bg-no-repeat bg-contain">
                     <div class="flex justify-between xl:gap-x-2 items-cente">
                         <div class="absolute -left-6 -top-4 text-blue-500 p-3 text-center inline-flex items-center justify-center w-32 h-32 ">
-                            <img src="/public/docs.png" width="60" alt="">                     
+                            <img src="/docs.png" width="60" alt="">                     
                         </div>
                         <div class="self-center ml-auto text-right">                            
                             <h3 class="my-1 font-semibold text-2xl text-main-color">Lesson Plan</h3>
@@ -36,10 +36,10 @@
                 </div> <!--end inner-grid--> 
             </div>
             <div class="md:col-span-2 lg:col-span-2 xl:col-span-1 cursor-pointer" @click="setActiveView('ppt')">
-                <div class="bg-white dark:bg-slate-800 shadow  rounded-md w-full p-4 relative overflow-hidden bg-[url('/public/p-1.png')] bg-no-repeat bg-contain">
+                <div class="bg-white dark:bg-slate-800 shadow  rounded-md w-full p-4 relative overflow-hidden bg-[url('/p-1.png')] bg-no-repeat bg-contain">
                     <div class="flex justify-between xl:gap-x-2 items-cente">
                         <div class="absolute -left-6 -top-4 text-blue-500 p-3 text-center inline-flex items-center justify-center w-32 h-32 ">
-                            <img src="/public/slide.png" width="30" alt="">                       
+                            <img src="/slide.png" width="30" alt="">                       
                         </div>
                         <div class="self-center ml-auto text-right">                            
                             <h3 class="my-1 font-semibold text-2xl text-main-color">PowerPoint</h3>
@@ -49,10 +49,10 @@
                 </div> <!--end inner-grid--> 
             </div>
             <div class="md:col-span-2 lg:col-span-2 xl:col-span-1 cursor-pointer" @click="setActiveView('quiz')">
-                <div class="bg-white dark:bg-slate-800 shadow  rounded-md w-full p-4 relative overflow-hidden bg-[url('/public/p-1.png')] bg-no-repeat bg-contain">
+                <div class="bg-white dark:bg-slate-800 shadow  rounded-md w-full p-4 relative overflow-hidden bg-[url('/p-1.png')] bg-no-repeat bg-contain">
                     <div class="flex justify-between xl:gap-x-2 items-cente">
                         <div class="absolute -left-6 -top-4 text-blue-500 p-3 text-center inline-flex items-center justify-center w-32 h-32 ">
-                            <img src="/public/docs.png" width="60" alt="">                      
+                            <img src="/docs.png" width="60" alt="">                      
                         </div>
                         <div class="self-center ml-auto text-right">                            
                             <h3 class="my-1 font-semibold text-2xl text-main-color">Quiz</h3>
@@ -62,10 +62,10 @@
                 </div> <!--end inner-grid--> 
             </div>
             <div class="md:col-span-2 lg:col-span-2 xl:col-span-1 cursor-pointer" @click="setActiveView('homework')">
-                <div class="bg-white dark:bg-slate-800 shadow rounded-md w-full p-4 relative overflow-hidden bg-[url('/public/p-1.png')] bg-no-repeat bg-contain">
+                <div class="bg-white dark:bg-slate-800 shadow rounded-md w-full p-4 relative overflow-hidden bg-[url('/p-1.png')] bg-no-repeat bg-contain">
                     <div class="flex justify-between xl:gap-x-2 items-cente">
                         <div class="absolute -left-6 -top-4 text-blue-500 p-3 text-center inline-flex items-center justify-center w-32 h-32 ">
-                            <img src="/public/docs.png" width="60" alt="">                     
+                            <img src="/docs.png" width="60" alt="">                     
                         </div>
                         <div class="self-center ml-auto text-right">                            
                             <h3 class="my-1 font-semibold text-2xl text-main-color">Homework</h3>
@@ -75,10 +75,10 @@
                 </div> <!--end inner-grid--> 
             </div>
             <div class="md:col-span-2 lg:col-span-2 xl:col-span-1 cursor-pointer" @click="setActiveView('activities')">
-                <div class="bg-white dark:bg-slate-800 shadow rounded-md w-full p-4 relative overflow-hidden bg-[url('/public/p-1.png')] bg-no-repeat bg-contain">
+                <div class="bg-white dark:bg-slate-800 shadow rounded-md w-full p-4 relative overflow-hidden bg-[url('/p-1.png')] bg-no-repeat bg-contain">
                     <div class="flex justify-between xl:gap-x-2 items-cente">
                         <div class="absolute -left-6 -top-4 text-blue-500 p-3 text-center inline-flex items-center justify-center w-32 h-32 ">
-                            <img src="/public/docs.png" width="60" alt="">                     
+                            <img src="/docs.png" width="60" alt="">                     
                         </div>
                         <div class="self-center ml-auto text-right">                            
                             <h3 class="my-1 font-semibold text-2xl text-main-color">Activities</h3>
@@ -88,10 +88,10 @@
                 </div> <!--end inner-grid--> 
             </div>
             <div class="md:col-span-2 lg:col-span-2 xl:col-span-1 cursor-pointer" @click="setActiveView('projects')">
-                <div class="bg-white dark:bg-slate-800 shadow rounded-md w-full p-4 relative overflow-hidden bg-[url('/public/p-1.png')] bg-no-repeat bg-contain">
+                <div class="bg-white dark:bg-slate-800 shadow rounded-md w-full p-4 relative overflow-hidden bg-[url('/p-1.png')] bg-no-repeat bg-contain">
                     <div class="flex justify-between xl:gap-x-2 items-cente">
                         <div class="absolute -left-6 -top-4 text-blue-500 p-3 text-center inline-flex items-center justify-center w-32 h-32 ">
-                            <img src="/public/docs.png" width="60" alt="">                     
+                            <img src="/docs.png" width="60" alt="">                     
                         </div>
                         <div class="self-center ml-auto text-right">                            
                             <h3 class="my-1 font-semibold text-2xl text-main-color">Projects</h3>
@@ -102,7 +102,7 @@
             </div>
         </div>
 
-        <div class="w-full bg-white rounded-md p-4 relative overflow-hidden bg-[url('/public/p-1.png')] bg-no-repeat bg-contain text-black">
+        <div class="w-full bg-white rounded-md p-4 relative overflow-hidden bg-[url('/p-1.png')] bg-no-repeat bg-contain text-black">
             <LessonPlan v-if="isViewActive('lessonPlan')" />
             <Homework v-if="isViewActive('homework')" />
             <Quiz v-if="isViewActive('quiz')" />

@@ -89,7 +89,7 @@
                                                     </svg>
                                                 </span>
                                                 <img class="object-cover object-center w-full h-full overflow-hidden rounded"
-                                                    src="/public/avatar/avatar-1.jpg" alt="logo" />
+                                                    src="/avatar/avatar-1.jpg" alt="logo" />
                                             </div>
                                             <div class="ml-2">
                                                 <div
@@ -122,7 +122,7 @@
                                                     </svg>
                                                 </span>
                                                 <img class="object-cover object-center w-full h-full overflow-hidden rounded"
-                                                    src="/public/avatar/avatar-9.jpg" alt="logo" />
+                                                    src="/avatar/avatar-9.jpg" alt="logo" />
                                             </div>
                                             <div class="ml-2">
                                                 <div
@@ -153,7 +153,7 @@
                                                     </svg>
                                                 </span>
                                                 <img class="object-cover object-center w-full h-full overflow-hidden rounded"
-                                                    src="/public/avatar/avatar-9.jpg" alt="logo" />
+                                                    src="/avatar/avatar-9.jpg" alt="logo" />
                                             </div>
                                             <div class="ml-2">
                                                 <div
@@ -184,7 +184,7 @@
                                                     </svg>
                                                 </span>
                                                 <img class="object-cover object-center w-full h-full overflow-hidden rounded"
-                                                    src="/public/avatar/avatar-9.jpg" alt="logo" />
+                                                    src="/avatar/avatar-9.jpg" alt="logo" />
                                             </div>
                                             <div class="ml-2">
                                                 <div
@@ -218,7 +218,7 @@
                         class="flex justify-between p-4 border-b border-gray-200 border-dashed sm:items-center dark:border-slate-700">
                         <div class="relative flex items-center space-x-4">
                             <div class="relative">
-                                <img src="/public/android-chrome-512x512.png" alt=""
+                                <img src="/android-chrome-512x512.png" alt=""
                                     class="w-10 h-10 rounded-full sm:w-16 sm:h-16">
                             </div>
                             <div class="flex flex-col leading-tight">
@@ -239,7 +239,7 @@
                                         <span v-html="m.content.replace(/\n/g, '<br>')" :class="{'rounded-bl-none border border-gray-100 bg-gray-50 text-gray-600 dark:border-slate-800 dark:bg-slate-700 dark:text-slate-400': m.role === 'assistant', 'rounded-br-none bg-blue-500 text-white': m.role === 'user'}" class="inline-block px-4 py-2 rounded-lg"></span>
                                     </div>
                                     </div>
-                                    <img :src="m.role === 'user' ? '/public/avatar/avatar-5.jpg' : '/public/android-chrome-512x512.png'" alt="My profile" class="w-8 h-8 rounded-full" :class="{'order-2': m.role === 'user', 'order-1': m.role === 'assistant'}">
+                                    <img :src="m.role === 'user' ? '/avatar/avatar-5.jpg' : '/android-chrome-512x512.png'" alt="My profile" class="w-8 h-8 rounded-full" :class="{'order-2': m.role === 'user', 'order-1': m.role === 'assistant'}">
                                 </div>
                                 </div>
                             </template>

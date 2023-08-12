@@ -2,24 +2,27 @@ import express from "express";
 import path from "path";
 import homeRouter from "./routers/home.js";
 import assetRouter from "./routers/assets.js";
+import apiRouter from "./routers/api.js";
 
-const api = express();
+//initialize
+const app = express();
 const port = process.env.PORT || 3000;
 const publicPath = path.join(path.resolve(), "public");
 const distPath = path.join(path.resolve(), "dist");
 
-api.get("/api/v1/hello", (_req, res) => {
-  res.json({ message: "Hello, world!" });
-});
-
+//routers
+app.use("/api/v1", apiRouter);
 if(process.env.NODE_ENV === "production") {
-  api.use("/", express.static(distPath));
+  app.use("/", express.static(distPath));
 } else {
-  api.use("/", express.static(publicPath));
-  api.use("/src", assetRouter);
+  app.use("/", express.static(publicPath));
+  app.use("/src", assetRouter);
 }
-api.use(homeRouter);
+//this route has a wildcard so make sure to put this last
+app.use(homeRouter);
 
-api.listen(port, () => {
+
+//server endpoint listener
+app.listen(port, () => {
   console.log("Server listening on port", port);
 });

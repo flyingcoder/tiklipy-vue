@@ -25,42 +25,42 @@
             <div class="flex flex-wrap my-10 justify-center sm:justify-between">
                 <div class="sm:w-[49%] midlg:w-[30%] mb-10">
                     <div class="rounded-[100px] overflow-hidden bg-red-100 w-fit m-auto mb-5">
-                        <img class="w-40 p-7"  src="/public/Lifebuoy.svg" alt="">
+                        <img class="w-40 p-7"  src="/Lifebuoy.svg" alt="">
                     </div>
                     <h2 class="text-black text-center text-2xl font-semibold">Receive Guidance</h2>
                     <div class="text-black text-center">Receive expert assistance for challenges in your career and classroom.</div>
                 </div>
                 <div class="sm:w-[49%] midlg:w-[30%] mb-10">
                     <div class="rounded-[100px] overflow-hidden bg-yellow-100 w-fit m-auto mb-5">
-                        <img class="w-40 p-7"  src="/public/Strategy.svg" alt="">
+                        <img class="w-40 p-7"  src="/Strategy.svg" alt="">
                     </div>
                     <h2 class="text-black text-center text-2xl font-semibold">Handle Challenging Behavior</h2>
                     <div class="text-black text-center">Uncover impactful techniques to manage challenging student behavior.</div>
                 </div>
                 <div class="sm:w-[49%] midlg:w-[30%] mb-10">
                     <div class="rounded-[100px] overflow-hidden bg-blue-100 w-fit m-auto mb-5">
-                        <img class="w-40 p-7" src="/public/Essay.svg" alt="">
+                        <img class="w-40 p-7" src="/Essay.svg" alt="">
                     </div>
                     <h2 class="text-black text-center text-2xl font-semibold">Generate Authorization Slip</h2>
                     <div class="text-black text-center">Create permission slips for a wide range of purposes.</div>
                 </div>
                 <div class="sm:w-[49%] midlg:w-[30%] mb-10">
                     <div class="rounded-[100px] overflow-hidden bg-green-100 w-fit m-auto mb-5">
-                        <img class="w-40 p-7"  src="/public/Promotion.svg" alt="">
+                        <img class="w-40 p-7"  src="/Promotion.svg" alt="">
                     </div>
                     <h2 class="text-black text-center text-2xl font-semibold">Make Feedback</h2>
                     <div class="text-black text-center">Offer valuable support and guidance to both students and colleagues.</div>
                 </div>
                 <div class="sm:w-[49%] midlg:w-[30%] mb-10">
                     <div class="rounded-[100px] overflow-hidden bg-indigo-100 w-fit m-auto mb-5">
-                        <img class="w-40 p-7"  src="/public/Medal.svg" alt="">
+                        <img class="w-40 p-7"  src="/Medal.svg" alt="">
                     </div>
                     <h2 class="text-black text-center text-2xl font-semibold">Cultivate Student Enthusiasm</h2>
                     <div class="text-black text-center">Explore approaches to boost student motivation and achieve success.</div>
                 </div>
                 <div class="sm:w-[49%] midlg:w-[30%] mb-10">
                     <div class="rounded-[100px] overflow-hidden bg-orange-100 w-fit m-auto mb-5">
-                        <img class="w-40 p-7" src="/public/Learn.svg" alt="">
+                        <img class="w-40 p-7" src="/Learn.svg" alt="">
                     </div>
                     <h2 class="text-black text-center text-2xl font-semibold">Generate Lesson Plans</h2>
                     <div class="text-black text-center">Craft lessons with well-defined objectives, organization, and structure.</div>
@@ -76,63 +76,63 @@
             <div class="  flex flex-wrap mt-10 justify-center sm:justify-between">
                 <div class="border-[1px] border-color-main-color sm:w-[49%] midlg:w-[32%] mb-5 bg-[#eeeff46b] hover:bg-red-100 p-5 flex flex-wrap content-between rounded-xl hover:scale-105 ease-linear duration-200 shadow-md hover:shadow-red-200">
                     <div class="overflow-hidden  w-full mb-[4rem]">
-                        <img class="rounded-[100px]  bg-main-color w-10 p-2"  src="/public/195.png" alt="">
+                        <img class="rounded-[100px]  bg-main-color w-10 p-2"  src="/195.png" alt="">
                     </div>
                     <h2 class="text-black text-[1.2rem] font-semibold mb-2">Simplifying Concepts</h2>
                     <div class="text-black">Breaking down complex topics for easier understanding.</div>
                 </div>
                 <div class="border-[1px] border-color-main-color sm:w-[49%] midlg:w-[32%] mb-5 bg-[#eeeff46b] hover:bg-green-100 p-5 flex flex-wrap content-between rounded-xl hover:scale-105 ease-linear duration-200 shadow-md hover:shadow-green-200">
                     <div class="overflow-hidden  w-full mb-[4rem]">
-                        <img class="rounded-[100px]  bg-main-color w-10 p-2"  src="/public/73.png" alt="">
+                        <img class="rounded-[100px]  bg-main-color w-10 p-2"  src="/73.png" alt="">
                     </div>
                     <h2 class="text-black text-[1.2rem] font-semibold mb-2">Crafting Comprehension Questions</h2>
                     <div class="text-black">Generating engaging queries based on written material.</div>
                 </div>
                 <div class="border-[1px] border-color-main-color sm:w-[49%] midlg:w-[32%] mb-5 bg-[#eeeff46b] hover:bg-yellow-100 p-5 flex flex-wrap content-between rounded-xl hover:scale-105 ease-linear duration-200 shadow-md hover:shadow-yellow-200">
                     <div class="overflow-hidden  w-full mb-[4rem]">
-                        <img class="rounded-[100px]  bg-main-color w-10 p-2"  src="/public/134.png" alt="">
+                        <img class="rounded-[100px]  bg-main-color w-10 p-2"  src="/134.png" alt="">
                     </div>
                     <h2 class="text-black text-[1.2rem] font-semibold mb-2">Creating a Positive Classroom Atmospher</h2>
                     <div class="text-black">Enhancing performance and behavior through a constructive classroom environment.</div>
                 </div>
                 <div class="border-[1px] border-color-main-color sm:w-[49%] midlg:w-[32%] mb-5 bg-[#eeeff46b] hover:bg-blue-100 p-5 flex flex-wrap content-between rounded-xl hover:scale-105 ease-linear duration-200 shadow-md hover:shadow-blue-200">
                     <div class="overflow-hidden  w-full mb-[4rem]">
-                        <img class="rounded-[100px]  bg-main-color w-10 p-2"  src="/public/73.png" alt="">
+                        <img class="rounded-[100px]  bg-main-color w-10 p-2"  src="/73.png" alt="">
                     </div>
                     <h2 class="text-black text-[1.2rem] font-semibold mb-2">Crafting Newsletters</h2>
                     <div class="text-black">Generating customized letters, blog posts, and updates instantly.</div>
                 </div>
                 <div class="border-[1px] border-color-main-color sm:w-[49%] midlg:w-[32%] mb-5 bg-[#eeeff46b] hover:bg-teal-100 p-5 flex flex-wrap content-between rounded-xl hover:scale-105 ease-linear duration-200 shadow-md hover:shadow-teal-200">
                     <div class="overflow-hidden  w-full mb-[4rem]">
-                        <img class="rounded-[100px]  bg-main-color w-10 p-2"  src="/public/123.png" alt="">
+                        <img class="rounded-[100px]  bg-main-color w-10 p-2"  src="/123.png" alt="">
                     </div>
                     <h2 class="text-black text-[1.2rem] font-semibold mb-2">Writing Articles and Short Stories</h2>
                     <div class="text-black">Producing tailored content to meet individual needs.</div>
                 </div>
                 <div class="border-[1px] border-color-main-color sm:w-[49%] midlg:w-[32%] mb-5 bg-[#eeeff46b] hover:bg-red-100 p-5 flex flex-wrap content-between rounded-xl hover:scale-105 ease-linear duration-200 shadow-md hover:shadow-red-200">
                     <div class="overflow-hidden  w-full mb-[4rem]">
-                        <img class="rounded-[100px]  bg-main-color w-10 p-2"  src="/public/185.png" alt="">
+                        <img class="rounded-[100px]  bg-main-color w-10 p-2"  src="/185.png" alt="">
                     </div>
                     <h2 class="text-black text-[1.2rem] font-semibold mb-2">Exploring History from Various Perspectives</h2>
                     <div class="text-black">Examining history through different viewpoints and angles.</div>
                 </div>
                 <div class="border-[1px] border-color-main-color sm:w-[49%] midlg:w-[32%] max-md:mb-5 bg-[#eeeff46b] hover:bg-green-100 p-5 flex flex-wrap content-between rounded-xl hover:scale-105 ease-linear duration-200 shadow-md hover:shadow-green-200">
                     <div class="overflow-hidden  w-full mb-[4rem]">
-                        <img class="rounded-[100px]  bg-main-color w-10 p-2"  src="/public/95.png" alt="">
+                        <img class="rounded-[100px]  bg-main-color w-10 p-2"  src="/95.png" alt="">
                     </div>
                     <h2 class="text-black text-[1.2rem] font-semibold mb-2">Writing Effective Emails</h2>
                     <div class="text-black">Generating impactful emails with a personal touch.</div>
                 </div>
                 <div class="border-[1px] border-color-main-color sm:w-[49%] midlg:w-[32%] max-md:mb-5 bg-[#eeeff46b] hover:bg-yellow-100 p-5 flex flex-wrap content-between rounded-xl hover:scale-105 ease-linear duration-200 shadow-md hover:shadow-yellow-200">
                     <div class="overflow-hidden  w-full mb-[4rem]">
-                        <img class="rounded-[100px]  bg-main-color w-10 p-2"  src="/public/195.png" alt="">
+                        <img class="rounded-[100px]  bg-main-color w-10 p-2"  src="/195.png" alt="">
                     </div>
                     <h2 class="text-black text-[1.2rem] font-semibold mb-2">Discovering Science and Math Experiments</h2>
                     <div class="text-black">Finding captivating ways to test hypotheses through hands-on trials.</div>
                 </div>
                 <div class="border-[1px] border-color-main-color sm:w-[49%] midlg:w-[32%] max-md:mb-5 bg-[#eeeff46b] hover:bg-blue-100 p-5 flex flex-wrap content-between rounded-xl hover:scale-105 ease-linear duration-200 shadow-md hover:shadow-blue-200">
                     <div class="overflow-hidden  w-full mb-[4rem]">
-                        <img class="rounded-[100px]  bg-main-color w-10 p-2"  src="/public/123.png" alt="">
+                        <img class="rounded-[100px]  bg-main-color w-10 p-2"  src="/123.png" alt="">
                     </div>
                     <h2 class="text-black text-[1.2rem] font-semibold mb-2">Generating Volunteer Sign-Up Forms</h2>
                     <div class="text-black">Creating forms to attract and manage volunteers efficiently.</div>

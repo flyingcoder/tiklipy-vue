@@ -1,7 +1,7 @@
 <script setup>
 </script>
 <template>
-    <div class="w-full bg-white rounded-md p-4 relative overflow-hidden bg-[url('/public/p-1.png')] bg-no-repeat bg-contain text-black">
+    <div class="w-full bg-white rounded-md p-4 relative overflow-hidden bg-[url('/p-1.png')] bg-no-repeat bg-contain text-black">
         <div class="p-8">
             <header class="mb-6">
                 <h1 class="text-3xl font-bold">English Homework - Creative Writing</h1>
