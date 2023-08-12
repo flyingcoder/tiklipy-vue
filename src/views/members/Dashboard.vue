@@ -6,7 +6,7 @@
     <div class=" mt-7 px-3">
         <div class="mb-16">
             <div class="flex flex-wrap items-stretch max-lg:justify-center">
-                <router-link class="flex" :to="{name: 'generate'} ">
+                <router-link class="flex max-sm:w-full justify-center" :to="{name: 'generate'} ">
                     <the-card href="#" class="w-[30rem] bg-white rounded-lg sm:mr-5 mb-5 flex border-none rounded-lg shadow-none hover:bg-white hover:shadow-md bg-[url('/p-1.png')] bg-no-repeat bg-contain" style="max-width: 100% !important">
                         <div class="p-4 max-xs:!p-0 dark:bg-gray-800 dark:border-gray-700">
                             <svg class="w-8 mr-5 mb-7 text-main-color dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
@@ -20,7 +20,7 @@
                         </div>
                     </the-card>
                 </router-link>
-                <router-link class="flex" :to="{name: 'generate'}">
+                <router-link class="flex max-sm:w-full justify-center" :to="{name: 'generate'}">
                     <the-card href="#" class="w-[30rem] bg-white rounded-lg sm:mr-5 mb-5 flex border-none rounded-lg shadow-none hover:bg-white hover:shadow-md bg-[url('/p-1.png')] bg-no-repeat bg-contain" style="max-width: 100% !important">
                         <div class="p-4 max-xs:!p-0 dark:bg-gray-800 dark:border-gray-700">
                             <svg class="w-10 mr-5 mb-7 text-main-color dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
@@ -34,7 +34,7 @@
                         </div>
                     </the-card>
                 </router-link>
-                <router-link class="flex" :to="{name: 'generate'}">
+                <router-link class="flex max-sm:w-full justify-center" :to="{name: 'generate'}">
                     <the-card href="#" class="w-[30rem] bg-white rounded-lg sm:mr-5 mb-5 flex border-none rounded-lg shadow-none hover:bg-white hover:shadow-md bg-[url('/p-1.png')] bg-no-repeat bg-contain" style="max-width: 100% !important">
                         <div class="p-4 max-xs:!p-0 dark:bg-gray-800 dark:border-gray-700">
                             <svg class="w-8 mr-5 mb-7 text-main-color dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
@@ -49,7 +49,7 @@
                         </div>
                     </the-card>
                 </router-link>
-                <router-link class="flex" :to="{name: 'generate'}">
+                <router-link class="flex max-sm:w-full justify-center" :to="{name: 'generate'}">
                     <the-card href="#" class="w-[30rem] bg-white rounded-lg sm:mr-5 mb-5 flex border-none rounded-lg shadow-none hover:bg-white hover:shadow-md bg-[url('/p-1.png')] bg-no-repeat bg-contain" style="max-width: 100% !important">
                         <div class="p-4 max-xs:!p-0 dark:bg-gray-800 dark:border-gray-700">
                             <svg class="w-8 mr-5 mb-7 text-main-color dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 18">
@@ -67,11 +67,11 @@
         </div>
         <div class="mb-16">
             <div class="block justify-center font-semibold mb-6">
-                <span class="text-purple-600 tracking-wider text-sm uppercase mt-0 mb-1 font-poppins font-bold leading-6">FUNDAMENTALS</span>
+                <span class="text-main-color tracking-wider text-sm uppercase mt-0 mb-1 font-poppins font-bold leading-6">FUNDAMENTALS</span>
                 <h2 class="text-gray-800 text-3xl mt-2">Concentrate on the fundamentals.</h2>
             </div>
             <div class="flex flex-wrap max-lg:justify-center">
-                <router-link class="flex" :to="{name: 'generate'}">
+                <router-link class="flex max-sm:w-full justify-center" :to="{name: 'generate'}">
                     <the-card href="#" class="w-[30rem] bg-white rounded-lg sm:mr-5 mb-5 flex border-none rounded-lg shadow-none hover:bg-white hover:shadow-md bg-[url('/p-1.png')] bg-no-repeat bg-contain" style="max-width: 100% !important">
                         <div class="p-4 max-xs:!p-0 dark:bg-gray-800 dark:border-gray-700">
                             <svg class="w-8 mr-5 mb-7 text-main-color dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 18">
@@ -85,7 +85,7 @@
                         </div>
                     </the-card>
                 </router-link>
-                <router-link class="flex" :to="{name: 'generate'}">
+                <router-link class="flex max-sm:w-full justify-center" :to="{name: 'generate'}">
                     <the-card href="#" class="w-[30rem] bg-white rounded-lg sm:mr-5 mb-5 flex border-none rounded-lg shadow-none hover:bg-white hover:shadow-md bg-[url('/p-1.png')] bg-no-repeat bg-contain" style="max-width: 100% !important">
                         <div class="p-4 max-xs:!p-0 dark:bg-gray-800 dark:border-gray-700">
                             <svg class="w-8 mr-5 mb-7 text-main-color dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
@@ -99,7 +99,7 @@
                         </div>
                     </the-card>
                 </router-link>
-                <router-link class="flex" :to="{name: 'generate'}">
+                <router-link class="flex max-sm:w-full justify-center" :to="{name: 'generate'}">
                     <the-card href="#" class="w-[30rem] bg-white rounded-lg sm:mr-5 mb-5 flex border-none rounded-lg shadow-none hover:bg-white hover:shadow-md bg-[url('/p-1.png')] bg-no-repeat bg-contain" style="max-width: 100% !important">
                         <div class="p-4 max-xs:!p-0 dark:bg-gray-800 dark:border-gray-700">
                             <svg class="w-8 mr-5 mb-7 text-main-color dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 21">
@@ -113,7 +113,7 @@
                         </div>
                     </the-card>
                 </router-link>
-                <router-link class="flex" :to="{name: 'generate'}">
+                <router-link class="flex max-sm:w-full justify-center" :to="{name: 'generate'}">
                     <the-card href="#" class="w-[30rem] bg-white rounded-lg sm:mr-5 mb-5 flex border-none rounded-lg shadow-none hover:bg-white hover:shadow-md bg-[url('/p-1.png')] bg-no-repeat bg-contain" style="max-width: 100% !important">
                         <div class="p-4 max-xs:!p-0 dark:bg-gray-800 dark:border-gray-700">
                             <svg class="w-8 mr-5 mb-7 text-main-color dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 21">
@@ -131,11 +131,11 @@
         </div>
         <div class="mb-16">
             <div class="block justify-center font-semibold mb-6">
-                <span class="text-purple-600 tracking-wider text-sm uppercase mt-0 mb-1 font-poppins font-bold leading-6">TRY A NEW APPROACH</span>
+                <span class="text-main-color tracking-wider text-sm uppercase mt-0 mb-1 font-poppins font-bold leading-6">TRY A NEW APPROACH</span>
                 <h2 class="text-gray-800 text-3xl mt-2">Useful Quick Tips</h2>
             </div>
             <div class="flex flex-wrap max-lg:justify-center">
-                <router-link class="flex" :to="{name: 'generate'}">
+                <router-link class="flex max-sm:w-full justify-center" :to="{name: 'generate'}">
                     <the-card href="#" class="w-[30rem] bg-white rounded-lg sm:mr-5 mb-5 flex border-none rounded-lg shadow-none hover:bg-white hover:shadow-md bg-[url('/p-1.png')] bg-no-repeat bg-contain" style="max-width: 100% !important">
                         <div class="p-4 max-xs:!p-0 dark:bg-gray-800 dark:border-gray-700">
                             <svg class="w-8 mr-5 mb-7 text-main-color dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 18">
@@ -149,7 +149,7 @@
                         </div>
                     </the-card>
                 </router-link>
-                <router-link class="flex" :to="{name: 'generate'}">
+                <router-link class="flex max-sm:w-full justify-center" :to="{name: 'generate'}">
                     <the-card href="#" class="w-[30rem] bg-white rounded-lg sm:mr-5 mb-5 flex border-none rounded-lg shadow-none hover:bg-white hover:shadow-md bg-[url('/p-1.png')] bg-no-repeat bg-contain" style="max-width: 100% !important">
                         <div class="p-4 max-xs:!p-0 dark:bg-gray-800 dark:border-gray-700">
                             <svg class="w-8 mr-5 mb-7 text-main-color dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 21">
@@ -163,7 +163,7 @@
                         </div>
                     </the-card>
                 </router-link>
-                <router-link class="flex" :to="{name: 'generate'}">
+                <router-link class="flex max-sm:w-full justify-center" :to="{name: 'generate'}">
                     <the-card href="#" class="w-[30rem] bg-white rounded-lg sm:mr-5 mb-5 flex border-none rounded-lg shadow-none hover:bg-white hover:shadow-md bg-[url('/p-1.png')] bg-no-repeat bg-contain" style="max-width: 100% !important">
                         <div class="p-4 max-xs:!p-0 dark:bg-gray-800 dark:border-gray-700">
                             <svg class="w-8 mr-5 mb-7 text-main-color dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 20">
@@ -177,7 +177,7 @@
                         </div>
                     </the-card>
                 </router-link>
-                <router-link class="flex" :to="{name: 'generate'}">
+                <router-link class="flex max-sm:w-full justify-center" :to="{name: 'generate'}">
                     <the-card href="#" class="w-[30rem] bg-white rounded-lg sm:mr-5 mb-5 flex border-none rounded-lg shadow-none hover:bg-white hover:shadow-md bg-[url('/p-1.png')] bg-no-repeat bg-contain" style="max-width: 100% !important">
                         <div class="p-4 max-xs:!p-0 dark:bg-gray-800 dark:border-gray-700">
                             <svg class="w-8 mr-5 mb-7 text-main-color dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 18">
@@ -191,7 +191,7 @@
                         </div>
                     </the-card>
                 </router-link>
-                <router-link class="flex" :to="{name: 'generate'}">
+                <router-link class="flex max-sm:w-full justify-center" :to="{name: 'generate'}">
                     <the-card href="#" class="w-[30rem] bg-white rounded-lg sm:mr-5 mb-5 flex border-none rounded-lg shadow-none hover:bg-white hover:shadow-md bg-[url('/p-1.png')] bg-no-repeat bg-contain" style="max-width: 100% !important">
                         <div class="p-4 max-xs:!p-0 dark:bg-gray-800 dark:border-gray-700">
                             <svg class="w-8 mr-5 mb-7 text-main-color dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 21 21">
