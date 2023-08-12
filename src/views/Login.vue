@@ -1,14 +1,14 @@
 <script setup>
     import { onMounted, ref } from "vue";
     import { useRouter } from "vue-router";
-    import { getCurrentUser, Auth } from "../plugins/firebase";
+    import { Auth } from "../plugins/firebase";
+    import { useAuthStore } from "../stores/auth";
     import {
         signInWithEmailAndPassword,
         GoogleAuthProvider,
-        FacebookAuthProvider,
-        signInWithPopup,
-        signOut
-    } from "firebase/auth"
+        FacebookAuthProvider
+    } from "firebase/auth";
+
 
     const router = useRouter();
     const email = ref("");
@@ -18,16 +18,21 @@
     const hasError = ref(false);
     const wrongCred = ref(false);
 
-    onMounted(async () => {
-        await getCurrentUser()
-                .then((user) => {
-                    if(user) {
-                        router.push({ name: 'dashboard'})
-                    } else {
-                        signOut(user);
-                    }
-                });
-    })
+    const authStore = useAuthStore();
+    const googleProvider = new GoogleAuthProvider();
+    const facebookProvider =  new FacebookAuthProvider();
+
+    onMounted(() => {
+        
+    });
+
+    const loginVia = (provider) => {
+        authStore.loginVia(provider)
+    }
+
+    const login = () => {
+        authStore.login(email.value, password.value);
+    }
     
     const signIn = async () => {
         isLoading.value = true;
@@ -45,29 +50,6 @@
                     hasError.value = false;
                 }, 2000);
             });
-    };
-
-    const signInWithGoogle = () => {
-        isLoading.value = true;
-        const provider = new GoogleAuthProvider();
-        signInWithPopup(Auth, provider)
-            .then((res) => {
-                router.go({name: 'dashboard'})
-            })
-            .catch((error) => {
-                console.log(error.message)
-            })
-            .finally(() => isLoading.value = false )
-    };
-
-    const signInWithFacebook = () => {
-        isLoading.value = true;
-        const provider =  new FacebookAuthProvider();
-        signInWithPopup(getAuth(), provider)
-            .then((res) =>  {
-                console.log(res.user);
-                router.push({ name: 'dashboard' })
-            }).finally(() => isLoading.value = false )
     };
 </script>
 
@@ -99,7 +81,7 @@
                         <input type="password" v-model="password" id="password" :class="hasError||wrongCred ? 'border-red-500':''" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main-color focus:border-main-color block w-full p-2.5 dark:border-gray-600 dark:text-white dark:focus:ring-main-color dark:focus:border-main-color" placeholder="Enter a password">
                     </div>
                 </div>
-                <button @click="signIn"  :disabled="!email || !password" :class="[(!email || !password) || isLoading ? 'cursor-not-allowed !bg-gray-500 hover:bg-gray-500' : 'bg-main-color hover:bg-secondary-color border-0', hasError?'animate__hinge z-10':'']" class="w-full px-4 py-2 mt-2 font-bold text-white rounded bg-main-color hover:bg-secondary-color">
+                <button @click="login"  :disabled="!email || !password" :class="[(!email || !password) || isLoading ? 'cursor-not-allowed !bg-gray-500 hover:bg-gray-500' : 'bg-main-color hover:bg-secondary-color border-0', hasError?'animate__hinge z-10':'']" class="w-full px-4 py-2 mt-2 font-bold text-white rounded bg-main-color hover:bg-secondary-color">
                     {{ isLoading ? "Loading..." : "Login" }}
                 </button>
             </div>
@@ -117,7 +99,7 @@
                 </button>
             </div>
             <div class="flex px-6 pb-6 text-black">
-                <button @click="signInWithGoogle" class="hover:!border-secondary-color flex items-center justify-center w-full py-2 mt-3 bg-transparent border-gray-300 focus:border-gray-300 focus:outline-none">
+                <button @click="loginVia(googleProvider)" class="hover:!border-secondary-color flex items-center justify-center w-full py-2 mt-3 bg-transparent border-gray-300 focus:border-gray-300 focus:outline-none">
                     <img src="/google-logo.svg" class="w-5" alt="">
                     <b class="ml-2">Google</b>
                 </button>

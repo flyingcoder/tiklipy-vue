@@ -1,43 +1,51 @@
 <script setup>
-    import { ref, watch } from "vue";
-    import { useRouter } from 'vue-router';
+    import { ref, onMounted } from "vue";
     import { Modal } from 'flowbite-vue';
-    import { Auth, getCurrentUser } from './../../plugins/firebase';
+    import { useAuthStore } from "../../stores/auth";
+    import { useLoaderStore } from "../../stores/loader";
+    import { Auth } from './../../plugins/firebase';
     import { addDoc,
         getFirestore,
         collection,
         onSnapshot, 
     } from "firebase/firestore";
-    import { getAuth, 
-        createUserWithEmailAndPassword,
+    import { 
         GoogleAuthProvider,
         FacebookAuthProvider,
-        signInWithPopup,
     } from "firebase/auth";
 
-    const router = useRouter();
     const email = ref("");
     const password = ref("");
     const isLoading = ref(false);
     const hasError = ref(false);
-
+    const googleProvider = new GoogleAuthProvider();
+    const facebookProvider = new FacebookAuthProvider();
 
     const props = defineProps({
       selectedPrice: String,
       showModal: Boolean,
     });
-    
-    const signUp = () => {
-      isLoading.value = true;
-      createUserWithEmailAndPassword(Auth, email.value, password.value)
-          .then((res) => {
-              subscribeCustomer();
-          })
-          .catch((err) => {   
-              console.log(err.message)
-              hasError.value = true
-          }).finally(() => { isLoading.value = false ;});
-    };
+
+    const authStore = useAuthStore();
+    const loaderStore = useLoaderStore();
+
+    onMounted(() => {
+      authStore.selectedPlan(props.selectedPrice);
+    })
+
+    const register = () => {
+        authStore.register(email.value, password.value);
+    }
+
+    const registerVia = (provider) => {
+        loaderStore.toggle();
+        console.log(loaderStore.loading);
+        authStore.loginVia(provider)
+              .then(() => {
+                loaderStore.toggle();
+                console.log(loaderStore.loading);
+              });
+    }
 
     const subscribeCustomer = async () => {
       const params = {
@@ -66,42 +74,12 @@
             if(url) window.location.assign(url);
         });
     }
-
-    const checkSubscription = async () => {
-      await getCurrentUser()
-                .then((user) => {
-                  if(!user.subscription) {
-                    subscribeCustomer();
-                  } else {
-                    router.go({ name: 'dashboard'});
-                  }
-                });
-    }
-
-    const signInWithGoogle = () => {
-        const provider = new GoogleAuthProvider();
-        signInWithPopup(Auth, provider)
-            .then((res) => {
-                checkSubscription();
-            })
-            .catch((error) => {
-                console.log(error.message)
-            })
-    };
-
-    const signInWithFacebook = () => {
-        props.showModal = false;
-        const provider =  new FacebookAuthProvider();
-        signInWithPopup(getAuth(), provider)
-            .then((res) =>  {
-              subscribeCustomer();
-            })
-    };
 </script>
 
 <template>
   <Modal size="lg" v-if="showModal" @close="showModal = !showModal" persistent>
     <template #header>
+      {{ loaderStore.loading }}
       <div class="w-full text-black">
         <img class="w-32 m-auto" src="/tiklipy-logo-indigo.png" alt="tiklipy logo indigo color">
         <h2 class="text-2xl text-center">Account Registration</h2>
@@ -122,7 +100,7 @@
           <input v-model="password" type="password" id="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main-color focus:border-main-color block w-full p-2.5 dark:border-gray-600 dark:text-white dark:focus:ring-main-color dark:focus:border-main-color" 
             placeholder="Enter a password">
         </div>
-        <button :disabled="!email || !password" :class="(!email || !password) || isLoading ? 'cursor-not-allowed bg-gray-500 hover:bg-gray-500' : 'bg-main-color hover:bg-secondary-color '" @click="signUp" class="w-full py-2 mt-2 font-bold text-white border-0 rounded bg-main-color hover:bg-secondary-color">
+        <button  @click="register" :disabled="!email || !password" :class="(!email || !password) || isLoading ? 'cursor-not-allowed bg-gray-500 hover:bg-gray-500' : 'bg-main-color hover:bg-secondary-color '" class="w-full py-2 mt-2 font-bold text-white border-0 rounded bg-main-color hover:bg-secondary-color">
           {{ isLoading ? "Loading..." : "Register" }}
         </button>
       </div>
@@ -134,7 +112,7 @@
       </div>
       <p class="text-center text-black">Sign up with</p>
       <div class="">
-        <button @click="signInWithGoogle" class="hover:!border-secondary-color flex items-center justify-center w-full py-2 my-3 text-black bg-transparent border-gray-300 ">
+        <button @click="registerVia(googleProvider)" class="hover:!border-secondary-color flex items-center justify-center w-full py-2 my-3 text-black bg-transparent border-gray-300 ">
           <img src="/google-logo.svg" class="w-5 " alt="">
           <b class="ml-2">Google</b>
         </button>

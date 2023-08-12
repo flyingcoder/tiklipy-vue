@@ -1,10 +1,10 @@
 import './style.css'
 import 'animate.css'
 import 'sweetalert2/dist/sweetalert2.min.css'
-import { createApp } from 'vue'
-import { createPinia } from 'pinia'
 import App from './App.vue'
 import router from './router'
+import { createApp } from 'vue'
+import { createPinia } from 'pinia'
 import { firebaseApp } from './plugins/firebase'
 import { getAnalytics } from "firebase/analytics"
 
