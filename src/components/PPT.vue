@@ -12,12 +12,36 @@
 
     const showAlert = () => {
         Swal.fire({
-            title: 'PowerPoint Presentation Feature',
-            text: 'This functionality is currently under development and remains in progress. We will duly inform you as soon as this feature becomes accessible.',
-            icon: 'info',
+            html: `
+                <div>
+                    <img src="/public/hazard.gif" width="" height="" alt="Image 1">
+                </div>
+                <div style="display: flex; justify-content: space-between;">
+                    <div>
+                        <img src="/public/bongo-cat.gif" width="" height="" alt="Image 2">
+                    </div>
+                </div>
+
+                <h2 class="swal2-title text-black" id="swal2-title" style="display: block;">Visual Aid Feature</h2>
+                <p style="margin-top: 1em;" class="text-black">This functionality is currently under development and remains in progress. We will duly inform you as soon as this feature becomes accessible.</p>
+                
+            `,
+            width: 600,
+            padding: '',
+            margin:'',
+            color: '#716add',
             allowOutsideClick: false,
-            confirmButtonText: 'Certainly!'
-        })
+            confirmButtonText: 'Go Back',
+            backdrop: `
+                rgba(0, 0, 123, 0.4)
+                left top
+                no-repeat
+            `
+        }).then((result) => {
+            if (result.isConfirmed) {
+                router.push({ name: 'dashboard' })
+            }
+        });
     };
 </script>
 <template>

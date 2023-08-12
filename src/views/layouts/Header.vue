@@ -70,7 +70,7 @@
                         </li>
                         <li>
                             <button id="mega-menu-dropdown-button" data-dropdown-toggle="mega-menu-dropdown"
-                                    class="flex items-center justify-between w-full py-2 pl-3 pr-4 text-base font-medium text-gray-900 bg-transparent md:w-auto focus:outline-none hover:border-transparent hover:text-main-color dark:text-white focus:border-transparent focus:ring-0"
+                                    class="flex items-center w-full py-2 pl-3 pr-4 text-base font-medium text-gray-900 bg-transparent md:w-auto focus:outline-none hover:border-transparent hover:text-main-color dark:text-white focus:border-transparent focus:ring-0"
                             >
                             <i class="pb-1 mr-1 text-lg ti ti-info-circle"></i> About
                                 <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
