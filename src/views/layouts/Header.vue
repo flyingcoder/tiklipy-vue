@@ -7,6 +7,8 @@
     const router = useRouter();
     const isLoggedIn = ref(false);
     const isMenuHidden = ref(true);
+    const dropdownMenu = ref(true);
+
     let auth;
     onMounted(() => {
         auth = getAuth();
@@ -23,6 +25,10 @@
 
     const toggleMenu = () => {
         isMenuHidden.value = !isMenuHidden.value;
+    };
+
+    const toggleDropdown = () => {
+        dropdownMenu.value = !dropdownMenu.value;
     };
 </script>
 <template>
@@ -69,7 +75,7 @@
                             </router-link>
                         </li>
                         <li>
-                            <button id="mega-menu-dropdown-button" data-dropdown-toggle="mega-menu-dropdown"
+                            <button id="mega-menu-dropdown-button" data-dropdown-toggle="mega-menu-dropdown" @click="toggleDropdown()"
                                     class="flex items-center w-full py-2 pl-3 pr-4 text-base font-medium text-gray-900 bg-transparent md:w-auto focus:outline-none hover:border-transparent hover:text-main-color dark:text-white focus:border-transparent focus:ring-0"
                             >
                             <i class="pb-1 mr-1 text-lg ti ti-info-circle"></i> About
@@ -79,8 +85,8 @@
                                         d="m1 1 4 4 4-4"/>
                                 </svg>
                             </button>
-                            <div id="mega-menu-dropdown"
-                                class="absolute z-10 hidden w-auto text-sm bg-white border border-gray-100 rounded-lg shadow-md dark:border-gray-700 md:grid-cols-3 dark:bg-gray-700">
+                            <div id="mega-menu-dropdown" :class="{'hidden' : dropdownMenu}"
+                                class="absolute z-10 w-auto text-sm bg-white border border-gray-100 rounded-lg shadow-md dark:border-gray-700 md:grid-cols-3 dark:bg-gray-700">
                                 <div class="w-80">
                                     <ul class="space-y-4">
                                         <router-link to="/blogs"
