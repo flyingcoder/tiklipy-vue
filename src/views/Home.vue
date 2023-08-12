@@ -6,11 +6,11 @@
     <div class="mb-5">
         <div class="flex sm:w-[35rem] h-[35rem] m-auto text-center align-items items-center justify-center">
             <div class="">
-                <h1 class="text-gray-800 font-bold text mb-8 ">Every teacher's best friend</h1>
-                <p class="text-black mb-10">Fetchy brings AI to educators. You'll still attend meetings and create lesson plans. But how you do all this will never be the same.</p>
+                <h1 class="text-gray-800 font-bold text mb-8 ">The ultimate companion for every teacher.</h1>
+                <p class="text-black mb-10">Empowering educators, Fetchy integrates AI. While meetings and lesson planning continue, your methods evolve radically.</p>
                 <router-link :to="{name:'pricing'}">
                     <button type="button" class="w-fit bg-main-color text-white focus:ring-4 focus:outline-none focus:ring-blue-200 dark:focus:ring-blue-900 font-medium rounded-lg text-lg px-5 py-2.5 inline-flex justify-center text-center">
-                        Buy now Get one month FREE !
+                        Buy now Get one month FREE!
                     </button>
                 </router-link>
             </div>
@@ -19,7 +19,7 @@
             <!-- title -->
             <div class="my-10 sm:w-[40rem] m-auto ">
                 <h2 class="text-main-color text-center text-3xl font-semibold mb-5">Discover effective strategies for handling challenging student behavior.</h2>
-                <div class="text-black text-center">Dive into 50+ powerful teaching tools. Write stuff, organize things, and find unlimited inspiration. Plus, get expert advice anytime.</div>
+                <div class="text-black text-center">Immerse yourself in over 50 potent teaching tools. Write, organize, and discover boundless inspiration. Also, access expert advice whenever you need.</div>
             </div>
             <!-- Contents -->
             <div class="flex flex-wrap my-10 justify-center sm:justify-between">
