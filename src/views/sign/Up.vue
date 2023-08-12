@@ -3,6 +3,7 @@
     import { Modal } from 'flowbite-vue';
     import { useAuthStore } from "../../stores/auth";
     import { useLoaderStore } from "../../stores/loader";
+    import Preloader from "../../components/Preloader.vue";
     import { Auth } from './../../plugins/firebase';
     import { addDoc,
         getFirestore,
@@ -77,6 +78,7 @@
 </script>
 
 <template>
+  <Preloader v-if="loaderStore.loading"/>
   <Modal size="lg" v-if="showModal" @close="showModal = !showModal" persistent>
     <template #header>
       {{ loaderStore.loading }}

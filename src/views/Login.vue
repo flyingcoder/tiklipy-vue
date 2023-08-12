@@ -2,7 +2,9 @@
     import { onMounted, ref } from "vue";
     import { useRouter } from "vue-router";
     import { Auth } from "../plugins/firebase";
+    import { useLoaderStore } from "../stores/loader";
     import { useAuthStore } from "../stores/auth";
+    import Preloader from "../components/Preloader.vue";
     import {
         signInWithEmailAndPassword,
         GoogleAuthProvider,
@@ -17,6 +19,7 @@
     const isLoading = ref(false);
     const hasError = ref(false);
     const wrongCred = ref(false);
+    const loaderStore = useLoaderStore();
 
     const authStore = useAuthStore();
     const googleProvider = new GoogleAuthProvider();
@@ -27,7 +30,11 @@
     });
 
     const loginVia = (provider) => {
+        loaderStore.toggle();
         authStore.loginVia(provider)
+            .then(() => {
+                loaderStore.toggle();
+              });
     }
 
     const login = () => {
@@ -54,6 +61,7 @@
 </script>
 
 <template>
+    <Preloader v-if="loaderStore.loading"/>
     <div class="flex items-center justify-center pt-20">
         <div class="max-w-md bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 lg:w-2/5 sm:w-96">
             <div class="w-full px-8 py-6 text-gray-200 bg-gray-800 rounded-t-lg">
