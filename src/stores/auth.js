@@ -16,7 +16,7 @@ export const useAuthStore = defineStore("auth", {
                 const userCred = await createUserWithEmailAndPassword(auth, email, password);
                 this.user = userCred.user;
             } catch (error) {
-                if(!error.message.includes('email-already-in-use')) {
+                if(error.message.includes('email-already-in-use')) {
                     return 'email-already-in-use';
                 }
                 console.error("Normal registration error:", error);

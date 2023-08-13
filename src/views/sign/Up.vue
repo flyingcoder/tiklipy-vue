@@ -41,7 +41,6 @@
         loaderStore.isLoading = true;
         const success = await authStore.register(email.value, password.value);
         if(success) {
-          console.log(success)
           if(success === 'email-already-in-use') {
             //alert jr email is already in use add button want to login?
             loaderStore.isLoading = false;
@@ -50,6 +49,7 @@
           }
         } else {
           //alert jr error message
+          loaderStore.isLoading = false;
         }
     }
 
