@@ -10,5 +10,11 @@ export const useUserStore = defineStore("user", {
     setUserSubscription(hasSubscription) {
       this.hasSubscription = hasSubscription;
     },
+    setLessons(lessons) {
+        this.lessons = lessons;
+    },
+    setConsultations(consults) {
+        this.consultations = consults;
+    }
   },
 });

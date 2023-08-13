@@ -1,4 +1,6 @@
 <script setup>
+    import { useLoaderStore } from '../stores/loader';
+    import { ref, onMounted } from "vue";
 </script>
 <template>
     <div class="preloader show-preloader">
