@@ -22,17 +22,17 @@
                 </div>
             <div class="flex flex-wrap justify-around  mt-7">
                 <div class="block w-96 mt-5">
-                    <img src="/gift.png" class="mx-auto rotate-12 mb-4" alt="Gift" width="150" height="150">
+                    <img src="/boss.svg" class="mx-auto mb-4" alt="Gift" width="150" height="150">
                     <h2 class="text-2xl font-semibold text-gray-800 text-center mb-4">Crafted by a Teaching Professional</h2>
                     <p class="text-lg text-gray-500 text-center">Tiklipy was meticulously designed by an experienced educator who deeply understands the needs of fellow teachers.</p>
                 </div>
                 <div class="block w-96 mt-5">
-                    <img src="/mortarboard.png" class="mx-auto -rotate-12 mb-4" alt="Gift" width="150" height="150">
+                    <img src="/Graduation-cap.svg" class="mx-auto  mb-4" alt="Gift" width="150" height="150">
                     <h2 class="text-2xl font-semibold text-gray-800 text-center mb-4">AI possessing an educational degree</h2>
                     <p class="text-lg text-gray-500 text-center">Our AI is far from ordinary; it's uniquely educated in every facet of teaching.</p>
                 </div>
                 <div class="block w-96 mt-5">
-                    <img src="/champion.png" class="mx-auto -rotate-2 mb-4" alt="Gift" width="150" height="150">
+                    <img src="/Trophy.svg" class="mx-auto mb-4" alt="Gift" width="150" height="150">
                     <h2 class="text-2xl font-semibold text-gray-800 text-center mb-4">Honoring our champions</h2>
                     <p class="text-lg text-gray-500 text-center">Our goal is to serve as a steadfast teaching companion, prioritizing the requirements of educators above everything else.</p>
                 </div>
