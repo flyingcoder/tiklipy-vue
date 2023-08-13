@@ -6,6 +6,7 @@
     import { GoogleAuthProvider, FacebookAuthProvider } from "firebase/auth";
     import router from "../../router";
     import { useUserStore } from "../../stores/user";
+    import { onSnapshot } from "firebase/firestore";
 
     const email = ref("");
     const password = ref("");
@@ -37,7 +38,6 @@
               if(url) location.assign(url);
           });
         }
-        if(success) router.push({ name: 'dashboard' });
         loaderStore.loading = false;
     }
 

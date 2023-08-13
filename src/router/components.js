@@ -28,41 +28,17 @@ import License from '../views/License.vue';
 import Login from '../views/Login.vue';
 import SendGift from '../views/SendGift.vue';
 import FAQ from '../views/FAQ.vue';
+import ThankYou from '../views/ThankYou.vue';
+import PaymentCancel from '../views/PaymentCancel.vue';
 import Featured from '../components/Features.vue';
 //layouts
 import GuestsLayout from '../views/GuestIndex.vue';
 import MembersLayout from '../views/members/MembersIndex.vue';
 
 export {
-    Dashboard,
-    Account,
-    Consult,
-    Lessons,
-    Lesson,
-    Visuals,
-    Visual,
-    Assesments,
-    Assesment,
-    Quizes,
-    Homeworks,
-    Tests,
-    Home,
-    Help,
-    Blogs,
-    Blog,
-    About,
-    Pricing,
-    Features,
-    Terms,
-    Privacy,
-    License,
-    GenerateForm,
-    GuestsLayout,
-    MembersLayout,
-    Projects,
-    Activities,
-    Login,
-    SendGift,
-    FAQ,
-    Featured
+    Dashboard, Account, Consult, Lessons, Lesson, Visuals, Visual,
+    Assesments, Assesment, Quizes, Homeworks, Tests, Home, Help,
+    Blogs, Blog, About, Pricing, Features, Terms, Privacy, License, 
+    MembersLayout, GuestsLayout, Projects, Activities, GenerateForm, 
+    Login, SendGift, FAQ, Featured, ThankYou, PaymentCancel
 };
