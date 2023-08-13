@@ -1,14 +1,15 @@
 <script setup>
-    import { ref, onMounted } from 'vue';
+    import { ref, onMounted, watch } from 'vue';
     import { Auth } from '../../plugins/firebase';
     import { getDoc, addDoc, getFirestore, collection, onSnapshot } from "firebase/firestore";
     import axios from '../../plugins/axios';
 
     const messages = ref([]);
-    const promt = ref("");
+    const isGenerating = ref(false);
+    const prompt = ref("");
 
     //watch promt to add typing animation
-    watch(promt, async (msg) => {
+    watch(prompt, (msg) => {
         //add typing variable
     });
 
@@ -17,11 +18,20 @@
     });
 
     const sendMessage = async () => {
-        this.s
-        await axios.post('/api/v1/consult', this.messages)
-                .then((completion) => {
-                    console.log(completion)
-                })
+        isGenerating.value = true;
+
+        try {
+            const promptObject = { role: 'user', content: prompt.value,};
+            messages.value.push(promptObject);
+            
+            await axios.post('/api/v1/consult', messages.value)
+                    .then((completion) => { console.log(completion) })
+
+            isGenerating.value = false;
+        } catch (error) {
+            console.log(error)
+            isGenerating.value = false;
+        } 
     }
 </script>
 
@@ -41,103 +51,8 @@
                                         <i class="pb-1 mr-1 text-lg ti ti-plus"></i> New Chat
                                     </button>
                                 </li>
-                                <li
-                                    class="flex items-center p-4 border-b border-dashed list-group-item border-slate-200 dark:border-slate-700 unread bg-slate-50 dark:bg-slate-700">
-                                    <a href="">
-                                        <div class="flex items-center">
-                                            <div class="relative rounded w-9 h-9">
-                                                <span class="absolute text-green-500 -left-1 -top-1">
-                                                    <svg width="12" height="12">
-                                                        <circle cx="4" cy="4" r="4" fill="currentColor"></circle>
-                                                    </svg>
-                                                </span>
-                                                <img class="object-cover object-center w-full h-full overflow-hidden rounded"
-                                                    src="/avatar/avatar-1.jpg" alt="logo" />
-                                            </div>
-                                            <div class="ml-2">
-                                                <div
-                                                    class="text-gray-800 cursor-pointer hover:text-gray-900 focus:text-gray-500 dark:text-gray-100 focus:outline-none">
-                                                    <h5 class="text-sm font-medium ">Mary Schneider</h5>
-                                                </div>
-                                                <p
-                                                    class="flex-wrap w-40 text-xs font-medium text-gray-800 truncate focus:outline-none dark:text-gray-400">
-                                                    Good morning! Congratulations Friend Congratulations Friend</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <div class="self-center ml-auto text-center">
-                                        <span
-                                            class="inline-block w-4 h-4 text-xs font-medium text-center text-white bg-green-500 rounded-full">3</span>
-                                        <p
-                                            class="text-xs font-medium text-gray-500 focus:outline-none dark:text-gray-400">
-                                            07:30
-                                            AM</p>
-                                    </div>
-                                </li>
-                                <li
-                                    class="flex items-center p-4 border-b border-dashed list-group-item border-slate-200 dark:border-slate-700">
-                                    <a href="">
-                                        <div class="flex items-center">
-                                            <div class="relative rounded w-9 h-9">
-                                                <span class="absolute text-slate-300 -left-1 -top-1">
-                                                    <svg width="12" height="12">
-                                                        <circle cx="4" cy="4" r="4" fill="currentColor"></circle>
-                                                    </svg>
-                                                </span>
-                                                <img class="object-cover object-center w-full h-full overflow-hidden rounded"
-                                                    src="/avatar/avatar-9.jpg" alt="logo" />
-                                            </div>
-                                            <div class="ml-2">
-                                                <div
-                                                    class="text-gray-800 cursor-pointer hover:text-gray-900 focus:text-gray-500 dark:text-gray-100 focus:outline-none">
-                                                    <h5 class="text-sm font-medium ">Victor Harrison</h5>
-                                                </div>
-                                                <p
-                                                    class="flex-wrap w-40 text-xs font-medium text-gray-500 truncate focus:outline-none dark:text-gray-400">
-                                                    Good morning! Congratulations Friend Congratulations Friend</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <div class="self-center ml-auto text-center">
-                                        <p
-                                            class="text-xs font-medium text-gray-500 focus:outline-none dark:text-gray-400">
-                                            07:10
-                                            AM</p>
-                                    </div>
-                                </li>
-                                <li
-                                    class="flex items-center p-4 border-b border-dashed list-group-item border-slate-200 dark:border-slate-700">
-                                    <a href="">
-                                        <div class="flex items-center">
-                                            <div class="relative rounded w-9 h-9">
-                                                <span class="absolute text-slate-300 -left-1 -top-1">
-                                                    <svg width="12" height="12">
-                                                        <circle cx="4" cy="4" r="4" fill="currentColor"></circle>
-                                                    </svg>
-                                                </span>
-                                                <img class="object-cover object-center w-full h-full overflow-hidden rounded"
-                                                    src="/avatar/avatar-9.jpg" alt="logo" />
-                                            </div>
-                                            <div class="ml-2">
-                                                <div
-                                                    class="text-gray-800 cursor-pointer hover:text-gray-900 focus:text-gray-500 dark:text-gray-100 focus:outline-none">
-                                                    <h5 class="text-sm font-medium ">Victor Harrison</h5>
-                                                </div>
-                                                <p
-                                                    class="flex-wrap w-40 text-xs font-medium text-gray-500 truncate focus:outline-none dark:text-gray-400">
-                                                    Good morning! Congratulations Friend Congratulations Friend</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <div class="self-center ml-auto text-center">
-                                        <p
-                                            class="text-xs font-medium text-gray-500 focus:outline-none dark:text-gray-400">
-                                            07:10
-                                            AM</p>
-                                    </div>
-                                </li>
-                                <li
-                                    class="flex items-center p-4 border-b border-dashed list-group-item border-slate-200 dark:border-slate-700">
+
+                                <li class="flex items-center p-4 border-b border-dashed list-group-item border-slate-200 dark:border-slate-700">
                                     <a href="">
                                         <div class="flex items-center">
                                             <div class="relative rounded w-9 h-9">
@@ -177,8 +92,7 @@
         <div class="">
           <!-- ... Chat messages and input area ... -->
           <div class="bg-white rounded-xl shadow-md max-h-[500px] flex-1 p:2 sm:p-6 justify-between flex flex-col">
-                    <div
-                        class="flex justify-between p-4 border-b border-gray-200 border-dashed sm:items-center dark:border-slate-700">
+                    <div class="flex justify-between p-4 border-b border-gray-200 border-dashed sm:items-center dark:border-slate-700">
                         <div class="relative flex items-center space-x-4">
                             <div class="relative">
                                 <img src="/android-chrome-512x512.png" alt=""
@@ -210,17 +124,13 @@
                     </div>
                     <div class="px-2 pt-4 mb-2 border-t border-gray-200 border-dashed sm:mb-0 dark:border-slate-700">
                         <div class="relative flex">
-                            <input v-model="prompt" type="text" placeholder="e.g: How can I improve my teaching?"
+                            <input :disabled="isGenerating" v-model="prompt" type="text" :placeholder="isGenerating ? 'Processing the best response...' : 'e.g: How can I improve my teaching?'"
                                 class="w-full py-2 pl-4 text-gray-600 placeholder-gray-400 border border-gray-200 rounded-md focus:outline-none focus:placeholder-gray-400 bg-gray-50 dark:bg-slate-700 dark:border-slate-800">
                             <div class="inset-y-0 right-0 items-center ml-2 sm:flex">
-                                <button @click="sendMessage" type="button border-0"
-                                    class="inline-flex items-center justify-center px-4 py-2 text-white bg-main-color rounded-md hover:bg-secondary-color border-0 transition duration-240  hover:shadow-md hover:shadow-[#646cffa6] focus:outline-none">
+                                <button :class="!prompt || isGenerating ? 'cursor-not-allowed' : 'hover:shadow-md hover:shadow-[#646cffa6] hover:bg-secondary-color'" @click="sendMessage" :disabled="!prompt || isGenerating" type="button"
+                                    class="inline-flex items-center justify-center px-4 py-2 text-white transition border-0 rounded-md bg-main-color duration-240 focus:outline-none">
                                     <i class="text-lg ti ti-send"></i>
                                 </button>
-                                <!-- <button type="button"
-                                    class="inline-flex items-center justify-center px-4 py-3 text-white transition duration-500 ease-in-out bg-blue-500 rounded-md rounded-full hover:bg-blue-400 focus:outline-none">
-                                    <i class="fas fa-paper-plane"></i>
-                                </button> -->
                             </div>
                         </div>
                     </div>

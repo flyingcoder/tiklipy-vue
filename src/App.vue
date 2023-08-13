@@ -11,7 +11,8 @@
     console.log(args.name)
     args.after((result) => {
       if(args.name === 'loginVia') {
-        args.store.fetchSubscription();
+        if(!args.store.authSubscription)
+          args.store.fetchSubscription();
       }
 
       if(args.name === 'fetchSubscription') {
