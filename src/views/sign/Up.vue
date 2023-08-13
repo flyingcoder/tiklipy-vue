@@ -34,7 +34,7 @@
         });
         setTimeout(() => {
           loaderStore.isLoading = false
-        }, 5000);
+        }, 10000);
     }
 
     const register = async () => {
