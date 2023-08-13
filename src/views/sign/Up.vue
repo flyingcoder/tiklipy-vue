@@ -4,7 +4,6 @@
     import { useAuthStore } from "../../stores/auth";
     import { useLoaderStore } from "../../stores/loader";
     import { GoogleAuthProvider, FacebookAuthProvider } from "firebase/auth";
-    import router from "../../router";
     import { useUserStore } from "../../stores/user";
     import { onSnapshot } from "firebase/firestore";
 
@@ -24,18 +23,22 @@
     const loaderStore = useLoaderStore();
     const userStore = useUserStore();
 
+    const getPaymentUrl = async () => {
+        const doc = await userStore.stripePay(props.selectedPrice)
+        onSnapshot(doc, (snap) => {
+            const { error, url } = snap.data();
+            if(error) {
+              console.error("Stripe pay snapshot error:", error);
+            }
+            if(url) location.assign(url);
+        });
+    }
+
     const register = async () => {
         loaderStore.isLoading = false;
         const success = await authStore.register(email.value, password.value);
-        if(authStore.user) {
-          const doc = await userStore.stripePay(props.selectedPrice)
-          onSnapshot(doc, (snap) => {
-              const { error, url } = snap.data();
-              if(error) {
-                console.error("Stripe pay snapshot error:", error);
-              }
-              if(url) location.assign(url);
-          });
+        if(success) {
+          await getPaymentUrl();
         }
         loaderStore.isLoading = false;
     }
@@ -43,7 +46,9 @@
     const registerVia = async (provider) => {
         loaderStore.toggle();
         const success = await authStore.loginVia(provider);
-        if(success) router.push({ name: 'dashboard' });
+        if(success) {
+          await getPaymentUrl();
+        }
         loaderStore.isLoading = false;
     }
 </script>

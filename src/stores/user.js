@@ -1,4 +1,4 @@
-import { collection, getFirestore } from "firebase/firestore";
+import { collection, getFirestore, addDoc } from "firebase/firestore";
 import { defineStore } from "pinia";
 
 export const useUserStore = defineStore("user", {
