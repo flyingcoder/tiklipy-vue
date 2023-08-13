@@ -1,7 +1,7 @@
 import '../plugins/firebase-handler.js';
 import express from 'express';
-import lessons from '../handlers/lessons';
-import consult from '../handlers/consult';
+import lessons from '../handlers/lessons.js'; //dili makita kung walay js
+import consult from '../handlers/consult.js';
 import { getAuth } from 'firebase-admin/auth';
 
 const router = express.Router();
