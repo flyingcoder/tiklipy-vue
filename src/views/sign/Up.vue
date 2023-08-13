@@ -32,24 +32,25 @@
             }
             if(url) location.assign(url);
         });
+        setTimeout(() => {
+          loaderStore.isLoading = false
+        }, 5000);
     }
 
     const register = async () => {
-        loaderStore.isLoading = false;
+        loaderStore.isLoading = true;
         const success = await authStore.register(email.value, password.value);
         if(success) {
           await getPaymentUrl();
         }
-        loaderStore.isLoading = false;
     }
 
     const registerVia = async (provider) => {
-        loaderStore.toggle();
+        loaderStore.isLoading = true;
         const success = await authStore.loginVia(provider);
         if(success) {
           await getPaymentUrl();
         }
-        loaderStore.isLoading = false;
     }
 </script>
 
