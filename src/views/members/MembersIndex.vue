@@ -2,7 +2,6 @@
   import { onMounted, ref } from 'vue';
   import Header from '../layouts/MembersHeader.vue';
   import Footer from '../layouts/MembersFooter.vue';
-  import Preloader from '../../components/Preloader.vue';
   import HeaderTitle from '../layouts/HeaderTitle.vue';
   import { useRouter } from "vue-router"
   
@@ -14,7 +13,6 @@
   });
 </script>
 <template>
-  <Preloader v-if="loading" />
   <Header />
   <section class="min-h-screen">
     <HeaderTitle v-if="$route.name !== 'visuals'"/>
