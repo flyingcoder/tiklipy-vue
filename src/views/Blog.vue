@@ -9,7 +9,7 @@
             <Avatar status="online" class="flex justify-center my-10" size="lg" rounded img="https://flowbite.com/docs/images/people/profile-picture-5.jpg" />
             
             <div class="text-center mb-12">
-                <span class="font-semibold text-gray-700 text-lg">Paige, Co-Founder of Fetchy</span>
+                <span class="font-semibold text-gray-700 text-lg">Paige, Co-Founder of Tiklipy</span>
                 <div class="flex justify-center mt-2 text-sm text-gray-700">
                     <div class="pr-4">July 25, 2023</div>
                     <div class="pl-4">5 mins read</div>
