@@ -68,7 +68,7 @@
                                     @click="toggle"
                                     >
                                     <i class="mr-2 text-lg ti ti-checkbox"></i>
-                                    Assesment
+                                    Assessment
                                     <i class="ml-auto ti ti-chevron-down"></i>
                                     </a>
                                 </template>
