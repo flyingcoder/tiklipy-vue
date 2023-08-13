@@ -75,6 +75,11 @@
                                 <div class="w-44">
                                     <ul class="space-y-2 text-black">
                                         <li class="hover:bg-gray-50">
+                                            <router-link :to="{name: 'assessments'}" class="block px-4 py-2 text-base font-semibold text-gray-900 transition duration-300 dark:text-gray-100 hover:text-main-color">
+                                                <i class="mr-2 text-lg ti ti-checkbox"></i> Entirety
+                                            </router-link>
+                                        </li>
+                                        <li class="hover:bg-gray-50">
                                             <router-link :to="{name: 'quizes'}" class="block px-4 py-2 text-base font-semibold text-gray-900 transition duration-300 dark:text-gray-100 hover:text-main-color">
                                                 <i class="mr-2 text-lg ti ti-checkbox"></i> Quizzes
                                             </router-link>
