@@ -11,6 +11,14 @@ export const useAuthStore = defineStore("auth", {
             this.user = user;
             localStorage.setItem("tiklipy-user", user);
         },
+        async register(email, password) {
+            try {
+                const userCred = await createUserWithEmailAndPassword(auth, email, password);
+                this.user = userCred.user;
+            } catch (error) {
+                return false;
+            }
+        },
         async login(email, password) {
             try {
                 const userCred = await signInWithEmailAndPassword(auth, email, password);
