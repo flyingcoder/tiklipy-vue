@@ -66,7 +66,7 @@
             html: `
                 <div style="display: flex; justify-content: space-between;">
                     <div>
-                        <img src="/Invalid-error-bongo-cat.gif" width="" height="" alt="Image 2">
+                        <img src="Invalid-error-bongo-cat.gif" width="" height="" alt="Image 2">
                     </div>
                 </div>
 
@@ -92,7 +92,7 @@
         <div class="max-w-md bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 lg:w-2/5 sm:w-96">
             <div class="w-full px-8 py-6 text-gray-200 bg-gray-800 rounded-t-lg">
                 <router-link :to="{ name: 'home' }">
-                    <img class="w-32 mx-auto mb-4" src="/tiklipy-logo-indigo.png" alt="tiklipy logo indigo color">
+                    <img class="w-32 mx-auto mb-4" src="tiklipy-logo-indigo.png" alt="tiklipy logo indigo color">
                 </router-link>
                 <h2 class="w-full text-2xl font-semibold text-center">Sign in to Start!</h2>
                 <p class="text-lg font-semibold text-center">
@@ -128,13 +128,13 @@
             <p class="font-semibold text-center text-black">Sign in with</p>
             <div class="flex px-6 text-black">
                 <button v-if="false" class="hover:!border-secondary-color flex items-center justify-center w-full py-2 mt-3 bg-transparent border-gray-300 focus:border-gray-300 focus:outline-none">
-                    <img src="/facebook-logo.svg" class="w-5" alt="">
+                    <img src="facebook-logo.svg" class="w-5" alt="">
                     <b class="ml-2">Facebook</b>
                 </button>
             </div>
             <div class="flex px-6 pb-6 text-black">
                 <button @click="loginVia(googleProvider)" class="hover:!border-secondary-color flex items-center justify-center w-full py-2 mt-3 bg-transparent border-gray-300 focus:border-gray-300 focus:outline-none">
-                    <img src="/google-logo.svg" class="w-5" alt="">
+                    <img src="google-logo.svg" class="w-5" alt="">
                     <b class="ml-2">Google</b>
                 </button>
             </div>

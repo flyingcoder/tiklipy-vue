@@ -69,7 +69,7 @@
   <Modal size="lg" v-if="showModal" @close="showModal = !showModal" persistent>
     <template #header>
       <div class="w-full text-black">
-        <img class="w-32 m-auto" src="/tiklipy-logo-indigo.png" alt="tiklipy logo indigo color">
+        <img class="w-32 m-auto" src="tiklipy-logo-indigo.png" alt="tiklipy logo indigo color">
         <h2 class="text-2xl text-center">Account Registration</h2>
         <p class="text-lg text-center">
           Just a few more step to greatness...
@@ -101,11 +101,11 @@
       <p class="text-center text-black">Sign up with</p>
       <div class="">
         <button @click="registerVia(googleProvider)" class="hover:!border-secondary-color flex items-center justify-center w-full py-2 my-3 text-black bg-transparent border-gray-300 ">
-          <img src="/google-logo.svg" class="w-5 " alt="">
+          <img src="google-logo.svg" class="w-5 " alt="">
           <b class="ml-2">Google</b>
         </button>
         <button v-if="false" class="hover:!border-secondary-color flex items-center justify-center w-full py-2 my-3 text-black bg-transparent border-gray-300">
-          <img src="/facebook-logo.svg" class="w-5" alt="">
+          <img src="facebook-logo.svg" class="w-5" alt="">
           <b class="ml-2">Facebook</b>
         </button>
       </div>

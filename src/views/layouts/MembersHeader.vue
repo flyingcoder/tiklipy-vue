@@ -10,12 +10,12 @@
     const authStore = useAuthStore();
 
     onMounted(() => {
-        
+        console.log(authStore.user);
     });
 
     const handleSignOut = async () => {
-        const success = await authStore.logout();
-        if(success) router.push({ name: 'home' })
+        await authStore.logout();
+        router.push({ name: '/' })
     };
 
     const toggleMenu = () => {
@@ -28,10 +28,16 @@
         <nav class="mx-auto border-gray-200 dark:bg-gray-900 max-w-screen-2xl">
             <div class="flex flex-wrap items-center justify-between px-4 py-6 mx-auto max-lg:justify-end">
                 <div class="relative z-10 flex items-center lg:order-3">
+                    <a v-if="!isLoggedIn" @click="$emit('loginIsClick')" class="cursor-pointer text-gray-800 dark:text-white focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-lg px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800">
+                      Login
+                    </a>
+                    <router-link v-if="!isLoggedIn" to="/pricing" class="cursor-pointer text-white bg-main-color focus:ring-4 focus:ring-main-color font-medium rounded-lg text-lg px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 dark:bg-main-color focus:outline-none dark:focus:ring-main-color hover:text-white">
+                      Sign up
+                    </router-link>
                     <router-link :to="{ name: 'consult' }" active-class="text-main-color dark:text-white" class="block px-3 py-2 text-lg font-medium text-gray-900 divide-gray-100 max-xs:hidden dark:hover:text-main-color md:border-0 md:p-0">
                         <i class="pb-1 mr-1 text-lg ti ti-atom"></i> Consult
                     </router-link>
-                    <button @click="handleSignOut" type="button" class="max-xs:hidden text-white bg-main-color ml-2 focus:ring-4 focus:ring-main-color font-medium rounded-lg text-sm px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 dark:bg-main-color dark:hover:bg-main-color focus:outline-none dark:focus:ring-main-color">
+                    <button @click="handleSignOut" v-if="isLoggedIn" type="button" class="max-xs:hidden text-white bg-main-color ml-2 focus:ring-4 focus:ring-main-color font-medium rounded-lg text-sm px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 dark:bg-main-color dark:hover:bg-main-color focus:outline-none dark:focus:ring-main-color">
                         Logout
                     </button>  
                     <button data-collapse-toggle="mega-menu" @click="toggleMenu" type="button" class="inline-flex items-center justify-center w-10 h-10 p-2 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="mega-menu" aria-expanded="false">
@@ -107,7 +113,7 @@
                             <router-link :to="{ name: 'consult' }" active-class="text-main-color dark:text-white" class="block px-3 py-2 text-lg font-medium text-gray-900 divide-gray-100 dark:hover:text-main-color md:border-0 md:p-0">
                                 <i class="pb-1 mr-1 text-lg ti ti-atom"></i> Consult
                             </router-link>
-                            <a @click="handleSignOut" href="#" class="text-white bg-main-color ml-2 focus:ring-4 focus:ring-main-color font-medium rounded-lg text-sm px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 dark:bg-main-color dark:hover:bg-main-color focus:outline-none dark:focus:ring-main-color">
+                            <a @click="handleSignOut" v-if="isLoggedIn" href="#" class="text-white bg-main-color ml-2 focus:ring-4 focus:ring-main-color font-medium rounded-lg text-sm px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 dark:bg-main-color dark:hover:bg-main-color focus:outline-none dark:focus:ring-main-color">
                             Logout
                             </a>
                         </li>

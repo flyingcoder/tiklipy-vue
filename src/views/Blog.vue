@@ -6,8 +6,7 @@
     <div class="container mx-auto py-8 my-10 text-black">
         <div class="max-w-3xl mx-auto p-4">
             <div class="text-gray-800 text-2xl midlg:text-5xl font-semibold text-center">Tiklipy and Artificial Intelligence (AI): An Amicable Overview</div>
-            <Avatar status="online" class="flex justify-center my-10" size="lg" rounded img="https://flowbite.com/docs/images/people/profile-picture-5.jpg" />
-            
+            <Avatar status="online" class="flex justify-center my-10" size="lg" rounded img="/tiklipy-logo-icon.png" />
             <div class="text-center mb-12">
                 <span class="font-semibold text-gray-700 text-lg">Paige, Co-Founder of Tiklipy</span>
                 <div class="flex justify-center mt-2 text-sm text-gray-700">
