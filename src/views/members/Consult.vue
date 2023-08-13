@@ -1,15 +1,15 @@
 <script setup>
-    import { ref, onMounted, watch } from 'vue';
-    import { useAuthStore } from '../../stores/auth';
-    import { getDoc, addDoc, getFirestore, collection, onSnapshot } from "firebase/firestore";
+    import { onSnapshot } from 'firebase/firestore';
+import { ref, onMounted, watch } from 'vue';
     import axios from '../../plugins/axios';
+    import { useUserStore } from '../../stores/user';
 
     const messages = ref([]);
     const isGenerating = ref(false);
     const prompt = ref("");
-    const auth = useAuthStore();
+    const userStore = useUserStore();
 
-    axios.defaults.headers.common['Authorization'] = auth.authUser.accessToken;
+    axios.defaults.headers.common['Authorization'] = userStore.accessToken;
 
     //watch promt to add typing animation
     watch(prompt, (msg) => {
@@ -17,15 +17,20 @@
     });
 
     onMounted(() => {
-        
+        fetchMessages();
     });
 
     const storeMessage = () => {
         //add new document for a new message
     }
 
-    const fetchMessages = () => {
+    const fetchMessages = async () => {
         //fetch messages to firebase base on chat collection
+        const consultations = userStore.consultations;
+        if(!consultations) {
+            const consults = await userStore.fetchConsultations();
+            console.log(consults);
+        }
     }
 
     const newChat = async () => {

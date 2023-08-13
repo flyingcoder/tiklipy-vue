@@ -1,4 +1,4 @@
-import { collection, getFirestore, addDoc } from "firebase/firestore";
+import { collection, getFirestore, addDoc, getDocs } from "firebase/firestore";
 import { defineStore } from "pinia";
 
 export const useUserStore = defineStore("user", {
@@ -16,6 +16,20 @@ export const useUserStore = defineStore("user", {
     },
     setUserSubscription(hasSubscription) {
       this.hasSubscription = hasSubscription;
+    },
+    async fetchConsultations() {
+      try {
+        const docRef = collection( getFirestore(), "customers", this.uid, "consultations" );
+        const docSnaps = await getDocs(docRef);
+        const consults = [];
+        console.log(docSnaps.exists())
+        docSnaps.forEach((doc) => { consults.push(doc.data()) });
+        return consults;
+      } catch(error) {
+        console.log(error)
+        return false;
+      }
+      
     },
     async stripePay(selectedPrice) {
       const params = {
