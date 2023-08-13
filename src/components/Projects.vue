@@ -13,10 +13,10 @@
 // define emit action
 </script>
 <template>
-    <div class="flex flex-wrap">
+    <div class="flex flex-wrap justify-between">
         <div class="w-full lg:w-[68%] col-span-4">
             <div class="generated-project">
-                <h1 class="font-bold text-3xl font-bold mb-4">Environmental Explorers</h1>
+                <h1 class="font-bold text-3xl mb-4">Environmental Explorers</h1>
                 <p class="text-base mb-4">In this project, students will become "Environmental Explorers" and embark on an exploration of their local environment. They will learn about ecosystems, biodiversity, environmental challenges, and sustainability through hands-on activities and research. The project will culminate in a presentation and poster session where students share their findings with the school community.</p>
 
                 <h2 class="text-lg font-semibold mb-2">Project Duration</h2>

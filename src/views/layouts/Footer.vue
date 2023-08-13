@@ -11,7 +11,7 @@
                         <div class="basis-full lg:basis-2/12">
                                 <div class="mb-6 md:mb-0">
                                     <router-link :to="{name:'home'}" class="max-xs:justify-center flex items-center">
-                                        <img src="/tiklipy-logo-indigo.png" height="48" width="250" class="mr-3" alt="Tiklipy Logo" />
+                                        <img src="/tiklipy-logo-indigo.png" height="48" width="150" class="mr-3" alt="Tiklipy Logo" />
                                     </router-link>
                                 </div>
                             </div>
