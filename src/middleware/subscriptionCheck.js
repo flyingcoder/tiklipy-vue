@@ -14,9 +14,10 @@ const subscriptionCheck = async ( to, from, next) => {
         const authStore = useAuthStore();
         const userStore = useUserStore();
         if(!authStore.user) authStore.setUserToLocal(appUser);
-        const hasSubscription = checkSubscriptionStatus(user.uid);
+        const hasSubscription = await checkSubscriptionStatus(user.uid);
         userStore.setUser(user);
         userStore.setUserSubscription(hasSubscription);
+        console.log(hasSubscription);
         if(!hasSubscription) {
             next('/pricing');
         } else {
