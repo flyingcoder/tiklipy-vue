@@ -1,7 +1,6 @@
 <script setup>
     import 'sweetalert2/dist/sweetalert2.min.css';
     import Swal from 'sweetalert2';
-    import Preloader from "../components/Preloader.vue";
     import { onMounted, ref } from "vue";
     import { useRouter } from "vue-router";
     import { useLoaderStore } from "../stores/loader";
@@ -89,7 +88,6 @@
 </script>
 
 <template>
-    <Preloader v-if="loaderStore.loading"/>
     <div class="flex items-center justify-center pt-20">
         <div class="max-w-md bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 lg:w-2/5 sm:w-96">
             <div class="w-full px-8 py-6 text-gray-200 bg-gray-800 rounded-t-lg">

@@ -1,26 +1,21 @@
 <script setup>
     import { onMounted, ref } from "vue";
     import { useRouter } from "vue-router";
-    import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
-    import { Dropdown, ListGroup, ListGroupItem } from 'flowbite-vue';
+    import { useAuthStore } from "../../stores/auth";
     
     const router = useRouter();
     const isLoggedIn = ref(false);
     const isMenuHidden = ref(true);
     const dropdownMenu = ref(true);
+    const authStore = useAuthStore();
 
-    let auth;
     onMounted(() => {
-        auth = getAuth();
-        onAuthStateChanged(auth, (user) => {
-            isLoggedIn.value = !!user;
-        });
+        console.log(authStore.user);
     });
 
-    const handleSignOut = () => {
-        signOut(auth).then(() => {
-            router.push({name: 'login'});
-        });
+    const handleSignOut = async () => {
+        await authStore.logout();
+        router.push({ name: '/' })
     };
 
     const toggleMenu = () => {
@@ -36,7 +31,7 @@
         <nav class="mx-auto border-gray-200 dark:bg-gray-900 max-w-screen-2xl">
             <div class="flex flex-wrap items-center justify-between px-4 py-6 mx-auto max-lg:justify-end">
                 <div class="relative z-10 flex items-center lg:order-3">
-                    <router-link v-if="!isLoggedIn" :to="{ name: 'login' }" active-class="text-main-color dark:text-white" class="block px-3 py-2 text-lg font-medium text-gray-900 divide-gray-100 max-xs:hidden dark:hover:text-main-color md:border-0 md:p-0 transition duration-240 ">
+                    <router-link v-if="!isLoggedIn" :to="{ name: 'login' }" active-class="text-main-color dark:text-white" class="block px-3 py-2 text-lg font-medium text-gray-900 transition divide-gray-100 max-xs:hidden dark:hover:text-main-color md:border-0 md:p-0 duration-240 ">
                         <i class="pb-1 mr-1 text-lg ti ti-atom"></i> Login
                     </router-link>
                     <router-link v-if="!isLoggedIn" to="/pricing" class="md:ml-4 cursor-pointer text-white bg-main-color focus:ring-4 focus:ring-main-color font-medium rounded-lg text-lg px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 dark:bg-main-color focus:outline-none dark:focus:ring-main-color hover:text-white">

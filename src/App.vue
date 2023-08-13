@@ -1,12 +1,7 @@
 <script setup>
-  import { onMounted } from 'vue';
-
-  onMounted(() => {
-    
-  });
-
-
+  import Preloader from './components/Preloader.vue';
 </script>
 <template>
+  <Preloader />
   <router-view></router-view>
 </template>

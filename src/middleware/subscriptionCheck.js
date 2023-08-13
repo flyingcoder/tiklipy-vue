@@ -9,7 +9,7 @@ const subscriptionCheck = async ( to, from, next) => {
         if(!authStore.user) authStore.setUserToLocal(user);
         const hasSubscription = await checkSubscriptionStatus(user.uid);
         if(!hasSubscription) {
-            await auth.logout();
+            await authStore.logout();
             next('/pricing');
         }
         next();  

@@ -20,6 +20,7 @@ onAuthStateChanged(auth, async (user) => {
     if (user) {
       const hasSubscription = await checkSubscriptionStatus(user.uid);
       authStore.setUserToLocal(user);
+      userStore.setUserId(user.uid);
       userStore.setUserSubscription(hasSubscription);
     }
 

@@ -1,13 +1,11 @@
 <script setup>
-    import { ref, onMounted } from "vue";
+    import { ref } from "vue";
     import { Modal } from 'flowbite-vue';
     import { useAuthStore } from "../../stores/auth";
     import { useLoaderStore } from "../../stores/loader";
-    import Preloader from "../../components/Preloader.vue";
-    import { 
-        GoogleAuthProvider,
-        FacebookAuthProvider,
-    } from "firebase/auth";
+    import { GoogleAuthProvider, FacebookAuthProvider } from "firebase/auth";
+    import router from "../../router";
+    import { useUserStore } from "../../stores/user";
 
     const email = ref("");
     const password = ref("");
@@ -23,28 +21,27 @@
 
     const authStore = useAuthStore();
     const loaderStore = useLoaderStore();
+    const userStore = useUserStore();
 
-    onMounted(() => {
-      authStore.selectedPlan(props.selectedPrice);
-    })
-
-    const register = () => {
-        authStore.register(email.value, password.value);
+    const register = async () => {
+        loaderStore.loading = true;
+        const success = await authStore.register(email.value, password.value);
+        if(authStore.user) {
+          userStore.stripePay(props.selectedPrice)
+        }
+        if(success) router.push({ name: 'dashboard' });
+        loaderStore.loading = false;
     }
 
-    const registerVia = (provider) => {
+    const registerVia = async (provider) => {
         loaderStore.toggle();
-        console.log(loaderStore.loading);
-        authStore.loginVia(provider)
-              .then(() => {
-                loaderStore.toggle();
-                console.log(loaderStore.loading);
-              });
+        const success = await authStore.loginVia(provider);
+        if(success) router.push({ name: 'dashboard' });
+        loaderStore.loading = false;
     }
 </script>
 
 <template>
-  <Preloader v-if="loaderStore.loading"/>
   <Modal size="lg" v-if="showModal" @close="showModal = !showModal" persistent>
     <template #header>
       {{ loaderStore.loading }}
