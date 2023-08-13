@@ -88,7 +88,8 @@
         position: fixed;
         top: 0;
         left: 0;
-        background: #f3f4f6;
+        background-image: url('/bg-body.png');
+        background-color: #f3f4f6 !important;
         height: 100%;
         width: 100%;
         opacity: 0;
