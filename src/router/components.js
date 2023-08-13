@@ -30,6 +30,7 @@ import SendGift from '../views/SendGift.vue';
 import FAQ from '../views/FAQ.vue';
 import ThankYou from '../views/ThankYou.vue';
 import PaymentCancel from '../views/PaymentCancel.vue';
+import PageNotFound from '../views/PageNotFound.vue';
 import Featured from '../components/Features.vue';
 //layouts
 import GuestsLayout from '../views/GuestIndex.vue';
@@ -40,5 +41,5 @@ export {
     Assesments, Assesment, Quizes, Homeworks, Tests, Home, Help,
     Blogs, Blog, About, Pricing, Features, Terms, Privacy, License, 
     MembersLayout, GuestsLayout, Projects, Activities, GenerateForm, 
-    Login, SendGift, FAQ, Featured, ThankYou, PaymentCancel
+    Login, SendGift, FAQ, Featured, ThankYou, PaymentCancel, PageNotFound
 };

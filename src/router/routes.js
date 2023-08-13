@@ -3,7 +3,7 @@ import {
     Assesments, Assesment, Quizes, Homeworks, Tests, Home, Help,
     Blogs, Blog, About, Pricing, Features, Terms, Privacy, License, 
     MembersLayout, GuestsLayout, Projects, Activities, GenerateForm, 
-    Login, SendGift, FAQ, Featured, ThankYou, PaymentCancel
+    Login, SendGift, FAQ, Featured, ThankYou, PaymentCancel, PageNotFound
 } from './components';
 
 const routes = [
@@ -49,6 +49,7 @@ const routes = [
     },
     { path: '/login', name: 'login', component: Login },
     { path: '/thank-you', name: 'thanks', component: ThankYou },
+    { path: "/:catchAll(.*)", component: PageNotFound },
     { path: '/payment-cancel', name: 'cancel', component: PaymentCancel },
 ];
 
