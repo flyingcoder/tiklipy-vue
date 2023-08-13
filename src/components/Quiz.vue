@@ -1,9 +1,15 @@
 <script setup>
+//import generate form
+//set props
+//emit and emit handler
+//sa generate form component 
+// define props
+// define emit action
 </script>
 <template>
     <div class="generated-quiz">
         <header class="mb-[2rem]">
-            <h1 class=" font-bold text-3xl font-bold">English Quiz</h1>
+            <h1 class="text-3xl font-bold ">English Quiz</h1>
         </header>
 
         <div class="quiz-container">

@@ -42,7 +42,7 @@
             html: `
                 <div style="display: flex; justify-content: space-between;">
                     <div>
-                        <img src="/public/Invalid-error-bongo-cat.gif" width="" height="" alt="Image 2">
+                        <img src="/Invalid-error-bongo-cat.gif" width="" height="" alt="Image 2">
                     </div>
                 </div>
                 <h2 class="swal2-title !p-0 text-black text-lg text-red-500" id="swal2-title" style="display: block;">Nya-oh! Make sure your email and password are right, meow.</h2> 
@@ -66,7 +66,7 @@
             html: `
                 <div style="display: flex; justify-content: space-between;">
                     <div>
-                        <img src="/public/Invalid-error-bongo-cat.gif" width="" height="" alt="Image 2">
+                        <img src="/Invalid-error-bongo-cat.gif" width="" height="" alt="Image 2">
                     </div>
                 </div>
 

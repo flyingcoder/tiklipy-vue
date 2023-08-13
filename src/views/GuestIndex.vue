@@ -21,11 +21,11 @@
   //      loading.value = false;
   //   });
   //};
-
+    const anakNiHeader = () => { console.log('this is click') }
 </script>
 <template>
   <Preloader v-if="loading" />
-  <Header @login-is-click="showLogin = !showLogin" />
+  <Header @login-is-click="anakNiHeader" />
   <section class="min-h-screen midlg:px-10">
     <div class="lg:container md:mx-auto">
       <router-view />
