@@ -10,9 +10,9 @@
                     <div class="flex flex-row flex-wrap justify-between">
                         <div class="basis-full lg:basis-2/12">
                                 <div class="mb-6 md:mb-0">
-                                    <a href="https://flowbite.com/" class="max-xs:justify-center flex items-center">
+                                    <router-link :to="{name:'home'}" class="max-xs:justify-center flex items-center">
                                         <img src="/tiklipy-logo-indigo.png" height="48" width="250" class="mr-3" alt="Tiklipy Logo" />
-                                    </a>
+                                    </router-link>
                                 </div>
                             </div>
                         <div class="max-xs:text-center max-lg:py-7 flex flex-row flex-wrap basis-full lg:basis-5/12">
