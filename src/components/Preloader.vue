@@ -1,7 +1,9 @@
 <script setup>
+    import { useLoaderStore } from '../stores/loader';
+    const loaderStore = useLoaderStore();
 </script>
 <template>
-    <div class="preloader show-preloader">
+    <div v-if="loaderStore.loading" class="preloader show-preloader">
         <div class="pl">
             <svg class="pl__rings" viewBox="0 0 128 128" width="128px" height="128px">
                 <g fill="none" stroke-linecap="round" stroke-width="4">

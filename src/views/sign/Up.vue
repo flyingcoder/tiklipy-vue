@@ -1,19 +1,12 @@
 <script setup>
-    import { ref, onMounted } from "vue";
+    import { ref } from "vue";
     import { Modal } from 'flowbite-vue';
     import { useAuthStore } from "../../stores/auth";
     import { useLoaderStore } from "../../stores/loader";
-    import Preloader from "../../components/Preloader.vue";
-    import { Auth } from './../../plugins/firebase';
-    import { addDoc,
-        getFirestore,
-        collection,
-        onSnapshot, 
-    } from "firebase/firestore";
-    import { 
-        GoogleAuthProvider,
-        FacebookAuthProvider,
-    } from "firebase/auth";
+    import { GoogleAuthProvider, FacebookAuthProvider } from "firebase/auth";
+    import router from "../../router";
+    import { useUserStore } from "../../stores/user";
+    import { onSnapshot } from "firebase/firestore";
 
     const email = ref("");
     const password = ref("");
@@ -29,56 +22,34 @@
 
     const authStore = useAuthStore();
     const loaderStore = useLoaderStore();
+    const userStore = useUserStore();
 
-    onMounted(() => {
-      authStore.selectedPlan(props.selectedPrice);
-    })
-
-    const register = () => {
-        authStore.register(email.value, password.value);
+    const register = async () => {
+        loaderStore.loading = true;
+        const success = await authStore.register(email.value, password.value);
+        if(authStore.user) {
+          const doc = await userStore.stripePay(props.selectedPrice)
+          onSnapshot(doc, (snap) => {
+              const { error, url } = snap.data();
+              if(error) {
+                console.error("Stripe pay snapshot error:", error);
+                authStore.logout();
+              }
+              if(url) location.assign(url);
+          });
+        }
+        loaderStore.loading = false;
     }
 
-    const registerVia = (provider) => {
+    const registerVia = async (provider) => {
         loaderStore.toggle();
-        console.log(loaderStore.loading);
-        authStore.loginVia(provider)
-              .then(() => {
-                loaderStore.toggle();
-                console.log(loaderStore.loading);
-              });
-    }
-
-    const subscribeCustomer = async () => {
-      const params = {
-            price: props.selectedPrice,
-            success_url: window.location.origin,
-            cancel_url: window.location.origin,
-        };
-
-        const subDoc = await addDoc(
-            collection(
-                getFirestore(),
-                "customers",
-                Auth.currentUser.uid,
-                "checkout_sessions"
-            ), params
-        );
-
-        onSnapshot(subDoc, (snap) => {
-            const { error, url } = snap.data();
-
-            if(error) {
-                console.error('An error occored: ${error.message}');
-                isLoading.value = false
-            }
-
-            if(url) window.location.assign(url);
-        });
+        const success = await authStore.loginVia(provider);
+        if(success) router.push({ name: 'dashboard' });
+        loaderStore.loading = false;
     }
 </script>
 
 <template>
-  <Preloader v-if="loaderStore.loading"/>
   <Modal size="lg" v-if="showModal" @close="showModal = !showModal" persistent>
     <template #header>
       {{ loaderStore.loading }}

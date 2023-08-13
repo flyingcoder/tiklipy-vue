@@ -1,7 +1,7 @@
 import '../plugins/firebase-handler.js';
 import express from 'express';
-import lessons from '../handlers/lessons';
-import consult from '../handlers/consult';
+import lessons from '../handlers/lessons.js'; //dili makita kung walay js
+import consult from '../handlers/consult.js';
 import { getAuth } from 'firebase-admin/auth';
 
 const router = express.Router();
@@ -12,7 +12,8 @@ const middleware = async (req, res, next) => {
     next();
 }
 
-router.use(express.urlencoded({ extended: false}));
+router.use(express.json());
+router.use(express.urlencoded({ extended: true}));
 router.use(middleware);
 
 function restrict(req, res, next) {

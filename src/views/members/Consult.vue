@@ -1,65 +1,54 @@
 <script setup>
-    import { ref, onMounted } from 'vue';
-    import { Auth } from '../../plugins/firebase';
+    import { ref, onMounted, watch } from 'vue';
+    import { useAuthStore } from '../../stores/auth';
     import { getDoc, addDoc, getFirestore, collection, onSnapshot } from "firebase/firestore";
-    import axios from 'axios';
+    import axios from '../../plugins/axios';
 
-    const messages = ref([
-        {
-            role: "system",
-            content: "You are a helpful teacher assistant."
-        },
-        {
-            role: "user",
-            content: "Can you tell me how to approach teaching multiplication to pupils who have trouble remembering the multiplication table? Give me the top 3 best strategies."
-        },
-        {
-            role: "assistant",
-            content: "Absolutely! Here are three effective strategies for teaching multiplication to pupils who struggle with remembering the multiplication table:\n\n1. Visual aids and manipulatives: Use visual aids such as multiplication grids and charts, number lines, or arrays to help students visualize and understand multiplication concepts. Manipulatives like counters, cubes, or tiles can also be used to create arrays or groups to demonstrate multiplication visually.\n\n2. Mnemonic devices and tricks: Teach students mnemonic devices or memory tricks to help them remember the multiplication facts. For example, the \"doubles\" trick involves multiplying a number by 2, or using patterns like doubling and halving to solve other multiplication facts, such as multiplying by 4 or 8. These tricks can make the learning process more engaging and memorable for students.\n\n3. Multiplication games and activities: Incorporate games and interactive activities to make multiplication practice more enjoyable. There are several board games, online games, or even card games available that focus on multiplication. Additionally, you can create your own activities like flashcards, puzzles, or bingo games to reinforce the multiplication facts in a fun and engaging way.\n\nRemember to provide ample opportunities for practice and reinforcement, gradually building on their knowledge as they gain confidence. Being patient, supportive, and incorporating a variety of teaching methods"
-        }
-    ]);
+    const messages = ref([]);
+    const isGenerating = ref(false);
+    const prompt = ref("");
+    const auth = useAuthStore();
 
-    onMounted(() => {
-        //gptRef();
-        sendMessage();
+    axios.defaults.headers.common['Authorization'] = auth.authUser.accessToken;
+
+    //watch promt to add typing animation
+    watch(prompt, (msg) => {
+        //add typing variable
     });
 
-    const sendMessage = async () => {
-        let params = {
-            messages: messages
-        };
+    onMounted(() => {
         
-        axios.post('localhost:8000/.netlify/functions/consult', params)
-            .then((res) => console.log(res));
+    });
+
+    const storeMessage = () => {
+        //add new document for a new message
     }
 
-    const gptRef = async () => {
-        
-        const db = getFirestore();
-        const prompts = {
-            prompt: 'testing'
-        }
+    const fetchMessages = () => {
+        //fetch messages to firebase base on chat collection
+    }
 
-        const gptRef = collection(
-            db,
-            "customers",
-            Auth.currentUser.uid,
-            "generates"
-        );
+    const newChat = async () => {
+        //add new collection to firebase
+    }
 
-        const subDoc = await addDoc(gptRef, prompts);
+    const sendMessage = async () => {
+        isGenerating.value = true;
 
-        onSnapshot(subDoc,  (snap) => {
-            const { error, doc } = snap.data();
+        try {
+            const promptObject = { role: 'user', content: prompt.value,};
+            messages.value.push(promptObject);
+            prompt.value = '';
+            
+            await axios.post('/api/v1/consult', messages.value)
+                    .then((completion) => { messages.value.push(completion.data.message) })
 
-            console.log(snap.data());
-
-            if(error) {
-                console.error('An error occored: ${error.message}');
-                isLoading.value = false
-            }
-        });
-    };
+            isGenerating.value = false;
+        } catch (error) {
+            console.log(error)
+            isGenerating.value = false;
+        } 
+    }
 </script>
 
 <template>
@@ -74,117 +63,18 @@
                         <div class="" id="Chat">
                             <ul class="list-group">
                                 <li class="flex items-center p-2 border-b border-dashed list-group-item border-slate-200 dark:border-slate-700">
-                                    <button class="w-full px-4 py-2 mt-2 font-bold text-white rounded bg-main-color hover:bg-secondary-color">
+                                    <button @click="newChat" class="w-full px-4 py-2 mt-2 font-bold text-white rounded bg-main-color hover:bg-secondary-color">
                                         <i class="pb-1 mr-1 text-lg ti ti-plus"></i> New Chat
                                     </button>
                                 </li>
-                                <li
-                                    class="flex items-center p-4 border-b border-dashed list-group-item border-slate-200 dark:border-slate-700 unread bg-slate-50 dark:bg-slate-700">
+
+                                <li class="flex items-center p-4 border-b border-dashed list-group-item border-slate-200 dark:border-slate-700">
                                     <a href="">
                                         <div class="flex items-center">
                                             <div class="relative rounded w-9 h-9">
-                                                <span class="absolute text-green-500 -left-1 -top-1">
-                                                    <svg width="12" height="12">
-                                                        <circle cx="4" cy="4" r="4" fill="currentColor"></circle>
-                                                    </svg>
-                                                </span>
-                                                <img class="object-cover object-center w-full h-full overflow-hidden rounded"
-                                                    src="/avatar/avatar-1.jpg" alt="logo" />
-                                            </div>
-                                            <div class="ml-2">
-                                                <div
-                                                    class="text-gray-800 cursor-pointer hover:text-gray-900 focus:text-gray-500 dark:text-gray-100 focus:outline-none">
-                                                    <h5 class="text-sm font-medium ">Mary Schneider</h5>
+                                                <div class="object-cover object-center w-full h-full overflow-hidden rounded">
+                                                    <i class="ti ti-message-circle-bolt"></i>
                                                 </div>
-                                                <p
-                                                    class="flex-wrap w-40 text-xs font-medium text-gray-800 truncate focus:outline-none dark:text-gray-400">
-                                                    Good morning! Congratulations Friend Congratulations Friend</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <div class="self-center ml-auto text-center">
-                                        <span
-                                            class="inline-block w-4 h-4 text-xs font-medium text-center text-white bg-green-500 rounded-full">3</span>
-                                        <p
-                                            class="text-xs font-medium text-gray-500 focus:outline-none dark:text-gray-400">
-                                            07:30
-                                            AM</p>
-                                    </div>
-                                </li>
-                                <li
-                                    class="flex items-center p-4 border-b border-dashed list-group-item border-slate-200 dark:border-slate-700">
-                                    <a href="">
-                                        <div class="flex items-center">
-                                            <div class="relative rounded w-9 h-9">
-                                                <span class="absolute text-slate-300 -left-1 -top-1">
-                                                    <svg width="12" height="12">
-                                                        <circle cx="4" cy="4" r="4" fill="currentColor"></circle>
-                                                    </svg>
-                                                </span>
-                                                <img class="object-cover object-center w-full h-full overflow-hidden rounded"
-                                                    src="/avatar/avatar-9.jpg" alt="logo" />
-                                            </div>
-                                            <div class="ml-2">
-                                                <div
-                                                    class="text-gray-800 cursor-pointer hover:text-gray-900 focus:text-gray-500 dark:text-gray-100 focus:outline-none">
-                                                    <h5 class="text-sm font-medium ">Victor Harrison</h5>
-                                                </div>
-                                                <p
-                                                    class="flex-wrap w-40 text-xs font-medium text-gray-500 truncate focus:outline-none dark:text-gray-400">
-                                                    Good morning! Congratulations Friend Congratulations Friend</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <div class="self-center ml-auto text-center">
-                                        <p
-                                            class="text-xs font-medium text-gray-500 focus:outline-none dark:text-gray-400">
-                                            07:10
-                                            AM</p>
-                                    </div>
-                                </li>
-                                <li
-                                    class="flex items-center p-4 border-b border-dashed list-group-item border-slate-200 dark:border-slate-700">
-                                    <a href="">
-                                        <div class="flex items-center">
-                                            <div class="relative rounded w-9 h-9">
-                                                <span class="absolute text-slate-300 -left-1 -top-1">
-                                                    <svg width="12" height="12">
-                                                        <circle cx="4" cy="4" r="4" fill="currentColor"></circle>
-                                                    </svg>
-                                                </span>
-                                                <img class="object-cover object-center w-full h-full overflow-hidden rounded"
-                                                    src="/avatar/avatar-9.jpg" alt="logo" />
-                                            </div>
-                                            <div class="ml-2">
-                                                <div
-                                                    class="text-gray-800 cursor-pointer hover:text-gray-900 focus:text-gray-500 dark:text-gray-100 focus:outline-none">
-                                                    <h5 class="text-sm font-medium ">Victor Harrison</h5>
-                                                </div>
-                                                <p
-                                                    class="flex-wrap w-40 text-xs font-medium text-gray-500 truncate focus:outline-none dark:text-gray-400">
-                                                    Good morning! Congratulations Friend Congratulations Friend</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <div class="self-center ml-auto text-center">
-                                        <p
-                                            class="text-xs font-medium text-gray-500 focus:outline-none dark:text-gray-400">
-                                            07:10
-                                            AM</p>
-                                    </div>
-                                </li>
-                                <li
-                                    class="flex items-center p-4 border-b border-dashed list-group-item border-slate-200 dark:border-slate-700">
-                                    <a href="">
-                                        <div class="flex items-center">
-                                            <div class="relative rounded w-9 h-9">
-                                                <span class="absolute text-slate-300 -left-1 -top-1">
-                                                    <svg width="12" height="12">
-                                                        <circle cx="4" cy="4" r="4" fill="currentColor"></circle>
-                                                    </svg>
-                                                </span>
-                                                <img class="object-cover object-center w-full h-full overflow-hidden rounded"
-                                                    src="/avatar/avatar-9.jpg" alt="logo" />
                                             </div>
                                             <div class="ml-2">
                                                 <div
@@ -214,8 +104,7 @@
         <div class="">
           <!-- ... Chat messages and input area ... -->
           <div class="bg-white rounded-xl shadow-md max-h-[500px] flex-1 p:2 sm:p-6 justify-between flex flex-col">
-                    <div
-                        class="flex justify-between p-4 border-b border-gray-200 border-dashed sm:items-center dark:border-slate-700">
+                    <div class="flex justify-between p-4 border-b border-gray-200 border-dashed sm:items-center dark:border-slate-700">
                         <div class="relative flex items-center space-x-4">
                             <div class="relative">
                                 <img src="/android-chrome-512x512.png" alt=""
@@ -247,17 +136,13 @@
                     </div>
                     <div class="px-2 pt-4 mb-2 border-t border-gray-200 border-dashed sm:mb-0 dark:border-slate-700">
                         <div class="relative flex">
-                            <input type="text" placeholder="e.g: How can I improve my teaching?"
+                            <input :disabled="isGenerating" v-model="prompt" type="text" :placeholder="isGenerating ? 'Processing the best response...' : 'e.g: How can I improve my teaching?'"
                                 class="w-full py-2 pl-4 text-gray-600 placeholder-gray-400 border border-gray-200 rounded-md focus:outline-none focus:placeholder-gray-400 bg-gray-50 dark:bg-slate-700 dark:border-slate-800">
-                            <div class=" inset-y-0 right-0 items-center sm:flex ml-2">
-                                <button type="button border-0"
-                                    class="inline-flex items-center justify-center px-4 py-2 text-white bg-main-color rounded-md hover:bg-secondary-color border-0 transition duration-240  hover:shadow-md hover:shadow-[#646cffa6] focus:outline-none">
+                            <div class="inset-y-0 right-0 items-center ml-2 sm:flex">
+                                <button :class="!prompt || isGenerating ? 'cursor-not-allowed' : 'hover:shadow-md hover:shadow-[#646cffa6] hover:bg-secondary-color'" @click="sendMessage" :disabled="!prompt || isGenerating" type="button"
+                                    class="inline-flex items-center justify-center px-4 py-2 text-white transition border-0 rounded-md bg-main-color duration-240 focus:outline-none">
                                     <i class="text-lg ti ti-send"></i>
                                 </button>
-                                <!-- <button type="button"
-                                    class="inline-flex items-center justify-center px-4 py-3 text-white transition duration-500 ease-in-out bg-blue-500 rounded-md rounded-full hover:bg-blue-400 focus:outline-none">
-                                    <i class="fas fa-paper-plane"></i>
-                                </button> -->
                             </div>
                         </div>
                     </div>

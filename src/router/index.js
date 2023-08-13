@@ -1,33 +1,44 @@
+import { checkSubscriptionStatus, subscriptionCheck } from "../middleware/subscriptionCheck";
 import { createRouter, createWebHistory } from "vue-router";
-import { useAuthStore } from "../stores/auth.js";
+import { onAuthStateChanged } from "firebase/auth";
+import { useAuthStore } from "../stores/auth";
+import { useUserStore } from "../stores/user";
+import { auth } from "../plugins/firebase";
 import routes from "./routes.js";
-import { Swal, swal } from "sweetalert2/dist/sweetalert2.js";
 
 const router = createRouter({
     history:createWebHistory(),
     routes: routes
 });
 
-//make hook async to wait for the user to load
-router.beforeEach((to, from, next) =>  {
-    if(to.matched.some((record) => record.meta.requiresAuth )) {
-        const authStore = useAuthStore();
-        let subscribe = authStore.authSubscription;
-        let user = authStore.authUser;
-        if(subscribe) {
-            next();
-        } else {
-            if(user) {
-                authStore.logout();
-                console.log('pricing')
-                next('/pricing');
-            } else {
-                console.log('this')
-                next('login')  
-            }
-        }
-    } else {
+let firebaseInit = false;
+
+onAuthStateChanged(auth, async (user) => {
+    const authStore = useAuthStore();
+    const userStore = useUserStore();
+    
+    if (user) {
+      const hasSubscription = await checkSubscriptionStatus(user.uid);
+      authStore.setUserToLocal(user);
+      userStore.setUserId(user.uid);
+      userStore.setUserSubscription(hasSubscription);
+    }
+
+    if(!firebaseInit) {
+        firebaseInit = true;
+        router.isReady().then(() => { router.push({}) });
+    }
+});
+
+router.beforeEach(async (to, from, next) => {
+    if(firebaseInit) {    
+      if (to.meta.requiresAuth) {
+        await subscriptionCheck(to, from, next);
+      } else {
         next();
+      }
+    } else {
+      next()
     }
 });
 
