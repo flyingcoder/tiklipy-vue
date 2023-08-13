@@ -16,8 +16,24 @@
     <link rel="stylesheet" href="<%= manifest['src/main.css'].file %>" />
     <% } %>
   </head>
-
-  <body class="bg-gray-100 dark:bg-gray-900 bg-[url('/bg-body.png')] dark:bg-[url('/bg-body-2.png')] no-repeat selection:bg-[#818cf8] selection:text-white">
+<style>
+  ::selection {
+    color:#fff ;
+    background: #818cf8
+  }
+  body {
+    background-image: url('/bg-body.png');
+    background-color: #f3f4f6 !important;
+  }
+  /* @media (prefers-color-scheme: dark) {
+    /* #app {
+      opacity: .75;
+      transition: opacity .5s ease-in-out;
+      background-image:url('/bg-body-2.png');
+    } 
+  } */
+</style>
+  <body>
     
     <!-- Main div -->
     <div id="app" class="w-full h-full min-h-screen"></div>
