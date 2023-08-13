@@ -1,12 +1,16 @@
 <script setup>
     import { ref, onMounted, watch } from 'vue';
     import { Auth } from '../../plugins/firebase';
+    import { useAuthStore } from '../../stores/auth';
     import { getDoc, addDoc, getFirestore, collection, onSnapshot } from "firebase/firestore";
     import axios from '../../plugins/axios';
 
     const messages = ref([]);
     const isGenerating = ref(false);
     const prompt = ref("");
+    const auth = useAuthStore();
+
+    axios.defaults.headers.common['Authorization'] = auth.authUser.accessToken;
 
     //watch promt to add typing animation
     watch(prompt, (msg) => {
@@ -23,9 +27,10 @@
         try {
             const promptObject = { role: 'user', content: prompt.value,};
             messages.value.push(promptObject);
+            prompt.value = '';
             
             await axios.post('/api/v1/consult', messages.value)
-                    .then((completion) => { console.log(completion) })
+                    .then((completion) => { messages.value.push(completion.data.message) })
 
             isGenerating.value = false;
         } catch (error) {

@@ -24,7 +24,7 @@ authStore.getFirebaseUser();
 authStore.fetchSubscription();
 
 const removeListener = authStore.$subscribe((mutations, state) => {
-    console.log(state)
+    //console.log(state)
     if(state.authUser) {
         if(!state.authSubscription) {
             authStore.fetchSubscription();

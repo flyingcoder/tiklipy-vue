@@ -12,7 +12,8 @@ const middleware = async (req, res, next) => {
     next();
 }
 
-router.use(express.urlencoded({ extended: false}));
+router.use(express.json());
+router.use(express.urlencoded({ extended: true}));
 router.use(middleware);
 
 function restrict(req, res, next) {
