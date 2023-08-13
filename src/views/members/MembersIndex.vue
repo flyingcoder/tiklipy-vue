@@ -12,15 +12,10 @@
   onMounted(() => {
 
   });
-
-  const childButton = () => {
-    console.log('button is click');
-  }
 </script>
 <template>
-  <button @click="whenClick"></button>
   <Preloader v-if="loading" />
-  <Header @login-is-click="childButton" />
+  <Header />
   <section class="min-h-screen">
     <HeaderTitle v-if="$route.name !== 'visuals'"/>
     <div class="lg:container md:mx-auto">

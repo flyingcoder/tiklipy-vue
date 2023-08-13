@@ -25,7 +25,7 @@
     const userStore = useUserStore();
 
     const register = async () => {
-        loaderStore.loading = true;
+        loaderStore.isLoading = false;
         const success = await authStore.register(email.value, password.value);
         if(authStore.user) {
           const doc = await userStore.stripePay(props.selectedPrice)
@@ -37,14 +37,14 @@
               if(url) location.assign(url);
           });
         }
-        loaderStore.loading = false;
+        loaderStore.isLoading = false;
     }
 
     const registerVia = async (provider) => {
         loaderStore.toggle();
         const success = await authStore.loginVia(provider);
         if(success) router.push({ name: 'dashboard' });
-        loaderStore.loading = false;
+        loaderStore.isLoading = false;
     }
 </script>
 

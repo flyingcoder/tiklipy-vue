@@ -4,12 +4,12 @@ import { signOut, signInWithPopup, signInWithEmailAndPassword, createUserWithEma
 
 export const useAuthStore = defineStore("auth", {
     state: () => ({
-        user: localStorage.getItem("tiklipy-user") || null,
+        user: JSON.parse(localStorage.getItem("tiklipy-user")) || null,
     }),
     actions: {
         setUserToLocal(user) {
             this.user = user;
-            localStorage.setItem("tiklipy-user", user);
+            localStorage.setItem("tiklipy-user", JSON.stringify(user));
         },
         async register(email, password) {
             try {

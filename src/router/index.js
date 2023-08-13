@@ -14,23 +14,26 @@ const router = createRouter({
 let firebaseInit = false;
 
 router.beforeEach(async (to, from, next) => {
-    console.log(firebaseInit);
     if(!firebaseInit) {
       onAuthStateChanged(auth, async (user) => {
         const authStore = useAuthStore();
         const userStore = useUserStore();
         
         if(user) {
+          const appUser = {
+            uid: user.uid,
+            name: user.displayName,
+            email: user.email,
+          }
+          authStore.setUserToLocal(appUser);
+          userStore.setUser(user);
           const hasSubscription = await checkSubscriptionStatus(user.uid);
-          authStore.setUserToLocal(user);
-          userStore.setUserId(user.uid);
           userStore.setUserSubscription(hasSubscription);
         }
       });
       if(!firebaseInit)
         firebaseInit = true;
       next();
-      console.log(firebaseInit)
     } else {
       if(to.meta.requiresAuth) {
         await subscriptionCheck(to, from, next);
