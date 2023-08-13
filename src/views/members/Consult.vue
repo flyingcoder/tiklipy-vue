@@ -21,6 +21,18 @@
         
     });
 
+    const storeMessage = () => {
+        //add new document for a new message
+    }
+
+    const fetchMessages = () => {
+        //fetch messages to firebase base on chat collection
+    }
+
+    const newChat = async () => {
+        //add new collection to firebase
+    }
+
     const sendMessage = async () => {
         isGenerating.value = true;
 
@@ -52,7 +64,7 @@
                         <div class="" id="Chat">
                             <ul class="list-group">
                                 <li class="flex items-center p-2 border-b border-dashed list-group-item border-slate-200 dark:border-slate-700">
-                                    <button class="w-full px-4 py-2 mt-2 font-bold text-white rounded bg-main-color hover:bg-secondary-color">
+                                    <button @click="newChat" class="w-full px-4 py-2 mt-2 font-bold text-white rounded bg-main-color hover:bg-secondary-color">
                                         <i class="pb-1 mr-1 text-lg ti ti-plus"></i> New Chat
                                     </button>
                                 </li>
@@ -61,13 +73,9 @@
                                     <a href="">
                                         <div class="flex items-center">
                                             <div class="relative rounded w-9 h-9">
-                                                <span class="absolute text-slate-300 -left-1 -top-1">
-                                                    <svg width="12" height="12">
-                                                        <circle cx="4" cy="4" r="4" fill="currentColor"></circle>
-                                                    </svg>
-                                                </span>
-                                                <img class="object-cover object-center w-full h-full overflow-hidden rounded"
-                                                    src="/avatar/avatar-9.jpg" alt="logo" />
+                                                <div class="object-cover object-center w-full h-full overflow-hidden rounded">
+                                                    <i class="ti ti-message-circle-bolt"></i>
+                                                </div>
                                             </div>
                                             <div class="ml-2">
                                                 <div
