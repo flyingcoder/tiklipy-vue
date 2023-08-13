@@ -33,7 +33,6 @@
               const { error, url } = snap.data();
               if(error) {
                 console.error("Stripe pay snapshot error:", error);
-                authStore.logout();
               }
               if(url) location.assign(url);
           });
