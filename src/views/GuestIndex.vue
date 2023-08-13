@@ -2,7 +2,6 @@
   import { onMounted, ref } from 'vue';
   import Header from './layouts/Header.vue';
   import Footer from './layouts/Footer.vue';
-  import SignIn from './sign/In.vue';
   import Preloader from '../components/Preloader.vue';
 
   const showLogin = ref(false);
@@ -32,5 +31,4 @@
     </div>
   </section>
   <Footer class="bg-white" />
-  <SignIn v-if="showLogin" />
 </template>
