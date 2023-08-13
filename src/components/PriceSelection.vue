@@ -2,14 +2,7 @@
     import { onMounted, ref } from "vue";
     import SignUp from './../views/sign/Up.vue';
     import { useRouter } from 'vue-router';
-    import {
-        getFirestore,
-        getDocs,
-        where,
-        query,
-        collection,
-        orderBy,
-    } from "firebase/firestore";
+    import { getFirestore, getDocs, where, query, collection, orderBy,} from "firebase/firestore";
 
     const router = useRouter();
     const products = ref([]);
@@ -19,7 +12,7 @@
     const user = ref();
 
     onMounted(async () => {
-        
+        fetchProducts();
     });
 
     const createSub = (price_id) => {
