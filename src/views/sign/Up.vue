@@ -41,7 +41,15 @@
         loaderStore.isLoading = true;
         const success = await authStore.register(email.value, password.value);
         if(success) {
-          await getPaymentUrl();
+          console.log(success)
+          if(success === 'email-already-in-use') {
+            //alert jr email is already in use add button want to login?
+            loaderStore.isLoading = false;
+          } else {
+            await getPaymentUrl();
+          }
+        } else {
+          //alert jr error message
         }
     }
 
@@ -50,6 +58,9 @@
         const success = await authStore.loginVia(provider);
         if(success) {
           await getPaymentUrl();
+        } else {
+          //alert jr error message
+          console.log("Error in registration");
         }
     }
 </script>
@@ -57,7 +68,6 @@
 <template>
   <Modal size="lg" v-if="showModal" @close="showModal = !showModal" persistent>
     <template #header>
-      {{ loaderStore.loading }}
       <div class="w-full text-black">
         <img class="w-32 m-auto" src="/tiklipy-logo-indigo.png" alt="tiklipy logo indigo color">
         <h2 class="text-2xl text-center">Account Registration</h2>

@@ -14,7 +14,8 @@
     });
 
     const handleSignOut = async () => {
-        await authStore.logout();
+        const success = await authStore.logout();
+        if(success) router.push({ name: 'home' })
     };
 
     const toggleMenu = () => {
