@@ -13,7 +13,7 @@
 // define emit action
 </script>
 <template>
-    <div class="flex flex-wrap">
+    <div class="flex flex-wrap justify-between">
         <div class="w-full lg:w-[68%] col-span-4">
             <div class="generated-lesson-plan">
                 <h1 class="font-bold text-3xl font-bold mb-4">Environmental Explorers Activities</h1>
