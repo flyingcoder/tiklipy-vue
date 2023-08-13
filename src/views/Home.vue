@@ -7,7 +7,7 @@
         <div class="flex sm:w-[35rem] h-[35rem] m-auto text-center align-items items-center justify-center">
             <div class="">
                 <h1 class="text-gray-800 font-bold text mb-8 ">The ultimate companion for every teacher.</h1>
-                <p class="text-black mb-10">Empowering educators, Fetchy integrates AI. While meetings and lesson planning continue, your methods evolve radically.</p>
+                <p class="text-black mb-10">Empowering educators, Tiklipy integrates AI. While meetings and lesson planning continue, your methods evolve radically.</p>
                 <router-link :to="{name:'pricing'}">
                     <button type="button" class="transition duration-240 rounded-md bg-main-color hover:shadow-md hover:shadow-[#969cf9] hover:bg-secondary-color border-0 w-fit bg-main-color text-white focus:ring-4 focus:outline-none focus:ring-secondary-color dark:focus:ring-main-color font-medium rounded-lg text-lg px-5 py-2.5 inline-flex justify-center text-center">
                         Buy now Get one month FREE!
