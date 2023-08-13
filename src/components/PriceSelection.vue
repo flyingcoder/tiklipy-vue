@@ -2,7 +2,6 @@
     import { onMounted, ref } from "vue";
     import SignUp from './../views/sign/Up.vue';
     import { useRouter } from 'vue-router';
-    import { getCurrentUser, Auth } from "../plugins/firebase";
     import {
         getFirestore,
         getDocs,
@@ -20,9 +19,7 @@
     const user = ref();
 
     onMounted(async () => {
-        fetchProducts();
-        await getCurrentUser()
-                .then((userRes) => user.value = userRes);
+        
     });
 
     const createSub = (price_id) => {

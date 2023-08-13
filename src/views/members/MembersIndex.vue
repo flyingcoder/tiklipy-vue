@@ -4,29 +4,14 @@
   import Footer from '../layouts/MembersFooter.vue';
   import Preloader from '../../components/Preloader.vue';
   import HeaderTitle from '../layouts/HeaderTitle.vue';
-  import { getCurrentUser } from '../../plugins/firebase';
   import { useRouter } from "vue-router"
   
   const showLogin = ref(false);
   const loading = ref(true);
-  const router = useRouter();
-  const userDoc = ref(null);
 
   onMounted(() => {
-    user();
+
   });
-
-  const user = async () => {
-    await getCurrentUser()
-      .then((res) => {
-        userDoc.value = res;
-        loading.value = false;
-        
-      }).catch((error) => {
-        loading.value = false;
-      });
-  };
-
 </script>
 <template>
   <Preloader v-if="loading" />

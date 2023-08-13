@@ -1,6 +1,5 @@
 <script setup>
     import { ref, onMounted, watch } from 'vue';
-    import { Auth } from '../../plugins/firebase';
     import { useAuthStore } from '../../stores/auth';
     import { getDoc, addDoc, getFirestore, collection, onSnapshot } from "firebase/firestore";
     import axios from '../../plugins/axios';

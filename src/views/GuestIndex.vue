@@ -4,24 +4,23 @@
   import Footer from './layouts/Footer.vue';
   import SignIn from './sign/In.vue';
   import Preloader from '../components/Preloader.vue';
-  import { getCurrentUser } from '../plugins/firebase';
 
   const showLogin = ref(false);
   const loading = ref(true);
 
   onMounted(() => {
-    user();
+    //user();
   });
 
-  const user = async () => {
-    await getCurrentUser()
-      .then((res) => {
-        loading.value = false;
-      })
-      .catch((error) => {
-        loading.value = false;
-      });
-  };
+  //const user = async () => {
+  //  await getCurrentUser()
+  //    .then((res) => {
+  //      loading.value = false;
+  //    })
+  //    .catch((error) => {
+  //      loading.value = false;
+  //   });
+  //};
 
 </script>
 <template>

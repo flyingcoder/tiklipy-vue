@@ -4,12 +4,6 @@
     import { useAuthStore } from "../../stores/auth";
     import { useLoaderStore } from "../../stores/loader";
     import Preloader from "../../components/Preloader.vue";
-    import { Auth } from './../../plugins/firebase';
-    import { addDoc,
-        getFirestore,
-        collection,
-        onSnapshot, 
-    } from "firebase/firestore";
     import { 
         GoogleAuthProvider,
         FacebookAuthProvider,
@@ -46,34 +40,6 @@
                 loaderStore.toggle();
                 console.log(loaderStore.loading);
               });
-    }
-
-    const subscribeCustomer = async () => {
-      const params = {
-            price: props.selectedPrice,
-            success_url: window.location.origin,
-            cancel_url: window.location.origin,
-        };
-
-        const subDoc = await addDoc(
-            collection(
-                getFirestore(),
-                "customers",
-                Auth.currentUser.uid,
-                "checkout_sessions"
-            ), params
-        );
-
-        onSnapshot(subDoc, (snap) => {
-            const { error, url } = snap.data();
-
-            if(error) {
-                console.error('An error occored: ${error.message}');
-                isLoading.value = false
-            }
-
-            if(url) window.location.assign(url);
-        });
     }
 </script>
 

@@ -1,23 +1,16 @@
 <script setup>
+    import 'sweetalert2/dist/sweetalert2.min.css';
+    import Swal from 'sweetalert2';
+    import Preloader from "../components/Preloader.vue";
     import { onMounted, ref } from "vue";
     import { useRouter } from "vue-router";
-    import { Auth } from "../plugins/firebase";
     import { useLoaderStore } from "../stores/loader";
-    import Swal from 'sweetalert2';
-    import 'sweetalert2/dist/sweetalert2.min.css';
     import { useAuthStore } from "../stores/auth";
-    import Preloader from "../components/Preloader.vue";
-    import {
-        signInWithEmailAndPassword,
-        GoogleAuthProvider,
-        FacebookAuthProvider
-    } from "firebase/auth";
-
+    import { GoogleAuthProvider, FacebookAuthProvider } from "firebase/auth";
 
     const router = useRouter();
     const email = ref("");
     const password = ref("");
-    const errMsg = ref();
     const isLoading = ref(false);
     const hasError = ref(false);
     const wrongCred = ref(false);
@@ -30,6 +23,20 @@
     onMounted(() => {
         
     });
+
+    const loginVia = async (provider) => {
+        loaderStore.toggle();
+        const success = await authStore.loginVia(provider);
+        if (!success) googleLoginFailed(); else router.push({ name: 'dashboard' });
+        loaderStore.toggle();
+    }
+
+    const login = async () => {
+        loaderStore.toggle();
+        const success = await authStore.login(email.value, password.value);
+        if (!success) loginFail(); else router.push({ name: 'dashboard' });
+        loaderStore.toggle();
+    }
 
     const loginFail = () => {
         Swal.fire({
@@ -78,45 +85,6 @@
                 no-repeat
             `
         })
-    };
-
-    const loginVia = (provider) => {
-        loaderStore.toggle();
-        authStore.loginVia(provider)
-            .then(() => {
-                loaderStore.toggle();
-            })
-            .catch(() => {
-                googleLoginFailed();
-                loaderStore.toggle();
-            });
-    }
-
-    const login = () => {
-        authStore.login(email.value, password.value)
-                .catch(() => {
-                    loginFail();
-                    // this.authError = "Invalid username or password!"
-                    // Swal.fire('Oops!', this.authError, 'error');
-                })
-    }
-    
-    const signIn = async () => {
-        isLoading.value = true;
-        await signInWithEmailAndPassword(Auth, email.value, password.value)
-            .then((res) => {
-                router.go({name: 'dashboard'})
-            })
-            .catch((error) => {
-                console.log(error.message)
-                hasError.value = true
-                wrongCred.value = true
-            }).finally(() => {
-                isLoading.value = false ;
-                setTimeout(() => {
-                    hasError.value = false;
-                }, 2000);
-            });
     };
 </script>
 
