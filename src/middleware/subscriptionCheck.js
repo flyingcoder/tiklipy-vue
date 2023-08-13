@@ -6,10 +6,17 @@ import { useUserStore } from "../stores/user";
 const subscriptionCheck = async ( to, from, next) => {
     const user = auth.currentUser;
     if(user) {
+        const appUser = {
+            uid: user.uid,
+            name: user.displayName,
+            email: user.email,
+        }
         const authStore = useAuthStore();
         const userStore = useUserStore();
-        if(!authStore.user) authStore.setUserToLocal(user);
-        const hasSubscription = userStore.hasSubscription;
+        if(!authStore.user) authStore.setUserToLocal(appUser);
+        const hasSubscription = checkSubscriptionStatus(user.uid);
+        userStore.setUser(user);
+        userStore.setUserSubscription(hasSubscription);
         if(!hasSubscription) {
             next('/pricing');
         } else {

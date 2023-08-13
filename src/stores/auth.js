@@ -43,10 +43,11 @@ export const useAuthStore = defineStore("auth", {
                 await signOut(auth);
                 this.user = null;
                 localStorage.removeItem("tiklipy-user");
+                return true;
             } catch (error) {
                 console.error("Logout error:", error);
+                return false;
             }
-            
         },
     }
 });

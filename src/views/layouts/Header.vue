@@ -2,6 +2,8 @@
     import { onMounted, ref } from "vue";
     import { useRouter } from "vue-router";
     import { useAuthStore } from "../../stores/auth";
+import { useLessonStore } from "../../stores/lesson";
+import { useLoaderStore } from "../../stores/loader";
 import { useUserStore } from "../../stores/user";
     
     const router = useRouter();
@@ -10,14 +12,15 @@ import { useUserStore } from "../../stores/user";
     const dropdownMenu = ref(true);
     const authStore = useAuthStore();
     const userStore = useUserStore();
+    const loaderStore = useLoaderStore();
 
     onMounted(() => {
         isLoggedIn.value = authStore.user && userStore.hasSubscription;
     });
 
     const handleSignOut = async () => {
-        await authStore.logout();
-        router.push({ name: 'home' })
+        const success = await authStore.logout();
+        if(success) isLoggedIn.value = false;
     };
 
     const toggleMenu = () => {
