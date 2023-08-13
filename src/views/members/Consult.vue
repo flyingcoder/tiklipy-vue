@@ -1,5 +1,7 @@
 <script setup>
     import { ref, onMounted, watch } from 'vue';
+    import 'sweetalert2/dist/sweetalert2.min.css';
+    import Swal from 'sweetalert2';
     import { useAuthStore } from '../../stores/auth';
     import { getDoc, addDoc, getFirestore, collection, onSnapshot } from "firebase/firestore";
     import axios from '../../plugins/axios';
@@ -48,8 +50,35 @@
         } catch (error) {
             console.log(error)
             isGenerating.value = false;
+            googleRegesterFail();
         } 
     }
+
+    const googleRegesterFail = () => {
+        Swal.fire({
+            html: `
+                <div style="display: flex; justify-content: space-between;">
+                    <div>
+                        <img src="/Invalid-error-bongo-cat.gif" width="" height="" alt="Image 2">
+                    </div>
+                </div>
+
+                <h2 class="swal2-title !p-0 text-black text-xl text-red-500" id="swal2-title" style="display: block;">Nya-oh! We've encountered a slight hiccup</h2> 
+                <p class="swal2-title !p-0 text-black text-sm text-black" id="swal2-title" style="display: block;">We've encountered a problem in verifying your email and password, meow. Please bear with us or give a little meow for assistance.</p> 
+            `,
+            width: 600,
+            padding: '',
+            margin:'',
+            color: '#716add',
+            allowOutsideClick: false,
+            confirmButtonText: 'Okay',
+            backdrop: `
+                rgba(0, 0, 123, 0.4)
+                left top
+                no-repeat
+            `
+        })
+    };
 </script>
 
 <template>
