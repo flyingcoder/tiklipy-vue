@@ -27,7 +27,15 @@
         loaderStore.loading = true;
         const success = await authStore.register(email.value, password.value);
         if(authStore.user) {
-          userStore.stripePay(props.selectedPrice)
+          const doc = await userStore.stripePay(props.selectedPrice)
+          onSnapshot(doc, (snap) => {
+              const { error, url } = snap.data();
+              if(error) {
+                console.error("Stripe pay snapshot error:", error);
+                authStore.logout();
+              }
+              if(url) location.assign(url);
+          });
         }
         if(success) router.push({ name: 'dashboard' });
         loaderStore.loading = false;

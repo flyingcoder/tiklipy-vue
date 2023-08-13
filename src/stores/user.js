@@ -1,6 +1,5 @@
-import { collection, getFirestore, onSnapshot } from "firebase/firestore";
+import { collection, getFirestore } from "firebase/firestore";
 import { defineStore } from "pinia";
-import { useAuthStore } from "./auth";
 
 export const useUserStore = defineStore("user", {
   state: () => ({
@@ -19,22 +18,15 @@ export const useUserStore = defineStore("user", {
     async stripePay(selectedPrice) {
       const params = {
         price: selectedPrice,
-        success_url: window.location.origin,
-        cancel_url: window.location.origin 
+        success_url: window.location.origin + '/thank-you',
+        cancel_url: window.location.origin + '/payment-cancel'
       };
 
       const doc = await addDoc(
         collection( getFirestore(), "customers", this.uid, "checkout_sessions" ), 
         params );
       
-      onSnapshot(doc, (snap) => {
-          const { error, url } = snap.data();
-          if(error) {
-            console.error("Stripe pay snapshot error:", error);
-            useAuthStore.logout();
-          }
-          if(url) window.location.assign(url);
-      });
+      return doc;
     },
     setLessons(lessons) {
       this.lessons = lessons;
