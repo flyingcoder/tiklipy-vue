@@ -1,0 +1,39 @@
+import openai from './../plugins/openai-handler.js';
+
+class generateModel {
+    constructor() {
+        this.options = {
+            model: "gpt-3.5-turbo",
+            temperature: 0,
+            max_tokens: 1000,
+            top_p: 1,
+            frequency_penalty: 0,
+            presence_penalty: 0
+        };
+    }
+
+    async lessonPlan(req, res) {
+        try {
+            const param = { 
+                messages: [
+                    { 
+                        role:'system',
+                        content:"You will be provided with a lesson plan topic, grade level, subject and additional notes. You will write the lesson plan and come up with examples that show common student errors. Add fun and engaging activities and some tips on delivering the lesson. Don't for get to use ** for important details like heading or titles."
+                    },
+                    req.body
+                ],
+                ...this.options
+            };
+    
+            const chatCompletion = await openai.createChatCompletion(param)
+                                        .then(res => res.data);
+    
+            return chatCompletion.choices.pop();
+        } catch (error) {
+            console.log(error);
+            return {'error': error};
+        }
+    }
+}
+
+export default generateModel;
