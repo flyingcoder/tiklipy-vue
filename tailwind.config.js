@@ -9,7 +9,8 @@ export default {
   theme: {
     colors: {
       'main-color': '#646cff',
-      'secondary-color': '#818cf8'
+      'secondary-color': '#818cf8',
+      'card-color': '#f3f4f6'
     },
     extend: {
       screens: {
