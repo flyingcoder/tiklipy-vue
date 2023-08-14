@@ -1,4 +1,6 @@
-<script setup></script>
+<script setup>
+    import { TheCard } from 'flowbite-vue';
+</script>
 <template>
     <div class="grid grid-cols-3 text-black gap-7 mt-16">
         <router-link class="flex max-sm:w-full justify-center" :to="{name: 'generate'}">
