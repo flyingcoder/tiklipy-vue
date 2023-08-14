@@ -5,6 +5,8 @@
     import { Select } from 'flowbite-vue';
     import { Textarea } from 'flowbite-vue';
     import { Button } from 'flowbite-vue';
+    import 'animate.css';
+
 
     defineEmits(['generation-complete']);
 
@@ -187,15 +189,16 @@
                     </div>
                 </div>
                 <div class="w-full lg:w-[30%] col-span-2">
-                    <div class="bg-gray-100 p-6 rounded-3xl">
-                        <h2 class="text-2xl font-bold text-gray-800 leading-snug mb-10">Your Upcoming Lesson</h2>
-                        <div v-if="isGenerating" class="">
-                            <div class="">
-                                <img class="" src="/bonggo-cat/coding-800x800.gif" alt="">
+                    <div class="">
+                        <div v-if="isGenerating" class="bg-gray-100 p-6 rounded-3xl animate__animated  animate__fadeInUp">
+                            <h2 class="text-2xl font-bold text-gray-800 leading-snug mb-10">Your Upcoming Lesson</h2>
+                            <div class="mb-5">
+                                <img class="rounded-xl"  src="/bongo-cat/coding-bongo-cat.gif" alt="">
                             </div>
-                            <p>Tiklipy is processing your request...</p>
+                            <p class="text-center">Tiklipy is processing your request...</p>
                         </div>
-                        <form v-if="!isGenerating">
+                        <form v-if="!isGenerating" class="bg-gray-100 p-6 rounded-3xl animate__animated  animate__fadeInUp">
+                            <h2 class="text-2xl font-bold text-gray-800 leading-snug mb-10">Your Upcoming Lesson</h2>
                             <div class="mb-4">
                                 <label class="text-gray-700 font-semibold mb-1 block">Select Grade level</label>
                                 <Select v-model="selectGrade" placeholder="Please select Grade level" class="mb-7 bg-transparent-input" :options="gradeLevel" />
