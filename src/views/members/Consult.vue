@@ -1,18 +1,20 @@
 <script setup>
-    import { ref, onMounted, watch } from 'vue';
     import 'sweetalert2/dist/sweetalert2.min.css';
     import Swal from 'sweetalert2';
-    import { useAuthStore } from '../../stores/auth';
-    import { getDoc, addDoc, getFirestore, collection, onSnapshot } from "firebase/firestore";
     import axios from '../../plugins/axios';
+    import { ref, onMounted, watch } from 'vue';
+    import { onSnapshot } from 'firebase/firestore';
+    import { useUserStore } from '../../stores/user';
 
     const messages = ref([]);
     const isGenerating = ref(false);
     const prompt = ref("");
-    const auth = useAuthStore();
+    const userStore = useUserStore();
     const hasChat = ref(false);
+    const chatDoc = ref([]);
 
-    // axios.defaults.headers.common['Authorization'] = auth.authUser.accessToken;
+    if(userStore.accessToken)
+        axios.defaults.headers.common['Authorization'] = userStore.accessToken;
 
     //watch promt to add typing animation
     watch(prompt, (msg) => {
@@ -20,15 +22,26 @@
     });
 
     onMounted(() => {
-        
+        //fetchMessages();
     });
 
     const storeMessage = () => {
         //add new document for a new message
-    }
+    } 
 
-    const fetchMessages = () => {
+    const fetchMessages = async () => {
         //fetch messages to firebase base on chat collection
+        try {
+            const docRef = collection( getFirestore(), "customers", this.uid, "consultations" );
+            const docSnaps = await getDocs(docRef);
+            const consults = [];
+            console.log(docSnaps.exists())
+            docSnaps.forEach((doc) => { consults.push(doc.data()) });
+            console.log(consults)
+        } catch(error) {
+            console.log(error)
+            return false;
+        }
     }
 
     const newChat = async () => {

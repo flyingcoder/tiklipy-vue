@@ -1,4 +1,4 @@
-import { collection, getFirestore, addDoc } from "firebase/firestore";
+import { collection, getFirestore, addDoc, getDocs } from "firebase/firestore";
 import { defineStore } from "pinia";
 
 export const useUserStore = defineStore("user", {
@@ -7,7 +7,6 @@ export const useUserStore = defineStore("user", {
     accessToken: null,
     hasSubscription: false,
     lessons: null,
-    consultations: null,
   }),
   actions: {
     setUser(user) {
