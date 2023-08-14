@@ -2,17 +2,11 @@ import axios from "../plugins/axios";
 import { auth } from "../plugins/firebase";
 
 class expressModel {
-    constructor() {
-        axios.defaults.headers.common['Authorization'] = auth?.currentUser?.accessToken;
-    }
-
-    async generateLesson(instruction) {
+    generateLesson(instruction) {
         try {
-            const params = [{role: 'user',content: instruction}];
-            let lesson = null;
-            await axios.post('/api/v1/lesson', params)
-                .then((completion) => { console.log(completion) })
-            return lesson;
+            axios.defaults.headers.common['Authorization'] = auth?.currentUser?.accessToken;
+            const params = {role: 'user',content: instruction};
+            return axios.post('/api/v1/lesson', params)
         } catch (error) {
             console.log(error);
             return false;

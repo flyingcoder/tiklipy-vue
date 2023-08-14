@@ -15,10 +15,11 @@
     const homeworkQuestionType = ref('');
     const message = ref('');
     const topic = ref('');
-    const generatedTopic = ref(false);
+    const generatedTopic = ref('');
     const homeworkNumberOfQuestions = ref('');
     const assessmentNumberOfQuestions = ref('');
     const backEndModel = new expressModel();
+    const isGenerating = ref(false);
 
     const questionType = ref([
     { value: 'MC', name: 'Multiple Choice' },
@@ -56,14 +57,22 @@
     { value: '12', name: 'Grade 12' },
     ]);
 
+    watch(generatedTopic, (newVal, oldVal) => {
+        return newVal.replace("/\n/g", '<br>')
+                     .replace("/\*\*(.*?)\*\*/g", '<strong>$1</strong>')
+                     .replace("/```([\s\S]*?)```/g", '<code>$1</code>');
+    });
     const generate = async () => {
+        isGenerating.value = true;
         const instruc = createInstruction();
-        const success = await backEndModel.generateLesson(instruc);
-        console.log(success);
+        await backEndModel.generateLesson(instruc)
+            .then((completion) => { console.log(completion.data.message);
+                generatedTopic.value = completion?.data?.message?.content });
+        isGenerating.value = false;
     }
 
     const createInstruction = () => {
-        return "Write a lesson plan for an introductory algebra class. The lesson plan should cover the distributive law, in particular how it works in simple cases involving mixes of positive and negative numbers. Come up with some examples that show common student errors.";
+        return "topic: "+topic.value+"\ngrade level: "+selectGrade+"\nsubject: "+selectSubject+"\nadditional notes: "+message;
     }
 </script>
 <template>
@@ -143,76 +152,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="w-full generated-value py-4" v-if="generatedTopic">
-                        <h1 class="text-xl font-bold mb-6">Assessment Title: Exploring Health Project</h1>
-        
-                        <!-- Objective -->
-                        <section class="mb-6">
-                            <h2 class="text-xl font-semibold mb-2">Objective:</h2>
-                            <p>The objective of this project is to assess your understanding of various aspects of health and your ability to apply this knowledge in real-world scenarios.</p>
-                        </section>
-
-                        <!-- Instructions -->
-                        <section class="mb-6">
-                            <h2 class="text-xl font-semibold mb-2">Instructions:</h2>
-                            <p>For this project, you will research and create a comprehensive health guide that covers various aspects of health. You may choose to present your guide in the form of a digital presentation, a poster, or a written report. Remember to include accurate information and engage your audience with visual aids and clear explanations.</p>
-                        </section>
-                        
-                        <!-- Sections -->
-                        <section class="mb-8">
-                            <h2 class="text-xl font-semibold mb-2">Section 1: Introduction</h2>
-                            <p>In this section, provide an overview of your health guide. Explain why health is important and how it impacts daily life. Include a brief description of the topics you will cover in your guide.</p>
-                        </section>
-
-                        <!-- Sections -->
-                        <section class="mb-8">
-                            <h2 class="text-xl font-semibold mb-2">Section 2: Physical Health</h2>
-                            <p>In this section, discuss the importance of physical health and its impact on overall well-being. Include information on exercise, nutrition, hygiene, and the benefits of maintaining a healthy lifestyle. Provide examples and practical tips for maintaining physical health.</p>
-                        </section>
-
-                        <section class="mb-8">
-                            <h2 class="text-xl font-semibold mb-2">Section 3: Mental and Emotional Health</h2>
-                            <p>In this section, explore the significance of mental and emotional health. Discuss common mental health issues, such as stress, anxiety, and depression, and provide strategies for managing them. Include information on the importance of self-care, positive relationships, and seeking help when needed.</p>
-                        </section>
-
-                        <section class="mb-8">
-                            <h2 class="text-xl font-semibold mb-2">Section 4: Social Health</h2>
-                            <p>In this section, examine the role of social health in our lives. Discuss the importance of healthy relationships, effective communication, and building a supportive community. Include examples of positive social behaviors and strategies for resolving conflicts.</p>
-                        </section>
-
-                        <section class="mb-8">
-                            <h2 class="text-xl font-semibold mb-2">Section 5: Sexual and Reproductive Health</h2>
-                            <p>In this section, provide information on sexual and reproductive health. Discuss topics such as puberty, consent, safe sex, contraception, and sexually transmitted infections. Include accurate and age-appropriate information, emphasizing the importance of making informed decisions.</p>
-                        </section>
-
-                        <section class="mb-8">
-                            <h2 class="text-xl font-semibold mb-2">Section 6: Healthy Habits and Disease Prevention</h2>
-                            <p>In this section, explain the significance of developing healthy habits and preventing diseases. Discuss the importance of regular check-ups, vaccinations, and practicing good hygiene. Include information on common diseases and ways to reduce the risk of contracting them.</p>
-                        </section>
-
-                        <section class="mb-8">
-                            <h2 class="text-xl font-semibold mb-2">Section 7: Conclusion</h2>
-                            <p>In this final section, summarize the key points covered in your health guide. Emphasize the importance of maintaining overall health and provide a call to action for your audience to make positive changes in their lives.</p>
-                        </section>
-                        
-                        <!-- ... Other sections ... -->
-
-                        <!-- Rubric -->
-                        <section class="mb-8">
-                            <h2 class="text-xl font-semibold mb-2">Assessment Rubric:</h2>
-                            <ul class="list-disc list-inside">
-                                <li>Content: Accurate information, comprehensive coverage of topics (40 points)</li>
-                                <li>Organization and Structure: Clear introduction and conclusion, logical flow of ideas (20 points)</li>
-                                <li>Presentation: Visual aids, clarity of explanations, engaging delivery (20 points)</li>
-                                <li>Grammar and Spelling: Proper grammar, spelling, and punctuation (10 points)</li>
-                                <li>Citations and References: Accurate citations and references for external sources used (10 points)</li>
-                            </ul>
-                        </section>
-                        
-                        <!-- Note -->
-                        <section>
-                            <p class="text-gray-600">Remember to use credible sources for your research and properly cite any external sources used. Be creative and demonstrate your understanding of health concepts in an engaging manner. Good luck!</p>
-                        </section>
+                    <div class="w-full generated-value py-4" v-html="generatedTopic">
                     </div>
                     <div class="block">
                         <div class="mt-9 mb-4 text-gray-500">444 words</div>
@@ -247,8 +187,14 @@
                 </div>
                 <div class="w-full lg:w-[30%] col-span-2">
                     <div class="bg-gray-100 p-6 rounded-3xl">
-                        <h2 class="text-2xl font-bold text-gray-800 leading-snug mb-10">Enter Your Upcoming Lesson</h2>
-                        <form>
+                        <h2 class="text-2xl font-bold text-gray-800 leading-snug mb-10">Your Upcoming Lesson</h2>
+                        <div v-if="isGenerating" class="">
+                            <div class="">
+                                <img class="" src="/bonggo-cat/coding-800x800.gif" alt="">
+                            </div>
+                            <p>Tiklipy is processing your request...</p>
+                        </div>
+                        <form v-if="!isGenerating">
                             <div class="mb-4">
                                 <label class="text-gray-700 font-semibold mb-1 block">Select Grade level</label>
                                 <Select v-model="selectGrade" placeholder="Please select Grade level" class="mb-7 bg-transparent-input" :options="gradeLevel" />
