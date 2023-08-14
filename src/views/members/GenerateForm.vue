@@ -1,10 +1,10 @@
 <script setup>
+    import expressModel from "../../models/express";
     import { ref, watch  } from 'vue'
     import { Input } from 'flowbite-vue';
     import { Select } from 'flowbite-vue';
     import { Textarea } from 'flowbite-vue';
     import { Button } from 'flowbite-vue';
-    import { Toggle } from 'flowbite-vue';
     
 
     const toggleAssesment = ref(false);
@@ -18,6 +18,7 @@
     const generatedTopic = ref(false);
     const homeworkNumberOfQuestions = ref('');
     const assessmentNumberOfQuestions = ref('');
+    const backEndModel = new expressModel();
 
     const questionType = ref([
     { value: 'MC', name: 'Multiple Choice' },
@@ -55,6 +56,15 @@
     { value: '12', name: 'Grade 12' },
     ]);
 
+    const generate = async () => {
+        const instruc = createInstruction();
+        const success = await backEndModel.generateLesson(instruc);
+        console.log(success);
+    }
+
+    const createInstruction = () => {
+        return "Write a lesson plan for an introductory algebra class. The lesson plan should cover the distributive law, in particular how it works in simple cases involving mixes of positive and negative numbers. Come up with some examples that show common student errors.";
+    }
 </script>
 <template>
     <div class="container text-black mt-7 px-3 mx-auto">
@@ -266,7 +276,7 @@
                                         <Select v-model="asssesmentQuestionType" placeholder="Select Question Type" class=" bg-transparent-input" :options="questionType" />
                                     </div>
                                     <div class="mb-6 basis-1/3 ">
-                                        <input v-model="assessmentNumberOfQuestions" type="number" id="text" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main-color focus:border-main-color block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-main-color dark:focus:border-main-color dark:shadow-sm-light" placeholder="Number of Questions" required>
+                                        <input v-model="assessmentNumberOfQuestions" type="number" id="text" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main-color focus:border-main-color block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-main-color dark:focus:border-main-color dark:shadow-sm-light" placeholder="Number of Questions">
                                     </div>
                                 </div>
                             </div>
@@ -285,14 +295,14 @@
                                         <Select v-model="homeworkQuestionType" placeholder="Select Question Type" class=" bg-transparent-input" :options="questionType" />
                                     </div>
                                     <div class="mb-6 basis-1/3 ">
-                                        <input v-model="homeworkNumberOfQuestions" type="number" id="text" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main-color focus:border-main-color block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-main-color dark:focus:border-main-color dark:shadow-sm-light" placeholder="Number of Questions" required>
+                                        <input v-model="homeworkNumberOfQuestions" type="number" id="text" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main-color focus:border-main-color block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-main-color dark:focus:border-main-color dark:shadow-sm-light" placeholder="Number of Questions">
                                     </div>
                                 </div>
                             </div>
                             <div class="mb-6">
                                 <Textarea rows="4" placeholder="Additional instruction..." v-model="message" label="Your message" />
                             </div>
-                            <Button type="submit" size="lg" class="w-full bg-main-color hover:bg-secondary-color border-0 text-sm lg:text-[0.775rem] xl:text-lg font-semibold">Generate Topic with Tiklipy!</Button>
+                            <Button @click.prevent="generate" type="submit" size="lg" class="w-full bg-main-color hover:bg-secondary-color border-0 text-sm lg:text-[0.775rem] xl:text-lg font-semibold">Generate Topic with Tiklipy!</Button>
                         </form>
                     </div>
                 </div>
