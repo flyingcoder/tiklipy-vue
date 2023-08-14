@@ -6,8 +6,7 @@
     <div class="container mx-auto py-8 my-10 text-black">
         <div class="max-w-3xl mx-auto p-4">
             <div class="text-gray-800 text-2xl midlg:text-5xl font-semibold text-center">Tiklipy and Artificial Intelligence (AI): An Amicable Overview</div>
-            <Avatar status="online" class="flex justify-center my-10" size="lg" rounded img="https://flowbite.com/docs/images/people/profile-picture-5.jpg" />
-            
+            <Avatar status="online" class="flex justify-center my-10" size="lg" rounded img="/tiklipy-logo-icon.png" />
             <div class="text-center mb-12">
                 <span class="font-semibold text-gray-700 text-lg">Paige, Co-Founder of Tiklipy</span>
                 <div class="flex justify-center mt-2 text-sm text-gray-700">
@@ -19,7 +18,7 @@
             <div>
                 <p class="text-lg mb-10 text-gray-700">If artificial intelligence (AI) has piqued your curiosity, you might be wondering about its significance. This article delves into the transformative impact of AI on education and delves into why Tiklipy stands as the ideal companion for educators on this exhilarating expedition.</p>
                 <h2 class="font-semibold text-lg text-gray-900 mb-3">What Exactly is Tiklipy?</h2>
-                <p class="text-lg mb-10 text-gray-700">Fetchy is a cutting-edge, AI-powered platform designed specifically for educators. Our mission is to empower educators, enabling them to unleash their full teaching potential. We aim to accomplish this by simplifying and streamlining the myriad of tasks educators face, including creating engaging lessons, generating newsletters, crafting professional emails, and more. By harnessing the power of artificial intelligence, Fetchy empowers educators to enhance their teaching methods, optimize time management, and make confident and informed decisions.</p>
+                <p class="text-lg mb-10 text-gray-700">Tiklipy is a cutting-edge, AI-powered platform designed specifically for educators. Our mission is to empower educators, enabling them to unleash their full teaching potential. We aim to accomplish this by simplifying and streamlining the myriad of tasks educators face, including creating engaging lessons, generating newsletters, crafting professional emails, and more. By harnessing the power of artificial intelligence, Tiklipy empowers educators to enhance their teaching methods, optimize time management, and make confident and informed decisions.</p>
                 <h2 class="font-semibold text-lg text-gray-900 mb-3">Understanding Generative AI Models</h2>
                 <p class="text-lg mb-3 text-gray-700">Generative AI models, such as ChatGPT and others, are technological marvels capable of generating fresh content through learning from vast datasets. These models find application in a range of domains including natural language processing, image creation, and music generation.</p>
                 <p class="text-lg mb-10 text-gray-700">Generative AI models operate by learning patterns from extensive datasets and then employing those patterns to produce novel data resembling the training data. For instance, a music composition model trained on an extensive music dataset can produce new musical pieces akin in style and genre to the original data.</p>

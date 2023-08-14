@@ -22,7 +22,9 @@
     onMounted(() => {
         
     });
-
+    const forgotPassword = () => {
+        // forgot password listener
+    }
     const loginVia = async (provider) => {
         loaderStore.toggle();
         const success = await authStore.loginVia(provider);
@@ -33,7 +35,13 @@
     const login = async () => {
         loaderStore.toggle();
         const success = await authStore.login(email.value, password.value);
-        if (!success) loginFail(); else router.push({ name: 'dashboard' });
+        if (!success) {
+            loginFail();
+            hasError.value = true;
+            console.log("asdasd");
+        } else { 
+            router.push({ name: 'dashboard' });
+        }
         loaderStore.toggle();
     }
 
@@ -45,7 +53,8 @@
                         <img src="/Invalid-error-bongo-cat.gif" width="" height="" alt="Image 2">
                     </div>
                 </div>
-                <h2 class="swal2-title !p-0 text-black text-lg text-red-500" id="swal2-title" style="display: block;">Nya-oh! Make sure your email and password are right, meow.</h2> 
+                <h2 class="swal2-title !p-0 text-black text-xl text-red-500" id="swal2-title" style="display: block;">Nya-oh! Invalid Email or Password</h2> 
+                <h2 class="swal2-title !p-0 text-black text-sm text-black" id="swal2-title" style="display: block;">Make sure your email and password are right, meow.</h2> 
             `,
             width: 600,
             padding: '',
@@ -70,7 +79,8 @@
                     </div>
                 </div>
 
-                <h2 class="swal2-title !p-0 text-black text-lg text-red-500" id="swal2-title" style="display: block;">Nya-oh! We've encountered a slight hiccup in verifying your email and password, meow. Please bear with us or give a little meow for assistance.</h2> 
+                <h2 class="swal2-title !p-0 text-black text-xl text-red-500" id="swal2-title" style="display: block;">Nya-oh! We've encountered a slight hiccup</h2> 
+                <p class="swal2-title !p-0 text-black text-sm text-black" id="swal2-title" style="display: block;">We've encountered a problem in verifying your email and password, meow. Please bear with us or give a little meow for assistance.</p> 
             `,
             width: 600,
             padding: '',
@@ -115,9 +125,17 @@
                         <input type="password" v-model="password" id="password" :class="hasError||wrongCred ? 'border-red-500':''" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main-color focus:border-main-color block w-full p-2.5 dark:border-gray-600 dark:text-white dark:focus:ring-main-color dark:focus:border-main-color" placeholder="Enter a password">
                     </div>
                 </div>
-                <button @click="login"  :disabled="!email || !password" :class="[(!email || !password) || isLoading ? 'cursor-not-allowed !bg-gray-500 hover:bg-gray-500' : 'bg-main-color hover:bg-secondary-color border-0', hasError?'animate__hinge z-10':'']" class="w-full px-4 py-2 mt-2 font-bold text-white rounded bg-main-color hover:bg-secondary-color">
+                <button @click="login"  :disabled="!email || !password" :class="(!email || !password) || isLoading ? 'cursor-not-allowed !bg-gray-500 hover:bg-gray-500' : 'bg-main-color hover:bg-secondary-color border-0'" class="w-full px-4 py-2 mt-2 font-bold text-white rounded bg-main-color hover:bg-secondary-color">
                     {{ isLoading ? "Loading..." : "Login" }}
                 </button>
+                <router-link :to="{ name: 'pricing' }">
+                    <button class="w-full px-4 py-2 mt-2 font-bold text-white rounded bg-main-color hover:bg-secondary-color">
+                        Sign up
+                    </button>
+                </router-link>
+                <p @click="forgotPassword" class="mt-4 text-sm font-semibold text-center ">
+                    <a href="#" class="text-black hover:underline">Forgot Password?</a>
+                </p>
             </div>
             <div class="inline-flex items-center justify-center w-full px-6">
                 <hr class="w-64 h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
