@@ -1,10 +1,11 @@
 import '../plugins/firebase-handler.js';
 import express from 'express';
-import lessons from '../handlers/lessons.js'; //dili makita kung walay js
+import generateModel from '../handlers/openai.js'; //dili makita kung walay js
 import consult from '../handlers/consult.js';
 import { getAuth } from 'firebase-admin/auth';
 
 const router = express.Router();
+const generate = new generateModel();
 const middleware = async (req, res, next) => {
     const token = req.headers.authorization;
     const auth = await getAuth().verifyIdToken(token).then((res));
@@ -25,7 +26,7 @@ function restrict(req, res, next) {
     }
 }
 
-router.get('/lessons', restrict, lessons);
+router.post('/lessons', restrict, generate.lessonPlan);
 router.post('/consult', restrict, consult);
 
 export default router;
