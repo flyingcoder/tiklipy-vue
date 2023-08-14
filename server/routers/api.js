@@ -26,7 +26,7 @@ function restrict(req, res, next) {
     }
 }
 
-router.post('/lessons', restrict, generate.lessonPlan);
+router.post('/lesson', restrict, generate.lessonPlan);
 router.post('/consult', restrict, consult);
 
 export default router;
