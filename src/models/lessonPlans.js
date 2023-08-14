@@ -1,5 +1,5 @@
 import { db } from "../plugins/firebase"
-import { collection, getDocs, addDoc } from "firebase/firestore";
+import { collection, getDocs, getDoc, addDoc, where, query, doc} from "firebase/firestore";
 import generatedResourceModel from "./generatedResources";
 
 class LessonPlanModel {
@@ -11,15 +11,16 @@ class LessonPlanModel {
 
     async getLessonPlansByTeacher(teacherId) {
         try {
-            const query = query(
+            const queryRef = query(
                 this.collectionRef,
                 where('teacherId', '==', teacherId)
             );
         
-            const querySnapshot = await getDocs(query);
+            const querySnapshot = await getDocs(queryRef);
             
-            return querySnapshot.docs.map(doc => doc.data());
+            return querySnapshot.docs.map((doc) => doc.data());
         } catch (error) {
+            console.log(error)
             return false;
         }
     }
