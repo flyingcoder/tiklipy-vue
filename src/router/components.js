@@ -17,6 +17,7 @@ import Activities from '../views/members/Activities.vue';
 //guest components
 import Home from '../views/Home.vue';
 import Help from '../views/Help.vue';
+import Helps from '../views/Helps.vue';
 import Blogs from '../views/Blogs.vue';
 import Blog from '../views/Blog.vue';
 import About from '../views/About.vue';
@@ -41,5 +42,6 @@ export {
     Assesments, Assesment, Quizes, Homeworks, Tests, Home, Help,
     Blogs, Blog, About, Pricing, Features, Terms, Privacy, License, 
     MembersLayout, GuestsLayout, Projects, Activities, GenerateForm, 
-    Login, SendGift, FAQ, Featured, ThankYou, PaymentCancel, PageNotFound
+    Login, SendGift, FAQ, Featured, ThankYou, PaymentCancel, PageNotFound,
+    Helps
 };

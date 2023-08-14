@@ -109,6 +109,10 @@ button:focus-visible {
   padding: 2em;
 }
 
+.custom-text-black {
+  color: black;
+}
+
 .no-icon svg {
   display: none;
 }
