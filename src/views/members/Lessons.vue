@@ -1,17 +1,21 @@
 <script setup>
-    import { onMounted } from 'vue';
-import { useLessonStore } from '../../stores/lesson';
+    import { onMounted, ref } from 'vue';
+    import LessonPlanModel from '../../models/lessonPlans';
+    import { useAuthStore } from '../../stores/auth';
 
-    const lessonStore = useLessonStore();
+    const authStore = useAuthStore();
+    const teacher = authStore.user;
+    const lessonModel = new LessonPlanModel();
+    const lessons = ref([]);
 
     onMounted(() => {
-        lessonStore.fetchLessons();
+        lessons.value = lessonModel.getLessonPlansByTeacher(teacher.uid);
     });
 
 
 </script>
 <template>
-    {{ lessonStore.lessons }}
+    {{ lessons }}
     <div class="px-3 mt-7">
         <div class="flex flex-wrap max-lg:justify-center">
             <div class=" w-[30rem] bg-white rounded-lg sm:mr-5 mb-5 flex">
