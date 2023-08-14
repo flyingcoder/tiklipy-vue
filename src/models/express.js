@@ -11,7 +11,7 @@ class expressModel {
             const params = [{role: 'user',content: instruction}];
             let lesson = null;
             await axios.post('/api/v1/lesson', params)
-                .then((completion) => { lesson = completion.data.message })
+                .then((completion) => { console.log(completion) })
             return lesson;
         } catch (error) {
             console.log(error);

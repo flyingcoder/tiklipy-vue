@@ -26,7 +26,10 @@ function restrict(req, res, next) {
     }
 }
 
-router.post('/lesson', restrict, generate.lessonPlan);
+router.post('/lesson', restrict, async (req, res) => {
+    const msg = await generate.lessonPlan(req, res);
+    res.json(msg);
+});
 router.post('/consult', restrict, consult);
 
 export default router;

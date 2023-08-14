@@ -22,9 +22,10 @@ class generateModel {
             const chatCompletion = await openai.createChatCompletion(param)
                                         .then(res => res.data);
     
-            res.json(chatCompletion.choices.pop());
+            return chatCompletion.choices.pop();
         } catch (error) {
-            res.json({'error': error});
+            console.log(error);
+            return {'error': error};
         }
     }
 }
