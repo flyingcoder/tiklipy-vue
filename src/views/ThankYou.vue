@@ -3,9 +3,9 @@
 </script>
 
 <template>
-    <div class="flex items-center justify-center pt-20 max-md:px-3  m-auto mb-10">
+    <div class="flex items-center justify-center pt-20 max-md:px-3 m-auto mb-10">
         <div class=" bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700  text-center max-md:px-3">
-            <img src="Thank-you.gif" alt="" class=" m-auto mt-10">\
+            <img src="thank-you.gif" alt="" class=" m-auto mt-10">
             <div class="max-w-[40rem] m-auto mb-10">
                 <div class="mb-10">
                     <h1 class="text-main-color max-xs:text-2xl text-4xl  lg:text-5xl text-black font-bold mb-5">Best decession ever!</h1>
@@ -75,7 +75,7 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="text-black text-start">
+                <div class="text-black text-start mb-4">
                     <p>Your payment has been successfully processed, and your order is now confirmed. You can expect the following:</p>
                     <ul class="list-disc ml-[1.5rem] mb-5">
                         <li>An email confirmation will be sent to you shortly.</li>
