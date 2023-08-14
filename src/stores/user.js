@@ -7,7 +7,6 @@ export const useUserStore = defineStore("user", {
     accessToken: null,
     hasSubscription: false,
     lessons: null,
-    consultations: null,
   }),
   actions: {
     setUser(user) {
@@ -16,20 +15,6 @@ export const useUserStore = defineStore("user", {
     },
     setUserSubscription(hasSubscription) {
       this.hasSubscription = hasSubscription;
-    },
-    async fetchConsultations() {
-      try {
-        const docRef = collection( getFirestore(), "customers", this.uid, "consultations" );
-        const docSnaps = await getDocs(docRef);
-        const consults = [];
-        console.log(docSnaps.exists())
-        docSnaps.forEach((doc) => { consults.push(doc.data()) });
-        return consults;
-      } catch(error) {
-        console.log(error)
-        return false;
-      }
-      
     },
     async stripePay(selectedPrice) {
       const params = {
