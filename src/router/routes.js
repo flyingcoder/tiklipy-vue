@@ -3,7 +3,8 @@ import {
     Assesments, Assesment, Quizes, Homeworks, Tests, Home, Help,
     Blogs, Blog, About, Pricing, Features, Terms, Privacy, License, 
     MembersLayout, GuestsLayout, Projects, Activities, GenerateForm, 
-    Login, SendGift, FAQ, Featured, ThankYou, PaymentCancel, PageNotFound
+    Login, SendGift, FAQ, Featured, ThankYou, PaymentCancel, PageNotFound,
+    Helps
 } from './components';
 
 const routes = [
@@ -15,6 +16,7 @@ const routes = [
             { path: '/', name: 'home', component: Home },
             { path: '/about', name: 'about', component: About },
             { path: '/help', name: 'help', component: Help },
+            { path: '/help/:slug', name: 'helps', component: Helps },
             { path: '/blogs', name: 'blogs', component: Blogs },
             { path: '/blogs/:slug', name: 'blog', component: Blog },
             { path: '/pricing', name: 'pricing', component: Pricing },
