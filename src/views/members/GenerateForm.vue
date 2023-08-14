@@ -5,7 +5,8 @@
     import { Select } from 'flowbite-vue';
     import { Textarea } from 'flowbite-vue';
     import { Button } from 'flowbite-vue';
-    
+
+    defineEmits(['generation-complete']);
 
     const toggleAssesment = ref(false);
     const toggleHomework = ref(false);
@@ -57,17 +58,17 @@
     { value: '12', name: 'Grade 12' },
     ]);
 
-    watch(generatedTopic, (newVal, oldVal) => {
-        return newVal.replace("/\n/g", '<br>')
-                     .replace("/\*\*(.*?)\*\*/g", '<strong>$1</strong>')
-                     .replace("/```([\s\S]*?)```/g", '<code>$1</code>');
-    });
+    const sendToFireBase = () => {
+        //send to firebase;
+    }
+
     const generate = async () => {
         isGenerating.value = true;
         const instruc = createInstruction();
         await backEndModel.generateLesson(instruc)
-            .then((completion) => { console.log(completion.data.message);
-                generatedTopic.value = completion?.data?.message?.content });
+            .then((completion) => {
+                sendToFireBase("generation-complete", completion?.data?.message?.content);
+                generatedTopic.value = completion?.data?.message?.content?.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>') });
         isGenerating.value = false;
     }
 
