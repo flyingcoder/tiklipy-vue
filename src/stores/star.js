@@ -9,6 +9,10 @@ export const useAuthStore = defineStore("star", {
     actions: {
         setCredit(count) {
             this.count = count;
-        }
+        },
+        getCredit() {
+
+        },
+        
     }
 });

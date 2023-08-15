@@ -28,6 +28,9 @@
     <header class="bg-white">
         <Navigation>
             <template #right>
+                <router-link :to="{name: 'account'}" class="px-2">
+                    ⭐150 
+                </router-link>
                 <router-link :to="{ name: 'consult' }" active-class="text-main-color dark:text-white" class="block px-3 py-2 text-lg font-medium text-gray-900 divide-gray-100 max-xs:hidden dark:hover:text-main-color md:border-0 md:p-0">
                     <i class="pb-1 mr-1 text-lg ti ti-atom"></i> Consult
                 </router-link>

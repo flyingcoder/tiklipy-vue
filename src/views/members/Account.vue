@@ -1,9 +1,12 @@
 <script setup>
     import { useAuthStore } from '../../stores/auth';
-    import { ref, onMounted, computed } from "vue"
+    import { onMounted } from "vue"
 
     const authStore = useAuthStore();
-    const amount = ref(0);
+    
+    const buyStar = () => {
+
+    }
 
     onMounted(() => {
 
@@ -23,13 +26,13 @@
                 <button @click="buyStar(10)" class="bg-purple-500 text-white mx-1">
                     Buy 10 ⭐
                 </button>
-                <button @click="buyStar(10)" class="bg-purple-500 text-white mx-1">
+                <button @click="buyStar(50)" class="bg-purple-500 text-white mx-1">
                     Buy 50 ⭐
                 </button>
-                <button @click="buyStar(10)" class="bg-purple-500 text-white mx-1">
+                <button @click="buyStar(150)" class="bg-purple-500 text-white mx-1">
                     Buy 150 ⭐
                 </button>
-                <button @click="buyStar(10)" class="bg-purple-500 text-white mx-1">
+                <button @click="buyStar(500)" class="bg-purple-500 text-white mx-1">
                     Buy 500 ⭐
                 </button>
             </div>
