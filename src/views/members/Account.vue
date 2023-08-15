@@ -5,7 +5,9 @@
     <!-- bg-[#646cff17] -->
     <div class="bg-white rounded-lg sm:px-4 py-6">
         <div class="text-black mb-10 px-4">
-            <div class="text-3xl color-black font-semibold pb-2 w-fit">Address</div>
+            <div class="text-3xl color-black font-semibold pb-2 w-fit">
+                
+            </div>
             <div class="text-base sm:flex pb-1">
                 <div class="font-semibold ">Billing Address: &nbsp;&nbsp;</div>
                 <div class="font-light w-fit">123, Main St, San Francisco, CA, 66801</div>
