@@ -1,9 +1,10 @@
 <script setup>
     import expressModel from "../../models/express";
     import generatedResourceModel from "../../models/generatedResources";
-    import { onMounted, ref, watch  } from 'vue'
+    import { onMounted, ref, watch, defineProps  } from 'vue'
     import { Input } from 'flowbite-vue';
     import { Select } from 'flowbite-vue';
+    import { Alert } from 'flowbite-vue';
     import { Textarea } from 'flowbite-vue';
     import { Button } from 'flowbite-vue';
     import 'animate.css';
@@ -23,6 +24,7 @@
     const homeworkNumberOfQuestions = ref('');
     const assessmentNumberOfQuestions = ref('');
     const backEndModel = new expressModel();
+    const copyContent = ref(false);
     const isGenerating = ref(false);
     const generateResource = new generatedResourceModel();
 
@@ -80,11 +82,27 @@
         isGenerating.value = false;
     }
 
+    const copyGeneratedTopic = () => {
+        const range = document.createRange();
+        range.selectNode(document.querySelector(".generated-value"));
+        window.getSelection().removeAllRanges();
+        window.getSelection().addRange(range);
+        document.execCommand("copy");
+        window.getSelection().removeAllRanges();
+        copyContent.value = !copyContent.value
+        setTimeout(() => {
+            copyContent.value = !copyContent.value;
+        }, 3000);
+    };
+
     const createInstruction = () => {
         return "topic: "+topic.value+"\ngrade level: "+selectGrade+"\nsubject: "+selectSubject+"\nadditional notes: "+message;
     }
 </script>
 <template>
+    <div class="fixed left-0 top-0" v-if="copyContent">
+        <Alert type="success">Copied</Alert>
+    </div>
     <div class="container text-black mt-7 px-3 mx-auto">
         <div class="bg-white rounded-t-3xl shadow-md">
             <div class="flex bg-indigo-500 px-9 py-4 rounded-t-3xl">
@@ -155,7 +173,7 @@
                     </div>
                     <div class="block">
                         <div class="flex">
-                            <Button color="default" class="mr-3 bg-main-color hover:bg-secondary-color border-0 py-3 font-semibold">
+                            <Button color="default" @click="copyGeneratedTopic" class="mr-3 bg-main-color hover:bg-secondary-color border-0 py-3 font-semibold">
                                 <template #prefix>
                                     <svg class=" w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
                                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m7.708 2.292.706-.706A2 2 0 0 1 9.828 1h6.239A.97.97 0 0 1 17 2v12a.97.97 0 0 1-.933 1H15M6 5v4a1 1 0 0 1-1 1H1m11-4v12a.97.97 0 0 1-.933 1H1.933A.97.97 0 0 1 1 18V9.828a2 2 0 0 1 .586-1.414l2.828-2.828A2 2 0 0 1 5.828 5h5.239A.97.97 0 0 1 12 6Z"/>
@@ -171,14 +189,14 @@
                                 </template>
                                 Save
                             </Button>
-                            <Button class="bg-main-color hover:bg-secondary-color border-0 font-semibold py-3">
+                            <!-- <Button class="bg-main-color hover:bg-secondary-color border-0 font-semibold py-3">
                                 <template #prefix>
                                     <svg class=" w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 18">
                                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 14 3-3m-3 3 3 3m-3-3h16v-3m2-7-3 3m3-3-3-3m3 3H3v3"/>
                                     </svg>
                                 </template>
                                 Regenerate
-                            </Button>
+                            </Button> -->
 
                         </div>
                     </div>
