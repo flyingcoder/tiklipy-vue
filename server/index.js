@@ -1,8 +1,8 @@
 import express from "express";
 import path from "path";
-import homeRouter from "./routers/home.js";
-import assetRouter from "./routers/assets.js";
-import apiRouter from "./routers/api.js";
+import homeRouter from "./routes/home.js";
+import assetRouter from "./routes/assets.js";
+import apiRouter from "./routes/api.js";
 
 //initialize
 const app = express();

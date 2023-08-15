@@ -1,4 +1,4 @@
-import openai from './../plugins/openai-handler.js';
+import openai from '../plugins/openai-handler.js';
 
 class generateModel {
     constructor() {

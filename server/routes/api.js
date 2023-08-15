@@ -1,11 +1,11 @@
 import '../plugins/firebase-handler.js';
 import express from 'express';
-import generateModel from '../handlers/openai.js'; //dili makita kung walay js
-import consult from '../handlers/consult.js';
 import { getAuth } from 'firebase-admin/auth';
+import generateRoutes from './api/generate.js';
+import starCreditRoutes from './api/starCredits.js';
 
 const router = express.Router();
-const generate = new generateModel();
+
 const middleware = async (req, res, next) => {
     const token = req.headers.authorization;
     const auth = await getAuth().verifyIdToken(token).then((res));
@@ -13,11 +13,7 @@ const middleware = async (req, res, next) => {
     next();
 }
 
-router.use(express.json());
-router.use(express.urlencoded({ extended: true}));
-router.use(middleware);
-
-function restrict(req, res, next) {
+const restrict = (req, res, next) => {
     if(res.locals.currentUser) {
         next();
     } else {
@@ -26,10 +22,16 @@ function restrict(req, res, next) {
     }
 }
 
-router.post('/lesson', restrict, async (req, res) => {
-    const msg = await generate.lessonPlan(req, res);
-    res.json(msg);
-});
-router.post('/consult', restrict, consult);
+router.use(express.json());
+router.use(express.urlencoded({ extended: true}));
+router.use(middleware);
+
+router.use('/stars', restrict, starCreditRoutes);
+router.use('/generate', restrict, generateRoutes);
+
+//router.post('/lesson', restrict, async (req, res) => {
+//    const msg = await generate.lessonPlan(req, res);
+//    res.json(msg);
+//});
 
 export default router;
