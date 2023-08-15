@@ -120,21 +120,24 @@
                     </div>
                 </div>
                 <div class="mb-2">
-                    <div>
-                        <label for="password" class="block mb-1 text-sm font-semibold text-gray-700 dark:text-white">Password</label>
+                    <div class="mt-5">
+                        <div class="flex flex-wrap justify-between mb-1">
+                            <label for="password" class="block text-sm font-semibold text-gray-700 dark:text-white">Password</label>
+                            <p @click="forgotPassword" class="w-fit text-sm font-semibold ">
+                                <a href="#" class="text-black hover:underline">Forgot Password?</a>
+                            </p>
+                        </div>
                         <input type="password" v-model="password" id="password" :class="hasError||wrongCred ? 'border-red-500':''" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main-color focus:border-main-color block w-full p-2.5 dark:border-gray-600 dark:text-white dark:focus:ring-main-color dark:focus:border-main-color" placeholder="Enter a password">
                     </div>
                 </div>
                 <button @click="login"  :disabled="!email || !password" :class="(!email || !password) || isLoading ? 'cursor-not-allowed !bg-gray-500 hover:bg-gray-500' : 'bg-main-color hover:bg-secondary-color border-0'" class="w-full px-4 py-2 mt-2 font-bold text-white rounded bg-main-color hover:bg-secondary-color">
                     {{ isLoading ? "Loading..." : "Login" }}
                 </button>
-                <router-link :to="{ name: 'pricing' }">
-                    <button class="w-full px-4 py-2 mt-2 font-bold text-white rounded bg-main-color hover:bg-secondary-color">
-                        Sign up
-                    </button>
-                </router-link>
-                <p @click="forgotPassword" class="mt-4 text-sm font-semibold text-center ">
-                    <a href="#" class="text-black hover:underline">Forgot Password?</a>
+                <p @click="forgotPassword" class="mt-5 w-fit text-sm  text-center m-auto">
+                    Dont have an account yet? <br class="lg:hidden">
+                    <router-link :to="{ name: 'pricing' } " class=" text-black hover:underline !font-bold">
+                        Get 1 Month Free Now!
+                    </router-link>
                 </p>
             </div>
             <div class="inline-flex items-center justify-center w-full px-6">
