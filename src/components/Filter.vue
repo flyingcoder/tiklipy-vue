@@ -3,6 +3,7 @@
     import { Input } from 'flowbite-vue';
     import { Select } from 'flowbite-vue';
     import { Button } from 'flowbite-vue';
+    import 'animate.css';
 
     const gradelevel = ref('');
     const subjectFilter = ref('');
@@ -39,7 +40,7 @@
     ]);
 </script>
 <template>
-    <form class="bg-white rounded-lg  p-5">
+    <form class="bg-white rounded-lg  p-5 animate__animated  animate__fadeInUp">
         <h1 class="text-main-color text-2xl font-semibold mb-3">Lessons filter</h1>
         <div class="mb-4">
             <label for="" class="text-gray-700 font-semibold mb-1 block">Subject</label>
