@@ -1,6 +1,7 @@
 <script setup>
     import expressModel from "../../models/express";
-    import { ref, watch  } from 'vue'
+    import generatedResourceModel from "../../models/generatedResources";
+    import { onMounted, ref, watch  } from 'vue'
     import { Input } from 'flowbite-vue';
     import { Select } from 'flowbite-vue';
     import { Textarea } from 'flowbite-vue';
@@ -23,6 +24,7 @@
     const assessmentNumberOfQuestions = ref('');
     const backEndModel = new expressModel();
     const isGenerating = ref(false);
+    const generateResource = new generatedResourceModel();
 
     const questionType = ref([
     { value: 'MC', name: 'Multiple Choice' },
@@ -60,16 +62,20 @@
     { value: '12', name: 'Grade 12' },
     ]);
 
-    const sendToFireBase = () => {
-        //send to firebase;
+    const sendToFireBase = (rawContent) => {
+        generateResource.addGeneratedResource(rawContent, 'lessonPlan');
     }
+
+    onMounted(() => {
+        //sendToFireBase("testing");
+    })
 
     const generate = async () => {
         isGenerating.value = true;
         const instruc = createInstruction();
         await backEndModel.generateLesson(instruc)
             .then((completion) => {
-                sendToFireBase("generation-complete", completion?.data?.message?.content);
+                sendToFireBase(completion?.data?.message?.content);
                 generatedTopic.value = completion?.data?.message?.content?.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>') });
         isGenerating.value = false;
     }
