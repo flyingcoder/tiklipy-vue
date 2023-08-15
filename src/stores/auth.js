@@ -6,6 +6,9 @@ export const useAuthStore = defineStore("auth", {
     state: () => ({
         user: JSON.parse(localStorage.getItem("tiklipy-user")) || null,
     }),
+    getters: {
+        displayName: (state) => state.user.name ? state.user.name : state.user.email.split("@")[0],
+    },
     actions: {
         setUserToLocal(user) {
             this.user = user;
