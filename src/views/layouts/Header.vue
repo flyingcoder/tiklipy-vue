@@ -56,7 +56,7 @@
                 </router-link>
             </template>
             <template #left>
-                <ul class="flex flex-col mt-4 text-lg font-medium lg:flex-row lg:space-x-1 lg:mt-0 ">
+                <ul class="flex flex-col mt-4 text-lg font-medium lg:flex-row lg:space-x-1 lg:mt-0" :class="isMenuHidden ? '' : 'hidden'">
                     <li>
                         <router-link to="/features" active-class="text-main-color dark:text-white" class="block py-2 pl-3 pr-4 text-base text-gray-900 dark:text-white dark:hover:text-main-color dark:hover:bg-gray-700 dark:border-gray-700" >
                             <i class="pb-1 mr-1 text-lg ti ti-stars"></i> Features

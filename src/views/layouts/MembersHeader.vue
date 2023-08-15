@@ -3,7 +3,8 @@
     import Navigation from "../../components/Navigation.vue";
     import { useRouter } from "vue-router";
     import { useAuthStore } from "../../stores/auth";
-    import { Dropdown } from 'flowbite-vue'
+    import { Dropdown } from 'flowbite-vue';
+    import 'animate.css';
     
     const router = useRouter();
     const isMenuHidden = ref(true);
@@ -47,7 +48,7 @@
                 </router-link>
             </template>
             <template #left>
-                <ul class="flex-col mt-4 text-lg font-medium lg:flex lg:flex-row lg:space-x-4 md:mt-0">
+                <ul class="flex-col mt-4 text-lg font-medium lg:flex lg:flex-row lg:space-x-4 md:mt-0" :class="isMenuHidden ? 'hidden' : ''">
                     <li class="self-center px-3 py-2 dropdown">
                         <router-link :to="{ name: 'lessons' }" class="block text-base font-medium text-gray-900 divide-gray-100 dark:hover:text-main-color md:border-0 md:p-0">
                             <i class="pb-1 mr-1 text-lg ti ti-book"></i> Lessons
