@@ -5,7 +5,7 @@
     <div class="mt-7 px-3">
         <div class="flex flex-wrap max-lg:justify-center">
             <div class=" w-[30rem] bg-white rounded-lg sm:mr-5 mb-5 flex">
-                <router-link :to="{name: 'lesson', params: { id: 1 }}" class="bg-[url('/p-1.png')] bg-no-repeat bg-contain items-center bg-white rounded-lg  md:flex-row md:max-w-xl hover:shadow-lg transition delay-75 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                <router-link :to="{ name: 'assessment', params: { type: 'homeworks', id: 1 } }" class="bg-[url('/p-1.png')] bg-no-repeat bg-contain items-center bg-white rounded-lg  md:flex-row md:max-w-xl hover:shadow-lg transition delay-75 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
                     <div class="p-10 max-xs:!p-5">
                         <div class="flex items-center w-56 mb-5">
                             <img class="w-16 -ml-2" src="/grade.png" alt="">
@@ -19,7 +19,7 @@
                 </router-link>
             </div>
             <div class=" w-[30rem] bg-white rounded-lg sm:mr-5 mb-5 flex ">
-                <router-link :to="{name: 'lesson', params: { id: 2 }}" class="bg-[url('/p-1.png')] bg-no-repeat bg-contain items-center bg-white rounded-lg  md:flex-row md:max-w-xl hover:shadow-lg transition delay-75 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                <router-link :to="{ name: 'assessment', params: { type: 'homeworks', id: 2 } }" class="bg-[url('/p-1.png')] bg-no-repeat bg-contain items-center bg-white rounded-lg  md:flex-row md:max-w-xl hover:shadow-lg transition delay-75 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
                     <div class="p-10 max-xs:!p-5">
                         <div class="flex items-center w-56 mb-5">
                             <img class="w-16 -ml-2" src="/grade.png" alt="">
@@ -33,7 +33,7 @@
                 </router-link>
             </div>
             <div class=" w-[30rem] bg-white rounded-lg sm:mr-5 mb-5 flex ">
-                <router-link :to="{name: 'lesson', params: { id: 3 }}" class="bg-[url('/p-1.png')] bg-no-repeat bg-contain items-center bg-white rounded-lg  md:flex-row md:max-w-xl hover:shadow-lg transition delay-75 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                <router-link :to="{ name: 'assessment', params: { type: 'homeworks', id: 3 } }" class="bg-[url('/p-1.png')] bg-no-repeat bg-contain items-center bg-white rounded-lg  md:flex-row md:max-w-xl hover:shadow-lg transition delay-75 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
                     <div class="p-10 max-xs:!p-5">
                         <div class="flex items-center w-56 mb-5">
                             <img class="w-16 -ml-2" src="/grade.png" alt="">
