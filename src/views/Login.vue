@@ -135,7 +135,7 @@
                 </button>
                 <p @click="forgotPassword" class="mt-5 w-fit text-sm  text-center m-auto">
                     Dont have an account yet? <br class="lg:hidden">
-                    <router-link :to="{ name: 'pricing' } " class=" text-black hover:underline !font-bold">
+                    <router-link :to="{ name: 'register' } " class=" text-black hover:underline !font-bold">
                         Get 1 Month Free Now!
                     </router-link>
                 </p>
