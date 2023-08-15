@@ -96,7 +96,7 @@
 </script>
 
 <template>
-    <div class="flex items-center justify-center pt-20">
+    <div class="flex items-center justify-center pt-20  animate__animated  animate__fadeIn">
         <div class="max-w-md bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 lg:w-2/5 sm:w-96">
             <div class="w-full px-8 py-6 text-gray-200 bg-gray-800 rounded-t-lg">
                 <router-link :to="{ name: 'home' }">
@@ -112,13 +112,13 @@
                 <p :class="hasError ? 'hidden':'visible'" class="mt-4 text-sm font-semibold text-center">Register with Email & Password</p>
                 <p :class="hasError ? 'visible':'hidden'" class="mt-4 text-sm font-semibold text-center text-red-500">Invalid Email or Password</p>
                 <div class="my-2">
-                    <div>
+                    <div >
                         <label for="email" class="block mb-1 text-sm font-semibold text-gray-700 dark:text-white">Email</label>
                         <input type="email" v-model="email" id="email" :class="hasError||wrongCred ? 'border-red-500':''"  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main-color focus:border-main-color block w-full p-2.5 dark:border-gray-600 dark:text-white dark:focus:ring-main-color dark:focus:border-main-color" placeholder="Enter a valid email">
                     </div>
                 </div>
                 <div class="mb-2">
-                    <div>
+                    <div class="mt-5">
                         <label for="password" class="block mb-1 text-sm font-semibold text-gray-700 dark:text-white">Password</label>
                         <input type="password" v-model="password" id="password" :class="hasError||wrongCred ? 'border-red-500':''" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main-color focus:border-main-color block w-full p-2.5 dark:border-gray-600 dark:text-white dark:focus:ring-main-color dark:focus:border-main-color" placeholder="Enter a password">
                     </div>
@@ -126,8 +126,9 @@
                 <button @click="register"  :disabled="!email || !password" :class="(!email || !password) || isLoading ? 'cursor-not-allowed !bg-gray-500 hover:bg-gray-500' : 'bg-main-color hover:bg-secondary-color border-0'" class="w-full px-4 py-2 mt-2 font-bold text-white rounded bg-main-color hover:bg-secondary-color">
                     {{ isLoading ? "Loading..." : "Register" }}
                 </button>
-                <p>Already have an account?
-                    <router-link :to="{name: 'login'}">
+                <p class="mt-5 w-fit text-sm  text-center m-auto">
+                    Already have an account?  <br class="lg:hidden">
+                    <router-link :to="{ name: 'login' } " class=" !text-main-color hover:!text-secondary-color hover:underline !font-bold">
                         Login Here.
                     </router-link>
                 </p>
