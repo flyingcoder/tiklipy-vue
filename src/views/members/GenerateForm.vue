@@ -103,68 +103,57 @@
             <div class="flex flex-wrap   gap-4 p-3 sm:p-9">
                 <div class="w-full lg:w-[68%] col-span-4">
                     <div class="w-full generated-value py-4" v-if="!generatedTopic">
-                        <h1 class="text-2xl font-semibold mb-6">Creating Educational Content: Step-by-Step</h1>
+                        <h1 class="text-2xl font-semibold mb-6">Creating Educational Content with Tiklipy in 9 Simple Steps:</h1>
                         <div class="space-y-6">
                             <!-- Step 1 -->
                             <div>
-                                <h2 class="text-xl font-semibold">Step 1: Choose Lesson Details</h2>
-                                <p>Select grade level, subject, and enter the topic of your lesson.</p>
+                                <h2 class="text-xl font-semibold">Step 1: Choose Lesson: Select grade, subject, topic.</h2>
                             </div>
 
                             <!-- Step 2 -->
                             <div>
-                                <h2 class="text-xl font-semibold">Step 2: Toggle Assessment and Homework</h2>
-                                <p>Decide on including assessment and/or homework. Toggle switches accordingly.</p>
+                                <h2 class="text-xl font-semibold">Step 2: Assess & Homework: Toggle for tasks.</h2>
                             </div>
 
                             <!-- Step 3 -->
                             <div>
-                                <h2 class="text-xl font-semibold">Step 3: Assessment and Homework Specifics</h2>
-                                <p>If enabling assessment or homework, choose question type and quantity.</p>
+                                <h2 class="text-xl font-semibold">Step 3: Details: Set questions' specifics.</h2>
                             </div>
 
                             <!-- Step 4 -->
                             <div>
-                                <h2 class="text-xl font-semibold">Step 4: Add Additional Instructions</h2>
-                                <p>If needed, provide extra guidance or messages for your lesson.</p>
+                                <h2 class="text-xl font-semibold">Step 4: Add Instructions: Extra guidance if needed.</h2>
                             </div>
 
                             <!-- Step 5 -->
                             <div>
-                                <h2 class="text-xl font-semibold">Step 5: Generate the Content</h2>
-                                <p>Click the "Generate Topic with Tiklipy!" button.</p>
+                                <h2 class="text-xl font-semibold">Step 5: Generate: Click "Generate with Tiklipy!"</h2>
                             </div>
 
                             <!-- Step 6 -->
                             <div>
-                                <h2 class="text-xl font-semibold">Step 6: Review and Interact with Content</h2>
-                                <p>Generated content will be displayed on the left side of the screen.</p>
-                                <p>Review and interact with it.</p>
+                                <h2 class="text-xl font-semibold">Step 6: Review & Interact: See content on the left.</h2>
                             </div>
 
                             <!-- Step 7 -->
                             <div>
-                                <h2 class="text-xl font-semibold">Step 7: Copy, Save, or Regenerate</h2>
-                                <p>Use buttons to copy, save, or regenerate content.</p>
+                                <h2 class="text-xl font-semibold">Step 7: Copy/Save/Regenerate: Use buttons provided.</h2>
                             </div>
 
                             <!-- Step 8 -->
                             <div>
-                                <h2 class="text-xl font-semibold">Step 8: Modify and Refine</h2>
-                                <p>Adjust choices and generate new content if needed.</p>
+                                <h2 class="text-xl font-semibold">Step 8: Refine: Adjust choices, generate more.</h2>
                             </div>
 
                             <!-- Step 9 -->
                             <div>
-                                <h2 class="text-xl font-semibold">Step 9: Follow Assessment Rubric and Guidelines</h2>
-                                <p>Refer to the rubric for content quality and completeness.</p>
+                                <h2 class="text-xl font-semibold">Step 9: Follow Rubric: Check quality as per guidelines.</h2>
                             </div>
                         </div>
                     </div>
                     <div class="w-full generated-value py-4" v-html="generatedTopic">
                     </div>
                     <div class="block">
-                        <div class="mt-9 mb-4 text-gray-500">444 words</div>
                         <div class="flex">
                             <Button color="default" class="mr-3 bg-main-color hover:bg-secondary-color border-0 py-3 font-semibold">
                                 <template #prefix>
