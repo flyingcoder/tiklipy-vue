@@ -13,7 +13,7 @@ class StarCreditModel {
 
     async manager(completionData) {
         const tokenConsume = completionData.usage.total_tokens;
-
+        
     }
 
     async saveTransaction(userId, data) {
