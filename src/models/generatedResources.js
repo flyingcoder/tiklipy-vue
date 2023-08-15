@@ -3,7 +3,7 @@ import dayjs from "dayjs";
 import { collection, addDoc } from "firebase/firestore";
 import { useAuthStore } from "../stores/auth";
 
-class generatedResourceModel {
+class GeneratedResourceModel {
     constructor() {
       this.collectionName = 'generatedResources';
       this.collectionRef = collection(db, this.collectionName );
@@ -39,4 +39,4 @@ class generatedResourceModel {
     }
   }
   
-  export default generatedResourceModel;
+  export default GeneratedResourceModel;

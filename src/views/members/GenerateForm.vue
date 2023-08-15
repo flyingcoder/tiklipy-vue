@@ -1,6 +1,6 @@
 <script setup>
-    import expressModel from "../../models/express";
-    import generatedResourceModel from "../../models/generatedResources";
+    import expressModel from "../../models/Express";
+    import GeneratedResourceModel from "../../models/GeneratedResources";
     import { onMounted, ref, watch  } from 'vue'
     import { Input } from 'flowbite-vue';
     import { Select } from 'flowbite-vue';
@@ -24,7 +24,7 @@
     const assessmentNumberOfQuestions = ref('');
     const backEndModel = new expressModel();
     const isGenerating = ref(false);
-    const generateResource = new generatedResourceModel();
+    const generateResource = new GeneratedResourceModel();
 
     const questionType = ref([
     { value: 'MC', name: 'Multiple Choice' },
@@ -255,4 +255,4 @@
         </div>
         
     </div>
-</template>
+</template>../../models/Express

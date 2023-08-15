@@ -1,7 +1,7 @@
 import axios from "../plugins/axios";
 import { auth } from "../plugins/firebase";
 
-class expressModel {
+class ExpressModel {
     generateLesson(instruction) {
         try {
             axios.defaults.headers.common['Authorization'] = auth?.currentUser?.accessToken;
@@ -14,4 +14,4 @@ class expressModel {
     }
 }
 
-export default expressModel;
+export default ExpressModel;
