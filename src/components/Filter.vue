@@ -1,11 +1,16 @@
 <script setup>
-    import { ref } from 'vue';
+    import { ref, defineProps } from 'vue';
     import { Input } from 'flowbite-vue';
     import { Select } from 'flowbite-vue';
     import { Button } from 'flowbite-vue';
+    import 'animate.css';
 
     const gradelevel = ref('');
     const subjectFilter = ref('');
+
+    defineProps({
+        filterTitle: String,
+    })
 
     const program = ref([
         { value: 'Math', name: 'Math' },
@@ -39,8 +44,8 @@
     ]);
 </script>
 <template>
-    <form class="bg-white rounded-lg  p-5">
-        <h1 class="text-main-color text-2xl font-semibold mb-3">Lessons filter</h1>
+    <form class="bg-white rounded-lg  p-5 animate__animated  animate__fadeInUp">
+        <h1 class="text-main-color text-2xl font-semibold mb-3">{{filterTitle}} Filter</h1>
         <div class="mb-4">
             <label for="" class="text-gray-700 font-semibold mb-1 block">Subject</label>
             <input v-model="subjectFilter" type="text" id="text" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main-color focus:border-main-color block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-main-color dark:focus:border-main-color dark:shadow-sm-light" placeholder="Example: Math" required>
