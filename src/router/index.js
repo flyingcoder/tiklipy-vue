@@ -18,7 +18,6 @@ router.beforeEach(async (to, from, next) => {
       onAuthStateChanged(auth, async (user) => {
         const authStore = useAuthStore();
         const userStore = useUserStore();
-        
         if(user) {
           const appUser = {
             uid: user.uid,
@@ -27,13 +26,17 @@ router.beforeEach(async (to, from, next) => {
           }
           authStore.setUserToLocal(appUser);
           userStore.setUser(user);
-          const hasSubscription = await checkSubscriptionStatus(user.uid);
-          userStore.setUserSubscription(hasSubscription);
+          await userStore.initStar();
+          //const hasSubscription = await checkSubscriptionStatus(user.uid);
+          //userStore.setUserSubscription(hasSubscription);
         }
       });
-      if(!firebaseInit)
+      if(!firebaseInit) {
         firebaseInit = true;
-      next();
+        next();
+      } else {
+        next('/')
+      }
     } else {
       if(to.meta.requiresAuth) {
         await subscriptionCheck(to, from, next);

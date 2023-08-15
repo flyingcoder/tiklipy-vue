@@ -1,17 +1,30 @@
+import { db } from "../plugins/firebase";
 import { collection, getFirestore, addDoc, getDocs } from "firebase/firestore";
 import { defineStore } from "pinia";
 
 export const useUserStore = defineStore("user", {
   state: () => ({
+    starCredits: 0,
     uid: null,
     accessToken: null,
     hasSubscription: false,
     lessons: null,
   }),
   actions: {
+    async initStar() {
+      try {
+        const userDocRef = collection(db, 'customers',  this.uid);
+        await userDocRef.set({ starCredits: 0 }, { merge: true });
+        return true;
+      } catch (error) {
+        console.log(error);
+        return false;
+      }
+    },
     setUser(user) {
+      this.starCredits = user.starCredits;
       this.uid = user.uid;
-      this.accessToken = this.accessToken;
+      this.accessToken = user.accessToken;
     },
     setUserSubscription(hasSubscription) {
       this.hasSubscription = hasSubscription;
