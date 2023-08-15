@@ -13,12 +13,67 @@
     const animation = () => {
         animate.value = true;
     };
-    const data = [
+    const feedback = [
         {
-            name: 'Feedback',
-            type: 'textarea',
-            placeholder: 'Give me the possible situations'
+            name: 'feedback',
+            title: 'Offer Feedback or Constructive Criticism.',
+            description: 'Offer valuable assistance and direction to both colleagues and students.',
+            tag:'',
+            label:'',
+            placeholder: "",
+        },
+        {
+            name: '',
+            title: '',
+            description: '',
+            tag:'input',
+            label:'Name of person',
+            placeholder: "e.g. Francis",
+        },
+        {
+            name: '',
+            title: '',
+            description: '',
+            tag:'textarea',
+            label:'List of Positive Aspects',
+            placeholder: "What do you appreciate about this person?",
+        },
+        {
+            name: '',
+            title: '',
+            description: '',
+            tag:'textarea',
+            label:'List of Areas to Improve Upon',
+            placeholder: "What areas need improvement in regards to this person?",
         }
+        
+    ];
+
+    const classManagement = [
+        {
+            name: 'Manage Problem Behavior',
+            title: 'Effectively Oversee Problematic Behavior',
+            description: 'Explore successful approaches to managing difficult behavior.',
+            tag:'',
+            label:'',
+            placeholder: "",
+        },
+        {
+            name: '',
+            title: '',
+            description: '',
+            tag:'input',
+            label:'Grade Level',
+            placeholder: "e.g., 5th grade",
+        },
+        {
+            name: '',
+            title: '',
+            description: '',
+            tag:'textarea',
+            label:'Problematic Behavior(s)',
+            placeholder: "e.g., throwing chairs, ignoring instructions, etc.",
+        },
     ];
 </script>
 
@@ -26,21 +81,35 @@
     <div class=" mt-7 px-3">
         <div class="mb-16" :class="{'animate__fadeInLeft': animate}">
             <div class="flex flex-wrap items-stretch max-lg:justify-center">
-                <router-link class="flex max-sm:w-full justify-center" @click="loaderStore.toggle(data)" :to="{name: 'generate'}">
+                <router-link class="flex max-sm:w-full justify-center"  @click="loaderStore.toggle(classManagement)" :to="{name: 'generate'}">
                     <the-card href="#" class="w-[30rem] bg-white rounded-lg sm:mr-5 mb-5 flex border-none rounded-lg shadow-none hover:bg-white hover:shadow-md bg-[url('/p-1.png')] bg-no-repeat bg-contain" style="max-width: 100% !important">
                         <div class="p-4 max-xs:!p-0 dark:bg-gray-800 dark:border-gray-700">
                             <svg class="w-8 mr-5 mb-7 text-main-color dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="m13.835 7.578-.005.007-7.137 7.137 2.139 2.138 7.143-7.142-2.14-2.14Zm-10.696 3.59 2.139 2.14 7.138-7.137.007-.005-2.141-2.141-7.143 7.143Zm1.433 4.261L2 12.852.051 18.684a1 1 0 0 0 1.265 1.264L7.147 18l-2.575-2.571Zm14.249-14.25a4.03 4.03 0 0 0-5.693 0L11.7 2.611 17.389 8.3l1.432-1.432a4.029 4.029 0 0 0 0-5.689Z"/>
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 3a3 3 0 1 1-1.614 5.53M15 12a4 4 0 0 1 4 4v1h-3.348M10 4.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0ZM5 11h3a4 4 0 0 1 4 4v2H1v-2a4 4 0 0 1 4-4Z"/>
                             </svg>
-                            <h1 class="font-normal text-xl group-hover:text-gray-500 mb-1">Newsletter</h1>
+                            <div class="font-medium text-lg group-hover:text-gray-500">Classroom</div>
                             <div class="flex flex-col justify-between leading-normal">
-                                <h5 class="mb-2 text-2xl font-bold tracking-tight dark:text-white">Generate a Newsletter, Blog Entry, or Class Update.</h5>
-                                <p class="font-normal text-gray-500 dark:text-gray-400">Effortlessly create personalized letters and updates in an instant.</p>
+                                <h5 class="mb-2 text-2xl font-bold tracking-tight  dark:text-white">Effectively Oversee Problematic Behavior.</h5>
+                                <p class="font-normal text-gray-500 dark:text-gray-400">Explore successful approaches to managing difficult behavior.</p>
                             </div>
                         </div>
                     </the-card>
                 </router-link>
-                <router-link class="flex max-sm:w-full justify-center" :to="{name: 'generate'}">
+                <router-link class="flex max-sm:w-full justify-center" @click="loaderStore.toggle(feedback)" :to="{name: 'generate'}">
+                    <the-card href="#" class="w-[30rem] bg-white rounded-lg sm:mr-5 mb-5 flex border-none rounded-lg shadow-none hover:bg-white hover:shadow-md bg-[url('/p-1.png')] bg-no-repeat bg-contain" style="max-width: 100% !important">
+                        <div class="p-4 max-xs:!p-0 dark:bg-gray-800 dark:border-gray-700">
+                            <svg class="w-8 mr-5 mb-7 text-main-color dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 18">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 5h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1h-2v3l-4-3H8m4-13H2a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h2v3l4-3h4a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1Z"/>
+                            </svg>
+                            <div class="font-medium text-lg group-hover:text-gray-500">Relationships</div>
+                            <div class="flex flex-col justify-between leading-normal">
+                                <h5 class="mb-2 text-2xl font-bold tracking-tight  dark:text-white">Generate Feedback or Offer Constructive Criticism.</h5>
+                                <p class="font-normal text-gray-500 dark:text-gray-400">Offer valuable assistance and direction to both colleagues and students.</p>
+                            </div>
+                        </div>
+                    </the-card>
+                </router-link>
+                <router-link class="flex max-sm:w-full justify-center" @click="loaderStore.toggle(feedback)" :to="{name: 'generate'}">
                     <the-card href="#" class="w-[30rem] bg-white rounded-lg sm:mr-5 mb-5 flex border-none rounded-lg shadow-none hover:bg-white hover:shadow-md bg-[url('/p-1.png')] bg-no-repeat bg-contain" style="max-width: 100% !important">
                         <div class="p-4 max-xs:!p-0 dark:bg-gray-800 dark:border-gray-700">
                             <svg class="w-10 mr-5 mb-7 text-main-color dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
@@ -50,6 +119,20 @@
                             <div class="flex flex-col justify-between leading-normal">
                                 <h5 class="mb-2 text-2xl font-bold tracking-tight  dark:text-white">Create a Five-E Model Lesson Plan.</h5>
                                 <p class="font-normal text-gray-500 dark:text-gray-400">Devise a lesson plan that encourages active learning by incorporating five distinct stages.</p>
+                            </div>
+                        </div>
+                    </the-card>
+                </router-link>
+                <router-link class="flex max-sm:w-full justify-center" :to="{name: 'generate'}">
+                    <the-card href="#" class="w-[30rem] bg-white rounded-lg sm:mr-5 mb-5 flex border-none rounded-lg shadow-none hover:bg-white hover:shadow-md bg-[url('/p-1.png')] bg-no-repeat bg-contain" style="max-width: 100% !important">
+                        <div class="p-4 max-xs:!p-0 dark:bg-gray-800 dark:border-gray-700">
+                            <svg class="w-8 mr-5 mb-7 text-main-color dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="m13.835 7.578-.005.007-7.137 7.137 2.139 2.138 7.143-7.142-2.14-2.14Zm-10.696 3.59 2.139 2.14 7.138-7.137.007-.005-2.141-2.141-7.143 7.143Zm1.433 4.261L2 12.852.051 18.684a1 1 0 0 0 1.265 1.264L7.147 18l-2.575-2.571Zm14.249-14.25a4.03 4.03 0 0 0-5.693 0L11.7 2.611 17.389 8.3l1.432-1.432a4.029 4.029 0 0 0 0-5.689Z"/>
+                            </svg>
+                            <h1 class="font-normal text-xl group-hover:text-gray-500 mb-1">Newsletter</h1>
+                            <div class="flex flex-col justify-between leading-normal">
+                                <h5 class="mb-2 text-2xl font-bold tracking-tight dark:text-white">Generate a Newsletter, Blog Entry, or Class Update.</h5>
+                                <p class="font-normal text-gray-500 dark:text-gray-400">Effortlessly create personalized letters and updates in an instant.</p>
                             </div>
                         </div>
                     </the-card>
