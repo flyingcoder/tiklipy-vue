@@ -1,6 +1,6 @@
 <script setup>
     import { onMounted, ref } from 'vue';
-    import LessonPlanModel from '../../models/lessonPlans';
+    import LessonPlanModel from '../../models/LessonPlans';
     import { useAuthStore } from '../../stores/auth';
     import Filter from '../../components/Filter.vue';
 
