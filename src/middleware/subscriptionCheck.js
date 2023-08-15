@@ -18,11 +18,7 @@ const subscriptionCheck = async ( to, from, next) => {
         userStore.setUser(user);
         userStore.setUserSubscription(hasSubscription);
         console.log(hasSubscription);
-        if(!hasSubscription) {
-            next('/pricing');
-        } else {
-            next();
-        }
+        next();
     } else {
         next("/login");
     }
