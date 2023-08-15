@@ -1,6 +1,9 @@
 <script setup>
     import { ref, onMounted } from 'vue';
     import { TheCard } from 'flowbite-vue';
+    import { useGenerateStore } from '../../stores/generate';
+
+    const loaderStore = useGenerateStore();
 
     const animate = ref(false);
 
@@ -10,13 +13,20 @@
     const animation = () => {
         animate.value = true;
     };
+    const data = [
+        {
+            name: 'Feedback',
+            type: 'textarea',
+            placeholder: 'Give me the possible situations'
+        }
+    ];
 </script>
 
 <template>
     <div class=" mt-7 px-3">
         <div class="mb-16" :class="{'animate__fadeInLeft': animate}">
             <div class="flex flex-wrap items-stretch max-lg:justify-center">
-                <router-link class="flex max-sm:w-full justify-center" :to="{name: 'generate'} ">
+                <router-link class="flex max-sm:w-full justify-center" @click="loaderStore.toggle(data)" :to="{name: 'generate'}">
                     <the-card href="#" class="w-[30rem] bg-white rounded-lg sm:mr-5 mb-5 flex border-none rounded-lg shadow-none hover:bg-white hover:shadow-md bg-[url('/p-1.png')] bg-no-repeat bg-contain" style="max-width: 100% !important">
                         <div class="p-4 max-xs:!p-0 dark:bg-gray-800 dark:border-gray-700">
                             <svg class="w-8 mr-5 mb-7 text-main-color dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">

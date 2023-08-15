@@ -1,6 +1,7 @@
 <script setup>
     import expressModel from "../../models/express";
     import GeneratedResourceModel from "../../models/generatedResources";
+    import { useGenerateStore } from '../../stores/generate';
     import { onMounted, ref, watch, defineProps  } from 'vue'
     import { Input } from 'flowbite-vue';
     import { Select } from 'flowbite-vue';
@@ -9,8 +10,8 @@
     import { Button } from 'flowbite-vue';
     import 'animate.css';
 
-
     defineEmits(['generation-complete']);
+    const loaderStore = useGenerateStore();
 
     const toggleAssesment = ref(false);
     const toggleHomework = ref(false);
@@ -203,7 +204,11 @@
                 </div>
                 <div class="w-full lg:w-[30%] col-span-2">
                     <div class="">
-                        <div v-if="isGenerating" class="p-6 bg-gray-100 rounded-3xl animate__animated animate__fadeInUp">
+                        <div v-for="(item, index) in loaderStore.selectedInputs" :key="index">
+                            <input :name="item.name" :type="item.type" :placeholder="item.placeholder" />
+                        </div>
+                        <Button @click.prevent="generate" type="submit" size="lg" class="w-full bg-main-color hover:bg-secondary-color border-0 text-sm lg:text-[0.775rem] xl:text-lg font-semibold">Generate Topic with Tiklipy!</Button>
+                        <!-- <div v-if="isGenerating" class="p-6 bg-gray-100 rounded-3xl animate__animated animate__fadeInUp">
                             <h2 class="mb-10 text-2xl font-bold leading-snug text-gray-800">Your Upcoming Lesson</h2>
                             <div class="mb-5">
                                 <img class="rounded-xl"  src="/bongo-cat/coding-bongo-cat.gif" alt="">
@@ -223,10 +228,10 @@
                             <div class="mb-4">
                                 <label for="" class="block mb-1 font-semibold text-gray-700">Topic</label>
                                 <input v-model="topic" type="text" id="text" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main-color focus:border-main-color block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-main-color dark:focus:border-main-color dark:shadow-sm-light" placeholder="Lesson Topic" required>
-                            </div>
+                            </div> -->
 
                              <!-- Assessment Toggle -->
-                            <div class="mb-4">
+                            <!-- <div class="mb-4">
                                 <div class="flex items-center mb-6">
                                     <label :class="toggleAssesment? '':''" class="mr-3 font-semibold text-gray-700">Assesment </label>
                                     <label class="relative inline-flex items-center cursor-pointer">
@@ -242,10 +247,10 @@
                                         <input v-model="assessmentNumberOfQuestions" type="number" id="text" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main-color focus:border-main-color block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-main-color dark:focus:border-main-color dark:shadow-sm-light" placeholder="Number of Questions">
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
 
                             <!-- Homework Toggle -->
-                            <div class="mb-6">
+                            <!-- <div class="mb-6">
                                 <div class="flex items-center mb-6">
                                     <label :class="toggleHomework? '':''" class="mr-3 font-semibold text-gray-700">Homework </label>
                                     <label class="relative inline-flex items-center cursor-pointer">
@@ -265,8 +270,8 @@
                             <div class="mb-6">
                                 <Textarea rows="4" placeholder="Additional instruction..." v-model="message" label="Your message" />
                             </div>
-                            <Button @click.prevent="generate" type="submit" size="lg" class="w-full bg-main-color hover:bg-secondary-color border-0 text-sm lg:text-[0.775rem] xl:text-lg font-semibold">Generate Topic with Tiklipy!</Button>
-                        </form>
+                            <Button @click.prevent="generate" type="submit" size="lg" class="w-full bg-main-color hover:bg-secondary-color border-0 text-sm lg:text-[0.775rem] xl:text-lg font-semibold">Generate Topic with Tiklipy!</Button> -->
+                        <!-- </form> -->
                     </div>
                 </div>
             </div> 
