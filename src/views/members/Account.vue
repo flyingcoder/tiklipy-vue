@@ -4,7 +4,11 @@
 
     const authStore = useAuthStore();
     
-    const buyStar = () => {
+    const buyStar = (amount) => {
+
+    }
+
+    const fetchStarTransaction = () => {
 
     }
 
