@@ -26,7 +26,7 @@
             </the-card>
         </router-link>
         <router-link class="flex max-sm:w-full justify-center" :to="{name: 'generate'}">
-            <the-card href="#" class="w-[30rem] bg-white rounded-lg sm:mr-5 mb-5 flex border-none rounded-lg shadow-none hover:bg-white hover:shadow-md bg-[url('/p-1.png')] bg-no-repeat bg-contain" style="max-width: 100% !important">
+            <the-card href="#" class="w-[30rem] bg-white sm:mr-5 mb-5 flex border-none rounded-lg shadow-none hover:bg-white hover:shadow-md bg-[url('/p-1.png')] bg-no-repeat bg-contain" style="max-width: 100% !important">
                 <div class="p-4 max-xs:!p-0 dark:bg-gray-800 dark:border-gray-700">
                     <img src="tiklipy-logo-icon.png" class="mr-5 mb-7" width="70" alt="">
                     <div class="flex flex-col justify-between leading-normal">

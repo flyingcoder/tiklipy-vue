@@ -4,7 +4,7 @@ import {
     Blogs, Blog, About, Pricing, Features, Terms, Privacy, License, 
     MembersLayout, GuestsLayout, Projects, Activities, GenerateForm, 
     Login, SendGift, FAQ, Featured, ThankYou, PaymentCancel, PageNotFound,
-    Helps
+    Helps, Register
 } from './components';
 
 const routes = [
@@ -50,9 +50,10 @@ const routes = [
         ],
     },
     { path: '/login', name: 'login', component: Login },
+    { path: '/register', name: 'register', component: Register },
     { path: '/thank-you', name: 'thanks', component: ThankYou },
-    { path: "/:catchAll(.*)", component: PageNotFound },
     { path: '/payment-cancel', name: 'cancel', component: PaymentCancel },
+    { path: "/:catchAll(.*)", component: PageNotFound },
 ];
 
 export default routes;
