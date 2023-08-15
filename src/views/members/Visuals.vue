@@ -14,11 +14,11 @@
         Swal.fire({
             html: `
                 <div>
-                    <img src="/public/hazard.gif" width="" height="" alt="Image 1">
+                    <img src="/hazard.gif" width="" height="" alt="Image 1">
                 </div>
                 <div style="display: flex; justify-content: space-between;">
                     <div>
-                        <img src="/public/bongo-cat.gif" width="" height="" alt="Image 2">
+                        <img src="/bongo-cat.gif" width="" height="" alt="Image 2">
                     </div>
                 </div>
 
@@ -39,7 +39,8 @@
             `
         }).then((result) => {
             if (result.isConfirmed) {
-                router.push({ name: 'dashboard' })
+                // router.push({ name: 'dashboard' })
+                router.go(-1);
             }
         });
     };
