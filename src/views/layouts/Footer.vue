@@ -34,6 +34,9 @@
                                         <router-link :to="{name: 'blogs'}" class="text-gray-900 font-semibold">Blog</router-link>
                                     </li>
                                     <li class="mb-4">
+                                        <router-link :to="{name: 'help'}" class="text-gray-900 font-semibold">Tikipy Support Hub</router-link>
+                                    </li>
+                                    <li class="mb-4">
                                         <router-link :to="{name: 'faq'}" class="text-gray-900 font-semibold">FAQs</router-link>
                                     </li>
                                 </ul>
@@ -45,7 +48,7 @@
                                         <router-link :to="{name: 'about'}" class="text-gray-900 font-semibold">About</router-link>
                                     </li>
                                     <li class="mb-4">
-                                        <a href="#" class="text-gray-900 font-semibold">Contact</a>
+                                        <a href="tel:+1234567890" class="text-gray-900 font-semibold">Contact</a>
                                     </li>
                                 </ul>
                             </div>
@@ -53,7 +56,7 @@
                         <div class="max-xs:text-center basis-full lg:basis-3/12">
                             <div class="text-gray-700 mb-5 font-semibold">Subscribe to Our Newsletter</div>
                             <div class="w-full">
-                                <Input size="lg" placeholder="Email Address" class="bg-transparent-input">
+                                <Input size="lg" type="email" placeholder="Email Address" class="bg-transparent-input">
                                     <template #suffix>
                                     <Button class="border-0 transition duration-240 rounded-md bg-main-color hover:shadow-md hover:shadow-[#969cf9] hover:bg-secondary-color max-xs:hidden">Join</Button>
                                     </template>
@@ -66,7 +69,7 @@
                     <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:mb-8 mt-16" />
                     <div class="flex max-md:flex-col-reverse justify-between">
                         <div class="flex flex-wrap">
-                            <span class="md:mr-5 max-md:basis-full text-sm text-gray-500 max-md:text-center dark:text-gray-400 max-md:py-5">© 2023 <a href="https://flowbite.com/" class="hover:underline">Tiklipy™</a>.&nbsp; All Rights Reserved.</span>
+                            <span class="md:mr-5 max-md:basis-full text-sm text-gray-500 max-md:text-center dark:text-gray-400 max-md:py-5">© 2023 <router-link :to="{name: 'home'}" class="hover:underline">Tiklipy™</router-link>.&nbsp; All Rights Reserved.</span>
                             <div class="max-md:basis-full flex flex-warp max-md:justify-center">
                                 <router-link :to="{name: 'terms'}">
                                     <a class="mx-1 block text-sm">Terms</a>
