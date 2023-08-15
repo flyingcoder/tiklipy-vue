@@ -39,7 +39,7 @@
             </div>
         </div>
         <div class="form w-full md:w-1/4">
-            <Filter/>
+            <Filter filter-title="Lessons"/>
         </div>
     </div>
 </template>
