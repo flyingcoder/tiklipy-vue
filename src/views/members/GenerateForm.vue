@@ -203,11 +203,14 @@
                     </div>
                 </div>
                 <div class="w-full lg:w-[30%] col-span-2">
-                    <div class="">
+                    <div class="p-6 bg-gray-100 rounded-3xl animate__animated animate__fadeInUp">
                         <div v-for="(item, index) in loaderStore.selectedInputs" :key="index">
-                            <input :name="item.name" :type="item.type" :placeholder="item.placeholder" />
+                            <h2 class="text-3xl font-bold text-main-color mb-1">{{ item.title }}</h2>
+                            <p class="mb-5">{{ item.description }}</p>
+                            <h2 class="text-md font-bold text-main-color mb-1">{{ item.label }}</h2>
+                            <component :is="item.tag" :placeholder="item.placeholder" class=" w-full px-3 py-2 rounded-lg bg-gray-50 border-[1px] !border-gray-500 " rows="7"></component>
                         </div>
-                        <Button @click.prevent="generate" type="submit" size="lg" class="w-full bg-main-color hover:bg-secondary-color border-0 text-sm lg:text-[0.775rem] xl:text-lg font-semibold">Generate Topic with Tiklipy!</Button>
+                        <Button @click.prevent="generate" type="submit" size="lg" class="mt-5 w-full bg-main-color hover:bg-secondary-color border-0 text-sm lg:text-[0.775rem] xl:text-lg font-semibold">Generate Topic with Tiklipy!</Button>
                         <!-- <div v-if="isGenerating" class="p-6 bg-gray-100 rounded-3xl animate__animated animate__fadeInUp">
                             <h2 class="mb-10 text-2xl font-bold leading-snug text-gray-800">Your Upcoming Lesson</h2>
                             <div class="mb-5">
