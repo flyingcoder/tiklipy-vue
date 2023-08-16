@@ -1,5 +1,28 @@
 export default  [
     {
+        type: 'pagsureoi',
+        category: 'sureba',
+        promptExample: 'Pastilan nalang gyud',
+        systemPrompt: 'Grabi ka noob',
+        title: 'Enzo d kabalo',
+        icon:'ti-user',
+        description: 'Jr bahog tae',
+        inputs: {
+            topic: {
+                value: '',
+                placeholder: 'nako ngano mani sila oi',
+                inputType: 'textarea',
+                label: 'Bahoag tae oi',
+            },
+            grade: {
+                value: '',
+                placeholder: 'hala unsa to? kabaho ba',
+                inputType: 'text',
+                label: 'Klarong tae ato',
+            }
+        }
+    },
+    {
         type: 'auxiliary',
         category: 'report',
         tag: 'featured',
