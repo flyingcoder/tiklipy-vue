@@ -6,6 +6,10 @@ class StarCreditModel {
         this.col = db.collection('customers');
     }
 
+    checkPrompt(prompt) {
+        return true;
+    }
+
     countInputTokens(inputText) {
         const tokens = inputText.trim().split(/\s+/);
         return tokens.length;
