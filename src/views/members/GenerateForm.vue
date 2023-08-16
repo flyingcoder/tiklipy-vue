@@ -32,13 +32,14 @@
 
     const generate = async () => {
         console.log(formStore.inputs)
-        //isGenerating.value = true;
-        //const instruc = createInstruction();
-        //await backEndModel.generateLesson(instruc)
+        isGenerating.value = true;
+        const instruc = formStore.processInstruction();
+        console.log(instruc);
+        //await backEndModel.generateResource(instruc)
         //    .then((completion) => {
         //        sendToFireBase(completion?.data?.message?.content);
         //        generatedResource.value = completion?.data?.message?.content?.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>') });
-        //isGenerating.value = false;
+        isGenerating.value = false;
     }
 
     const copyGeneratedTopic = () => {
@@ -53,10 +54,6 @@
             copyContent.value = !copyContent.value;
         }, 3000);
     };
-
-    const createInstruction = () => {
-        return "topic: "+topic.value+"\ngrade level: "+selectGrade+"\nsubject: "+selectSubject+"\nadditional notes: "+message;
-    }
 </script>
 <template>
     <div class="fixed top-0 left-0" v-if="copyContent">

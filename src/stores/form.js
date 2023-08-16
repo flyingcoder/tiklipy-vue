@@ -26,6 +26,15 @@ export const useFormStore = defineStore("form", {
             this.icon = details.icon;
             this.inputs = details.inputs;
             this.systemPrompt = details.systemPrompt;
+        },
+        processInstruction() {
+            const sentenceParts = Object.keys
+                (this.inputs).map((key) => {
+                    return `${key}: "${this.inputs[key].value}"`;
+                }
+            );
+            const enclosed = sentenceParts.join(', ');
+            return `{${enclosed}}`;
         }
     }
 });
