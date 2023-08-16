@@ -26,9 +26,7 @@ router.beforeEach(async (to, from, next) => {
           }
           authStore.setUserToLocal(appUser);
           userStore.setUser(user);
-          await userStore.initStar();
-          //const hasSubscription = await checkSubscriptionStatus(user.uid);
-          //userStore.setUserSubscription(hasSubscription);
+          //await userStore.initStar();
         }
       });
       if(!firebaseInit) {
