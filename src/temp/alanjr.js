@@ -5,6 +5,7 @@ export default [
         tag: 'tools',
         promptExample: 'She no went to class.',
         systemPrompt: 'Given statements need conversion to standard English. User format: sentence - ""',
+        title: 'Grammar correction',
         icon:'ti-tools',
         description: 'Rewrite incorrect sentences into proper English.',
         inputs: {

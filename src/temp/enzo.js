@@ -4,7 +4,7 @@ export default [
         category: 'Language Type',
         tag: 'write',
         promptExample: '',
-        systemPrompt: 'Assist in generating clear and concise instructions for monthly auxiliary reports. Provide guidance on structuring the report, including key points, challenges, highlights, and insights. Ensure the instructions are professional and informative to simplify the reporting process.',
+        systemPrompt: 'Create a poem with the provided verse and subject format: verse: "data", subject: "data".',
         title: 'Craft a poem',
         icon:'ti-pencil',
         description: 'Generate customized poems based on various topics and styles.',
@@ -27,29 +27,35 @@ export default [
         type: 'assessments',
         category: 'Assessments',
         tag: 'write',
-        promptExample: 'Although we have protective measures, the system might sometimes produce inaccurate or deceptive information. Kindly verify responses.',
-        systemPrompt: 'Assist in generating clear and concise instructions for monthly auxiliary reports. Provide guidance on structuring the report, including key points, challenges, highlights, and insights. Ensure the instructions are professional and informative to simplify the reporting process.',
+        promptExample: 'While we have safeguards in place, the system may occasionally generate incorrect or misleading information. Please double-check answers.',
+        systemPrompt: "You'll be providing a text block, along with the desired grade level, type of question, number of questions, and a designated topic. Your task is to generate questions that align with the specified grade level in terms of complexity. Kindly use the following format: grade: 'data', subject: 'data', questions: 'data', type: 'data'",
         title: 'Generate conventional evaluation inquiries.',
         icon:'ti-pencil',
         description: 'Create queries designed to assess student comprehension.',
         inputs: {
+            grade: {
+                value: '',
+                placeholder: 'e.g. 5th Grade',
+                inputType: 'input',
+                label: 'Enter the grade level',
+            },
             subject: {
                 value: '',
-                placeholder: 'Indicate the overarching subject or insert an official standard.',
+                placeholder: 'State the general topic or paste an official standard.',
                 inputType: 'textarea',
-                label: 'Subject or Criterion',
+                label: 'Topic or Standard',
             },
             questions: {
                 value: '',
                 placeholder: 'For instance, 1 or a range from 2 to 10.',
                 inputType: 'text',
-                label: 'How many questions do you desire?',
+                label: 'How Many Questions Would You Like?',
             },
             type: {
                 value: '',
                 placeholder: 'For example, multiple choice, true or false, fill in the blank, short answer essay, or numeric response.',
                 inputType: 'text',
-                label: 'Kind of Inquiries',
+                label: 'Type of Questions',
             },
         }
     },
@@ -63,7 +69,7 @@ export default [
         icon:'ti-user-check',
         description: 'Craft personalized appeals for donations or supplies to meet specific needs.',
         inputs: {
-            field: {
+            grade: {
                 value: '',
                 placeholder: 'For instance, 6th grade.',
                 inputType: 'text',
@@ -75,7 +81,7 @@ export default [
                 inputType: 'text',
                 label: 'Target Audience or Receiver',
             },
-            items: {
+            request: {
                 value: '',
                 placeholder: 'For example, 25 sets of child-size scissors, four packs of mechanical pencils, and so on.',
                 inputType: 'textarea',
@@ -93,19 +99,19 @@ export default [
                 inputType: 'text',
                 label: 'Deadline for Donation Submission',
             },
-            contact: {
+            name: {
                 value: '',
                 placeholder: 'For example, Ms. Cotant.',
                 inputType: 'text',
                 label: 'Name(s) of Point of Contact',
             },
-            educational: {
+            school: {
                 value: '',
                 placeholder: 'For instance, Maple Middle School.',
                 inputType: 'text',
                 label: 'Title of Educational Establishment',
             },
-            educational: {
+            contact: {
                 value: '',
                 placeholder: 'For example, enzo@tiklipy.com.',
                 inputType: 'text',
