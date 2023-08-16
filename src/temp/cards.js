@@ -1,30 +1,11 @@
-export default  [
-    {
-        type: 'pagsureoi',
-        category: 'sureba',
-        promptExample: 'Pastilan nalang gyud',
-        systemPrompt: 'Grabi ka noob',
-        title: 'Enzo d kabalo',
-        icon:'ti-user',
-        description: 'Jr bahog tae',
-        inputs: {
-            topic: {
-                value: '',
-                placeholder: 'nako ngano mani sila oi',
-                inputType: 'textarea',
-                label: 'Bahoag tae oi',
-            },
-            grade: {
-                value: '',
-                placeholder: 'hala unsa to? kabaho ba',
-                inputType: 'text',
-                label: 'Klarong tae ato',
-            }
-        }
-    },
+import enzo from './enzo';
+import alanjr from './alanjr';
+
+const cards = [
     {
         type: 'auxiliary',
         category: 'report',
+        tag: 'featured',
         promptExample: 'Computer Laborator Supervisor Auxiliary report.',
         systemPrompt: 'Assist in generating clear and concise instructions for monthly auxiliary reports. Provide guidance on structuring the report, including key points, challenges, highlights, and insights. Ensure the instructions are professional and informative to simplify the reporting process.',
         title: 'Effortless Auxiliary Report Generator.',
@@ -64,3 +45,7 @@ export default  [
         }
     }
 ];
+
+const main = [...cards, ...enzo, ...alanjr];
+
+export default main;
