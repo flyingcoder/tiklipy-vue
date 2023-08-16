@@ -64,7 +64,7 @@
                 </dropdown>
             </template>
             <template #center>
-                <router-link :to="{ name: 'home' }" class="flex items-center sm:w-fit m-auto">
+                <router-link :to="{ name: 'dashboard' }" class="flex items-center m-auto sm:w-fit">
                     <img src="/tiklipy-logo-black.png" class="h-12 ml-4 sm:mx-auto relative top-[5px]" alt="Tiklipy Logo" />
                 </router-link>
             </template>
@@ -134,7 +134,7 @@
                         </router-link>
 
                     </li>
-                    <li class="hidden max-xs:block mt-5">
+                    <li class="hidden mt-5 max-xs:block">
                         <router-link :to="{name: 'account'}" active-class="text-main-color dark:text-white" class="block px-3 py-2 text-lg font-medium text-gray-900 divide-gray-100 dark:hover:text-main-color md:border-0 md:p-0">
                             Account
                         </router-link>
