@@ -165,7 +165,7 @@ export default [
                 inputType: 'text',
                 label: 'Method of Travel',
             },
-            choices: {
+            due: {
                 value: '',
                 placeholder: 'Due Date for Returning the Permission Slip',
                 inputType: 'text',
@@ -207,13 +207,13 @@ export default [
         icon:'ti-user-check',
         description: 'Design permission slips granting students permission to access and engage with specific media content.',
         inputs: {
-            field: {
+            level: {
                 value: '',
                 placeholder: 'For instance, 6th grade.',
                 inputType: 'text',
                 label: 'Educational Level or Field of Study',
             },
-            target: {
+            literary: {
                 value: '',
                 placeholder: 'For instance, a book or a film.',
                 inputType: 'text',
@@ -225,43 +225,37 @@ export default [
                 inputType: 'textarea',
                 label: 'Items in Demand',
             },
-            accasion: {
+            name: {
                 value: '',
                 placeholder: 'For example, "Allies".',
                 inputType: 'textarea',
                 label: 'Name of the Book or Film',
             },
-            deadline: {
+            composer: {
                 value: '',
                 placeholder: 'For example, Alan Gratz.',
                 inputType: 'text',
                 label: 'Writer or Filmmaker',
             },
-            contact: {
+            age_rating: {
                 value: '',
                 placeholder: 'For example, Ms. Cotant.',
                 inputType: 'text',
                 label: 'Recommended Audience or Age Rating',
             },
-            educational: {
+            rating: {
                 value: '',
                 placeholder: 'For example, PG.',
                 inputType: 'text',
                 label: 'Recommended Audience or Rating',
             },
-            educational: {
+            material: {
                 value: '',
                 placeholder: 'Provide a description of any potentially controversial content, such as scenes involving weapon usage, violent depictions, etc.',
                 inputType: 'textarea',
                 label: 'Sensitive Material',
             },
-            educational: {
-                value: '',
-                placeholder: 'For instance, Wednesday, March 1st.',
-                inputType: 'text',
-                label: 'Due Date for Returning the Permission Slip',
-            },
-            educational: {
+            due: {
                 value: '',
                 placeholder: 'For instance, Wednesday, March 1st.',
                 inputType: 'text',
@@ -297,25 +291,25 @@ export default [
         icon:'ti-pencil',
         description: 'Create forms that grant permission to showcase student work or images on social media platforms.',
         inputs: {
-            field: {
+            level: {
                 value: '',
                 placeholder: 'For instance, 6th grade.',
                 inputType: 'text',
                 label: 'Educational Level or Field of Study',
             },
-            questions: {
+            invitations: {
                 value: '',
                 placeholder: 'For example, general public or invitation only.',
                 inputType: 'text',
                 label: 'Open to the Public or Limited to Invitations',
             },
-            type: {
+            platforms: {
                 value: '',
                 placeholder: 'For instance, Facebook, Instagram, Twitter, YouTube.',
                 inputType: 'text',
                 label: 'Online Social Platforms',
             },
-            educational: {
+            due: {
                 value: '',
                 placeholder: 'For instance, Wednesday, March 1st.',
                 inputType: 'text',
@@ -351,43 +345,43 @@ export default [
         icon:'ti-pencil',
         description: 'Create registration forms to gather volunteers for your cause.',
         inputs: {
-            field: {
+            level: {
                 value: '',
                 placeholder: 'For instance, 6th grade.',
                 inputType: 'text',
                 label: 'Educational Level or Field of Study',
             },
-            questions: {
+            directed: {
                 value: '',
                 placeholder: 'Who is this directed towards?',
                 inputType: 'text',
                 label: 'Intended Participants or Volunteers',
             },
-            type: {
+            situation: {
                 value: '',
                 placeholder: 'What is the reason for seeking volunteers?',
                 inputType: 'text',
                 label: 'Occasion or Project',
             },
-            educational: {
+            assistance: {
                 value: '',
                 placeholder: 'For instance, Monday, December 20th.',
                 inputType: 'text',
                 label: 'When do you require assistance?',
             },
-            educational: {
+            start: {
                 value: '',
                 placeholder: 'The time they are expected to arrive.',
                 inputType: 'text',
                 label: 'Beginning Hour',
             },
-            educational: {
+            conclude: {
                 value: '',
                 placeholder: 'The time they are expected to finish.',
                 inputType: 'text',
                 label: 'Concluding Time',
             },
-            educational: {
+            volunteers: {
                 value: '',
                 placeholder: 'For example, a range from 1 to 10+.',
                 inputType: 'text',
@@ -429,25 +423,25 @@ export default [
         icon:'ti-pencil',
         description: 'Craft an unconventional assessment strategy to gauge student understanding.',
         inputs: {
-            field: {
+            evaluation: {
                 value: '',
                 placeholder: 'For example, Project-Based, Problem-Based, Report-Based, Reflective Piece, Critical Analysis, Case-Based Scenario, and Portfolio.',
                 inputType: 'text',
                 label: 'Category of Non-Traditional Evaluation',
             },
-            field: {
+            level: {
                 value: '',
                 placeholder: 'For instance, 6th grade.',
                 inputType: 'text',
                 label: 'Educational Level or Field of Study',
             },
-            field: {
+            subject: {
                 value: '',
                 placeholder: 'Indicate the overarching subject or provide an official standard.',
                 inputType: 'textarea',
                 label: 'Subject Matter or Learning Objective',
             },
-            field: {
+            details: {
                 value: '',
                 placeholder: 'Indicate the overarching subject or provide an official standard.',
                 inputType: 'textarea',
@@ -465,25 +459,25 @@ export default [
         icon:'ti-pencil',
         description: 'Devise a lesson plan that encourages active learning through five well-defined stages.',
         inputs: {
-            field: {
+            duration: {
                 value: '',
                 placeholder: 'For example, 45 minutes.',
                 inputType: 'text',
                 label: 'Duration of the Lesson',
             },
-            field: {
+            level: {
                 value: '',
                 placeholder: 'For example, 8th grade.',
                 inputType: 'text',
                 label: 'Educational Level',
             },
-            field: {
+            situation: {
                 value: '',
                 placeholder: 'For example, Mathematics, English Language Arts, Social Studies, Science, or Fine Arts.',
                 inputType: 'textarea',
-                label: 'Topic or Discipline',
+                label: 'Topic or Standard',
             },
-            field: {
+            standard: {
                 value: '',
                 placeholder: 'Indicate the overarching subject or provide an official standard.',
                 inputType: 'textarea',
@@ -501,13 +495,13 @@ export default [
         icon:'ti-pencil',
         description: 'Generate Email Subject Lines for Instant Content Summarization',
         inputs: {
-            field: {
+            tone: {
                 value: '',
                 placeholder: 'Examples: Professional, Friendly, Positive, Casual, Urgent, Apologetic, Informal, Critical',
                 inputType: 'text',
                 label: 'Tone',
             },
-            field: {
+            email: {
                 value: '',
                 placeholder: 'Paste the email here.',
                 inputType: 'text',
@@ -525,25 +519,25 @@ export default [
         icon:'ti-pencil',
         description: 'Instantly create content that is tailored to your individual needs and requirements.',
         inputs: {
-            field: {
+            type: {
                 value: '',
                 placeholder: 'Examples: Article, Passage or Story',
                 inputType: 'text',
                 label: 'Type of Text',
             },
-            field: {
+            level: {
                 value: '',
                 placeholder: 'Example: 8th grade.',
                 inputType: 'text',
                 label: 'Grade Level',
             },
-            field: {
+            situation: {
                 value: '',
                 placeholder: 'State the general topic or paste an official standard.',
                 inputType: 'textarea',
                 label: 'Topic or Standard',
             },
-            field: {
+            information: {
                 value: '',
                 placeholder: 'What specific information would you like included? ',
                 inputType: 'textarea',
@@ -561,25 +555,25 @@ export default [
         icon:'ti-pencil',
         description: 'Instantly create content that is tailored to your individual needs and requirements.',
         inputs: {
-            field: {
+            type: {
                 value: '',
                 placeholder: 'Examples: Article, Passage or Story',
                 inputType: 'text',
                 label: 'Type of Text',
             },
-            field: {
+            level: {
                 value: '',
                 placeholder: 'Example: 8th grade.',
                 inputType: 'text',
                 label: 'Grade Level',
             },
-            field: {
+            situation: {
                 value: '',
                 placeholder: 'State the general topic or paste an official standard.',
                 inputType: 'textarea',
                 label: 'Topic or Standard',
             },
-            field: {
+            include: {
                 value: '',
                 placeholder: 'What specific information would you like included? ',
                 inputType: 'textarea',
@@ -597,25 +591,25 @@ export default [
         icon:'ti-pencil',
         description: 'Design a direct instruction lesson with clear goals, structure, and organization.',
         inputs: {
-            field: {
+            lesson: {
                 value: '',
                 placeholder: 'Examples: 45 minutes',
                 inputType: 'text',
                 label: 'Lesson Length',
             },
-            field: {
+            level: {
                 value: '',
                 placeholder: 'Example: 8th grade.',
                 inputType: 'text',
                 label: 'Grade Level',
             },
-            field: {
+            subject: {
                 value: '',
                 placeholder: 'Example, Mathematics, English Language Arts, Social Studies, Science, or Fine Arts.',
                 inputType: 'textarea',
                 label: 'Subject',
             },
-            field: {
+            situation: {
                 value: '',
                 placeholder: 'State the general topic or paste an official standard.',
                 inputType: 'textarea',
@@ -633,25 +627,25 @@ export default [
         icon:'ti-pencil',
         description: 'Design a student-led lesson that prioritizes critical thinking, exploration, and discovery.',
         inputs: {
-            field: {
+            lesson: {
                 value: '',
                 placeholder: 'Examples: 45 minutes',
                 inputType: 'text',
                 label: 'Lesson Length',
             },
-            field: {
+            level: {
                 value: '',
                 placeholder: 'Example: 8th grade.',
                 inputType: 'text',
                 label: 'Grade Level',
             },
-            field: {
+            subject: {
                 value: '',
                 placeholder: 'Example, Mathematics, English Language Arts, Social Studies, Science, or Fine Arts.',
                 inputType: 'textarea',
                 label: 'Subject',
             },
-            field: {
+            situation: {
                 value: '',
                 placeholder: 'State the general topic or paste an official standard.',
                 inputType: 'textarea',
@@ -669,25 +663,25 @@ export default [
         icon:'ti-pencil',
         description: 'Provide colleagues and students with valuable support and guidance.',
         inputs: {
-            field: {
+            regarding: {
                 value: '',
                 placeholder: 'Examples: Colleague or Students',
                 inputType: 'text',
                 label: 'Who Is This Regarding?',
             },
-            field: {
+            name: {
                 value: '',
                 placeholder: 'Example: Jonathan',
                 inputType: 'text',
                 label: 'Student or Colleague First Name',
             },
-            field: {
+            aspects: {
                 value: '',
                 placeholder: 'What do you appreciate about this person, their work, or their work ethic?',
                 inputType: 'textarea',
                 label: 'List of Positive Aspects',
             },
-            field: {
+            areas: {
                 value: '',
                 placeholder: 'What areas need improvement in regards to this person, their work, or their work ethic?',
                 inputType: 'textarea',
@@ -705,65 +699,65 @@ export default [
         icon:'ti-pencil',
         description: 'Write professional letters that emphasize strengths and accomplishments.',
         inputs: {
-            field: {
+            consideration: {
                 value: '',
                 placeholder: 'To whom is this addressed? ',
                 inputType: 'text',
                 label: 'Audience or Recipient',
             },
-            field: {
+            subject: {
                 value: '',
                 placeholder: 'Who is this letter about? ',
                 inputType: 'text',
                 label: 'Name of Subject',
             },
-            field: {
+            role: {
                 value: '',
                 placeholder: 'e.g., Instructional Coach',
                 inputType: 'textarea',
                 label: 'Title of Position/Role Being Sought',
             },
-            field: {
+            relationship: {
                 value: '',
                 placeholder: 'e.g., 2 years',
                 inputType: 'textarea',
                 label: 'Length of Relationship',
             },
-            field: {
+            type: {
                 value: '',
                 placeholder: 'How do you know this person?',
                 inputType: 'textarea',
                 label: 'Relationship Type and History',
             },
-            field: {
+            basis: {
                 value: '',
                 placeholder: 'What are the reasons you are recommending this individual? Describe their relevant traits and qualities.',
                 inputType: 'textarea',
                 label: 'General Basis for Recommendation',
             },
-            field: {
+            evidence: {
                 value: '',
                 placeholder: 'Validate your recommendation with a personal story about the subject.',
                 inputType: 'textarea',
                 label: 'Personalized Supporting Evidence',
             },
-            field: {
+            sender: {
                 value: '',
                 placeholder: 'e.g., Ms. Cotant',
                 inputType: 'text',
                 label: 'Sender Name',
             },
-            field: {
+            title: {
                 value: '',
-                placeholder: 'Your Professional Title',
+                placeholder: 'e.g., Facilitator',
                 inputType: 'text',
-                label: 'e.g., Facilitator ',
+                label: 'Your Professional Title',
             },
-            field: {
+            contact: {
                 value: '',
-                placeholder: 'Contact Information',
+                placeholder: 'e.g., ivy@classpack.com',
                 inputType: 'text',
-                label: 'e.g., ivy@classpack.com',
+                label: 'Contact Information',
             },
         }
     },
@@ -777,25 +771,25 @@ export default [
         icon:'ti-pencil',
         description: 'Write professional letters that emphasize strengths and accomplishments.',
         inputs: {
-            field: {
+            prompt: {
                 value: '',
                 placeholder: 'Example: Reminder or Notification',
                 inputType: 'text',
                 label: 'Reminder or Notification',
             },
-            field: {
+            consideration: {
                 value: '',
                 placeholder: 'To whom is this addressed? ',
                 inputType: 'text',
                 label: 'Audience or Recipient',
             },
-            field: {
+            count: {
                 value: '',
                 placeholder: 'e.g., 20 words or less',
                 inputType: 'textarea',
                 label: 'Preferred Word Count',
             },
-            field: {
+            information: {
                 value: '',
                 placeholder: 'What specific information would you like included? ',
                 inputType: 'textarea',
@@ -813,25 +807,25 @@ export default [
         icon:'ti-pencil',
         description: 'Generate effective emails with personalized tone and content.',
         inputs: {
-            field: {
+            tone: {
                 value: '',
                 placeholder: 'Examples: Professional, Friendly, Positive, Casual, Urgent, Apologetic, Informal, Critical',
                 inputType: 'text',
                 label: 'Tone',
             },
-            field: {
+            sender: {
                 value: '',
                 placeholder: 'e.g., Ms. Cotant',
                 inputType: 'text',
                 label: 'Sender Name',
             },
-            field: {
+            consideration : {
                 value: '',
                 placeholder: 'To whom is this addressed? ',
                 inputType: 'textarea',
                 label: 'Audience or Recipient',
             },
-            field: {
+            selection: {
                 value: '',
                 placeholder: 'What specific information would you like included?',
                 inputType: 'textarea',
@@ -875,13 +869,13 @@ export default [
         icon:'ti-refresh',
         description: 'Create a cohesive and coherent piece of writing by ensuring tenses are consistent.',
         inputs: {
-            concept: {
+            passage: {
                 value: '',
                 placeholder: 'e.g., Yesterday, I walk to the store and buy some milk.',
                 inputType: 'text',
                 label: 'Text or Passage',
             },
-            paragraph: {
+            tense: {
                 value: '',
                 placeholder: 'Example: Past, Present or Future',
                 inputType: 'text',
@@ -899,7 +893,7 @@ export default [
         icon:'ti-circle-check',
         description: 'Quickly and accurately resolve basic grammar, spelling, punctuation, and syntax errors.',
         inputs: {
-            concept: {
+            situation: {
                 value: '',
                 placeholder: 'Paste sentence here.',
                 inputType: 'text',
@@ -929,13 +923,13 @@ export default [
                 inputType: 'textarea',
                 label: 'Range of Cognitive Abilities',
             },
-            style: {
+            styles: {
                 value: '',
                 placeholder: 'What learning styles would you like addressed? i.e., visual, kinesthetic, aural, social, verbal, solitary, logical, etc.',
                 inputType: 'textarea',
                 label: 'Different Learning Styles',
             },
-            style: {
+            interest: {
                 value: '',
                 placeholder: 'Are there any student interests you would like included?',
                 inputType: 'textarea',
@@ -1141,7 +1135,7 @@ export default [
                 inputType: 'text',
                 label: 'Grade Level or Subject',
             },
-            need: {
+            needs: {
                 value: '',
                 placeholder: 'Which areas of motivation are a struggle? e.g., work completion, on-task behavior, etc.',
                 inputType: 'text',
@@ -1287,7 +1281,7 @@ export default [
         icon:'ti-list',
         description: 'Streamline the process of categorizing and classifying information.',
         inputs: {
-            level: {
+            choice: {
                 value: '',
                 placeholder: 'Input any information that you would like categorized, classified, or grouped.',
                 inputType: 'text',
@@ -1305,7 +1299,7 @@ export default [
         icon:'ti-list',
         description: 'Develop a clear and organized writing outline based on a given prompt.',
         inputs: {
-            level: {
+            type: {
                 value: '',
                 placeholder: 'Example: Narrative, Expository, Opinion, Persuasive, Creative, Informative and Journal',
                 inputType: 'text',
@@ -1317,7 +1311,7 @@ export default [
                 inputType: 'text',
                 label: 'Grade Level or Subject',
             },
-            level: {
+            prompt: {
                 value: '',
                 placeholder: 'What is the writing prompt or topic for this outline?',
                 inputType: 'text',
@@ -1335,19 +1329,19 @@ export default [
         icon:'ti-folder',
         description: 'Create random student groupings with just a few clicks.',
         inputs: {
-            level: {
+            names: {
                 value: '',
                 placeholder: 'Example: John, Paige, Xavier',
                 inputType: 'text',
                 label: 'List of Names',
             },
-            level: {
+            group: {
                 value: '',
                 placeholder: 'Example: People per Group or Number of Groupings',
                 inputType: 'text',
                 label: 'Group by',
             },
-            level: {
+            number: {
                 value: '',
                 placeholder: 'Example: 4',
                 inputType: 'text',
@@ -1371,7 +1365,7 @@ export default [
                 inputType: 'text',
                 label: 'Grade Level or Subject',
             },
-            level: {
+            scenario: {
                 value: '',
                 placeholder: 'State the math or science concept and/or include an official standard.',
                 inputType: 'text',
@@ -1389,7 +1383,7 @@ export default [
         icon:'ti-list',
         description: 'Identify and organize key information around any subject matter.',
         inputs: {
-            level: {
+            topic: {
                 value: '',
                 placeholder: 'State the topic and details you want to be listed. e.g., Name the first ten astronauts to travel in space.',
                 inputType: 'textarea',
@@ -1398,5 +1392,449 @@ export default [
         }
     },
 
-    
+    // Explore Section
+    {
+        type: 'curriculum',
+        category: 'Curriculum',
+        tag: 'curriculum',
+        promptExample: 'Increase understanding by generating connections between concepts.',
+        systemPrompt: 'Assist in generating clear and concise instructions for monthly auxiliary reports. Provide guidance on structuring the report, including key points, challenges, highlights, and insights. Ensure the instructions are professional and informative to simplify the reporting process.',
+        title: 'Complete an Analogy',
+        icon:'ti-layout-columns',
+        description: 'Enhance comprehension by creating links between concepts.',
+        inputs: {
+            topic_one: {
+                value: '',
+                placeholder: 'e.g., states of matter',
+                inputType: 'text',
+                label: 'Topic',
+            },
+            topic_two: {
+                value: '',
+                placeholder: 'e.g., Berlin Wall',
+                inputType: 'text',
+                label: 'Topic 2',
+            },
+        }
+    },
+    {
+        type: 'language_arts',
+        category: 'Language Arts',
+        tag: 'language_arts',
+        promptExample: 'Improve thinking skills and enhance comprehension with critical analysis of any text.',
+        systemPrompt: 'Assist in generating clear and concise instructions for monthly auxiliary reports. Provide guidance on structuring the report, including key points, challenges, highlights, and insights. Ensure the instructions are professional and informative to simplify the reporting process.',
+        title: 'Critically Analyze a Piece of Text',
+        icon:'ti-layout-columns',
+        description: 'Objectively examine written work to evaluate its strengths and weaknesses.',
+        inputs: {
+            passage: {
+                value: '',
+                placeholder: 'Paste text or passage here.',
+                inputType: 'text',
+                label: 'Original Text or Passage',
+            },
+        }
+    },
+    {
+        type: 'language_arts',
+        category: 'Language Arts',
+        tag: 'language_arts',
+        promptExample: 'Generate inferences based on President Roosevelts "Man in the Arena" speech.',
+        systemPrompt: 'Assist in generating clear and concise instructions for monthly auxiliary reports. Provide guidance on structuring the report, including key points, challenges, highlights, and insights. Ensure the instructions are professional and informative to simplify the reporting process.',
+        title: 'Draw Conclusions From a Piece of Writing',
+        icon:'ti-notebook',
+        description: 'Make inferences and conclusions to read between the lines.',
+        inputs: {
+            passage: {
+                value: '',
+                placeholder: 'Paste text or passage here.',
+                inputType: 'text',
+                label: 'Original Text or Passage',
+            },
+        }
+    },
+    {
+        type: 'social_studies',
+        category: 'Social Studies',
+        tag: 'social_studies',
+        promptExample: 'Find the effect, or turning point, of events to help students understand their impact on society, both then and now.',
+        systemPrompt: 'Assist in generating clear and concise instructions for monthly auxiliary reports. Provide guidance on structuring the report, including key points, challenges, highlights, and insights. Ensure the instructions are professional and informative to simplify the reporting process.',
+        title: 'Examine Historical Impacts',
+        icon:'ti-globe',
+        description: 'Explore how historical events have shaped the world.',
+        inputs: {
+            event: {
+                value: '',
+                placeholder: 'Example: World War II in Europe',
+                inputType: 'text',
+                label: 'Historical Event',
+            },
+            situation: {
+                value: '',
+                placeholder: 'Example: Effect or Turning Point',
+                inputType: 'text',
+                label: 'Find the Effect or Turning Point',
+            },
+        }
+    },
+    {
+        type: 'curriculum',
+        category: 'Curriculum',
+        tag: 'curriculum',
+        promptExample: 'Help students broaden their knowledge and gain a deeper understanding of the theory of relativity.',
+        systemPrompt: 'Assist in generating clear and concise instructions for monthly auxiliary reports. Provide guidance on structuring the report, including key points, challenges, highlights, and insights. Ensure the instructions are professional and informative to simplify the reporting process.',
+        title: 'Explore the Origins of Any Given Thing',
+        icon:'ti-corner-down-right',
+        description: 'Explore the origins of discoveries, languages, customs, cultures, and more',
+        inputs: {
+            level: {
+                value: '',
+                placeholder: 'Example: 6th Grade',
+                inputType: 'text',
+                label: 'Grade Level or Subject',
+            },
+            topic: {
+                value: '',
+                placeholder: 'Example: States of matter',
+                inputType: 'text',
+                label: 'Topic',
+            },
+        }
+    },
+    {
+        type: 'curriculum',
+        category: 'Curriculum',
+        tag: 'curriculum',
+        promptExample: 'Facilitate class discussions by comparing and contrasting different topics related to a specific content area.',
+        systemPrompt: 'Assist in generating clear and concise instructions for monthly auxiliary reports. Provide guidance on structuring the report, including key points, challenges, highlights, and insights. Ensure the instructions are professional and informative to simplify the reporting process.',
+        title: 'Find Similarities and Differences',
+        icon:'ti-layout-columns',
+        description: 'Identify similarities and differences between two ideas.',
+        inputs: {
+            topic_one: {
+                value: '',
+                placeholder: 'Example: Great Wall of China',
+                inputType: 'textarea',
+                label: 'Topic 1',
+            },
+            topic_two: {
+                value: '',
+                placeholder: 'Example: Berlin Wall',
+                inputType: 'textarea',
+                label: 'Topic 2',
+            },
+            similarities: {
+                value: '',
+                placeholder: 'Example: 1 or 5',
+                inputType: 'text',
+                label: 'Preferred Number of Similarities',
+            },
+            differences: {
+                value: '',
+                placeholder: 'Example: 1 or 5',
+                inputType: 'text',
+                label: 'Preferred Number of Differences',
+            },
+        }
+    },
+    {
+        type: 'curriculum',
+        category: 'Curriculum',
+        tag: 'curriculum',
+        promptExample: 'Help students celebrate the first day of spring while learning about its unique history.',
+        systemPrompt: 'Assist in generating clear and concise instructions for monthly auxiliary reports. Provide guidance on structuring the report, including key points, challenges, highlights, and insights. Ensure the instructions are professional and informative to simplify the reporting process.',
+        title: 'Find a Project Idea',
+        icon:'ti-search',
+        description: 'Generate a project or activity that is aligned with your individual classroom needs.',
+        inputs: {
+            level: {
+                value: '',
+                placeholder: 'Example: 6th Grade',
+                inputType: 'text',
+                label: 'Grade Level or Subject',
+            },
+            field: {
+                value: '',
+                placeholder: 'State the general topic or paste an official standard.',
+                inputType: 'textarea',
+                label: 'Topic or Standard',
+            },
+        }
+    },
+    {
+        type: 'science_math',
+        category: 'Science And Math',
+        tag: 'science_math',
+        promptExample: 'Save time and effort by generating an experiment that aligns with specific goals and requirements.',
+        systemPrompt: 'Assist in generating clear and concise instructions for monthly auxiliary reports. Provide guidance on structuring the report, including key points, challenges, highlights, and insights. Ensure the instructions are professional and informative to simplify the reporting process.',
+        title: 'Find a Science or Math Experiment',
+        icon:'ti-search',
+        description: 'Discover engaging ways to test theories and hypotheses through hands-on experimentation.',
+        inputs: {
+            level: {
+                value: '',
+                placeholder: 'Example: 6th Grade',
+                inputType: 'text',
+                label: 'Grade Level or Subject',
+            },
+            field: {
+                value: '',
+                placeholder: 'State the general topic or paste an official standard.',
+                inputType: 'textarea',
+                label: 'Topic or Standard',
+            },
+        }
+    },
+    {
+        type: 'curriculum',
+        category: 'Curriculum',
+        tag: 'curriculum',
+        promptExample: 'While we have safeguards in place, the system may occasionally generate incorrect or misleading information. Please double-check examples.',
+        systemPrompt: 'Assist in generating clear and concise instructions for monthly auxiliary reports. Provide guidance on structuring the report, including key points, challenges, highlights, and insights. Ensure the instructions are professional and informative to simplify the reporting process.',
+        title: 'Find an Example',
+        icon:'ti-search',
+        description: 'Discover examples that can help reinforce concepts.',
+        inputs: {
+            level: {
+                value: '',
+                placeholder: 'Example: 6th Grade',
+                inputType: 'text',
+                label: 'Grade Level or Subject',
+            },
+            field: {
+                value: '',
+                placeholder: 'State the general topic or paste an official standard.',
+                inputType: 'textarea',
+                label: 'Topic or Standard',
+            },
+        }
+    },
+    {
+        type: 'language_arts',
+        category: 'Language Arts',
+        tag: 'language_arts',
+        promptExample: '',
+        systemPrompt: 'Assist in generating clear and concise instructions for monthly auxiliary reports. Provide guidance on structuring the report, including key points, challenges, highlights, and insights. Ensure the instructions are professional and informative to simplify the reporting process.',
+        title: 'Generate Comprehension Questions',
+        icon:'ti-list',
+        description: 'Quickly craft a variety of engaging questions based on any written text.',
+        inputs: {
+            questions: {
+                value: '',
+                placeholder: 'Example: 1 or 5',
+                inputType: 'text',
+                label: 'How Many Questions Would You Like?',
+            },
+            type: {
+                value: '',
+                placeholder: 'Example: Factual, Vocabulary, Analytic or Inferential',
+                inputType: 'text',
+                label: 'Type of Question(s)',
+            },
+            passage: {
+                value: '',
+                placeholder: 'Paste text or passage here.',
+                inputType: 'textarea',
+                label: 'Original Text or Passage',
+            },
+        }
+    },
+    {
+        type: 'relationships',
+        category: 'Relationships',
+        tag: 'relationships',
+        promptExample: '',
+        systemPrompt: 'Assist in generating clear and concise instructions for monthly auxiliary reports. Provide guidance on structuring the report, including key points, challenges, highlights, and insights. Ensure the instructions are professional and informative to simplify the reporting process.',
+        title: 'Generate Interview Questions',
+        icon:'ti-question-mark',
+        description: 'Produce interview questions for any audience, objective or intent.',
+        inputs: {
+            questions: {
+                value: '',
+                placeholder: 'Example: 1 or 5',
+                inputType: 'text',
+                label: 'How Many Questions Would You Like?',
+            },
+            purpose: {
+                value: '',
+                placeholder: 'Example: Hiring or Evaluating',
+                inputType: 'text',
+                label: 'What is Your Purpose?',
+            },
+            role: {
+                value: '',
+                placeholder: 'Example: teacher or potential aide?',
+                inputType: 'text',
+                label: 'What is the Respondents Role or Potential Role?',
+            },
+        }
+    },
+    {
+        type: 'curriculum',
+        category: 'Curriculum',
+        tag: 'curriculum',
+        promptExample: '',
+        systemPrompt: 'Assist in generating clear and concise instructions for monthly auxiliary reports. Provide guidance on structuring the report, including key points, challenges, highlights, and insights. Ensure the instructions are professional and informative to simplify the reporting process.',
+        title: 'Generate Writing Prompts',
+        icon:'ti-pencil',
+        description: 'Produce custom-made writing prompts based on any text or topic.',
+        inputs: {
+            type: {
+                value: '',
+                placeholder: 'Example: Narrative, Expository, Opinion, Persuasive, Creative, Informative and Journal',
+                inputType: 'text',
+                label: 'Type of Writing',
+            },
+            level: {
+                value: '',
+                placeholder: 'Example: 6th Grade',
+                inputType: 'text',
+                label: 'Grade Level or Subject',
+            },
+            topic: {
+                value: '',
+                placeholder: 'Example: states of matter',
+                inputType: 'text',
+                label: 'Topic',
+            },
+            passage: {
+                value: '',
+                placeholder: 'Paste text or passage here.',
+                inputType: 'textarea',
+                label: 'Original Text or Passage',
+            },
+        }
+    },
+    {
+        type: 'support',
+        category: 'Support',
+        tag: 'support',
+        promptExample: '',
+        systemPrompt: 'Assist in generating clear and concise instructions for monthly auxiliary reports. Provide guidance on structuring the report, including key points, challenges, highlights, and insights. Ensure the instructions are professional and informative to simplify the reporting process.',
+        title: 'Get Advice',
+        icon:'ti-lifebuoy',
+        description: 'Get help with career and classroom-related challenges.',
+        inputs: {
+            need: {
+                value: '',
+                placeholder: 'Example: Student, Colleague, Administration, Parent or General',
+                inputType: 'text',
+                label: 'What Do You Need Help With?',
+            },
+            problem: {
+                value: '',
+                placeholder: 'Example: My colleague undermined me in front of a student.',
+                inputType: 'textarea',
+                label: 'What is the Problem?',
+            },
+        }
+    },
+    {
+        type: 'social_studies',
+        category: 'Social Studies',
+        tag: 'social_studies',
+        promptExample: 'Ensure you cover all important historical events and people related to a topic.',
+        systemPrompt: 'Assist in generating clear and concise instructions for monthly auxiliary reports. Provide guidance on structuring the report, including key points, challenges, highlights, and insights. Ensure the instructions are professional and informative to simplify the reporting process.',
+        title: 'Identify Historical Figures and Moments',
+        icon:'ti-clock',
+        description: 'Discover important figures and events from any time period in history.',
+        inputs: {
+            figures: {
+                value: '',
+                placeholder: 'Example: Discover Historical Figures  or Highlight Key Moments',
+                inputType: 'text',
+                label: 'Discover Historical Figures or Highlight Key Moments',
+            },
+            history: {
+                value: '',
+                placeholder: 'Example: U.S or World',
+                inputType: 'text',
+                label: 'U.S. or World History',
+            },
+            period: {
+                value: '',
+                placeholder: 'Example: 1930s-1940s',
+                inputType: 'text',
+                label: 'Time Period',
+            },
+        }
+    },
+    {
+        type: 'language_arts',
+        category: 'Language Arts',
+        tag: 'language_arts',
+        promptExample: '',
+        systemPrompt: 'Assist in generating clear and concise instructions for monthly auxiliary reports. Provide guidance on structuring the report, including key points, challenges, highlights, and insights. Ensure the instructions are professional and informative to simplify the reporting process.',
+        title: 'Identify Themes and Main Ideas',
+        icon:'ti-list',
+        description: 'Quickly identify the primary concepts from any passage, article, or piece of text.',
+        inputs: {
+            passage: {
+                value: '',
+                placeholder: 'Paste text or passage here.',
+                inputType: 'textarea',
+                label: 'Original Text or Passage',
+            },
+        }
+    },
+    {
+        type: 'curriculum',
+        category: 'Curriculum',
+        tag: 'curriculum',
+        promptExample: 'Identify the key principles of a chemical reaction.',
+        systemPrompt: 'Assist in generating clear and concise instructions for monthly auxiliary reports. Provide guidance on structuring the report, including key points, challenges, highlights, and insights. Ensure the instructions are professional and informative to simplify the reporting process.',
+        title: 'Identify the Key Principles of a Concept',
+        icon:'ti-list',
+        description: 'Explore the fundamental components of any concept or standard.',
+        inputs: {
+            information: {
+                value: '',
+                placeholder: 'Paste topic, standard, or piece of text here.',
+                inputType: 'textarea',
+                label: 'Ideas or Information',
+            },
+        }
+    },
+    {
+        type: 'curriculum',
+        category: 'Curriculum',
+        tag: 'curriculum',
+        promptExample: '',
+        systemPrompt: 'Assist in generating clear and concise instructions for monthly auxiliary reports. Provide guidance on structuring the report, including key points, challenges, highlights, and insights. Ensure the instructions are professional and informative to simplify the reporting process.',
+        title: 'Simplify a Concept',
+        icon:'ti-search',
+        description: 'Make a topic or standard more accessible by discovering clear and simplified explanations.',
+        inputs: {
+            level: {
+                value: '',
+                placeholder: 'Example: 6th grade.',
+                inputType: 'text',
+                label: 'Grade Level or Subject',
+            },
+            field: {
+                value: '',
+                placeholder: 'State the general topic or paste an official standard.',
+                inputType: 'textarea',
+                label: 'Topic or Standard',
+            },
+        }
+    },
+    {
+        type: 'social_studies',
+        category: 'Social Studies',
+        tag: 'social_studies',
+        promptExample: 'Help students gain understanding, foster compassion, and identify historical trends',
+        systemPrompt: 'Assist in generating clear and concise instructions for monthly auxiliary reports. Provide guidance on structuring the report, including key points, challenges, highlights, and insights. Ensure the instructions are professional and informative to simplify the reporting process.',
+        title: 'View History From Any Angle',
+        icon:'ti-eye',
+        description: 'Use different viewpoints and perspectives to examine history from multiple angles.',
+        inputs: {
+            event: {
+                value: '',
+                placeholder: 'Example: World War II in Europe',
+                inputType: 'text',
+                label: 'Historical Event',
+            },
+        }
+    },
 ];
