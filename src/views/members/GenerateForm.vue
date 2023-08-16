@@ -8,8 +8,10 @@
     import { Alert } from 'flowbite-vue';
     import { Textarea } from 'flowbite-vue';
     import { Button } from 'flowbite-vue';
+    import { useRouter } from 'vue-router';
     import 'animate.css';
 
+    const router = useRouter();
     const formStore = useFormStore();
     const backEndModel = new expressModel();
     const generateResource = new GeneratedResourceModel();
@@ -23,17 +25,20 @@
     }
 
     onMounted(() => {
-        console.log(formStore)
+        console.log(formStore.description)
+        if(formStore.category === '')
+            router.push({ name: 'dashboard' })
     })
 
     const generate = async () => {
-        isGenerating.value = true;
-        const instruc = createInstruction();
-        await backEndModel.generateLesson(instruc)
-            .then((completion) => {
-                sendToFireBase(completion?.data?.message?.content);
-                generatedResource.value = completion?.data?.message?.content?.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>') });
-        isGenerating.value = false;
+        console.log(formStore.inputs)
+        //isGenerating.value = true;
+        //const instruc = createInstruction();
+        //await backEndModel.generateLesson(instruc)
+        //    .then((completion) => {
+        //        sendToFireBase(completion?.data?.message?.content);
+        //        generatedResource.value = completion?.data?.message?.content?.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>') });
+        //isGenerating.value = false;
     }
 
     const copyGeneratedTopic = () => {
@@ -61,15 +66,12 @@
         <div class="bg-white shadow-md rounded-t-3xl">
             <div class="flex py-4 bg-indigo-500 px-9 rounded-t-3xl">
                 <div>
-                    <button type="button" disabled class="text-main-color bg-gray-100 bg-opacity-30 border focus:ring-4 focus:outline-none focus:ring-secondary-color font-medium rounded-full text-xl p-2.5 text-center inline-flex items-center dark:hover:text-white hover:border-transparent">
-                        <svg class="w-6 h-6 text-white dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17v1a.97.97 0 0 1-.933 1H1.933A.97.97 0 0 1 1 18V5.828a2 2 0 0 1 .586-1.414l2.828-2.828A2 2 0 0 1 5.828 1h8.239A.97.97 0 0 1 15 2M6 1v4a1 1 0 0 1-1 1H1m13.14.772 2.745 2.746M18.1 5.612a2.086 2.086 0 0 1 0 2.953l-6.65 6.646-3.693.739.739-3.692 6.646-6.646a2.087 2.087 0 0 1 2.958 0Z"/>
-                        </svg>
-                        <span class="sr-only">Icon description</span>
-                    </button>
+                    <div class="inline-flex items-center p-1.5 text-xl font-medium text-center bg-gray-100 border rounded-full text-main-color bg-opacity-30 focus:ring-4 focus:outline-none focus:ring-secondary-color dark:hover:text-white hover:border-transparent">
+                        <i :class="formStore.icon" class="text-4xl text-white ti dark:text-white"></i>
+                    </div>
                 </div>
                 <div class="self-center pl-4 text-2xl font-bold text-white">
-                    Write
+                    {{ formStore.title }}
                 </div>
             </div>
             <div class="flex flex-wrap gap-4 p-3 sm:p-9">
@@ -158,14 +160,16 @@
                 </div>
                 <div class="w-full lg:w-[30%] col-span-2">
                     <div class="p-6 bg-gray-100 rounded-3xl animate__animated animate__fadeInUp">
-                        <div class="mb-4">
-                            <label for="" class="block mb-1 text-gray-700">
-                                {{ formStore.inputs.subject.label }}
-                            </label>
-                            <input v-model="formStore.inputs.subject.value" :placeholder="formStore.inputs.subject.placeholder"  type="text" id="text" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main-color focus:border-main-color block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-main-color dark:focus:border-main-color dark:shadow-sm-light">
-                        </div>
-                        <div class="mb-6">
-                            <Textarea rows="4" v-model="formStore.inputs.topic.value" :placeholder="formStore.inputs.topic.placeholder" label="Prompt" />
+                        <h3 class="mb-4 text-xl font-bold leading-snug text-gray-500">
+                            {{ formStore.description }}
+                        </h3>
+                        <p v-if="formStore.promptExample" class="p-4 mb-2 text-purple-700 bg-blue-200">
+                            <i class="text-purple-800 ti ti-writing-sign"></i>
+                            For Example: <br>{{ formStore.promptExample }}
+                        </p>
+                        <div v-for="(input, index) in formStore.inputs" :key="index + '-generate-form-input'" class="mb-4">
+                            <Textarea :placeholder="input.placeholder" v-model="formStore.inputs[index].value" v-if="input.inputType == 'textarea'" rows="5" :label="input.label" />
+                            <Input :placeholder="input.placeholder" v-model="formStore.inputs[index].value" v-else-if="input.inputType == 'text'" type="text" :label="input.label" />
                         </div>
                         <Button @click.prevent="generate" type="submit" size="lg" class="mt-5 w-full bg-main-color hover:bg-secondary-color border-0 text-sm lg:text-[0.775rem] xl:text-lg font-semibold">
                            Tiklipy Go!

@@ -32,7 +32,7 @@
                 <div v-for="(card, index) in cards" :key="index +'-card-generator'" class="flex justify-center max-sm:w-full"  @click="cardIsClick(card)">
                     <the-card @click="cardIsClick(card)" href="#" class="w-[30rem] bg-white sm:mr-5 mb-5 flex border-none rounded-lg shadow-none hover:bg-white hover:shadow-md bg-[url('/p-1.png')] bg-no-repeat bg-contain" style="max-width: 100% !important">
                         <div class="p-4 max-xs:!p-0 dark:bg-gray-800 dark:border-gray-700">
-                            <i class="text-4xl font-medium text-main-color dark:text-white ti ti-user"></i>
+                            <i :class="card.icon" class="text-4xl font-medium text-main-color dark:text-white ti"></i>
                             <div class= "mt-7 group-hover:text-gray-500">
                                 {{ card.category }}
                             </div>

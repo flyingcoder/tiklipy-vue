@@ -3,27 +3,26 @@ import { defineStore } from "pinia";
 export const useFormStore = defineStore("form", {
     state: () => ({ 
         title: '',
-        descriptions: '',
-        promtExample: '',
+        description: '',
+        promptExample: '',
         category: '',
+        icon:'',
         inputs: {
-            topic: {
+            highlights: {
                 value: '',
-                placeholder: 'State a general topic or paste an official Department of Education curriculum standard.'
-            },
-            subject: {
-                label: 'Subject',
-                value: '',
-                placeholder: 'testing'
+                placeholder: 'e.g. Upgraded software in computer lab for better functionality and implemented new security measures to protect lab equipment.',
+                inputType: 'textarea',
+                label: 'Main Highlights',
             }
         },
     }),
     actions: {
         setFormDetails(details) {
             this.title = details.title;
-            this.descriptions = details.descriptions;
-            this.promtExample = details.promtExample;
+            this.description = details.description;
+            this.promptExample = details.promptExample;
             this.category = details.category;
+            this.icon = details.icon;
             this.inputs = details.inputs;
         }
     }
