@@ -28,7 +28,7 @@ export default [
         category: 'Assessments',
         tag: 'write',
         promptExample: 'While we have safeguards in place, the system may occasionally generate incorrect or misleading information. Please double-check answers.',
-        systemPrompt: "You'll be providing a text block, along with the desired grade level, type of question, number of questions, and a designated topic. Your task is to generate questions that align with the specified grade level in terms of complexity. Kindly use the following format: grade: 'data', subject: 'data', questions: 'data', type: 'data'",
+        systemPrompt: "You'll be providing a text block, along with the desired grade grade, type of question, number of questions, and a designated topic. Your task is to generate questions that align with the specified grade grade in terms of complexity. Kindly use the following format: grade: 'data', subject: 'data', questions: 'data', type: 'data'",
         title: 'Generate conventional evaluation inquiries.',
         icon:'ti-pencil',
         description: 'Create queries designed to assess student comprehension.',
@@ -37,7 +37,7 @@ export default [
                 value: '',
                 placeholder: 'e.g. 5th Grade',
                 inputType: 'input',
-                label: 'Enter the grade level',
+                label: 'Enter the grade grade',
             },
             subject: {
                 value: '',
@@ -63,8 +63,8 @@ export default [
         type: 'forms',
         category: 'Forms',
         tag: 'write',
-        promptExample: 'Computer Laborator Supervisor Auxiliary report.',
-        systemPrompt: 'Assist in generating clear and concise instructions for monthly auxiliary reports. Provide guidance on structuring the report, including key points, challenges, highlights, and insights. Ensure the instructions are professional and informative to simplify the reporting process.',
+        promptExample: '',
+        systemPrompt: 'Generate a customized donation or supply request based on the following information: grade: "data", target: "data", request: "data", accasion: "data", deadline: "data", name: "data", school: "data", contact: "data"',
         title: 'Formulate a solicitation for donations or supplies.',
         icon:'ti-user-check',
         description: 'Craft personalized appeals for donations or supplies to meet specific needs.',
@@ -123,25 +123,25 @@ export default [
         type: 'forms',
         category: 'Forms',
         tag: 'write',
-        promptExample: 'Computer Laborator Supervisor Auxiliary report.',
-        systemPrompt: 'Assist in generating clear and concise instructions for monthly auxiliary reports. Provide guidance on structuring the report, including key points, challenges, highlights, and insights. Ensure the instructions are professional and informative to simplify the reporting process.',
+        promptExample: '',
+        systemPrompt: 'Generate a persuasive permission slip for students to participate in an off-campus excursion. using this format. grade: "data", desination: "data", date: "data", departure: "data", return: "data", transportation: "data", deadline: "data", contact: "data", school: "data", email: "data"',
         title: 'Generate a document for obtaining field trip permissions.',
         icon:'ti-user-check',
         description: 'Generate a permission slip for students to participate in an off-campus excursion.',
         inputs: {
-            level: {
+            grade: {
                 value: '',
                 placeholder: 'For example, 6th grade.',
                 inputType: 'text',
                 label: 'Educational Level or Discipline',
             },
-            location: {
+            desination: {
                 value: '',
                 placeholder: 'For example, Museum of Art.',
                 inputType: 'text',
                 label: 'Location of Visit',
             },
-            field: {
+            date: {
                 value: '',
                 placeholder: 'For example, Friday, March 24th.',
                 inputType: 'text',
@@ -159,19 +159,13 @@ export default [
                 inputType: 'text',
                 label: 'Time of Return to School',
             },
-            method: {
+            transportation: {
                 value: '',
                 placeholder: 'For example, school bus, walking, etc.',
                 inputType: 'text',
                 label: 'Method of Travel',
             },
-            due: {
-                value: '',
-                placeholder: 'Due Date for Returning the Permission Slip',
-                inputType: 'text',
-                label: 'Provide the choice for school-provided lunch or home-packed lunch.',
-            },
-            permission: {
+            deadline: {
                 value: '',
                 placeholder: 'For instance, Wednesday, March 1st.',
                 inputType: 'text',
@@ -183,13 +177,13 @@ export default [
                 inputType: 'text',
                 label: 'Name(s) of Contact Person(s)',
             },
-            institution: {
+            school: {
                 value: '',
                 placeholder: 'For example, Maple Middle School.',
                 inputType: 'text',
                 label: 'Title of Educational Institution',
             },
-            details: {
+            email: {
                 value: '',
                 placeholder: 'For instance, ivy@classpack.com.',
                 inputType: 'text',
@@ -201,13 +195,13 @@ export default [
         type: 'forms',
         category: 'Forms',
         tag: 'write',
-        promptExample: 'Computer Laborator Supervisor Auxiliary report.',
-        systemPrompt: 'Assist in generating clear and concise instructions for monthly auxiliary reports. Provide guidance on structuring the report, including key points, challenges, highlights, and insights. Ensure the instructions are professional and informative to simplify the reporting process.',
+        promptExample: '',
+        systemPrompt: '',
         title: 'Generate a consent form for reading or viewing media.',
         icon:'ti-user-check',
         description: 'Design permission slips granting students permission to access and engage with specific media content.',
         inputs: {
-            level: {
+            grade: {
                 value: '',
                 placeholder: 'For instance, 6th grade.',
                 inputType: 'text',
@@ -291,7 +285,7 @@ export default [
         icon:'ti-pencil',
         description: 'Create forms that grant permission to showcase student work or images on social media platforms.',
         inputs: {
-            level: {
+            grade: {
                 value: '',
                 placeholder: 'For instance, 6th grade.',
                 inputType: 'text',
@@ -345,7 +339,7 @@ export default [
         icon:'ti-pencil',
         description: 'Create registration forms to gather volunteers for your cause.',
         inputs: {
-            level: {
+            grade: {
                 value: '',
                 placeholder: 'For instance, 6th grade.',
                 inputType: 'text',
@@ -429,7 +423,7 @@ export default [
                 inputType: 'text',
                 label: 'Category of Non-Traditional Evaluation',
             },
-            level: {
+            grade: {
                 value: '',
                 placeholder: 'For instance, 6th grade.',
                 inputType: 'text',
@@ -465,7 +459,7 @@ export default [
                 inputType: 'text',
                 label: 'Duration of the Lesson',
             },
-            level: {
+            grade: {
                 value: '',
                 placeholder: 'For example, 8th grade.',
                 inputType: 'text',
@@ -525,7 +519,7 @@ export default [
                 inputType: 'text',
                 label: 'Type of Text',
             },
-            level: {
+            grade: {
                 value: '',
                 placeholder: 'Example: 8th grade.',
                 inputType: 'text',
@@ -561,7 +555,7 @@ export default [
                 inputType: 'text',
                 label: 'Type of Text',
             },
-            level: {
+            grade: {
                 value: '',
                 placeholder: 'Example: 8th grade.',
                 inputType: 'text',
@@ -597,7 +591,7 @@ export default [
                 inputType: 'text',
                 label: 'Lesson Length',
             },
-            level: {
+            grade: {
                 value: '',
                 placeholder: 'Example: 8th grade.',
                 inputType: 'text',
@@ -633,7 +627,7 @@ export default [
                 inputType: 'text',
                 label: 'Lesson Length',
             },
-            level: {
+            grade: {
                 value: '',
                 placeholder: 'Example: 8th grade.',
                 inputType: 'text',
@@ -911,7 +905,7 @@ export default [
         icon:'ti-adjustments',
         description: 'Discover how to tweak instruction to meet the needs of different learners.',
         inputs: {
-            level: {
+            grade: {
                 value: '',
                 placeholder: 'e.g., 6th grade',
                 inputType: 'text',
@@ -1111,7 +1105,7 @@ export default [
         icon:'ti-mood-smile',
         description: 'Discover techniques for enhancing the overall environment of your classroom.',
         inputs: {
-            level: {
+            grade: {
                 value: '',
                 placeholder: 'Examples: 6th grade',
                 inputType: 'text',
@@ -1129,7 +1123,7 @@ export default [
         icon:'ti-user-plus',
         description: 'Discover methods to enhance student motivation.',
         inputs: {
-            level: {
+            grade: {
                 value: '',
                 placeholder: 'Examples: 6th grade',
                 inputType: 'text',
@@ -1153,7 +1147,7 @@ export default [
         icon:'ti-user-plus',
         description: 'Analyze problem behaviors and detect possible patterns.',
         inputs: {
-            level: {
+            grade: {
                 value: '',
                 placeholder: 'Examples: 12 years old',
                 inputType: 'text',
@@ -1185,7 +1179,7 @@ export default [
             },
             development: {
                 value: '',
-                placeholder: 'e.g., on level, behind, ahead',
+                placeholder: 'e.g., on grade, behind, ahead',
                 inputType: 'text',
                 label: 'Status of Social Emotional Development ',
             },
@@ -1219,7 +1213,7 @@ export default [
         icon:'ti-thumb-up',
         description: 'Explore the social and emotional growth of students.',
         inputs: {
-            level: {
+            grade: {
                 value: '',
                 placeholder: 'Examples: 8th grade',
                 inputType: 'text',
@@ -1237,7 +1231,7 @@ export default [
         icon:'ti-circle-x',
         description: 'Discover effective strategies for handling challenging behavior.',
         inputs: {
-            level: {
+            grade: {
                 value: '',
                 placeholder: 'Examples: 6th grade',
                 inputType: 'text',
@@ -1261,7 +1255,7 @@ export default [
         icon:'ti-users',
         description: 'Generate ideas for building relationships with students.',
         inputs: {
-            level: {
+            grade: {
                 value: '',
                 placeholder: 'Example: 6th grade',
                 inputType: 'text',
@@ -1305,7 +1299,7 @@ export default [
                 inputType: 'text',
                 label: 'Type of Writing',
             },
-            level: {
+            grade: {
                 value: '',
                 placeholder: 'Example: 6th grade',
                 inputType: 'text',
@@ -1359,7 +1353,7 @@ export default [
         icon:'ti-list',
         description: 'Break down concepts so that you can teach with clarity.',
         inputs: {
-            level: {
+            grade: {
                 value: '',
                 placeholder: 'Example: 6th grade',
                 inputType: 'text',
@@ -1487,7 +1481,7 @@ export default [
         icon:'ti-corner-down-right',
         description: 'Explore the origins of discoveries, languages, customs, cultures, and more',
         inputs: {
-            level: {
+            grade: {
                 value: '',
                 placeholder: 'Example: 6th Grade',
                 inputType: 'text',
@@ -1547,7 +1541,7 @@ export default [
         icon:'ti-search',
         description: 'Generate a project or activity that is aligned with your individual classroom needs.',
         inputs: {
-            level: {
+            grade: {
                 value: '',
                 placeholder: 'Example: 6th Grade',
                 inputType: 'text',
@@ -1571,7 +1565,7 @@ export default [
         icon:'ti-search',
         description: 'Discover engaging ways to test theories and hypotheses through hands-on experimentation.',
         inputs: {
-            level: {
+            grade: {
                 value: '',
                 placeholder: 'Example: 6th Grade',
                 inputType: 'text',
@@ -1595,7 +1589,7 @@ export default [
         icon:'ti-search',
         description: 'Discover examples that can help reinforce concepts.',
         inputs: {
-            level: {
+            grade: {
                 value: '',
                 placeholder: 'Example: 6th Grade',
                 inputType: 'text',
@@ -1685,7 +1679,7 @@ export default [
                 inputType: 'text',
                 label: 'Type of Writing',
             },
-            level: {
+            grade: {
                 value: '',
                 placeholder: 'Example: 6th Grade',
                 inputType: 'text',
@@ -1805,7 +1799,7 @@ export default [
         icon:'ti-search',
         description: 'Make a topic or standard more accessible by discovering clear and simplified explanations.',
         inputs: {
-            level: {
+            grade: {
                 value: '',
                 placeholder: 'Example: 6th grade.',
                 inputType: 'text',

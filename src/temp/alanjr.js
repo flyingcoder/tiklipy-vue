@@ -22,10 +22,10 @@ export default [
         category: 'tools',
         tag: 'tools',
         promptExample: "Jupiter, the Solar System's largest planet, is fifth from the Sun. Despite having only one-thousandth of the Sun's mass, it surpasses the combined mass of all other planets. Known since ancient times, it's named after the Roman god Jupiter. Visible to the naked eye, it often outshines most celestial objects, ranking third in brightness after the Moon and Venus.",
-        systemPrompt: "You'll summarize content for a student based on a provided grade level. User format: grade - 'data', sentence - 'data'.",
+        systemPrompt: "You'll summarize content for a student based on a provided grade grade. User format: grade - 'data', sentence - 'data'.",
         title: 'Summarization',
         icon: 'ti-tools',
-        description: 'Summarize a sentence to a specific grade level',
+        description: 'Summarize a sentence to a specific grade grade',
         inputs: {
             grade: {
                 value: '',
@@ -130,16 +130,16 @@ export default [
         category: 'tools',
         tag: 'tools',
         promptExample: "5th grade, 5, volcano",
-        systemPrompt: "You will receive a block of text along with a specified number of questions and a designated grade level. Your objective is to create questions that match the given grade level in terms of complexity. The user will provide information in the following format: grade: 'data', questions: 'data', topic: 'data'.",
+        systemPrompt: "You will receive a block of text along with a specified number of questions and a designated grade grade. Your objective is to create questions that match the given grade grade in terms of complexity. The user will provide information in the following format: grade: 'data', questions: 'data', topic: 'data'.",
         title: 'Question generator',
         icon:'ti-tools',
-        description: 'Create questions for spacific topic and grade level',
+        description: 'Create questions for spacific topic and grade grade',
         inputs: {
             grade: {
                 value: '',
                 placeholder: 'e.g. 5th Grade',
                 inputType: 'input',
-                label: 'Enter the grade level',
+                label: 'Enter the grade grade',
             },
             questions: {
                 value: '',
