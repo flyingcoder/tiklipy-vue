@@ -1,7 +1,7 @@
 <script setup>
     import expressModel from "../../models/express";
     import GeneratedResourceModel from "../../models/generatedResources";
-    import { useGenerateStore } from '../../stores/generate';
+    import { useFormStore } from '../../stores/form';
     import { onMounted, ref, watch, defineProps  } from 'vue'
     import { Input } from 'flowbite-vue';
     import { Select } from 'flowbite-vue';
@@ -10,67 +10,20 @@
     import { Button } from 'flowbite-vue';
     import 'animate.css';
 
-    defineEmits(['generation-complete']);
-    const loaderStore = useGenerateStore();
-
-    const toggleAssesment = ref(false);
-    const toggleHomework = ref(false);
-    const selectGrade = ref('1');
-    const selectSubject = ref('Math');
-    const asssesmentQuestionType = ref('');
-    const homeworkQuestionType = ref('');
-    const message = ref('');
-    const topic = ref('');
-    const generatedTopic = ref('');
-    const homeworkNumberOfQuestions = ref('');
-    const assessmentNumberOfQuestions = ref('');
+    const formStore = useFormStore();
     const backEndModel = new expressModel();
-    const copyContent = ref(false);
-    const isGenerating = ref(false);
     const generateResource = new GeneratedResourceModel();
 
-    const questionType = ref([
-    { value: 'MC', name: 'Multiple Choice' },
-    { value: 'T/F', name: 'True/False' },
-    { value: 'Enumeration', name: 'Enumeration' },
-    { value: 'Essay', name: 'Essay' },
-    { value: 'Oral', name: 'Oral' },
-    { value: 'short answer', name: 'Short Answer' },
-    { value: 'computational', name: 'Computational' },
-    ]);
-
-    const subject = ref([
-    { value: 'Math', name: 'Math' },
-    { value: 'Science', name: 'Science' },
-    { value: 'PE', name: 'Physical Education' },
-    { value: 'English', name: 'English' },
-    { value: 'AralPan', name: 'Araling Panlipunan' },
-    { value: 'TLE', name: 'Technology and Livelihood Education' },
-    { value: 'ESP', name: 'Edukasyon sa Pagpapakatao' },
-    { value: 'Music', name: 'Music' }
-    ]);
-
-    const gradeLevel = ref([
-    { value: '1', name: 'Grade 1' },
-    { value: '2', name: 'Grade 2' },
-    { value: '3', name: 'Grade 3' },
-    { value: '4', name: 'Grade 4' },
-    { value: '5', name: 'Grade 5' },
-    { value: '6', name: 'Grade 6' },
-    { value: '7', name: 'Grade 7' },
-    { value: '8', name: 'Grade 8' },
-    { value: '9', name: 'Grade 9' },
-    { value: '10', name: 'Grade 10' },
-    { value: '11', name: 'Grade 11' },
-    { value: '12', name: 'Grade 12' },
-    ]);
+    const generatedResource = ref();
+    const copyContent = ref(false);
+    const isGenerating = ref(false);
 
     const sendToFireBase = (rawContent) => {
         generateResource.addGeneratedResource(rawContent, 'lessonPlan');
     }
 
     onMounted(() => {
-        //sendToFireBase("testing");
+        console.log(formStore)
     })
 
     const generate = async () => {
@@ -79,7 +32,7 @@
         await backEndModel.generateLesson(instruc)
             .then((completion) => {
                 sendToFireBase(completion?.data?.message?.content);
-                generatedTopic.value = completion?.data?.message?.content?.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>') });
+                generatedResource.value = completion?.data?.message?.content?.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>') });
         isGenerating.value = false;
     }
 
@@ -121,7 +74,7 @@
             </div>
             <div class="flex flex-wrap gap-4 p-3 sm:p-9">
                 <div class="w-full lg:w-[68%] col-span-4">
-                    <div class="w-full py-4 generated-value" v-if="!generatedTopic">
+                    <div class="w-full py-4 generated-value" v-if="!generatedResource">
                         <h1 class="mb-6 text-2xl font-semibold">Creating Educational Content with Tiklipy in 9 Simple Steps:</h1>
                         <div class="space-y-6">
                             <!-- Step 1 -->
@@ -170,7 +123,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="w-full py-4 generated-value" v-html="generatedTopic">
+                    <div class="w-full py-4 generated-value" v-html="generatedResource">
+                        
                     </div>
                     <div class="block">
                         <div class="flex">
@@ -204,13 +158,18 @@
                 </div>
                 <div class="w-full lg:w-[30%] col-span-2">
                     <div class="p-6 bg-gray-100 rounded-3xl animate__animated animate__fadeInUp">
-                        <div v-for="(item, index) in loaderStore.selectedInputs" :key="index">
-                            <h2 class="text-3xl font-bold text-main-color mb-1">{{ item.title }}</h2>
-                            <p class="mb-5">{{ item.description }}</p>
-                            <h2 class="text-md font-bold text-main-color mb-1">{{ item.label }}</h2>
-                            <component :is="item.tag" :placeholder="item.placeholder" class=" w-full px-3 py-2 rounded-lg bg-gray-50 border-[1px] !border-gray-500 " rows="7"></component>
+                        <div class="mb-4">
+                            <label for="" class="block mb-1 text-gray-700">
+                                {{ formStore.inputs.subject.label }}
+                            </label>
+                            <input v-model="formStore.inputs.subject.value" :placeholder="formStore.inputs.subject.placeholder"  type="text" id="text" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main-color focus:border-main-color block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-main-color dark:focus:border-main-color dark:shadow-sm-light">
                         </div>
-                        <Button @click.prevent="generate" type="submit" size="lg" class="mt-5 w-full bg-main-color hover:bg-secondary-color border-0 text-sm lg:text-[0.775rem] xl:text-lg font-semibold">Generate Topic with Tiklipy!</Button>
+                        <div class="mb-6">
+                            <Textarea rows="4" v-model="formStore.inputs.topic.value" :placeholder="formStore.inputs.topic.placeholder" label="Prompt" />
+                        </div>
+                        <Button @click.prevent="generate" type="submit" size="lg" class="mt-5 w-full bg-main-color hover:bg-secondary-color border-0 text-sm lg:text-[0.775rem] xl:text-lg font-semibold">
+                           Tiklipy Go!
+                        </Button>
                         <!-- <div v-if="isGenerating" class="p-6 bg-gray-100 rounded-3xl animate__animated animate__fadeInUp">
                             <h2 class="mb-10 text-2xl font-bold leading-snug text-gray-800">Your Upcoming Lesson</h2>
                             <div class="mb-5">
@@ -281,4 +240,4 @@
         </div>
         
     </div>
-</template>../../models/Express
+</template>

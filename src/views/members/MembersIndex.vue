@@ -3,10 +3,6 @@
   import Header from '../layouts/MembersHeader.vue';
   import Footer from '../layouts/MembersFooter.vue';
   import HeaderTitle from '../layouts/HeaderTitle.vue';
-  import { useRouter } from "vue-router"
-  
-  const showLogin = ref(false);
-  const loading = ref(true);
 
   onMounted(() => {
 
@@ -15,7 +11,7 @@
 <template>
   <Header />
   <section class="min-h-screen">
-    <HeaderTitle v-if="$route.name !== 'visuals'"/>
+    <HeaderTitle v-if="$route.meta.displayName"/>
     <div class="lg:container md:mx-auto">
       <router-view />
     </div>
