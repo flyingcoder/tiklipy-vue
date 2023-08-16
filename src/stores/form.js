@@ -34,7 +34,8 @@ export const useFormStore = defineStore("form", {
                 }
             );
             const enclosed = sentenceParts.join(', ');
-            return `{${enclosed}}`;
+            //return `{${enclosed}}`;
+            return enclosed;
         }
     }
 });
