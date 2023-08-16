@@ -1,27 +1,7 @@
-export default  [
-    {
-        type: 'pagsureoi',
-        category: 'sureba',
-        promptExample: 'Pastilan nalang gyud',
-        systemPrompt: 'Grabi ka noob',
-        title: 'Enzo d kabalo',
-        icon:'ti-user',
-        description: 'Jr bahog tae',
-        inputs: {
-            topic: {
-                value: '',
-                placeholder: 'nako ngano mani sila oi',
-                inputType: 'textarea',
-                label: 'Bahoag tae oi',
-            },
-            grade: {
-                value: '',
-                placeholder: 'hala unsa to? kabaho ba',
-                inputType: 'text',
-                label: 'Klarong tae ato',
-            }
-        }
-    },
+import enzo from './enzo';
+import alanjr from './alanjr';
+
+const cards = [
     {
         type: 'auxiliary',
         category: 'report',
@@ -65,3 +45,7 @@ export default  [
         }
     }
 ];
+
+const main = [...cards, ...enzo, ...alanjr];
+
+export default main;
