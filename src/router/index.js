@@ -37,7 +37,12 @@ router.beforeEach(async (to, from, next) => {
       }
     } else {
       if(to.meta.requiresAuth) {
-        await subscriptionCheck(to, from, next);
+        const authStore = useAuthStore();
+        if(authStore.user)
+          next()
+        else
+          next('/login')
+        //await subscriptionCheck(to, from, next);
       } else {
         next();
       }
