@@ -51,7 +51,7 @@
                 </button>
             </template>
             <template #center>
-                <router-link :to="{ name: 'dashboard' }" class="flex items-center">
+                <router-link :to="{ name: 'home' }" class="flex items-center">
                     <img src="/tiklipy-logo-indigo.png" class="h-12 ml-4 sm:mx-auto relative top-[5px]" alt="Tiklipy Logo" />
                 </router-link>
             </template>
