@@ -11,7 +11,7 @@
     const userStore = useUserStore();
 
     onMounted(() => {
-        isLoggedIn.value = authStore.user && userStore.hasSubscription;
+        isLoggedIn.value = authStore.user;
     });
 
     const handleSignOut = async () => {
