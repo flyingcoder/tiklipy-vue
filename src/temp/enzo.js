@@ -201,7 +201,7 @@ export default [
         icon:'ti-user-check',
         description: 'Design permission slips granting students permission to access and engage with specific media content.',
         inputs: {
-            level: {
+            grade: {
                 value: '',
                 placeholder: 'For instance, 6th grade.',
                 inputType: 'text',
@@ -1818,7 +1818,7 @@ export default [
         category: 'Social Studies',
         tag: 'social_studies',
         promptExample: 'Help students gain understanding, foster compassion, and identify historical trends',
-        systemPrompt: 'Assist in generating clear and concise instructions for monthly auxiliary reports. Provide guidance on structuring the report, including key points, challenges, highlights, and insights. Ensure the instructions are professional and informative to simplify the reporting process.',
+        systemPrompt: '',
         title: 'View History From Any Angle',
         icon:'ti-eye',
         description: 'Use different viewpoints and perspectives to examine history from multiple angles.',
