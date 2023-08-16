@@ -14,17 +14,22 @@ class generateModel {
         this.starCredit = new StarCreditModel();
     }
 
-    async consultation(prompt) {
+    async consultation(data) {
         try {
-            const param = { messages: [ { role:'system',
-                      content:"You are a helpfull assistant. Use the following principles in responding to user:\n\n- You can write and execute Python code by enclosing it in triple backticks. Use this to perfom calculations.\n- Give grammar correction if user grammar is wrong.\n- Always give consize, factual answer.\n- Suggest multimedia resource, teaching materials and fun activities.\n- Suggest adaptive teaching strategies about the topic asked.\n- Actively listen to user responses, paying careful attention to their underlying thought processes and making a genuine effort to understand their perspectives.\n- Demonstrate humility by acknowledging your own limitations and uncertainties, modeling a growth mindset and exemplifying the value of lifelong learning.", 
+            const param = { 
+                    messages: [ { 
+                        role:'system',
+                        content: data.systemPropmt, 
                     },
-                    prompt
+                    {
+                        rolte: 'user',
+                        content: data.userPrompt
+                    }
                 ],
                 ...this.options
             };
 
-            const pass = await this.starCredit.checkPrompt(prompt);
+            const pass = this.starCredit.checkPrompt(prompt);
             if(pass) {
                 const chatCompletion = await openai.createChatCompletion(param)
                                         .then(res => res.data);

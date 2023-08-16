@@ -5,6 +5,7 @@ export const useFormStore = defineStore("form", {
         title: '',
         description: '',
         promptExample: '',
+        systemPrompt: '',
         category: '',
         icon:'',
         inputs: {
@@ -24,6 +25,7 @@ export const useFormStore = defineStore("form", {
             this.category = details.category;
             this.icon = details.icon;
             this.inputs = details.inputs;
+            this.systemPrompt = details.systemPrompt;
         }
     }
 });

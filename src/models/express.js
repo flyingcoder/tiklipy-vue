@@ -2,11 +2,10 @@ import axios from "../plugins/axios";
 import { auth } from "../plugins/firebase";
 
 class ExpressModel {
-    generateLesson(instruction) {
+    generateResource(data) {
         try {
             axios.defaults.headers.common['Authorization'] = auth?.currentUser?.accessToken;
-            const params = {role: 'user', content: instruction};
-            return axios.post('/api/v1/generate/lesson-plan', params)
+            return axios.post('/api/v1/generate/lesson-plan', data)
         } catch (error) {
             console.log(error);
             return false;
