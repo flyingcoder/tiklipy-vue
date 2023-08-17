@@ -325,7 +325,7 @@ export default [
     },
     {
         type: 'sign-ups',
-        category: 'Sign-Ups',
+        category: 'Sign Ups',
         tag: 'sign-up',
         promptExample: 'Present student accomplishments using an individualized social media release form.',
         systemPrompt: "Generate a customizable volunteer sign-up form template for school events. Provide the variables for grade, participants, event, date, start time, end time, number of volunteers needed, confirmation date, contact name, school, and contact details. Upon inputting values, the form will include sign-up fields for volunteers, with a note that signing up confirms their availability and willingness to volunteer, and they'll be contacted to confirm details.",
@@ -954,43 +954,17 @@ export default [
             },
         }
     },
-    // not done 
-    {
-        type: 'email',
-        category: 'Email',
-        tag: 'email',
-        promptExample: 'Change the tone of your email to convey a sense of urgency.',
-        systemPrompt: 'Assist in generating clear and concise instructions for monthly auxiliary reports. Provide guidance on structuring the report, including key points, challenges, highlights, and insights. Ensure the instructions are professional and informative to simplify the reporting process.',
-        title: 'Refine an Email',
-        icon:'ti-refresh',
-        description: 'Enhance the effectiveness of your emails by improving the tone, clarity, and impact.',
-        inputs: {
-            tone: {
-                value: '',
-                placeholder: 'Examples: Professional, Friendly, Positive, Casual, Urgent, Apologetic, Informal, Critical',
-                inputType: 'text',
-                label: 'Tone',
-            },
-            email: {
-                value: '',
-                placeholder: 'Paste the email here.',
-                inputType: 'textarea',
-                label: 'Email Content',
-            },
-        }
-    },
-        // not done 
     {
         type: 'curriculum',
         category: 'Curriculum',
         tag: 'curriculum',
         promptExample: 'Change the tone of your email to convey a sense of urgency.',
-        systemPrompt: 'Assist in generating clear and concise instructions for monthly auxiliary reports. Provide guidance on structuring the report, including key points, challenges, highlights, and insights. Ensure the instructions are professional and informative to simplify the reporting process.',
+        systemPrompt: `You are an AI that can rephrase or summarize a piece of text based on the user's selection. Your objective is to modify the content to enhance idea clarity, emphasize essential points, and assist in memory retention, according to whether the user chooses rephrasing or summarizing, and the provided passage. Please ensure to exclude the word "title," and aim for simplicity and fluency. Please use the following format: option: '', passage: ''.`,
         title: 'Rephrase or Summarize a Piece of Text',
         icon:'ti-refresh',
         description: 'Alter content to clarify ideas, focus on key points, and aid in memory retention.',
         inputs: {
-            overview: {
+            option: {
                 value: '',
                 placeholder: 'Examples: Rephrase or  Summarize',
                 inputType: 'text',
@@ -1004,13 +978,12 @@ export default [
             },
         }
     },
-        // not done 
     {
         type: 'language_arts',
         category: 'Language Arts',
         tag: 'language_arts',
         promptExample: 'Change the point of view to teach students about narrative techniques, critical thinking skills, and empathy.',
-        systemPrompt: 'Assist in generating clear and concise instructions for monthly auxiliary reports. Provide guidance on structuring the report, including key points, challenges, highlights, and insights. Ensure the instructions are professional and informative to simplify the reporting process.',
+        systemPrompt: `You are an AI that can switch between first, second, and third person based on the user-provided point of view. Your objective is to experiment with different perspectives to expand the writing's outlook, influenced by the user's selected point of view and passage. Please remember to convert the passage into a title, exclude the word "title," keep your perspective clear yet impactful, and formulate a concluding statement. Please use the following format: view: '', passage: ''.`,
         title: 'Switch Between First, Second, and Third Person',
         icon:'ti-refresh',
         description: 'Experiment with different points of view to broaden your writing perspectives.',
@@ -1029,30 +1002,6 @@ export default [
             },
         }
     },
-    {
-        type: 'classroom',
-        category: 'Classroom',
-        tag: 'classroom',
-        promptExample: '',
-        systemPrompt: 'Assist in generating clear and concise instructions for monthly auxiliary reports. Provide guidance on structuring the report, including key points, challenges, highlights, and insights. Ensure the instructions are professional and informative to simplify the reporting process.',
-        title: 'Translate Writing to Another Language',
-        icon:'ti-refresh',
-        description: 'Convert written content from one language to another.',
-        inputs: {
-            language: {
-                value: '',
-                placeholder: 'Examples: Spanish',
-                inputType: 'text',
-                label: 'Language',
-            },
-            passage: {
-                value: '',
-                placeholder: 'Paste text or passage here.',
-                inputType: 'textarea',
-                label: 'Original Text or Passage',
-            },
-        }
-    },
 
     // Manage Section
     {
@@ -1060,7 +1009,7 @@ export default [
         category: 'Classroom',
         tag: 'classroom',
         promptExample: 'Improve performance and behavior by creating a positive classroom climate.',
-        systemPrompt: 'Assist in generating clear and concise instructions for monthly auxiliary reports. Provide guidance on structuring the report, including key points, challenges, highlights, and insights. Ensure the instructions are professional and informative to simplify the reporting process.',
+        systemPrompt: `You are an AI that can enhance a classroom environment. Your objective is to discover techniques for improving the overall classroom atmosphere based on the user's selected grade level. Please ensure to include a title and a conclusion. Please use the following format: grade: ''.`,
         title: 'Enhance Your Classroom Environment',
         icon:'ti-mood-smile',
         description: 'Discover techniques for enhancing the overall environment of your classroom.',
@@ -1078,7 +1027,7 @@ export default [
         category: 'Classroom',
         tag: 'classroom',
         promptExample: '',
-        systemPrompt: 'Assist in generating clear and concise instructions for monthly auxiliary reports. Provide guidance on structuring the report, including key points, challenges, highlights, and insights. Ensure the instructions are professional and informative to simplify the reporting process.',
+        systemPrompt: `You are an AI that can generate foster student motivation. Your objective is to discover methods to enhance student motivation based on the user's selected grade level and motivational needs. Notes to remember: remove the numbers from each method and ensure that the methods are simple yet effective. Please use the following format: grade: '', needs: ''.`,
         title: 'Foster Student Motivation',
         icon:'ti-user-plus',
         description: 'Discover methods to enhance student motivation.',
@@ -1102,7 +1051,7 @@ export default [
         category: 'Classroom',
         tag: 'classroom',
         promptExample: '',
-        systemPrompt: 'Assist in generating clear and concise instructions for monthly auxiliary reports. Provide guidance on structuring the report, including key points, challenges, highlights, and insights. Ensure the instructions are professional and informative to simplify the reporting process.',
+        systemPrompt: `You are an AI that can identify behavior patterns. Your objective is to analyze problematic behaviors and detect potential patterns based on the user's selected student age or grade level, behavior incidents, disciplinary actions taken, academic performance, attendance history, status of social-emotional development, family background, school environment, and additional information. Please ensure that you don't include value titles in your generated content. Also, make sure to add a note in the last part. Please use the following format: grade: '', behavior: '', action: '', performance: '', attendance: '', development: '', background: '', environment: '', information: ''.`,
         title: 'Identify Behavior Patterns',
         icon:'ti-user-plus',
         description: 'Analyze problem behaviors and detect possible patterns.',
@@ -1168,7 +1117,7 @@ export default [
         category: 'Classroom',
         tag: 'classroom',
         promptExample: 'Verify whether or not student behavior aligns with their age and development stage.',
-        systemPrompt: 'Assist in generating clear and concise instructions for monthly auxiliary reports. Provide guidance on structuring the report, including key points, challenges, highlights, and insights. Ensure the instructions are professional and informative to simplify the reporting process.',
+        systemPrompt: `You are an AI that can learn about social and emotional development. Your objective is to explore the social and emotional growth of students based on the user's selected grade level. Please remember to include an example at the end. Please use the following format: grade: ''.`,
         title: 'Learn About Social and Emotional Development',
         icon:'ti-thumb-up',
         description: 'Explore the social and emotional growth of students.',
@@ -1278,7 +1227,7 @@ export default [
         category: 'Classroom',
         tag: 'classroom',
         promptExample: '',
-        systemPrompt: ``,
+        systemPrompt: `You are an AI that can create groups or partnerships. Your objective is to create random groupings based on the user's selected list of names and grouping criteria. For instance, if the user chooses "people per group," the individuals should be listed individually in lines or organized by the specified number of people per group. The total number of groupings and the total group count should also be provided. Please use the following format: names: '', group: '', number: ''.`,
         title: 'Generate Groups or Partnerships',
         icon:'ti-folder',
         description: 'Create random student groupings with just a few clicks.',
@@ -1394,7 +1343,8 @@ export default [
         category: 'Language Arts',
         tag: 'language_arts',
         promptExample: 'Generate inferences based on President Roosevelts "Man in the Arena" speech.',
-        systemPrompt: ``,
+        systemPrompt: `
+        You are an AI that can generate conclusions from a piece of writing. Your objective is to make inferences and draw conclusions by reading between the lines based on the user's selected passage. Please use the following format: passage: ''.`,
         title: 'Draw Conclusions From a Piece of Writing',
         icon:'ti-notebook',
         description: 'Make inferences and conclusions to read between the lines.',
