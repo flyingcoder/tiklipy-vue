@@ -408,7 +408,7 @@ export default [
         promptExample: 'Distinguish a formative assessment by presenting students with a creative challenge that necessitates critical thinking to demonstrate their knowledge.',
         systemPrompt: "You are an alternative assessment AI. You will generate a lesson for the user's students. The topic, the grade level of students, and the type of Assessment will be given by the user in this format: evaluation: '', grade: '', subject: '', details: ''",
         title: 'Develop an alternative method of evaluation.',
-        icon:'ti-pencil',
+        icon:'ti-movie',
         description: 'Craft an unconventional assessment strategy to gauge student understanding.',
         inputs: {
             evaluation: {
@@ -444,7 +444,7 @@ export default [
         promptExample: 'Although precautions are in place, the system might occasionally produce inaccurate or deceptive information. Its advisable to verify the results.',
         systemPrompt: 'You are a Five-E Lesson Plan Generator AI. Your job is to Design a lesson that promotes active learning through five distinct stages. the Lesson Length, Grade Level, Subject, Topic or Standard will be provided in this format: duration: "data", grade: "data", subject: "data", topic: "data". also put a note if you have something to say at the bottom. Avoid using monitors and other gadgets.',
         title: 'Create a lesson plan structured around the Five-E framework.',
-        icon:'ti-pencil',
+        icon:'ti-list',
         description: 'Devise a lesson plan that encourages active learning through five well-defined stages.',
         inputs: {
             duration: {
@@ -480,7 +480,7 @@ export default [
         promptExample: 'Although precautions are in place, the system might occasionally produce inaccurate or deceptive information. Its advisable to verify the results.',
         systemPrompt: 'You are a Subject Line Generator AI. Your Job is to Instantly create subject lines that summarize the content of an email. the content of your email will be provided and the tone will also be provided in this format:  tone: "data", email: "data". You will output only one line per request',
         title: 'Creating an Effective Subject Line',
-        icon:'ti-pencil',
+        icon:'ti-mail',
         description: 'Generate Email Subject Lines for Instant Content Summarization',
         inputs: {
             tone: {
@@ -540,7 +540,7 @@ export default [
         promptExample: 'While we have safeguards in place, the system may occasionally generate incorrect or misleading information. Please double-check results.',
         systemPrompt: 'You are an Explicit Lesson Plan Generator AI. Your job is to Design a direct instruction lesson with clear goals, structure, and organization. You will be given the lesson length, Grade Level, Subject, and topic. Based on the given data, you will start to generate a direct instruction lesson plan. You will get the content form the user in this format:  lesson: "data", grade: "data", subject: "data", situation: "data"',
         title: 'Generate an Explicit Lesson Plan',
-        icon:'ti-pencil',
+        icon:'ti-list',
         description: 'Design a direct instruction lesson with clear goals, structure, and organization.',
         inputs: {
             lesson: {
@@ -576,7 +576,7 @@ export default [
         promptExample: 'While we have safeguards in place, the system may occasionally generate incorrect or misleading information. Please double-check results.',
         systemPrompt: 'You are an Inquiry-Based Lesson Plan Generator. Your job is to Design a student-led lesson that prioritizes critical thinking, exploration, and discovery. You will be given the lesson length, Grade Level, Subject, and topic by the user in this format: duration: "", grade: "", subject: "", topic: "". When you prompt it I  want you to output the title first then the other contents',
         title: 'Generate an Inquiry-Based Lesson Plan',
-        icon:'ti-pencil',
+        icon:'ti-list',
         description: 'Design a student-led lesson that prioritizes critical thinking, exploration, and discovery.',
         inputs: {
             duration: {
@@ -612,7 +612,7 @@ export default [
         promptExample: 'While we have safeguards in place, the system may occasionally generate incorrect or misleading information. Please double-check results.',
         systemPrompt: "You are a Produce Feedback or Constructive Criticism AI. Your job is to provide colleagues and students with valuable support and guidance. You will be asked whom this criticism is for, the name of the person, the list of positive aspects, and the list of areas to improve. In this format: regarding: 'data', name: 'data', aspects: 'data', areas: 'data'. Always put I assume that the user didn't specify what he inputed",
         title: 'Produce Feedback or Constructive Criticism',
-        icon:'ti-pencil',
+        icon:'ti-message-circle',
         description: '  .',
         inputs: {
             regarding: {
@@ -648,7 +648,7 @@ export default [
         promptExample: '',
         systemPrompt: 'You are a Letter of Recommendation AI. Your Job is to Write professional letters that emphasize strengths and accomplishments. You will receive a series of data points that will help you create the letter of recommendation.  this will be the data that will help you make the recommendation letter: consideration: "data", subject: "data", role: "data", relationship: "data", type: "data", basis: "data", evidence: "data", sender: "data", title: "data", contact: "data"',
         title: 'Write a Letter of Recommendation',
-        icon:'ti-pencil',
+        icon:'ti-file-text',
         description: 'Write professional letters that emphasize strengths and accomplishments.',
         inputs: {
             audience: {
@@ -720,7 +720,7 @@ export default [
         promptExample: 'Improve your text messaging by crafting concise, impactful, and efficient messages.',
         systemPrompt: 'Assist in generating clear and concise instructions for monthly auxiliary reports. Provide guidance on structuring the report, including key points, challenges, highlights, and insights. Ensure the instructions are professional and informative to simplify the reporting process.',
         title: 'Write a Text Message Reminder or Notification',
-        icon:'ti-pencil',
+        icon:'ti-bell',
         description: 'Write professional letters that emphasize strengths and accomplishments.',
         inputs: {
             remindedOrNotification: {
@@ -755,7 +755,8 @@ export default [
         tag: 'email',
         promptExample: 'Improve your text messaging by crafting concise, impactful, and efficient messages.',
         systemPrompt: 'You are a Text Message Reminder or notification AI. Your job is to improve the users text messaging experience by crafting concise, impactful, and efficient messages. you will not generate content when you are not provided with these data. If the data is empty or it says "data" you will wait for the data to arrive prompt: "data ", consideration: "data ", count: "data ", information: "data".',
-        icon:'ti-pencil',
+        title: 'Write an Email',
+        icon:'ti-mail',
         description: 'Generate effective emails with personalized tone and content.',
         inputs: {
             tone: {
