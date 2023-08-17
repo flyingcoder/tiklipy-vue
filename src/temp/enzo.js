@@ -4,7 +4,7 @@ export default [
         category: 'Language Type',
         tag: 'write',
         promptExample: '',
-        systemPrompt: 'Assist in generating clear and concise instructions for monthly auxiliary reports. Provide guidance on structuring the report, including key points, challenges, highlights, and insights. Ensure the instructions are professional and informative to simplify the reporting process.',
+        systemPrompt: 'Create a poem with the provided verse and subject format: verse: "data", subject: "data".',
         title: 'Craft a poem',
         icon:'ti-pencil',
         description: 'Generate customized poems based on various topics and styles.',
@@ -27,29 +27,35 @@ export default [
         type: 'assessments',
         category: 'Assessments',
         tag: 'write',
-        promptExample: 'Although we have protective measures, the system might sometimes produce inaccurate or deceptive information. Kindly verify responses.',
-        systemPrompt: 'Assist in generating clear and concise instructions for monthly auxiliary reports. Provide guidance on structuring the report, including key points, challenges, highlights, and insights. Ensure the instructions are professional and informative to simplify the reporting process.',
+        promptExample: 'While we have safeguards in place, the system may occasionally generate incorrect or misleading information. Please double-check answers.',
+        systemPrompt: "You'll be providing a text block, along with the desired grade grade, type of question, number of questions, and a designated topic. Your task is to generate questions that align with the specified grade grade in terms of complexity. Kindly use the following format: grade: 'data', subject: 'data', questions: 'data', type: 'data'",
         title: 'Generate conventional evaluation inquiries.',
         icon:'ti-pencil',
         description: 'Create queries designed to assess student comprehension.',
         inputs: {
+            grade: {
+                value: '',
+                placeholder: 'e.g. 5th Grade',
+                inputType: 'input',
+                label: 'Enter the grade grade',
+            },
             subject: {
                 value: '',
-                placeholder: 'Indicate the overarching subject or insert an official standard.',
+                placeholder: 'State the general topic or paste an official standard.',
                 inputType: 'textarea',
-                label: 'Subject or Criterion',
+                label: 'Topic or Standard',
             },
             questions: {
                 value: '',
                 placeholder: 'For instance, 1 or a range from 2 to 10.',
                 inputType: 'text',
-                label: 'How many questions do you desire?',
+                label: 'How Many Questions Would You Like?',
             },
             type: {
                 value: '',
                 placeholder: 'For example, multiple choice, true or false, fill in the blank, short answer essay, or numeric response.',
                 inputType: 'text',
-                label: 'Kind of Inquiries',
+                label: 'Type of Questions',
             },
         }
     },
@@ -57,13 +63,13 @@ export default [
         type: 'forms',
         category: 'Forms',
         tag: 'write',
-        promptExample: 'Computer Laborator Supervisor Auxiliary report.',
-        systemPrompt: 'Assist in generating clear and concise instructions for monthly auxiliary reports. Provide guidance on structuring the report, including key points, challenges, highlights, and insights. Ensure the instructions are professional and informative to simplify the reporting process.',
+        promptExample: '',
+        systemPrompt: 'Generate a customized donation or supply request based on the following information: grade: "data", target: "data", request: "data", accasion: "data", deadline: "data", name: "data", school: "data", contact: "data"',
         title: 'Formulate a solicitation for donations or supplies.',
         icon:'ti-user-check',
         description: 'Craft personalized appeals for donations or supplies to meet specific needs.',
         inputs: {
-            field: {
+            grade: {
                 value: '',
                 placeholder: 'For instance, 6th grade.',
                 inputType: 'text',
@@ -75,7 +81,7 @@ export default [
                 inputType: 'text',
                 label: 'Target Audience or Receiver',
             },
-            items: {
+            request: {
                 value: '',
                 placeholder: 'For example, 25 sets of child-size scissors, four packs of mechanical pencils, and so on.',
                 inputType: 'textarea',
@@ -93,19 +99,19 @@ export default [
                 inputType: 'text',
                 label: 'Deadline for Donation Submission',
             },
-            contact: {
+            name: {
                 value: '',
                 placeholder: 'For example, Ms. Cotant.',
                 inputType: 'text',
                 label: 'Name(s) of Point of Contact',
             },
-            educational: {
+            school: {
                 value: '',
                 placeholder: 'For instance, Maple Middle School.',
                 inputType: 'text',
                 label: 'Title of Educational Establishment',
             },
-            educational: {
+            contact: {
                 value: '',
                 placeholder: 'For example, enzo@tiklipy.com.',
                 inputType: 'text',
@@ -117,25 +123,25 @@ export default [
         type: 'forms',
         category: 'Forms',
         tag: 'write',
-        promptExample: 'Computer Laborator Supervisor Auxiliary report.',
-        systemPrompt: 'Assist in generating clear and concise instructions for monthly auxiliary reports. Provide guidance on structuring the report, including key points, challenges, highlights, and insights. Ensure the instructions are professional and informative to simplify the reporting process.',
+        promptExample: '',
+        systemPrompt: 'Generate a persuasive permission slip for students to participate in an off-campus excursion. using this data. grade: "data", desination: "data", date: "data", departure: "data", return: "data", transportation: "data", deadline: "data", contact: "data", school: "data", email: "data"',
         title: 'Generate a document for obtaining field trip permissions.',
         icon:'ti-user-check',
         description: 'Generate a permission slip for students to participate in an off-campus excursion.',
         inputs: {
-            level: {
+            grade: {
                 value: '',
                 placeholder: 'For example, 6th grade.',
                 inputType: 'text',
                 label: 'Educational Level or Discipline',
             },
-            location: {
+            desination: {
                 value: '',
                 placeholder: 'For example, Museum of Art.',
                 inputType: 'text',
                 label: 'Location of Visit',
             },
-            field: {
+            date: {
                 value: '',
                 placeholder: 'For example, Friday, March 24th.',
                 inputType: 'text',
@@ -153,19 +159,13 @@ export default [
                 inputType: 'text',
                 label: 'Time of Return to School',
             },
-            method: {
+            transportation: {
                 value: '',
                 placeholder: 'For example, school bus, walking, etc.',
                 inputType: 'text',
                 label: 'Method of Travel',
             },
-            due: {
-                value: '',
-                placeholder: 'Due Date for Returning the Permission Slip',
-                inputType: 'text',
-                label: 'Provide the choice for school-provided lunch or home-packed lunch.',
-            },
-            permission: {
+            deadline: {
                 value: '',
                 placeholder: 'For instance, Wednesday, March 1st.',
                 inputType: 'text',
@@ -177,13 +177,13 @@ export default [
                 inputType: 'text',
                 label: 'Name(s) of Contact Person(s)',
             },
-            institution: {
+            school: {
                 value: '',
                 placeholder: 'For example, Maple Middle School.',
                 inputType: 'text',
                 label: 'Title of Educational Institution',
             },
-            details: {
+            email: {
                 value: '',
                 placeholder: 'For instance, ivy@classpack.com.',
                 inputType: 'text',
@@ -195,8 +195,8 @@ export default [
         type: 'forms',
         category: 'Forms',
         tag: 'write',
-        promptExample: 'Computer Laborator Supervisor Auxiliary report.',
-        systemPrompt: 'Assist in generating clear and concise instructions for monthly auxiliary reports. Provide guidance on structuring the report, including key points, challenges, highlights, and insights. Ensure the instructions are professional and informative to simplify the reporting process.',
+        promptExample: '',
+        systemPrompt: 'Write me permission slips that allow students to access and consume designated media using the data in this user provided data: grade: "data", literary: "data", title: "data", author: "data", age_rating: "data", rating: "data", material: "data", deadline: "data", contact: "data", school: "data", contactDetails: "data"',
         title: 'Generate a consent form for reading or viewing media.',
         icon:'ti-user-check',
         description: 'Design permission slips granting students permission to access and engage with specific media content.',
@@ -213,19 +213,13 @@ export default [
                 inputType: 'text',
                 label: 'Literary Work or Movie',
             },
-            items: {
-                value: '',
-                placeholder: 'For example, 25 sets of child-size scissors, four packs of mechanical pencils, and so on.',
-                inputType: 'textarea',
-                label: 'Items in Demand',
-            },
-            name: {
+            title: {
                 value: '',
                 placeholder: 'For example, "Allies".',
                 inputType: 'textarea',
                 label: 'Name of the Book or Film',
             },
-            composer: {
+            author: {
                 value: '',
                 placeholder: 'For example, Alan Gratz.',
                 inputType: 'text',
@@ -249,7 +243,7 @@ export default [
                 inputType: 'textarea',
                 label: 'Sensitive Material',
             },
-            due: {
+            deadline: {
                 value: '',
                 placeholder: 'For instance, Wednesday, March 1st.',
                 inputType: 'text',
@@ -261,13 +255,13 @@ export default [
                 inputType: 'text',
                 label: 'Name(s) of Contact Person(s)',
             },
-            institution: {
+            school: {
                 value: '',
                 placeholder: 'For example, Maple Middle School.',
                 inputType: 'text',
                 label: 'Title of Educational Institution',
             },
-            details: {
+            contactDetails: {
                 value: '',
                 placeholder: 'For instance, ivy@classpack.com.',
                 inputType: 'text',
@@ -285,7 +279,7 @@ export default [
         icon:'ti-pencil',
         description: 'Create forms that grant permission to showcase student work or images on social media platforms.',
         inputs: {
-            level: {
+            grade: {
                 value: '',
                 placeholder: 'For instance, 6th grade.',
                 inputType: 'text',
@@ -321,7 +315,7 @@ export default [
                 inputType: 'text',
                 label: 'Title of Educational Institution',
             },
-            details: {
+            contactDetails: {
                 value: '',
                 placeholder: 'For instance, ivy@classpack.com.',
                 inputType: 'text',
@@ -334,72 +328,72 @@ export default [
         category: 'Sign-Ups',
         tag: 'sign-up',
         promptExample: 'Present student accomplishments using an individualized social media release form.',
-        systemPrompt: 'Assist in generating clear and concise instructions for monthly auxiliary reports. Provide guidance on structuring the report, including key points, challenges, highlights, and insights. Ensure the instructions are professional and informative to simplify the reporting process.',
+        systemPrompt: "Generate a customizable volunteer sign-up form template for school events. Provide the variables for grade, participants, event, date, start time, end time, number of volunteers needed, confirmation date, contact name, school, and contact details. Upon inputting values, the form will include sign-up fields for volunteers, with a note that signing up confirms their availability and willingness to volunteer, and they'll be contacted to confirm details.",
         title: 'Generate a form for volunteers to sign up.',
         icon:'ti-pencil',
         description: 'Create registration forms to gather volunteers for your cause.',
         inputs: {
-            level: {
+            grade: {
                 value: '',
                 placeholder: 'For instance, 6th grade.',
                 inputType: 'text',
                 label: 'Educational Level or Field of Study',
             },
-            directed: {
+            participants: {
                 value: '',
                 placeholder: 'Who is this directed towards?',
                 inputType: 'text',
                 label: 'Intended Participants or Volunteers',
             },
-            situation: {
+            event: {
                 value: '',
                 placeholder: 'What is the reason for seeking volunteers?',
                 inputType: 'text',
                 label: 'Occasion or Project',
             },
-            assistance: {
+            date: {
                 value: '',
                 placeholder: 'For instance, Monday, December 20th.',
                 inputType: 'text',
                 label: 'When do you require assistance?',
             },
-            start: {
+            startTime: {
                 value: '',
                 placeholder: 'The time they are expected to arrive.',
                 inputType: 'text',
                 label: 'Beginning Hour',
             },
-            conclude: {
+            endTime: {
                 value: '',
                 placeholder: 'The time they are expected to finish.',
                 inputType: 'text',
                 label: 'Concluding Time',
             },
-            volunteers: {
+            numberOfVolunteers: {
                 value: '',
                 placeholder: 'For example, a range from 1 to 10+.',
                 inputType: 'text',
                 label: 'How many volunteers are you in need of?',
             },
-            educational: {
+            confirmationToAttendDate: {
                 value: '',
                 placeholder: 'When will you confirm the assistance?',
                 inputType: 'text',
                 label: 'Date of Confirmation',
             },
-            contact: {
+            nameOfcontact: {
                 value: '',
                 placeholder: 'For example, Ms. Cotant',
                 inputType: 'text',
                 label: 'Name(s) of Contact Person(s)',
             },
-            institution: {
+            school: {
                 value: '',
                 placeholder: 'For example, Maple Middle School.',
                 inputType: 'text',
                 label: 'Title of Educational Institution',
             },
-            details: {
+            contactDetails: {
                 value: '',
                 placeholder: 'For instance, ivy@classpack.com.',
                 inputType: 'text',
@@ -412,7 +406,7 @@ export default [
         category: 'Assessments',
         tag: 'assessments',
         promptExample: 'Distinguish a formative assessment by presenting students with a creative challenge that necessitates critical thinking to demonstrate their knowledge.',
-        systemPrompt: 'Assist in generating clear and concise instructions for monthly auxiliary reports. Provide guidance on structuring the report, including key points, challenges, highlights, and insights. Ensure the instructions are professional and informative to simplify the reporting process.',
+        systemPrompt: "You are an alternative assessment AI. You will generate a lesson for the user's students. The topic, the grade level of students, and the type of Assessment will be given by the user in this format: evaluation: '', grade: '', subject: '', details: ''",
         title: 'Develop an alternative method of evaluation.',
         icon:'ti-pencil',
         description: 'Craft an unconventional assessment strategy to gauge student understanding.',
@@ -423,7 +417,7 @@ export default [
                 inputType: 'text',
                 label: 'Category of Non-Traditional Evaluation',
             },
-            level: {
+            grade: {
                 value: '',
                 placeholder: 'For instance, 6th grade.',
                 inputType: 'text',
@@ -448,7 +442,7 @@ export default [
         category: 'Lesson Planning',
         tag: 'lesson',
         promptExample: 'Although precautions are in place, the system might occasionally produce inaccurate or deceptive information. Its advisable to verify the results.',
-        systemPrompt: 'Assist in generating clear and concise instructions for monthly auxiliary reports. Provide guidance on structuring the report, including key points, challenges, highlights, and insights. Ensure the instructions are professional and informative to simplify the reporting process.',
+        systemPrompt: 'You are a Five-E Lesson Plan Generator AI. Your job is to Design a lesson that promotes active learning through five distinct stages. the Lesson Length, Grade Level, Subject, Topic or Standard will be provided in this format: duration: "data", grade: "data", subject: "data", topic: "data". also put a note if you have something to say at the bottom. Avoid using monitors and other gadgets.',
         title: 'Create a lesson plan structured around the Five-E framework.',
         icon:'ti-pencil',
         description: 'Devise a lesson plan that encourages active learning through five well-defined stages.',
@@ -459,23 +453,23 @@ export default [
                 inputType: 'text',
                 label: 'Duration of the Lesson',
             },
-            level: {
+            grade: {
                 value: '',
                 placeholder: 'For example, 8th grade.',
                 inputType: 'text',
                 label: 'Educational Level',
             },
-            situation: {
+            subject: {
                 value: '',
                 placeholder: 'For example, Mathematics, English Language Arts, Social Studies, Science, or Fine Arts.',
                 inputType: 'textarea',
-                label: 'Topic or Standard',
+                label: 'Subject',
             },
-            standard: {
+            topic: {
                 value: '',
-                placeholder: 'Indicate the overarching subject or provide an official standard.',
+                placeholder: 'Indicate the topic or provide an official standard.',
                 inputType: 'textarea',
-                label: 'Subject Matter or Learning Objective',
+                label: 'Topic or Standard',
             },
         }
     },
@@ -484,7 +478,7 @@ export default [
         category: 'Email',
         tag: 'email',
         promptExample: 'Although precautions are in place, the system might occasionally produce inaccurate or deceptive information. Its advisable to verify the results.',
-        systemPrompt: 'Assist in generating clear and concise instructions for monthly auxiliary reports. Provide guidance on structuring the report, including key points, challenges, highlights, and insights. Ensure the instructions are professional and informative to simplify the reporting process.',
+        systemPrompt: 'You are a Subject Line Generator AI. Your Job is to Instantly create subject lines that summarize the content of an email. the content of your email will be provided and the tone will also be provided in this format:  tone: "data", email: "data". You will output only one line per request',
         title: 'Creating an Effective Subject Line',
         icon:'ti-pencil',
         description: 'Generate Email Subject Lines for Instant Content Summarization',
@@ -498,7 +492,7 @@ export default [
             email: {
                 value: '',
                 placeholder: 'Paste the email here.',
-                inputType: 'text',
+                inputType: 'textarea',
                 label: 'Email Content',
             },
         }
@@ -508,7 +502,7 @@ export default [
         category: 'Curriculum',
         tag: 'curriculum',
         promptExample: 'Save time by producing a custom piece of writing that directly aligns with your learning goal.',
-        systemPrompt: 'Assist in generating clear and concise instructions for monthly auxiliary reports. Provide guidance on structuring the report, including key points, challenges, highlights, and insights. Ensure the instructions are professional and informative to simplify the reporting process.',
+        systemPrompt: "You are an Article, Passage, or Short Story Generator AI. Your job is to Instantly create content that is tailored to the user's needs and requirements. The type of text and topic will be provided by the user. Make sure the text you write corresponds to the grade level of the user's students. the information that you require will be provided in this format: type: '', grade: '', situation: '', information: ''",
         title: 'Generate an Article, Passage, or Short Story',
         icon:'ti-pencil',
         description: 'Instantly create content that is tailored to your individual needs and requirements.',
@@ -519,55 +513,19 @@ export default [
                 inputType: 'text',
                 label: 'Type of Text',
             },
-            level: {
+            grade: {
                 value: '',
                 placeholder: 'Example: 8th grade.',
                 inputType: 'text',
                 label: 'Grade Level',
             },
-            situation: {
+            topic: {
                 value: '',
                 placeholder: 'State the general topic or paste an official standard.',
                 inputType: 'textarea',
                 label: 'Topic or Standard',
             },
-            information: {
-                value: '',
-                placeholder: 'What specific information would you like included? ',
-                inputType: 'textarea',
-                label: 'Information to Include',
-            },
-        }
-    },
-    {
-        type: 'lesson',
-        category: 'Lesson Planning',
-        tag: 'lesson',
-        promptExample: 'Save time by producing a custom piece of writing that directly aligns with your learning goal.',
-        systemPrompt: 'Assist in generating clear and concise instructions for monthly auxiliary reports. Provide guidance on structuring the report, including key points, challenges, highlights, and insights. Ensure the instructions are professional and informative to simplify the reporting process.',
-        title: 'Generate an Article, Passage, or Short Story',
-        icon:'ti-pencil',
-        description: 'Instantly create content that is tailored to your individual needs and requirements.',
-        inputs: {
-            type: {
-                value: '',
-                placeholder: 'Examples: Article, Passage or Story',
-                inputType: 'text',
-                label: 'Type of Text',
-            },
-            level: {
-                value: '',
-                placeholder: 'Example: 8th grade.',
-                inputType: 'text',
-                label: 'Grade Level',
-            },
-            situation: {
-                value: '',
-                placeholder: 'State the general topic or paste an official standard.',
-                inputType: 'textarea',
-                label: 'Topic or Standard',
-            },
-            include: {
+            details: {
                 value: '',
                 placeholder: 'What specific information would you like included? ',
                 inputType: 'textarea',
@@ -580,7 +538,7 @@ export default [
         category: 'Lesson Planning',
         tag: 'lesson',
         promptExample: 'While we have safeguards in place, the system may occasionally generate incorrect or misleading information. Please double-check results.',
-        systemPrompt: 'Assist in generating clear and concise instructions for monthly auxiliary reports. Provide guidance on structuring the report, including key points, challenges, highlights, and insights. Ensure the instructions are professional and informative to simplify the reporting process.',
+        systemPrompt: 'You are an Explicit Lesson Plan Generator AI. Your job is to Design a direct instruction lesson with clear goals, structure, and organization. You will be given the lesson length, Grade Level, Subject, and topic. Based on the given data, you will start to generate a direct instruction lesson plan. You will get the content form the user in this format:  lesson: "data", grade: "data", subject: "data", situation: "data"',
         title: 'Generate an Explicit Lesson Plan',
         icon:'ti-pencil',
         description: 'Design a direct instruction lesson with clear goals, structure, and organization.',
@@ -591,7 +549,7 @@ export default [
                 inputType: 'text',
                 label: 'Lesson Length',
             },
-            level: {
+            grade: {
                 value: '',
                 placeholder: 'Example: 8th grade.',
                 inputType: 'text',
@@ -616,18 +574,18 @@ export default [
         category: 'Lesson Planning',
         tag: 'lesson',
         promptExample: 'While we have safeguards in place, the system may occasionally generate incorrect or misleading information. Please double-check results.',
-        systemPrompt: 'Assist in generating clear and concise instructions for monthly auxiliary reports. Provide guidance on structuring the report, including key points, challenges, highlights, and insights. Ensure the instructions are professional and informative to simplify the reporting process.',
+        systemPrompt: 'You are an Inquiry-Based Lesson Plan Generator. Your job is to Design a student-led lesson that prioritizes critical thinking, exploration, and discovery. You will be given the lesson length, Grade Level, Subject, and topic by the user in this format: duration: "", grade: "", subject: "", topic: "". When you prompt it I  want you to output the title first then the other contents',
         title: 'Generate an Inquiry-Based Lesson Plan',
         icon:'ti-pencil',
         description: 'Design a student-led lesson that prioritizes critical thinking, exploration, and discovery.',
         inputs: {
-            lesson: {
+            duration: {
                 value: '',
                 placeholder: 'Examples: 45 minutes',
                 inputType: 'text',
                 label: 'Lesson Length',
             },
-            level: {
+            grade: {
                 value: '',
                 placeholder: 'Example: 8th grade.',
                 inputType: 'text',
@@ -639,7 +597,7 @@ export default [
                 inputType: 'textarea',
                 label: 'Subject',
             },
-            situation: {
+            topic: {
                 value: '',
                 placeholder: 'State the general topic or paste an official standard.',
                 inputType: 'textarea',
@@ -652,10 +610,10 @@ export default [
         category: 'Relationships',
         tag: 'relationships',
         promptExample: 'While we have safeguards in place, the system may occasionally generate incorrect or misleading information. Please double-check results.',
-        systemPrompt: 'Assist in generating clear and concise instructions for monthly auxiliary reports. Provide guidance on structuring the report, including key points, challenges, highlights, and insights. Ensure the instructions are professional and informative to simplify the reporting process.',
+        systemPrompt: "You are a Produce Feedback or Constructive Criticism AI. Your job is to provide colleagues and students with valuable support and guidance. You will be asked whom this criticism is for, the name of the person, the list of positive aspects, and the list of areas to improve. In this format: regarding: 'data', name: 'data', aspects: 'data', areas: 'data'. Always put I assume that the user didn't specify what he inputed",
         title: 'Produce Feedback or Constructive Criticism',
         icon:'ti-pencil',
-        description: 'Provide colleagues and students with valuable support and guidance.',
+        description: '  .',
         inputs: {
             regarding: {
                 value: '',
@@ -688,18 +646,18 @@ export default [
         category: 'Letter',
         tag: 'letter',
         promptExample: '',
-        systemPrompt: 'Assist in generating clear and concise instructions for monthly auxiliary reports. Provide guidance on structuring the report, including key points, challenges, highlights, and insights. Ensure the instructions are professional and informative to simplify the reporting process.',
+        systemPrompt: 'You are a Letter of Recommendation AI. Your Job is to Write professional letters that emphasize strengths and accomplishments. You will receive a series of data points that will help you create the letter of recommendation.  this will be the data that will help you make the recommendation letter: consideration: "data", subject: "data", role: "data", relationship: "data", type: "data", basis: "data", evidence: "data", sender: "data", title: "data", contact: "data"',
         title: 'Write a Letter of Recommendation',
         icon:'ti-pencil',
         description: 'Write professional letters that emphasize strengths and accomplishments.',
         inputs: {
-            consideration: {
+            audience: {
                 value: '',
                 placeholder: 'To whom is this addressed? ',
                 inputType: 'text',
                 label: 'Audience or Recipient',
             },
-            subject: {
+            name: {
                 value: '',
                 placeholder: 'Who is this letter about? ',
                 inputType: 'text',
@@ -711,19 +669,19 @@ export default [
                 inputType: 'textarea',
                 label: 'Title of Position/Role Being Sought',
             },
-            relationship: {
+            lengthRelationship: {
                 value: '',
                 placeholder: 'e.g., 2 years',
                 inputType: 'textarea',
                 label: 'Length of Relationship',
             },
-            type: {
+            history: {
                 value: '',
                 placeholder: 'How do you know this person?',
                 inputType: 'textarea',
                 label: 'Relationship Type and History',
             },
-            basis: {
+            recommendation: {
                 value: '',
                 placeholder: 'What are the reasons you are recommending this individual? Describe their relevant traits and qualities.',
                 inputType: 'textarea',
@@ -765,25 +723,25 @@ export default [
         icon:'ti-pencil',
         description: 'Write professional letters that emphasize strengths and accomplishments.',
         inputs: {
-            prompt: {
+            remindedOrNotification: {
                 value: '',
                 placeholder: 'Example: Reminder or Notification',
                 inputType: 'text',
                 label: 'Reminder or Notification',
             },
-            consideration: {
+            recipient: {
                 value: '',
                 placeholder: 'To whom is this addressed? ',
                 inputType: 'text',
                 label: 'Audience or Recipient',
             },
-            count: {
+            words: {
                 value: '',
                 placeholder: 'e.g., 20 words or less',
                 inputType: 'textarea',
                 label: 'Preferred Word Count',
             },
-            information: {
+            details: {
                 value: '',
                 placeholder: 'What specific information would you like included? ',
                 inputType: 'textarea',
@@ -796,8 +754,7 @@ export default [
         category: 'Email',
         tag: 'email',
         promptExample: 'Improve your text messaging by crafting concise, impactful, and efficient messages.',
-        systemPrompt: 'Assist in generating clear and concise instructions for monthly auxiliary reports. Provide guidance on structuring the report, including key points, challenges, highlights, and insights. Ensure the instructions are professional and informative to simplify the reporting process.',
-        title: 'Write an Email',
+        systemPrompt: 'You are a Text Message Reminder or notification AI. Your job is to improve the users text messaging experience by crafting concise, impactful, and efficient messages. you will not generate content when you are not provided with these data. If the data is empty or it says "data" you will wait for the data to arrive prompt: "data ", consideration: "data ", count: "data ", information: "data".',
         icon:'ti-pencil',
         description: 'Generate effective emails with personalized tone and content.',
         inputs: {
@@ -813,7 +770,7 @@ export default [
                 inputType: 'text',
                 label: 'Sender Name',
             },
-            consideration : {
+            recipient : {
                 value: '',
                 placeholder: 'To whom is this addressed? ',
                 inputType: 'textarea',
@@ -834,7 +791,7 @@ export default [
         category: 'Language Arts',
         tag: 'language_arts',
         promptExample: 'Simplify a confusing paragraph by breaking it down into a smaller chunk.',
-        systemPrompt: 'Assist in generating clear and concise instructions for monthly auxiliary reports. Provide guidance on structuring the report, including key points, challenges, highlights, and insights. Ensure the instructions are professional and informative to simplify the reporting process.',
+        systemPrompt: "You are a condensed or expanded paragraph AI. That will Condense or expand the provided Paragraph. the user will specify if you will expand or condense the data that it will also give in this format: concept: 'whether to expand or to condense' ,  paragraph: ' data'. ",
         title: 'Condense or Expand a Paragraph',
         icon:'ti-arrows-double-sw-ne',
         description: 'Shorten or lengthen content to meet your intent and purpose.',
@@ -843,12 +800,12 @@ export default [
                 value: '',
                 placeholder: 'Examples: Condensed or Expand',
                 inputType: 'text',
-                label: 'Condense or Expand',
+                label: 'Write What you want your sentence to become',
             },
             paragraph: {
                 value: '',
                 placeholder: 'Paste paragraph here.',
-                inputType: 'text',
+                inputType: 'textarea',
                 label: 'Original Paragraph',
             },
         }
@@ -858,7 +815,7 @@ export default [
         category: 'Language Arts',
         tag: 'language_arts',
         promptExample: 'Correct a students inconsistent use of past, present, and future tense.',
-        systemPrompt: 'Assist in generating clear and concise instructions for monthly auxiliary reports. Provide guidance on structuring the report, including key points, challenges, highlights, and insights. Ensure the instructions are professional and informative to simplify the reporting process.',
+        systemPrompt: 'You are a Correct Inconsistent Tenses AI. That will Create a cohesive and coherent piece of writing by ensuring tenses are consistent. the user will tell you to rewrite the sentence to their desired tense. for example the user prompted Passage: "Yesterday, I walk to the store and buy some milk.", tense: "present". you will make the sentence to- Today, I walk to the store and buy some milk. ',
         title: 'Correct Inconsistent Tenses',
         icon:'ti-refresh',
         description: 'Create a cohesive and coherent piece of writing by ensuring tenses are consistent.',
@@ -866,7 +823,7 @@ export default [
             passage: {
                 value: '',
                 placeholder: 'e.g., Yesterday, I walk to the store and buy some milk.',
-                inputType: 'text',
+                inputType: 'textarea',
                 label: 'Text or Passage',
             },
             tense: {
@@ -882,15 +839,15 @@ export default [
         category: 'Language Arts',
         tag: 'language_arts',
         promptExample: '',
-        systemPrompt: 'Assist in generating clear and concise instructions for monthly auxiliary reports. Provide guidance on structuring the report, including key points, challenges, highlights, and insights. Ensure the instructions are professional and informative to simplify the reporting process.',
+        systemPrompt: "You are a Correct a Sentence AI. Your job is to Quickly and accurately resolve basic grammar, spelling, punctuation, and syntax errors.  the user will provide you the sentence using this format: sentence: 'data'. make it so its not hard to read",
         title: 'Correct a Sentence',
         icon:'ti-circle-check',
         description: 'Quickly and accurately resolve basic grammar, spelling, punctuation, and syntax errors.',
         inputs: {
-            situation: {
+            sentence: {
                 value: '',
                 placeholder: 'Paste sentence here.',
-                inputType: 'text',
+                inputType: 'textarea',
                 label: 'Sentence or Text',
             },
         }
@@ -900,12 +857,12 @@ export default [
         category: 'Curriculum Arts',
         tag: 'curriculum',
         promptExample: 'Use this to adapt your process, products, and assessments.',
-        systemPrompt: 'Assist in generating clear and concise instructions for monthly auxiliary reports. Provide guidance on structuring the report, including key points, challenges, highlights, and insights. Ensure the instructions are professional and informative to simplify the reporting process.',
+        systemPrompt: 'You are a Differentiate Your Instruction AI. Your job is to create ways to tweak instruction to meet the needs of different learners. You will be provided with data and you will use that data to generate the ways. the data that will be given to you will be in this format. grade: "data ", cognitive: "data", styles: "data ", interest: "data", goal: "data"',
         title: 'Differentiate Your Instruction',
         icon:'ti-adjustments',
         description: 'Discover how to tweak instruction to meet the needs of different learners.',
         inputs: {
-            level: {
+            grade: {
                 value: '',
                 placeholder: 'e.g., 6th grade',
                 inputType: 'text',
@@ -942,15 +899,15 @@ export default [
         category: 'Language Arts',
         tag: 'language_arts',
         promptExample: 'Show students how using dialogue can improve their writing.',
-        systemPrompt: 'Assist in generating clear and concise instructions for monthly auxiliary reports. Provide guidance on structuring the report, including key points, challenges, highlights, and insights. Ensure the instructions are professional and informative to simplify the reporting process.',
+        systemPrompt: "You are an Improve Creative Writing AI. Your job is to Engage readers and bring writing to life by adding dialogue and descriptive language. the user will provide the text or parse then you can do your magic. Also the user will provide the text with this format: sentence: 'data'. Note If you can make a dialoged with the text that he/she provide, please make one",
         title: 'Improve Creative Writing',
         icon:'ti-message-circle',
         description: 'Engage readers and bring writing to life by adding dialogue and descriptive language.',
         inputs: {
-            passage: {
+            sentence : {
                 value: '',
                 placeholder: 'Paste text or passage here.',
-                inputType: 'text',
+                inputType: 'textarea',
                 label: 'Original Text or Passage',
             },
         }
@@ -960,7 +917,7 @@ export default [
         category: 'Language Arts',
         tag: 'language_arts',
         promptExample: 'Reshape student work to show alternate possibilities.',
-        systemPrompt: 'Assist in generating clear and concise instructions for monthly auxiliary reports. Provide guidance on structuring the report, including key points, challenges, highlights, and insights. Ensure the instructions are professional and informative to simplify the reporting process.',
+        systemPrompt: "You are an AI who improves non-fiction writing. Your job is to Restructure and enhance the writing, making it easier to read and understand. the user will provide you with text in this format: passage:'data'",
         title: 'Improve Non-Fiction Writing',
         icon:'ti-list',
         description: 'Restructure and enhance writing, making it easier to read and understand.',
@@ -978,7 +935,7 @@ export default [
         category: 'Language Arts',
         tag: 'language_arts',
         promptExample: 'Change the tone of your email to convey a sense of urgency.',
-        systemPrompt: 'Assist in generating clear and concise instructions for monthly auxiliary reports. Provide guidance on structuring the report, including key points, challenges, highlights, and insights. Ensure the instructions are professional and informative to simplify the reporting process.',
+        systemPrompt: "You are an AI that refines emails. your job is to enhance the effectiveness of the users emails by improving the tone, clarity, and impact. the user will provide you a tone with an email that is formatted like this: tone:'', email: ''",
         title: 'Refine an Email',
         icon:'ti-refresh',
         description: 'Enhance the effectiveness of your emails by improving the tone, clarity, and impact.',
@@ -997,6 +954,7 @@ export default [
             },
         }
     },
+    // not done 
     {
         type: 'email',
         category: 'Email',
@@ -1021,6 +979,7 @@ export default [
             },
         }
     },
+        // not done 
     {
         type: 'curriculum',
         category: 'Curriculum',
@@ -1045,6 +1004,7 @@ export default [
             },
         }
     },
+        // not done 
     {
         type: 'language_arts',
         category: 'Language Arts',
@@ -1105,7 +1065,7 @@ export default [
         icon:'ti-mood-smile',
         description: 'Discover techniques for enhancing the overall environment of your classroom.',
         inputs: {
-            level: {
+            grade: {
                 value: '',
                 placeholder: 'Examples: 6th grade',
                 inputType: 'text',
@@ -1123,7 +1083,7 @@ export default [
         icon:'ti-user-plus',
         description: 'Discover methods to enhance student motivation.',
         inputs: {
-            level: {
+            grade: {
                 value: '',
                 placeholder: 'Examples: 6th grade',
                 inputType: 'text',
@@ -1147,7 +1107,7 @@ export default [
         icon:'ti-user-plus',
         description: 'Analyze problem behaviors and detect possible patterns.',
         inputs: {
-            level: {
+            grade: {
                 value: '',
                 placeholder: 'Examples: 12 years old',
                 inputType: 'text',
@@ -1179,7 +1139,7 @@ export default [
             },
             development: {
                 value: '',
-                placeholder: 'e.g., on level, behind, ahead',
+                placeholder: 'e.g., on grade, behind, ahead',
                 inputType: 'text',
                 label: 'Status of Social Emotional Development ',
             },
@@ -1213,7 +1173,7 @@ export default [
         icon:'ti-thumb-up',
         description: 'Explore the social and emotional growth of students.',
         inputs: {
-            level: {
+            grade: {
                 value: '',
                 placeholder: 'Examples: 8th grade',
                 inputType: 'text',
@@ -1231,7 +1191,7 @@ export default [
         icon:'ti-circle-x',
         description: 'Discover effective strategies for handling challenging behavior.',
         inputs: {
-            level: {
+            grade: {
                 value: '',
                 placeholder: 'Examples: 6th grade',
                 inputType: 'text',
@@ -1255,7 +1215,7 @@ export default [
         icon:'ti-users',
         description: 'Generate ideas for building relationships with students.',
         inputs: {
-            level: {
+            grade: {
                 value: '',
                 placeholder: 'Example: 6th grade',
                 inputType: 'text',
@@ -1299,7 +1259,7 @@ export default [
                 inputType: 'text',
                 label: 'Type of Writing',
             },
-            level: {
+            grade: {
                 value: '',
                 placeholder: 'Example: 6th grade',
                 inputType: 'text',
@@ -1353,7 +1313,7 @@ export default [
         icon:'ti-list',
         description: 'Break down concepts so that you can teach with clarity.',
         inputs: {
-            level: {
+            grade: {
                 value: '',
                 placeholder: 'Example: 6th grade',
                 inputType: 'text',
@@ -1481,7 +1441,7 @@ export default [
         icon:'ti-corner-down-right',
         description: 'Explore the origins of discoveries, languages, customs, cultures, and more',
         inputs: {
-            level: {
+            grade: {
                 value: '',
                 placeholder: 'Example: 6th Grade',
                 inputType: 'text',
@@ -1541,7 +1501,7 @@ export default [
         icon:'ti-search',
         description: 'Generate a project or activity that is aligned with your individual classroom needs.',
         inputs: {
-            level: {
+            grade: {
                 value: '',
                 placeholder: 'Example: 6th Grade',
                 inputType: 'text',
@@ -1565,7 +1525,7 @@ export default [
         icon:'ti-search',
         description: 'Discover engaging ways to test theories and hypotheses through hands-on experimentation.',
         inputs: {
-            level: {
+            grade: {
                 value: '',
                 placeholder: 'Example: 6th Grade',
                 inputType: 'text',
@@ -1589,7 +1549,7 @@ export default [
         icon:'ti-search',
         description: 'Discover examples that can help reinforce concepts.',
         inputs: {
-            level: {
+            grade: {
                 value: '',
                 placeholder: 'Example: 6th Grade',
                 inputType: 'text',
@@ -1679,7 +1639,7 @@ export default [
                 inputType: 'text',
                 label: 'Type of Writing',
             },
-            level: {
+            grade: {
                 value: '',
                 placeholder: 'Example: 6th Grade',
                 inputType: 'text',
@@ -1799,7 +1759,7 @@ export default [
         icon:'ti-search',
         description: 'Make a topic or standard more accessible by discovering clear and simplified explanations.',
         inputs: {
-            level: {
+            grade: {
                 value: '',
                 placeholder: 'Example: 6th grade.',
                 inputType: 'text',
