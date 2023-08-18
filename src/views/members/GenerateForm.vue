@@ -164,8 +164,8 @@
                             For Example: <br>{{ formStore.promptExample }}
                         </p>
                         <div v-for="(input, index) in formStore.inputs" :key="index + '-generate-form-input'" class="mb-4">
-                            <Textarea :rows="input.rows" :placeholder="input.placeholder" v-model="formStore.inputs[index].value" v-if="input.inputType === 'textarea'" :label="input.label" />
-                            <Input :placeholder="input.placeholder" v-model="formStore.inputs[index].value" v-else type="text" :label="input.label" />
+                            <Textarea :rows="input.rows" :placeholder="input.placeholder" v-model="formStore.inputs[index].value" v-if="input.inputType === 'textarea'" class="font-semibold" :label="input.label" />
+                            <Input :placeholder="input.placeholder" v-model="formStore.inputs[index].value" v-else type="text" :label="input.label" class="font-semibold"/>
                         </div>
                         <Button @click.prevent="generate" type="submit" size="lg" class="mt-5 w-full bg-main-color hover:bg-secondary-color border-0 text-sm lg:text-[0.775rem] xl:text-lg font-semibold">
                            Tiklipy Go!

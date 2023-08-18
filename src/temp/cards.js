@@ -5,7 +5,8 @@ const cards = [
     {
         type: 'auxiliary',
         category: 'Report',
-        tag: 'featured',
+        // tag: 'featured',
+        tag: 'write',
         promptExample: 'Computer Laborator Supervisor Auxiliary report.',
         systemPrompt: 'Assist in generating clear and concise instructions for monthly auxiliary reports. Provide guidance on structuring the report, including key points, challenges, highlights, and insights. Ensure the instructions are professional and informative to simplify the reporting process.',
         title: 'Effortless Auxiliary Report Generator.',
