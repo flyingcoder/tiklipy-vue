@@ -160,7 +160,6 @@
                             {{ formStore.description }}
                         </h3>
                         <p v-if="formStore.promptExample" class="p-4 mb-6 text-purple-700 bg-blue-200 rounded-md flex">
-                            <!-- The following divs are missing classes -->
                             <div class="w-14 pr-3">
                                 <i class="text-purple-800 ti ti-writing-sign"></i>
                             </div>
