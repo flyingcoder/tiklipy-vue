@@ -156,14 +156,19 @@
                 </div>
                 <div class="w-full lg:w-[30%] col-span-2">
                     <div class="p-6 bg-gray-100 rounded-3xl animate__animated animate__fadeInUp">
-                        <h3 class="mb-4 text-xl font-bold leading-snug text-gray-500">
+                        <h3 class="mb-6 text-xl font-bold leading-snug text-black">
                             {{ formStore.description }}
                         </h3>
-                        <p v-if="formStore.promptExample" class="p-4 mb-2 text-purple-700 bg-blue-200">
-                            <i class="text-purple-800 ti ti-writing-sign"></i>
-                            For Example: <br>{{ formStore.promptExample }}
+                        <p v-if="formStore.promptExample" class="p-4 mb-6 text-purple-700 bg-blue-200 rounded-md flex">
+                            <!-- The following divs are missing classes -->
+                            <div class="w-14 pr-3">
+                                <i class="text-purple-800 ti ti-writing-sign"></i>
+                            </div>
+                            <div class="">
+                                For Example: <br>{{ formStore.promptExample }}
+                            </div>
                         </p>
-                        <div v-for="(input, index) in formStore.inputs" :key="index + '-generate-form-input'" class="mb-4">
+                        <div v-for="(input, index) in formStore.inputs" :key="index + '-generate-form-input'" class="mb-4 font-semibold generate-form-section">
                             <Textarea :rows="input.rows" :placeholder="input.placeholder" v-model="formStore.inputs[index].value" v-if="input.inputType === 'textarea'" class="font-semibold" :label="input.label" />
                             <Input :placeholder="input.placeholder" v-model="formStore.inputs[index].value" v-else type="text" :label="input.label" class="font-semibold"/>
                         </div>
