@@ -113,6 +113,12 @@ button:focus-visible {
   color: black;
 }
 
+.generate-form-section label,
+.generate-form-section label div {
+  color: rgb(107 114 128 / var(--tw-text-opacity));
+  font-weight: 700 !important;
+}
+
 .no-icon svg {
   display: none;
 }
