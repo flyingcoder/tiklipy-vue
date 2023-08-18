@@ -1,7 +1,7 @@
 export default [
     {
         type: 'correction',
-        category: 'tools',
+        category: 'Tools',
         tag: 'tools',
         promptExample: 'She no went to class.',
         systemPrompt: 'Given statements need conversion to standard English. User format: sentence - ""',
@@ -19,7 +19,7 @@ export default [
     },
     {
         type: 'summarize',
-        category: 'tools',
+        category: 'Tools',
         tag: 'tools',
         promptExample: "Jupiter, the Solar System's largest planet, is fifth from the Sun. Despite having only one-thousandth of the Sun's mass, it surpasses the combined mass of all other planets. Known since ancient times, it's named after the Roman god Jupiter. Visible to the naked eye, it often outshines most celestial objects, ranking third in brightness after the Moon and Venus.",
         systemPrompt: "You'll summarize content for a student based on a provided grade grade. User format: grade - 'data', sentence - 'data'.",
@@ -44,7 +44,7 @@ export default [
     },
     {
         type: 'arrange',
-        category: 'tools',
+        category: 'Tools',
         tag: 'tools',
         promptExample: 'On the recently discovered planet Goocrux, a variety of unique fruits have been found. Neoskizzles are purple and taste like candy. Loheckles are grayish-blue and tart, similar to lemons. Pounits, bright green, have a savory flavor. Loopnovas are neon pink and taste like cotton candy. Lastly, glowls, with a pale orange hue, offer a sour and bitter taste.',
         systemPrompt: 'You will transform given unstructured data into a spreadsheet format. User format: organize - "data".',
@@ -63,7 +63,7 @@ export default [
     },
     {
         type: 'translation',
-        category: 'tools',
+        category: 'Tools',
         tag: 'tools',
         promptExample: 'Artificial intelligence is a technology with great promise.',
         systemPrompt: "You'll translate the provided text into emojis only. Do not use any regular text. Do your best with emojis only. User format: translation:'data'",
@@ -83,7 +83,7 @@ export default [
     },
     {
         type: 'keyword',
-        category: 'tools',
+        category: 'Tools',
         tag: 'tools',
         promptExample: "Black-on-black ware is a modern pottery tradition developed by Native American artists in Northern New Mexico. It's a style of pottery where designs are applied to smooth surfaces through burnishing or refractory slip. Some artists carve or incise designs and polish raised areas. Families from Kha'po Owingeh and P'ohwhóge Owingeh pueblos have passed down these techniques for generations. Other pueblos also create this pottery, and modern artists pay tribute to their ancestors' work.",
         systemPrompt: "You will be provided with a block of text, and your task is to extract a list of keywords from it. User format: extractor:'data'.",
@@ -102,7 +102,7 @@ export default [
     },
     {
         type: 'spreadsheet_creator',
-        category: 'tools',
+        category: 'Tools',
         tag: 'tools',
         promptExample: "First name, Last name, age, score",
         systemPrompt: "You will be provided with a block of text and specific data fields, and your task is to create a spreadsheet based on the text and the data fields. User format: cols - '', data - ''.",
@@ -127,7 +127,7 @@ export default [
     },
     {
         type: 'questions',
-        category: 'tools',
+        category: 'Tools',
         tag: 'tools',
         promptExample: "5th grade, 5, volcano",
         systemPrompt: "You will receive a block of text along with a specified number of questions and a designated grade grade. Your objective is to create questions that match the given grade grade in terms of complexity. The user will provide information in the following format: grade: 'data', questions: 'data', topic: 'data'.",
@@ -158,7 +158,7 @@ export default [
     },
     {
         type: 'translation',
-        category: 'tools',
+        category: 'Tools',
         tag: 'tools',
         promptExample: "English to 私は学生です",
         systemPrompt: "Your objective is to translate the provided sentence from its detected language to the second specified language. User format: language: 'data', sentence: 'data'.",
@@ -182,7 +182,7 @@ export default [
     },
     {
         type: 'meeting_notes_summarizer',
-        category: 'tools',
+        category: 'Tools',
         tag: 'tools',
         promptExample: "Examples below",
         systemPrompt: "Your task: Create a brief summary of meeting notes, including discussion overview, action items with tasks and responsible people, and potential next meeting topics. User format: date - 'data', time - 'data', location - 'data', meeting - 'data', nextMeeting - 'data'.",

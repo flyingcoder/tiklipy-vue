@@ -49,7 +49,7 @@
                 </div>     
             </div>
         </div>
-        <div class="mb-16">
+        <!-- <div class="mb-16">
             <div class="justify-center block mb-6 font-semibold">
                 <span class="mt-0 mb-1 text-sm font-bold leading-6 tracking-wider uppercase text-main-color font-poppins">FUNDAMENTALS</span>
                 <h2 class="mt-2 text-3xl text-gray-800">Concentrate on the fundamentals.</h2>
@@ -112,86 +112,7 @@
                     </the-card>
                 </router-link>
             </div>
-        </div>
-        <div class="mb-16">
-            <div class="justify-center block mb-6 font-semibold">
-                <span class="mt-0 mb-1 text-sm font-bold leading-6 tracking-wider uppercase text-main-color font-poppins">TRY A NEW APPROACH</span>
-                <h2 class="mt-2 text-3xl text-gray-800">Useful Quick Tips</h2>
-            </div>
-            <div class="flex flex-wrap max-lg:justify-center">
-                <router-link class="flex justify-center max-sm:w-full" :to="{name: 'generate'}">
-                    <the-card href="#" class="w-[30rem] bg-white rounded-lg sm:mr-5 mb-5 flex border-none rounded-lg shadow-none hover:bg-white hover:shadow-md bg-[url('/p-1.png')] bg-no-repeat bg-contain" style="max-width: 100% !important">
-                        <div class="p-4 max-xs:!p-0 dark:bg-gray-800 dark:border-gray-700">
-                            <svg class="w-8 mr-5 mb-7 text-main-color dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 18">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 16.5c0-1-8-2.7-9-2V1.8c1-1 9 .707 9 1.706M10 16.5V3.506M10 16.5c0-1 8-2.7 9-2V1.8c-1-1-9 .707-9 1.706"/>
-                            </svg>
-                            <div class="text-lg font-medium group-hover:text-gray-500">Curriculum</div>
-                            <div class="flex flex-col justify-between leading-normal">
-                                <h5 class="mb-2 text-2xl font-bold tracking-tight dark:text-white">Create an Analogy</h5>
-                                <p class="font-normal text-gray-500 dark:text-gray-400">Improve understanding through concept connections.</p>
-                            </div>
-                        </div>
-                    </the-card>
-                </router-link>
-                <router-link class="flex justify-center max-sm:w-full" :to="{name: 'generate'}">
-                    <the-card href="#" class="w-[30rem] bg-white rounded-lg sm:mr-5 mb-5 flex border-none rounded-lg shadow-none hover:bg-white hover:shadow-md bg-[url('/p-1.png')] bg-no-repeat bg-contain" style="max-width: 100% !important">
-                        <div class="p-4 max-xs:!p-0 dark:bg-gray-800 dark:border-gray-700">
-                            <svg class="w-8 mr-5 mb-7 text-main-color dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 21">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 13A6 6 0 1 0 7 1a6 6 0 0 0 0 12Zm0 0v6M4.5 7A2.5 2.5 0 0 1 7 4.5"/>
-                            </svg>
-                            <div class="text-lg font-medium group-hover:text-gray-500">Language Arts</div>
-                            <div class="flex flex-col justify-between leading-normal">
-                                <h5 class="mb-2 text-2xl font-bold tracking-tight dark:text-white">Conduct a Thorough Text Analysis.</h5>
-                                <p class="font-normal text-gray-500 dark:text-gray-400">Unbiasedly assess written content to identify its merits and shortcomings.</p>
-                            </div>
-                        </div>
-                    </the-card>
-                </router-link>
-                <router-link class="flex justify-center max-sm:w-full" :to="{name: 'generate'}">
-                    <the-card href="#" class="w-[30rem] bg-white rounded-lg sm:mr-5 mb-5 flex border-none rounded-lg shadow-none hover:bg-white hover:shadow-md bg-[url('/p-1.png')] bg-no-repeat bg-contain" style="max-width: 100% !important">
-                        <div class="p-4 max-xs:!p-0 dark:bg-gray-800 dark:border-gray-700">
-                            <svg class="w-8 mr-5 mb-7 text-main-color dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 20">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 1H1m14 18H1m2 0v-4.333a2 2 0 0 1 .4-1.2L5.55 10.6a1 1 0 0 0 0-1.2L3.4 6.533a2 2 0 0 1-.4-1.2V1h10v4.333a2 2 0 0 1-.4 1.2L10.45 9.4a1 1 0 0 0 0 1.2l2.15 2.867a2 2 0 0 1 .4 1.2V19H3Z"/>
-                            </svg>
-                            <div class="text-lg font-medium group-hover:text-gray-500">Science and Math</div>
-                            <div class="flex flex-col justify-between leading-normal">
-                                <h5 class="mb-2 text-2xl font-bold tracking-tight dark:text-white">Discover a Science or Math Experiment.</h5>
-                                <p class="font-normal text-gray-500 dark:text-gray-400">Find interactive methods to validate theories and hypotheses through practical experiments.</p>
-                            </div>
-                        </div>
-                    </the-card>
-                </router-link>
-                <router-link class="flex justify-center max-sm:w-full" :to="{name: 'generate'}">
-                    <the-card href="#" class="w-[30rem] bg-white rounded-lg sm:mr-5 mb-5 flex border-none rounded-lg shadow-none hover:bg-white hover:shadow-md bg-[url('/p-1.png')] bg-no-repeat bg-contain" style="max-width: 100% !important">
-                        <div class="p-4 max-xs:!p-0 dark:bg-gray-800 dark:border-gray-700">
-                            <svg class="w-8 mr-5 mb-7 text-main-color dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 18">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 16.5c0-1-8-2.7-9-2V1.8c1-1 9 .707 9 1.706M10 16.5V3.506M10 16.5c0-1 8-2.7 9-2V1.8c-1-1-9 .707-9 1.706"/>
-                            </svg>
-                            <div class="text-lg font-medium group-hover:text-gray-500">Curriculum</div>
-                            <div class="flex flex-col justify-between leading-normal">
-                                <h5 class="mb-2 text-2xl font-bold tracking-tight dark:text-white">Identify Similarities and Differences.</h5>
-                                <p class="font-normal text-gray-500 dark:text-gray-400">Recognize the commonalities and distinctions between two concepts.</p>
-                            </div>
-                        </div>
-                    </the-card>
-                </router-link>
-                <router-link class="flex justify-center max-sm:w-full" :to="{name: 'generate'}">
-                    <the-card href="#" class="w-[30rem] bg-white rounded-lg sm:mr-5 mb-5 flex border-none rounded-lg shadow-none hover:bg-white hover:shadow-md bg-[url('/p-1.png')] bg-no-repeat bg-contain" style="max-width: 100% !important">
-                        <div class="p-4 max-xs:!p-0 dark:bg-gray-800 dark:border-gray-700">
-                            <svg class="w-8 mr-5 mb-7 text-main-color dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 21 21">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7.418 17.861 1 20l2.139-6.418m4.279 4.279 10.7-10.7a3.027 3.027 0 0 0-2.14-5.165c-.802 0-1.571.319-2.139.886l-10.7 10.7m4.279 4.279-4.279-4.279m2.139 2.14 7.844-7.844m-1.426-2.853 4.279 4.279"/>
-                            </svg>
-                            <p class="mb-3 text-lg font-normal text-gray-500 dark:text-gray-400"></p>
-                            <div class="text-lg font-medium group-hover:text-gray-500">Organization</div>
-                            <div class="flex flex-col justify-between leading-normal">
-                                <h5 class="mb-2 text-2xl font-bold tracking-tight dark:text-white">Create A List</h5>
-                                <p class="font-normal text-gray-500 dark:text-gray-400">Recognize and structure essential details related to any topic.</p>
-                            </div>
-                        </div>
-                    </the-card>
-                </router-link>
-            </div>
-        </div>
+        </div> -->
     </div>
     
     
