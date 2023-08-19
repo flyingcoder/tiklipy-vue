@@ -28,40 +28,40 @@
         icon:'ti-user',
         description: 'Guided Learning: Crafting Effective Lessons for Growth',
         inputs: {
-            highlights: {
+            grade: {
                 value: '',
                 placeholder: 'Example: Grade 2',
                 inputType: 'text',
                 label: 'Grade Level',
             },
-            challenges: {
+            subject: {
                 value: '',
                 placeholder: 'Example: Math',
                 inputType: 'text',
                 label: 'Subject',
             },
-            insights: {
-                value: '',
-                placeholder: 'State the general topic or paste an official standard.',
-                inputType: 'textarea',
-                label: 'Topic or Standard',
-            },
-            purpose: {
+            type: {
                 value: '',
                 placeholder: 'Example: Multiple Choice',
                 inputType: 'text',
                 label: 'Question Type',
             },
-            outcome: {
+            items: {
                 value: '',
                 placeholder: 'Example: 5',
                 inputType: 'text',
                 label: 'Total Items',
             },
-            outcome: {
+            topic: {
                 value: '',
-                placeholder: 'Example: 5',
-                inputType: 'text',
+                placeholder: 'State the general topic or paste an official standard.',
+                inputType: 'textarea',
+                label: 'Topic or Standard',
+            },
+            instructions: {
+                value: '',
+                placeholder: 'Share specific guidelines or details to aid completion',
+                inputType: 'textarea',
                 label: 'Additional Instructions',
             }
         }
