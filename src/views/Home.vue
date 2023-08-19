@@ -41,8 +41,8 @@
                     <div class="rounded-[100px] overflow-hidden bg-blue-100 w-fit m-auto mb-5">
                         <img class="w-40 p-7" src="Essay.svg" alt="">
                     </div>
-                    <h2 class="text-black text-center text-2xl font-semibold">Generate Authorization Slip</h2>
-                    <div class="text-black text-center">Create permission slips for a wide range of purposes.</div>
+                    <h2 class="text-black text-center text-2xl font-semibold">Create New Evaluation Method</h2>
+                    <div class="text-black text-center">Craft an unconventional assessments strategy to gauge student understanding</div>
                 </div>
                 <div class="sm:w-[49%] midlg:w-[30%] mb-10">
                     <div class="rounded-[100px] overflow-hidden bg-green-100 w-fit m-auto mb-5">

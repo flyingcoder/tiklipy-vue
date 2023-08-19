@@ -42,21 +42,27 @@
             },
             insights: {
                 value: '',
-                placeholder: 'e.g. Recognized the need for regular maintenance to prevent technical issues',
+                placeholder: 'State the general topic or paste an official standard.',
                 inputType: 'textarea',
-                label: 'Insights',
+                label: 'Topic or Standard',
             },
             purpose: {
                 value: '',
-                placeholder: 'e.g. To provide an overview of activities and improvements in the computer lab.',
+                placeholder: 'Example: Multiple Choice',
                 inputType: 'text',
-                label: 'Report Insights',
+                label: 'Question Type',
             },
             outcome: {
                 value: '',
-                placeholder: 'e.g. Improved lab functionality and security and enhanced student experience in the lab.',
+                placeholder: 'Example: 5',
                 inputType: 'text',
-                label: 'Report Outcome',
+                label: 'Total Items',
+            },
+            outcome: {
+                value: '',
+                placeholder: 'Example: 5',
+                inputType: 'text',
+                label: 'Additional Instructions',
             }
         }
     
