@@ -3,8 +3,11 @@
     import LessonPlanModel from '../../models/LessonPlans';
     import { useAuthStore } from '../../stores/auth';
     import Filter from '../../components/Filter.vue';
+    import { useFormStore } from '../../stores/form';
+    import { useRouter } from 'vue-router';
 
-
+    const router = useRouter();
+    const formStore = useFormStore();
     const authStore = useAuthStore();
     const teacher = authStore.user;
     const lessonModel = new LessonPlanModel();
@@ -14,29 +17,28 @@
         lessons.value = await lessonModel.getLessonPlansByTeacher(teacher.uid);
     });
 
-    const lessonsCards = {
-        
+    const lessonsCard = {
         type: 'lesson_plan',
         category: 'Report',
         // tag: 'featured',
         tag: 'write',
-        promptExample: 'Computer Laborator Supervisor Auxiliary report.',
+        promptExample: 'Crafting Engaging Lessons" is your guide to creating dynamic learning experiences that spark curiosity and critical thinking.',
         systemPrompt: 'Assist in generating clear and concise instructions for monthly auxiliary reports. Provide guidance on structuring the report, including key points, challenges, highlights, and insights. Ensure the instructions are professional and informative to simplify the reporting process.',
-        title: 'Effortless Auxiliary Report Generator.',
+        title: 'Guiding Insights: The Art of Crafting Effective Lessons',
         icon:'ti-user',
-        description: 'Simplify your auxiliary assignment. Just share a few details, and Tiklipy will solve your problem.',
+        description: 'Guided Learning: Crafting Effective Lessons for Growth',
         inputs: {
             highlights: {
                 value: '',
-                placeholder: 'e.g. Upgraded software in computer lab for better functionality and implemented new security measures to protect lab equipment.',
-                inputType: 'textarea',
-                label: 'Main Highlights',
+                placeholder: 'Example: Grade 2',
+                inputType: 'text',
+                label: 'Grade Level',
             },
             challenges: {
                 value: '',
-                placeholder: 'e.g. Dealing with occasional computer glitches and managing student access to specific software.',
-                inputType: 'textarea',
-                label: 'Challenges Faced',
+                placeholder: 'Example: Math',
+                inputType: 'text',
+                label: 'Subject',
             },
             insights: {
                 value: '',
@@ -59,6 +61,11 @@
         }
     
     };
+
+    const cardIsClick = (card) => {
+        formStore.setFormDetails(card);
+        router.push({ name: 'generate' });
+    }
 
 
 </script>
@@ -86,7 +93,7 @@
                         </router-link>
                     </div>
                 </div>
-                <div class="w-full sm:w-[47%] bg-white rounded-lg sm:mr-5 mb-5 bg-[url('/p-1.png')] bg-no-repeat bg-contain" v-else>
+                <div class="w-full sm:w-[47%] bg-white rounded-lg sm:mr-5 mb-5 bg-[url('/p-1.png')] bg-no-repeat bg-contain" @click="cardIsClick(lessonsCard)" v-else>
                     <div class="bg-white dark:bg-slate-800 shadow  rounded-md w-full p-4 relative overflow-hidden bg-[url('/p-1.png')] bg-no-repeat bg-contain cursor-pointer">
                         <div class="flex justify-between xl:gap-x-2 items-cente">
                             <div class="absolute inline-flex items-center justify-center w-40 h-32 p-3 text-center -left-6 -top-4 text-main-color ">
