@@ -5,12 +5,11 @@ const cards = [
     {
         type: 'sermon',
         category: 'generator',
-        // tag: 'featured',
         tag: 'write',
         promptExample: '',
         systemPrompt: `Generate a sermon that aligns with our church's theology and core beliefs. Our theology centers on the Triune God—Father, Son, and Holy Spirit—as revealed in Scripture. ${userInputs.theologyDescription} Create a sermon that reflects these principles, focusing on the theme of ${userInputs.sermonTheme} and its relevance for a ${userInputs.audience}. Craft the sermon to be ${userInputs.sermonLength} long, while maintaining a ${userInputs.preachingStyle} style. Ensure the content aligns with ${userInputs.theologyAlignment}. Incorporate ${userInputs.specifics} in the sermon.`,
         title: 'A sermon tailored to your preching style.',
-        icon:'ti-user',
+        icon:'ti-pencil',
         description: 'To generate a sermon effectively, just provide the following information.',
         inputs: {
             sermonTheme: {
@@ -66,12 +65,11 @@ const cards = [
     {
         type: 'auxiliary',
         category: 'Report',
-        // tag: 'featured',
         tag: 'write',
         promptExample: 'Computer Laborator Supervisor Auxiliary report.',
         systemPrompt: 'Assist in generating clear and concise instructions for monthly auxiliary reports. Provide guidance on structuring the report, including key points, challenges, highlights, and insights. Ensure the instructions are professional and informative to simplify the reporting process.',
         title: 'Effortless Auxiliary Report Generator.',
-        icon:'ti-user',
+        icon:'ti-pencil',
         description: 'Simplify your auxiliary assignment. Just share a few details, and Tiklipy will solve your problem.',
         inputs: {
             highlights: {
