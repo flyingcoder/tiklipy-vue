@@ -4,8 +4,8 @@ import alanjr from './alanjr';
 const cards = [
     {
         type: 'sermon',
-        category: 'generator',
-        tag: 'write',
+        category: 'generation',
+         tag: [ 'write', 'featured' ],
         promptExample: '',
         systemPrompt: '',
         title: 'A sermon tailored to your preching style.',
@@ -65,7 +65,7 @@ const cards = [
     {
         type: 'auxiliary',
         category: 'Report',
-        tag: 'write',
+         tag: [ 'write', 'featured' ],
         promptExample: 'Computer Laborator Supervisor Auxiliary report.',
         systemPrompt: 'Assist in generating clear and concise instructions for monthly auxiliary reports. Provide guidance on structuring the report, including key points, challenges, highlights, and insights. Ensure the instructions are professional and informative to simplify the reporting process.',
         title: 'Effortless Auxiliary Report Generator.',

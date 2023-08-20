@@ -20,7 +20,7 @@
     const copyContent = ref(false);
     const isGenerating = ref(false);
 
-    const sendToFireBase = (rawContent) => {
+    const saveToFireBase = (rawContent) => {
         generateResource.addGeneratedResource(rawContent, 'lessonPlan');
     }
 
@@ -37,7 +37,7 @@
         console.log(instruc);
         //await backEndModel.generateResource(instruc)
         //    .then((completion) => {
-        //        sendToFireBase(completion?.data?.message?.content);
+        //        saveToFireBase(completion?.data?.message?.content);
         //        generatedResource.value = completion?.data?.message?.content?.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>') });
         isGenerating.value = false;
     }
@@ -159,8 +159,8 @@
                         <h3 class="mb-6 text-xl font-bold leading-snug text-black">
                             {{ formStore.description }}
                         </h3>
-                        <p v-if="formStore.promptExample" class="p-4 mb-6 text-purple-700 bg-blue-200 rounded-md flex">
-                            <div class="w-14 pr-3">
+                        <p v-if="formStore.promptExample" class="flex p-4 mb-6 text-purple-700 bg-blue-200 rounded-md">
+                            <div class="pr-3 w-14">
                                 <i class="text-purple-800 ti ti-writing-sign"></i>
                             </div>
                             <div class="">

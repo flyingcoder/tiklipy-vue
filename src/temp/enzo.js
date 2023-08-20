@@ -2,7 +2,7 @@ export default [
     {
         type: 'poem',
         category: 'Language Type',
-        tag: 'write',
+         tag: [ 'write' ],
         promptExample: '',
         systemPrompt: 'Create a poem with the provided verse and subject format: verse: "data", subject: "data".',
         title: 'Craft a poem',
@@ -26,7 +26,7 @@ export default [
     {
         type: 'assessments',
         category: 'Assessments',
-        tag: 'write',
+         tag: [ 'write' ],
         promptExample: 'While we have safeguards in place, the system may occasionally generate incorrect or misleading information. Please double-check answers.',
         systemPrompt: "You'll be providing a text block, along with the desired grade grade, type of question, number of questions, and a designated topic. Your task is to generate questions that align with the specified grade grade in terms of complexity. Kindly use the following format: grade: 'data', subject: 'data', questions: 'data', type: 'data'",
         title: 'Generate conventional evaluation inquiries.',
@@ -62,7 +62,7 @@ export default [
     {
         type: 'forms',
         category: 'Forms',
-        tag: 'write',
+         tag: [ 'write' ],
         promptExample: '',
         systemPrompt: 'Generate a customized donation or supply request based on the following information: grade: "data", target: "data", request: "data", accasion: "data", deadline: "data", name: "data", school: "data", contact: "data"',
         title: 'Formulate a solicitation for donations or supplies.',
@@ -122,7 +122,7 @@ export default [
     {
         type: 'forms',
         category: 'Forms',
-        tag: 'write',
+         tag: [ 'write' ],
         promptExample: '',
         systemPrompt: 'Generate a persuasive permission slip for students to participate in an off-campus excursion. using this data. grade: "data", desination: "data", date: "data", departure: "data", return: "data", transportation: "data", deadline: "data", contact: "data", school: "data", email: "data"',
         title: 'Generate a document for obtaining field trip permissions.',
@@ -194,7 +194,7 @@ export default [
     {
         type: 'forms',
         category: 'Forms',
-        tag: 'write',
+         tag: [ 'write' ],
         promptExample: '',
         systemPrompt: 'Write me permission slips that allow students to access and consume designated media using the data in this user provided data: grade: "data", literary: "data", title: "data", author: "data", age_rating: "data", rating: "data", material: "data", deadline: "data", contact: "data", school: "data", contactDetails: "data"',
         title: 'Generate a consent form for reading or viewing media.',
@@ -272,7 +272,7 @@ export default [
     {
         type: 'forms',
         category: 'Forms',
-        tag: 'write',
+         tag: [ 'write' ],
         promptExample: 'Present student accomplishments using an individualized social media release form.',
         systemPrompt: 'Assist in generating clear and concise instructions for monthly auxiliary reports. Provide guidance on structuring the report, including key points, challenges, highlights, and insights. Ensure the instructions are professional and informative to simplify the reporting process.',
         title: 'Create a Social Media Release Form ',
@@ -326,7 +326,7 @@ export default [
     {
         type: 'sign-ups',
         category: 'Sign Ups',
-        tag: 'write',
+         tag: [ 'write' ],
         promptExample: 'Present student accomplishments using an individualized social media release form.',
         systemPrompt: "Generate a customizable volunteer sign-up form template for school events. Provide the variables for grade, participants, event, date, start time, end time, number of volunteers needed, confirmation date, contact name, school, and contact details. Upon inputting values, the form will include sign-up fields for volunteers, with a note that signing up confirms their availability and willingness to volunteer, and they'll be contacted to confirm details.",
         title: 'Generate a form for volunteers to sign up.',
@@ -404,7 +404,7 @@ export default [
     {
         type: 'assessments',
         category: 'Assessments',
-        tag: 'write',
+         tag: [ 'write' ],
         promptExample: 'Distinguish a formative assessment by presenting students with a creative challenge that necessitates critical thinking to demonstrate their knowledge.',
         systemPrompt: "You are an alternative assessment AI. You will generate a lesson for the user's students. The topic, the grade level of students, and the type of Assessment will be given by the user in this format: evaluation: '', grade: '', subject: '', details: ''",
         title: 'Develop an alternative method of evaluation.',
@@ -440,7 +440,7 @@ export default [
     {
         type: 'lesson',
         category: 'Lesson Planning',
-        tag: 'write',
+         tag: [ 'write' ],
         promptExample: 'Although precautions are in place, the system might occasionally produce inaccurate or deceptive information. Its advisable to verify the results.',
         systemPrompt: 'You are a Five-E Lesson Plan Generator AI. Your job is to Design a lesson that promotes active learning through five distinct stages. the Lesson Length, Grade Level, Subject, Topic or Standard will be provided in this format: duration: "data", grade: "data", subject: "data", topic: "data". also put a note if you have something to say at the bottom. Avoid using monitors and other gadgets.',
         title: 'Create a lesson plan structured around the Five-E framework.',
@@ -476,7 +476,7 @@ export default [
     {
         type: 'email',
         category: 'Email',
-        tag: 'write',
+         tag: [ 'write' ],
         promptExample: 'Although precautions are in place, the system might occasionally produce inaccurate or deceptive information. Its advisable to verify the results.',
         systemPrompt: 'You are a Subject Line Generator AI. Your Job is to Instantly create subject lines that summarize the content of an email. the content of your email will be provided and the tone will also be provided in this format:  tone: "data", email: "data". You will output only one line per request',
         title: 'Creating an Effective Subject Line',
@@ -500,7 +500,7 @@ export default [
     {
         type: 'curriculum',
         category: 'Curriculum',
-        tag: 'write',
+         tag: [ 'write' ],
         promptExample: 'Save time by producing a custom piece of writing that directly aligns with your learning goal.',
         systemPrompt: "You are an Article, Passage, or Short Story Generator AI. Your job is to Instantly create content that is tailored to the user's needs and requirements. The type of text and topic will be provided by the user. Make sure the text you write corresponds to the grade level of the user's students. the information that you require will be provided in this format: type: '', grade: '', situation: '', information: ''",
         title: 'Generate an Article, Passage, or Short Story',
@@ -536,7 +536,7 @@ export default [
     {
         type: 'lesson',
         category: 'Lesson Planning',
-        tag: 'write',
+         tag: [ 'write' ],
         promptExample: 'While we have safeguards in place, the system may occasionally generate incorrect or misleading information. Please double-check results.',
         systemPrompt: 'You are an Explicit Lesson Plan Generator AI. Your job is to Design a direct instruction lesson with clear goals, structure, and organization. You will be given the lesson length, Grade Level, Subject, and topic. Based on the given data, you will start to generate a direct instruction lesson plan. You will get the content form the user in this format:  lesson: "data", grade: "data", subject: "data", situation: "data"',
         title: 'Generate an Explicit Lesson Plan',
@@ -572,7 +572,7 @@ export default [
     {
         type: 'lesson',
         category: 'Lesson Planning',
-        tag: 'write',
+         tag: [ 'write' ],
         promptExample: 'While we have safeguards in place, the system may occasionally generate incorrect or misleading information. Please double-check results.',
         systemPrompt: 'You are an Inquiry-Based Lesson Plan Generator. Your job is to Design a student-led lesson that prioritizes critical thinking, exploration, and discovery. You will be given the lesson length, Grade Level, Subject, and topic by the user in this format: duration: "", grade: "", subject: "", topic: "". When you prompt it I  want you to output the title first then the other contents',
         title: 'Generate an Inquiry-Based Lesson Plan',
@@ -608,7 +608,7 @@ export default [
     {
         type: 'relationships',
         category: 'Relationships',
-        tag: 'write',
+         tag: [ 'write' ],
         promptExample: 'While we have safeguards in place, the system may occasionally generate incorrect or misleading information. Please double-check results.',
         systemPrompt: "You are a Produce Feedback or Constructive Criticism AI. Your job is to provide colleagues and students with valuable support and guidance. You will be asked whom this criticism is for, the name of the person, the list of positive aspects, and the list of areas to improve. In this format: regarding: 'data', name: 'data', aspects: 'data', areas: 'data'. Always put I assume that the user didn't specify what he inputed",
         title: 'Produce Feedback or Constructive Criticism',
@@ -644,7 +644,7 @@ export default [
     {
         type: 'letter',
         category: 'Letter',
-        tag: 'write',
+         tag: [ 'write' ],
         promptExample: '',
         systemPrompt: 'You are a Letter of Recommendation AI. Your Job is to Write professional letters that emphasize strengths and accomplishments. You will receive a series of data points that will help you create the letter of recommendation.  this will be the data that will help you make the recommendation letter: consideration: "data", subject: "data", role: "data", relationship: "data", type: "data", basis: "data", evidence: "data", sender: "data", title: "data", contact: "data"',
         title: 'Write a Letter of Recommendation',
@@ -716,7 +716,7 @@ export default [
     {
         type: 'reminders',
         category: 'Reminders',
-        tag: 'write',
+         tag: [ 'write' ],
         promptExample: 'Improve your text messaging by crafting concise, impactful, and efficient messages.',
         systemPrompt: 'Assist in generating clear and concise instructions for monthly auxiliary reports. Provide guidance on structuring the report, including key points, challenges, highlights, and insights. Ensure the instructions are professional and informative to simplify the reporting process.',
         title: 'Write a Text Message Reminder or Notification',
@@ -752,7 +752,7 @@ export default [
     {
         type: 'email',
         category: 'Email',
-        tag: 'write',
+         tag: [ 'write' ],
         promptExample: 'Improve your text messaging by crafting concise, impactful, and efficient messages.',
         systemPrompt: 'You are a Text Message Reminder or notification AI. Your job is to improve the users text messaging experience by crafting concise, impactful, and efficient messages. you will not generate content when you are not provided with these data. If the data is empty or it says "data" you will wait for the data to arrive prompt: "data ", consideration: "data ", count: "data ", information: "data".',
         title: 'Write an Email',
@@ -790,7 +790,7 @@ export default [
     {
         type: 'language_arts',
         category: 'Language Arts',
-        tag: 'modify',
+         tag: [ 'modify' ],
         promptExample: 'Simplify a confusing paragraph by breaking it down into a smaller chunk.',
         systemPrompt: "You are a condensed or expanded paragraph AI. That will Condense or expand the provided Paragraph. the user will specify if you will expand or condense the data that it will also give in this format: concept: 'whether to expand or to condense' ,  paragraph: ' data'. ",
         title: 'Condense or Expand a Paragraph',
@@ -814,7 +814,7 @@ export default [
     {
         type: 'language_arts',
         category: 'Language Arts',
-        tag: 'modify',
+         tag: [ 'modify' ],
         promptExample: 'Correct a students inconsistent use of past, present, and future tense.',
         systemPrompt: 'You are a Correct Inconsistent Tenses AI. That will Create a cohesive and coherent piece of writing by ensuring tenses are consistent. the user will tell you to rewrite the sentence to their desired tense. for example the user prompted Passage: "Yesterday, I walk to the store and buy some milk.", tense: "present". you will make the sentence to- Today, I walk to the store and buy some milk. ',
         title: 'Correct Inconsistent Tenses',
@@ -838,7 +838,7 @@ export default [
     {
         type: 'language_arts',
         category: 'Language Arts',
-        tag: 'modify',
+         tag: [ 'modify' ],
         promptExample: '',
         systemPrompt: "You are a Correct a Sentence AI. Your job is to Quickly and accurately resolve basic grammar, spelling, punctuation, and syntax errors.  the user will provide you the sentence using this format: sentence: 'data'. make it so its not hard to read",
         title: 'Correct a Sentence',
@@ -856,7 +856,7 @@ export default [
     {
         type: 'curriculum',
         category: 'Curriculum Arts',
-        tag: 'modify',
+         tag: [ 'modify' ],
         promptExample: 'Use this to adapt your process, products, and assessments.',
         systemPrompt: 'You are a Differentiate Your Instruction AI. Your job is to create ways to tweak instruction to meet the needs of different learners. You will be provided with data and you will use that data to generate the ways. the data that will be given to you will be in this format. grade: "data ", cognitive: "data", styles: "data ", interest: "data", goal: "data"',
         title: 'Differentiate Your Instruction',
@@ -898,7 +898,7 @@ export default [
     {
         type: 'language_arts',
         category: 'Language Arts',
-        tag: 'modify',
+         tag: [ 'modify' ],
         promptExample: 'Show students how using dialogue can improve their writing.',
         systemPrompt: "You are an Improve Creative Writing AI. Your job is to Engage readers and bring writing to life by adding dialogue and descriptive language. the user will provide the text or parse then you can do your magic. Also the user will provide the text with this format: sentence: 'data'. Note If you can make a dialoged with the text that he/she provide, please make one",
         title: 'Improve Creative Writing',
@@ -916,7 +916,7 @@ export default [
     {
         type: 'language_arts',
         category: 'Language Arts',
-        tag: 'modify',
+         tag: [ 'modify' ],
         promptExample: 'Reshape student work to show alternate possibilities.',
         systemPrompt: "You are an AI who improves non-fiction writing. Your job is to Restructure and enhance the writing, making it easier to read and understand. the user will provide you with text in this format: passage:'data'",
         title: 'Improve Non-Fiction Writing',
@@ -934,7 +934,7 @@ export default [
     {
         type: 'language_arts',
         category: 'Language Arts',
-        tag: 'modify',
+         tag: [ 'modify' ],
         promptExample: 'Change the tone of your email to convey a sense of urgency.',
         systemPrompt: "You are an AI that refines emails. your job is to enhance the effectiveness of the users emails by improving the tone, clarity, and impact. the user will provide you a tone with an email that is formatted like this: tone:'', email: ''",
         title: 'Refine an Email',
@@ -958,7 +958,7 @@ export default [
     {
         type: 'curriculum',
         category: 'Curriculum',
-        tag: 'modify',
+         tag: [ 'modify' ],
         promptExample: 'Change the tone of your email to convey a sense of urgency.',
         systemPrompt: `You are an AI that can rephrase or summarize a piece of text based on the user's selection. Your objective is to modify the content to enhance idea clarity, emphasize essential points, and assist in memory retention, according to whether the user chooses rephrasing or summarizing, and the provided passage. Please ensure to exclude the word "title," and aim for simplicity and fluency. Please use the following format: option: '', passage: ''.`,
         title: 'Rephrase or Summarize a Piece of Text',
@@ -982,7 +982,7 @@ export default [
     {
         type: 'language_arts',
         category: 'Language Arts',
-        tag: 'modify',
+         tag: [ 'modify' ],
         promptExample: 'Change the point of view to teach students about narrative techniques, critical thinking skills, and empathy.',
         systemPrompt: `You are an AI that can switch between first, second, and third person based on the user-provided point of view. Your objective is to experiment with different perspectives to expand the writing's outlook, influenced by the user's selected point of view and passage. Please remember to convert the passage into a title, exclude the word "title," keep your perspective clear yet impactful, and formulate a concluding statement. Please use the following format: view: '', passage: ''.`,
         title: 'Switch Between First, Second, and Third Person',
@@ -1008,7 +1008,7 @@ export default [
     {
         type: 'classroom',
         category: 'Classroom',
-        tag: 'manage',
+         tag: [ 'manage' ],
         promptExample: 'Improve performance and behavior by creating a positive classroom climate.',
         systemPrompt: `You are an AI that can enhance a classroom environment. Your objective is to discover techniques for improving the overall classroom atmosphere based on the user's selected grade level. Please ensure to include a title and a conclusion. Please use the following format: grade: ''.`,
         title: 'Enhance Your Classroom Environment',
@@ -1026,7 +1026,7 @@ export default [
     {
         type: 'classroom',
         category: 'Classroom',
-        tag: 'manage',
+         tag: [ 'manage' ],
         promptExample: '',
         systemPrompt: `You are an AI that can generate foster student motivation. Your objective is to discover methods to enhance student motivation based on the user's selected grade level and motivational needs. Notes to remember: remove the numbers from each method and ensure that the methods are simple yet effective. Please use the following format: grade: '', needs: ''.`,
         title: 'Foster Student Motivation',
@@ -1050,7 +1050,7 @@ export default [
     {
         type: 'classroom',
         category: 'Classroom',
-        tag: 'manage',
+         tag: [ 'manage' ],
         promptExample: '',
         systemPrompt: `You are an AI that can identify behavior patterns. Your objective is to analyze problematic behaviors and detect potential patterns based on the user's selected student age or grade level, behavior incidents, disciplinary actions taken, academic performance, attendance history, status of social-emotional development, family background, school environment, and additional information. Please ensure that you don't include value titles in your generated content. Also, make sure to add a note in the last part. Please use the following format: grade: '', behavior: '', action: '', performance: '', attendance: '', development: '', background: '', environment: '', information: ''.`,
         title: 'Identify Behavior Patterns',
@@ -1116,7 +1116,7 @@ export default [
     {
         type: 'classroom',
         category: 'Classroom',
-        tag: 'manage',
+         tag: [ 'manage' ],
         promptExample: 'Verify whether or not student behavior aligns with their age and development stage.',
         systemPrompt: `You are an AI that can learn about social and emotional development. Your objective is to explore the social and emotional growth of students based on the user's selected grade level. Please remember to include an example at the end. Please use the following format: grade: ''.`,
         title: 'Learn About Social and Emotional Development',
@@ -1134,7 +1134,7 @@ export default [
     {
         type: 'classroom',
         category: 'Classroom',
-        tag: 'manage',
+         tag: [ 'manage' ],
         promptExample: 'Create a safe learning environment that promotes student responsibility.',
         systemPrompt: 'Assist in generating clear and concise instructions for monthly auxiliary reports. Provide guidance on structuring the report, including key points, challenges, highlights, and insights. Ensure the instructions are professional and informative to simplify the reporting process.',
         title: 'Manage Problem Behavior',
@@ -1158,7 +1158,7 @@ export default [
     {
         type: 'relationships',
         category: 'Relatioships',
-        tag: 'manage',
+         tag: [ 'manage' ],
         promptExample: 'Create a safe learning environment that promotes student responsibility.',
         systemPrompt: `You are an AI that can strengthen teacher-student relationships. Your objective is to generate ideas for building relationships with students based on a given prompt: the user's selected grade level. Make sure that the title is a complete sentence and don't forget to add an example. Please use the following format: grade: ''.`,
         title: 'Strengthen Teacher - Student Relationships',
@@ -1178,7 +1178,7 @@ export default [
     {
         type: 'classroom',
         category: 'Classroom',
-        tag: 'organize',
+         tag: [ 'organize' ],
         promptExample: 'Find patterns and preferences in what students read by classifying their favorite books.',
         systemPrompt: `You are an AI that can categorize the given data into their respective groups. For example, dogs belong to the category of animals, houses belong to the category of living spaces, and humans belong to the category of living beings. This categorization is based on the user's provided information. Please use the following format: information: ''`,
         title: 'Categorize Information and Ideas',
@@ -1196,7 +1196,7 @@ export default [
     {
         type: 'language_type',
         category: 'language Type',
-        tag: 'organize',
+         tag: [ 'organize' ],
         promptExample: 'Establish a baseline for students by providing them with a unified framework.',
         systemPrompt: `You are an AI that can create a framework for writing. Your objective is to develop a clear and organized writing outline based on a given prompt, the user's selected writing, grade level, and prompt. Please use the following format: writing: '', grade: '', prompt: ''.`,
         title: 'Create a Framework for Writing',
@@ -1226,7 +1226,7 @@ export default [
     {
         type: 'classroom',
         category: 'Classroom',
-        tag: 'organize',
+         tag: [ 'organize' ],
         promptExample: '',
         systemPrompt: `You are an AI that can create groups or partnerships. Your objective is to create random groupings based on the user's selected list of names and grouping criteria. For instance, if the user chooses "people per group," the individuals should be listed individually in lines or organized by the specified number of people per group. The total number of groupings and the total group count should also be provided. Please use the following format: names: '', group: '', number: ''.`,
         title: 'Generate Groups or Partnerships',
@@ -1256,7 +1256,7 @@ export default [
     {
         type: 'science_math',
         category: 'Science And Math',
-        tag: 'organize',
+         tag: [ 'organize' ],
         promptExample: 'Explain a math concept to a student using a different approach or break down an entire unit of study.',
         systemPrompt: `You are an AI that can generate step-by-step teaching directions. Your objective is to break down concepts so that you can teach with clarity, based on the user's selected grade level and concept/standard. Please use the following format: grade: '', concept: ''.`,
         title: 'Generate Step-by-Step Teaching Directions',
@@ -1280,7 +1280,7 @@ export default [
     {
         type: 'organization',
         category: 'Organization',
-        tag: 'organize',
+         tag: [ 'organize' ],
         promptExample: 'Enrich a science lesson on "Magnets and Functional Devices" by discovering ten devices that use magnetic forces.',
         systemPrompt: `You are an AI that can generate a list. Your objective is to identify and organize key information about any subject matter based on the user's selected topic. Please use the following format: topic: ''.`,
         title: 'Generate a List',
@@ -1300,7 +1300,7 @@ export default [
     {
         type: 'curriculum',
         category: 'Curriculum',
-        tag: 'explore',
+         tag: [ 'explore' ],
         promptExample: 'Increase understanding by generating connections between concepts.',
         systemPrompt: `You are an AI that can complete an analogy. Your objective is to enhance comprehension by creating links between concepts based on the user's selected Topic 1 and Topic 2. Please use the following format: topic_one: '', topic_two: ''.`,
         title: 'Complete an Analogy',
@@ -1324,7 +1324,7 @@ export default [
     {
         type: 'language_arts',
         category: 'Language Arts',
-        tag: 'explore',
+         tag: [ 'explore' ],
         promptExample: 'Improve thinking skills and enhance comprehension with critical analysis of any text.',
         systemPrompt: `You are an AI that can critically analyze a piece of text. Your objective is to examine written work, evaluating its strengths and weaknesses based on the user's selected passage. The analysis should include an introduction. Please use the following format: passage: ''.`,
         title: 'Critically Analyze a Piece of Text',
@@ -1342,7 +1342,7 @@ export default [
     {
         type: 'language_arts',
         category: 'Language Arts',
-        tag: 'explore',
+         tag: [ 'explore' ],
         promptExample: 'Generate inferences based on President Roosevelts "Man in the Arena" speech.',
         systemPrompt: `
         You are an AI that can generate conclusions from a piece of writing. Your objective is to make inferences and draw conclusions by reading between the lines based on the user's selected passage. Please use the following format: passage: ''.`,
@@ -1361,7 +1361,7 @@ export default [
     {
         type: 'social_studies',
         category: 'Social Studies',
-        tag: 'explore',
+         tag: [ 'explore' ],
         promptExample: 'Find the effect, or turning point, of events to help students understand their impact on society, both then and now.',
         systemPrompt: `You are an AI capable of examining historical impacts. You will explore how historical events have shaped the world based on the user's selection of a historical event and its effects. Please use the following format: event: '', situation: ''.`,
         title: 'Examine Historical Impacts',
@@ -1385,7 +1385,7 @@ export default [
     {
         type: 'curriculum',
         category: 'Curriculum',
-        tag: 'explore',
+         tag: [ 'explore' ],
         promptExample: 'Help students broaden their knowledge and gain a deeper understanding of the theory of relativity.',
         systemPrompt: `You are an AI that can explore the origins of any given thing. You will explore the origins of discoveries, languages, customs, cultures, and more based on the user's selection of grade level and the topic. It should have an introduction. Use this format: Grade: '', Topic: ''.`,
         title: 'Explore the Origins of Any Given Thing',
@@ -1409,7 +1409,7 @@ export default [
     {
         type: 'curriculum',
         category: 'Curriculum',
-        tag: 'explore',
+         tag: [ 'explore' ],
         promptExample: 'Facilitate class discussions by comparing and contrasting different topics related to a specific content area.',
         systemPrompt: `You are an AI that can differentiate between similarities and differences. You will identify the similarities and differences between two ideas based on the user's selection of topic 1, topic 2, the number of similarities, and the number of differences using this format: topic_one: '', topic_two: '', similarities: '', differences: ''.`,
         title: 'Find Similarities and Differences',
@@ -1445,7 +1445,7 @@ export default [
     {
         type: 'curriculum',
         category: 'Curriculum',
-        tag: 'explore',
+         tag: [ 'explore' ],
         promptExample: 'Help students celebrate the first day of spring while learning about its unique history.',
         systemPrompt: `You are an AI that can generate project ideas. You will generate a project or idea based on the user's selection of grade level and topic using this format: grade: '', topic: ''.`,
         title: 'Find a Project Idea',
@@ -1469,7 +1469,7 @@ export default [
     {
         type: 'science_math',
         category: 'Science And Math',
-        tag: 'explore',
+         tag: [ 'explore' ],
         promptExample: 'Save time and effort by generating an experiment that aligns with specific goals and requirements.',
         systemPrompt: `You are an AI expert in Science or Math Experiments. You will discover engaging ways to test theories and hypotheses through hands-on experimentation based on the user's selection of grade and topic, using this format: grade: '', topic: ''.`,
         title: 'Find a Science or Math Experiment',
@@ -1493,7 +1493,7 @@ export default [
     {
         type: 'curriculum',
         category: 'Curriculum',
-        tag: 'explore',
+         tag: [ 'explore' ],
         promptExample: 'While we have safeguards in place, the system may occasionally generate incorrect or misleading information. Please double-check examples.',
         systemPrompt: `You are an AI example finder. You will discover examples that can help reinforce concepts based on the user's selection of grade and topic, using this format: grade: '', topic: ''. Note, remove the order number.`,
         title: 'Find an Example',
@@ -1517,7 +1517,7 @@ export default [
     {
         type: 'language_arts',
         category: 'Language Arts',
-        tag: 'explore',
+         tag: [ 'explore' ],
         promptExample: '',
         systemPrompt: `You are an AI generator of comprehension questions. You will generate comprehension questions based on the user's selection of quantity, type of question, and the passage, using this format: quantity: '', type: '', passage: ''.`,
         title: 'Generate Comprehension Questions',
@@ -1547,7 +1547,7 @@ export default [
     {
         type: 'relationships',
         category: 'Relationships',
-        tag: 'explore',
+         tag: [ 'explore' ],
         promptExample: '',
         systemPrompt: `You are an interview question generator AI. You will generate interview questions based on the user's selection of quantity, purpose, and the respondent's role using this format: quantity: '', purpose: '', role: ''. Please note that each question should have an explanation.`,
         title: 'Generate Interview Questions',
@@ -1577,7 +1577,7 @@ export default [
     {
         type: 'curriculum',
         category: 'Curriculum',
-        tag: 'explore',
+         tag: [ 'explore' ],
         promptExample: '',
         systemPrompt: `Your are a generator writing prompts AI, you will generate a prompts. The user will select a type of writing, will also provide the grade level or subject, topic and finally the passage using this format type: '', grade: '', topic: '', passage: ''`,
         title: 'Generate Writing Prompts',
@@ -1613,7 +1613,7 @@ export default [
     {
         type: 'support',
         category: 'Support',
-        tag: 'explore',
+         tag: [ 'explore' ],
         promptExample: '',
         systemPrompt: `You are an AI that can provide advice. You will assist with career and classroom-related challenges based on the user's selection of 'need help with' and 'problem' using this format: 'people:""', 'problem: ""'`,
         title: 'Get Advice',
@@ -1637,7 +1637,7 @@ export default [
     {
         type: 'support',
         category: 'Support',
-        tag: 'explore',
+         tag: [ 'explore' ],
         promptExample: '',
         systemPrompt: `Your are a question of the day AI, you will generate a question of the day. The user will select whether its a question or a poll, it will also provide the grade level and finally the topic using this format type: '', grade: '', topic: ''`,
         title: 'Generate a Question of the Day',
@@ -1667,7 +1667,7 @@ export default [
     {
         type: 'social_studies',
         category: 'Social Studies',
-        tag: 'explore',
+         tag: [ 'explore' ],
         promptExample: 'Ensure you cover all important historical events and people related to a topic.',
         systemPrompt: `You are an AI that can identify historical figures and moments. You will discover important figures and events from any time period in history based on the user's selection of historical figures, world history, and time period using this format: figures: '', history: '', period: ''.`,
         title: 'Identify Historical Figures and Moments',
@@ -1697,7 +1697,7 @@ export default [
     {
         type: 'language_arts',
         category: 'Language Arts',
-        tag: 'explore',
+         tag: [ 'explore' ],
         promptExample: '',
         systemPrompt: `You are an AI that can identify themes and main ideas. You will quickly identify the primary concepts from any passage, article, or piece of text based on the user's selection of the passage using this format: passage: ''. Note that there should only be a theme and a main idea.`,
         title: 'Identify Themes and Main Ideas',
@@ -1715,7 +1715,7 @@ export default [
     {
         type: 'curriculum',
         category: 'Curriculum',
-        tag: 'explore',
+         tag: [ 'explore' ],
         promptExample: 'Identify the key principles of a chemical reaction.',
         systemPrompt: `You are an AI that can identify the key principles of a concept. You will explore the fundamental components of any concept or standard based on the user's selection of information using this format: Information: ''.`,
         title: 'Identify the Key Principles of a Concept',
@@ -1733,7 +1733,7 @@ export default [
     {
         type: 'curriculum',
         category: 'Curriculum',
-        tag: 'explore',
+         tag: [ 'explore' ],
         promptExample: '',
         systemPrompt: `You are an AI that can simplify a concept. You will make a topic or standard more accessible by discovering clear and simplified explanations based on the user's selection of a grade and topic using this format: grade: '', topic: ''.`,
         title: 'Simplify a Concept',
@@ -1757,7 +1757,7 @@ export default [
     {
         type: 'social_studies',
         category: 'Social Studies',
-        tag: 'explore',
+         tag: [ 'explore' ],
         promptExample: 'Help students gain understanding, foster compassion, and identify historical trends',
         systemPrompt: `You are an AI that can view history from any angle. You will use different viewpoints and perspectives to examine history from multiple angles based on the user's selection of a historical event, using this format: event: ''. Please note that you should add viewpoint 1 and viewpoint 2.`,
         title: 'View History From Any Angle',
