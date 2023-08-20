@@ -44,7 +44,7 @@ const cards = [
             },
             preachingStyle: {
                 value: '',
-                placeholder: "Describe the user's prefferred preaching style. e.g. formal, storytelling, humor, and level of theological depth.",
+                placeholder: "Describe the user's prefferred preaching style. formal, storytelling, humor, and level of theological depth.",
                 inputType: 'textarea',
                 label: 'Personal Preaching Style',
             },
@@ -74,31 +74,31 @@ const cards = [
         inputs: {
             highlights: {
                 value: '',
-                placeholder: 'e.g. Upgraded software in computer lab for better functionality and implemented new security measures to protect lab equipment.',
+                placeholder: 'Upgraded software in computer lab for better functionality and implemented new security measures to protect lab equipment.',
                 inputType: 'textarea',
                 label: 'Main Highlights',
             },
             challenges: {
                 value: '',
-                placeholder: 'e.g. Dealing with occasional computer glitches and managing student access to specific software.',
+                placeholder: 'Dealing with occasional computer glitches and managing student access to specific software.',
                 inputType: 'textarea',
                 label: 'Challenges Faced',
             },
             insights: {
                 value: '',
-                placeholder: 'e.g. Recognized the need for regular maintenance to prevent technical issues',
+                placeholder: 'Recognized the need for regular maintenance to prevent technical issues',
                 inputType: 'textarea',
                 label: 'Insights',
             },
             purpose: {
                 value: '',
-                placeholder: 'e.g. To provide an overview of activities and improvements in the computer lab.',
+                placeholder: 'To provide an overview of activities and improvements in the computer lab.',
                 inputType: 'text',
                 label: 'Report Purpose',
             },
             outcome: {
                 value: '',
-                placeholder: 'e.g. Improved lab functionality and security and enhanced student experience in the lab.',
+                placeholder: 'Improved lab functionality and security and enhanced student experience in the lab.',
                 inputType: 'text',
                 label: 'Report Outcome',
             }
