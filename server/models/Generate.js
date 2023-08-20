@@ -46,6 +46,23 @@ class generateModel {
         }
     }
 
+    async global(prompt) {
+        try {
+            const param = { 
+                messages: prompt,
+                max_tokens: 800,
+                ...this.options
+            };
+            const chatCompletion = await openai.createChatCompletion(param)
+                                        .then(res => res.data);
+            //this.starCredit.manager(chatCompletion);
+            return chatCompletion.choices.pop();
+        } catch (error) {
+            console.error(error);
+            return false;
+        }
+    }
+
     async lessonPlan(prompt) {
         try {
             const param = { 

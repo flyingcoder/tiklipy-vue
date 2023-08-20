@@ -27,15 +27,21 @@ export const useFormStore = defineStore("form", {
             this.inputs = details.inputs;
             this.systemPrompt = details.systemPrompt;
         },
-        processInstruction() {
+        joinInputs() {
             const sentenceParts = Object.keys
                 (this.inputs).map((key) => {
                     return `${key}: "${this.inputs[key].value}"`;
                 }
             );
             const enclosed = sentenceParts.join(', ');
-            //return `{${enclosed}}`;
             return enclosed;
+        },
+        processInstruction() {
+            const mergeText = this.joinInputs();
+            return [
+                { role: 'system', content: this.systemPrompt },
+                { role: 'user', content:`${mergeText}` }
+            ];
         }
     }
 });

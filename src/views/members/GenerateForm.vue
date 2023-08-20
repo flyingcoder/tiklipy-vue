@@ -24,10 +24,6 @@
         generateResource.addGeneratedResource(rawContent, 'lessonPlan');
     }
 
-    const camelCaseToNormal = (value) => {
-        return value.replace(/([a-z])([A-Z])/g, '$1 $2');
-    }
-
     onMounted(() => {
         console.log(formStore.description)
         if(formStore.category === '')
@@ -38,11 +34,10 @@
         console.log(formStore.inputs)
         isGenerating.value = true;
         const instruc = formStore.processInstruction();
-        console.log(instruc);
-        //await backEndModel.generateResource(instruc)
-        //    .then((completion) => {
-        //        saveToFireBase(completion?.data?.message?.content);
-        //        generatedResource.value = completion?.data?.message?.content?.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>') });
+        await backEndModel.generateResource(instruc)
+            .then((completion) => {
+                console.log(completion);
+                generatedResource.value = completion?.data?.message?.content?.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>') });
         isGenerating.value = false;
     }
 
