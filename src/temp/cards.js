@@ -94,7 +94,7 @@ const cards = [
                 value: '',
                 placeholder: 'e.g. To provide an overview of activities and improvements in the computer lab.',
                 inputType: 'text',
-                label: 'Report Insights',
+                label: 'Report Purpose',
             },
             outcome: {
                 value: '',
