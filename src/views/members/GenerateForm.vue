@@ -102,8 +102,17 @@
                     </div>
                 </div>
                 <div class="w-full lg:w-[30%] col-span-2">
-                    <div class="p-6 bg-gray-100 rounded-3xl animate__animated animate__fadeInUp">
-                        <h3 class="mb-6 text-xl font-bold leading-snug text-black">
+                    <div class="p-6 bg-white rounded-3xl animate__animated animate__fadeInUp">
+                        <Button @click.prevent="generate" type="submit" size="lg" class="mt-5 w-full bg-main-color hover:bg-secondary-color border-0 text-sm lg:text-[0.775rem] xl:text-lg font-semibold">
+                           Generate Now!
+                        </Button>
+                        <div class="inline-flex items-center justify-center w-full px-6">
+                            <hr class="w-64 h-px my-8 bg-gray-900 border-0 dark:bg-gray-700">
+                            <span class="absolute px-3 font-medium text-gray-900 -translate-x-1/2 bg-white left-1/2 dark:text-white dark:bg-gray-900">
+                            or
+                            </span>
+                        </div>
+                        <h3 class="mb-6 text-xl font-bold leading-snug text-center text-black capitalize">
                             Enhance results with more details.
                         </h3>
                         <div v-for="(input, index) in formStore.inputs" :key="index + '-generate-form-input'" class="mb-4 font-semibold generate-form-section">
