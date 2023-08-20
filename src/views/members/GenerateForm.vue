@@ -4,7 +4,6 @@
     import { useFormStore } from '../../stores/form';
     import { onMounted, ref  } from 'vue'
     import { Input } from 'flowbite-vue';
-    import { Select } from 'flowbite-vue';
     import { Alert } from 'flowbite-vue';
     import { Textarea } from 'flowbite-vue';
     import { Button } from 'flowbite-vue';
@@ -19,6 +18,7 @@
     const generatedResource = ref();
     const copyContent = ref(false);
     const isGenerating = ref(false);
+    const catDoneTyping = ref(true);
 
     const saveToFireBase = (rawContent) => {
         generateResource.addGeneratedResource(rawContent, 'lessonPlan');
@@ -31,14 +31,23 @@
     })
 
     const generate = async () => {
-        console.log(formStore.inputs)
         isGenerating.value = true;
+        catDoneTyping.value = false;
         const instruc = formStore.processInstruction();
         await backEndModel.generateResource(instruc)
             .then((completion) => {
                 console.log(completion);
                 generatedResource.value = completion?.data?.message?.content?.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>') });
+        catDoneTyping.value = true;
+    }
+
+    const regenerate = () => {
         isGenerating.value = false;
+        generatedResource.value = '';
+    }
+
+    const printResource = () => {
+        
     }
 
     const copyGeneratedTopic = () => {
@@ -72,7 +81,7 @@
             </div>
             <div class="flex flex-wrap gap-4 p-3 sm:p-9">
                 <div class="w-full lg:w-[68%] col-span-4">
-                    <div class="w-full py-4 generated-value" v-if="!generatedResource">
+                    <div :class="{'animate__bounceOut' : generatedResource, 'animate__bounceInRight' : !generatedResource  }" class="w-full py-4 animate__animated generated-value" v-if="!generatedResource">
                         <h2 class="mb-6 text-2xl font-semibold">
                             {{ formStore.description }}
                         </h2>
@@ -86,24 +95,32 @@
                             </div>
                         </div>
                     </div>
-                    <div class="w-full py-4 generated-value" v-if="generatedResource" v-html="generatedResource">
+                    <div :class="{'animate__bounceOut' : !generatedResource, 'animate__bounceInRight' : generatedResource  }" class="w-full py-4 animate__animated generated-value" v-if="generatedResource" v-html="generatedResource">
                         
                     </div>
                     <div class="block" v-if="generatedResource">
                         <div class="flex">
-                            <Button color="default" @click="copyGeneratedTopic" class="py-3 pr-5 mr-3 font-semibold uppercase border-0 bg-main-color hover:bg-secondary-color">
+                            <Button color="default" @click="printResource" class="py-3 pr-5 mr-3 font-semibold uppercase border-0 bg-main-color hover:bg-secondary-color">
                                 <i class="mr-2 text-2xl align-middle ti ti-printer"></i>
                                 Print
                             </Button>
-                            <Button color="default" class="py-3 pr-5 mr-3 font-semibold uppercase border-0 bg-main-color hover:bg-secondary-color">
+                            <Button @click="saveToFireBase" color="default" class="py-3 pr-5 mr-3 font-semibold uppercase border-0 bg-main-color hover:bg-secondary-color">
                                 <i class="mr-2 text-2xl align-middle ti ti-bookmark"></i>
                                 Save
+                            </Button>
+                            <Button @click="regenerate" color="default" class="py-3 pr-5 mr-3 font-semibold uppercase border-0 bg-main-color hover:bg-secondary-color">
+                                <i class="mr-2 text-2xl align-middle ti ti-repeat"></i>
+                                Regenerate
                             </Button>
                         </div>
                     </div>
                 </div>
                 <div class="w-full lg:w-[30%] col-span-2">
-                    <div class="p-6 bg-white rounded-3xl animate__animated animate__fadeInUp">
+                    <div v-if="isGenerating" :class="{'animate__fadeOutUp' : !isGenerating, 'animate__fadeInDown' : isGenerating  }" class="p-6 bg-white rounded-3xl animate__animated">
+                        <div v-if="!catDoneTyping">cat gif typing and coding</div>
+                        <div v-if="catDoneTyping">cat gif done generating</div>
+                    </div>
+                    <div v-if="!isGenerating" :class="{'animate__fadeOutDown' : isGenerating, 'animate__fadeInUp' : !isGenerating  }" class="p-6 bg-white rounded-3xl animate__animated">
                         <Button @click.prevent="generate" type="submit" size="lg" class="mt-5 w-full bg-main-color hover:bg-secondary-color border-0 text-sm lg:text-[0.775rem] xl:text-lg font-semibold">
                            Generate Now!
                         </Button>
