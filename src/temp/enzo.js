@@ -404,7 +404,7 @@ export default [
     {
         type: 'assessments',
         category: 'Assessments',
-         tag: [ 'write' ],
+         tag: [ 'write', 'featured' ],
         promptExample: 'Distinguish a formative assessment by presenting students with a creative challenge that necessitates critical thinking to demonstrate their knowledge.',
         systemPrompt: "You are an alternative assessment AI. You will generate a lesson for the user's students. The topic, the grade level of students, and the type of Assessment will be given by the user in this format: evaluation: '', grade: '', subject: '', details: ''",
         title: 'Develop an alternative method of evaluation.',
@@ -440,7 +440,7 @@ export default [
     {
         type: 'lesson',
         category: 'Lesson Planning',
-         tag: [ 'write' ],
+         tag: [ 'lessons' ],
         promptExample: 'Although precautions are in place, the system might occasionally produce inaccurate or deceptive information. Its advisable to verify the results.',
         systemPrompt: 'You are a Five-E Lesson Plan Generator AI. Your job is to Design a lesson that promotes active learning through five distinct stages. the Lesson Length, Grade Level, Subject, Topic or Standard will be provided in this format: duration: "data", grade: "data", subject: "data", topic: "data". also put a note if you have something to say at the bottom. Avoid using monitors and other gadgets.',
         title: 'Create a lesson plan structured around the Five-E framework.',
@@ -536,7 +536,7 @@ export default [
     {
         type: 'lesson',
         category: 'Lesson Planning',
-         tag: [ 'write' ],
+         tag: [ 'lessons' ],
         promptExample: 'While we have safeguards in place, the system may occasionally generate incorrect or misleading information. Please double-check results.',
         systemPrompt: 'You are an Explicit Lesson Plan Generator AI. Your job is to Design a direct instruction lesson with clear goals, structure, and organization. You will be given the lesson length, Grade Level, Subject, and topic. Based on the given data, you will start to generate a direct instruction lesson plan. You will get the content form the user in this format:  lesson: "data", grade: "data", subject: "data", situation: "data"',
         title: 'Generate an Explicit Lesson Plan',
@@ -572,7 +572,7 @@ export default [
     {
         type: 'lesson',
         category: 'Lesson Planning',
-         tag: [ 'write' ],
+         tag: [ 'lessons' ],
         promptExample: 'While we have safeguards in place, the system may occasionally generate incorrect or misleading information. Please double-check results.',
         systemPrompt: 'You are an Inquiry-Based Lesson Plan Generator. Your job is to Design a student-led lesson that prioritizes critical thinking, exploration, and discovery. You will be given the lesson length, Grade Level, Subject, and topic by the user in this format: duration: "", grade: "", subject: "", topic: "". When you prompt it I  want you to output the title first then the other contents',
         title: 'Generate an Inquiry-Based Lesson Plan',
@@ -1134,10 +1134,10 @@ export default [
     {
         type: 'classroom',
         category: 'Classroom',
-         tag: [ 'manage' ],
+         tag: [ 'manage', 'featured' ],
         promptExample: 'Create a safe learning environment that promotes student responsibility.',
         systemPrompt: 'Assist in generating clear and concise instructions for monthly auxiliary reports. Provide guidance on structuring the report, including key points, challenges, highlights, and insights. Ensure the instructions are professional and informative to simplify the reporting process.',
-        title: 'Manage Problem Behavior',
+        title: 'Manage Problematic Behavior',
         icon:'ti-circle-x',
         description: 'Discover effective strategies for handling challenging behavior.',
         inputs: {
@@ -1445,7 +1445,7 @@ export default [
     {
         type: 'curriculum',
         category: 'Curriculum',
-         tag: [ 'explore' ],
+         tag: [ 'explore', 'featured' ],
         promptExample: 'Help students celebrate the first day of spring while learning about its unique history.',
         systemPrompt: `You are an AI that can generate project ideas. You will generate a project or idea based on the user's selection of grade level and topic using this format: grade: '', topic: ''.`,
         title: 'Find a Project Idea',
@@ -1469,7 +1469,7 @@ export default [
     {
         type: 'science_math',
         category: 'Science And Math',
-         tag: [ 'explore' ],
+         tag: [ 'explore', 'featured' ],
         promptExample: 'Save time and effort by generating an experiment that aligns with specific goals and requirements.',
         systemPrompt: `You are an AI expert in Science or Math Experiments. You will discover engaging ways to test theories and hypotheses through hands-on experimentation based on the user's selection of grade and topic, using this format: grade: '', topic: ''.`,
         title: 'Find a Science or Math Experiment',
@@ -1667,7 +1667,7 @@ export default [
     {
         type: 'social_studies',
         category: 'Social Studies',
-         tag: [ 'explore' ],
+         tag: [ 'explore', 'featured' ],
         promptExample: 'Ensure you cover all important historical events and people related to a topic.',
         systemPrompt: `You are an AI that can identify historical figures and moments. You will discover important figures and events from any time period in history based on the user's selection of historical figures, world history, and time period using this format: figures: '', history: '', period: ''.`,
         title: 'Identify Historical Figures and Moments',
@@ -1697,7 +1697,7 @@ export default [
     {
         type: 'language_arts',
         category: 'Language Arts',
-         tag: [ 'explore' ],
+         tag: [ 'explore', 'featured' ],
         promptExample: '',
         systemPrompt: `You are an AI that can identify themes and main ideas. You will quickly identify the primary concepts from any passage, article, or piece of text based on the user's selection of the passage using this format: passage: ''. Note that there should only be a theme and a main idea.`,
         title: 'Identify Themes and Main Ideas',
@@ -1757,7 +1757,7 @@ export default [
     {
         type: 'social_studies',
         category: 'Social Studies',
-         tag: [ 'explore' ],
+         tag: [ 'explore', 'featured' ],
         promptExample: 'Help students gain understanding, foster compassion, and identify historical trends',
         systemPrompt: `You are an AI that can view history from any angle. You will use different viewpoints and perspectives to examine history from multiple angles based on the user's selection of a historical event, using this format: event: ''. Please note that you should add viewpoint 1 and viewpoint 2.`,
         title: 'View History From Any Angle',

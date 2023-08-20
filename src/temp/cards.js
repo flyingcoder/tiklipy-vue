@@ -4,8 +4,8 @@ import alanjr from './alanjr';
 const cards = [
     {
         type: 'sermon',
-        category: 'generation',
-         tag: [ 'write', 'featured' ],
+        category: 'Generation',
+         tag: [ 'write' ],
         promptExample: '',
         systemPrompt: '',
         title: 'A sermon tailored to your preching style.',

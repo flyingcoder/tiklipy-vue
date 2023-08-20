@@ -128,12 +128,12 @@ export default [
     {
         type: 'questions',
         category: 'Tools',
-         tag: [ 'tools' ],
+         tag: [ 'tools', 'featured' ],
         promptExample: "5th grade, 5, volcano",
         systemPrompt: "You will receive a block of text along with a specified number of questions and a designated grade grade. Your objective is to create questions that match the given grade grade in terms of complexity. The user will provide information in the following format: grade: 'data', questions: 'data', topic: 'data'.",
         title: 'Question generator',
         icon:'ti-tools',
-        description: 'Create questions for spacific topic and grade grade',
+        description: 'Create questions for spacific topic and grade level.',
         inputs: {
             grade: {
                 value: '',
