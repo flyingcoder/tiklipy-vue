@@ -122,8 +122,8 @@
                             Enhance results with more details.
                         </h3>
                         <div v-for="(input, index) in formStore.inputs" :key="index + '-generate-form-input'" class="mb-4 font-semibold generate-form-section">
-                            <Textarea :rows="input.rows" placeholder="" v-model="formStore.inputs[index].value" v-if="input.inputType === 'textarea'" class="font-semibold" :label="input.label" />
-                            <Input placeholder="" v-model="formStore.inputs[index].value" v-else type="text" :label="input.label" class="font-semibold"/>
+                            <Textarea :rows="input.rows" placeholder="Write here" v-model="formStore.inputs[index].value" v-if="input.inputType === 'textarea'" class="font-semibold" :label="input.label" />
+                            <Input placeholder="Write here" v-model="formStore.inputs[index].value" v-else type="text" :label="input.label" class="font-semibold"/>
                         </div>
                         <Button @click.prevent="generate" type="submit" size="lg" class="mt-5 w-full bg-main-color hover:bg-secondary-color border-0 text-sm lg:text-[0.775rem] xl:text-lg font-semibold">
                            Tiklipy Go!
