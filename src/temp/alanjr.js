@@ -11,7 +11,7 @@ export default [
         inputs: {
             sentence: {
                 value: '',
-                placeholder: 'Write here',
+                hint: 'Write here',
                 inputType: 'textarea',
                 label: 'Write the the sentence you would like to check and correct',
             },
@@ -29,14 +29,14 @@ export default [
         inputs: {
             grade: {
                 value: '',
-                placeholder: 'e.g. 2nd Grade',
+                hint: 'e.g. 2nd Grade',
                 inputType: 'input',
                 label: 'Write the student\'s grade',
             },
             sentence: {
                 value: '',
                 label: 'Sentence',
-                placeholder: "Write here",
+                hint: "Write here",
                 inputType: 'textarea',
                 rows: '10',
             },
@@ -54,7 +54,7 @@ export default [
         inputs: {
             organize: {
                 value: '',
-                placeholder: 'Write here',
+                hint: 'Write here',
                 inputType: 'textarea',
                 label: 'Enter the sentence you would like to organize',
                 rows:'10',
@@ -74,7 +74,7 @@ export default [
         inputs: {
             translation: {
                 value: '',
-                placeholder: 'Write here',
+                hint: 'Write here',
                 inputType: 'textarea',
                 label: 'Enter the sentence you would like to translate',
                 rows:'10',
@@ -93,7 +93,7 @@ export default [
         inputs: {
             extractor: {
                 value: '',
-                placeholder: 'Write here',
+                hint: 'Write here',
                 inputType: 'textarea',
                 label: "Please provide the sentence from which you'd like to extract keywords.",
                 rows:'10',
@@ -112,13 +112,13 @@ export default [
         inputs: {
             cols: {
                 value: '',
-                placeholder: ' First name, Last name, age, score, grade',
+                hint: ' First name, Last name, age, score, grade',
                 inputType: 'input',
                 label: 'Enter Information Overview',
             },
             data: {
                 value: '',
-                placeholder:'e.g. Aurora Sullivan, aged 25, achieved a score of 92; Jasper Bennett, aged 32, scored 78; Olivia Ramirez, aged 28, scored 85; Liam Anderson, aged 21, attained a score of 96; Sophia Mitchell, aged 29, received a score of 88; Ethan Roberts, aged 24, scored 91; Ava Martinez, aged 27, achieved a score of 83; Lucas Cooper, aged 30, scored 89; Mia Thompson, aged 22, received a score of 94; and Owen Johnson, aged 26, scored 77.',
+                hint:'e.g. Aurora Sullivan, aged 25, achieved a score of 92; Jasper Bennett, aged 32, scored 78; Olivia Ramirez, aged 28, scored 85; Liam Anderson, aged 21, attained a score of 96; Sophia Mitchell, aged 29, received a score of 88; Ethan Roberts, aged 24, scored 91; Ava Martinez, aged 27, achieved a score of 83; Lucas Cooper, aged 30, scored 89; Mia Thompson, aged 22, received a score of 94; and Owen Johnson, aged 26, scored 77.',
                 inputType: 'textarea',
                 label: 'Enter data that you want to arrange',
                 rows:'10',
@@ -137,19 +137,19 @@ export default [
         inputs: {
             grade: {
                 value: '',
-                placeholder: 'e.g. 5th Grade',
+                hint: 'e.g. 5th Grade',
                 inputType: 'input',
                 label: 'Enter the grade grade',
             },
             questions: {
                 value: '',
-                placeholder: 'e.g. 5',
+                hint: 'e.g. 5',
                 inputType: 'input',
                 label: 'Enter the number of questions',
             },
             topic: {
                 value: '',
-                placeholder:'e.g. volcano',
+                hint:'e.g. volcano',
                 inputType: 'input',
                 label: 'Enter the topic',
                 rows:'10',
@@ -168,13 +168,13 @@ export default [
         inputs: {
             language: {
                 value: '',
-                placeholder: 'e.g. Bisaya',
+                hint: 'e.g. Bisaya',
                 inputType: 'input',
                 label: 'Enter the language you would like the translation to be in',
             },
             sentence: {
                 value: '',
-                placeholder: 'e.g. 私は学生です',
+                hint: 'e.g. 私は学生です',
                 inputType: 'textarea',
                 label: 'Write the sentence here',
             },
@@ -192,31 +192,31 @@ export default [
         inputs: {
             date: {
                 value: '',
-                placeholder: 'e.g. March 5th, 2023',
+                hint: 'e.g. March 5th, 2023',
                 inputType: 'input',
                 label: 'Enter the date',
             },
             time: {
                 value: '',
-                placeholder: 'e.g. 2:00 PM',
+                hint: 'e.g. 2:00 PM',
                 inputType: 'input',
                 label: 'Enter the time',
             },
             location: {
                 value: '',
-                placeholder: 'e.g. Conference Room 3B, Intergalactic Headquarters',
+                hint: 'e.g. Conference Room 3B, Intergalactic Headquarters',
                 inputType: 'textarea',
                 label: 'Enter the location',
             },
             meeting: {
                 value: '',
-                placeholder: 'e.g. 1.Introductions and Welcome... etc',
+                hint: 'e.g. 1.Introductions and Welcome... etc',
                 inputType: 'textarea',
                 label: 'Write the agenda of the meeting',
             },
             nextMeeting: {
                 value: '',
-                placeholder: 'e.g. 1.Introductions and Welcome... etc',
+                hint: 'e.g. 1.Introductions and Welcome... etc',
                 inputType: 'textarea',
                 label: 'Write the agenda of the next meeting',
             },

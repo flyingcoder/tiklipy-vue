@@ -11,13 +11,13 @@ export default [
         inputs: {
             verse: {
                 value: '',
-                placeholder: 'Examples include Sonnet, Haiku, Free Verse, Limerick, Epic, Ballad, and Ode.',
+                hint: 'Examples include Sonnet, Haiku, Free Verse, Limerick, Epic, Ballad, and Ode.',
                 inputType: 'text',
                 label: 'Genre of Verse',
             },
             subject: {
                 value: '',
-                placeholder: 'For instance, the subject of "States of Matter."',
+                hint: 'For instance, the subject of "States of Matter."',
                 inputType: 'text',
                 label: 'Subject',
             },
@@ -35,25 +35,25 @@ export default [
         inputs: {
             grade: {
                 value: '',
-                placeholder: 'e.g. 5th Grade',
+                hint: 'e.g. 5th Grade',
                 inputType: 'input',
                 label: 'Enter the grade grade',
             },
             subject: {
                 value: '',
-                placeholder: 'State the general topic or paste an official standard.',
+                hint: 'State the general topic or paste an official standard.',
                 inputType: 'textarea',
                 label: 'Topic or Standard',
             },
             questions: {
                 value: '',
-                placeholder: 'For instance, 1 or a range from 2 to 10.',
+                hint: 'For instance, 1 or a range from 2 to 10.',
                 inputType: 'text',
                 label: 'How Many Questions Would You Like?',
             },
             type: {
                 value: '',
-                placeholder: 'For example, multiple choice, true or false, fill in the blank, short answer essay, or numeric response.',
+                hint: 'For example, multiple choice, true or false, fill in the blank, short answer essay, or numeric response.',
                 inputType: 'text',
                 label: 'Type of Questions',
             },
@@ -71,49 +71,49 @@ export default [
         inputs: {
             grade: {
                 value: '',
-                placeholder: 'For instance, 6th grade.',
+                hint: 'For instance, 6th grade.',
                 inputType: 'text',
                 label: 'Educational Level or Field of Study',
             },
             target: {
                 value: '',
-                placeholder: 'Who is the intended recipient of this?',
+                hint: 'Who is the intended recipient of this?',
                 inputType: 'text',
                 label: 'Target Audience or Receiver',
             },
             request: {
                 value: '',
-                placeholder: 'For example, 25 sets of child-size scissors, four packs of mechanical pencils, and so on.',
+                hint: 'For example, 25 sets of child-size scissors, four packs of mechanical pencils, and so on.',
                 inputType: 'textarea',
                 label: 'Items in Demand',
             },
             accasion: {
                 value: '',
-                placeholder: 'What is the reason behind seeking these donations?',
+                hint: 'What is the reason behind seeking these donations?',
                 inputType: 'textarea',
                 label: 'Occasion or Function',
             },
             deadline: {
                 value: '',
-                placeholder: 'For instance, Wednesday, March 1st.',
+                hint: 'For instance, Wednesday, March 1st.',
                 inputType: 'text',
                 label: 'Deadline for Donation Submission',
             },
             name: {
                 value: '',
-                placeholder: 'For example, Ms. Cotant.',
+                hint: 'For example, Ms. Cotant.',
                 inputType: 'text',
                 label: 'Name(s) of Point of Contact',
             },
             school: {
                 value: '',
-                placeholder: 'For instance, Maple Middle School.',
+                hint: 'For instance, Maple Middle School.',
                 inputType: 'text',
                 label: 'Title of Educational Establishment',
             },
             contact: {
                 value: '',
-                placeholder: 'For example, enzo@tiklipy.com.',
+                hint: 'For example, enzo@tiklipy.com.',
                 inputType: 'text',
                 label: 'Contact Details',
             },
@@ -131,61 +131,61 @@ export default [
         inputs: {
             grade: {
                 value: '',
-                placeholder: 'For example, 6th grade.',
+                hint: 'For example, 6th grade.',
                 inputType: 'text',
                 label: 'Educational Level or Discipline',
             },
             desination: {
                 value: '',
-                placeholder: 'For example, Museum of Art.',
+                hint: 'For example, Museum of Art.',
                 inputType: 'text',
                 label: 'Location of Visit',
             },
             date: {
                 value: '',
-                placeholder: 'For example, Friday, March 24th.',
+                hint: 'For example, Friday, March 24th.',
                 inputType: 'text',
                 label: 'Field Trip Date',
             },
             departure: {
                 value: '',
-                placeholder: 'At what time will the departure from the school be?',
+                hint: 'At what time will the departure from the school be?',
                 inputType: 'text',
                 label: 'Time of Departure from School',
             },
             return: {
                 value: '',
-                placeholder: 'At what time is the expected return to the school?',
+                hint: 'At what time is the expected return to the school?',
                 inputType: 'text',
                 label: 'Time of Return to School',
             },
             transportation: {
                 value: '',
-                placeholder: 'For example, school bus, walking, etc.',
+                hint: 'For example, school bus, walking, etc.',
                 inputType: 'text',
                 label: 'Method of Travel',
             },
             deadline: {
                 value: '',
-                placeholder: 'For instance, Wednesday, March 1st.',
+                hint: 'For instance, Wednesday, March 1st.',
                 inputType: 'text',
                 label: 'Last Date to Submit the Permission Slip',
             },
             contact: {
                 value: '',
-                placeholder: 'For example, Ms. Cotant',
+                hint: 'For example, Ms. Cotant',
                 inputType: 'text',
                 label: 'Name(s) of Contact Person(s)',
             },
             school: {
                 value: '',
-                placeholder: 'For example, Maple Middle School.',
+                hint: 'For example, Maple Middle School.',
                 inputType: 'text',
                 label: 'Title of Educational Institution',
             },
             email: {
                 value: '',
-                placeholder: 'For instance, ivy@classpack.com.',
+                hint: 'For instance, ivy@classpack.com.',
                 inputType: 'text',
                 label: 'Contact Details',
             },
@@ -203,67 +203,67 @@ export default [
         inputs: {
             grade: {
                 value: '',
-                placeholder: 'For instance, 6th grade.',
+                hint: 'For instance, 6th grade.',
                 inputType: 'text',
                 label: 'Educational Level or Field of Study',
             },
             literary: {
                 value: '',
-                placeholder: 'For instance, a book or a film.',
+                hint: 'For instance, a book or a film.',
                 inputType: 'text',
                 label: 'Literary Work or Movie',
             },
             title: {
                 value: '',
-                placeholder: 'For example, "Allies".',
+                hint: 'For example, "Allies".',
                 inputType: 'textarea',
                 label: 'Name of the Book or Film',
             },
             author: {
                 value: '',
-                placeholder: 'For example, Alan Gratz.',
+                hint: 'For example, Alan Gratz.',
                 inputType: 'text',
                 label: 'Writer or Filmmaker',
             },
             age_rating: {
                 value: '',
-                placeholder: 'For example, Ms. Cotant.',
+                hint: 'For example, Ms. Cotant.',
                 inputType: 'text',
                 label: 'Recommended Audience or Age Rating',
             },
             rating: {
                 value: '',
-                placeholder: 'For example, PG.',
+                hint: 'For example, PG.',
                 inputType: 'text',
                 label: 'Recommended Audience or Rating',
             },
             material: {
                 value: '',
-                placeholder: 'Provide a description of any potentially controversial content, such as scenes involving weapon usage, violent depictions, etc.',
+                hint: 'Provide a description of any potentially controversial content, such as scenes involving weapon usage, violent depictions, etc.',
                 inputType: 'textarea',
                 label: 'Sensitive Material',
             },
             deadline: {
                 value: '',
-                placeholder: 'For instance, Wednesday, March 1st.',
+                hint: 'For instance, Wednesday, March 1st.',
                 inputType: 'text',
                 label: 'Due Date for Returning the Permission Slip',
             },
             contact: {
                 value: '',
-                placeholder: 'For example, Ms. Cotant',
+                hint: 'For example, Ms. Cotant',
                 inputType: 'text',
                 label: 'Name(s) of Contact Person(s)',
             },
             school: {
                 value: '',
-                placeholder: 'For example, Maple Middle School.',
+                hint: 'For example, Maple Middle School.',
                 inputType: 'text',
                 label: 'Title of Educational Institution',
             },
             contactDetails: {
                 value: '',
-                placeholder: 'For instance, ivy@classpack.com.',
+                hint: 'For instance, ivy@classpack.com.',
                 inputType: 'text',
                 label: 'Contact Details',
             },
@@ -281,43 +281,43 @@ export default [
         inputs: {
             grade: {
                 value: '',
-                placeholder: 'For instance, 6th grade.',
+                hint: 'For instance, 6th grade.',
                 inputType: 'text',
                 label: 'Educational Level or Field of Study',
             },
             invitations: {
                 value: '',
-                placeholder: 'For example, general public or invitation only.',
+                hint: 'For example, general public or invitation only.',
                 inputType: 'text',
                 label: 'Open to the Public or Limited to Invitations',
             },
             platforms: {
                 value: '',
-                placeholder: 'For instance, Facebook, Instagram, Twitter, YouTube.',
+                hint: 'For instance, Facebook, Instagram, Twitter, YouTube.',
                 inputType: 'text',
                 label: 'Online Social Platforms',
             },
             due: {
                 value: '',
-                placeholder: 'For instance, Wednesday, March 1st.',
+                hint: 'For instance, Wednesday, March 1st.',
                 inputType: 'text',
                 label: 'Due Date for Returning',
             },
             contact: {
                 value: '',
-                placeholder: 'For example, Ms. Cotant',
+                hint: 'For example, Ms. Cotant',
                 inputType: 'text',
                 label: 'Name(s) of Contact Person(s)',
             },
             institution: {
                 value: '',
-                placeholder: 'For example, Maple Middle School.',
+                hint: 'For example, Maple Middle School.',
                 inputType: 'text',
                 label: 'Title of Educational Institution',
             },
             contactDetails: {
                 value: '',
-                placeholder: 'For instance, ivy@classpack.com.',
+                hint: 'For instance, ivy@classpack.com.',
                 inputType: 'text',
                 label: 'Contact Details',
             },
@@ -335,67 +335,67 @@ export default [
         inputs: {
             grade: {
                 value: '',
-                placeholder: 'For instance, 6th grade.',
+                hint: 'For instance, 6th grade.',
                 inputType: 'text',
                 label: 'Educational Level or Field of Study',
             },
             participants: {
                 value: '',
-                placeholder: 'Who is this directed towards?',
+                hint: 'Who is this directed towards?',
                 inputType: 'text',
                 label: 'Intended Participants or Volunteers',
             },
             event: {
                 value: '',
-                placeholder: 'What is the reason for seeking volunteers?',
+                hint: 'What is the reason for seeking volunteers?',
                 inputType: 'text',
                 label: 'Occasion or Project',
             },
             date: {
                 value: '',
-                placeholder: 'For instance, Monday, December 20th.',
+                hint: 'For instance, Monday, December 20th.',
                 inputType: 'text',
                 label: 'When do you require assistance?',
             },
             startTime: {
                 value: '',
-                placeholder: 'The time they are expected to arrive.',
+                hint: 'The time they are expected to arrive.',
                 inputType: 'text',
                 label: 'Beginning Hour',
             },
             endTime: {
                 value: '',
-                placeholder: 'The time they are expected to finish.',
+                hint: 'The time they are expected to finish.',
                 inputType: 'text',
                 label: 'Concluding Time',
             },
             numberOfVolunteers: {
                 value: '',
-                placeholder: 'For example, a range from 1 to 10+.',
+                hint: 'For example, a range from 1 to 10+.',
                 inputType: 'text',
                 label: 'How many volunteers are you in need of?',
             },
             confirmationToAttendDate: {
                 value: '',
-                placeholder: 'When will you confirm the assistance?',
+                hint: 'When will you confirm the assistance?',
                 inputType: 'text',
                 label: 'Date of Confirmation',
             },
             nameOfcontact: {
                 value: '',
-                placeholder: 'For example, Ms. Cotant',
+                hint: 'For example, Ms. Cotant',
                 inputType: 'text',
                 label: 'Name(s) of Contact Person(s)',
             },
             school: {
                 value: '',
-                placeholder: 'For example, Maple Middle School.',
+                hint: 'For example, Maple Middle School.',
                 inputType: 'text',
                 label: 'Title of Educational Institution',
             },
             contactDetails: {
                 value: '',
-                placeholder: 'For instance, ivy@classpack.com.',
+                hint: 'For instance, ivy@classpack.com.',
                 inputType: 'text',
                 label: 'Contact Details',
             },
@@ -413,25 +413,25 @@ export default [
         inputs: {
             evaluation: {
                 value: '',
-                placeholder: 'For example, Project-Based, Problem-Based, Report-Based, Reflective Piece, Critical Analysis, Case-Based Scenario, and Portfolio.',
+                hint: 'For example, Project-Based, Problem-Based, Report-Based, Reflective Piece, Critical Analysis, Case-Based Scenario, and Portfolio.',
                 inputType: 'text',
                 label: 'Category of Non-Traditional Evaluation',
             },
             grade: {
                 value: '',
-                placeholder: 'For instance, 6th grade.',
+                hint: 'For instance, 6th grade.',
                 inputType: 'text',
                 label: 'Educational Level or Field of Study',
             },
             subject: {
                 value: '',
-                placeholder: 'Indicate the overarching subject or provide an official standard.',
+                hint: 'Indicate the overarching subject or provide an official standard.',
                 inputType: 'textarea',
                 label: 'Subject Matter or Learning Objective',
             },
             details: {
                 value: '',
-                placeholder: 'Indicate the overarching subject or provide an official standard.',
+                hint: 'Indicate the overarching subject or provide an official standard.',
                 inputType: 'textarea',
                 label: 'Supplementary Details',
             },
@@ -449,25 +449,25 @@ export default [
         inputs: {
             duration: {
                 value: '',
-                placeholder: 'For example, 45 minutes.',
+                hint: 'For example, 45 minutes.',
                 inputType: 'text',
                 label: 'Duration of the Lesson',
             },
             grade: {
                 value: '',
-                placeholder: 'For example, 8th grade.',
+                hint: 'For example, 8th grade.',
                 inputType: 'text',
                 label: 'Educational Level',
             },
             subject: {
                 value: '',
-                placeholder: 'For example, Mathematics, English Language Arts, Social Studies, Science, or Fine Arts.',
+                hint: 'For example, Mathematics, English Language Arts, Social Studies, Science, or Fine Arts.',
                 inputType: 'textarea',
                 label: 'Subject',
             },
             topic: {
                 value: '',
-                placeholder: 'Indicate the topic or provide an official standard.',
+                hint: 'Indicate the topic or provide an official standard.',
                 inputType: 'textarea',
                 label: 'Topic or Standard',
             },
@@ -485,13 +485,13 @@ export default [
         inputs: {
             tone: {
                 value: '',
-                placeholder: 'Examples: Professional, Friendly, Positive, Casual, Urgent, Apologetic, Informal, Critical',
+                hint: 'Examples: Professional, Friendly, Positive, Casual, Urgent, Apologetic, Informal, Critical',
                 inputType: 'text',
                 label: 'Tone',
             },
             email: {
                 value: '',
-                placeholder: 'Paste the email here.',
+                hint: 'Paste the email here.',
                 inputType: 'textarea',
                 label: 'Email Content',
             },
@@ -509,25 +509,25 @@ export default [
         inputs: {
             type: {
                 value: '',
-                placeholder: 'Examples: Article, Passage or Story',
+                hint: 'Examples: Article, Passage or Story',
                 inputType: 'text',
                 label: 'Type of Text',
             },
             grade: {
                 value: '',
-                placeholder: 'Example: 8th grade.',
+                hint: 'Example: 8th grade.',
                 inputType: 'text',
                 label: 'Grade Level',
             },
             topic: {
                 value: '',
-                placeholder: 'State the general topic or paste an official standard.',
+                hint: 'State the general topic or paste an official standard.',
                 inputType: 'textarea',
                 label: 'Topic or Standard',
             },
             details: {
                 value: '',
-                placeholder: 'What specific information would you like included? ',
+                hint: 'What specific information would you like included? ',
                 inputType: 'textarea',
                 label: 'Information to Include',
             },
@@ -545,25 +545,25 @@ export default [
         inputs: {
             lesson: {
                 value: '',
-                placeholder: 'Examples: 45 minutes',
+                hint: 'Examples: 45 minutes',
                 inputType: 'text',
                 label: 'Lesson Length',
             },
             grade: {
                 value: '',
-                placeholder: 'Example: 8th grade.',
+                hint: 'Example: 8th grade.',
                 inputType: 'text',
                 label: 'Grade Level',
             },
             subject: {
                 value: '',
-                placeholder: 'Example, Mathematics, English Language Arts, Social Studies, Science, or Fine Arts.',
+                hint: 'Example, Mathematics, English Language Arts, Social Studies, Science, or Fine Arts.',
                 inputType: 'textarea',
                 label: 'Subject',
             },
             situation: {
                 value: '',
-                placeholder: 'State the general topic or paste an official standard.',
+                hint: 'State the general topic or paste an official standard.',
                 inputType: 'textarea',
                 label: 'Topic or Standard',
             },
@@ -581,25 +581,25 @@ export default [
         inputs: {
             duration: {
                 value: '',
-                placeholder: 'Examples: 45 minutes',
+                hint: 'Examples: 45 minutes',
                 inputType: 'text',
                 label: 'Lesson Length',
             },
             grade: {
                 value: '',
-                placeholder: 'Example: 8th grade.',
+                hint: 'Example: 8th grade.',
                 inputType: 'text',
                 label: 'Grade Level',
             },
             subject: {
                 value: '',
-                placeholder: 'Example, Mathematics, English Language Arts, Social Studies, Science, or Fine Arts.',
+                hint: 'Example, Mathematics, English Language Arts, Social Studies, Science, or Fine Arts.',
                 inputType: 'textarea',
                 label: 'Subject',
             },
             topic: {
                 value: '',
-                placeholder: 'State the general topic or paste an official standard.',
+                hint: 'State the general topic or paste an official standard.',
                 inputType: 'textarea',
                 label: 'Topic or Standard',
             },
@@ -617,25 +617,25 @@ export default [
         inputs: {
             regarding: {
                 value: '',
-                placeholder: 'Examples: Colleague or Students',
+                hint: 'Examples: Colleague or Students',
                 inputType: 'text',
                 label: 'Who Is This Regarding?',
             },
             name: {
                 value: '',
-                placeholder: 'Example: Jonathan',
+                hint: 'Example: Jonathan',
                 inputType: 'text',
                 label: 'Student or Colleague First Name',
             },
             aspects: {
                 value: '',
-                placeholder: 'What do you appreciate about this person, their work, or their work ethic?',
+                hint: 'What do you appreciate about this person, their work, or their work ethic?',
                 inputType: 'textarea',
                 label: 'List of Positive Aspects',
             },
             areas: {
                 value: '',
-                placeholder: 'What areas need improvement in regards to this person, their work, or their work ethic?',
+                hint: 'What areas need improvement in regards to this person, their work, or their work ethic?',
                 inputType: 'textarea',
                 label: 'List of Areas to Improve Upon',
             },
@@ -653,61 +653,61 @@ export default [
         inputs: {
             audience: {
                 value: '',
-                placeholder: 'To whom is this addressed? ',
+                hint: 'To whom is this addressed? ',
                 inputType: 'text',
                 label: 'Audience or Recipient',
             },
             name: {
                 value: '',
-                placeholder: 'Who is this letter about? ',
+                hint: 'Who is this letter about? ',
                 inputType: 'text',
                 label: 'Name of Subject',
             },
             role: {
                 value: '',
-                placeholder: 'e.g., Instructional Coach',
+                hint: 'e.g., Instructional Coach',
                 inputType: 'textarea',
                 label: 'Title of Position/Role Being Sought',
             },
             lengthRelationship: {
                 value: '',
-                placeholder: 'e.g., 2 years',
+                hint: 'e.g., 2 years',
                 inputType: 'textarea',
                 label: 'Length of Relationship',
             },
             history: {
                 value: '',
-                placeholder: 'How do you know this person?',
+                hint: 'How do you know this person?',
                 inputType: 'textarea',
                 label: 'Relationship Type and History',
             },
             recommendation: {
                 value: '',
-                placeholder: 'What are the reasons you are recommending this individual? Describe their relevant traits and qualities.',
+                hint: 'What are the reasons you are recommending this individual? Describe their relevant traits and qualities.',
                 inputType: 'textarea',
                 label: 'General Basis for Recommendation',
             },
             evidence: {
                 value: '',
-                placeholder: 'Validate your recommendation with a personal story about the subject.',
+                hint: 'Validate your recommendation with a personal story about the subject.',
                 inputType: 'textarea',
                 label: 'Personalized Supporting Evidence',
             },
             sender: {
                 value: '',
-                placeholder: 'e.g., Ms. Cotant',
+                hint: 'e.g., Ms. Cotant',
                 inputType: 'text',
                 label: 'Sender Name',
             },
             title: {
                 value: '',
-                placeholder: 'e.g., Facilitator',
+                hint: 'e.g., Facilitator',
                 inputType: 'text',
                 label: 'Your Professional Title',
             },
             contact: {
                 value: '',
-                placeholder: 'e.g., ivy@classpack.com',
+                hint: 'e.g., ivy@classpack.com',
                 inputType: 'text',
                 label: 'Contact Information',
             },
@@ -725,25 +725,25 @@ export default [
         inputs: {
             remindedOrNotification: {
                 value: '',
-                placeholder: 'Example: Reminder or Notification',
+                hint: 'Example: Reminder or Notification',
                 inputType: 'text',
                 label: 'Reminder or Notification',
             },
             recipient: {
                 value: '',
-                placeholder: 'To whom is this addressed? ',
+                hint: 'To whom is this addressed? ',
                 inputType: 'text',
                 label: 'Audience or Recipient',
             },
             words: {
                 value: '',
-                placeholder: 'e.g., 20 words or less',
+                hint: 'e.g., 20 words or less',
                 inputType: 'textarea',
                 label: 'Preferred Word Count',
             },
             details: {
                 value: '',
-                placeholder: 'What specific information would you like included? ',
+                hint: 'What specific information would you like included? ',
                 inputType: 'textarea',
                 label: 'Information to Include',
             }
@@ -761,25 +761,25 @@ export default [
         inputs: {
             tone: {
                 value: '',
-                placeholder: 'Examples: Professional, Friendly, Positive, Casual, Urgent, Apologetic, Informal, Critical',
+                hint: 'Examples: Professional, Friendly, Positive, Casual, Urgent, Apologetic, Informal, Critical',
                 inputType: 'text',
                 label: 'Tone',
             },
             sender: {
                 value: '',
-                placeholder: 'e.g., Ms. Cotant',
+                hint: 'e.g., Ms. Cotant',
                 inputType: 'text',
                 label: 'Sender Name',
             },
             recipient : {
                 value: '',
-                placeholder: 'To whom is this addressed? ',
+                hint: 'To whom is this addressed? ',
                 inputType: 'textarea',
                 label: 'Audience or Recipient',
             },
             selection: {
                 value: '',
-                placeholder: 'What specific information would you like included?',
+                hint: 'What specific information would you like included?',
                 inputType: 'textarea',
                 label: 'Information to Include',
             }
@@ -799,13 +799,13 @@ export default [
         inputs: {
             concept: {
                 value: '',
-                placeholder: 'Examples: Condensed or Expand',
+                hint: 'Examples: Condensed or Expand',
                 inputType: 'text',
                 label: 'Write What you want your sentence to become',
             },
             paragraph: {
                 value: '',
-                placeholder: 'Paste paragraph here.',
+                hint: 'Paste paragraph here.',
                 inputType: 'textarea',
                 label: 'Original Paragraph',
             },
@@ -823,13 +823,13 @@ export default [
         inputs: {
             passage: {
                 value: '',
-                placeholder: 'e.g., Yesterday, I walk to the store and buy some milk.',
+                hint: 'e.g., Yesterday, I walk to the store and buy some milk.',
                 inputType: 'textarea',
                 label: 'Text or Passage',
             },
             tense: {
                 value: '',
-                placeholder: 'Example: Past, Present or Future',
+                hint: 'Example: Past, Present or Future',
                 inputType: 'text',
                 label: 'Choose a Tense',
             },
@@ -847,7 +847,7 @@ export default [
         inputs: {
             sentence: {
                 value: '',
-                placeholder: 'Paste sentence here.',
+                hint: 'Paste sentence here.',
                 inputType: 'textarea',
                 label: 'Sentence or Text',
             },
@@ -865,31 +865,31 @@ export default [
         inputs: {
             grade: {
                 value: '',
-                placeholder: 'e.g., 6th grade',
+                hint: 'e.g., 6th grade',
                 inputType: 'text',
                 label: 'Grade Level or Subject',
             },
             cognitive: {
                 value: '',
-                placeholder: 'Are there any cognitive struggles or talents that should be noted?',
+                hint: 'Are there any cognitive struggles or talents that should be noted?',
                 inputType: 'textarea',
                 label: 'Range of Cognitive Abilities',
             },
             styles: {
                 value: '',
-                placeholder: 'What learning styles would you like addressed? i.e., visual, kinesthetic, aural, social, verbal, solitary, logical, etc.',
+                hint: 'What learning styles would you like addressed? i.e., visual, kinesthetic, aural, social, verbal, solitary, logical, etc.',
                 inputType: 'textarea',
                 label: 'Different Learning Styles',
             },
             interest: {
                 value: '',
-                placeholder: 'Are there any student interests you would like included?',
+                hint: 'Are there any student interests you would like included?',
                 inputType: 'textarea',
                 label: 'Group Interests',
             },
             goal: {
                 value: '',
-                placeholder: 'What learning goal(s) would you like differentiated? Feel free to include specific standards or lesson requirements.',
+                hint: 'What learning goal(s) would you like differentiated? Feel free to include specific standards or lesson requirements.',
                 inputType: 'textarea',
                 label: 'Teacher Learning Goal(s)',
             },
@@ -907,7 +907,7 @@ export default [
         inputs: {
             sentence : {
                 value: '',
-                placeholder: 'Paste text or passage here.',
+                hint: 'Paste text or passage here.',
                 inputType: 'textarea',
                 label: 'Original Text or Passage',
             },
@@ -925,7 +925,7 @@ export default [
         inputs: {
             passage: {
                 value: '',
-                placeholder: 'Paste text or passage here.',
+                hint: 'Paste text or passage here.',
                 inputType: 'text',
                 label: 'Original Text or Passage',
             },
@@ -943,13 +943,13 @@ export default [
         inputs: {
             tone: {
                 value: '',
-                placeholder: 'Examples: Professional, Friendly, Positive, Casual, Urgent, Apologetic, Informal, Critical',
+                hint: 'Examples: Professional, Friendly, Positive, Casual, Urgent, Apologetic, Informal, Critical',
                 inputType: 'text',
                 label: 'Tone',
             },
             email: {
                 value: '',
-                placeholder: 'Paste the email here.',
+                hint: 'Paste the email here.',
                 inputType: 'textarea',
                 label: 'Email Content',
             },
@@ -967,13 +967,13 @@ export default [
         inputs: {
             option: {
                 value: '',
-                placeholder: 'Examples: Rephrase or  Summarize',
+                hint: 'Examples: Rephrase or  Summarize',
                 inputType: 'text',
                 label: 'Rephrase or Summarize',
             },
             passage: {
                 value: '',
-                placeholder: 'Paste text or passage here.',
+                hint: 'Paste text or passage here.',
                 inputType: 'textarea',
                 label: 'Original Text or Passage',
             },
@@ -991,13 +991,13 @@ export default [
         inputs: {
             view: {
                 value: '',
-                placeholder: 'Examples: First Person, Second Person or Third Person',
+                hint: 'Examples: First Person, Second Person or Third Person',
                 inputType: 'text',
                 label: 'Choose a Point of View',
             },
             passage: {
                 value: '',
-                placeholder: 'Paste text or passage here.',
+                hint: 'Paste text or passage here.',
                 inputType: 'textarea',
                 label: 'Original Text or Passage',
             },
@@ -1017,7 +1017,7 @@ export default [
         inputs: {
             grade: {
                 value: '',
-                placeholder: 'Examples: 6th grade',
+                hint: 'Examples: 6th grade',
                 inputType: 'text',
                 label: 'Grade Level or Subject',
             },
@@ -1035,13 +1035,13 @@ export default [
         inputs: {
             grade: {
                 value: '',
-                placeholder: 'Examples: 6th grade',
+                hint: 'Examples: 6th grade',
                 inputType: 'text',
                 label: 'Grade Level or Subject',
             },
             needs: {
                 value: '',
-                placeholder: 'Which areas of motivation are a struggle? e.g., work completion, on-task behavior, etc.',
+                hint: 'Which areas of motivation are a struggle? e.g., work completion, on-task behavior, etc.',
                 inputType: 'text',
                 label: 'Motivational Needs',
             },
@@ -1059,55 +1059,55 @@ export default [
         inputs: {
             grade: {
                 value: '',
-                placeholder: 'Examples: 12 years old',
+                hint: 'Examples: 12 years old',
                 inputType: 'text',
                 label: 'Student Age or Grade Level',
             },
             behavior: {
                 value: '',
-                placeholder: 'List any relevant behavior incidents.',
+                hint: 'List any relevant behavior incidents.',
                 inputType: 'textarea',
                 label: 'Behavior Incidents',
             },
             action: {
                 value: '',
-                placeholder: 'List any past disciplinary action.',
+                hint: 'List any past disciplinary action.',
                 inputType: 'textarea',
                 label: 'Disciplinary Action Taken',
             },
             performance: {
                 value: '',
-                placeholder: 'How does this student perform academically?',
+                hint: 'How does this student perform academically?',
                 inputType: 'textarea',
                 label: 'Academic Performance',
             },
             attendance: {
                 value: '',
-                placeholder: 'Does this student have problematic attendance? i.e., Consistent excused or unexcused tardies/absences, etc.',
+                hint: 'Does this student have problematic attendance? i.e., Consistent excused or unexcused tardies/absences, etc.',
                 inputType: 'textarea',
                 label: 'Attendance History',
             },
             development: {
                 value: '',
-                placeholder: 'e.g., on grade, behind, ahead',
+                hint: 'e.g., on grade, behind, ahead',
                 inputType: 'text',
                 label: 'Status of Social Emotional Development ',
             },
             background: {
                 value: '',
-                placeholder: 'e.g., single parent home',
+                hint: 'e.g., single parent home',
                 inputType: 'textarea',
                 label: 'Family Background',
             },
             environment: {
                 value: '',
-                placeholder: 'Describe the school environment. i.e., Does the student receive any special services, etc.?',
+                hint: 'Describe the school environment. i.e., Does the student receive any special services, etc.?',
                 inputType: 'textarea',
                 label: 'School Environment',
             },
             information: {
                 value: '',
-                placeholder: 'Is there any additional information you would like noted?',
+                hint: 'Is there any additional information you would like noted?',
                 inputType: 'textarea',
                 label: 'Additional Information',
             },
@@ -1125,7 +1125,7 @@ export default [
         inputs: {
             grade: {
                 value: '',
-                placeholder: 'Examples: 8th grade',
+                hint: 'Examples: 8th grade',
                 inputType: 'text',
                 label: 'Grade Level or Subject',
             },
@@ -1143,13 +1143,13 @@ export default [
         inputs: {
             grade: {
                 value: '',
-                placeholder: 'Examples: 6th grade',
+                hint: 'Examples: 6th grade',
                 inputType: 'text',
                 label: 'Grade Level or Subject',
             },
             behavior: {
                 value: '',
-                placeholder: 'e.g., throwing chairs, ignoring instructions, etc. ',
+                hint: 'e.g., throwing chairs, ignoring instructions, etc. ',
                 inputType: 'textarea',
                 label: 'Problematic Behavior(s)',
             },
@@ -1167,7 +1167,7 @@ export default [
         inputs: {
             grade: {
                 value: '',
-                placeholder: 'Example: 6th grade',
+                hint: 'Example: 6th grade',
                 inputType: 'text',
                 label: 'Grade Level or Subject',
             },
@@ -1187,7 +1187,7 @@ export default [
         inputs: {
             information: {
                 value: '',
-                placeholder: 'Input any information that you would like categorized, classified, or grouped.',
+                hint: 'Input any information that you would like categorized, classified, or grouped.',
                 inputType: 'textarea',
                 label: 'Information or Ideas',
             },
@@ -1205,19 +1205,19 @@ export default [
         inputs: {
             writing: {
                 value: '',
-                placeholder: 'Example: Narrative, Expository, Opinion, Persuasive, Creative, Informative and Journal',
+                hint: 'Example: Narrative, Expository, Opinion, Persuasive, Creative, Informative and Journal',
                 inputType: 'text',
                 label: 'Type of Writing',
             },
             grade: {
                 value: '',
-                placeholder: 'Example: 6th grade',
+                hint: 'Example: 6th grade',
                 inputType: 'text',
                 label: 'Grade Level or Subject',
             },
             prompt: {
                 value: '',
-                placeholder: 'What is the writing prompt or topic for this outline?',
+                hint: 'What is the writing prompt or topic for this outline?',
                 inputType: 'text',
                 label: 'Writing Prompt',
             },
@@ -1235,19 +1235,19 @@ export default [
         inputs: {
             names: {
                 value: '',
-                placeholder: 'Example: John, Paige, Xavier',
+                hint: 'Example: John, Paige, Xavier',
                 inputType: 'textarea',
                 label: 'List of Names',
             },
             group: {
                 value: '',
-                placeholder: 'Example: People per Group or Number of Groupings',
+                hint: 'Example: People per Group or Number of Groupings',
                 inputType: 'text',
                 label: 'Group by',
             },
             number: {
                 value: '',
-                placeholder: 'Example: 4',
+                hint: 'Example: 4',
                 inputType: 'text',
                 label: 'Desired Number',
             },
@@ -1265,13 +1265,13 @@ export default [
         inputs: {
             grade: {
                 value: '',
-                placeholder: 'Example: 6th grade',
+                hint: 'Example: 6th grade',
                 inputType: 'text',
                 label: 'Grade Level or Subject',
             },
             concept: {
                 value: '',
-                placeholder: 'State the math or science concept and/or include an official standard.',
+                hint: 'State the math or science concept and/or include an official standard.',
                 inputType: 'textarea',
                 label: 'Concept or Standard',
             },
@@ -1289,7 +1289,7 @@ export default [
         inputs: {
             topic: {
                 value: '',
-                placeholder: 'State the topic and details you want to be listed. e.g., Name the first ten astronauts to travel in space.',
+                hint: 'State the topic and details you want to be listed. e.g., Name the first ten astronauts to travel in space.',
                 inputType: 'textarea',
                 label: 'Topic',
             },
@@ -1309,13 +1309,13 @@ export default [
         inputs: {
             topic_one: {
                 value: '',
-                placeholder: 'e.g., states of matter',
+                hint: 'e.g., states of matter',
                 inputType: 'text',
                 label: 'Topic',
             },
             topic_two: {
                 value: '',
-                placeholder: 'e.g., Berlin Wall',
+                hint: 'e.g., Berlin Wall',
                 inputType: 'text',
                 label: 'Topic 2',
             },
@@ -1333,7 +1333,7 @@ export default [
         inputs: {
             passage: {
                 value: '',
-                placeholder: 'Paste text or passage here.',
+                hint: 'Paste text or passage here.',
                 inputType: 'textarea',
                 label: 'Original Text or Passage',
             },
@@ -1352,7 +1352,7 @@ export default [
         inputs: {
             passage: {
                 value: '',
-                placeholder: 'Paste text or passage here.',
+                hint: 'Paste text or passage here.',
                 inputType: 'textarea',
                 label: 'Original Text or Passage',
             },
@@ -1370,13 +1370,13 @@ export default [
         inputs: {
             event: {
                 value: '',
-                placeholder: 'Example: World War II in Europe',
+                hint: 'Example: World War II in Europe',
                 inputType: 'text',
                 label: 'Historical Event',
             },
             situation: {
                 value: '',
-                placeholder: 'Example: Effect or Turning Point',
+                hint: 'Example: Effect or Turning Point',
                 inputType: 'text',
                 label: 'Find the Effect or Turning Point',
             },
@@ -1394,13 +1394,13 @@ export default [
         inputs: {
             grade: {
                 value: '',
-                placeholder: 'Example: 6th Grade',
+                hint: 'Example: 6th Grade',
                 inputType: 'text',
                 label: 'Grade Level or Subject',
             },
             topic: {
                 value: '',
-                placeholder: 'Example: States of matter',
+                hint: 'Example: States of matter',
                 inputType: 'text',
                 label: 'Topic',
             },
@@ -1418,25 +1418,25 @@ export default [
         inputs: {
             topic_one: {
                 value: '',
-                placeholder: 'Example: Great Wall of China',
+                hint: 'Example: Great Wall of China',
                 inputType: 'textarea',
                 label: 'Topic 1',
             },
             topic_two: {
                 value: '',
-                placeholder: 'Example: Berlin Wall',
+                hint: 'Example: Berlin Wall',
                 inputType: 'textarea',
                 label: 'Topic 2',
             },
             similarities: {
                 value: '',
-                placeholder: 'Example: 1 or 5',
+                hint: 'Example: 1 or 5',
                 inputType: 'text',
                 label: 'Preferred Number of Similarities',
             },
             differences: {
                 value: '',
-                placeholder: 'Example: 1 or 5',
+                hint: 'Example: 1 or 5',
                 inputType: 'text',
                 label: 'Preferred Number of Differences',
             },
@@ -1454,13 +1454,13 @@ export default [
         inputs: {
             grade: {
                 value: '',
-                placeholder: 'Example: 6th Grade',
+                hint: 'Example: 6th Grade',
                 inputType: 'text',
                 label: 'Grade Level or Subject',
             },
             topic: {
                 value: '',
-                placeholder: 'State the general topic or paste an official standard.',
+                hint: 'State the general topic or paste an official standard.',
                 inputType: 'textarea',
                 label: 'Topic or Standard',
             },
@@ -1478,13 +1478,13 @@ export default [
         inputs: {
             grade: {
                 value: '',
-                placeholder: 'Example: 6th Grade',
+                hint: 'Example: 6th Grade',
                 inputType: 'text',
                 label: 'Grade Level or Subject',
             },
             field: {
                 value: '',
-                placeholder: 'State the general topic or paste an official standard.',
+                hint: 'State the general topic or paste an official standard.',
                 inputType: 'textarea',
                 label: 'Topic or Standard',
             },
@@ -1502,13 +1502,13 @@ export default [
         inputs: {
             grade: {
                 value: '',
-                placeholder: 'Example: 6th Grade',
+                hint: 'Example: 6th Grade',
                 inputType: 'text',
                 label: 'Grade Level or Subject',
             },
             field: {
                 value: '',
-                placeholder: 'State the general topic or paste an official standard.',
+                hint: 'State the general topic or paste an official standard.',
                 inputType: 'textarea',
                 label: 'Topic or Standard',
             },
@@ -1526,19 +1526,19 @@ export default [
         inputs: {
             quantity: {
                 value: '',
-                placeholder: 'Example: 1 or 5',
+                hint: 'Example: 1 or 5',
                 inputType: 'text',
                 label: 'How Many Questions Would You Like?',
             },
             type: {
                 value: '',
-                placeholder: 'Example: Factual, Vocabulary, Analytic or Inferential',
+                hint: 'Example: Factual, Vocabulary, Analytic or Inferential',
                 inputType: 'text',
                 label: 'Type of Question(s)',
             },
             passage: {
                 value: '',
-                placeholder: 'Paste text or passage here.',
+                hint: 'Paste text or passage here.',
                 inputType: 'textarea',
                 label: 'Original Text or Passage',
             },
@@ -1556,19 +1556,19 @@ export default [
         inputs: {
             quantity: {
                 value: '',
-                placeholder: 'Example: 1 or 5',
+                hint: 'Example: 1 or 5',
                 inputType: 'text',
                 label: 'How Many Questions Would You Like?',
             },
             purpose: {
                 value: '',
-                placeholder: 'Example: Hiring or Evaluating',
+                hint: 'Example: Hiring or Evaluating',
                 inputType: 'text',
                 label: 'What is Your Purpose?',
             },
             role: {
                 value: '',
-                placeholder: 'Example: teacher or potential aide?',
+                hint: 'Example: teacher or potential aide?',
                 inputType: 'text',
                 label: 'What is the Respondents Role or Potential Role?',
             },
@@ -1586,25 +1586,25 @@ export default [
         inputs: {
             type: {
                 value: '',
-                placeholder: 'Example: Narrative, Expository, Opinion, Persuasive, Creative, Informative and Journal',
+                hint: 'Example: Narrative, Expository, Opinion, Persuasive, Creative, Informative and Journal',
                 inputType: 'text',
                 label: 'Type of Writing',
             },
             grade: {
                 value: '',
-                placeholder: 'Example: 6th Grade',
+                hint: 'Example: 6th Grade',
                 inputType: 'text',
                 label: 'Grade Level or Subject',
             },
             topic: {
                 value: '',
-                placeholder: 'Example: states of matter',
+                hint: 'Example: states of matter',
                 inputType: 'text',
                 label: 'Topic',
             },
             passage: {
                 value: '',
-                placeholder: 'Paste text or passage here.',
+                hint: 'Paste text or passage here.',
                 inputType: 'textarea',
                 label: 'Original Text or Passage',
             },
@@ -1622,13 +1622,13 @@ export default [
         inputs: {
             people: {
                 value: '',
-                placeholder: 'Example: Student, Colleague, Administration, Parent or General',
+                hint: 'Example: Student, Colleague, Administration, Parent or General',
                 inputType: 'text',
                 label: 'What Do You Need Help With?',
             },
             problem: {
                 value: '',
-                placeholder: 'Example: My colleague undermined me in front of a student.',
+                hint: 'Example: My colleague undermined me in front of a student.',
                 inputType: 'textarea',
                 label: 'What is the Problem?',
             },
@@ -1646,19 +1646,19 @@ export default [
         inputs: {
             type: {
                 value: '',
-                placeholder: 'Example: Question or Poll',
+                hint: 'Example: Question or Poll',
                 inputType: 'text',
                 label: 'Question or Poll',
             },
             grade: {
                 value: '',
-                placeholder: 'Example: 6th grade',
+                hint: 'Example: 6th grade',
                 inputType: 'text',
                 label: 'Grade Level or Subject',
             },
             topic: {
                 value: '',
-                placeholder: 'Example: states of matter',
+                hint: 'Example: states of matter',
                 inputType: 'textarea',
                 label: 'Topic',
             },
@@ -1676,19 +1676,19 @@ export default [
         inputs: {
             figures: {
                 value: '',
-                placeholder: 'Example: Discover Historical Figures  or Highlight Key Moments',
+                hint: 'Example: Discover Historical Figures  or Highlight Key Moments',
                 inputType: 'text',
                 label: 'Discover Historical Figures or Highlight Key Moments',
             },
             history: {
                 value: '',
-                placeholder: 'Example: U.S or World',
+                hint: 'Example: U.S or World',
                 inputType: 'text',
                 label: 'U.S. or World History',
             },
             period: {
                 value: '',
-                placeholder: 'Example: 1930s-1940s',
+                hint: 'Example: 1930s-1940s',
                 inputType: 'text',
                 label: 'Time Period',
             },
@@ -1706,7 +1706,7 @@ export default [
         inputs: {
             passage: {
                 value: '',
-                placeholder: 'Paste text or passage here.',
+                hint: 'Paste text or passage here.',
                 inputType: 'textarea',
                 label: 'Original Text or Passage',
             },
@@ -1724,7 +1724,7 @@ export default [
         inputs: {
             information: {
                 value: '',
-                placeholder: 'Paste topic, standard, or piece of text here.',
+                hint: 'Paste topic, standard, or piece of text here.',
                 inputType: 'textarea',
                 label: 'Ideas or Information',
             },
@@ -1742,13 +1742,13 @@ export default [
         inputs: {
             grade: {
                 value: '',
-                placeholder: 'Example: 6th grade.',
+                hint: 'Example: 6th grade.',
                 inputType: 'text',
                 label: 'Grade Level or Subject',
             },
             topic: {
                 value: '',
-                placeholder: 'State the general topic or paste an official standard.',
+                hint: 'State the general topic or paste an official standard.',
                 inputType: 'textarea',
                 label: 'Topic or Standard',
             },
@@ -1766,7 +1766,7 @@ export default [
         inputs: {
             event: {
                 value: '',
-                placeholder: 'Example: World War II in Europe',
+                hint: 'Example: World War II in Europe',
                 inputType: 'text',
                 label: 'Historical Event',
             },

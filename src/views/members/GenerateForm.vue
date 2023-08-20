@@ -2,7 +2,7 @@
     import expressModel from "../../models/express";
     import GeneratedResourceModel from "../../models/generatedResources";
     import { useFormStore } from '../../stores/form';
-    import { onMounted, ref, watch, defineProps  } from 'vue'
+    import { onMounted, ref  } from 'vue'
     import { Input } from 'flowbite-vue';
     import { Select } from 'flowbite-vue';
     import { Alert } from 'flowbite-vue';
@@ -22,6 +22,10 @@
 
     const saveToFireBase = (rawContent) => {
         generateResource.addGeneratedResource(rawContent, 'lessonPlan');
+    }
+
+    const camelCaseToNormal = (value) => {
+        return value.replace(/([a-z])([A-Z])/g, '$1 $2');
     }
 
     onMounted(() => {
@@ -77,10 +81,12 @@
                         <h2 class="mb-6 text-2xl font-semibold">
                             {{ formStore.description }}
                         </h2>
+                        <p class="p-2 mb-4 text-center bg-blue-200">We offer hints and examples to enhance the accuracy of your generation process.</p>
                         <div class="space-y-6">
-                            <div>
+                            <div v-for="(input, index) in formStore.inputs" :key="index + '-generate-form-hints'">
                                 <h2 class="text-xl">
-                                    Step 1: Choose Lesson: Select grade, subject, topic.
+                                    <strong class="capitalize">{{ input.label }}: </strong> 
+                                    <br>{{ input.hint }}
                                 </h2>
                             </div>
                         </div>
@@ -116,8 +122,8 @@
                             Enhance results with more details.
                         </h3>
                         <div v-for="(input, index) in formStore.inputs" :key="index + '-generate-form-input'" class="mb-4 font-semibold generate-form-section">
-                            <Textarea :rows="input.rows" :placeholder="input.placeholder" v-model="formStore.inputs[index].value" v-if="input.inputType === 'textarea'" class="font-semibold" :label="input.label" />
-                            <Input :placeholder="input.placeholder" v-model="formStore.inputs[index].value" v-else type="text" :label="input.label" class="font-semibold"/>
+                            <Textarea :rows="input.rows" placeholder="" v-model="formStore.inputs[index].value" v-if="input.inputType === 'textarea'" class="font-semibold" :label="input.label" />
+                            <Input placeholder="" v-model="formStore.inputs[index].value" v-else type="text" :label="input.label" class="font-semibold"/>
                         </div>
                         <Button @click.prevent="generate" type="submit" size="lg" class="mt-5 w-full bg-main-color hover:bg-secondary-color border-0 text-sm lg:text-[0.775rem] xl:text-lg font-semibold">
                            Tiklipy Go!
