@@ -46,8 +46,22 @@
         generatedResource.value = '';
     }
 
-    const printResource = () => {
-        
+    const printResource = (divId) => {
+        const content = `
+        <html>
+        <head>
+          <title>Tiklipy - The Best Teacher AI Assistant</title>
+        </head>
+        <body>
+          ${document.getElementById(divId).innerHTML}
+        </body>
+        </html>
+      `;
+      const printWindow = window.open('', '_blank');
+      printWindow.document.write(content);
+      printWindow.document.close();
+      printWindow.print();
+      printWindow.close();
     }
 
     const copyGeneratedTopic = () => {
@@ -95,12 +109,12 @@
                             </div>
                         </div>
                     </div>
-                    <div :class="{'animate__bounceOut' : !generatedResource, 'animate__bounceInRight' : generatedResource  }" class=" w-full py-4 animate__animated generated-value" v-if="generatedResource" v-html="generatedResource">
+                    <div :class="{'animate__bounceOut' : !generatedResource, 'animate__bounceInRight' : generatedResource  }" class=" w-full py-4 animate__animated generated-value" id="generated-resources" v-if="generatedResource" v-html="generatedResource">
                         
                     </div>
                     <div class="block" v-if="generatedResource">
                         <div class="flex">
-                            <Button color="default" @click="printResource" class="py-3 pr-5 mr-3 font-semibold uppercase border-0 bg-main-color hover:bg-secondary-color">
+                            <Button color="default" @click="printResource('generated-resources')" class="py-3 pr-5 mr-3 font-semibold uppercase border-0 bg-main-color hover:bg-secondary-color">
                                 <i class="mr-2 text-2xl align-middle ti ti-printer"></i>
                                 Print
                             </Button>
@@ -117,8 +131,17 @@
                 </div>
                 <div class="w-full lg:w-[30%] col-span-2">
                     <div v-if="isGenerating" :class="{'animate__fadeOutUp' : !isGenerating, 'animate__fadeInDown' : isGenerating  }" class="p-6 bg-white rounded-3xl animate__animated">
-                        <div v-if="!catDoneTyping">cat gif typing and coding</div>
-                        <div v-if="catDoneTyping">cat gif done generating</div>
+                        <div v-if="!catDoneTyping" class="text-center">
+                            <img src="/bongo-cat/coding-bongo-cat.gif" class="mx-auto" width="200" alt="">
+                            <p class="text-2xl font-bold text-secondary-color animate-bounce">
+                                GENERATING!
+                            </p>
+                        </div>
+                        <div v-if="catDoneTyping" class="text-center">
+                            <p class="text-2xl font-bold text-secondary-color">
+                                GENERATED!
+                            </p>
+                        </div>
                     </div>
                     <div v-if="!isGenerating" :class="{'animate__fadeOutDown' : isGenerating, 'animate__fadeInUp' : !isGenerating  }" class="p-6 bg-white rounded-3xl animate__animated">
                         <Button @click.prevent="generate" type="submit" size="lg" class="mt-5 w-full bg-main-color hover:bg-secondary-color border-0 text-sm lg:text-[0.775rem] xl:text-lg font-semibold">
