@@ -2,6 +2,7 @@
     import expressModel from "../../models/express";
     import GeneratedResourceModel from "../../models/generatedResources";
     import { useFormStore } from '../../stores/form';
+    import SwalCheckIcon from '../../components/SwalCheckIcon.vue';
     import { onMounted, ref  } from 'vue'
     import { Input } from 'flowbite-vue';
     import { Alert } from 'flowbite-vue';
@@ -19,13 +20,17 @@
     const copyContent = ref(false);
     const isGenerating = ref(false);
     const catDoneTyping = ref(true);
+    const resourceObject = ref();
+    const resourceSaved = ref(false)
 
-    const saveToFireBase = (rawContent) => {
-        generateResource.addGeneratedResource(rawContent, 'lessonPlan');
+    const saveToFireBase = () => {
+        if(resourceObject.value)
+            generateResource.addGeneratedResource(resourceObject.value);
+
+        resourceSaved.value = true
     }
 
     onMounted(() => {
-        console.log(formStore.description)
         if(formStore.category === '')
             router.push({ name: 'dashboard' })
     })
@@ -36,14 +41,18 @@
         const instruc = formStore.processInstruction();
         await backEndModel.generateResource(instruc)
             .then((completion) => {
-                console.log(completion);
-                generatedResource.value = completion?.data?.message?.content?.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>') });
+                resourceObject.value = completion?.data;
+                const message = completion?.data?.choices.pop();
+                generatedResource.value = message?.content?.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>') 
+            });
         catDoneTyping.value = true;
     }
 
     const regenerate = () => {
         isGenerating.value = false;
         generatedResource.value = '';
+        resourceSaved.value = false;
+        resourceObject.value = null;
     }
 
     const printResource = (divId) => {
@@ -83,7 +92,7 @@
     </div>
     <div class="container px-3 mx-auto text-black mt-7">
         <div class="">
-            <div class="flex py-4 shadow-md bg-indigo-500 px-9 rounded-3xl">
+            <div class="flex py-4 bg-indigo-500 shadow-md px-9 rounded-3xl">
                 <div>
                     <div class="inline-flex items-center p-1.5 text-xl font-medium text-center bg-gray-100 border rounded-full text-main-color bg-opacity-30 focus:ring-4 focus:outline-none focus:ring-secondary-color dark:hover:text-white hover:border-transparent">
                         <i :class="formStore.icon" class="text-4xl text-white ti dark:text-white"></i>
@@ -94,8 +103,8 @@
                 </h1>
             </div>
             <div class="flex flex-wrap gap-4 p-3 sm:p-9">
-                <div class="w-full lg:w-[68%] col-span-4 px-10 py-6 bg-white">
-                    <div :class="{'animate__bounceOut' : generatedResource, 'animate__bounceInRight' : !generatedResource  }" class="w-full py-4 animate__animated generated-value" v-if="!generatedResource">
+                <div class="animate__fadeInUp animate__animated w-full lg:w-[68%] col-span-4 px-10 py-6 bg-white">
+                    <div class="w-full py-4 animate__animated generated-value" v-if="!generatedResource">
                         <h2 class="mb-6 text-2xl font-semibold">
                             {{ formStore.description }}
                         </h2>
@@ -109,7 +118,7 @@
                             </div>
                         </div>
                     </div>
-                    <div :class="{'animate__bounceOut' : !generatedResource, 'animate__bounceInRight' : generatedResource  }" class=" w-full py-4 animate__animated generated-value" id="generated-resources" v-if="generatedResource" v-html="generatedResource">
+                    <div class="w-full py-4 animate__animated generated-value" id="generated-resources" v-if="generatedResource" v-html="generatedResource">
                         
                     </div>
                     <div class="block" v-if="generatedResource">
@@ -119,8 +128,11 @@
                                 Print
                             </Button>
                             <Button @click="saveToFireBase" color="default" class="py-3 pr-5 mr-3 font-semibold uppercase border-0 bg-main-color hover:bg-secondary-color">
-                                <i class="mr-2 text-2xl align-middle ti ti-bookmark"></i>
-                                Save
+                                <span  v-if="!resourceSaved">
+                                    <i class="mr-2 text-2xl align-middle ti ti-bookmark"></i>
+                                    Save
+                                </span>
+                                <SwalCheckIcon v-if="resourceSaved"/>
                             </Button>
                             <Button @click="regenerate" color="default" class="py-3 pr-5 mr-3 font-semibold uppercase border-0 bg-main-color hover:bg-secondary-color">
                                 <i class="mr-2 text-2xl align-middle ti ti-repeat"></i>
@@ -138,8 +150,8 @@
                             </p>
                         </div>
                         <div v-if="catDoneTyping" class="text-center">
-                            <p class="text-2xl font-bold text-secondary-color">
-                                GENERATED!
+                            <p class="text-2xl font-bold uppercase text-secondary-color">
+                                document is ready!
                             </p>
                         </div>
                     </div>

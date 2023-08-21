@@ -2,6 +2,7 @@ import { db } from "../plugins/firebase"
 import dayjs from "dayjs";
 import { collection, addDoc } from "firebase/firestore";
 import { useAuthStore } from "../stores/auth";
+import { useFormStore } from "../stores/form";
 
 class GeneratedResourceModel {
     constructor() {
@@ -21,20 +22,34 @@ class GeneratedResourceModel {
           return false;
       }
     }
+
+    parseTitle(rawData) {
+      const message = rawData?.choices.pop();
+      const firstLine = message?.content?.split('\n');
+      if(firstLine.length)
+        return firstLine[0];
+      else
+        return message?.content?.split(/(?<=[.!?])\s+/)[0];
+    }
   
-    async addGeneratedResource(rawData, type) {
+    async addGeneratedResource(rawData) {
       try {
+        const formStore = useFormStore();
+        const parseTitle = parseTitle(rawData);
         let data = {
           content: rawData,
           dateCreated: dayjs().format(),
-          type: type,
-          teacherId: this.authStore.user.uid
+          type: formStore.type,
+          title: parseTitle,
+          formInput: formStore.inputs,
+          teacherId: this.authStore.user.uid,
+          ussage: rawData.ussage,
         }
-        console.log(this.collectionRef);
-        await addDoc(this.collectionRef, data);
-        console.log('Lesson plan added successfully.');
+        console.log(data);
+        //await addDoc(this.collectionRef, data);
+        console.log('Resource is added successfully.');
       } catch (error) {
-        console.log('Error adding lesson plan:', error);
+        console.log('Error adding resources to firebase:', error);
       }
     }
   }
