@@ -4,7 +4,7 @@ import {
     Blogs, Blog, About, Pricing, Features, Terms, Privacy, License, 
     MembersLayout, GuestsLayout, Projects, Activities, GenerateForm, 
     Login, SendGift, FAQ, Featured, ThankYou, PaymentCancel, PageNotFound,
-    Helps, Register
+    Helps, Register, Tools
 } from './components';
 
 const routes = [
@@ -47,6 +47,7 @@ const routes = [
             { path: 'projects', name: 'projects', component: Projects, meta: { displayName: 'Projects', siteDescription: 'Engaging projects to apply and enhance your skills.' } },
             { path: 'activities', name: 'activities', component: Activities, meta: { displayName: 'Activities', siteDescription: 'Interactive activities for engaging learning experiences.' } },
             { path: 'generate', name: 'generate', component: GenerateForm },
+            { path: 'tools', name: 'tools', component: Tools },
         ],
     },
     { path: '/login', name: 'login', component: Login },
