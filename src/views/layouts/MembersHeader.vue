@@ -80,7 +80,7 @@
                         </router-link>
                     </li>
                     <li class="self-center px-3 py-2 dropdown">
-                        <router-link :to="{ name: 'visuals' }" class="block text-base font-medium text-gray-900 divide-gray-100 dark:hover:text-main-color md:border-0 md:p-0">
+                        <router-link :to="{ name: 'resources' }" class="block text-base font-medium text-gray-900 divide-gray-100 dark:hover:text-main-color md:border-0 md:p-0">
                             <i class="pb-1 mr-1 text-lg ti ti-presentation"></i> Resources
                         </router-link>
                     </li>
