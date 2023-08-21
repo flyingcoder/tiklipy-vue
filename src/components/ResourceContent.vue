@@ -14,7 +14,7 @@
 </script>
 <template>
     <div class="flex flex-wrap justify-between">
-        <div class="w-full lg:w-[68%] col-span-4">
+        <div class="w-full col-span-4">
             <div class="generated-lesson-plan">
                 <header class="mb-[2rem]">
                     <h1 class="text-3xl font-bold">Science Lesson Plan</h1>
@@ -136,9 +136,6 @@
                     </div>
                 </section>
             </div>
-        </div>
-        <div class="w-full lg:w-[30%] col-span-2">
-            <GenerateForm :Type="Type" />
         </div>
     </div>
 </template>

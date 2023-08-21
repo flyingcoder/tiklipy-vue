@@ -1,6 +1,6 @@
 import { db } from "../plugins/firebase"
 import dayjs from "dayjs";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, getDocs, query, where } from "firebase/firestore";
 import { useAuthStore } from "../stores/auth";
 import { useFormStore } from "../stores/form";
 
@@ -9,6 +9,19 @@ class GeneratedResourceModel {
       this.collectionName = 'generatedResources';
       this.collectionRef = collection(db, this.collectionName );
       this.authStore = new useAuthStore();
+    }
+
+    async getGeneratedResources() {
+      try {
+          const queryRef = query(this.collectionRef, where('teacherId', '==', this.authStore.user.uid));
+          const snaps = await getDocs(queryRef);
+          return snaps.docs.map((doc) => {
+            return { id: doc.id, data: doc.data() };
+          });
+      } catch (error) {
+          console.log(error);
+          return [];
+      }
     }
 
     async getGeneratedDoc(docId) {
