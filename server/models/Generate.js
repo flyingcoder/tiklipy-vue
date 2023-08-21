@@ -56,7 +56,7 @@ class generateModel {
             const chatCompletion = await openai.createChatCompletion(param)
                                         .then(res => res.data);
             //this.starCredit.manager(chatCompletion);
-            return chatCompletion.choices.pop();
+            return chatCompletion;
         } catch (error) {
             console.error(error);
             return false;
