@@ -24,9 +24,10 @@ class GeneratedResourceModel {
     }
 
     parseTitle(rawData) {
-      const message = rawData?.choices.pop();
-      const firstLine = message?.content?.split('\n');
-      if(firstLine.length)
+      console.log(rawData);
+      const choice = rawData?.choice;
+      const firstLine = choice?.message?.content?.split('\n');
+      if(firstLine?.length > 0)
         return firstLine[0];
       else
         return message?.content?.split(/(?<=[.!?])\s+/)[0];
@@ -35,18 +36,19 @@ class GeneratedResourceModel {
     async addGeneratedResource(rawData) {
       try {
         const formStore = useFormStore();
-        const parseTitle = parseTitle(rawData);
+        const parseTitle = this.parseTitle(rawData);
         let data = {
           content: rawData,
           dateCreated: dayjs().format(),
           type: formStore.type,
           title: parseTitle,
+          icon: formStore.icon,
           formInput: formStore.inputs,
           teacherId: this.authStore.user.uid,
-          ussage: rawData.ussage,
+          usage: rawData.usage,
         }
-        console.log(data);
-        //await addDoc(this.collectionRef, data);
+        console.log(data)
+        await addDoc(this.collectionRef, data);
         console.log('Resource is added successfully.');
       } catch (error) {
         console.log('Error adding resources to firebase:', error);

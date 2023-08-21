@@ -41,9 +41,12 @@
         const instruc = formStore.processInstruction();
         await backEndModel.generateResource(instruc)
             .then((completion) => {
-                resourceObject.value = completion?.data;
-                const message = completion?.data?.choices.pop();
-                generatedResource.value = message?.content?.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>') 
+                const choice = completion?.data?.choices?.pop();
+                resourceObject.value = {
+                    choice: choice,
+                    usage: completion?.data?.usage
+                };
+                generatedResource.value = choice?.message?.content?.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>') 
             });
         catDoneTyping.value = true;
     }
