@@ -37,7 +37,7 @@ const routes = [
             { path: 'consult', name: 'consult', component: Consult, meta: { displayName: 'Consult', siteDescription: 'Personalized consulting for tailored guidance and support.' } },
             { path: 'assessments', name: 'assessments', component: Assesments, meta: { displayName: 'Assessments', siteDescription: 'Measuring Proficiency: Gauging Learning Outcomes and Knowledge Mastery' } },
             { path: 'assessments/:type/:id', name: 'assessment', component: Assesment, meta: { displayName: 'Assessments', siteDescription: 'Measuring Proficiency: Gauging Learning Outcomes and Knowledge Mastery' } },
-            { path: 'lessons', name: 'lessons', component: Lessons, meta: { displayName: 'Lessons', pageTitle: 'Your Generated Lessons', siteDescription: 'Explore lessons to enhance your learning journey.' } },
+            { path: 'lessons', name: 'lessons', component: Lessons, meta: { displayName: 'Lessons', pageTitle: 'Your Generated Lessons', siteDescription: 'Effective and Engaging Lesson Plans' } },
             { path: 'lessons/:id', name: 'lesson', component: Lesson, meta: { displayName: 'Lessons',  siteDescription: 'Explore lessons to enhance your learning journey.' } },
             { path: 'quizzes', name: 'quizes', component: Quizes, meta: { displayName: 'Quizzes', siteDescription: 'Interactive quizzes to test your knowledge.' } },
             { path: 'homeworks', name: 'homeworks', component: Homeworks, meta: { displayName: 'Homeworks', siteDescription: 'Engaging homework assignments to reinforce learning.' } },

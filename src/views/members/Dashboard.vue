@@ -3,6 +3,7 @@
     import { TheCard } from 'flowbite-vue';
     import { useFormStore } from '../../stores/form';
     import cardData from '../../temp/cards';
+    import HeaderFilter from '../../components/HeaderFilter.vue';
     import { useRouter } from 'vue-router';
 
     const formStore = useFormStore();
@@ -26,6 +27,7 @@
 </script>
 
 <template>
+    <HeaderFilter/>
     <div class="px-3 mt-7">
         <div class="mb-16" :class="{'animate__fadeInLeft': animate}">
             <div class="flex flex-wrap items-stretch max-lg:justify-center">
