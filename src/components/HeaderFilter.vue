@@ -1,6 +1,21 @@
 <script setup>
     import { useRoute } from 'vue-router';
+    import { Button } from 'flowbite-vue';
+    // import { onMounted, ref } from 'vue';
+    // // import LessonPlanModel from './models/lessonPlans';
+    // // import { useAuthStore } from './stores/auth';
+    // import LessonPlanModel from '../models/lessonPlans';
+
+    // const authStore = useAuthStore();
+    // const teacher = authStore.user;
     const route = useRoute();
+    // const lessonModel = new LessonPlanModel();
+    // const lessons = ref([]);
+
+    // onMounted(async () => {
+    //     lessons.value = await lessonModel.getLessonPlansByTeacher(teacher.uid);
+    // });
+    
 </script>
 <template>
     <div class="w-full sm:w-full bg-white rounded-lg mb-5 bg-[url('/p-1.png')] bg-no-repeat bg-contain">
