@@ -10,7 +10,6 @@
     const formStore = useFormStore();
     const authStore = useAuthStore();
     const teacher = authStore.user;
-    const lessonModel = new LessonPlanModel();
     const lessons = ref([]);
 
     onMounted(async () => {
@@ -33,7 +32,7 @@
                                     </div>
                                 </div>
                                 <div class="flex flex-col justify-between leading-normal">
-                                    <h5 class="mb-2 text-lg font-bold tracking-tight  line-clamp-2 wh lg:text-3xl text-main-color dark:text-white">
+                                    <h5 class="mb-2 text-lg font-bold tracking-tight line-clamp-2 wh lg:text-3xl text-main-color dark:text-white">
                                         {{ lesson.topic }}
                                     </h5>
                                 </div>
