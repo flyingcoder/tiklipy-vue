@@ -68,8 +68,8 @@
         <Alert type="success">Copied</Alert>
     </div>
     <div class="container px-3 mx-auto text-black mt-7">
-        <div class="bg-white shadow-md rounded-t-3xl">
-            <div class="flex py-4 bg-indigo-500 px-9 rounded-t-3xl">
+        <div class="">
+            <div class="flex py-4 shadow-md bg-indigo-500 px-9 rounded-3xl">
                 <div>
                     <div class="inline-flex items-center p-1.5 text-xl font-medium text-center bg-gray-100 border rounded-full text-main-color bg-opacity-30 focus:ring-4 focus:outline-none focus:ring-secondary-color dark:hover:text-white hover:border-transparent">
                         <i :class="formStore.icon" class="text-4xl text-white ti dark:text-white"></i>
@@ -80,7 +80,7 @@
                 </h1>
             </div>
             <div class="flex flex-wrap gap-4 p-3 sm:p-9">
-                <div class="w-full lg:w-[68%] col-span-4">
+                <div class="w-full lg:w-[68%] col-span-4 px-10 py-6 bg-white">
                     <div :class="{'animate__bounceOut' : generatedResource, 'animate__bounceInRight' : !generatedResource  }" class="w-full py-4 animate__animated generated-value" v-if="!generatedResource">
                         <h2 class="mb-6 text-2xl font-semibold">
                             {{ formStore.description }}
@@ -95,7 +95,7 @@
                             </div>
                         </div>
                     </div>
-                    <div :class="{'animate__bounceOut' : !generatedResource, 'animate__bounceInRight' : generatedResource  }" class="w-full py-4 animate__animated generated-value" v-if="generatedResource" v-html="generatedResource">
+                    <div :class="{'animate__bounceOut' : !generatedResource, 'animate__bounceInRight' : generatedResource  }" class=" w-full py-4 animate__animated generated-value" v-if="generatedResource" v-html="generatedResource">
                         
                     </div>
                     <div class="block" v-if="generatedResource">
