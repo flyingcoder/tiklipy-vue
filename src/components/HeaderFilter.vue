@@ -26,9 +26,10 @@
 <template>
     <div class="w-full sm:w-full bg-white rounded-lg mb-5 bg-[url('/p-1.png')] bg-no-repeat bg-contain">
         <div class="bg-white dark:bg-slate-800 shadow  rounded-md w-full px-4 py-4 relative overflow-hidden bg-[url('/p-1.png')] bg-no-repeat bg-contain">
-            <div class="flex justify-between xl:gap-x-2 items-cente">
-                <div class="absolute inline-flex items-center justify-center text-center text-main-color ">
-                    <img src="/android-chrome-512x512.png" width="40" alt="">                       
+            <div class="flex items-center justify-between xl:gap-x-2 items-cente">
+                <div class="absolute inline-flex items-center justify-center text-center gap-5 text-main-color ">
+                    <img src="/android-chrome-512x512.png" width="40" alt="">
+                    <img src="bongo-cat/slap-cat-unscreen.gif" width="70" alt="">                     
                 </div>
                 <div class="flex self-center ml-auto text-right">
                     <div class="flex mr-5" v-if="route.path != '/members'">
@@ -36,7 +37,7 @@
                             <option value="latest">Latest</option>
                             <option value="abc">Alphabetical</option>
                         </select>
-                    </div> 
+                    </div>
                     <div class="mr-5" :class="route.path !== '/members' ? 'w-[300px]' : 'w-[500px]'">
                         <form>   
                             <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
