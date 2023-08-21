@@ -24,10 +24,14 @@
         formStore.setFormDetails(card);
         router.push({ name: 'generate' });
     }
+
+    const searchFilter = (searchQuery) => {
+        console.log(searchQuery)
+    }
 </script>
 
 <template>
-    <HeaderFilter/>
+    <HeaderFilter @search-change="searchFilter"/>
     <div class="px-3 mt-7">
         <div class="mb-16" :class="{'animate__fadeInLeft': animate}">
             <div class="flex flex-wrap items-stretch max-lg:justify-center">
