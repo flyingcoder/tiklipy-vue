@@ -2,13 +2,7 @@
     import { ref, watch } from 'vue';
     import { useRoute } from 'vue-router';
     import { Button } from 'flowbite-vue';
-    // import { onMounted, ref } from 'vue';
-    // // import LessonPlanModel from './models/lessonPlans';
-    // // import { useAuthStore } from './stores/auth';
-    // import LessonPlanModel from '../models/lessonPlans';
 
-    // const authStore = useAuthStore();
-    // const teacher = authStore.user;
     const route = useRoute();
     const searchQuery = ref('');
     const sortQuery = ref('latest');
@@ -27,7 +21,7 @@
     <div class="w-full sm:w-full bg-white rounded-lg mb-5 bg-[url('/p-1.png')] bg-no-repeat bg-contain">
         <div class="bg-white dark:bg-slate-800 shadow  rounded-md w-full px-4 py-4 relative overflow-hidden bg-[url('/p-1.png')] bg-no-repeat bg-contain">
             <div class="flex items-center justify-between xl:gap-x-2 items-cente">
-                <div class="absolute inline-flex items-center justify-center text-center gap-5 text-main-color ">
+                <div class="absolute inline-flex items-center justify-center gap-5 text-center text-main-color ">
                     <img src="/android-chrome-512x512.png" width="40" alt="">
                     <img src="bongo-cat/slap-cat-unscreen.gif" width="70" alt="">                     
                 </div>

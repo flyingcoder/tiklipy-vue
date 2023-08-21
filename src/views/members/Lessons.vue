@@ -1,6 +1,5 @@
 <script setup>
     import { onMounted, ref } from 'vue';
-    import LessonPlanModel from '../../models/LessonPlans';
     import { useAuthStore } from '../../stores/auth';
     import { useFormStore } from '../../stores/form';
     import HeaderFilter from '../../components/HeaderFilter.vue';
@@ -14,11 +13,10 @@
     const teacher = authStore.user;
     const rawCards = cardData;
     const searchQuery = ref('');
-    const lessonModel = new LessonPlanModel();
     const lessons = ref([]);
 
     onMounted(async () => {
-        lessons.value = await lessonModel.getLessonPlansByTeacher(teacher.uid);
+        
     });
 
     const cards = computed(() => {
@@ -32,9 +30,9 @@
 
 </script>
 <template>
-    <div class="px-3 mt-7 flex flex-wrap justify-between">
-        <div class="w-full flex  gap-5">
-            <div class="flex flex-wrap max-lg:justify-center w-full lg h-fit">
+    <div class="flex flex-wrap justify-between px-3 mt-7">
+        <div class="flex w-full gap-5">
+            <div class="flex flex-wrap w-full max-lg:justify-center lg h-fit">
                 <div class="w-full">
                     <HeaderFilter @search-change="searchFilter"/>
                     <div v-if="searchQuery" class="px-3 mt-7">

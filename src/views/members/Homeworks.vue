@@ -1,6 +1,5 @@
 <script setup>
     import { onMounted, ref } from 'vue';
-    import LessonPlanModel from '../../models/lessonPlans';
     import { useAuthStore } from '../../stores/auth';
     import { useFormStore } from '../../stores/form';
     import cardData from '../../temp/cards';
@@ -10,7 +9,6 @@
 
     const authStore = useAuthStore();
     const teacher = authStore.user;
-    const lessonModel = new LessonPlanModel();
     const lessons = ref([]);
     const rawCards = cardData;
     const searchQuery = ref('');
@@ -19,7 +17,7 @@
 
 
     onMounted(async () => {
-        lessons.value = await lessonModel.getLessonPlansByTeacher(teacher.uid);
+        
     });
 
     const cards = computed(() => {
@@ -33,9 +31,9 @@
 
 </script>
 <template>
-    <div class="px-3 mt-7 flex flex-wrap justify-between">
-        <div class="w-full flex gap-5">
-            <div class="flex flex-wrap max-lg:justify-center w-full lg h-fit">
+    <div class="flex flex-wrap justify-between px-3 mt-7">
+        <div class="flex w-full gap-5">
+            <div class="flex flex-wrap w-full max-lg:justify-center lg h-fit">
                 <div class="w-full">
                     <HeaderFilter @search-change="searchFilter"/>
                     <div v-if="searchQuery" class="px-3 mt-7">
@@ -96,7 +94,7 @@
             </div>
         </div>
     </div>
-    <!-- <div class="mt-7 px-3">
+    <!-- <div class="px-3 mt-7">
         <div class="flex flex-wrap max-lg:justify-center">
             <div class=" w-[30rem] bg-white rounded-lg sm:mr-5 mb-5 flex">
                 <router-link :to="{ name: 'assessment', params: { type: 'homeworks', id: 1 } }" class="bg-[url('/p-1.png')] bg-no-repeat bg-contain items-center bg-white rounded-lg  md:flex-row md:max-w-xl hover:shadow-lg transition delay-75 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
@@ -107,7 +105,7 @@
                         </div>
                         <div class="flex flex-col justify-between leading-normal">
                             <h5 class="mb-2 text-2xl font-bold tracking-tight text-main-color dark:text-white">Literary Analysis: Exploring Classic Literature</h5>
-                            <p class=" font-normal text-gray-500 dark:text-gray-400">Delve into the captivating world of classic literature through this enriching lesson on literary analysis. In this course, students will embark on a journey...</p>
+                            <p class="font-normal text-gray-500  dark:text-gray-400">Delve into the captivating world of classic literature through this enriching lesson on literary analysis. In this course, students will embark on a journey...</p>
                         </div>
                     </div>
                 </router-link>
