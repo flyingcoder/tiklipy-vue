@@ -51,7 +51,7 @@
                         </form>
                     </div>                    
                     <slot name="generate-btn">
-                        <button type="button" size="lg" v-if="route.path != '/members'" class="bg-main-color mr-5 hover:bg-secondary-color border-0 text-sm lg:text-[0.775rem] xl:text-base font-semibold">
+                        <button type="button" size="lg" v-if="route.path != '/members' && route.path != '/members/resources'" class="bg-main-color mr-5 hover:bg-secondary-color border-0 text-sm lg:text-[0.775rem] xl:text-base font-semibold">
                             Generate
                         </button>
                     </slot>
