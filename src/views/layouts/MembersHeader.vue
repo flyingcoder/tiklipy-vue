@@ -84,11 +84,11 @@
                             <i class="pb-1 mr-1 text-lg ti ti-presentation"></i> Resources
                         </router-link>
                     </li>
-                    <li class="self-center px-3 py-2 dropdown" @mouseenter="toggleNesteds">
+                    <!-- <li class="self-center px-3 py-2 dropdown" @mouseenter="toggleNesteds">
                         <router-link :to="{ name: 'visuals' }" class="block text-base font-medium text-gray-900 divide-gray-100 dark:hover:text-main-color md:border-0 md:p-0">
                             <i class="pb-1 mr-1 text-lg ti ti-presentation"></i> asdasdasd
                         </router-link>
-                    </li>
+                    </li> -->
                     <!-- <li class="self-center px-3 py-2 dropdown">
                         <dropdown placement="bottom">
                             <template #trigger="{ toggle }">
