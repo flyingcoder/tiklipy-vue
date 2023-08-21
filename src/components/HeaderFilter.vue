@@ -50,11 +50,11 @@
                             </div>
                         </form>
                     </div>                    
-                    <!-- <slot name="generate-btn">
+                    <slot name="generate-btn">
                         <button type="button" size="lg" v-if="route.path != '/members'" class="bg-main-color mr-5 hover:bg-secondary-color border-0 text-sm lg:text-[0.775rem] xl:text-base font-semibold">
                             Generate
                         </button>
-                    </slot> -->
+                    </slot>
                 </div>
             </div>
         </div> <!--end inner-grid--> 
