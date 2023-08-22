@@ -22,14 +22,13 @@
     });
     
     const resourcesFunc = () => {
-        if(route.meta.type === "lesson plan") {
-            resources.value = resourcesRaw.filter(item => item.data.type.toLowerCase().includes(route.meta.type.toLowerCase()));
+        console.log(route.params);
+        if(route.params.type !== "all") {
+            resources.value = resourcesRaw.filter(item => item.data.type.toLowerCase().includes(route.params.type.toLowerCase()));
         } else {
             resources.value = resourcesRaw
         }
     }
-
-
 
 
 </script>

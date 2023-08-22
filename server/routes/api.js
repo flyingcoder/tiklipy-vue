@@ -2,6 +2,7 @@ import '../plugins/firebase-handler.js';
 import express from 'express';
 import { getAuth } from 'firebase-admin/auth';
 import generateRoutes from './api/generate.js';
+import getTools from './api/tools.js';
 import starCreditRoutes from './api/starCredits.js';
 
 const router = express.Router();
@@ -28,6 +29,7 @@ router.use(middleware);
 
 router.use('/stars', restrict, starCreditRoutes);
 router.use('/generate', restrict, generateRoutes);
+router.use('/tools', restrict, getTools);
 
 //router.post('/lesson', restrict, async (req, res) => {
 //    const msg = await generate.lessonPlan(req, res);

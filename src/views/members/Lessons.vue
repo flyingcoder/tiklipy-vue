@@ -4,7 +4,7 @@
     import { useFormStore } from '../../stores/form';
     import { TheCard } from 'flowbite-vue';
     import HeaderFilter from '../../components/HeaderFilter.vue';
-    import cardData from '../../temp/cards';
+    // import cardData from '../../temp/cards';
     import { Button } from 'flowbite-vue';
     import { useRouter } from 'vue-router';
 
@@ -12,7 +12,7 @@
     const formStore = useFormStore();
     const authStore = useAuthStore();
     const teacher = authStore.user;
-    const rawCards = cardData;
+    const rawCards = ref([]);
     const searchQuery = ref('');
     const lessons = ref([]);
     const tags = ref([

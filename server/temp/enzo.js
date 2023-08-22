@@ -438,7 +438,7 @@ export default [
         }
     },
     {
-        type: 'lesson plan',
+        type: 'lesson-plan',
         category: 'Lesson Planning',
          tag: [ 'lessons' ],
         promptExample: 'Although precautions are in place, the system might occasionally produce inaccurate or deceptive information. Its advisable to verify the results.',
@@ -534,7 +534,7 @@ export default [
         }
     },
     {
-        type: 'lesson plan',
+        type: 'lesson-plan',
         category: 'Lesson Planning',
          tag: [ 'lessons' ],
         promptExample: 'While we have safeguards in place, the system may occasionally generate incorrect or misleading information. Please double-check results.',
@@ -570,7 +570,7 @@ export default [
         }
     },
     {
-        type: 'lesson plan',
+        type: 'lesson-plan',
         category: 'Lesson Planning',
          tag: [ 'lessons' ],
         promptExample: 'While we have safeguards in place, the system may occasionally generate incorrect or misleading information. Please double-check results.',
