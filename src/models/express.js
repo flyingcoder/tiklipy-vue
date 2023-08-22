@@ -5,7 +5,7 @@ class ExpressModel {
     generateResource(data) {
         try {
             axios.defaults.headers.common['Authorization'] = auth?.currentUser?.accessToken;
-            return axios.post('/api/v1/generate', data)
+            return axios.post('/api/v1/generate', data);
         } catch (error) {
             console.log(error);
             return false;
@@ -15,8 +15,7 @@ class ExpressModel {
     getTools() {
         try {
             axios.defaults.headers.common['Authorization'] = auth?.currentUser?.accessToken;
-            console.log(auth?.currentUser?.accessToken)
-            return axios.get('/api/v1/tools')
+            return axios.get('/api/v1/tools');
         } catch (error) {   
             console.log(error);
             return false;
