@@ -166,7 +166,7 @@
       </div>
     </template>
     <template #body>
-      <div class="items-center justify-center w-full text-black">
+      <!-- <div class="items-center justify-center w-full text-black">
         <p :class="hasError ? 'visible':'hidden'" class="mt-4 text-sm font-semibold text-center text-red-500">Please Enter a Valid Email Address</p>
         <div class="my-2">
           <label for="email" class="block mb-1 text-sm font-semibold text-gray-700 dark:text-white">Email</label>
@@ -186,7 +186,7 @@
           <span class="absolute px-3 font-medium text-gray-900 -translate-x-1/2 bg-white left-1/2 dark:text-white dark:bg-gray-900">
             or
           </span>
-      </div>
+      </div> -->
       <p class="text-center text-black">Sign up with</p>
       <div class="">
         <button @click="registerVia(googleProvider)" class="hover:!border-secondary-color flex items-center justify-center w-full py-2 my-3 text-black bg-transparent border-gray-300 ">
