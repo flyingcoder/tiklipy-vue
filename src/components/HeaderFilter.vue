@@ -1,38 +1,55 @@
 <script setup>
+    import { ref, watch } from 'vue';
     import { useRoute } from 'vue-router';
+    import { Button } from 'flowbite-vue';
+
     const route = useRoute();
+    const searchQuery = ref('');
+    const sortQuery = ref('latest');
+    
+    const emit = defineEmits(['searchChange', 'sortChange'])
+
+    watch(searchQuery, async (newVal, oldVal) => {
+        emit('searchChange', newVal);
+    })
+
+    watch(sortQuery, async (newVal, oldVal) => {
+        emit('sortChange', newVal);
+    })
 </script>
 <template>
     <div class="w-full sm:w-full bg-white rounded-lg mb-5 bg-[url('/p-1.png')] bg-no-repeat bg-contain">
-        <div class="bg-white dark:bg-slate-800 shadow  rounded-md w-full p-4 relative overflow-hidden bg-[url('/p-1.png')] bg-no-repeat bg-contain">
-            <div class="flex justify-between xl:gap-x-2 items-cente">
-                <div class="absolute inline-flex items-center justify-center text-center text-main-color ">
-                    <img src="/android-chrome-512x512.png" width="50" alt="">                       
+        <div class="bg-white dark:bg-slate-800 shadow  rounded-md w-full px-4 py-4 relative overflow-hidden bg-[url('/p-1.png')] bg-no-repeat bg-contain">
+            <div class="flex items-center justify-between xl:gap-x-2 items-cente">
+                <div class="absolute inline-flex items-center justify-center gap-5 text-center text-main-color ">
+                    <img src="/android-chrome-512x512.png" width="40" alt="">
+                    <img src="bongo-cat/slap-cat-unscreen.gif" width="70" alt="">                     
                 </div>
-                <div class="self-center ml-auto text-right flex">
+                <div class="flex self-center ml-auto text-right">
                     <div class="flex mr-5" v-if="route.path != '/members'">
-                        <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            <option value="US">Alphabetical</option>
-                            <option value="CA">Grade Level</option>
-                            <option value="FR">Date Created</option>
+                        <select v-model="sortQuery" class="block text-sm text-gray-600 border font-semibold border-gray-300 rounded-full bg-white focus:ring-main-color focus:secondary-color dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <option value="latest">Latest</option>
+                            <option value="abc">Alphabetical</option>
                         </select>
                     </div>
-                    <Button type="submit" size="lg" v-if="route.path != '/members'" class="bg-main-color mr-5 hover:bg-secondary-color border-0 text-sm lg:text-[0.775rem] xl:text-base font-semibold">Generate</Button> 
-                    <div :class="route.path !== '/members' ? 'w-[300px]' : 'w-[500px]'">
+                    <div class="mr-5" :class="route.path !== '/members' ? 'w-[300px]' : 'w-[500px]'">
                         <form>   
                             <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
                             <div class="relative">
-                                <input type="search" id="default-search" class="block w-full p-4 pr-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search tools..." required>
-                                <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                                <input v-model="searchQuery" type="search" id="default-search" class="block w-full py-3 px-4 pr-10 text-sm text-gray-900 font-semibold border border-gray-300 rounded-full bg-white focus:ring-main-color focus:border-secondary-color dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" :placeholder="route.path === '/members' ? 'Explore Search Tools...' : 'Search generated card...'" required>
+                                <div class="absolute inset-y-0 right-0 flex items-center pr-5 pointer-events-none">
                                     <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
                                     </svg>
                                 </div>
                             </div>
                         </form>
-                    </div>                    
-                    <!-- <h3 class="my-1 text-2xl font-semibold text-main-color">Lesson Plan</h3>
-                    <p class="p-0 mb-0 text-lg font-light text-gray-700 bg-transparent hover:border-transparent focus:outline-none">Effective and Engaging Lesson Plans</p> -->
+                    </div>               
+                    <slot name="generate-btn">
+                        <button type="button" size="lg" v-if="route.path != '/members' && route.path != '/members/resources'" class="bg-main-color mr-5 hover:bg-secondary-color rounded-full border-0 text-sm lg:text-[0.775rem] xl:text-base font-semibold">
+                            Generate
+                        </button>
+                    </slot>
                 </div>
             </div>
         </div> <!--end inner-grid--> 

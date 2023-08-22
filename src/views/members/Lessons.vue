@@ -1,9 +1,10 @@
 <script setup>
-    import { onMounted, ref } from 'vue';
-    import LessonPlanModel from '../../models/LessonPlans';
+    import { onMounted, ref, computed } from 'vue';
     import { useAuthStore } from '../../stores/auth';
     import { useFormStore } from '../../stores/form';
+    import { TheCard } from 'flowbite-vue';
     import HeaderFilter from '../../components/HeaderFilter.vue';
+    import cardData from '../../temp/cards';
     import { Button } from 'flowbite-vue';
     import { useRouter } from 'vue-router';
 
@@ -11,94 +12,93 @@
     const formStore = useFormStore();
     const authStore = useAuthStore();
     const teacher = authStore.user;
-    const lessonModel = new LessonPlanModel();
+    const rawCards = cardData;
+    const searchQuery = ref('');
     const lessons = ref([]);
+    const tags = ref([
+        { name: 'featured', desc: ''},
+        { name: 'lessons', desc: 'Effortlessly generate a lesson plan tailored to your teaching style.'},
+        { name: 'tools', desc: 'Empowering Efficiency: Unleashing the Potential of Essential Tools.'},
+        { name: 'explore', desc: 'Unveiling the Unknown: Embarking on Journeys of Exploration'},
+        { name: 'manage', desc: 'Navigating Success: Mastering the Art of Effective Management'},
+        { name: 'organize', desc: 'Harmonize and Systematize: The Essence of Effective Organization'},
+        { name: 'modify', desc: 'Crafting Change: The Art of Skillful Modification'},
+        { name: 'write', desc: 'Effortlessly Generate Diverse Content with Personalized Style and Substance.'},
+    ]);
 
     onMounted(async () => {
-        lessons.value = await lessonModel.getLessonPlansByTeacher(teacher.uid);
+        
     });
 
-    const lessonsCard = {
-        type: 'lesson_plan',
-        category: 'Report',
-        // tag: 'featured',
-        tag: 'write',
-        promptExample: 'Crafting Engaging Lessons" is your guide to creating dynamic learning experiences that spark curiosity and critical thinking.',
-        systemPrompt: 'Assist in generating clear and concise instructions for monthly auxiliary reports. Provide guidance on structuring the report, including key points, challenges, highlights, and insights. Ensure the instructions are professional and informative to simplify the reporting process.',
-        title: 'Guiding Insights: The Art of Crafting Effective Lessons',
-        icon:'ti-user',
-        description: 'Guided Learning: Crafting Effective Lessons for Growth',
-        inputs: {
-            grade: {
-                value: '',
-                placeholder: 'Example: Grade 2',
-                inputType: 'text',
-                label: 'Grade Level',
-            },
-            subject: {
-                value: '',
-                placeholder: 'Example: Math',
-                inputType: 'text',
-                label: 'Subject',
-            },
-            type: {
-                value: '',
-                placeholder: 'Example: Multiple Choice',
-                inputType: 'text',
-                label: 'Question Type',
-            },
-            items: {
-                value: '',
-                placeholder: 'Example: 5',
-                inputType: 'text',
-                label: 'Total Items',
-            },
-            topic: {
-                value: '',
-                placeholder: 'State the general topic or paste an official standard.',
-                inputType: 'textarea',
-                label: 'Topic or Standard',
-            },
-            instructions: {
-                value: '',
-                placeholder: 'Share specific guidelines or details to aid completion',
-                inputType: 'textarea',
-                label: 'Additional Instructions',
-            }
-        }
-    
-    };
+    const cards = computed(() => {
+        return rawCards.filter(item => item.title.toLowerCase().includes(searchQuery.value.toLowerCase()))
+    })
 
-    const cardIsClick = (card) => {
-        formStore.setFormDetails(card);
-        router.push({ name: 'generate' });
+    const searchFilter = (query) => {
+        searchQuery.value = query
     }
 
 
 </script>
 <template>
-    <div class="px-3 mt-7 flex flex-wrap justify-between">
-        <div class="w-full flex  gap-5">
-            <div class="flex flex-wrap max-lg:justify-center w-full lg h-fit">
+    <div class="flex flex-wrap justify-between px-3 mt-7">
+        <div class="flex w-full gap-5">
+            <div class="flex flex-wrap w-full max-lg:justify-center lg h-fit">
                 <div class="w-full">
-                    <HeaderFilter/>
-                    <div v-for="lesson in lessons" :key="lesson.teacherId + '-lesson-card'" class="w-full sm:w-full bg-white rounded-lg sm:mr-5 mb-5 bg-[url('/p-1.png')] bg-no-repeat bg-contain ">
-                        <router-link :to="{name: 'lesson', params: { id: lesson.slug }}" class=" ">
-                            <div class="p-10 max-xs:!p-5 ">
-                                <div class="w-full flex justify-between mb-10">
-                                    <div class="text-md border px-2 rounded-md bg-green-500 text-white">English</div>
-                                    <div class="flex items-center justify-end w-full">
-                                        <img class="w-6 ml-2" src="/grade.png" alt="">
-                                        <div class="text-lg">{{ lesson.gradeLevel }}</div>
-                                    </div>
-                                </div>
-                                <div class="flex flex-col justify-between leading-normal">
-                                    <h5 class=" line-clamp-2 wh mb-2 text-lg lg:text-3xl font-bold tracking-tight text-main-color dark:text-white">
-                                        {{ lesson.topic }}
-                                    </h5>
-                                </div>
+                    <HeaderFilter @search-change="searchFilter"/>
+                    <div v-if="searchQuery" class="px-3 mt-7">
+                        <div class="mb-16">
+                            <div class="flex flex-wrap items-stretch max-lg:justify-center">
+                                <div v-for="(card, index) in cards" :key="index +'-card-generate-filtered'" class="flex justify-center max-sm:w-full"  @click="cardIsClick(card)">
+                                    <the-card @click="cardIsClick(card)" href="#" class="animate__animated animate__fadeInUp w-[30rem] bg-white sm:mr-5 mb-5 flex border-none rounded-lg shadow-none hover:bg-white hover:shadow-md bg-[url('/p-1.png')] bg-no-repeat bg-contain" style="max-width: 100% !important">
+                                        <div class="p-4 max-xs:!p-0 dark:bg-gray-800 dark:border-gray-700">
+                                            <i :class="card.icon" class="text-4xl font-medium text-main-color dark:text-white ti"></i>
+                                            <div class= "mt-7 group-hover:text-gray-500">
+                                                {{ card.category }}
+                                            </div>
+                                            <div class="flex flex-col justify-between leading-normal">
+                                                <h5 class="mb-2 text-2xl font-bold tracking-tight dark:text-white">
+                                                    {{ card.title }}
+                                                </h5>
+                                                <p class="font-normal text-gray-500 dark:text-gray-400">
+                                                    {{ card.description }}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </the-card>
+                                </div>     
                             </div>
-                        </router-link>
+                        </div>
+                    </div>
+                    <div v-if="!searchQuery" class="px-3 mt-7">
+                        <div v-for="tag in tags" :key="tag.name + 'tag-div'" class="mb-16" >
+                            <div class="justify-center block mb-6 font-semibold">
+                                <span class="mt-0 mb-1 text-sm font-bold leading-6 tracking-wider uppercase text-main-color font-poppins">
+                                    {{ tag.name }}</span>
+                                <h2 class="mt-2 text-3xl text-gray-800">
+                                    {{ tag.desc }}</h2>
+                            </div>
+                            <div class="flex flex-wrap max-lg:justify-center">
+                                <div v-for="(card, index) in cards" :key="index +'-card-generate'" class="flex justify-center max-sm:w-full"  @click="cardIsClick(card)">
+                                    <the-card @click="cardIsClick(card)" v-if="card.tag.includes(tag.name)" href="#" class="animate__animated animate__fadeInUp w-[30rem] bg-white sm:mr-5 mb-5 flex border-none rounded-lg shadow-none hover:bg-white hover:shadow-md bg-[url('/p-1.png')] bg-no-repeat bg-contain" style="max-width: 100% !important">
+                                        <div class="p-4 max-xs:!p-0 dark:bg-gray-800 dark:border-gray-700">
+                                            <i :class="card.icon" class="text-4xl font-medium text-main-color dark:text-white ti"></i>
+                                            <div class= "mt-7 group-hover:text-gray-500">
+                                                {{ card.category }}
+                                            </div>
+                                            <div class="flex flex-col justify-between leading-normal">
+                                                <h5 class="mb-2 text-2xl font-bold tracking-tight dark:text-white">
+                                                    {{ card.title }}
+                                                </h5>
+                                                <p class="font-normal text-gray-500 dark:text-gray-400">
+                                                    {{ card.description }}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </the-card>
+                                </div>     
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

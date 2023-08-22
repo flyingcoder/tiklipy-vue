@@ -3,6 +3,7 @@ import { defineStore } from "pinia";
 export const useFormStore = defineStore("form", {
     state: () => ({ 
         title: '',
+        type: '',
         description: '',
         promptExample: '',
         systemPrompt: '',
@@ -26,6 +27,7 @@ export const useFormStore = defineStore("form", {
             this.icon = details.icon;
             this.inputs = details.inputs;
             this.systemPrompt = details.systemPrompt;
+            this.type = details.type;
         },
         joinInputs() {
             const sentenceParts = Object.keys
