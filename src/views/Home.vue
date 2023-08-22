@@ -1,10 +1,15 @@
 <script setup>
     import { ref } from "vue";
     const hovered = ref(false);
+    const animationPaused = ref(false);
 
-const mouseenter = () => {
-    hovered.value = ref(true)
-}
+    const toggleAnimation = () => {
+        animationPaused.value = !animationPaused.value;
+    };
+
+    const mouseenter = () => {
+        hovered.value = ref(true)
+    }
 </script>
 
 <template>
@@ -48,8 +53,8 @@ const mouseenter = () => {
                     <span class="text-4xl mx-10  "><i class="ti ti-brand-meta"></i></span>
                 </div>
             </div>
-            <div class=" flex overflow-hidden py-10 justify-center" @mouseenter="hovered = true" @mouseleave="hovered = false">
-                <div :class="hovered ? '':'animate-r_marquee2'" class=" flex flex-wrap  justify-between ">
+            <div class=" flex overflow-hidden py-10 justify-center" @mouseenter="toggleAnimation" @mouseleave="toggleAnimation">
+                <div :class="[hovered ? '' : 'animate-r_marquee2', { 'animation-paused': animationPaused }]" class=" flex flex-wrap  justify-between ">
                     <div class=" max-w-[26rem] text-4xl  bg-white mx-5 p-5 rounded-2xl flex flex-wrap content-between">
                         <div class="">
                             <div class="stars flex flex-wrap mb-5">
@@ -127,7 +132,7 @@ const mouseenter = () => {
                         </div>
                     </div>
                 </div>
-                <div :class="hovered?'':'animate-r_marquee'" class="flex flex-wrap wrap absolute ">
+                <div :class="[hovered ? '' : 'animate-r_marquee', { 'animation-paused': animationPaused }]" class="flex flex-wrap wrap absolute ">
                     <div class=" max-w-[26rem] text-4xl  bg-white mx-5 p-5 rounded-2xl flex flex-wrap content-between">
                         <div class="">
                             <div class="stars flex flex-wrap mb-5">
