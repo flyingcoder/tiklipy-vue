@@ -6,6 +6,7 @@ import {
     Login, SendGift, FAQ, Featured, ThankYou, PaymentCancel, PageNotFound,
     Helps, Register, Tools, Resources, Resource
 } from './components';
+import Admin from '../views/admin/index.vue';
 
 const routes = [
     //main pages routes
@@ -46,13 +47,13 @@ const routes = [
             { path: 'visuals/:id', name: 'visual', component: Visual, meta: { displayName: 'Visuals', siteDescription: '' } },
             { path: 'projects', name: 'projects', component: Projects, meta: { displayName: 'Projects', siteDescription: 'Engaging projects to apply and enhance your skills.' } },
             { path: 'activities', name: 'activities', component: Activities, meta: { displayName: 'Activities', siteDescription: 'Interactive activities for engaging learning experiences.' } },
-            { path: 'resources', name: 'resources', component: Resources, meta: { displayName: 'Resources', siteDescription: 'Discover curated articles and tools to fuel your growth and learning.' } },
-            { path: 'resources/:id', name: 'resource', component: Resource, },
+            { path: 'resources/:type', name: 'resources', component: Resources, meta: { displayName: 'Resources', siteDescription: 'Discover curated articles and tools to fuel your growth and learning.' } },
+            { path: 'resource/:id', name: 'resource', component: Resource, },
             { path: 'generate', name: 'generate', component: GenerateForm },
-            { path: 'tools', name: 'tools', component: Tools },
+            { path: 'admin', name: 'admin', component: Admin, meta: { requiresAdmin: true } },
         ],
     },
-    { path: '/login', name: 'login', component: Login },
+    { path: '/login', name: 'login', component: Register },
     { path: '/register', name: 'register', component: Register },
     { path: '/thank-you', name: 'thanks', component: ThankYou },
     { path: '/payment-cancel', name: 'cancel', component: PaymentCancel },

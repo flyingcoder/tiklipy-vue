@@ -6,13 +6,16 @@
     const animationPaused = ref(false);
     const backEndModel = new expressModel();
     const testimonials = ref();
+
     
+
     onMounted(() => {
         getTestimonials();
     });
-    const getTestimonials = () => {
-        backEndModel.getTestimonials();
+    const getTestimonials = async () => {
+        testimonials.value = await backEndModel.getTestimonials().then((data) => data.data );
     } 
+    
     const toggleAnimation = () => {
         animationPaused.value = !animationPaused.value;
     };

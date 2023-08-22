@@ -111,7 +111,7 @@
             </div>
 
             <div class="items-center justify-center w-full px-6 text-black">
-                <p :class="hasError ? 'hidden':'visible'" class="mt-4 text-sm font-semibold text-center">Login with Email & Password</p>
+                <!-- <p :class="hasError ? 'hidden':'visible'" class="mt-4 text-sm font-semibold text-center">Login with Email & Password</p>
                 <p :class="hasError ? 'visible':'hidden'" class="mt-4 text-sm font-semibold text-center text-red-500">Invalid Email or Password</p>
                 <div class="my-2">
                     <div>
@@ -129,7 +129,7 @@
                         </div>
                         <input type="password" v-model="password" id="password" :class="hasError||wrongCred ? 'border-red-500':''" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main-color focus:border-main-color block w-full p-2.5 dark:border-gray-600 dark:text-white dark:focus:ring-main-color dark:focus:border-main-color" placeholder="Enter a password">
                     </div>
-                </div>
+                </div> -->
                 <button @click="login"  :disabled="!email || !password" :class="(!email || !password) || isLoading ? 'cursor-not-allowed !bg-gray-500 hover:bg-gray-500' : 'bg-main-color hover:bg-secondary-color border-0'" class="w-full px-4 py-2 mt-2 font-bold text-white rounded bg-main-color hover:bg-secondary-color">
                     {{ isLoading ? "Loading..." : "Login" }}
                 </button>

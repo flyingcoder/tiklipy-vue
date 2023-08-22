@@ -1,16 +1,12 @@
 <script setup>
     import { defineProps } from 'vue';
-//import generate form
     import GenerateForm from './GenerateForm.vue';
-//set props
+
     const props = defineProps({
         Type: String,
     });
   
-//emit and emit handler
-//sa generate form component 
-// define props
-// define emit action
+
 </script>
 <template>
     <div class="flex flex-wrap justify-between">

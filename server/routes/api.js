@@ -2,14 +2,22 @@ import '../plugins/firebase-handler.js';
 import express from 'express';
 import { getAuth } from 'firebase-admin/auth';
 import generateRoutes from './api/generate.js';
+import getTools from './api/tools.js';
 import starCreditRoutes from './api/starCredits.js';
+import authRoutes from './api/authRoutes.js';
+import testimonialRoutes from './api/testimonials.js';
 
 const router = express.Router();
 
 const middleware = async (req, res, next) => {
     const token = req.headers.authorization;
-    const auth = await getAuth().verifyIdToken(token).then((res));
-    res.locals.currentUser = auth;
+    if(token) {
+        const auth = await getAuth().verifyIdToken(token).then((res));
+        res.locals.currentUser = auth;
+    } else {
+        res.locals.error = 'Access without user';
+        console.error(res.locals.error)
+    }
     next();
 }
 
@@ -18,6 +26,7 @@ const restrict = (req, res, next) => {
         next();
     } else {
         res.locals.error = 'Access denied';
+        console.error(res.locals.error)
         res.json({ error: res.locals.error });
     }
 }
@@ -26,13 +35,10 @@ router.use(express.json());
 router.use(express.urlencoded({ extended: true}));
 router.use(middleware);
 
+router.use('/testimonials', testimonialRoutes);
+router.use('/auth', authRoutes);
 router.use('/stars', restrict, starCreditRoutes);
 router.use('/generate', restrict, generateRoutes);
-
-
-//router.post('/lesson', restrict, async (req, res) => {
-//    const msg = await generate.lessonPlan(req, res);
-//    res.json(msg);
-//});
+router.use('/tools', restrict, getTools);
 
 export default router;

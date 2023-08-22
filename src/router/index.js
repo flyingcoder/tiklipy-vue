@@ -13,9 +13,9 @@ const router = createRouter({
 
 let firebaseInit = false;
 
-router.beforeEach(async (to, from, next) => {
+router.beforeEach((to, from, next) => {
     if(!firebaseInit) {
-      onAuthStateChanged(auth, async (user) => {
+      onAuthStateChanged(auth, (user) => {
         const authStore = useAuthStore();
         const userStore = useUserStore();
         if(user) {
@@ -38,11 +38,19 @@ router.beforeEach(async (to, from, next) => {
     } else {
       if(to.meta.requiresAuth) {
         const authStore = useAuthStore();
-        if(authStore.user)
-          next()
-        else
-          next('/login')
-        //await subscriptionCheck(to, from, next);
+        if(authStore?.user || auth?.currentUser) {
+          if(to.meta.requiresAdmin) {
+            if(auth?.currentUser?.isAdmin) {
+              next()
+            } else {
+              next('/')
+            }
+          } else {
+            next();
+          }
+        } else {
+          next('/login');
+        }
       } else {
         next();
       }
