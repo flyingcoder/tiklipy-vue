@@ -112,7 +112,9 @@ button:focus-visible {
 .animation-paused {
   animation-play-state: paused;
 }
-
+.lesson-card .p-6 {
+  width:100%;
+}
 .card {
   padding: 2em;
 }

@@ -17,8 +17,10 @@ export default {
       animation: {
         marquee: 'marquee 25s linear infinite',
         marquee2: 'marquee2 25s linear infinite',
+        marqueePause: 'marquee2 25s linear pause infinite',
         r_marquee: 'marquee 25s linear reverse infinite',
         r_marquee2: 'marquee2 25s linear reverse infinite',
+        playState: 'pause',
       },
       keyframes: {
         marquee: {

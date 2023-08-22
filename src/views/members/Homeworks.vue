@@ -51,19 +51,16 @@
                         <div class="mb-16">
                             <div class="flex flex-wrap items-stretch max-lg:justify-center">
                                 <div v-for="(card, index) in cards" :key="index +'-card-generate-filtered'" class="flex justify-center max-sm:w-full"  @click="cardIsClick(card)">
-                                    <the-card @click="cardIsClick(card)" href="#" class="animate__animated animate__fadeInUp w-[30rem] bg-white sm:mr-5 mb-5 flex border-none rounded-lg shadow-none hover:bg-white hover:shadow-md bg-[url('/p-1.png')] bg-no-repeat bg-contain" style="max-width: 100% !important">
+                                    <the-card @click="cardIsClick(card)" href="#" class="lesson-card animate__animated animate__fadeInUp w-[29rem] bg-white sm:mr-5 mb-5 flex border-none rounded-lg shadow-none hover:bg-white hover:shadow-md bg-[url('/p-1.png')] bg-no-repeat bg-contain" style="max-width: 100% !important">
                                         <div class="p-4 max-xs:!p-0 dark:bg-gray-800 dark:border-gray-700">
+                                            <div class= "flex flex-wrap items-center justify-between group-hover:text-gray-500 mb-5"> 
                                             <i :class="card.icon" class="text-4xl font-medium text-main-color dark:text-white ti"></i>
-                                            <div class= "mt-7 group-hover:text-gray-500">
                                                 {{ card.category }}
                                             </div>
                                             <div class="flex flex-col justify-between leading-normal">
-                                                <h5 class="mb-2 text-2xl font-bold tracking-tight dark:text-white">
+                                                <h5 class=" text-2xl font-bold tracking-tight dark:text-white">
                                                     {{ card.title }}
                                                 </h5>
-                                                <p class="font-normal text-gray-500 dark:text-gray-400">
-                                                    {{ card.description }}
-                                                </p>
                                             </div>
                                         </div>
                                     </the-card>
@@ -81,19 +78,16 @@
                             </div>
                             <div class="flex flex-wrap max-lg:justify-center">
                                 <div v-for="(card, index) in cards" :key="index +'-card-generate'" class="flex justify-center max-sm:w-full"  @click="cardIsClick(card)">
-                                    <the-card @click="cardIsClick(card)" v-if="card.tag.includes(tag.name)" href="#" class="animate__animated animate__fadeInUp w-[30rem] bg-white sm:mr-5 mb-5 flex border-none rounded-lg shadow-none hover:bg-white hover:shadow-md bg-[url('/p-1.png')] bg-no-repeat bg-contain" style="max-width: 100% !important">
+                                    <the-card @click="cardIsClick(card)" v-if="card.tag.includes(tag.name)" href="#" class="lesson-card animate__animated animate__fadeInUp w-[29rem] bg-white sm:mr-5 mb-5 flex border-none rounded-lg shadow-none hover:bg-white hover:shadow-md bg-[url('/p-1.png')] bg-no-repeat bg-contain" style="max-width: 100% !important">
                                         <div class="p-4 max-xs:!p-0 dark:bg-gray-800 dark:border-gray-700">
+                                            <div class= "flex flex-wrap items-center justify-between group-hover:text-gray-500 mb-5"> 
                                             <i :class="card.icon" class="text-4xl font-medium text-main-color dark:text-white ti"></i>
-                                            <div class= "mt-7 group-hover:text-gray-500">
                                                 {{ card.category }}
                                             </div>
                                             <div class="flex flex-col justify-between leading-normal">
-                                                <h5 class="mb-2 text-2xl font-bold tracking-tight dark:text-white">
+                                                <h5 class=" text-2xl font-bold tracking-tight dark:text-white">
                                                     {{ card.title }}
                                                 </h5>
-                                                <p class="font-normal text-gray-500 dark:text-gray-400">
-                                                    {{ card.description }}
-                                                </p>
                                             </div>
                                         </div>
                                     </the-card>
