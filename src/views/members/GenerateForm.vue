@@ -106,44 +106,47 @@
                 </h1>
             </div>
             <div class="flex flex-wrap gap-4 p-3 sm:p-9">
-                <div class="animate__fadeInUp animate__animated w-full lg:w-[68%] col-span-4 px-10 py-6 bg-white">
-                    <div class="w-full py-4 animate__animated generated-value" v-if="!generatedResource">
-                        <h2 class="mb-6 text-2xl font-semibold">
-                            {{ formStore.description }}
-                        </h2>
-                        <p class="p-2 mb-4 text-center bg-blue-200">We offer hints and examples to enhance the accuracy of your generation process.</p>
-                        <div class="space-y-6">
-                            <div v-for="(input, index) in formStore.inputs" :key="index + '-generate-form-hints'">
-                                <h2 class="text-xl">
-                                    <strong class="capitalize">{{ input.label }}: </strong> 
-                                    <br>{{ input.hint }}
-                                </h2>
+                <div class="w-full lg:w-[68%] col-span-4 animate__fadeInUp animate__animated">
+                    <div class="px-10 py-6 bg-white">
+                        <div class="w-full py-4 animate__animated generated-value" v-if="!generatedResource">
+                            <h2 class="mb-6 text-2xl font-semibold">
+                                {{ formStore.description }}
+                            </h2>
+                            <p class="p-2 mb-4 text-center bg-blue-200">We offer hints and examples to enhance the accuracy of your generation process.</p>
+                            <div class="space-y-6">
+                                <div v-for="(input, index) in formStore.inputs" :key="index + '-generate-form-hints'">
+                                    <h2 class="text-xl">
+                                        <strong class="capitalize">{{ input.label }}: </strong> 
+                                        <br>{{ input.hint }}
+                                    </h2>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="w-full py-4 animate__animated generated-value" id="generated-resources" v-if="generatedResource" v-html="generatedResource">
-                        
+                        <div class="w-full py-4 animate__animated generated-value" id="generated-resources" v-if="generatedResource" v-html="generatedResource">
+                            
+                        </div>
                     </div>
                     <div class="block" v-if="generatedResource">
-                        <div class="flex">
-                            <Button color="default" @click="printResource('generated-resources')" class="py-3 pr-5 mr-3 font-semibold uppercase border-0 bg-main-color hover:bg-secondary-color">
-                                <i class="mr-2 text-2xl align-middle ti ti-printer"></i>
+                        <div class="flex mt-8">
+                            <Button color="default" @click="printResource('generated-resources')" class="p-2 mr-3 font-semibold uppercase border-0 bg-main-color hover:bg-secondary-color">
+                                <i class="mr-2 text-xl align-middle ti ti-printer"></i>
                                 Print
                             </Button>
-                            <Button @click="saveToFireBase" color="default" class="py-3 pr-5 mr-3 font-semibold uppercase border-0 bg-main-color hover:bg-secondary-color">
+                            <Button @click="saveToFireBase" color="default" class="p-4 mr-3 font-semibold uppercase border-0 bg-main-color hover:bg-secondary-color">
                                 <span  v-if="!resourceSaved">
                                     <i class="mr-2 text-2xl align-middle ti ti-bookmark"></i>
                                     Save
                                 </span>
-                                <SwalCheckIcon v-if="resourceSaved"/>
+                                <SwalCheckIcon class="mt-0 text-[5px]" v-if="resourceSaved"/>
                             </Button>
-                            <Button @click="regenerate" color="default" class="py-3 pr-5 mr-3 font-semibold uppercase border-0 bg-main-color hover:bg-secondary-color">
-                                <i class="mr-2 text-2xl align-middle ti ti-repeat"></i>
+                            <Button @click="regenerate" color="default" class="p-2 mr-3 font-semibold uppercase border-0 bg-main-color hover:bg-secondary-color">
+                                <i class="mr-2 text-xl align-middle ti ti-repeat"></i>
                                 Regenerate
                             </Button>
                         </div>
                     </div>
                 </div>
+                
                 <div class="w-full lg:w-[30%] col-span-2">
                     <div v-if="isGenerating" :class="{'animate__fadeOutUp' : !isGenerating, 'animate__fadeInDown' : isGenerating  }" class="p-6 bg-white rounded-3xl animate__animated">
                         <div v-if="!catDoneTyping" class="text-center">
