@@ -212,7 +212,7 @@
                 </div>
             </div>
         </div>
-        <div class="w-full rounded-xl p-6  mt-[calc(150vh-200px)]">
+        <div class="w-full rounded-xl p-6  mt-[calc(160vh-200px)]">
             <!-- title -->
             <div class="">
                 <div class="my-10 sm:w-[40rem] m-auto ">
