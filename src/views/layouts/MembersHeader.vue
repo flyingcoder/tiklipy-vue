@@ -79,7 +79,7 @@
                 </button>
                 <dropdown placement="left" class=" max-xs:hidden  cursor-pointer custom-css-dropdown pl-4 !outline-0 !border-0" >
                     <template #trigger>
-                        <svg class="w-9 text-gray-800 !outline-0 dark:text-white text-main-color hover:!text-secodnary-color" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                        <svg class="w-9 !outline-0 dark:text-white text-main-color hover:!text-secodnary-color" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M10 0a10 10 0 1 0 10 10A10.011 10.011 0 0 0 10 0Zm0 5a3 3 0 1 1 0 6 3 3 0 0 1 0-6Zm0 13a8.949 8.949 0 0 1-4.951-1.488A3.987 3.987 0 0 1 9 13h2a3.987 3.987 0 0 1 3.951 3.512A8.949 8.949 0 0 1 10 18Z"/>
                     </svg>
                     </template>
@@ -119,12 +119,12 @@
                             <i class="ml-auto ti ti-chevron-down"></i>
                         </a>
                         <transition
-                            enter-active-class="transform transition duration-500 ease-custom"
-                            enter-class="-translate-y-1/2 scale-y-0 opacity-0"
-                            enter-to-class="translate-y-0 scale-y-100 opacity-100"
-                            leave-active-class="transform transition duration-300 ease-custom"
-                            leave-class="translate-y-0 scale-y-100 opacity-100"
-                            leave-to-class="-translate-y-1/2 scale-y-0 opacity-0"
+                            enter-active-class="transition duration-500 transform ease-custom"
+                            enter-class="scale-y-0 -translate-y-1/2 opacity-0"
+                            enter-to-class="scale-y-100 translate-y-0 opacity-100"
+                            leave-active-class="transition duration-300 transform ease-custom"
+                            leave-class="scale-y-100 translate-y-0 opacity-100"
+                            leave-to-class="scale-y-0 -translate-y-1/2 opacity-0"
                         >
                             <ul
                                 v-show="isOptionsExpanded"
@@ -139,12 +139,12 @@
                                         <i class="ml-auto ti ti-chevron-down" v-if="item.nested"></i>
                                     </router-link>
                                     <transition 
-                                        enter-active-class="transform transition duration-500 ease-custom"
-                                        enter-class="-translate-y-1/2 scale-y-0 opacity-0"
-                                        enter-to-class="translate-y-0 scale-y-100 opacity-100"
-                                        leave-active-class="transform transition duration-300 ease-custom"
-                                        leave-class="translate-y-0 scale-y-100 opacity-100"
-                                        leave-to-class="-translate-y-1/2 scale-y-0 opacity-0"
+                                        enter-active-class="transition duration-500 transform ease-custom"
+                                        enter-class="scale-y-0 -translate-y-1/2 opacity-0"
+                                        enter-to-class="scale-y-100 translate-y-0 opacity-100"
+                                        leave-active-class="transition duration-300 transform ease-custom"
+                                        leave-class="scale-y-100 translate-y-0 opacity-100"
+                                        leave-to-class="scale-y-0 -translate-y-1/2 opacity-0"
                                     >
                                         <ul
                                         v-show="isOptionsExpandedChild"
@@ -158,12 +158,12 @@
                                             <i class="mr-2 text-lg" :class="nestedItem.icon"></i> {{ nestedItem.label }} <i class="ml-auto ti ti-chevron-down" v-if="nestedItem.nested"></i>
                                             </router-link>
                                             <transition 
-                                                enter-active-class="transform transition duration-500 ease-custom"
-                                                enter-class="-translate-y-1/2 scale-y-0 opacity-0"
-                                                enter-to-class="translate-y-0 scale-y-100 opacity-100"
-                                                leave-active-class="transform transition duration-300 ease-custom"
-                                                leave-class="translate-y-0 scale-y-100 opacity-100"
-                                                leave-to-class="-translate-y-1/2 scale-y-0 opacity-0"
+                                                enter-active-class="transition duration-500 transform ease-custom"
+                                                enter-class="scale-y-0 -translate-y-1/2 opacity-0"
+                                                enter-to-class="scale-y-100 translate-y-0 opacity-100"
+                                                leave-active-class="transition duration-300 transform ease-custom"
+                                                leave-class="scale-y-100 translate-y-0 opacity-100"
+                                                leave-to-class="scale-y-0 -translate-y-1/2 opacity-0"
                                             >
                                             <ul
                                                 v-show="isOptionsExpandedGrandchild"
