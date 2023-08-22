@@ -13,6 +13,15 @@ class ExpressModel {
         }
     }
 
+    getTestimonials() {
+        try {
+            return axios.get('/api/v1/testimonials');
+        } catch (error) {
+            console.log(error);
+            return false;
+        }
+    }
+
     getTools() {
         try {
             axios.defaults.headers.common['Authorization'] = auth?.currentUser?.accessToken;

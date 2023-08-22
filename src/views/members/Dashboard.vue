@@ -45,8 +45,7 @@
     }
 
     const getToolsData = async () => {
-        rawCards.value = await backEndModel.getTools()
-                    .then((res) => res);
+        rawCards.value = await backEndModel.getTools().then((res) => res);
 
     }
 
