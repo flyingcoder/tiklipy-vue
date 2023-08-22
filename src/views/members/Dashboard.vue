@@ -1,19 +1,21 @@
 <script setup>
     import { ref, onMounted, computed } from 'vue';
+    import { auth } from "../../plugins/firebase";
     import expressModel from "../../models/express";
     import { TheCard } from 'flowbite-vue';
     import { useFormStore } from '../../stores/form';
-    // import cardData from '../../temp/cards';
+    import { useLoaderStore } from '../../stores/loader';
     import HeaderFilter from '../../components/HeaderFilter.vue';
+    import Preloader from '../../components/Preloader.vue';
     import { useRouter } from 'vue-router';
+    import { onAuthStateChanged } from 'firebase/auth';
 
     const formStore = useFormStore();
     const router = useRouter();
-    const animate = ref(true);
+    const loaderStore = useLoaderStore();
     const backEndModel = new expressModel();
-    const cards = ref([]);
-    const rawCards = ref([]);
     const searchQuery = ref('');
+    const rawCards = ref();
     const tags = ref([
         { name: 'featured', desc: ''},
         { name: 'lessons', desc: 'Effortlessly generate a lesson plan tailored to your teaching style.'},
@@ -24,9 +26,17 @@
         { name: 'modify', desc: 'Crafting Change: The Art of Skillful Modification'},
         { name: 'write', desc: 'Effortlessly Generate Diverse Content with Personalized Style and Substance.'},
     ]);
+    
+    onAuthStateChanged(auth, async (user) => {
+        if(user?.accessToken) {
+            await getToolsData();
+            loaderStore.isLoading = false;
+        }
+    });
 
-    onMounted(() => { 
-        getToolsData();
+    onMounted(() => {
+        if(rawCards.value == undefined)
+            loaderStore.isLoading = true;
     });
     
     const cardIsClick = (card) => {
@@ -35,14 +45,16 @@
     }
 
     const getToolsData = async () => {
-        cards.value = await backEndModel.getTools()
-                .then((res) => res.data);
+        rawCards.value = await backEndModel.getTools()
+                    .then((res) => res);
 
     }
 
-    // const cards = computed(() => {
-    //     return rawCards.filter(item => item.title.toLowerCase().includes(searchQuery.value.toLowerCase()))
-    // })
+    const cards = computed(() => {
+        console.log(rawCards.value)
+        if(rawCards?.value)
+            return rawCards.value.data.filter(item => item.title.toLowerCase().includes(searchQuery.value.toLowerCase()))
+    })
 
     const searchFilter = (query) => {
         searchQuery.value = query
@@ -50,6 +62,7 @@
 </script>
 
 <template>
+    <Preloader />
     <HeaderFilter @search-change="searchFilter"/>
     <div v-if="searchQuery" class="px-3 mt-7">
         <div class="mb-16">
@@ -83,7 +96,7 @@
                 <h2 class="mt-2 text-3xl text-gray-800">
                     {{ tag.desc }}</h2>
             </div>
-            <div class="flex flex-wrap max-lg:justify-end justify-end">
+            <div class="flex flex-wrap justify-end max-lg:justify-end">
                 <div v-for="(card, index) in cards" :key="index +'-card-generate'" class="flex justify-center max-sm:w-full"  @click="cardIsClick(card)">
                     <the-card @click="cardIsClick(card)" v-if="card.tag.includes(tag.name)" href="#" class="animate__animated animate__fadeInUp w-[30rem] bg-white sm:mr-5 mb-5 flex border-none rounded-lg shadow-none hover:bg-white hover:shadow-md bg-[url('/p-1.png')] bg-no-repeat bg-contain" style="max-width: 100% !important">
                         <div class="p-4 max-xs:!p-0 dark:bg-gray-800 dark:border-gray-700">
