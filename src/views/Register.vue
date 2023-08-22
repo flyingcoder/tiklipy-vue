@@ -5,17 +5,17 @@
     import { useRouter } from "vue-router";
     import { useLoaderStore } from "../stores/loader";
     import { useAuthStore } from "../stores/auth";
+    import InviteCodeModel from "../models/InviteCode.js";
     import { GoogleAuthProvider, FacebookAuthProvider } from "firebase/auth";
 
     const router = useRouter();
     const email = ref("");
     const password = ref("");
-    const isLoading = ref(false);
     const hasError = ref(false);
     const wrongCred = ref(false);
-    const invitation_code = ref('');
+    const inviteCode = ref('');
     const loaderStore = useLoaderStore();
-
+    const inviteModel = new InviteCodeModel();
     const authStore = useAuthStore();
     const googleProvider = new GoogleAuthProvider();
     const facebookProvider =  new FacebookAuthProvider();
@@ -26,7 +26,10 @@
 
     const loginVia = async (provider) => {
         loaderStore.toggle();
-        const success = await authStore.loginVia(provider);
+        const pass = await inviteModel.checkInviteCode(inviteCode.value);
+        console.log(pass);
+        let success = false;
+        if(pass) success = await authStore.loginVia(provider);
         if (!success) googleLoginFailed(); else router.push({ name: 'dashboard' });
         loaderStore.toggle();
     }
@@ -97,7 +100,7 @@
 </script>
 
 <template>
-    <div class="flex items-center justify-center pt-20  animate__animated  animate__fadeIn">
+    <div class="flex items-center justify-center pt-20 animate__animated animate__fadeIn">
         <div class="max-w-md bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 lg:w-2/5 sm:w-96">
             <div class="w-full px-8 py-6 text-gray-200 bg-gray-800 rounded-t-lg">
                 <router-link :to="{ name: 'home' }">
@@ -127,7 +130,7 @@
                 <button @click="register"  :disabled="!email || !password" :class="(!email || !password) || isLoading ? 'cursor-not-allowed !bg-gray-500 hover:bg-gray-500' : 'bg-main-color hover:bg-secondary-color border-0'" class="w-full px-4 py-2 mt-2 font-bold text-white rounded bg-main-color hover:bg-secondary-color">
                     {{ isLoading ? "Loading..." : "Register" }}
                 </button>
-                <p class="mt-5 w-fit text-sm  text-center m-auto">
+                <p class="m-auto mt-5 text-sm text-center w-fit">
                     Already have an account?  <br class="lg:hidden">
                     <router-link :to="{ name: 'login' } " class=" !text-main-color hover:!text-secondary-color hover:underline !font-bold">
                         Login Here.
@@ -143,10 +146,10 @@
             <div class="px-6 mt-6">
                 <div >
                     <label for="email" class="block mb-1 text-sm font-semibold text-gray-700 dark:text-white">Invitation Code</label>
-                    <input type="invitation_code" required v-model="invitation_code" id="invitation_code" :class="hasError||wrongCred ? 'border-red-500':''"  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main-color focus:border-main-color block w-full p-2.5 dark:border-gray-600 dark:text-white dark:focus:ring-main-color dark:focus:border-main-color" placeholder="Invitation Code">
+                    <input type="invitation_code" required v-model="inviteCode" id="invitation_code" :class="hasError||wrongCred ? 'border-red-500':''"  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main-color focus:border-main-color block w-full p-2.5 dark:border-gray-600 dark:text-white dark:focus:ring-main-color dark:focus:border-main-color" placeholder="Invitation Code">
                 </div>
             </div>
-            <p class="font-semibold text-center text-black mt-6">Access using</p>
+            <p class="mt-6 font-semibold text-center text-black">Access using</p>
             <div class="flex px-6 text-black">
                 <button @click="loginVia(googleProvider)" class="hover:!border-secondary-color flex items-center justify-center w-full py-2 mt-3 bg-transparent border-gray-300 focus:border-gray-300 focus:outline-none">
                     <img src="/google-logo.svg" class="w-5" alt="">
@@ -162,4 +165,4 @@
         </div>
     </div>
 
-</template>
+</template>../models/InviteCode.js

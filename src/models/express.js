@@ -2,6 +2,7 @@ import axios from "../plugins/axios";
 import { auth } from "../plugins/firebase";
 
 class ExpressModel {
+
     generateResource(data) {
         try {
             axios.defaults.headers.common['Authorization'] = auth?.currentUser?.accessToken;
