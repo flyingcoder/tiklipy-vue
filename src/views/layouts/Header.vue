@@ -28,7 +28,7 @@
     };
 </script>
 <template>
-    <header class="bg-white">
+    <header class="bg-white relative  z-40 ">
         <Navigation>
             <template #right>
                 <router-link v-if="!isLoggedIn" :to="{ name: 'login' }" active-class="text-main-color dark:text-white" class="block px-3 py-2 text-lg font-medium text-gray-900 transition divide-gray-100 max-xs:hidden dark:hover:text-main-color md:border-0 md:p-0 duration-240 ">
