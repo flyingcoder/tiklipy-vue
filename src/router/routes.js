@@ -6,6 +6,7 @@ import {
     Login, SendGift, FAQ, Featured, ThankYou, PaymentCancel, PageNotFound,
     Helps, Register, Tools, Resources, Resource
 } from './components';
+import Admin from '../views/admin/index.vue';
 
 const routes = [
     //main pages routes
@@ -49,7 +50,7 @@ const routes = [
             { path: 'resources/:type', name: 'resources', component: Resources, meta: { displayName: 'Resources', siteDescription: 'Discover curated articles and tools to fuel your growth and learning.' } },
             { path: 'resource/:id', name: 'resource', component: Resource, },
             { path: 'generate', name: 'generate', component: GenerateForm },
-            { path: 'tools', name: 'tools', component: Tools },
+            { path: 'admin', name: 'admin', component: Admin, meta: { requiresAdmin: true } },
         ],
     },
     { path: '/login', name: 'login', component: Register },
