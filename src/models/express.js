@@ -11,6 +11,16 @@ class ExpressModel {
             return false;
         }
     }
+
+    getTestimonials() {
+        try {
+            return axios.get('/routes/api/testimonials')
+        } catch (error) {
+            console.log(error);
+            return false;
+        }
+    }
+
 }
 
 export default ExpressModel;

@@ -29,6 +29,7 @@ router.use(middleware);
 router.use('/stars', restrict, starCreditRoutes);
 router.use('/generate', restrict, generateRoutes);
 
+
 //router.post('/lesson', restrict, async (req, res) => {
 //    const msg = await generate.lessonPlan(req, res);
 //    res.json(msg);

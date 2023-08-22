@@ -3,6 +3,7 @@ import path from "path";
 import homeRouter from "./routes/home.js";
 import assetRouter from "./routes/assets.js";
 import apiRouter from "./routes/api.js";
+import testimonialRoutes from './routes/api/testimonials.js';
 
 //initialize
 const app = express();
@@ -11,6 +12,8 @@ const publicPath = path.join(path.resolve(), "public");
 const distPath = path.join(path.resolve(), "dist");
 
 //routers
+
+app.use('/api/testimonials', testimonialRoutes);
 app.use("/api/v1", apiRouter);
 if(process.env.NODE_ENV === "production") {
   app.use("/", express.static(distPath));
