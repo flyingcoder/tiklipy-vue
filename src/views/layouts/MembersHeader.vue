@@ -13,18 +13,6 @@
     const isOptionsExpanded = ref(false);
     const isOptionsExpandedChild = ref(false);
     const dropdownItems = ref([
-<<<<<<< HEAD
-      { label: "All Lessons", route: "lessons" },
-      { label: "Visual Aid", route: "visuals" },
-      {
-        label: "Assessments",
-        nested: [
-          { label: "Nested Lesson 1", route: "projects" },
-          { label: "Nested Lesson 2", route: "resources" },
-          { label: "Nested Lesson 3", route: "generate" },
-        ],
-      },
-=======
     { label: "All Lessons", route: "lessons", icon: "ti ti-address-book" },
     { label: "Visual Aid", route: "visuals", icon: "ti ti-presentation" },
     {
@@ -39,7 +27,6 @@
             { label: "Activities", route: "activities" }
         ],
     },
->>>>>>> c6cd555f81af76f619fad4c383f1624cb2f1ee73
     ]);
     
     const authStore = useAuthStore();

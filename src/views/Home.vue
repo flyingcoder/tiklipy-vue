@@ -4,6 +4,7 @@
 
 const mouseenter = () => {
     hovered.value = ref(true)
+    
 }
 </script>
 
