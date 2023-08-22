@@ -10,6 +10,24 @@
     
     const router = useRouter();
     const isMenuHidden = ref(true);
+    const isOptionsExpanded = ref(false);
+    const isOptionsExpandedChild = ref(false);
+    const dropdownItems = ref([
+    { label: "All Lessons", route: "lessons", icon: "ti ti-address-book" },
+    { label: "Visual Aid", route: "visuals", icon: "ti ti-presentation" },
+    {
+        label: "Assessments",
+        icon: "ti ti-checkbox",
+        nested: [
+            { label: "All Lessons", route: "assessments" },
+            { label: "Quizzes", route: "quizes" },
+            { label: "Homeworks", route: "homeworks" },
+            { label: "Tests", route: "tests" },
+            { label: "Projects", route: "projects" },
+            { label: "Activities", route: "activities" }
+        ],
+    },
+    ]);
     
     const authStore = useAuthStore();
 
@@ -22,8 +40,8 @@
         if(success) router.push({ name: 'home' })
     };
 
-    const toggleNesteds = () => {
-        console.log('sd');
+    const setOption= () => {
+      isOptionsExpanded.value = false;
     }
 
     const toggleMenu = () => {
@@ -84,178 +102,106 @@
                             <i class="pb-1 mr-1 text-lg ti ti-presentation"></i> Resources
                         </router-link>
                     </li>
-                    <!-- <li class="self-center px-3 py-2 dropdown" @mouseenter="toggleNesteds">
-                        <router-link :to="{ name: 'visuals' }" class="block text-base font-medium text-gray-900 divide-gray-100 dark:hover:text-main-color md:border-0 md:p-0">
-                            <i class="pb-1 mr-1 text-lg ti ti-presentation"></i> asdasdasd
-                        </router-link>
-                    </li> -->
-                    <!-- <li class="self-center px-3 py-2 dropdown">
-                        <dropdown placement="bottom">
-                            <template #trigger="{ toggle }">
-                                <a
-                                class="flex items-center text-base text-gray-900 transition duration-300 bg-transparent cursor-pointer hover:border-transparent focus:border-transparent dark:text-gray-100 hover:text-main-color"
-                                @click="toggle"
+                    <!-- <li class="self-center px-3 py-2 dropdown" @mouseenter="isOptionsExpanded = true" @mouseleave="isOptionsExpanded = false">
+                        <a
+                        class="flex items-center text-base text-gray-900 transition duration-300 bg-transparent cursor-pointer hover:border-transparent focus:border-transparent dark:text-gray-100 hover:text-main-color"
+                        >
+                        <i class="mr-2 text-lg ti ti-checkbox"></i>
+                        Lessons
+                        <i class="ml-auto ti ti-chevron-down"></i>
+                        </a>
+                        <transition
+                        enter-active-class="transform transition duration-500 ease-custom"
+                        enter-class="-translate-y-1/2 scale-y-0 opacity-0"
+                        enter-to-class="translate-y-0 scale-y-100 opacity-100"
+                        leave-active-class="transform transition duration-300 ease-custom"
+                        leave-class="translate-y-0 scale-y-100 opacity-100"
+                        leave-to-class="-translate-y-1/2 scale-y-0 opacity-0"
+                        >
+                        <ul
+                            v-show="isOptionsExpanded"
+                            class="absolute top-14 left-0 right-0 mb-4 bg-white divide-y rounded-lg shadow-lg overflow-hidden"
+                        >
+                            <li v-for="(item, index) in dropdownItems" :key="index" class="hover:bg-gray-50">
+                            <router-link :to="{ name: item.route }" class="block px-4 py-2 text-base font-semibold text-gray-900 transition duration-300 dark:text-gray-100 hover:text-main-color">
+                                <i class="mr-2 text-lg ti ti-checkbox"></i> {{ item.label }}
+                            </router-link>
+                            <transition
+                                enter-active-class="transform transition duration-500 ease-custom"
+                                enter-class="-translate-y-1/2 scale-y-0 opacity-0"
+                                enter-to-class="translate-y-0 scale-y-100 opacity-100"
+                                leave-active-class="transform transition duration-300 ease-custom"
+                                leave-class="translate-y-0 scale-y-100 opacity-100"
+                                leave-to-class="-translate-y-1/2 scale-y-0 opacity-0"
+                            >
+                                <ul
+                                v-show="isOptionsExpandedChild"
+                                class="absolute top-0 left-[100%] ml-2 mt-0 bg-white divide-y rounded-lg shadow-lg overflow-hidden"
                                 >
-                                <i class="mr-2 text-lg ti ti-checkbox"></i>
-                                Lessons
-                                <i class="ml-auto ti ti-chevron-down"></i>
-                                </a>
-                            </template>
-                            <div class="w-44">
-                                <ul class="space-y-2 text-black">
-                                    <li class="hover:bg-gray-50">
-                                        <router-link :to="{name: 'assessments'}" class="block px-4 py-2 text-base font-semibold text-gray-900 transition duration-300 dark:text-gray-100 hover:text-main-color">
-                                            <i class="mr-2 text-lg ti ti-checkbox"></i> Entirety
-                                        </router-link>
-                                    </li>
-                                    <li class="hover:bg-gray-50">
-                                        <router-link :to="{name: 'quizes'}" class="block px-4 py-2 text-base font-semibold text-gray-900 transition duration-300 dark:text-gray-100 hover:text-main-color">
-                                            <i class="mr-2 text-lg ti ti-checkbox"></i> Quizzes
-                                        </router-link>
-                                    </li>
-                                    <li class="hover:bg-gray-50">
-                                        <router-link :to="{name: 'homeworks' }" class="block px-4 py-2 text-base font-semibold text-gray-900 transition duration-300 dark:text-gray-100 hover:text-main-color">
-                                            <i class="mr-2 text-lg ti ti-checkbox"></i> Homeworks
-                                        </router-link>
-                                    </li>
-                                    <li class="hover:bg-gray-50">
-                                        <router-link :to="{name: 'tests' }" class="block px-4 py-2 text-base font-semibold text-gray-900 transition duration-300 dark:text-gray-100 hover:text-main-color">
-                                            <i class="mr-2 text-lg ti ti-checkbox"></i> Tests
-                                        </router-link>
-                                    </li>
-                                    <li class="hover:bg-gray-50">
-                                        <router-link :to="{name: 'projects' }" class="block px-4 py-2 text-base font-semibold text-gray-900 transition duration-300 dark:text-gray-100 hover:text-main-color">
-                                            <i class="mr-2 text-lg ti ti-checkbox"></i> Projects
-                                        </router-link>
-                                    </li>
-                                    <li class="hover:bg-gray-50">
-                                        <router-link :to="{name: 'activities' }" class="block px-4 py-2 text-base font-semibold text-gray-900 transition duration-300 dark:text-gray-100 hover:text-main-color">
-                                            <i class="mr-2 text-lg ti ti-checkbox"></i> Activities
-                                        </router-link>
-                                    </li>
+                                <li v-for="(nestedItem, nestedIndex) in item.nested" :key="nestedIndex" class="hover:bg-gray-50">
+                                    <router-link :to="{ name: nestedItem.route }" class="block px-4 py-2 text-base font-semibold text-gray-900 transition duration-300 dark:text-gray-100 hover:text-main-color">
+                                    <i class="mr-2 text-lg ti ti-checkbox"></i> {{ nestedItem.label }}
+                                    </router-link>
+                                </li>
                                 </ul>
-                            </div>
-                        </dropdown>
+                            </transition>
+                            </li>
+                        </ul>
+                        </transition>
                     </li> -->
-                    <li class="self-center px-3 py-2 dropdown">
-                        <dropdown placement="bottom">
-                            <template #trigger="{ toggleMain }">
-                                <a
-                                class="flex items-center text-base text-gray-900 transition duration-300 bg-transparent cursor-pointer hover:border-transparent focus:border-transparent dark:text-gray-100 hover:text-main-color"
-                                @click="toggleMain"
+                    <li class="self-center px-3 py-2 dropdown" @mouseenter="isOptionsExpanded = true" @mouseleave="isOptionsExpanded = false">
+                        <a
+                        class="flex items-center text-base text-gray-900 transition duration-300 bg-transparent cursor-pointer hover:border-transparent focus:border-transparent dark:text-gray-100 hover:text-main-color"
+                        >
+                        <i class="mr-2 text-lg ti ti-checkbox"></i>
+                        Lessons
+                        <i class="ml-auto ti ti-chevron-down"></i>
+                        </a>
+                        <transition
+                        enter-active-class="transform transition duration-500 ease-custom"
+                        enter-class="-translate-y-1/2 scale-y-0 opacity-0"
+                        enter-to-class="translate-y-0 scale-y-100 opacity-100"
+                        leave-active-class="transform transition duration-300 ease-custom"
+                        leave-class="translate-y-0 scale-y-100 opacity-100"
+                        leave-to-class="-translate-y-1/2 scale-y-0 opacity-0"
+                        >
+                        <ul
+                            v-show="isOptionsExpanded"
+                            class="absolute top-10 w-[200px] -right-12 mb-4 bg-white divide-y shadow-lg"
+                        >
+                            <li v-for="(item, index) in dropdownItems" :key="index" class="hover:bg-gray-50" @mouseenter="isOptionsExpandedChild = item.nested ? true : isOptionsExpandedChild" @mouseleave="isOptionsExpandedChild = item.nested ? false : isOptionsExpandedChild">
+                            <router-link
+                                :to="{ name: item.route }"
+                                class="flex px-4 py-2 text-base font-semibold text-gray-900 transition duration-300 dark:text-gray-100 hover:text-main-color"
+                            >
+                                <i class="mr-2 text-lg"  :class="item.icon"></i> {{ item.label }} <i class="ml-auto ti ti-chevron-down" v-if="item.nested"></i>
+                            </router-link>
+                            <transition
+                                enter-active-class="transform transition duration-500 ease-custom"
+                                enter-class="-translate-y-1/2 scale-y-0 opacity-0"
+                                enter-to-class="translate-y-0 scale-y-100 opacity-100"
+                                leave-active-class="transform transition duration-300 ease-custom"
+                                leave-class="translate-y-0 scale-y-100 opacity-100"
+                                leave-to-class="-translate-y-1/2 scale-y-0 opacity-0"
+                            >
+                                <ul
+                                v-show="isOptionsExpandedChild"
+                                class="absolute top-[5.6rem] -right-[12.5rem] ml-2 mt-0 bg-white divide-y w-[200px] shadow-lg overflow-hidden"
                                 >
-                                <i class="mr-2 text-lg ti ti-checkbox"></i>
-                                Lessons
-                                <i class="ml-auto ti ti-chevron-down"></i>
-                                </a>
-                            </template>
-                            <div class="w-44">
-                                <ul class="space-y-2 text-black">
-                                    <li class="hover:bg-gray-50">
-                                        <router-link :to="{name: 'assessments'}" class="block px-4 py-2 text-base font-semibold text-gray-900 transition duration-300 dark:text-gray-100 hover:text-main-color">
-                                            <i class="mr-2 text-lg ti ti-checkbox"></i> All Lessons
-                                        </router-link>
-                                    </li>
-                                    <li class="hover:bg-gray-50">
-                                        <router-link :to="{name: 'quizes'}" class="block px-4 py-2 text-base font-semibold text-gray-900 transition duration-300 dark:text-gray-100 hover:text-main-color">
-                                            <i class="mr-2 text-lg ti ti-checkbox"></i> Quizzes
-                                        </router-link>
-                                    </li>
-                                    <li class="hover:bg-gray-50">
-                                        <router-link :to="{name: 'homeworks' }" class="block px-4 py-2 text-base font-semibold text-gray-900 transition duration-300 dark:text-gray-100 hover:text-main-color">
-                                            <i class="mr-2 text-lg ti ti-checkbox"></i> Homeworks
-                                        </router-link>
-                                    </li>
-                                    <li class="hover:bg-gray-50">
-                                        <router-link :to="{name: 'tests' }" class="block px-4 py-2 text-base font-semibold text-gray-900 transition duration-300 dark:text-gray-100 hover:text-main-color">
-                                            <i class="mr-2 text-lg ti ti-checkbox"></i> Tests
-                                        </router-link>
-                                    </li>
-                                    <li class="hover:bg-gray-50">
-                                        <router-link :to="{name: 'projects' }" class="block px-4 py-2 text-base font-semibold text-gray-900 transition duration-300 dark:text-gray-100 hover:text-main-color">
-                                            <i class="mr-2 text-lg ti ti-checkbox"></i> Projects
-                                        </router-link>
-                                    </li>
-                                    <li class="hover:bg-gray-50">
-                                        <router-link :to="{name: 'activities' }" class="block px-4 py-2 text-base font-semibold text-gray-900 transition duration-300 dark:text-gray-100 hover:text-main-color">
-                                            <i class="mr-2 text-lg ti ti-checkbox"></i> Activities
-                                        </router-link>
-                                    </li>
-                                    <li class="self-center px-4 py-2 dropdown hover:bg-gray-50 cursor-pointer">
-                                        <dropdown placement="right" class="w-full" id="nested-lessons">
-                                            <template #trigger="{ toggleNested }">
-                                                <a
-                                                class="flex w-full items-center text-base font-semibold text-gray-900 transition duration-300 dark:text-gray-100 hover:text-main-color"
-                                                @mouseover="toggleNested"
-                                                >
-                                                <i class="mr-2 text-lg ti ti-checkbox"></i>
-                                                Lessons
-                                                <i class="ml-auto ti ti-chevron-down"></i>
-                                                </a>    
-                                            </template>
-                                            <div class="w-44">
-                                                <ul class="space-y-2 text-black">
-                                                    <li class="hover:bg-gray-50">
-                                                        <router-link :to="{name: 'assessments'}" class="block px-4 py-2 text-base font-semibold text-gray-900 transition duration-300 dark:text-gray-100 hover:text-main-color">
-                                                            <i class="mr-2 text-lg ti ti-checkbox"></i> Entirety
-                                                        </router-link>
-                                                    </li>
-                                                    <li class="hover:bg-gray-50">
-                                                        <router-link :to="{name: 'quizes'}" class="block px-4 py-2 text-base font-semibold text-gray-900 transition duration-300 dark:text-gray-100 hover:text-main-color">
-                                                            <i class="mr-2 text-lg ti ti-checkbox"></i> Quizzes
-                                                        </router-link>
-                                                    </li>
-                                                    <li class="hover:bg-gray-50">
-                                                        <router-link :to="{name: 'homeworks' }" class="block px-4 py-2 text-base font-semibold text-gray-900 transition duration-300 dark:text-gray-100 hover:text-main-color">
-                                                            <i class="mr-2 text-lg ti ti-checkbox"></i> Homeworks
-                                                        </router-link>
-                                                    </li>
-                                                    <li class="hover:bg-gray-50">
-                                                        <router-link :to="{name: 'tests' }" class="block px-4 py-2 text-base font-semibold text-gray-900 transition duration-300 dark:text-gray-100 hover:text-main-color">
-                                                            <i class="mr-2 text-lg ti ti-checkbox"></i> Tests
-                                                        </router-link>
-                                                    </li>
-                                                    <li class="hover:bg-gray-50">
-                                                        <router-link :to="{name: 'projects' }" class="block px-4 py-2 text-base font-semibold text-gray-900 transition duration-300 dark:text-gray-100 hover:text-main-color">
-                                                            <i class="mr-2 text-lg ti ti-checkbox"></i> Projects
-                                                        </router-link>
-                                                    </li>
-                                                    <li class="hover:bg-gray-50">
-                                                        <router-link :to="{name: 'activities' }" class="block px-4 py-2 text-base font-semibold text-gray-900 transition duration-300 dark:text-gray-100 hover:text-main-color">
-                                                            <i class="mr-2 text-lg ti ti-checkbox"></i> Activities
-                                                        </router-link>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </dropdown>
-                                    </li>
-                                    <!-- <li aria-labelledby="dropdownNavbarLink">
-                                        <button id="doubleDropdownButton" data-dropdown-toggle="doubleDropdown" data-dropdown-placement="right-start" type="button" class="flex items-center justify-between w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dropdown<svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
-                                            </svg>
-                                        </button>
-                                        <div id="doubleDropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
-                                            <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="doubleDropdownButton">
-                                            <li>
-                                                <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">Overview</a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">My downloads</a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">Billing</a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">Rewards</a>
-                                            </li>
-                                            </ul>
-                                        </div>
-                                    </li> -->
+                                <li v-for="(nestedItem, nestedIndex) in item.nested" :key="nestedIndex" class="hover:bg-gray-50">
+                                    <router-link
+                                    :to="{ name: nestedItem.route }"
+                                    class="block px-4 py-2 text-base font-semibold text-gray-900 transition duration-300 dark:text-gray-100 hover:text-main-color"
+                                    >
+                                    <i class="mr-2 text-lg ti ti-book"></i> {{ nestedItem.label }}
+                                    </router-link>
+                                </li>
                                 </ul>
-                            </div>
-                        </dropdown>
+                            </transition>
+                            </li>
+                        </ul>
+                        </transition>
                     </li>
-
                     <li class="hidden max-xs:block">
                         <router-link :to="{ name: 'consult' }" active-class="text-main-color dark:text-white" class="block px-3 py-2 text-lg font-medium text-gray-900 divide-gray-100 dark:hover:text-main-color md:border-0 md:p-0">
                             <i class="pb-1 mr-1 text-lg ti ti-atom"></i> Consult

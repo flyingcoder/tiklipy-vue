@@ -105,6 +105,10 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+.ease-custom {
+  transition-timing-function: cubic-bezier(.61,-0.53,.43,1.43);
+}
+
 .card {
   padding: 2em;
 }
