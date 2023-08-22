@@ -108,7 +108,7 @@
                 </p>
             </div>
 
-            <div class="items-center justify-center w-full px-6 text-black">
+            <!-- <div class="items-center justify-center w-full px-6 text-black">
                 <p :class="hasError ? 'hidden':'visible'" class="mt-4 text-sm font-semibold text-center">Register with Email & Password</p>
                 <p :class="hasError ? 'visible':'hidden'" class="mt-4 text-sm font-semibold text-center text-red-500">Invalid Email or Password</p>
                 <div class="my-2">
@@ -132,28 +132,32 @@
                         Login Here.
                     </router-link>
                 </p>
-            </div>
-            <div class="inline-flex items-center justify-center w-full px-6">
+            </div> -->
+            <!-- <div class="inline-flex items-center justify-center w-full px-6">
                 <hr class="w-64 h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
                 <span class="absolute px-3 font-medium text-gray-900 -translate-x-1/2 bg-white left-1/2 dark:text-white dark:bg-gray-900">
                 or
                 </span>
+            </div> -->
+            <div class="px-6 mt-6">
+                <div >
+                    <label for="email" class="block mb-1 text-sm font-semibold text-gray-700 dark:text-white">Invitation Code</label>
+                    <input type="invitation_code" required v-model="invitation_code" id="invitation_code" :class="hasError||wrongCred ? 'border-red-500':''"  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main-color focus:border-main-color block w-full p-2.5 dark:border-gray-600 dark:text-white dark:focus:ring-main-color dark:focus:border-main-color" placeholder="Invitation Code">
+                </div>
             </div>
-            <p class="font-semibold text-center text-black">Signup with</p>
+            <p class="font-semibold text-center text-black mt-6">Access using</p>
             <div class="flex px-6 text-black">
-                <button v-if="false" class="hover:!border-secondary-color flex items-center justify-center w-full py-2 mt-3 bg-transparent border-gray-300 focus:border-gray-300 focus:outline-none">
-                    <img src="/facebook-logo.svg" class="w-5" alt="">
-                    <b class="ml-2">Facebook</b>
-                </button>
-            </div>
-            <div class="flex px-6 pb-6 text-black">
                 <button @click="loginVia(googleProvider)" class="hover:!border-secondary-color flex items-center justify-center w-full py-2 mt-3 bg-transparent border-gray-300 focus:border-gray-300 focus:outline-none">
                     <img src="/google-logo.svg" class="w-5" alt="">
                     <b class="ml-2">Google</b>
                 </button>
             </div>
-
-           
+            <div class="flex px-6 pb-6 text-black">
+                <button class="hover:!border-secondary-color flex items-center justify-center w-full py-2 mt-3 bg-transparent border-gray-300 focus:border-gray-300 focus:outline-none">
+                    <img src="/facebook-logo.svg" class="w-5" alt="">
+                    <b class="ml-2">Facebook</b>
+                </button>
+            </div>
         </div>
     </div>
 

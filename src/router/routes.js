@@ -52,7 +52,7 @@ const routes = [
             { path: 'tools', name: 'tools', component: Tools },
         ],
     },
-    { path: '/login', name: 'login', component: Login },
+    { path: '/login', name: 'login', component: Register },
     { path: '/register', name: 'register', component: Register },
     { path: '/thank-you', name: 'thanks', component: ThankYou },
     { path: '/payment-cancel', name: 'cancel', component: PaymentCancel },
