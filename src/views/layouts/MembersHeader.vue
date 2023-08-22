@@ -102,53 +102,6 @@
                             <i class="pb-1 mr-1 text-lg ti ti-presentation"></i> Resources
                         </router-link>
                     </li>
-                    <!-- <li class="self-center px-3 py-2 dropdown" @mouseenter="isOptionsExpanded = true" @mouseleave="isOptionsExpanded = false">
-                        <a
-                        class="flex items-center text-base text-gray-900 transition duration-300 bg-transparent cursor-pointer hover:border-transparent focus:border-transparent dark:text-gray-100 hover:text-main-color"
-                        >
-                        <i class="mr-2 text-lg ti ti-checkbox"></i>
-                        Lessons
-                        <i class="ml-auto ti ti-chevron-down"></i>
-                        </a>
-                        <transition
-                        enter-active-class="transform transition duration-500 ease-custom"
-                        enter-class="-translate-y-1/2 scale-y-0 opacity-0"
-                        enter-to-class="translate-y-0 scale-y-100 opacity-100"
-                        leave-active-class="transform transition duration-300 ease-custom"
-                        leave-class="translate-y-0 scale-y-100 opacity-100"
-                        leave-to-class="-translate-y-1/2 scale-y-0 opacity-0"
-                        >
-                        <ul
-                            v-show="isOptionsExpanded"
-                            class="absolute top-14 left-0 right-0 mb-4 bg-white divide-y rounded-lg shadow-lg overflow-hidden"
-                        >
-                            <li v-for="(item, index) in dropdownItems" :key="index" class="hover:bg-gray-50">
-                            <router-link :to="{ name: item.route }" class="block px-4 py-2 text-base font-semibold text-gray-900 transition duration-300 dark:text-gray-100 hover:text-main-color">
-                                <i class="mr-2 text-lg ti ti-checkbox"></i> {{ item.label }}
-                            </router-link>
-                            <transition
-                                enter-active-class="transform transition duration-500 ease-custom"
-                                enter-class="-translate-y-1/2 scale-y-0 opacity-0"
-                                enter-to-class="translate-y-0 scale-y-100 opacity-100"
-                                leave-active-class="transform transition duration-300 ease-custom"
-                                leave-class="translate-y-0 scale-y-100 opacity-100"
-                                leave-to-class="-translate-y-1/2 scale-y-0 opacity-0"
-                            >
-                                <ul
-                                v-show="isOptionsExpandedChild"
-                                class="absolute top-0 left-[100%] ml-2 mt-0 bg-white divide-y rounded-lg shadow-lg overflow-hidden"
-                                >
-                                <li v-for="(nestedItem, nestedIndex) in item.nested" :key="nestedIndex" class="hover:bg-gray-50">
-                                    <router-link :to="{ name: nestedItem.route }" class="block px-4 py-2 text-base font-semibold text-gray-900 transition duration-300 dark:text-gray-100 hover:text-main-color">
-                                    <i class="mr-2 text-lg ti ti-checkbox"></i> {{ nestedItem.label }}
-                                    </router-link>
-                                </li>
-                                </ul>
-                            </transition>
-                            </li>
-                        </ul>
-                        </transition>
-                    </li> -->
                     <li class="self-center px-3 py-2 dropdown" @mouseenter="isOptionsExpanded = true" @mouseleave="isOptionsExpanded = false">
                         <a
                         class="flex items-center text-base text-gray-900 transition duration-300 bg-transparent cursor-pointer hover:border-transparent focus:border-transparent dark:text-gray-100 hover:text-main-color"
