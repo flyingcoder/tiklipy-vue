@@ -1,5 +1,6 @@
 <script setup>
-    import { onMounted, ref } from 'vue';
+    import { onMounted, ref, computed } from 'vue';
+    import { TheCard } from 'flowbite-vue';
     import { useAuthStore } from '../../stores/auth';
     import { useFormStore } from '../../stores/form';
     import cardData from '../../temp/cards';
@@ -15,6 +16,16 @@
     const searchQuery = ref('');
     const router = useRouter();
     const formStore = useFormStore();
+    const tags = ref([
+        { name: 'featured', desc: ''},
+        { name: 'lessons', desc: 'Effortlessly generate a lesson plan tailored to your teaching style.'},
+        { name: 'tools', desc: 'Empowering Efficiency: Unleashing the Potential of Essential Tools.'},
+        { name: 'explore', desc: 'Unveiling the Unknown: Embarking on Journeys of Exploration'},
+        { name: 'manage', desc: 'Navigating Success: Mastering the Art of Effective Management'},
+        { name: 'organize', desc: 'Harmonize and Systematize: The Essence of Effective Organization'},
+        { name: 'modify', desc: 'Crafting Change: The Art of Skillful Modification'},
+        { name: 'write', desc: 'Effortlessly Generate Diverse Content with Personalized Style and Substance.'},
+    ]);
 
     onMounted(async () => {
         

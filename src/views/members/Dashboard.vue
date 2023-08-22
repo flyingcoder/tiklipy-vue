@@ -73,7 +73,7 @@
                 <h2 class="mt-2 text-3xl text-gray-800">
                     {{ tag.desc }}</h2>
             </div>
-            <div class="flex flex-wrap max-lg:justify-center">
+            <div class="flex flex-wrap max-lg:justify-end justify-end">
                 <div v-for="(card, index) in cards" :key="index +'-card-generate'" class="flex justify-center max-sm:w-full"  @click="cardIsClick(card)">
                     <the-card @click="cardIsClick(card)" v-if="card.tag.includes(tag.name)" href="#" class="animate__animated animate__fadeInUp w-[30rem] bg-white sm:mr-5 mb-5 flex border-none rounded-lg shadow-none hover:bg-white hover:shadow-md bg-[url('/p-1.png')] bg-no-repeat bg-contain" style="max-width: 100% !important">
                         <div class="p-4 max-xs:!p-0 dark:bg-gray-800 dark:border-gray-700">
