@@ -2,7 +2,7 @@
     import { onMounted, ref, computed } from 'vue';
     import { useAuthStore } from '../../stores/auth';
     import { TheCard } from 'flowbite-vue';
-    import cardData from '../../temp/cards';
+    // import cardData from '../../temp/cards';
     import { useFormStore } from '../../stores/form';
     import HeaderFilter from '../../components/HeaderFilter.vue';
     import { useRouter } from 'vue-router';
@@ -11,7 +11,7 @@
     const authStore = useAuthStore();
     const teacher = authStore.user;
     const lessons = ref([]);
-    const rawCards = cardData;
+    const rawCards = ref([]);
     const searchQuery = ref('');
     const router = useRouter();
     const formStore = useFormStore();

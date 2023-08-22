@@ -2,7 +2,7 @@
     import { ref, onMounted } from 'vue';
     import { TheCard } from 'flowbite-vue';
     import { useFormStore } from '../../stores/form';
-    import cardData from '../../temp/cards';
+    // import cardData from '../../temp/cards';
     import { useRouter } from 'vue-router';
 
     const formStore = useFormStore();
@@ -17,7 +17,7 @@
         animate.value = true;
     };
 
-    const cards = cardData;
+    const cards = ref([]);
     
     const cardIsClick = (card) => {
         formStore.setFormDetails(card);

@@ -13,6 +13,7 @@
     const isLoading = ref(false);
     const hasError = ref(false);
     const wrongCred = ref(false);
+    const invitation_code = ref('');
     const loaderStore = useLoaderStore();
 
     const authStore = useAuthStore();

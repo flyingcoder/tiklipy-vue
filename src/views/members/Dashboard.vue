@@ -1,15 +1,18 @@
 <script setup>
     import { ref, onMounted, computed } from 'vue';
+    import expressModel from "../../models/express";
     import { TheCard } from 'flowbite-vue';
     import { useFormStore } from '../../stores/form';
-    import cardData from '../../temp/cards';
+    // import cardData from '../../temp/cards';
     import HeaderFilter from '../../components/HeaderFilter.vue';
     import { useRouter } from 'vue-router';
 
     const formStore = useFormStore();
     const router = useRouter();
     const animate = ref(true);
-    const rawCards = cardData;
+    const backEndModel = new expressModel();
+    const cards = ref([]);
+    const rawCards = ref([]);
     const searchQuery = ref('');
     const tags = ref([
         { name: 'featured', desc: ''},
@@ -23,6 +26,7 @@
     ]);
 
     onMounted(() => { 
+        getToolsData();
     });
     
     const cardIsClick = (card) => {
@@ -30,9 +34,15 @@
         router.push({ name: 'generate' });
     }
 
-    const cards = computed(() => {
-        return rawCards.filter(item => item.title.toLowerCase().includes(searchQuery.value.toLowerCase()))
-    })
+    const getToolsData = async () => {
+        cards.value = await backEndModel.getTools()
+                .then((res) => res.data);
+
+    }
+
+    // const cards = computed(() => {
+    //     return rawCards.filter(item => item.title.toLowerCase().includes(searchQuery.value.toLowerCase()))
+    // })
 
     const searchFilter = (query) => {
         searchQuery.value = query

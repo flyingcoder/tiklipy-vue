@@ -1,5 +1,5 @@
-import enzo from './enzo';
-import alanjr from './alanjr';
+import enzo from './enzo.js';
+import alanjr from './alanjr.js';
 
 const cards = [
     {
