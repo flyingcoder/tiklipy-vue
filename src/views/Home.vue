@@ -1,21 +1,213 @@
 <script setup>
+    import { ref } from "vue";
+    const hovered = ref(false);
 
+const mouseenter = () => {
+    hovered.value = ref(true)
+}
 </script>
 
 <template>
-    <div class="mb-5">
-        <div class="flex sm:w-[35rem] h-[35rem] m-auto text-center align-items items-center justify-center">
-            <div class="">
-                <h1 class="text-gray-800 font-bold text-2xl sm:text-6xl mb-8 ">The ultimate companion for every teacher.</h1>
-                <p class="text-black mb-10">Empowering educators, Fetchy integrates AI. While meetings and lesson planning continue, your methods evolve radically.</p>
-                <router-link :to="{name:'pricing'}">
+    <div class="mb-5 overflow-x-hidden">
+        <div class="flex h-[100vh] w-[calc(100vw-17px)] items-center justify-center absolute left-0 right-0 top-0 bg-center" style="background-image: url(background.gif)">
+            <div class="sm:w-[35rem] text-center">
+                <h1 class="font-bold text-2xl sm:text-6xl mb-8 text-white drop-shadow-[10px_10px_2px#000] ">The ultimate companion for every teacher.</h1>
+                <p class=" text-white mb-10 drop-shadow-[0px_2px_10px_#24242a] text-lg bg-[#24242a]">Empowering educators, Fetchy integrates AI. While meetings and lesson planning continue, your methods evolve radically.</p>
+                <router-link :to="{ name: 'pricing' }">
                     <button type="button" class="transition duration-240 rounded-md bg-main-color hover:shadow-md hover:shadow-[#969cf9] hover:bg-secondary-color border-0 w-fit bg-main-color text-white focus:ring-4 focus:outline-none focus:ring-secondary-color dark:focus:ring-main-color font-medium rounded-lg text-lg px-5 py-2.5 inline-flex justify-center text-center">
-                        Buy now Get one month FREE!
+                        Register for FREE!
                     </button>
                 </router-link>
             </div>
         </div>
-        <div class="w-full rounded-xl p-6">
+        <div class="mt-[100vh] w-[100vw]  absolute left-0 top-0 bg-center bg-black py-10">
+            <div class=" flex overflow-hidden py-10 ">
+                <div class=" animate-marquee whitespace-nowrap ">
+                    <span class="text-4xl mx-10 mx-4">Featured By</span>
+                    <span class="text-4xl mx-10  "><i class="ti ti-brand-meta"></i></span>
+                    <span class="text-4xl mx-10 mx-4">Featured By</span>
+                    <span class="text-4xl mx-10  "><i class="ti ti-brand-meta"></i></span>
+                    <span class="text-4xl mx-10 mx-4">Featured By</span>
+                    <span class="text-4xl mx-10  "><i class="ti ti-brand-meta"></i></span>
+                    <span class="text-4xl mx-10 mx-4">Featured By</span>
+                    <span class="text-4xl mx-10  "><i class="ti ti-brand-meta"></i></span>
+                    <span class="text-4xl mx-10 mx-4">Featured By</span>
+                    <span class="text-4xl mx-10  "><i class="ti ti-brand-meta"></i></span>
+
+                </div>
+                <div class="absolute animate-marquee2 whitespace-nowrap">
+                    <span class="text-4xl mx-10 mx-4">Featured By</span>
+                    <span class="text-4xl mx-10  "><i class="ti ti-brand-meta"></i></span>
+                    <span class="text-4xl mx-10 mx-4">Featured By</span>
+                    <span class="text-4xl mx-10  "><i class="ti ti-brand-meta"></i></span>
+                    <span class="text-4xl mx-10 mx-4">Featured By</span>
+                    <span class="text-4xl mx-10  "><i class="ti ti-brand-meta"></i></span>
+                    <span class="text-4xl mx-10 mx-4">Featured By</span>
+                    <span class="text-4xl mx-10  "><i class="ti ti-brand-meta"></i></span>
+                    <span class="text-4xl mx-10 mx-4">Featured By</span>
+                    <span class="text-4xl mx-10  "><i class="ti ti-brand-meta"></i></span>
+                </div>
+            </div>
+            <div class=" flex overflow-hidden py-10 justify-center " @mouseenter="mouseenter" @mouseleave="mouseleave">
+                <div :class="hovered?'':'animate-r_marquee2'" class=" flex flex-wrap  justify-between ">
+                    <div class=" max-w-[26rem] text-4xl  bg-white mx-5 p-5 rounded-2xl flex flex-wrap content-between">
+                        <div class="">
+                            <div class="stars flex flex-wrap mb-5">
+                                <img src="star-svgrepo-com.png" alt="" class="w-6 mr-1">
+                                <img src="star-svgrepo-com.png" alt="" class="w-6 mr-1">
+                                <img src="star-svgrepo-com.png" alt="" class="w-6 mr-1">
+                                <img src="star-svgrepo-com.png" alt="" class="w-6 mr-1">
+                                <img src="star-svgrepo-com.png" alt="" class="w-6 mr-1">
+                            </div>
+                            <p class="text-lg text-black "> I recently stumbled upon @tiklipy, and wow! My mind is already amazed.</p>
+                        </div>
+                        <div class="mt-5 flex flex-wrap items-center gap-5">
+                            <img src="hero.webp" alt="hero" class="w-16">
+                            <div class="">
+                                <h5 class="text-black text-lg font-bold leading-3 mb-1 ">Brent</h5>
+                                <p class="text-sm text-black leading-3	font-light">High School teacher</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" max-w-[26rem] text-4xl  bg-white mx-5 p-5 rounded-2xl flex flex-wrap content-between">
+                        <div class="">
+                            <div class="stars flex flex-wrap mb-5">
+                                <img src="star-svgrepo-com.png" alt="" class="w-6 mr-1">
+                                <img src="star-svgrepo-com.png" alt="" class="w-6 mr-1">
+                                <img src="star-svgrepo-com.png" alt="" class="w-6 mr-1">
+                                <img src="star-svgrepo-com.png" alt="" class="w-6 mr-1">
+                                <img src="star-svgrepo-com.png" alt="" class="w-6 mr-1">
+                            </div>
+                            <p class="text-lg text-black "> @tiklipy assists me with all my planning requirements. It offers a plethora of resources conveniently located in a single place.</p>
+                        </div>
+                        <div class="mt-5 flex flex-wrap items-center gap-5">
+                            <img src="hero.webp" alt="hero" class="w-16">
+                            <div class="">
+                                <h5 class="text-black text-lg font-bold leading-3 mb-1 ">alex</h5>
+                                <p class="text-sm text-black leading-3	font-light">High School teacher</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" max-w-[26rem] text-4xl  bg-white mx-5 p-5 rounded-2xl flex flex-wrap content-between">
+                        <div class="">
+                            <div class="stars flex flex-wrap mb-5">
+                                <img src="star-svgrepo-com.png" alt="" class="w-6 mr-1">
+                                <img src="star-svgrepo-com.png" alt="" class="w-6 mr-1">
+                                <img src="star-svgrepo-com.png" alt="" class="w-6 mr-1">
+                                <img src="star-svgrepo-com.png" alt="" class="w-6 mr-1">
+                                <img src="star-svgrepo-com.png" alt="" class="w-6 mr-1">
+                            </div>
+                            <p class="text-lg text-black "> Why do not all educators make use of @tiklipy? I'm completely engrossed.</p>
+                        </div>
+                        <div class="mt-5 flex flex-wrap items-center gap-5">
+                            <img src="hero.webp" alt="hero" class="w-16">
+                            <div class="">
+                                <h5 class="text-black text-lg font-bold leading-3 mb-1 ">brenda</h5>
+                                <p class="text-sm text-black leading-3	font-light">High School teacher</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" max-w-[26rem] text-4xl  bg-white mx-5 p-5 rounded-2xl flex flex-wrap content-between">
+                        <div class="">
+                            <div class="stars flex flex-wrap mb-5">
+                                <img src="star-svgrepo-com.png" alt="" class="w-6 mr-1">
+                                <img src="star-svgrepo-com.png" alt="" class="w-6 mr-1">
+                                <img src="star-svgrepo-com.png" alt="" class="w-6 mr-1">
+                                <img src="star-svgrepo-com.png" alt="" class="w-6 mr-1">
+                                <img src="star-svgrepo-com.png" alt="" class="w-6 mr-1">
+                            </div>
+                            <p class="text-lg text-black "> This is incredibly impressive! Such a fantastic resource to have right at your fingertips.</p>
+                        </div>
+                        <div class="mt-5 flex flex-wrap items-center gap-5">
+                            <img src="hero.webp" alt="hero" class="w-16">
+                            <div class="">
+                                <h5 class="text-black text-lg font-bold leading-3 mb-1 ">Brent</h5>
+                                <p class="text-sm text-black leading-3	font-light">High School teacher</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div :class="hovered?'':'animate-r_marquee'" class="flex flex-wrap wrap absolute ">
+                    <div class=" max-w-[26rem] text-4xl  bg-white mx-5 p-5 rounded-2xl flex flex-wrap content-between">
+                        <div class="">
+                            <div class="stars flex flex-wrap mb-5">
+                                <img src="star-svgrepo-com.png" alt="" class="w-6 mr-1">
+                                <img src="star-svgrepo-com.png" alt="" class="w-6 mr-1">
+                                <img src="star-svgrepo-com.png" alt="" class="w-6 mr-1">
+                                <img src="star-svgrepo-com.png" alt="" class="w-6 mr-1">
+                                <img src="star-svgrepo-com.png" alt="" class="w-6 mr-1">
+                            </div>
+                            <p class="text-lg text-black "> I recently stumbled upon @tiklipy, and wow! My mind is already amazed.</p>
+                        </div>
+                        <div class="mt-5 flex flex-wrap items-center gap-5">
+                            <img src="hero.webp" alt="hero" class="w-16">
+                            <div class="">
+                                <h5 class="text-black text-lg font-bold leading-3 mb-1 ">Brent</h5>
+                                <p class="text-sm text-black leading-3	font-light">High School teacher</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" max-w-[26rem] text-4xl  bg-white mx-5 p-5 rounded-2xl flex flex-wrap content-between">
+                        <div class="">
+                            <div class="stars flex flex-wrap mb-5">
+                                <img src="star-svgrepo-com.png" alt="" class="w-6 mr-1">
+                                <img src="star-svgrepo-com.png" alt="" class="w-6 mr-1">
+                                <img src="star-svgrepo-com.png" alt="" class="w-6 mr-1">
+                                <img src="star-svgrepo-com.png" alt="" class="w-6 mr-1">
+                                <img src="star-svgrepo-com.png" alt="" class="w-6 mr-1">
+                            </div>
+                            <p class="text-lg text-black "> @tiklipy assists me with all my planning requirements. It offers a plethora of resources conveniently located in a single place.</p>
+                        </div>
+                        <div class="mt-5 flex flex-wrap items-center gap-5">
+                            <img src="hero.webp" alt="hero" class="w-16">
+                            <div class="">
+                                <h5 class="text-black text-lg font-bold leading-3 mb-1 ">alex</h5>
+                                <p class="text-sm text-black leading-3	font-light">High School teacher</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" max-w-[26rem] text-4xl  bg-white mx-5 p-5 rounded-2xl flex flex-wrap content-between">
+                        <div class="">
+                            <div class="stars flex flex-wrap mb-5">
+                                <img src="star-svgrepo-com.png" alt="" class="w-6 mr-1">
+                                <img src="star-svgrepo-com.png" alt="" class="w-6 mr-1">
+                                <img src="star-svgrepo-com.png" alt="" class="w-6 mr-1">
+                                <img src="star-svgrepo-com.png" alt="" class="w-6 mr-1">
+                                <img src="star-svgrepo-com.png" alt="" class="w-6 mr-1">
+                            </div>
+                            <p class="text-lg text-black "> Why do not all educators make use of @tiklipy? I'm completely engrossed.</p>
+                        </div>
+                        <div class="mt-5 flex flex-wrap items-center gap-5">
+                            <img src="hero.webp" alt="hero" class="w-16">
+                            <div class="">
+                                <h5 class="text-black text-lg font-bold leading-3 mb-1 ">brenda</h5>
+                                <p class="text-sm text-black leading-3	font-light">High School teacher</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" max-w-[26rem] text-4xl  bg-white mx-5 p-5 rounded-2xl flex flex-wrap content-between">
+                        <div class="">
+                            <div class="stars flex flex-wrap mb-5">
+                                <img src="star-svgrepo-com.png" alt="" class="w-6 mr-1">
+                                <img src="star-svgrepo-com.png" alt="" class="w-6 mr-1">
+                                <img src="star-svgrepo-com.png" alt="" class="w-6 mr-1">
+                                <img src="star-svgrepo-com.png" alt="" class="w-6 mr-1">
+                                <img src="star-svgrepo-com.png" alt="" class="w-6 mr-1">
+                            </div>
+                            <p class="text-lg text-black "> This is incredibly impressive! Such a fantastic resource to have right at your fingertips.</p>
+                        </div>
+                        <div class="mt-5 flex flex-wrap items-center gap-5">
+                            <img src="hero.webp" alt="hero" class="w-16">
+                            <div class="">
+                                <h5 class="text-black text-lg font-bold leading-3 mb-1 ">Brent</h5>
+                                <p class="text-sm text-black leading-3	font-light">High School teacher</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="w-full rounded-xl p-6  mt-[calc(150vh-200px)]">
             <!-- title -->
             <div class="">
                 <div class="my-10 sm:w-[40rem] m-auto ">
