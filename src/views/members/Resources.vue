@@ -1,22 +1,35 @@
 <script setup>
-    import { onMounted, ref } from 'vue';
+    import { onMounted, ref, computed } from 'vue';
     import GeneratedResourceModel from "../../models/generatedResources";
     import { useAuthStore } from '../../stores/auth';
     import { useFormStore } from '../../stores/form';
     import HeaderFilter from '../../components/HeaderFilter.vue';
-    import { useRouter } from 'vue-router';
+    import { useRouter, useRoute } from 'vue-router';
 
     const router = useRouter();
+    const route = useRoute();
     const formStore = useFormStore();
     const authStore = useAuthStore();
     const resources = ref([]);
+    let resourcesRaw = [];
     const resourceModel = new GeneratedResourceModel();
 
 
 
     onMounted(async () => {
-        resources.value = await resourceModel.getGeneratedResources();
+        resourcesRaw = await resourceModel.getGeneratedResources();
+        resourcesFunc()
     });
+    
+    const resourcesFunc = () => {
+        if(route.meta.type === "lesson plan") {
+            resources.value = resourcesRaw.filter(item => item.data.type.toLowerCase().includes(route.meta.type.toLowerCase()));
+        } else {
+            resources.value = resourcesRaw
+        }
+    }
+
+
 
 
 </script>
