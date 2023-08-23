@@ -3,6 +3,7 @@
     import Navigation from "../../components/Navigation.vue";
     import { useAuthStore } from "../../stores/auth";
     import { useUserStore } from "../../stores/user";
+    import LiveChat from '../../components/LiveChat.vue';
     
     const isLoggedIn = ref(false);
     const isMenuHidden = ref(true);
@@ -35,6 +36,7 @@
     }
 </script>
 <template>
+    <LiveChat />
     <header class="bg-white relative  z-40 ">
         <Navigation>
             <template #right>
