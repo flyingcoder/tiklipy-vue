@@ -25,14 +25,13 @@
     });
 
     const loginVia = async (provider) => {
-        // loaderStore.toggle();
-        // const pass = await invite.checkInviteCode(inviteCode.value);
+        loaderStore.toggle();
+        //const pass = await invite.checkInviteCode(inviteCode.value);
         //console.log(pass);
         let success = false;
-        // if(pass) success = await authStore.loginVia(provider);
-        success = await authStore.loginVia(provider);
+        if(pass) success = await authStore.loginVia(provider);
         if (!success) googleLoginFailed(); else router.push({ name: 'dashboard' });
-        // loaderStore.toggle();
+        loaderStore.toggle();
     }
 
     const register = async () => {
