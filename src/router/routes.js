@@ -7,7 +7,9 @@ import {
     Helps, Register, Tools, Resources, Resource
 } from './components';
 import Admin from '../views/admin/index.vue';
-
+import InvitationCodes from '../views/admin/InvitationCodes.vue'
+import Reviews from '../views/admin/Reviews.vue'
+import Newsletters from '../views/admin/Newsletters.vue'
 const routes = [
     //main pages routes
     { 
@@ -50,7 +52,11 @@ const routes = [
             { path: 'resources/:type', name: 'resources', component: Resources, meta: { displayName: 'Resources', siteDescription: 'Discover curated articles and tools to fuel your growth and learning.' } },
             { path: 'resource/:id', name: 'resource', component: Resource, },
             { path: 'generate', name: 'generate', component: GenerateForm },
-            { path: 'admin', name: 'admin', component: Admin, meta: { requiresAdmin: true } },
+            { path: 'admin', name: 'admin', component: Admin, meta: { requiresAdmin: true }, children: [
+                { path:'', name: 'invite-code', component: InvitationCodes },
+                { path:'reviews', name: 'reviews', component: Reviews },
+                { path:'newsletters', name: 'newsletters', component: Newsletters },
+            ]},
         ],
     },
     { path: '/login', name: 'login', component: Register },
