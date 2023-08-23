@@ -25,14 +25,14 @@
     });
 
     const loginVia = async (provider) => {
-        // loaderStore.toggle();
-        //const pass = await invite.checkInviteCode(inviteCode.value);
-        //console.log(pass);
-        let success = false;
-        // if(pass) success = await authStore.loginVia(provider);
-        success = await authStore.loginVia(provider);
-        if (!success) googleLoginFailed(); else router.push({ name: 'dashboard' });
-        // loaderStore.toggle();
+        loaderStore.toggle();
+        const pass = await invite.checkInviteCode(inviteCode.value);
+        console.log(pass);
+        let success = false; let done = false;
+        if(pass) success = await authStore.loginVia(provider);
+        if(success) done = await invite.useCode(inviteCode.value);
+        if (!done) googleLoginFailed(); else router.push({ name: 'dashboard' });
+        loaderStore.toggle();
     }
 
     const register = async () => {
@@ -156,10 +156,10 @@
                 </button>
             </div>
             <div class="flex px-6 pb-6 text-black">
-                <button class="hover:!border-secondary-color flex items-center justify-center w-full py-2 mt-3 bg-transparent border-gray-300 focus:border-gray-300 focus:outline-none">
+                <!--button class="hover:!border-secondary-color flex items-center justify-center w-full py-2 mt-3 bg-transparent border-gray-300 focus:border-gray-300 focus:outline-none">
                     <img src="/facebook-logo.svg" class="w-5" alt="">
                     <b class="ml-2">Facebook</b>
-                </button>
+                </button -->
             </div>
         </div>
     </div>

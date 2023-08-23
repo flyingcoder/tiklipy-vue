@@ -1,5 +1,6 @@
 import axios from "../plugins/axios";
 import { auth } from "../plugins/firebase";
+import { useAuthStore } from "../stores/auth";
 
 class InviteCodeModel {
     async checkInviteCode(code) {
@@ -11,6 +12,18 @@ class InviteCodeModel {
             console.log(error);
             return false;
         }
+    }
+
+    async useCode(code) {
+        const authStore = useAuthStore();
+        try {
+            return await axios.put('/api/v1/auth/codes', { code: code, email: authStore.user.email })
+                              .then((res) => res.data.done );
+        } catch (error) {
+            console.log(error);
+            return false;
+        }
+
     }
 
     async addCodes(codes) {
