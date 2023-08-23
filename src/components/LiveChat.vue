@@ -4,11 +4,11 @@
     const liveChat = ref(false);
 </script>
 <template>
-    <div class="fixed bottom-20 right-4 z-50 w-[30rem]" v-show="liveChat">
+    <div class="fixed bottom-20 right-4 z-50 w-[30rem] animate__animated" :class="liveChat ? 'animate__slideInRight' : 'animate__slideOutRight'">
         <div class="border bg-white rounded-xl">
             <div>
                 <div class="w-full">
-                    <div class="relative flex items-center p-3 border-b border-secondary-color">
+                    <div class="relative flex items-center p-3 border-b border-gray-300">
                         <img class="object-cover w-10 h-10 rounded-full"
                             src="/android-chrome-512x512.png" alt="username" />
                         <span class="block ml-2 font-bold text-main-color">Assessing with Tiklipy</span>
@@ -70,7 +70,7 @@
 
                     </div>
 
-                    <div class="flex items-center justify-between w-full p-3 border-t border-secondary-color">
+                    <div class="flex items-center justify-between w-full p-3 border-t border-gray-300">
 
                         <input type="text" placeholder="Message"
                             class="block w-full py-2 pl-4 mx-3 border-main-color text-black rounded-full outline-none focus:outline-main-color focus:border-main-color border focus:text-gray-700"
