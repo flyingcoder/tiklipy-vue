@@ -15,6 +15,8 @@ import GenerateForm from '../views/members/GenerateForm.vue';
 import Projects from '../views/members/Projects.vue';
 import Activities from '../views/members/Activities.vue';
 import Tools from '../views/members/Tools.vue';
+import MyReviews from '../views/members/Review.vue';
+import SuggestTools from '../views/members/SuggestTool.vue';
 //guest components
 import Home from '../views/Home.vue';
 import Help from '../views/Help.vue';
@@ -47,5 +49,5 @@ export {
     Blogs, Blog, About, Pricing, Features, Terms, Privacy, License, 
     MembersLayout, GuestsLayout, Projects, Activities, GenerateForm, 
     Login, SendGift, FAQ, Featured, ThankYou, PaymentCancel, PageNotFound,
-    Helps, Register,Tools, Resources, Resource
+    Helps, Register,Tools, Resources, Resource, MyReviews, SuggestTools
 };
