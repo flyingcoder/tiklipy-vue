@@ -27,12 +27,12 @@
                     route: "homeworks",
                     icon: 'ti ti-settings-star',
                     nested: [
-                        { label: "All Assessments", route: "quizes"},
-                        { label: "Quizzes", route: "quizes" },
-                        { label: "Homeworks", route: "homeworks" },
-                        { label: "Tests", route: "tests" },
-                        { label: "Projects", route: "projects" },
-                        { label: "Activities", route: "activities" }
+                        { label: "All Assessments", route: "resources", params: "assessments"},
+                        { label: "Quizzes", route: "resources", params: "quizzes" },
+                        { label: "Homeworks", route: "resources", params: "homeworks" },
+                        { label: "Tests", route: "resources", params: "tests" },
+                        { label: "Projects", route: "resources", params: "projects" },
+                        { label: "Activities", route: "resources", params: "activities" }
                     ] 
                 },
             ],
@@ -179,7 +179,7 @@
                                             >
                                                 <li v-for="(grandchildItem, grandchildIndex) in nestedItem.nested" :key="grandchildIndex" class="hover:bg-gray-50">
                                                 <router-link
-                                                    :to="{ name: grandchildItem.route }"
+                                                    :to="{ name: grandchildItem.route, params: { type: grandchildItem.params } }"
                                                     class="block px-4 py-2 text-base font-semibold text-gray-900 transition duration-300 dark:text-gray-100 hover:text-main-color"
                                                 >
                                                     <i class="mr-2 text-lg ti ti-checkup-list"></i> {{ grandchildItem.label }}
