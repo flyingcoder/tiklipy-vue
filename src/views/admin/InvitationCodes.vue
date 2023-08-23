@@ -9,7 +9,7 @@ import { onMounted, ref } from "vue";
     const inputCodes = ref('');
     const invite = new InviteCodeModel();
     const auth = new AuthModel();
-    const success = ref('');
+    const isSaving = ref(false);
 
     onMounted(async () => {
         await tableReload();
@@ -28,10 +28,13 @@ import { onMounted, ref } from "vue";
     }
 
     const submitCodes = async () => {
+        isSaving.value = true;
         const codes = parseInputCodes();
         const user = await auth.fireAuthState();
         if(user?.isAdmin) {
             if(codes) await invite.addCodes(codes);
+            inputCodes.value = '';
+            isSaving.value = false;
             tableReload();
         } else {
             router.push({ name: 'dashboard' });
@@ -51,15 +54,14 @@ import { onMounted, ref } from "vue";
 <template>
     <div class="lg:container md:mx-auto">
         <div class="bg-white w-[50vw] mx-auto mt-20 rounded-lg">
-            <div class="p-5  text-center">
+            <div class="p-5 text-center">
                 <div class="">
-                     {{ success }}<br>
-                    <label class="text-black text-center" for="codes">Add codes separete with comma</label><br>
-                    <button @click="generateCode" class="text-white bg-main-color mx-1 my-5">Generate Code</button>
-                    <button @click="submitCodes" class="text-white bg-main-color mx-1 my-5">Add</button>
-                    <textarea class="block w-full rounded-lg border-gray-300 text-black" v-model="inputCodes" id="" cols="80" rows="3"></textarea>
+                    <label class="text-center text-black" for="codes">Add codes separete with comma</label><br>
+                    <button v-if="!isSaving" @click="generateCode" class="mx-1 my-5 text-white bg-main-color">Generate Code</button>
+                    <button v-if="!isSaving" @click="submitCodes" class="mx-1 my-5 text-white bg-main-color">Add</button>
+                    <textarea class="block w-full text-black border-gray-300 rounded-lg" v-model="inputCodes" id="" cols="80" rows="3"></textarea>
                 </div>
-                <h1 class="text-2xl text-black my-6 font-bold">
+                <h1 class="my-6 text-2xl font-bold text-black">
                     Invite Codes
                 </h1>
                 <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">

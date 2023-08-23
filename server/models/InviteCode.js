@@ -10,7 +10,7 @@ class InviteCodeModel {
 
     async useCode(load) {
         try {
-            const queryRef = this.col.where('code', '==', load.code).where('status', '==', 'available');
+            const queryRef = this.col.where('code', '==', load.code);
             await queryRef.get()
                 .then((snaps) => {
                     if(!snaps.empty) {
@@ -27,9 +27,18 @@ class InviteCodeModel {
         }
     }
 
+    async checkIfAlreadyRegistered(email) {
+        try {
+            return await admin.auth().getUserByEmail(email);
+        } catch (error) {
+            console.error("Error in check if email is registered: ", error);
+            return false;
+        }
+    }
+
     async verifyCode(code) {
         try {
-            const queryRef = this.col.where('code', '==', code).where('status', '==', 'available');
+            const queryRef = this.col.where('code', '==', code);
             const snaps = await queryRef.get().then((snaps) => snaps );
             if(!snaps.empty) return true;
             else return false;
