@@ -82,7 +82,7 @@
                 </button>
             </div>
         </div>
-        <div class="">
+        <div class="overflow-x-hidden">
             <!-- <div class=" flex overflow-hidden py-10 ">
                 <div class=" animate-marquee whitespace-nowrap ">
                     <span class="text-4xl mx-10 mx-4">Featured By</span>
@@ -110,9 +110,9 @@
                     <span class="text-4xl mx-10  "><i class="ti ti-brand-meta"></i></span>
                 </div>
             </div> -->
-            <div class="mt-[1000px] w-[300%] sm:w-[190%]  md:w-[170%] lg:w-[150%] xl:w-[120%] 2xl:w-[100%]  absolute left-0 top-0 bg-center bg-black py-10   flex overflow-hidden py-10 justify-center" @mouseenter="toggleAnimation" @mouseleave="toggleAnimation">
-                <div :class="[hovered ? '' : 'animate-r_marquee2', { 'animation-paused': animationPaused }]" class=" flex flex-wrap  justify-around max-w-none w-[100%] ">
-                    <div v-for="(testimonial, index) in testimonials" :key="index + '-testi-cards'" class="w-[23%] text-4xl  bg-white p-5 rounded-2xl flex flex-wrap content-between">
+            <div class="mt-[1000px] w-full absolute left-0 top-0 bg-center bg-black py-10 flex overflow-x-hidden justify-center" @mouseenter="toggleAnimation" @mouseleave="toggleAnimation">
+                <div :class="[hovered ? '' : 'animate-r_marquee2', { 'animation-paused': animationPaused }]" class=" flex justify-around max-w-none w-full ">
+                    <div v-for="(testimonial, index) in testimonials" :key="index + '-testi-cards'" class="w-[200rem] m-2 sm:w-[23%] text-4xl  bg-white p-5 rounded-2xl flex flex-wrap content-between">
                         <div class="">
                             <div class="text-lg stars flex flex-wrap mb-5">
                                 {{ testimonial.star }}
@@ -128,8 +128,8 @@
                         </div>
                     </div>
                 </div>
-                <div :class="[hovered ? '' : 'animate-r_marquee', { 'animation-paused': animationPaused }]" class=" flex flex-wrap  justify-around max-w-none w-[100%] absolute ">
-                    <div v-for="(testimonial, index) in testimonials" :key="index + '-testi-cards'" class="w-[23%] text-4xl  bg-white p-5 rounded-2xl flex flex-wrap content-between ">
+                <div :class="[hovered ? '' : 'animate-r_marquee', { 'animation-paused': animationPaused }]" class=" flex  justify-around max-w-none w-full absolute ">
+                    <div v-for="(testimonial, index) in testimonials" :key="index + '-testi-cards'" class="w-[200rem] m-2 sm:w-[23%] text-4xl  bg-white p-5 rounded-2xl flex flex-wrap content-between ">
                         <div class="">
                             <div class="text-lg stars flex flex-wrap mb-5">
                                 {{ testimonial.star }}
@@ -157,7 +157,8 @@
                     </div>
                 </div>
                 <div class="feature-image max-w-screen-lg max-lg:px-10 mx-auto mb-[5vh]">
-                    <img class="transition duration-150 ease-linear hover:-skew-x-[0.3deg] rounded-b-xl" src="Features.png" alt="">
+                    <img class="transition duration-150 ease-linear hover:-skew-x-[0.3deg] rounded-b-xl max-sm:hidden" src="Features.png" alt="">
+                    <img class="transition duration-150 ease-linear hover:-skew-x-[0.3deg] rounded-b-xl block sm:hidden m-auto" src="mobile-feature.png" alt="">
                 </div>
             </div>
             <div id="pricing" class="pb-8">
