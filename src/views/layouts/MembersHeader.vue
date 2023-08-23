@@ -88,12 +88,12 @@
                             </router-link>
                         </li>
                         <li>
-                            <router-link :to="{name: 'account'}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                            <router-link :to="{name: 'my-reviews'}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
                                 Submit review
                             </router-link>
                         </li>
                         <li>
-                            <router-link :to="{name: 'account'}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                            <router-link :to="{name: 'suggest-tools'}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
                                 Suggest a tool
                             </router-link>
                         </li>
