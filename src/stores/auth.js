@@ -1,5 +1,6 @@
 import { defineStore } from "pinia";
 import { auth } from "../plugins/firebase";
+import { useUserStore } from "./user";
 import { signOut, signInWithPopup, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
 
 export const useAuthStore = defineStore("auth", {
@@ -11,6 +12,9 @@ export const useAuthStore = defineStore("auth", {
     },
     actions: {
         setUserToLocal(user) {
+            const userStore = useUserStore();
+            userStore.setUser(user);
+            delete user['accessToken'];
             this.user = user;
             localStorage.setItem("tiklipy-user", JSON.stringify(user));
         },

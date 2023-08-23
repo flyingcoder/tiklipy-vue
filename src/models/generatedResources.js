@@ -1,6 +1,6 @@
 import { db } from "../plugins/firebase"
 import dayjs from "dayjs";
-import { collection, addDoc, getDocs, query, where } from "firebase/firestore";
+import { collection, addDoc, getDoc, getDocs, query, where } from "firebase/firestore";
 import { useAuthStore } from "../stores/auth";
 import { useFormStore } from "../stores/form";
 
