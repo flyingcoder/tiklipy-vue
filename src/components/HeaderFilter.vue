@@ -23,7 +23,7 @@
             <div class="flex items-center justify-between xl:gap-x-2 items-cente">
                 <div class="absolute inline-flex items-center justify-center gap-5 text-center text-main-color ">
                     <img src="/android-chrome-512x512.png" width="40" alt="">
-                    <img src="bongo-cat/slap-cat-unscreen.gif" width="70" alt="">                     
+                    <img src="/bongo-cat/slap-cat-unscreen.gif" width="70" alt="">                     
                 </div>
                 <div class="flex self-center ml-auto text-right">
                     <div class="flex mr-5" v-if="route.path != '/members'">
