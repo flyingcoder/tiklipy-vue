@@ -67,7 +67,6 @@ export default {
         '11/12': '91.666667%',
         'full': '100%'
       }
-
     },
   },
   plugins: [

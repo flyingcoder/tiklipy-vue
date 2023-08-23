@@ -23,23 +23,23 @@
             <div class="capitalize text-3xl color-black font-semibold pb-2 w-fit">
                 {{ authStore.displayName }}
             </div>
-            <div class="text-base sm:flex pb-1">
+            <!-- <div class="text-base sm:flex pb-1">
                 Get more stars.
             </div>
             <div class="text-base sm:flex pb-4">
-                <button @click="buyStar(10)" class="bg-purple-500 text-white mx-1">
+                <button @click="buyStar(10)" class="bg-purple-500 text-white m-1">
                     Buy 10 ⭐
                 </button>
-                <button @click="buyStar(50)" class="bg-purple-500 text-white mx-1">
+                <button @click="buyStar(50)" class="bg-purple-500 text-white m-1">
                     Buy 50 ⭐
                 </button>
-                <button @click="buyStar(150)" class="bg-purple-500 text-white mx-1">
+                <button @click="buyStar(150)" class="bg-purple-500 text-white m-1">
                     Buy 150 ⭐
                 </button>
-                <button @click="buyStar(500)" class="bg-purple-500 text-white mx-1">
+                <button @click="buyStar(500)" class="bg-purple-500 text-white m-1">
                     Buy 500 ⭐
                 </button>
-            </div>
+            </div> -->
         </div>
         <div class="shadow-md shadow-[#646cff17] border border-[#646cff17] rounded-md mx-4">
             <div class="px-2 sm:px-6 py-4">
@@ -47,7 +47,7 @@
                     Transactions
                 </h2>
                 <p class="mt-1 text-md font-normal text-gray-500 dark:text-gray-400">
-                    Where did your stars go?
+                    <!-- Where did your stars go? -->
                 </p>
             </div>
             <div class="relative overflow-x-auto ">
@@ -77,10 +77,10 @@
                                 08/14/2023
                             </td>
                             <td class="px-6 py-4">
-                                -40 <span class="animate__rotateOut">⭐</span>
+                                <!-- -40 <span class="animate__rotateOut">⭐</span> -->
                             </td>
                             <td class="px-6 py-4">
-                                100 ⭐
+                                <!-- 100 ⭐ -->
                             </td>
                         </tr>
                     </tbody>
