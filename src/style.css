@@ -105,6 +105,14 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+.slide-enter-active, .slide-leave-active {
+  transition: all 0.5s ease;
+}
+.slide-enter, .slide-leave-to {
+  opacity: 0;
+  transform: translateX(20px);
+}
+
 .ease-custom {
   transition-timing-function: cubic-bezier(.61,-0.53,.43,1.43);
 }
