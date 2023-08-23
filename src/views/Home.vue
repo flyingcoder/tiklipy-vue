@@ -3,6 +3,7 @@
     import expressModel from "../models/express";
     import Swal from 'sweetalert2';
     import 'sweetalert2/dist/sweetalert2.min.css';
+    import PriceSelection from '../components/PriceSelection.vue';
 
     const hovered = ref(false);
     const animationPaused = ref(false);
@@ -175,9 +176,23 @@
         </div>
         <div class="w-full rounded-xl px-3 xs:p-6  mt-[calc(1200px)]">
             <!-- title -->
+            <div id="feature">
+                <div class="container mt-10 mx-auto">
+                    <div class="block justify-center">
+                        <h2 class="text-center text-4xl font-semibold text-gray-800 text-main-color">Prepared, retrieve, finished.</h2>
+                        <p class="text-center text-black mt-8 text-gray-700 text-xl mb-11">Accomplish work tasks immediately. Generate feedback, newsletters, and other content swiftly - all in a matter of seconds.</p>
+                    </div>
+                </div>
+                <div class="feature-image max-w-screen-lg max-lg:px-10 mx-auto mb-[5vh]">
+                    <img class="transition duration-150 ease-linear hover:-skew-x-[0.3deg] rounded-b-xl" src="Features.png" alt="">
+                </div>
+            </div>
+            <div id="pricing">
+                <price-selection />
+            </div>
             <div class="">
                 <div class="my-10 sm:w-[40rem] m-auto ">
-                    <h2 class="text-main-color text-center text-xl sm:text-3xl font-semibold mb-5">Discover effective strategies for handling challenging student behavior.</h2>
+                    <h2 class="text-main-color text-center text-4xl sm:text-3xl font-semibold mb-5">Discover effective strategies for handling challenging student behavior.</h2>
                     <div class="text-black text-center">Immerse yourself in over 50 potent teaching tools. Write, organize, and discover boundless inspiration. Also, access expert advice whenever you need.</div>
                 </div>
                 <!-- Contents -->
