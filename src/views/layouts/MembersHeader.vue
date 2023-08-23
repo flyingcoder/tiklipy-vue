@@ -158,7 +158,7 @@
                                     >
                                         <ul
                                         v-show="isOptionsExpandedChild"
-                                        class="absolute top-[5.6rem] -right-[12.5rem] ml-2 mt-0 bg-white divide-y w-[200px] shadow-lg overflow-hidden"
+                                        class="absolute top-[5.6rem] -right-[12.5rem] ml-2 mt-0 bg-white divide-y w-[200px] shadow-lg"
                                         >
                                         <li v-for="(nestedItem, nestedIndex) in item.nested" :key="nestedIndex" class="hover:bg-gray-50" @mouseenter="isOptionsExpandedGrandchild = nestedItem.nested ? true : isOptionsExpandedGrandchild" @mouseleave="isOptionsExpandedGrandchild = nestedItem.nested ? false : isOptionsExpandedGrandchild">
                                             <router-link
