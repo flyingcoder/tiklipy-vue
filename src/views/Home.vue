@@ -28,33 +28,6 @@
     }
 
     const emailLogin = () => {
-        // Swal.fire({
-        //     html: `
-        //         <h2 class="swal2-title text-secondary-color pb-4 pt-2" id="swal2-title" style="display: block;">Email Address</h2>
-        //         <div class="relative">
-        //             <input v-model="email" type="email" id="default-search" class="block w-full py-3 px-4 pr-10 text-sm text-gray-900 font-semibold border border-gray-300 rounded-full bg-white focus:ring-transparent focus:border-main-color dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-transparent" :placeholder="route.path === '/members' ? 'Explore Search Tools...' : 'Search generated card...'" required>
-        //             <div class="absolute inset-y-0 right-0 flex items-center pr-5 pointer-events-none">
-        //                 <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
-        //                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 2-8.4 7.05a1 1 0 0 1-1.2 0L1 2m18 0a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1m18 0v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2"/>
-        //                 </svg>
-        //             </div>
-        //         </div>
-        //     `,
-        //     width: 500,
-        //     padding: '',
-        //     color: '#716add',
-        //     allowOutsideClick: true,
-        //     confirmButtonText: 'Submit',
-        //     backdrop: `
-        //         rgba(0, 0, 123, 0.4)
-        //         left top
-        //         no-repeat
-        //     `
-        // }).then((result) => {
-        //     if (result.isConfirmed) {
-        //         console.log(email);
-        //     }
-        // });
         Swal.fire({
             title: 'Email Address',
             input: 'email',
