@@ -3,7 +3,7 @@
 </script>
 
 <template>
-    <div class="container mx-auto py-8 my-10 text-black px-14">
+    <div class="container mx-auto p-3 md:py-8 md:my-10 text-black">
         <div class="max-w-3xl mx-auto p-6 bg-white rounded-xl shadow-md">
 
             <h1 class="text-3xl font-semibold mb-4 text-center">End-User License Agreement</h1>

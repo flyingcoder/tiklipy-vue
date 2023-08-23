@@ -44,9 +44,9 @@
                     <img src="creator.png" class="mx-auto mb-4" alt="Gift" >
                 </div>
                 <div class="block lg:w-1/2  py-4 place-self-center">
-                    <h2 class="text-4xl font-semibold text-gray-800 mb-4 ">Words from the creators</h2>
-                    <p class="text-lg text-gray-500 mt-10">
-                        Greetings, we're the groups responsible for Tiklipy.<br><br><br>
+                    <h2 class="text-4xl font-semibold text-gray-800 mb-4 max-sm:text-center">Words from the creators</h2>
+                    <p class="text-lg text-gray-500 mt-10 max-sm:text-center">
+                        Greetings, we're the groups responsible for Tiklipy.<br><br>
                         Embarking on this path more than three years ago, we were propelled by a vision to empower educators and transform the landscape of education. Our intuitive tools simplify tasks for teachers worldwide, and we're only at the beginning of our journey.<br><br><br>
                         Experience it firsthand. We're eagerly anticipating your feedback!
                     </p>

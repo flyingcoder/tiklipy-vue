@@ -35,7 +35,7 @@
 }
 </style>
 <template>
-    <div class="container FAQ mt-10 px-3 m-auto">
+    <div class="container FAQ my-10 px-3 m-auto">
         <div class="max-w-3xl mx-auto">
             <div class="block justify-center">
                 <h2 class="text-center text-4xl font-semibold text-gray-800">Frequently Asked Questions</h2>

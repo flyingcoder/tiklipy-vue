@@ -94,7 +94,7 @@
 
 <template>
     <div class="mb-5 overflow-x-hidden">
-        <div class="flex h-[1000px] w-[calc(100vw)] items-center justify-center absolute left-0 right-0 top-0 bg-center" style="background-image: url(background.gif)">
+        <div class="flex h-[1001px] w-[calc(100vw)] items-center justify-center absolute left-0 right-0 top-0 bg-center" style="background-image: url(background.gif)">
             <div class="sm:w-[35rem] text-center">
                 <h1 class="font-bold text-2xl sm:text-6xl mb-8 text-white drop-shadow-[10px_10px_2px#000] ">The ultimate companion for every teacher.</h1>
                 <p class=" text-white mb-10 drop-shadow-[0px_2px_10px_#24242a] text-lg bg-[#24242a]">Empowering educators, Fetchy integrates AI. While meetings and lesson planning continue, your methods evolve radically.</p>
@@ -173,7 +173,7 @@
                 </div>
             </div>
         </div>
-        <div class="w-full rounded-xl px-3 xs:p-6  mt-[calc(1200px)]">
+        <div class="w-full rounded-xl px-3 xs:p-6  mt-[calc(1200px)] overflow-hidden">
             <!-- title -->
             <div class="">
                 <div class="my-10 sm:w-[40rem] m-auto ">
@@ -235,7 +235,7 @@
             </div>
             <!-- Contents -->
             <div class="  flex flex-wrap mt-10 justify-center sm:justify-between">
-                <div class="border-[1px] border-color-main-color sm:w-[49%] midlg:w-[32%] mb-5 bg-white hover:bg-red-100 p-5 2xl:p-10  content-between rounded-xl hover:scale-105 ease-linear duration-200 shadow-sm hover:shadow-red-200">
+                <div class="border-[1px] border-color-main-color w-full sm:w-[49%] midlg:w-[32%] mb-5 bg-white hover:bg-red-100 p-5 2xl:p-10  content-between rounded-xl hover:scale-105 ease-linear duration-200 shadow-sm hover:shadow-red-200">
                     <div class="overflow-hidden  w-full mb-[4rem]">
                         <img class="rounded-[10px]  bg-main-color w-12  p-2"  src="195.png" alt="">
                     </div>
@@ -244,7 +244,7 @@
                         <div class="text-black">Breaking down complex topics for easier understanding.</div>
                     </div>
                 </div>
-                <div class="border-[1px] border-color-main-color sm:w-[49%] midlg:w-[32%] mb-5 bg-white  hover:bg-green-100 p-5  2xl:p-10 content-between rounded-xl hover:scale-105 ease-linear duration-200 shadow-sm hover:shadow-green-200">
+                <div class="border-[1px] border-color-main-color w-full sm:w-[49%] midlg:w-[32%] mb-5 bg-white  hover:bg-green-100 p-5  2xl:p-10 content-between rounded-xl hover:scale-105 ease-linear duration-200 shadow-sm hover:shadow-green-200">
                     <div class="overflow-hidden  w-full mb-[4rem]">
                         <img class="rounded-[10px]  bg-main-color w-12  p-2"  src="73.png" alt="">
                     </div>
@@ -253,7 +253,7 @@
                         <div class="text-black">Generating engaging queries based on written material.</div>
                     </div>
                 </div>
-                <div class="border-[1px] border-color-main-color sm:w-[49%] midlg:w-[32%] mb-5 bg-white hover:bg-yellow-100 p-5 2xl:p-10  content-between rounded-xl hover:scale-105 ease-linear duration-200 shadow-sm hover:shadow-yellow-200">
+                <div class="border-[1px] border-color-main-color w-full sm:w-[49%] midlg:w-[32%] mb-5 bg-white hover:bg-yellow-100 p-5 2xl:p-10  content-between rounded-xl hover:scale-105 ease-linear duration-200 shadow-sm hover:shadow-yellow-200">
                     <div class="overflow-hidden  w-full mb-[4rem]">
                         <img class="rounded-[10px]  bg-main-color w-12  p-2"  src="134.png" alt="">
                     </div>
