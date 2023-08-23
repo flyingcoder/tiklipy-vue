@@ -4,7 +4,7 @@
     const liveChat = ref(false);
 </script>
 <template>
-    <div class="fixed bottom-20 right-4 z-50 w-[30rem] animate__animated" :class="liveChat ? 'animate__slideInRight' : 'animate__slideOutRight'">
+    <div class="fixed bottom-20 right-4 z-50 sm:w-[30rem] animate__animated" :class="liveChat ? 'animate__slideInRight' : 'animate__slideOutRight'">
         <div class="border bg-white rounded-xl">
             <div>
                 <div class="w-full">
@@ -15,7 +15,7 @@
                         <!-- <span class="absolute w-3 h-3 bg-green-600 rounded-full left-10 top-3">
                         </span> -->
                     </div>
-                    <div class="relative w-full p-6 overflow-y-auto h-[40rem]">
+                    <div class="relative w-full p-6 overflow-y-auto sm:h-[40rem]">
 
                         <ul class="space-y-2">
                             <li class="flex justify-start">

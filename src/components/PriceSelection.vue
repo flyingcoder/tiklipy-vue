@@ -70,10 +70,10 @@
         <p class="mt-8 text-xl text-center text-black text-gray-700 mb-11 mx-4">Elevate efficiency and enhance work quality, all for the price of two cokes</p>
         
         <div v-for="(product, index) in products" :key="index + '-product'" 
-            class="flex flex-wrap items-stretch justify-center mx-auto sm:my-3 md:my-10 ">
+            class="flex flex-wrap items-stretch justify-center mx-auto my-3 md:my-10 ">
             <div v-for="(price, priceIndex) in product.prices"
                 :key="priceIndex + '-price'"
-                class="w-full max-w-sm p-4 mx-4 bg-white border border-gray-200 rounded-lg shadow max-midlg:mb-10 sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+                class="w-full max-w-sm p-4 my-3 mx-4 bg-white border border-gray-200 rounded-lg shadow max-midlg:mb-10 sm:p-8 dark:bg-gray-800 dark:border-gray-700">
                 <h5 class="mb-4 text-xl font-medium text-gray-500 capitalize dark:text-gray-400">
                     {{ price.interval }}ly Plan
                 </h5>
