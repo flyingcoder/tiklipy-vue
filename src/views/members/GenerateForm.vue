@@ -127,7 +127,17 @@
                         </div>
                     </div>
                     <div class="block" v-if="generatedResource">
-                        <div class="flex mt-8">
+                        <div class="flex mt-8" v-if="formStore.type == 'lesson-plan'">
+                            <Button color="default" class="p-2 mr-3 font-semibold uppercase border-0 bg-main-color hover:bg-secondary-color">
+                                <i class="mr-2 text-xl align-middle ti ti-playlist-add"></i>
+                                Generate Assessments
+                            </Button>
+                            <Button color="default" class="p-2 mr-3 font-semibold uppercase border-0 bg-main-color hover:bg-secondary-color">
+                                <i class="mr-2 text-xl align-middle ti ti-playlist-add"></i>
+                                Generate Slides
+                            </Button>
+                        </div>
+                        <div class="flex mt-4">
                             <Button color="default" @click="printResource('generated-resources')" class="p-2 mr-3 font-semibold uppercase border-0 bg-main-color hover:bg-secondary-color">
                                 <i class="mr-2 text-xl align-middle ti ti-printer"></i>
                                 Print
