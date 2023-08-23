@@ -6,7 +6,6 @@
     import { useFormStore } from '../../stores/form';
     import { useLoaderStore } from '../../stores/loader';
     import HeaderFilter from '../../components/HeaderFilter.vue';
-    import Preloader from '../../components/Preloader.vue';
     import { useRouter } from 'vue-router';
     import { onAuthStateChanged } from 'firebase/auth';
 
@@ -61,7 +60,6 @@
 </script>
 
 <template>
-    <Preloader />
     <HeaderFilter @search-change="searchFilter"/>
     <div v-if="searchQuery" class="px-3 mt-7">
         <div class="mb-16">

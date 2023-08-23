@@ -22,6 +22,7 @@
         <div class="text-black mb-3 px-4">
             <div class="capitalize text-3xl color-black font-semibold pb-2 w-fit">
                 {{ authStore.displayName }}
+                {{ authStore }}
             </div>
             <div class="text-base sm:flex pb-1">
                 Get more stars.

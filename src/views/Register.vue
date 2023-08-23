@@ -25,13 +25,14 @@
     });
 
     const loginVia = async (provider) => {
-        loaderStore.toggle();
-        const pass = await inviteModel.checkInviteCode(inviteCode.value);
-        console.log(pass);
+        // loaderStore.toggle();
+        // const pass = await inviteModel.checkInviteCode(inviteCode.value);
+        // console.log(pass);
         let success = false;
-        if(pass) success = await authStore.loginVia(provider);
+        // if(pass) success = await authStore.loginVia(provider);
+        success = await authStore.loginVia(provider);
         if (!success) googleLoginFailed(); else router.push({ name: 'dashboard' });
-        loaderStore.toggle();
+        // loaderStore.toggle();
     }
 
     const register = async () => {
@@ -60,7 +61,6 @@
             `,
             width: 600,
             padding: '',
-            margin:'',
             color: '#716add',
             allowOutsideClick: false,
             confirmButtonText: 'Okay',
@@ -86,7 +86,6 @@
             `,
             width: 600,
             padding: '',
-            margin:'',
             color: '#716add',
             allowOutsideClick: false,
             confirmButtonText: 'Okay',
