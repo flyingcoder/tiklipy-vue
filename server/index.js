@@ -11,6 +11,8 @@ const publicPath = path.join(path.resolve(), "public");
 const distPath = path.join(path.resolve(), "dist");
 
 //routers
+
+
 app.use("/api/v1", apiRouter);
 if(process.env.NODE_ENV === "production") {
   app.use("/", express.static(distPath));
