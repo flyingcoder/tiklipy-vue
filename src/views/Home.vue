@@ -176,7 +176,7 @@
         </div>
         <div class="w-full rounded-xl px-3 xs:p-6  mt-[calc(1200px)]">
             <!-- title -->
-            <div id="feature">
+            <div id="features" class="pb-8 pt-10">
                 <div class="container mt-10 mx-auto">
                     <div class="block justify-center">
                         <h2 class="text-center text-4xl font-semibold text-gray-800 text-main-color">Prepared, retrieve, finished.</h2>
@@ -187,7 +187,7 @@
                     <img class="transition duration-150 ease-linear hover:-skew-x-[0.3deg] rounded-b-xl" src="Features.png" alt="">
                 </div>
             </div>
-            <div id="pricing">
+            <div id="pricing" class="pb-8">
                 <price-selection />
             </div>
             <div class="">
