@@ -2,9 +2,10 @@
     import { ref } from 'vue';
 
     const liveChat = ref(false);
+    const show = ref(true);
 </script>
 <template>
-    <div class="fixed bottom-20 right-4 z-50 sm:w-[30rem] animate__animated" :class="liveChat ? 'animate__slideInRight' : 'animate__slideOutRight'">
+    <div class="fixed bottom-20 right-4 z-50 sm:w-[30rem] animate__animated" :class="[ liveChat ? 'animate__slideInRight' : 'animate__slideOutRight', show ? 'hidden' : '' ]">
         <div class="border bg-white rounded-xl">
             <div>
                 <div class="w-full">
@@ -88,7 +89,7 @@
         </div>
     </div>
     <div class="fixed bottom-4 right-4 z-50">
-        <button @click="liveChat = !liveChat" class="bg-main-color hover:bg-main-color focus:outline-secondary-color focus:border-secondary-color  p-[initial] text-white rounded-full w-12 h-12 shadow-lg">
+        <button @click="[liveChat = !liveChat, show = false]" class="bg-main-color hover:bg-main-color focus:outline-secondary-color focus:border-secondary-color  p-[initial] text-white rounded-full w-12 h-12 shadow-lg">
             <i class="text-3xl ti ti-message-dots"></i>
         </button>
     </div>
