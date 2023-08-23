@@ -11,7 +11,8 @@
     const authStore = useAuthStore();
     const teacher = authStore.user;
     const lessons = ref([]);
-    const rawCards = ref([]);
+    const rawCards = ref();
+    const cards = ref([]);
     const searchQuery = ref('');
     const router = useRouter();
     const formStore = useFormStore();
@@ -31,9 +32,9 @@
         
     });
 
-    const cards = computed(() => {
-        return rawCards.filter(item => item.title.toLowerCase().includes(searchQuery.value.toLowerCase()))
-    })
+    // const cards = computed(() => {
+    //     return rawCards.filter(item => item.title.toLowerCase().includes(searchQuery.value.toLowerCase()))
+    // })
 
     const searchFilter = (query) => {
         searchQuery.value = query
