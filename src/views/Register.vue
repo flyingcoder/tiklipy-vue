@@ -15,7 +15,7 @@
     const wrongCred = ref(false);
     const inviteCode = ref('');
     const loaderStore = useLoaderStore();
-    const inviteModel = new InviteCodeModel();
+    const invite = new InviteCodeModel();
     const authStore = useAuthStore();
     const googleProvider = new GoogleAuthProvider();
     const facebookProvider =  new FacebookAuthProvider();
@@ -26,8 +26,8 @@
 
     const loginVia = async (provider) => {
         loaderStore.toggle();
-        const pass = await inviteModel.checkInviteCode(inviteCode.value);
-        console.log(pass);
+        //const pass = await invite.checkInviteCode(inviteCode.value);
+        //console.log(pass);
         let success = false;
         if(pass) success = await authStore.loginVia(provider);
         if (!success) googleLoginFailed(); else router.push({ name: 'dashboard' });

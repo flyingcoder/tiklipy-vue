@@ -1,24 +1,53 @@
 <script setup>
-    import { onAuthStateChanged } from "firebase/auth";
-    import { ref } from "vue";
+    import { onMounted, ref } from "vue";
     import InviteCodeModel from "../../models/InviteCode";
-    import { auth } from "../../plugins/firebase";
+    import AuthModel from "../../models/Auth";
+    import { useRouter } from "vue-router";
 
     const codes = ref([]);
-    const inviteCodes = ref('');
+    const router = useRouter();
+    const inputCodes = ref('');
     const invite = new InviteCodeModel();
+    const auth = new AuthModel();
     const success = ref('');
 
-    const submitCodes = async () => {
-        onAuthStateChanged(auth, async (user) => {
-            if(inviteCodes.value !== '') {
-                await invite.addCodes([inviteCodes.value]);
-                success.value = 'success';
-            } else {
-                success.value = 'walay sulod imong text area bulok'
-            }
-        })
+    onMounted(async () => {
+        await tableReload();
+    })
+
+    const parseInputCodes = () => {
+        let trimed = inputCodes.value.replace(/\s+/g, '');
+        const lastChar = trimed.charAt(trimed.length - 1);
+        if(lastChar === ',')
+            trimed = trimed.slice(0, -1);
+        return trimed.split(',');
     }
+
+    const tableReload = async () => {
+        codes.value = await invite.getCodes().then((docs) => docs.data.codes );
+    }
+
+    const submitCodes = async () => {
+        const codes = parseInputCodes();
+        const user = await auth.fireAuthState();
+        if(user?.isAdmin) {
+            if(codes) await invite.addCodes(codes);
+            tableReload();
+        } else {
+            router.push({ name: 'dashboard' });
+        }
+    }
+
+    const generateRandomString = () => {
+        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        const randomString = Array.from({ length: 6 }, () => characters[Math.floor(Math.random() * characters.length)]).join('');
+        return randomString;
+    }
+
+    const generateCode = () => {
+        inputCodes.value += generateRandomString()+', ';
+    }
+
 </script>
 
 <template>
@@ -27,8 +56,9 @@
             <div class="p-5">
                 {{ success }} <br><br>
                 <label for="codes">Add codes separete with comma</label>
+                <button @click="generateCode" class="px-6 py-2 mb-4 ml-10 text-white bg-main-color">Generate Code</button>
                 <button @click="submitCodes" class="px-6 py-2 mb-4 ml-10 text-white bg-main-color">Add</button>
-                <textarea class="block" v-model="inviteCodes" id="" cols="80" rows="3"></textarea>
+                <textarea class="block" v-model="inputCodes" id="" cols="80" rows="3"></textarea>
                 <h1 class="text-lg">
                     Invite Codes
                 </h1>

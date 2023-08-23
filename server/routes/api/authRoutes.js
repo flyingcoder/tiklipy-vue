@@ -14,8 +14,8 @@ router.post('/verify-code', async (req, res) => {
 });
 
 router.get('/codes', async (req, res) => {
-    
-    const codes = await inviteCode.getInviteCodes();
+
+    const codes = await inviteCode.getCodeCollection();
     res.json({ codes: codes });
 });
 
