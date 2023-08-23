@@ -27,6 +27,7 @@
                 </div>
                 <div class="flex self-center ml-auto text-right">
                     <div class="flex mr-5" v-if="route.path != '/members'">
+                        <label for="" class="text-black text-sm mr-1">Sort By</label>
                         <select v-model="sortQuery" class="block text-sm text-gray-600 border font-semibold border-gray-300 rounded-full bg-white focus:ring-main-color focus:secondary-color dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             <option value="latest">Latest</option>
                             <option value="abc">Alphabetical</option>
