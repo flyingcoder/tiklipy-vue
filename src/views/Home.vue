@@ -10,7 +10,6 @@
     const backEndModel = new expressModel();
     const testimonials = ref();
     const email = ref('');
-    
 
     onMounted(() => {
         getTestimonials();
@@ -56,8 +55,8 @@
             if (result.value) {
 			    Swal.fire({
 			      type: 'success',
-			      title: 'Thankyou',
-			      html: 'Submitted email: ' + result.value
+			      title: 'Thank You',
+			      html: 'Email: ' + result.value
 			    })
                 email.value = result.value
 			}
@@ -125,6 +124,17 @@
         </div>
         <div class="w-full rounded-xl px-3 xs:p-6  mt-[calc(1200px)] overflow-hidden">
             <!-- title -->
+            <!-- <div id="features" class="pb-8 pt-10">
+                <div class="container mt-10 mx-auto">
+                    <div class="block justify-center">
+                        <h2 class="text-center text-4xl font-semibold text-gray-800 text-main-color">Prepared, retrieve, finished.</h2>
+                        <p class="text-center text-black mt-8 text-gray-700 text-xl mb-11">Accomplish work tasks immediately. Generate feedback, newsletters, and other content swiftly - all in a matter of seconds.</p>
+                    </div>
+                </div>
+                <div class="feature-image max-w-screen-lg max-lg:px-10 mx-auto mb-[5vh]">
+                    <img class="transition duration-150 ease-linear hover:-skew-x-[0.3deg] rounded-b-xl" src="Features.png" alt="">
+                </div>
+            </div> -->
             <div class="">
                 <div class="my-10 sm:w-[40rem] m-auto ">
                     <h2 class="text-main-color text-center text-4xl sm:text-3xl font-semibold mb-5">Discover effective strategies for handling challenging student behavior.</h2>
@@ -177,7 +187,7 @@
                 </div>
             </div>
              <!-- Title -->
-            <div class="mt-[5rem] mb-10 sm:w-[40rem] m-auto ">
+            <div class="mt-[5rem] mb-10 sm:w-[40rem] m-auto" id="features">
                 <h2 class="text-main-color text-center text-3xl font-semibold mb-5">Plus, there's more!</h2>
             </div>
             <!-- Contents -->
@@ -252,7 +262,7 @@
                     <div class="text-black">Creating forms to attract and manage volunteers efficiently.</div>
                 </div>
             </div>
-            <div id="pricing" class="pb-8">
+            <div id="pricing" class="pt-8">
                 <price-selection />
             </div>
         </div>
