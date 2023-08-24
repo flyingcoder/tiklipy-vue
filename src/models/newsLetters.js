@@ -2,6 +2,7 @@ import { db } from "../plugins/firebase";
 import dayjs from "dayjs";
 import { collection, addDoc } from "firebase/firestore";
 import { useAuthStore } from "../stores/auth";
+import { useFormStore } from "../stores/form";
 
 class AddNewsletterModel {
     constructor() {
