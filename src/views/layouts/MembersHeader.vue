@@ -121,68 +121,64 @@
                             <i class="pb-1 mr-1 text-lg ti ti-book"></i> Tools
                         </router-link>
                     </li>
-                    <li class="self-center px-3 py-2 dropdown w-fit" @mouseenter="isOptionsExpanded = true" @mouseleave="isOptionsExpanded = false">
+                    <li class="self-center px-3 py-2 dropdown w-fit max-lg:hidden" @mouseenter="isOptionsExpanded = true" @mouseleave="isOptionsExpanded = false">
                         <a class="flex items-center text-base text-gray-900 transition duration-300 bg-transparent cursor-pointer hover:border-transparent focus:border-transparent dark:text-gray-100 hover:text-main-color">
                             <i class="mr-2 text-lg ti ti-settings"></i>
                             Resources
                             <i class="ml-auto ti ti-chevron-down"></i>
                         </a>
-                        <transition
-                            enter-active-class="transition duration-500 transform ease-custom"
-                            enter-class="scale-y-0 -translate-y-1/2 opacity-0"
-                            enter-to-class="scale-y-100 translate-y-0 opacity-100"
-                            leave-active-class="transition duration-300 transform ease-custom"
-                            leave-class="scale-y-100 translate-y-0 opacity-100"
-                            leave-to-class="scale-y-0 -translate-y-1/2 opacity-0"
-                        >
-                            <ul
-                                v-show="isOptionsExpanded"
-                                class="absolute top-10 w-[200px] -right-12 mb-4 bg-white divide-y shadow-lg"
-                            >
+                        <transition enter-active-class="transition duration-500 transform ease-custom" enter-class="scale-y-0 -translate-y-1/2 opacity-0" enter-to-class="scale-y-100 translate-y-0 opacity-100" leave-active-class="transition duration-300 transform ease-custom" leave-class="scale-y-100 translate-y-0 opacity-100" leave-to-class="scale-y-0 -translate-y-1/2 opacity-0">
+                            <ul v-show="isOptionsExpanded" class="absolute top-10 w-[200px] mb-4 bg-white divide-y shadow-lg">
                                 <li v-for="(item, index) in dropdownItems" :key="index" class="hover:bg-gray-50" @mouseenter="isOptionsExpandedChild = item.nested ? true : isOptionsExpandedChild" @mouseleave="isOptionsExpandedChild = item.nested ? false : isOptionsExpandedChild">
-                                    <router-link
-                                        :to="{ name: item.route, params: { type: item.params } }"
-                                        class="flex items-center px-4 py-2 text-base font-semibold text-gray-900 transition duration-300 dark:text-gray-100 hover:text-main-color"
-                                    >
+                                    <router-link :to="{ name: item.route, params: { type: item.params } }" class="flex items-center px-4 py-2 text-base font-semibold text-gray-900 transition duration-300 dark:text-gray-100 hover:text-main-color" >
                                         <i class="mr-2 text-lg" :class="item.icon"></i> {{ item.label }}
                                         <i class="ml-auto ti ti-chevron-down" v-if="item.nested"></i>
                                     </router-link>
-                                    <transition 
-                                        enter-active-class="transition duration-500 transform ease-custom"
-                                        enter-class="scale-y-0 -translate-y-1/2 opacity-0"
-                                        enter-to-class="scale-y-100 translate-y-0 opacity-100"
-                                        leave-active-class="transition duration-300 transform ease-custom"
-                                        leave-class="scale-y-100 translate-y-0 opacity-100"
-                                        leave-to-class="scale-y-0 -translate-y-1/2 opacity-0"
-                                    >
-                                        <ul
-                                        v-show="isOptionsExpandedChild"
-                                        class="absolute top-[5.6rem] -right-[12.5rem] ml-2 mt-0 bg-white divide-y w-[200px] shadow-lg"
-                                        >
+                                    <transition  enter-active-class="transition duration-500 transform ease-custom" enter-class="scale-y-0 -translate-y-1/2 opacity-0" enter-to-class="scale-y-100 translate-y-0 opacity-100" leave-active-class="transition duration-300 transform ease-custom" leave-class="scale-y-100 translate-y-0 opacity-100" leave-to-class="scale-y-0 -translate-y-1/2 opacity-0">
+                                        <ul v-show="isOptionsExpandedChild" class="absolute top-[5.6rem] -right-[12.5rem] ml-2 mt-0 bg-white divide-y w-[200px] shadow-lg">
                                         <li v-for="(nestedItem, nestedIndex) in item.nested" :key="nestedIndex" class="hover:bg-gray-50" @mouseenter="isOptionsExpandedGrandchild = nestedItem.nested ? true : isOptionsExpandedGrandchild" @mouseleave="isOptionsExpandedGrandchild = nestedItem.nested ? false : isOptionsExpandedGrandchild">
-                                            <router-link
-                                            :to="{ name: nestedItem.route }"
-                                            class="flex items-center px-4 py-2 text-base font-semibold text-gray-900 transition duration-300 dark:text-gray-100 hover:text-main-color"
-                                            >
+                                            <router-link :to="{ name: nestedItem.route }" class="flex items-center px-4 py-2 text-base font-semibold text-gray-900 transition duration-300 dark:text-gray-100 hover:text-main-color">
                                             <i class="mr-2 text-lg" :class="nestedItem.icon"></i> {{ nestedItem.label }} <i class="ml-auto ti ti-chevron-down" v-if="nestedItem.nested"></i>
                                             </router-link>
-                                            <transition 
-                                                enter-active-class="transition duration-500 transform ease-custom"
-                                                enter-class="scale-y-0 -translate-y-1/2 opacity-0"
-                                                enter-to-class="scale-y-100 translate-y-0 opacity-100"
-                                                leave-active-class="transition duration-300 transform ease-custom"
-                                                leave-class="scale-y-100 translate-y-0 opacity-100"
-                                                leave-to-class="scale-y-0 -translate-y-1/2 opacity-0"
-                                            >
-                                            <ul
-                                                v-show="isOptionsExpandedGrandchild"
-                                                class="absolute top-[5.6rem] -right-[12.5rem] ml-2 mt-0 bg-white divide-y w-[200px] shadow-lg overflow-hidden"
-                                            >
+                                            <transition  enter-active-class="transition duration-500 transform ease-custom" enter-class="scale-y-0 -translate-y-1/2 opacity-0" enter-to-class="scale-y-100 translate-y-0 opacity-100" leave-active-class="transition duration-300 transform ease-custom" leave-class="scale-y-100 translate-y-0 opacity-100" leave-to-class="scale-y-0 -translate-y-1/2 opacity-0">
+                                            <ul v-show="isOptionsExpandedGrandchild" class="absolute top-[5.6rem] -right-[12.5rem] ml-2 mt-0 bg-white divide-y w-[200px] shadow-lg overflow-hidden" >
                                                 <li v-for="(grandchildItem, grandchildIndex) in nestedItem.nested" :key="grandchildIndex" class="hover:bg-gray-50">
-                                                <router-link
-                                                    :to="{ name: grandchildItem.route, params: { type: grandchildItem.params } }"
-                                                    class="block px-4 py-2 text-base font-semibold text-gray-900 transition duration-300 dark:text-gray-100 hover:text-main-color"
-                                                >
+                                                <router-link :to="{ name: grandchildItem.route, params: { type: grandchildItem.params } }"  class="block px-4 py-2 text-base font-semibold text-gray-900 transition duration-300 dark:text-gray-100 hover:text-main-color" >
+                                                    <i class="mr-2 text-lg ti ti-checkup-list"></i> {{ grandchildItem.label }}
+                                                </router-link>
+                                                </li>
+                                            </ul>
+                                            </transition>
+                                        </li>
+                                        </ul>
+                                    </transition>
+                                </li>
+                            </ul>
+                        </transition>
+                    </li>
+                    <li class="self-center px-3 py-2 dropdown w-fit lg:hidden" @mouseenter="isOptionsExpanded = true" @mouseleave="isOptionsExpanded = false">
+                        <a class="flex items-center text-base text-gray-900 transition duration-300 bg-transparent cursor-pointer hover:border-transparent focus:border-transparent dark:text-gray-100 hover:text-main-color">
+                            <i class="mr-2 text-lg ti ti-settings"></i>
+                            Resources
+                            <i class="ml-auto ti ti-chevron-down"></i>
+                        </a>
+                        <transition enter-active-class="transition duration-500 transform ease-custom" enter-class="scale-y-0 -translate-y-1/2 opacity-0" enter-to-class="scale-y-100 translate-y-0 opacity-100" leave-active-class="transition duration-300 transform ease-custom" leave-class="scale-y-100 translate-y-0 opacity-100" leave-to-class="scale-y-0 -translate-y-1/2 opacity-0">
+                            <ul v-show="isOptionsExpanded" class=" top-10 w-[200px] mb-4 bg-white divide-y ">
+                                <li v-for="(item, index) in dropdownItems" :key="index" class="hover:bg-gray-50" @mouseenter="isOptionsExpandedChild = item.nested ? true : isOptionsExpandedChild" @mouseleave="isOptionsExpandedChild = item.nested ? false : isOptionsExpandedChild">
+                                    <router-link :to="{ name: item.route, params: { type: item.params } }" class="flex items-center px-4 py-2 text-base font-semibold text-gray-900 transition duration-300 dark:text-gray-100 hover:text-main-color" >
+                                        <i class="mr-2 text-lg" :class="item.icon"></i> {{ item.label }}
+                                        <i class="ml-auto ti ti-chevron-down" v-if="item.nested"></i>
+                                    </router-link>
+                                    <transition  enter-active-class="transition duration-500 transform ease-custom" enter-class="scale-y-0 -translate-y-1/2 opacity-0" enter-to-class="scale-y-100 translate-y-0 opacity-100" leave-active-class="transition duration-300 transform ease-custom" leave-class="scale-y-100 translate-y-0 opacity-100" leave-to-class="scale-y-0 -translate-y-1/2 opacity-0">
+                                        <ul v-show="isOptionsExpandedChild" class=" top-[5.6rem] -right-[12.5rem] mt-0 bg-white divide-y w-[200px] ">
+                                        <li v-for="(nestedItem, nestedIndex) in item.nested" :key="nestedIndex" class="hover:bg-gray-50" @mouseenter="isOptionsExpandedGrandchild = nestedItem.nested ? true : isOptionsExpandedGrandchild" @mouseleave="isOptionsExpandedGrandchild = nestedItem.nested ? false : isOptionsExpandedGrandchild">
+                                            <router-link :to="{ name: nestedItem.route }" class="flex items-center px-4 py-2 text-base font-semibold text-gray-900 transition duration-300 dark:text-gray-100 hover:text-main-color">
+                                            <i class="mr-2 text-lg" :class="nestedItem.icon"></i> {{ nestedItem.label }} <i class="ml-auto ti ti-chevron-down" v-if="nestedItem.nested"></i>
+                                            </router-link>
+                                            <transition  enter-active-class="transition duration-500 transform ease-custom" enter-class="scale-y-0 -translate-y-1/2 opacity-0" enter-to-class="scale-y-100 translate-y-0 opacity-100" leave-active-class="transition duration-300 transform ease-custom" leave-class="scale-y-100 translate-y-0 opacity-100" leave-to-class="scale-y-0 -translate-y-1/2 opacity-0">
+                                            <ul v-show="isOptionsExpandedGrandchild" class=" top-[5.6rem] -right-[12.5rem] mt-0 bg-white divide-y w-[200px] overflow-hidden" >
+                                                <li v-for="(grandchildItem, grandchildIndex) in nestedItem.nested" :key="grandchildIndex" class="hover:bg-gray-50">
+                                                <router-link :to="{ name: grandchildItem.route, params: { type: grandchildItem.params } }"  class="block px-4 py-2 text-base font-semibold text-gray-900 transition duration-300 dark:text-gray-100 hover:text-main-color" >
                                                     <i class="mr-2 text-lg ti ti-checkup-list"></i> {{ grandchildItem.label }}
                                                 </router-link>
                                                 </li>
@@ -201,11 +197,21 @@
                         </router-link>
 
                     </li>
-                    <li class="hidden mt-5 max-xs:block w-fit">
-                        <router-link :to="{name: 'account'}" active-class="text-main-color dark:text-white" class="block px-3 py-2 text-lg font-medium text-gray-900 divide-gray-100 dark:hover:text-main-color md:border-0 md:p-0">
+                    <li class="hidden max-xs:block w-fit">
+                        <router-link :to="{name: 'account'}" active-class="text-main-color dark:text-white" class="block px-3  text-lg font-medium text-gray-900 divide-gray-100 dark:hover:text-main-color md:border-0 md:p-0">
                             Account
                         </router-link>
-                        </li>
+                    </li>
+                    <li class="hidden max-xs:block w-fit">
+                        <router-link :to="{name: 'my-reviews'}" active-class="text-main-color dark:text-white" class="block px-3 text-lg font-medium text-gray-900 divide-gray-100 dark:hover:text-main-color md:border-0 md:p-0">
+                            Submit review
+                        </router-link>
+                    </li>
+                    <li class="hidden max-xs:block w-fit">
+                        <router-link :to="{name: 'suggest-tools'}" active-class="text-main-color dark:text-white" class="block px-3 pb-2 text-lg font-medium text-gray-900 divide-gray-100 dark:hover:text-main-color md:border-0 md:p-0">
+                            Suggest a tool
+                        </router-link>
+                    </li>
                     <li class="hidden max-xs:block w-fit">
                         <a @click="handleSignOut" href="#" class=" !text-white bg-main-color ml-2 focus:ring-4 focus:ring-main-color font-medium rounded-lg text-lg px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 dark:bg-main-color dark:hover:bg-main-color focus:outline-none dark:focus:ring-main-color">
                             Sign out
