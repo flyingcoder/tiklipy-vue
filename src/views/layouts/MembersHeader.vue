@@ -4,10 +4,11 @@
     import { useRouter } from "vue-router";
     import { useAuthStore } from "../../stores/auth";
     import { Dropdown } from 'flowbite-vue';
+    import { useRoute } from 'vue-router';
     import 'animate.css';
     import 'flowbite';
 
-    
+    const route = useRoute();
     const router = useRouter();
     const isMenuHidden = ref(true);
     const classCondition = ref(true);
@@ -69,10 +70,10 @@
                 <!-- <router-link :to="{name: 'account'}" class="px-2">
                     ⭐150 
                 </router-link> -->
-                <router-link :to="{ name: 'consult' }" active-class="text-main-color dark:text-white" class="block px-3 py-2 text-lg font-medium text-gray-900 divide-gray-100 max-xs:hidden dark:hover:text-main-color md:border-0 md:p-0">
+                <router-link :to="{ name: 'consult' }" :class="{'text-white' : route.name == 'home', 'text-grey-900' : route.name != 'home'}"  active-class="text-main-color dark:text-white" class="block px-3 py-2 text-lg font-medium divide-gray-100 max-xs:hidden dark:hover:text-main-color md:border-0 md:p-0">
                     <i class="pb-1 mr-1 text-lg ti ti-atom"></i> Consult
                 </router-link>
-                <button data-collapse-toggle="mega-menu" @click="toggleMenu" type="button" class=" inline-flex items-center justify-center w-10 h-10 p-2 text-lg text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="mega-menu" aria-expanded="false">
+                <button data-collapse-toggle="mega-menu" @click="toggleMenu" type="button" class="inline-flex items-center justify-center w-10 h-10 p-2 text-lg text-gray-500 rounded-lg  lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="mega-menu" aria-expanded="false">
                     <span class="sr-only">Open main menu</span>
                     <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
@@ -110,7 +111,7 @@
                 </router-link>
             </template>
             <template #left>
-                <ul class=" relaive z-0 flex-col mt-4 text-lg font-medium lg:flex lg:flex-row lg:space-x-4 md:mt-0" :class="isMenuHidden ? 'hidden' : ''">
+                <ul class="z-0 flex-col mt-4 text-lg font-medium  relaive lg:flex lg:flex-row lg:space-x-4 md:mt-0" :class="isMenuHidden ? 'hidden' : ''">
                     <li class="self-center px-3 py-2 dropdown w-fit">
                         <router-link :to="{ name: 'home' }" class="block text-base font-medium text-gray-900 divide-gray-100 dark:hover:text-main-color md:border-0 md:p-0">
                             <i class="pb-1 mr-1 text-lg ti ti-book"></i> Home
@@ -198,7 +199,7 @@
 
                     </li>
                     <li class="hidden max-xs:block w-fit">
-                        <router-link :to="{name: 'account'}" active-class="text-main-color dark:text-white" class="block px-3  text-lg font-medium text-gray-900 divide-gray-100 dark:hover:text-main-color md:border-0 md:p-0">
+                        <router-link :to="{name: 'account'}" active-class="text-main-color dark:text-white" class="block px-3 text-lg font-medium text-gray-900 divide-gray-100 dark:hover:text-main-color md:border-0 md:p-0">
                             Account
                         </router-link>
                     </li>

@@ -3,6 +3,7 @@
     import Navigation from "../../components/Navigation.vue";
     import { useAuthStore } from "../../stores/auth";
     import { useUserStore } from "../../stores/user";
+    import { useRoute } from "vue-router";
     // import LiveChat from '../../components/LiveChat.vue';
     
     const isLoggedIn = ref(false);
@@ -10,6 +11,7 @@
     const dropdownMenu = ref(true);
     const authStore = useAuthStore();
     const userStore = useUserStore();
+    const route = useRoute();
 
     onMounted(() => {
         isLoggedIn.value = authStore.user;
@@ -37,10 +39,10 @@
 </script>
 <template>
     <!-- <LiveChat /> -->
-    <header class="relative z-40 bg-transparent ">
+    <header class="relative z-40">
         <Navigation>
             <template #right>
-                <router-link v-if="!isLoggedIn" :to="{ name: 'login' }" active-class="text-main-color dark:text-white" class="block px-3 py-2 text-lg font-medium text-white transition divide-gray-100 max-xs:hidden dark:hover:text-main-color md:border-0 md:p-0 duration-240 ">
+                <router-link v-if="!isLoggedIn" :to="{ name: 'login' }" active-class="text-main-color dark:text-white" :class="{'text-white' : route.name == 'home', 'text-grey-900' : route.name != 'home'}" class="block px-3 py-2 text-lg transition divide-gray-100 font-mediu max-xs:hidden dark:hover:text-main-color md:border-0 md:p-0 duration-240 ">
                     <i class="pb-1 mr-1 text-lg ti ti-atom"></i> Login
                 </router-link>
                 <router-link v-if="!isLoggedIn" :to="{ name: 'register' }" class="md:ml-4 cursor-pointer text-white bg-main-color focus:ring-4 focus:ring-main-color font-medium rounded-lg text-lg px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 dark:bg-main-color focus:outline-none dark:focus:ring-main-color hover:text-white">
@@ -67,17 +69,17 @@
             <template #left>
                 <ul class="flex flex-col mt-4 text-lg font-medium lg:flex-row lg:space-x-1 lg:mt-0" :class="!isMenuHidden ? '' : 'max-lg:hidden'">
                     <li>
-                        <router-link :to="{ name: 'home', hash: '#features' }" active-class="text-main-color dark:text-white" class="block py-2 pl-3 pr-4 text-base text-white cursor-pointer dark:text-white dark:hover:text-main-color dark:hover:bg-gray-700 dark:border-gray-700" >
+                        <router-link :to="{ name: 'home', hash: '#features' }" :class="{'text-white' : route.name == 'home', 'text-grey-900' : route.name != 'home'}"  active-class="text-main-color dark:text-white" class="block py-2 pl-3 pr-4 text-base cursor-pointer dark:text-white dark:hover:text-main-color dark:hover:bg-gray-700 dark:border-gray-700" >
                             <i class="pb-1 mr-1 text-lg ti ti-stars"></i> Features
                         </router-link>
                     </li>
                     <li>
-                        <router-link :to="{ name: 'home', hash: '#pricing' }" class="block py-2 pl-3 pr-4 text-base text-white cursor-pointer dark:text-white dark:hover:text-main-color dark:hover:bg-gray-700 dark:border-gray-700" active-class="text-gray-900 dark:text-white">
+                        <router-link :to="{ name: 'home', hash: '#pricing' }" :class="{'text-white' : route.name == 'home', 'text-grey-900' : route.name != 'home'}" class="block py-2 pl-3 pr-4 text-base cursor-pointer dark:text-white dark:hover:text-main-color dark:hover:bg-gray-700 dark:border-gray-700" active-class="text-main-color dark:text-white">
                             <i class="pb-1 mr-1 text-lg ti ti-tag"></i> Pricing
                         </router-link>
                     </li>
                     <li>
-                        <button @click="toggleDropdown()" id="mega-menu-dropdown-button" data-dropdown-toggle="mega-menu-dropdown" class="flex items-center w-full py-2 pl-3 pr-4 text-base font-medium text-white bg-transparent md:w-auto focus:outline-none hover:border-transparent hover:text-main-color dark:text-white focus:border-transparent focus:ring-0">
+                        <button @click="toggleDropdown()" id="mega-menu-dropdown-button" data-dropdown-toggle="mega-menu-dropdown" :class="{'text-white' : route.name == 'home', 'text-grey-900' : route.name != 'home'}"  class="flex items-center w-full py-2 pl-3 pr-4 text-base font-medium bg-transparent md:w-auto focus:outline-none hover:border-transparent hover:text-main-color dark:text-white focus:border-transparent focus:ring-0">
                             <i class="pb-1 mr-1 text-lg ti ti-info-circle"></i> About
                             <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                                 viewBox="0 0 10 6">
@@ -85,11 +87,10 @@
                                     d="m1 1 4 4 4-4"/>
                             </svg>
                         </button>
-                        <div id="mega-menu-dropdown" :class="{'hidden' : dropdownMenu}"
-                            class="absolute z-10 w-auto text-sm bg-transparent border border-gray-100 rounded-lg shadow-md dark:border-gray-700 md:grid-cols-3 dark:bg-gray-700">
+                        <div id="mega-menu-dropdown" :class="{'hidden' : dropdownMenu}" class="absolute z-10 w-auto text-sm bg-white border border-gray-100 rounded-lg shadow-md dark:border-gray-700 md:grid-cols-3 dark:bg-gray-700">
                             <div class="w-80">
                                 <ul class="space-y-4">
-                                    <router-link to="/blogs" class="text-white dark:text-white hover:text-main-color dark:hover:text-main-color" active-class="text-main-color dark:text-main-color">
+                                    <router-link to="/blogs"  class="dark:text-white hover:text-main-color dark:hover:text-main-color" active-class="text-main-color dark:text-main-color">
                                         <li class="flex p-5 font-semibold hover:bg-gray-50">
                                             <div class="pr-1"><i class="pb-1 mr-1 text-2xl ti ti-align-left"></i></div>
                                             <div class="px-2">
@@ -102,7 +103,7 @@
                                             </div>
                                         </li>
                                     </router-link>
-                                    <router-link to="/about" class="text-white dark:text-gray-400 hover:text-main-color dark:hover:text-main-color" active-class="text-main-color dark:text-main-color">
+                                    <router-link to="/about" class=" dark:text-gray-400 hover:text-main-color dark:hover:text-main-color" active-class="text-main-color dark:text-main-color">
                                         <li class="flex p-5 font-semibold hover:bg-gray-50">
                                             <div class="pr-1"><i class="pb-1 mr-1 text-2xl ti ti-info-circle"></i></div>
                                             <div class="px-2">
