@@ -63,15 +63,18 @@
 			}
         });
     }
-    
+    // const translate = () => {
+    //    const englishElement = document.getElementsByClassName('is-english');
+    //    englishElement.remove("hidden");
+    // }
 </script>
 
 <template>
     <div class="mb-5 overflow-x-hidden">
-        <div class="flex h-[1001px] w-[calc(100vw)] items-center justify-center absolute left-0 right-0 top-0 bg-center" style="background-image: url(background.gif)">
+        <div class="flex h-[951px] w-[calc(100vw)] items-center justify-center absolute left-0 right-0 top-0 bg-center" style="background-image: url(background.gif)">
             <div class="sm:w-[35rem] text-center">
-                <h1 class="font-bold text-2xl sm:text-6xl mb-8 text-white drop-shadow-[10px_10px_2px#000] ">The ultimate companion for every teacher.</h1>
-                <p class=" text-white mb-10 drop-shadow-[0px_2px_10px_#24242a] text-lg bg-[#24242a]">Empowering educators, Fetchy integrates AI. While meetings and lesson planning continue, your methods evolve radically.</p>
+                <h1 class="font-bold text-5xl sm:text-6xl mb-8 text-white drop-shadow-[10px_10px_2px#000] ">The ultimate companion for everyone.</h1>
+                <p class=" text-white mb-10 drop-shadow-[0px_2px_10px_#24242a] text-lg bg-[#24242a]">Fetchy empowers all with AI for enhanced learning. Methods evolve with teaching adaptation.</p>
                 <!-- <router-link :to="{ name: 'pricing' }">
                     <button type="button" @ class="transition duration-240 rounded-md bg-main-color hover:shadow-md hover:shadow-[#969cf9] hover:bg-secondary-color border-0 w-fit bg-main-color text-white focus:ring-4 focus:outline-none focus:ring-secondary-color dark:focus:ring-main-color font-medium rounded-lg text-lg px-5 py-2.5 inline-flex justify-center text-center">
                         Request Access
@@ -83,9 +86,9 @@
             </div>
         </div>
         <div class="overflow-x-hidden">
-            <div class="mt-[1000px] w-full absolute left-0 top-0 bg-center bg-black py-10 flex overflow-x-hidden justify-center" @mouseenter="toggleAnimation" @mouseleave="toggleAnimation">
-                <div :class="[hovered ? '' : 'animate-r_marquee2', { 'animation-paused': animationPaused }]" class=" flex justify-around max-w-none w-full ">
-                    <div v-for="(testimonial, index) in testimonials" :key="index + '-testi-cards'" class="w-[200rem] m-2 sm:w-[23%] text-4xl  bg-white p-5 rounded-2xl flex flex-wrap content-between">
+            <div :style="'width: '+ 26 * testimonials?.length +'rem'" class="mt-[950px] absolute left-0 top-0 bg-center bg-gradient-to-b from-[#24242a] from-40% py-10 flex overflow-x-hidden justify-center" @mouseenter="toggleAnimation" @mouseleave="toggleAnimation">
+                <div :style="'animation-duration:'+5 * testimonials?.length +'s'" :class="[hovered ? '' : 'animate-r_marquee2', { 'animation-paused': animationPaused }]" class=" flex justify-around max-w-none w-full">
+                    <div v-for="(testimonial, index) in testimonials" :key="index + '-testi-cards'" class="w-[26rem] mr-10 text-4xl  bg-white p-5 rounded-2xl flex flex-wrap content-between">
                         <div class="">
                             <div class="text-lg stars flex flex-wrap mb-5">
                                 {{ testimonial.star }}
@@ -93,7 +96,7 @@
                             <p class="text-xl text-black "> {{ testimonial.review }}</p>
                         </div>
                         <div class="mt-5 flex flex-wrap items-center gap-5">
-                            <img src="hero.webp" alt="hero" class="w-16">
+                            <img :src="testimonial.profile" alt="hero" class="w-16 rounded-full">
                             <div class="">
                                 <h5 class="text-black text-lg font-bold leading-3 mb-1 ">{{ testimonial.name }}</h5>
                                 <p class="text-sm text-black leading-3	font-light">{{ testimonial.title }}</p>
@@ -101,8 +104,8 @@
                         </div>
                     </div>
                 </div>
-                <div :class="[hovered ? '' : 'animate-r_marquee', { 'animation-paused': animationPaused }]" class=" flex  justify-around max-w-none w-full absolute ">
-                    <div v-for="(testimonial, index) in testimonials" :key="index + '-testi-cards'" class="w-[200rem] m-2 sm:w-[23%] text-4xl  bg-white p-5 rounded-2xl flex flex-wrap content-between ">
+                <div :style="'animation-duration:'+5 * testimonials?.length +'s'" :class="[hovered ? '' : 'animate-r_marquee', { 'animation-paused': animationPaused }]" class=" flex  justify-around max-w-none w-full absolute">
+                    <div v-for="(testimonial, index) in testimonials" :key="index + '-testi-cards'" class="w-[26rem] mr-10 text-4xl  bg-white p-5 rounded-2xl flex flex-wrap content-between ">
                         <div class="">
                             <div class="text-lg stars flex flex-wrap mb-5">
                                 {{ testimonial.star }}
@@ -110,7 +113,7 @@
                             <p class="text-xl text-black "> {{ testimonial.review }}</p>
                         </div>
                         <div class="mt-5 flex flex-wrap items-center gap-5">
-                            <img src="hero.webp" alt="hero" class="w-16">
+                            <img :src="testimonial.profile" alt="hero" class="w-16 rounded-full">
                             <div class="">
                                 <h5 class="text-black text-lg font-bold leading-3 mb-1 ">{{ testimonial.name }}</h5>
                                 <p class="text-sm text-black leading-3	font-light">{{ testimonial.title }}</p>
@@ -122,25 +125,10 @@
         </div>
         <div class="w-full rounded-xl px-3 xs:p-6  mt-[calc(1200px)] overflow-hidden">
             <!-- title -->
-            <div id="features" class="pb-8 pt-10">
-                <div class="container mt-10 mx-auto">
-                    <div class="block justify-center">
-                        <h2 class="text-center text-4xl font-semibold text-gray-800 text-main-color">Prepared, retrieve, finished.</h2>
-                        <p class="text-center text-black mt-8 text-gray-700 text-xl mb-11">Accomplish work tasks immediately. Generate feedback, newsletters, and other content swiftly - all in a matter of seconds.</p>
-                    </div>
-                </div>
-                <div class="feature-image max-w-screen-lg max-lg:px-10 mx-auto mb-[5vh]">
-                    <img class="transition duration-150 ease-linear hover:-skew-x-[0.3deg] rounded-b-xl max-sm:hidden" src="Features.png" alt="">
-                    <img class="transition duration-150 ease-linear hover:-skew-x-[0.3deg] rounded-b-xl block sm:hidden m-auto" src="mobile-feature.png" alt="">
-                </div>
-            </div>
-            <div id="pricing" class="pb-8">
-                <price-selection />
-            </div>
             <div class="">
                 <div class="my-10 sm:w-[40rem] m-auto ">
                     <h2 class="text-main-color text-center text-4xl sm:text-3xl font-semibold mb-5">Discover effective strategies for handling challenging student behavior.</h2>
-                    <div class="text-black text-center">Immerse yourself in over 50 potent teaching tools. Write, organize, and discover boundless inspiration. Also, access expert advice whenever you need.</div>
+                    <div class="text-black text-center">Immerse yourself in over 30 potent teaching tools. Write, organize, and discover boundless inspiration. Also, access expert advice whenever you need.</div>
                 </div>
                 <!-- Contents -->
                 <div class="flex flex-wrap my-10 justify-center sm:justify-between">
@@ -188,9 +176,6 @@
                     </div>
                 </div>
             </div>
-            
-
-
              <!-- Title -->
             <div class="mt-[5rem] mb-10 sm:w-[40rem] m-auto ">
                 <h2 class="text-main-color text-center text-3xl font-semibold mb-5">Plus, there's more!</h2>
@@ -266,6 +251,9 @@
                     <h2 class="text-[1.2rem] mb-2 sm:text-2xl text-main-color font-bold dark:text-white">Generating Volunteer Sign-Up Forms</h2>
                     <div class="text-black">Creating forms to attract and manage volunteers efficiently.</div>
                 </div>
+            </div>
+            <div id="pricing" class="pb-8">
+                <price-selection />
             </div>
         </div>
     </div>

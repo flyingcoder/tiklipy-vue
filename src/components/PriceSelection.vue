@@ -1,8 +1,10 @@
 <script setup>
-    import { onMounted, ref } from "vue";
+    import { computed, onMounted, ref } from "vue";
     import SignUp from './../views/sign/Up.vue';
     import { useRouter } from 'vue-router';
     import { getFirestore, getDocs, where, query, collection, orderBy,} from "firebase/firestore";
+    import Swal from 'sweetalert2';
+    import 'sweetalert2/dist/sweetalert2.min.css';
 
     const router = useRouter();
     const products = ref([]);
@@ -12,7 +14,8 @@
     const user = ref();
 
     onMounted(async () => {
-        fetchProducts();
+        await fetchProducts();
+        console.log(products)
     });
 
     const createSub = (price_id) => {
@@ -26,6 +29,7 @@
     };
 
     const fetchProducts = async () => {
+
         const productsRes = await getDocs(
             query(
                 collection(
@@ -52,22 +56,56 @@
             products.value.push({
                 id: product.id,
                 ...product.data(),
-                prices: priceRes.docs.map( (price) => {
-                    return {
-                        id: price.id,
-                        ...price.data(),
-                    };
-                })
+                prices: [{
+                    id: priceRes.docs[0].id,
+                    ...priceRes.docs[0].data(),
+                }]
             });
         });
     };
+    const emailLogin = () => {
+        Swal.fire({
+            title: 'Email Address',
+            input: 'email',
+            inputPlaceholder: 'Example@email.xxx',
+            customClass: {
+                title: 'text-main-color',
+                input: 'text-gray-900 font-semibold border border-gray-300 rounded-full bg-white focus:ring-transparent focus:border-main-color dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-transparent'
+            }, 
+            showCancelButton: true,
+            confirmButtonText: 'Submit',
+            showLoaderOnConfirm: true,
+            preConfirm: (email) => {
+                return new Promise((resolve) => {
+                    setTimeout(() => {
+                    if (email === 'example@email.com') {
+                        Swal.fire.showValidationError(
+                        'This email is already taken.'
+                        )
+                    }
+                    resolve()
+                    }, 2000)
+                })
+            },
+            allowOutsideClick: false
+        }).then((result) => {
+            if (result.value) {
+			    Swal.fire({
+			      type: 'success',
+			      title: 'Thankyou',
+			      html: 'Submitted email: ' + result.value
+			    })
+                email.value = result.value
+			}
+        });
+    }
 </script>
 
 <template>
     <SignUp :show-modal="showRegister" :selected-price="selectedPrice"/>
     <div class="mt-10 text-center">
-        <h2 class="text-4xl font-semibold text-center text-main-color">Teacher-Friendly Pricing</h2>
-        <p class="mt-8 text-xl text-center text-black text-gray-700 mb-11 mx-4">Elevate efficiency and enhance work quality, all for the price of two cokes</p>
+        <h2 class="text-4xl font-semibold text-center text-main-color">Affordable pricing</h2>
+        <p class="mt-8 text-xl text-center text-black text-gray-700 mb-11 mx-4">Elevate efficiency and enhance work quality</p>
         
         <div v-for="(product, index) in products" :key="index + '-product'" 
             class="flex flex-wrap items-stretch justify-center mx-auto my-3 md:my-10 ">
@@ -79,10 +117,10 @@
                 </h5>
                 <div class="flex items-baseline justify-center text-gray-900 dark:text-white">
                     <span class="text-3xl font-semibold">
-                        $
+                        ₱
                     </span>
                     <span class="text-5xl font-extrabold tracking-tight">
-                        {{ price.unit_amount / 100 }}
+                        {{ price.unit_amount -500 }}
                     </span>
                     <span class="ml-1 text-xl font-normal text-gray-500 dark:text-gray-400">
                         /{{ price.interval }}ly
@@ -133,10 +171,13 @@
                         </span>
                     </li>
                 </ul>
-                <button :class="isLoading ? 'bg-gray-500 hover:bg-gra-500 cursor-not-allowed' : ' hover:bg-secondary-color border-0'" 
+                <!-- <button :class="isLoading ? 'bg-gray-500 hover:bg-gra-500 cursor-not-allowed' : ' hover:bg-secondary-color border-0'" 
                     :disabled="!price.id || isLoading" @click="createSub(price.id)" type="button" 
                     class="transition duration-240 rounded-md bg-main-color hover:shadow-md hover:shadow-[#646cffa6] text-white focus:ring-4 focus:outline-none focus:ring-main-color dark:focus:ring-main-color font-medium rounded-lg text-lg px-5 py-2.5 inline-flex justify-center w-full text-center">
                     {{ isLoading ? "Loading..." : "Get 1 Month Free Now!" }}
+                </button> -->
+                <button type="button" @click="emailLogin()" class="transition uppercase duration-240 hover:shadow-md hover:shadow-[#969cf9] hover:bg-secondary-color border-0 w-fit bg-main-color text-white focus:ring-4 focus:outline-none focus:ring-secondary-color dark:focus:ring-main-color font-semibold rounded-lg text-lg px-5 py-2.5 inline-flex justify-center text-center">
+                    Get 1 Month Free Now!
                 </button>
             </div>
         </div>
