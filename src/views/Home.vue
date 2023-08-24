@@ -56,8 +56,8 @@
             if (result.value) {
 			    Swal.fire({
 			      type: 'success',
-			      title: 'Thankyou',
-			      html: 'Submitted email: ' + result.value
+			      title: 'Thank You',
+			      html: 'Email: ' + result.value
 			    })
                 email.value = result.value
 			}
