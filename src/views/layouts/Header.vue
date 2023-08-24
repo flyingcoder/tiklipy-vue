@@ -28,15 +28,15 @@
         dropdownMenu.value = !dropdownMenu.value;
     };
 
-    const scrollToSection = (sectionId) => {
-        const section = document.getElementById(sectionId);
-        if (section) {
-            section.scrollIntoView({ behavior: 'smooth' });
-        }
-    }
+    // const scrollToSection = (sectionId) => {
+    //     const section = document.getElementById(sectionId);
+    //     if (section) {
+    //         section.scrollIntoView({ behavior: 'smooth' });
+    //     }
+    // }
 </script>
 <template>
-    <LiveChat />
+    <!-- <LiveChat /> -->
     <header class="bg-white relative  z-40 ">
         <Navigation>
             <template #right>
@@ -67,12 +67,12 @@
             <template #left>
                 <ul class="flex flex-col mt-4 text-lg font-medium lg:flex-row lg:space-x-1 lg:mt-0" :class="!isMenuHidden ? '' : 'max-lg:hidden'">
                     <li>
-                        <router-link @click="scrollToSection('features')" :to="{ name: 'home' }" active-class="text-gray-900 dark:text-white" class="cursor-pointer block py-2 pl-3 pr-4 text-base text-gray-900 dark:text-white dark:hover:text-main-color dark:hover:bg-gray-700 dark:border-gray-700" >
+                        <router-link :to="{ name: 'home', hash: '#features' }" active-class="text-gray-900 dark:text-white" class="cursor-pointer block py-2 pl-3 pr-4 text-base text-gray-900 dark:text-white dark:hover:text-main-color dark:hover:bg-gray-700 dark:border-gray-700" >
                             <i class="pb-1 mr-1 text-lg ti ti-stars"></i> Features
                         </router-link>
                     </li>
                     <li>
-                        <router-link @click="scrollToSection('pricing')" :to="{ name: 'home' }" class="block py-2 pl-3 pr-4 text-base cursor-pointer text-gray-900 dark:text-white dark:hover:text-main-color dark:hover:bg-gray-700 dark:border-gray-700" active-class="text-gray-900 dark:text-white">
+                        <router-link :to="{ name: 'home', hash: '#pricing' }" class="block py-2 pl-3 pr-4 text-base cursor-pointer text-gray-900 dark:text-white dark:hover:text-main-color dark:hover:bg-gray-700 dark:border-gray-700" active-class="text-gray-900 dark:text-white">
                             <i class="pb-1 mr-1 text-lg ti ti-tag"></i> Pricing
                         </router-link>
                     </li>
