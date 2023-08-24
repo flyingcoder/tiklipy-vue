@@ -1,5 +1,16 @@
 <script setup>
+    import { ref } from 'vue';
     import { Input, Button } from 'flowbite-vue';
+    import AddNewsletterModel from "../../models/newsLetters";
+
+    const addNewsLetter = new AddNewsletterModel();
+    const email = ref('');
+
+    const saveToFireBase = () => {
+        if(email.value)
+            addNewsLetter.addNewsletter(email.value);
+    }
+
     const scrollToSection = (sectionId) => {
         const section = document.getElementById(sectionId);
         if (section) {
@@ -62,12 +73,12 @@
                         <div class="max-xs:text-center basis-full lg:basis-3/12">
                             <div class="text-gray-700 mb-5 font-semibold">Subscribe to Our Newsletter</div>
                             <div class="w-full">
-                                <Input size="lg" type="email" placeholder="Email Address" class="bg-transparent-input">
+                                <Input size="lg" type="email" v-model="email" placeholder="Email Address" class="bg-transparent-input">
                                     <template #suffix>
-                                    <Button class="border-0 transition duration-240 rounded-md bg-main-color hover:shadow-md hover:shadow-[#969cf9] hover:bg-secondary-color max-xs:hidden">Join</Button>
+                                    <Button @click="saveToFireBase" class="border-0 transition duration-240 rounded-md bg-main-color hover:shadow-md hover:shadow-[#969cf9] hover:bg-secondary-color max-xs:hidden">Join</Button>
                                     </template>
                                 </Input>
-                                <Button class="!text-base xs:hidden w-full mt-3 py-4  border-0 transition duration-240 rounded-md bg-main-color hover:shadow-md hover:shadow-[#969cf9] hover:bg-secondary-color">Join</Button>
+                                <Button @click="saveToFireBase" class="!text-base xs:hidden w-full mt-3 py-4  border-0 transition duration-240 rounded-md bg-main-color hover:shadow-md hover:shadow-[#969cf9] hover:bg-secondary-color">Join</Button>
                             </div>
                             <div class="max-xs:text-black mt-3  text-sm">We care about your privacy</div>
                         </div>
