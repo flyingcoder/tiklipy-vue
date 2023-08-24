@@ -36,7 +36,7 @@
     }
 </script>
 <template>
-    <LiveChat />
+    <!-- <LiveChat /> -->
     <header class="bg-white relative  z-40 ">
         <Navigation>
             <template #right>
