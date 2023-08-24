@@ -71,34 +71,34 @@
                 <router-link :to="{ name: 'consult' }" active-class="text-main-color dark:text-white" class="block px-3 py-2 text-lg font-medium text-gray-900 divide-gray-100 max-xs:hidden dark:hover:text-main-color md:border-0 md:p-0">
                     <i class="pb-1 mr-1 text-lg ti ti-atom"></i> Consult
                 </router-link>
-                <button data-collapse-toggle="mega-menu" @click="toggleMenu" type="button" class="inline-flex items-center justify-center w-10 h-10 p-2 text-lg text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="mega-menu" aria-expanded="false">
+                <button data-collapse-toggle="mega-menu" @click="toggleMenu" type="button" class=" inline-flex items-center justify-center w-10 h-10 p-2 text-lg text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="mega-menu" aria-expanded="false">
                     <span class="sr-only">Open main menu</span>
                     <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
                     </svg>
                 </button>
-                <dropdown placement="left" class=" max-xs:hidden  cursor-pointer custom-css-dropdown pl-4 !outline-0 !border-0" >
+                <dropdown placement="left" class=" max-xs:hidden relative !z-[99]   cursor-pointer custom-css-dropdown pl-4 !outline-0 !border-0" >
                     <template #trigger>
                         <img :src="authStore.user.photoURL" alt="" width="40" class="rounded-full">
                     </template>
-                    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
-                        <li>
-                            <router-link :to="{name: 'account'}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                    <ul class="relative !z-[99] py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+                        <li class="relative !z-[99] ">
+                            <router-link :to="{name: 'account'}" class="relative !z-[99]  block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
                                 Account
                             </router-link>
                         </li>
-                        <li>
-                            <router-link :to="{name: 'my-reviews'}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                        <li class="relative !z-[99] ">
+                            <router-link :to="{name: 'my-reviews'}" class=" relative !z-[99]  block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
                                 Submit review
                             </router-link>
                         </li>
-                        <li>
-                            <router-link :to="{name: 'suggest-tools'}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                        <li class="relative !z-[99] ">
+                            <router-link :to="{name: 'suggest-tools'}" class="relative !z-[99]  block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
                                 Suggest a tool
                             </router-link>
                         </li>
-                        <li>
-                            <a  @click="handleSignOut" href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sign out</a>
+                        <li class="relative !z-[99] ">
+                            <a  @click="handleSignOut" href="#" class="relative !z-[99]  block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sign out</a>
                         </li>
                     </ul>
                 </dropdown>
@@ -109,18 +109,18 @@
                 </router-link>
             </template>
             <template #left>
-                <ul class="flex-col mt-4 text-lg font-medium lg:flex lg:flex-row lg:space-x-4 md:mt-0" :class="isMenuHidden ? 'hidden' : ''">
-                    <li class="self-center px-3 py-2 dropdown">
+                <ul class=" relaive z-0 flex-col mt-4 text-lg font-medium lg:flex lg:flex-row lg:space-x-4 md:mt-0" :class="isMenuHidden ? 'hidden' : ''">
+                    <li class="self-center px-3 py-2 dropdown w-fit">
                         <router-link :to="{ name: 'home' }" class="block text-base font-medium text-gray-900 divide-gray-100 dark:hover:text-main-color md:border-0 md:p-0">
                             <i class="pb-1 mr-1 text-lg ti ti-book"></i> Home
                         </router-link>
                     </li>
-                    <li class="self-center px-3 py-2 dropdown">
+                    <li class="self-center px-3 py-2 dropdown w-fit">
                         <router-link :to="{ name: 'dashboard' }" class="block text-base font-medium text-gray-900 divide-gray-100 dark:hover:text-main-color md:border-0 md:p-0">
                             <i class="pb-1 mr-1 text-lg ti ti-book"></i> Tools
                         </router-link>
                     </li>
-                    <li class="self-center px-3 py-2 dropdown" @mouseenter="isOptionsExpanded = true" @mouseleave="isOptionsExpanded = false">
+                    <li class="self-center px-3 py-2 dropdown w-fit" @mouseenter="isOptionsExpanded = true" @mouseleave="isOptionsExpanded = false">
                         <a class="flex items-center text-base text-gray-900 transition duration-300 bg-transparent cursor-pointer hover:border-transparent focus:border-transparent dark:text-gray-100 hover:text-main-color">
                             <i class="mr-2 text-lg ti ti-settings"></i>
                             Resources
@@ -194,18 +194,18 @@
                             </ul>
                         </transition>
                     </li>
-                    <li class="hidden max-xs:block">
+                    <li class="hidden max-xs:block w-fit">
                         <router-link :to="{ name: 'consult' }" active-class="text-main-color dark:text-white" class="block px-3 py-2 text-lg font-medium text-gray-900 divide-gray-100 dark:hover:text-main-color md:border-0 md:p-0">
                             <i class="pb-1 mr-1 text-lg ti ti-atom"></i> Consult
                         </router-link>
 
                     </li>
-                    <li class="hidden mt-5 max-xs:block">
+                    <li class="hidden mt-5 max-xs:block w-fit">
                         <router-link :to="{name: 'account'}" active-class="text-main-color dark:text-white" class="block px-3 py-2 text-lg font-medium text-gray-900 divide-gray-100 dark:hover:text-main-color md:border-0 md:p-0">
                             Account
                         </router-link>
                         </li>
-                    <li class="hidden max-xs:block ">
+                    <li class="hidden max-xs:block w-fit">
                         <a @click="handleSignOut" href="#" class=" !text-white bg-main-color ml-2 focus:ring-4 focus:ring-main-color font-medium rounded-lg text-lg px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 dark:bg-main-color dark:hover:bg-main-color focus:outline-none dark:focus:ring-main-color">
                             Sign out
                         </a>
