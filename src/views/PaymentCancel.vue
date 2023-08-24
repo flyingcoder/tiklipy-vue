@@ -12,18 +12,18 @@ const generateDiscount = () => {
 </script>
 
 <template>
-    <div class="flex items-center justify-center pt-20 max-md:px-3  m-auto mb-10">
-        <div class=" bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700  max-md:px-3">
-            <img src="../Thank-you.gif" alt="" class=" m-auto mt-10">\
+    <div class="flex items-center justify-center pt-20 m-auto mb-10 max-md:px-3">
+        <div class="bg-white border border-gray-200 rounded-lg shadow  dark:bg-gray-800 dark:border-gray-700 max-md:px-3">
+            <img src="/Thank-you.gif" alt="" class="m-auto mt-10 ">
             <div class="max-w-[40rem] m-auto sm:mx-10 mb-10">
                 <div class="text-black">
-                    <h2 class="sm:text-3xl text-xl font-bold sm:mb-10 mb-5 text-center text-main-color">Subscription Cancellation Confirmation</h2>
+                    <h2 class="mb-5 text-xl font-bold text-center sm:text-3xl sm:mb-10 text-main-color">Subscription Cancellation Confirmation</h2>
 
-                    <p class="text-center mb-5">Your satisfaction is our priority, and we're here to ensure a smooth process. We understand that circumstances change, and we appreciate the time you've spent with us.</p>
+                    <p class="mb-5 text-center">Your satisfaction is our priority, and we're here to ensure a smooth process. We understand that circumstances change, and we appreciate the time you've spent with us.</p>
                     
-                    <p class="text-center mb-5">As a token of our appreciation for considering our service, we're delighted to offer you an exclusive 10% discount on any future subscription you may choose.</p>
+                    <p class="mb-5 text-center">As a token of our appreciation for considering our service, we're delighted to offer you an exclusive 10% discount on any future subscription you may choose.</p>
 
-                    <h3 class="text-xl text-md font-bold">Why Did You Decide to Cancel?</h3>
+                    <h3 class="text-xl font-bold text-md">Why Did You Decide to Cancel?</h3>
 
                     <p class="mb-5">Your feedback is incredibly valuable to us. If you're open to sharing your reasons for canceling, we're all ears. Your insights will help us improve and provide a better experience for all our users.</p>
 
@@ -34,10 +34,10 @@ const generateDiscount = () => {
                             </svg>
                             Get discount
                         </button>
-                        <p :class="hasError?'visible':'hidden'" class="text-black ml-5">Discount Code Copied!</p>
+                        <p :class="hasError?'visible':'hidden'" class="ml-5 text-black">Discount Code Copied!</p>
                     </div>
                     
-                    <h3 class="text-xl text-md font-bold mb-1">Next Steps</h3>
+                    <h3 class="mb-1 text-xl font-bold text-md">Next Steps</h3>
                     <ul class="mb-5 ml-5 list-disc">
                         <li><strong>Personalized Assistance:</strong> Have questions or need assistance? Our friendly support team is ready to help. Contact us at [provide contact details] for any guidance you may need.</li>
                         <li><strong>Reconsider with a Discount:</strong> Should you decide to give us another try, your 10% discount awaits, making your subscription even more rewarding.</li>

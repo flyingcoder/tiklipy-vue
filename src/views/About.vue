@@ -22,17 +22,17 @@
                 </div>
             <div class="flex flex-wrap justify-around  mt-7">
                 <div class="block w-96 mt-5">
-                    <img src="boss.svg" class="mx-auto mb-4" alt="Gift" width="150" height="150">
+                    <img src="/boss.svg" class="mx-auto mb-4" alt="Gift" width="150" height="150">
                     <h2 class="text-2xl font-semibold text-gray-800 text-center mb-4">Crafted by a Teaching Professional</h2>
                     <p class="text-lg text-gray-500 text-center">Tiklipy was meticulously designed by an experienced educator who deeply understands the needs of fellow teachers.</p>
                 </div>
                 <div class="block w-96 mt-5">
-                    <img src="Graduation-cap.svg" class="mx-auto  mb-4" alt="Gift" width="150" height="150">
+                    <img src="/Graduation-cap.svg" class="mx-auto  mb-4" alt="Gift" width="150" height="150">
                     <h2 class="text-2xl font-semibold text-gray-800 text-center mb-4">AI possessing an educational degree</h2>
                     <p class="text-lg text-gray-500 text-center">Our AI is far from ordinary; it's uniquely educated in every facet of teaching.</p>
                 </div>
                 <div class="block w-96 mt-5">
-                    <img src="Trophy.svg" class="mx-auto mb-4" alt="Gift" width="150" height="150">
+                    <img src="/Trophy.svg" class="mx-auto mb-4" alt="Gift" width="150" height="150">
                     <h2 class="text-2xl font-semibold text-gray-800 text-center mb-4">Honoring our champions</h2>
                     <p class="text-lg text-gray-500 text-center">Our goal is to serve as a steadfast teaching companion, prioritizing the requirements of educators above everything else.</p>
                 </div>
@@ -41,7 +41,7 @@
         <div class="container mx-auto">
             <div class="flex  flex-wrap mt-7 pt-16">
                 <div class="block lg:w-1/2 lg:px-10 place-self-center">
-                    <img src="creator.png" class="mx-auto mb-4" alt="Gift" >
+                    <img src="/creator.png" class="mx-auto mb-4" alt="Gift" >
                 </div>
                 <div class="block lg:w-1/2  py-4 place-self-center">
                     <h2 class="text-4xl font-semibold text-gray-800 mb-4 max-sm:text-center">Words from the creators</h2>

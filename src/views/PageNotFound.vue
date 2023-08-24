@@ -13,7 +13,7 @@
     </div>
     <div class="flex items-center justify-center pt-20 max-md:px-3  m-auto mb-10">
         <div class=" bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700  text-center max-md:px-3">
-            <img src="404.gif" alt="" class=" m-auto mt-10">
+            <img src="/404.gif" alt="" class=" m-auto mt-10">
             <div class="max-w-[40rem] m-auto mb-10">
                 <div class="mb-10">
                     <h1 class="text-main-color max-xs:text-2xl text-4xl  lg:text-5xl text-black font-bold mb-5">Page Not Found</h1>

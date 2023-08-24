@@ -4,8 +4,8 @@
 
 <template>
     <section class="bg-secondary-color dark:bg-gray-900">
-        <div class="py-2 px-4 mx-auto max-w-screen-xl text-center lg:py-16">
-            <h1 class="mb-9 text-4xl pt-7 font-semibold tracking-tight leading-none text-white md:text-3xl lg:text-5xl dark:text-white">How can Tiklipy help you effectively?</h1>
+        <div class="max-w-screen-xl px-4 py-2 mx-auto text-center lg:py-16">
+            <h1 class="text-4xl font-semibold leading-none tracking-tight text-white mb-9 pt-7 md:text-3xl lg:text-5xl dark:text-white">How can Tiklipy help you effectively?</h1>
            <div>
                 <Input size="lg" placeholder="Enter your search query " class="!outline-transparent !border-0 !border-transparent">
                     <template #prefix>
@@ -15,18 +15,18 @@
                     <Button class="max-xs:hidden bg-main-color font-semibold outline-transparent !border-0 border-transparent hover:bg-secondary-color">Search</Button>
                     </template>
                 </Input>
-                <Button class="w-full xs:hidden mt-2 bg-main-color hover:bg-white font-semibold focus:outline-transparent focus:border-transparent">Search</Button>
+                <Button class="w-full mt-2 font-semibold xs:hidden bg-main-color hover:bg-white focus:outline-transparent focus:border-transparent">Search</Button>
            </div>
-           <p class="text-lg my-5 font-light">Commonly Addressed Subjects: Tiklipy's Functionality, Billing Queries, and FAQs.</p>
+           <p class="my-5 text-lg font-light">Commonly Addressed Subjects: Tiklipy's Functionality, Billing Queries, and FAQs.</p>
         </div>
     </section>
-    <div class="flex flex-wrap text-black mt-16 justify-between px-3 ">
+    <div class="flex flex-wrap justify-between px-3 mt-16 text-black ">
         <router-link class="flex w-full justify-center md:w-[48%] lg:w-[32%] md:max-w-[30rem]" :to="{name: 'generate'}">
             <the-card href="#" class=" bg-white rounded-lg mb-5 flex border-none shadow-none hover:bg-white hover:shadow-md bg-[url('/p-1.png')] bg-no-repeat bg-contain" style="">
-                <div class="p-4  dark:bg-gray-800 dark:border-gray-700">
-                    <img src="tiklipy-logo-icon.png" class="mr-5 mb-7" width="70" alt="">
+                <div class="p-4 dark:bg-gray-800 dark:border-gray-700">
+                    <img src="/tiklipy-logo-icon.png" class="mr-5 mb-7" width="70" alt="">
                     <div class="flex flex-col justify-between leading-normal">
-                        <h5 class="mb-2 text-2xl font-bold tracking-tight  dark:text-white">Starting Your Tiklipy Journey</h5>
+                        <h5 class="mb-2 text-2xl font-bold tracking-tight dark:text-white">Starting Your Tiklipy Journey</h5>
                         <p class="font-normal text-gray-500 text-md dark:text-gray-400">Embarking on Your Tiklipy Adventure: A Comprehensive Guide</p>
                     </div>
                 </div>
@@ -34,10 +34,10 @@
         </router-link>
         <router-link class="flex w-full justify-center md:w-[48%] lg:w-[32%] md:md:max-w-[30rem] " :to="{name: 'generate'}">
             <the-card href="#" class=" bg-white rounded-lg  mb-5 flex border-none shadow-none hover:bg-white hover:shadow-md bg-[url('/p-1.png')] bg-no-repeat bg-contain" style="">
-                <div class="p-4  dark:bg-gray-800 dark:border-gray-700">
-                    <img src="tiklipy-logo-icon.png" class="mr-5 mb-7" width="70" alt="">
+                <div class="p-4 dark:bg-gray-800 dark:border-gray-700">
+                    <img src="/tiklipy-logo-icon.png" class="mr-5 mb-7" width="70" alt="">
                     <div class="flex flex-col justify-between leading-normal">
-                        <h5 class="mb-2 text-2xl font-bold tracking-tight  dark:text-white">Tiklipy Insights and Techniques</h5>
+                        <h5 class="mb-2 text-2xl font-bold tracking-tight dark:text-white">Tiklipy Insights and Techniques</h5>
                         <p class="font-normal text-gray-500 text-md dark:text-gray-400">Boosting Tool Performance for Enhanced Outcomes with Tiklipy</p>
                     </div>
                 </div>
@@ -45,10 +45,10 @@
         </router-link>
         <router-link class="flex w-full justify-center md:w-[48%] lg:w-[32%] md:max-w-[30rem] " :to="{name: 'generate'}">
             <the-card href="#" class="bg-white rounded-lg  mb-5 flex border-none shadow-none hover:bg-white hover:shadow-md bg-[url('/p-1.png')] bg-no-repeat bg-contain" style="">
-                <div class="p-4  dark:bg-gray-800 dark:border-gray-700">
-                    <img src="tiklipy-logo-icon.png" class="mr-5 mb-7" width="70" alt="">
+                <div class="p-4 dark:bg-gray-800 dark:border-gray-700">
+                    <img src="/tiklipy-logo-icon.png" class="mr-5 mb-7" width="70" alt="">
                     <div class="flex flex-col justify-between leading-normal">
-                        <h5 class="mb-2 text-2xl font-bold tracking-tight  dark:text-white">Ethical Considerations with Tiklipy</h5>
+                        <h5 class="mb-2 text-2xl font-bold tracking-tight dark:text-white">Ethical Considerations with Tiklipy</h5>
                         <p class="font-normal text-gray-500 text-md dark:text-gray-400">Navigating the Ethical Challenges of AI in Education with Tiklipy</p>
                     </div>
                 </div>
