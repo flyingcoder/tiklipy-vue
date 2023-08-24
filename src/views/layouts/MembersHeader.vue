@@ -16,7 +16,7 @@
     const isOptionsExpandedGrandchild = ref(false);
     const dropdownItems = ref([
         { label: "All Resources", route: "resources", params: 'all',icon: "ti ti-address-book" },
-        { label: "Reports", route: "lessons", icon: "ti ti-file-analytics" },
+        { label: "Reports", route: "resources", params: 'reports', icon: "ti ti-file-analytics" },
         {
             label: "Lessons",
             icon: "ti ti-checkbox",
