@@ -39,7 +39,7 @@
                 <Button type="submit" size="lg" class="w-full bg-main-color text-center hover:bg-secondary-color mt-4 border-0 text-sm font-semibold">Submit</Button>
             </div>
         </div>
-        <div class="md:w-[48%] lg:w-[60%] p-6 bg-white rounded-lg shadow-md m-1 lg:mx-3 ">
+        <div class="md:w-[48%] lg:w-[60%] p-6 bg-[#fbfbfb] rounded-lg shadow-md m-1 lg:mx-3 ">
             <img src="/bongo-cat/slap-cat.gif" alt="" class="m-auto w-40 md:w-fit">
         </div>
     </div>
