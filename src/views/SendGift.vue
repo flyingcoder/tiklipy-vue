@@ -11,7 +11,7 @@
                 <div class="justify-between flex text-gray-700 text-base font-medium">
                     <div class="self-center">1 Month Subscription</div>
                     <div>
-                        <span class="pr-3">$10</span>
+                        <span class="pr-3">₱500</span>
                         <Button class="border-0 bg-main-color font-semibold transition duration-240 rounded-md hover:bg-secondary-color hover:shadow-md hover:shadow-[#646cffa6]">Buy</Button>
                     </div>
                     
@@ -37,7 +37,7 @@
                 <div class="justify-between flex text-gray-700 text-base font-medium">
                     <div class="self-center">3 Months Subscription</div>
                     <div>
-                        <span class="pr-3">$30</span>
+                        <span class="pr-3">₱1500</span>
                         <Button class="border-0 bg-main-color font-semibold transition duration-240 rounded-md hover:bg-secondary-color hover:shadow-md hover:shadow-[#646cffa6]">Buy</Button>
                     </div>
                     
@@ -63,7 +63,7 @@
                 <div class="justify-between flex text-gray-700 text-base font-medium">
                     <div class="self-center">1 Year Subscription</div>
                     <div>
-                        <span class="pr-3">$99</span>
+                        <span class="pr-3">₱3500</span>
                         <Button class="border-0 bg-main-color font-semibold transition duration-240 rounded-md hover:bg-secondary-color hover:shadow-md hover:shadow-[#646cffa6]">Buy</Button>
                     </div>
                     
