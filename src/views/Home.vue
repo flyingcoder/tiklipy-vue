@@ -2,12 +2,14 @@
     import { onMounted, ref } from "vue";
     import expressModel from "../models/express";
     import Swal from 'sweetalert2';
+    import AddNewsletterModel from "../models/newsLetters";
     import 'sweetalert2/dist/sweetalert2.min.css';
     import PriceSelection from '../components/PriceSelection.vue';
 
     const hovered = ref(false);
     const animationPaused = ref(false);
     const backEndModel = new expressModel();
+    const addNewsLetter = new AddNewsletterModel();
     const testimonials = ref();
     const email = ref('');
 
@@ -60,6 +62,8 @@
 			    })
                 email.value = result.value
 			}
+
+            addNewsLetter.addNewsletter(email.value);
         });
     }
     // const translate = () => {
