@@ -39,7 +39,7 @@
                 <div class="w-full">
                     <HeaderFilter/>
                     <div class="flex -mx-2">
-                        <div v-for="resource in resources" :key="resource.data.teacherId + '-resource-card'" class="cursor-pointer w-1/5 m-2 bg-white rounded-lg sm:mr-5 mb-5 bg-[url('/p-1.png')] bg-no-repeat bg-contain hover:shadow-lg">
+                        <div v-for="resource in resources" :key="resource.data.teacherId + '-resource-card'" class="cursor-pointer w-full sm:1/2 md:w-1/3 lg:w-1/5 m-2 bg-white rounded-lg sm:mr-5 mb-5 bg-[url('/p-1.png')] bg-no-repeat bg-contain hover:shadow-lg">
                             <router-link :to="{ name: 'resource', params:{ id: resource.id } }" class="">
                                 <div class="p-4 max-xs:!p-2 ">
                                     <div class="flex justify-between mb-3">

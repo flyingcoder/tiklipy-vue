@@ -83,33 +83,6 @@
             </div>
         </div>
         <div class="overflow-x-hidden">
-            <!-- <div class=" flex overflow-hidden py-10 ">
-                <div class=" animate-marquee whitespace-nowrap ">
-                    <span class="text-4xl mx-10 mx-4">Featured By</span>
-                    <span class="text-4xl mx-10  "><i class="ti ti-brand-meta"></i></span>
-                    <span class="text-4xl mx-10 mx-4">Featured By</span>
-                    <span class="text-4xl mx-10  "><i class="ti ti-brand-meta"></i></span>
-                    <span class="text-4xl mx-10 mx-4">Featured By</span>
-                    <span class="text-4xl mx-10  "><i class="ti ti-brand-meta"></i></span>
-                    <span class="text-4xl mx-10 mx-4">Featured By</span>
-                    <span class="text-4xl mx-10  "><i class="ti ti-brand-meta"></i></span>
-                    <span class="text-4xl mx-10 mx-4">Featured By</span>
-                    <span class="text-4xl mx-10  "><i class="ti ti-brand-meta"></i></span>
-
-                </div>
-                <div class="absolute animate-marquee2 whitespace-nowrap">
-                    <span class="text-4xl mx-10 mx-4">Featured By</span>
-                    <span class="text-4xl mx-10  "><i class="ti ti-brand-meta"></i></span>
-                    <span class="text-4xl mx-10 mx-4">Featured By</span>
-                    <span class="text-4xl mx-10  "><i class="ti ti-brand-meta"></i></span>
-                    <span class="text-4xl mx-10 mx-4">Featured By</span>
-                    <span class="text-4xl mx-10  "><i class="ti ti-brand-meta"></i></span>
-                    <span class="text-4xl mx-10 mx-4">Featured By</span>
-                    <span class="text-4xl mx-10  "><i class="ti ti-brand-meta"></i></span>
-                    <span class="text-4xl mx-10 mx-4">Featured By</span>
-                    <span class="text-4xl mx-10  "><i class="ti ti-brand-meta"></i></span>
-                </div>
-            </div> -->
             <div class="mt-[1000px] w-full absolute left-0 top-0 bg-center bg-black py-10 flex overflow-x-hidden justify-center" @mouseenter="toggleAnimation" @mouseleave="toggleAnimation">
                 <div :class="[hovered ? '' : 'animate-r_marquee2', { 'animation-paused': animationPaused }]" class=" flex justify-around max-w-none w-full ">
                     <div v-for="(testimonial, index) in testimonials" :key="index + '-testi-cards'" class="w-[200rem] m-2 sm:w-[23%] text-4xl  bg-white p-5 rounded-2xl flex flex-wrap content-between">
