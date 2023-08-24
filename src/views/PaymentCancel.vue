@@ -13,8 +13,8 @@ const generateDiscount = () => {
 
 <template>
     <div class="flex items-center justify-center pt-20 m-auto mb-10 max-md:px-3">
-        <div class="bg-white border border-gray-200 rounded-lg shadow  dark:bg-gray-800 dark:border-gray-700 max-md:px-3">
-            <img src="/Thank-you.gif" alt="" class="m-auto mt-10 ">
+        <div class="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 max-md:px-3">
+            <img src="/thank-you.gif" alt="" class="m-auto mt-10 ">
             <div class="max-w-[40rem] m-auto sm:mx-10 mb-10">
                 <div class="text-black">
                     <h2 class="mb-5 text-xl font-bold text-center sm:text-3xl sm:mb-10 text-main-color">Subscription Cancellation Confirmation</h2>
