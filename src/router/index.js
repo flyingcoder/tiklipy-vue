@@ -6,7 +6,14 @@ import AuthModel from "../models/Auth";
 const auth = new AuthModel();
 const router = createRouter({
     history:createWebHistory(),
-    routes: routes
+    routes: routes,
+    scrollBehavior(to, from, savedPosition) {
+      if (savedPosition) {
+          return savedPosition;
+      } else {
+          return { top: 0 };
+      }
+    }
 });
 
 router.beforeEach(async (to, from, next) => {
