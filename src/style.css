@@ -135,6 +135,10 @@ h1 {
   color: #f2b600;
 }
 
+#mega-menu {
+  z-index: 1 !important;
+}
+
 /* Star CSS End */
 
 .custom-text-black {
