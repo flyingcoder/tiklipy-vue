@@ -10,6 +10,7 @@
     
     const router = useRouter();
     const isMenuHidden = ref(true);
+    const classCondition = ref(true);
     const isOptionsExpanded = ref(false);
     const isOptionsExpandedChild = ref(false);
     const isOptionsExpandedGrandchild = ref(false);
