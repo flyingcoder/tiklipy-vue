@@ -3,7 +3,7 @@
     import Navigation from "../../components/Navigation.vue";
     import { useAuthStore } from "../../stores/auth";
     import { useUserStore } from "../../stores/user";
-    import LiveChat from '../../components/LiveChat.vue';
+    // import LiveChat from '../../components/LiveChat.vue';
     
     const isLoggedIn = ref(false);
     const isMenuHidden = ref(true);
@@ -65,7 +65,7 @@
                 </router-link>
             </template>
             <template #left>
-                <ul class="flex flex-col mt-4 text-lg font-medium lg:flex-row lg:space-x-1 lg:mt-0" :class="isMenuHidden ? '' : 'hidden'">
+                <ul class="flex flex-col mt-4 text-lg font-medium lg:flex-row lg:space-x-1 lg:mt-0" :class="!isMenuHidden ? '' : 'max-lg:hidden'">
                     <li>
                         <router-link @click="scrollToSection('features')" :to="{ name: 'home' }" active-class="text-gray-900 dark:text-white" class="cursor-pointer block py-2 pl-3 pr-4 text-base text-gray-900 dark:text-white dark:hover:text-main-color dark:hover:bg-gray-700 dark:border-gray-700" >
                             <i class="pb-1 mr-1 text-lg ti ti-stars"></i> Features

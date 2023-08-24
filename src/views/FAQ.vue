@@ -103,7 +103,7 @@
                 <accordion-header>What sets Tiklipy apart from ChatGPT?</accordion-header>
                 <accordion-content>
                     <div>
-                    <p class="mb-2 text-gray-500 dark:text-gray-400">Developed by an educator, Tiklipy is uniquely designed to cater to the specific needs of educators. It is created to help you achieve impactful results without the need for complex commands or prompts. This sets Tiklipy apart from platforms like ChatGPT, as it is specifically tailored to support educators and the way they work.</p>
+                    <p class="mb-2 text-gray-500 dark:text-gray-400">Tiklipy is uniquely built to cater to the specific needs of learning and development. It is designed to help users achieve impactful results without the need for complex commands or prompts. This sets Tiklipy apart from platforms like ChatGPT, as it is specifically tailored to support individuals in the field of learning and development, regardless of their role or background.</p>
                     </div>
                 </accordion-content>
                 </accordion-panel>
