@@ -11,13 +11,6 @@ class Testimonial {
             },
             {
                 star:'⭐⭐⭐⭐⭐',
-                review:' Tiklipy has revolutionized my research and writing process, making legal analysis smoother and more accurate than ever before. 📚🕵️‍♂️',
-                profile:'review2.png',
-                name:'Senica ',
-                title:'Juris Doctor'
-            },
-            {
-                star:'⭐⭐⭐⭐⭐',
                 review:'Tiklipy revolutionized my math teaching with lesson plans, assessments, and tools that make learning engaging and effective! 📐📊🚀',
                 profile:'review3.png',
                 name:'Emmanuel',
@@ -55,29 +48,36 @@ class Testimonial {
                 star:'⭐⭐⭐⭐⭐',
                 review:'Tiklipy has elevated my teaching approach with its extensive resources and cutting-edge features.',
                 profile:'review8.png',
-                name:'Iries',
-                title:'Master Teacher'
+                name:'Iries Jane',
+                title:'Teacher III'
             },
             {
                 star:'⭐⭐⭐⭐⭐',
-                review:' Tiklipy has transformed my high school teaching with its grammar correction, assessments, and classroom tips my students are more engaged than ever! 📚📊👩‍🏫',
+                review:'it has transformed my high school teaching with its grammar correction, assessments, and classroom tips my students are more engaged than ever! 📚📊👩‍🏫',
                 profile:'review9.png',
                 name:'Nicko',
-                title:'Home school teacher'
+                title:'High School Teacher'
+            },
+            {
+                star:'⭐⭐⭐⭐⭐',
+                review:' Tiklipy has revolutionized my research and writing process, making legal analysis smoother and more accurate than ever before. 📚🕵️‍♂️',
+                profile:'review2.png',
+                name:'Senica',
+                title:'Juris Doctor'
             },
             {
                 star:'⭐⭐⭐⭐⭐',
                 review:' Tiklipy truly understands the needs of master teachers; its comprehensive resources have redefined how I approach teaching and learning. 🧑‍🏫✨',
                 profile:'review10.png',
                 name:'Jim',
-                title:'Master Teacher'
+                title:'Master Teacher II'
             },
             {
                 star:'⭐⭐⭐⭐⭐',
                 review:'Tiklipy revolutionizes teaching! It simplifies lessons, fuels creativity, and sparks innovation in the classroom.',
                 profile:'review11.png',
                 name:'Elvira',
-                title:'Educator and Innovator'
+                title:'Elementary Teacher'
             },
             {
                 star:'⭐⭐⭐⭐⭐',
@@ -91,7 +91,7 @@ class Testimonial {
                 review:'From tips to assessment generation, I elevate my classroom dynamics effortlessly. Teaching mastery at its best! 🏆🎓 ',
                 profile:'review13.png',
                 name:'Klier',
-                title:'Master Teacher'
+                title:'High School Teacher'
             },
         ];
     }
