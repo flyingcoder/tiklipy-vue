@@ -47,7 +47,7 @@
                         </form>
                     </div>               
                     <slot name="generate-btn max-xs:w-full max-sm:mb-2">
-                        <button type="button" size="lg" v-if="route.path != '/members' && route.path != '/members/resources'" class="max-sm:w-full bg-main-color sm:mr-5 focus:outline-none hover:bg-secondary-color rounded-full border-0 text-sm lg:text-[0.775rem] xl:text-base font-semibold">
+                        <button type="button" size="lg" v-if="route.path != '/members' && route.path != '/members/resources'" class="max-sm:w-full bg-main-color sm:mr-5 focus:outline-none hover:bg-secondary-color rounded-full border-0 text-sm lg:text-[0.775rem] xl:text-base font-semibold  !px-4">
                             Generate
                         </button>
                     </slot>
