@@ -1,28 +1,41 @@
 <script setup>
+    import { ref } from 'vue';
+    import { Textarea, Button, Input } from 'flowbite-vue'
 
+
+    const name = ref('');
+    const email = ref('');
+    const selectedRating = ref(0);
+    const star = ref(null);
+    const hoverRating = ref(0);
+    const ratings = [1, 2, 3, 4, 5];
+    const message = ref('')
+
+    function highlightStars(rating) {
+        hoverRating.value = rating;
+    }
+
+    function setRating(rating) {
+        selectedRating.value = rating;
+        hoverRating.value = 0;
+    }
 </script>
 <template>
-    
-    <form>
-        <div class="mb-6">
-            <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
-            <input type="email" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="name@flowbite.com" required>
-        </div>
-        <div class="mb-6">
-            <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your password</label>
-            <input type="password" id="password" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required>
-        </div>
-        <div class="mb-6">
-            <label for="repeat-password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Repeat password</label>
-            <input type="password" id="repeat-password" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required>
-        </div>
-        <div class="flex items-start mb-6">
-            <div class="flex items-center h-5">
-            <input id="terms" type="checkbox" value="" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800" required>
+    <div class="w-1/3 p-6 bg-white rounded-lg shadow-md">
+        <div class="text-black mb-2">
+            <h2 class="text-md text-gray-700">Stars Rating</h2>
+            <div class="star-rating">
+                <input :id="'star-' + star" type="radio" name="rating" :value="star" v-model="selectedRating" class="hidden" />
+                <label v-for="star in ratings" :key="star" :for="'star-' + star" :title="star + ' stars'" @mouseover="highlightStars(star)" @click="setRating(star)">
+                <i :class="['active', star <= hoverRating ? 'text-yellow-300' : 'text-gray-300', 'ti ti-star-filled', 'text-2xl']" aria-hidden="true"></i>
+                </label>
             </div>
-            <label for="terms" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">I agree with the <a href="#" class="text-blue-600 hover:underline dark:text-blue-500">terms and conditions</a></label>
         </div>
-        <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Register new account</button>
-    </form>
-
+        <Input size="md" label="Your Name" v-model="name" class="mb-2" />
+        <Input size="md" label="Your Email" placeholder="name@gmail.com" v-model="email" type="email" class="mb-2" />
+        <Textarea rows="4" placeholder="Your review" v-model="message" label="Your Review" class="mb-4" />
+        <div class="flex justify-center">
+            <Button type="submit" size="lg" class="w-80 bg-main-color text-center hover:bg-secondary-color mt-4 border-0 text-sm font-semibold">Submit</Button>
+        </div>
+    </div>
 </template>

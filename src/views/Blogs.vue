@@ -22,7 +22,7 @@
                 </the-card>
             </router-link>
             
-            <router-link class="sm:mx-2 pb-5" :to="{name: 'blog', params: { slug: 'tiklipy-and-artificial-intelligence' }}">
+            <router-link class="sm:mx-2 pb-5" :to="{name: 'blog', params: { slug: 'a-complete-guide-to-addressing-your-queries' }}">
                 <the-card variant="image" class="h-full mb-5 cursor-pointer pt-5" img-src="/assesment.png" img-alt="Desk">
                     <h5 class=" mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Tiklipy's FAQ: A Complete Guide to Addressing Your Queries</h5>
                     <p class="font-normal text-gray-700 dark:text-gray-400">
@@ -31,7 +31,7 @@
                 </the-card>
             </router-link>
 
-            <router-link class="sm:mx-2 pb-5" :to="{name: 'blog', params: { slug: 'tiklipy-and-artificial-intelligence' }}">
+            <router-link class="sm:mx-2 pb-5" :to="{name: 'blog', params: { slug: 'enabling-our-experties-to-assist-your-endeavor' }}">
                 <the-card variant="image" class="h-full mb-5 cursor-pointer pt-5" img-src="/learning.png" img-alt="Desk">
                     <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Commencement: Enabling Our Expertise to Assist Your Endeavors</h5>
                     <p class="font-normal text-gray-700 dark:text-gray-400">
