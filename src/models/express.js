@@ -75,6 +75,16 @@ class ExpressModel {
         }
     }
 
+    addBlog(data) {
+        try {
+            axios.defaults.headers.common['Authorization'] = auth?.currentUser?.accessToken;
+            return axios.post('/api/v1/posts', data);
+        } catch (error) {
+            console.log(error);
+            return false;
+        }
+    }
+
 }
 
 export default ExpressModel;

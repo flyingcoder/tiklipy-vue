@@ -11,6 +11,7 @@
                     <router-link :to="{name:'invite-code'}">invitation code</router-link>
                     <router-link :to="{name:'reviews'}">Reviews</router-link>
                     <router-link :to="{name:'newsletters'}">Newsletters</router-link>
+                    <router-link :to="{name:'admin-blogs'}">Blogs</router-link>
                 </div>
             </div>
         </div>
