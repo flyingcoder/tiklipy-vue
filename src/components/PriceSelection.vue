@@ -2,7 +2,7 @@
     import { computed, onMounted, ref } from "vue";
     import SignUp from './../views/sign/Up.vue';
     import { useRouter } from 'vue-router';
-    import AddNewsletterModel from "../models/newsLetters";
+    import expressModel from "../models/express";
     import { getFirestore, getDocs, where, query, collection, orderBy,} from "firebase/firestore";
     import Swal from 'sweetalert2';
     import 'sweetalert2/dist/sweetalert2.min.css';
@@ -11,7 +11,7 @@
     const products = ref([]);
     const isLoading = ref(false);
     const showRegister = ref(false);
-    const addNewsLetter = new AddNewsletterModel();
+    const backEndModel = new expressModel();
     const selectedPrice = ref();
     const email = ref('');
     const user = ref();
@@ -100,7 +100,7 @@
 			    })
                 email.value = result.value
 			}
-            addNewsLetter.addNewsletter(email.value);
+            backEndModel.addNewsletter(email.value);
         });
     }
 </script>
