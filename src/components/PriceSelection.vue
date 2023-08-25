@@ -121,7 +121,7 @@
                 </h5>
                 <p class="relative -m-3 text-xl top-2 left-7">399</p>
                 <div class="flex items-baseline justify-center text-grey-600 dark:text-white">
-                    <span class="text-2xl font-semibold">
+                    <span class="text-2xl font-semibold text-gray-500">
                         ₱
                     </span>
                     <span class="text-5xl font-extrabold tracking-tight text-red-500 line-through">

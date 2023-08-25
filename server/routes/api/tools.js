@@ -18,4 +18,9 @@ router.get('/',  (req, res) => {
     }
 });
 
+router.get('/features',  (req, res) => {
+    const featureData = toolsModel.getFeatures();
+    res.json(featureData);
+});
+
 export default router;

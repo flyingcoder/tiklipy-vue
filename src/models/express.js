@@ -32,6 +32,15 @@ class ExpressModel {
         }
     }
 
+    getFeatures() {
+        try {
+            return axios.get('/api/v1/features');
+        } catch (error) {   
+            console.log(error);
+            return false;
+        }
+    }
+
 }
 
 export default ExpressModel;
