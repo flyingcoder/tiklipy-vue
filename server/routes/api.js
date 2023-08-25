@@ -6,6 +6,7 @@ import getTools from './api/tools.js';
 import starCreditRoutes from './api/starCredits.js';
 import authRoutes from './api/authRoutes.js';
 import testimonialRoutes from './api/testimonials.js';
+import featureRoutes from './api/tools.js';
 
 const router = express.Router();
 
@@ -35,6 +36,7 @@ router.use(express.json());
 router.use(express.urlencoded({ extended: true}));
 router.use(middleware);
 
+router.use('/features', featureRoutes);
 router.use('/testimonials', testimonialRoutes);
 router.use('/auth', authRoutes);
 router.use('/stars', restrict, starCreditRoutes);

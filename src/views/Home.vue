@@ -260,8 +260,14 @@
                 <div class="text-black">Creating forms to attract and manage volunteers efficiently.</div>
             </div>
         </div>
+        <div class="w-full text-center mt-10 mb-10">
+            <router-link :to="{ name: 'features' }" class="duration-300 hover:scale-105 text-center w-full text-2xl py-3 px-5 hover:bg-main-color bg-white hover:text-white text-main-color font-semibold rounded-xl border-[1px] border-main-color">
+                See all features
+            </router-link>
+        </div>
         <div id="pricing" class="pt-8">
             <price-selection />
         </div>
+        
     </section>
 </template>

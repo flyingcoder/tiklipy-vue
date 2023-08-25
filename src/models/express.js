@@ -32,6 +32,16 @@ class ExpressModel {
         }
     }
 
+    getFeatures() {
+        try {
+            axios.defaults.headers.common[''] = auth?.currentUser?.accessToken;
+            return axios.get('/api/v1/tools/features');
+        } catch (error) {   
+            console.log(error);
+            return false;
+        }
+    }
+
 }
 
 export default ExpressModel;

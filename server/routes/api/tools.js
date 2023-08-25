@@ -18,4 +18,18 @@ router.get('/',  (req, res) => {
     }
 });
 
+router.get('/features',  (req, res) => {
+    try {
+        const featureData = toolsModel.getFeatures();
+        if (featureData) {
+            res.json(featureData);
+        } else {
+            res.json({ error: 'Something went wrong' });
+        }
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+});
+
 export default router;
