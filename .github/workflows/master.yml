@@ -51,7 +51,9 @@ jobs:
         run: npm run build
 
       - name: Create Archive
-        run: tar -czf app.tar.gz \
+        run: |
+          cd $GITHUB_WORKSPACE
+          tar -czf app.tar.gz \
           ./dist \
           ./views \
           ./server \
@@ -83,5 +85,5 @@ jobs:
           npm install && pm2 start npm --name "tiklipy" -- start --production -- --watch
 
       - name: Save PM2 Configuration
-        script: |
+        run: |
           pm2 save
