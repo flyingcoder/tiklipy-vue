@@ -7,6 +7,7 @@ const router = express.Router();
 router.get('/', async (req, res) => {
     const testimonials = await testimonial.getTestimonials();
     res.json(testimonials);
+    
 });
 
 export default router;

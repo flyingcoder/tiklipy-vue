@@ -1,14 +1,14 @@
 <script setup>
     import { ref } from 'vue';
     import { Input, Button } from 'flowbite-vue';
-    import AddNewsletterModel from "../../models/newsLetters";
+    import expressModel from "../../models/express";
 
-    const addNewsLetter = new AddNewsletterModel();
+    const backEndModel = new expressModel();
     const email = ref('');
 
     const saveToFireBase = () => {
         if(email.value)
-            addNewsLetter.addNewsletter(email.value);
+            backEndModel.addNewsletter(email.value);
     }
 
     const scrollToSection = (sectionId) => {
