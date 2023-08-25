@@ -67,7 +67,7 @@ const cards = [
         category: 'Report',
         tag: [ 'write', 'featured' ],
         promptExample: 'Computer Laborator Supervisor Auxiliary report.',
-        systemPrompt: 'Assist in generating clear and concise instructions for monthly auxiliary reports. Provide guidance on structuring the report, including key points, challenges, highlights, and insights. Ensure the instructions are professional and informative to simplify the reporting process.',
+        systemPrompt: 'yKRJZPJiVZl9DTdHjhxJ',
         title: 'Effortless Auxiliary Report Generator.',
         icon:'ti-file-report',
         description: 'Simplify your auxiliary assignment. Just share a few details, and Tiklipy will solve your problem.',

@@ -2,7 +2,7 @@ export default [
     {
         type: 'poem',
         category: 'Language Type',
-         tag: [ 'write' ],
+        tag: [ 'write' ],
         promptExample: '',
         systemPrompt: 'Create a poem with the provided verse and subject format: verse: "data", subject: "data".',
         title: 'Craft a poem',
