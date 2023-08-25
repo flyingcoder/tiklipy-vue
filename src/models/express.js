@@ -33,6 +33,15 @@ class ExpressModel {
         }
     }
 
+    getFeatures() {
+        try {
+            return axios.get('/api/v1/features');
+        } catch (error) {   
+            console.log(error);
+            return false;
+        }
+    }
+
     addNewsletter(data) {
         try {
             const requestData = {
