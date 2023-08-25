@@ -2,14 +2,14 @@
     import { onMounted, ref } from "vue";
     import expressModel from "../models/express";
     import Swal from 'sweetalert2';
-    import AddNewsletterModel from "../models/newsLetters";
     import 'sweetalert2/dist/sweetalert2.min.css';
     import PriceSelection from '../components/PriceSelection.vue';
+    import FAQ from '../components/FAQ.vue';
+
 
     const hovered = ref(false);
     const animationPaused = ref(false);
     const backEndModel = new expressModel();
-    const addNewsLetter = new AddNewsletterModel();
     const testimonials = ref();
     const email = ref('');
 
@@ -56,14 +56,14 @@
         }).then((result) => {
             if (result.value) {
 			    Swal.fire({
-			      type: 'success',
+			      icon: 'success',
 			      title: 'Thank You',
 			      html: 'Email: ' + result.value
 			    })
                 email.value = result.value
 			}
 
-            addNewsLetter.addNewsletter(email.value);
+            backEndModel.addNewsletter(email.value);
         });
     }
     // const translate = () => {
@@ -73,8 +73,8 @@
 </script>
 
 <template>
-    <section class="flex bg-no-repeat transition ease-in-out bg-cover bg-fixed bg-black delay-150 h-min-[100vh] sm:w-[100vw] bg-[center_-5rem] items-center justify-center absolute left-0 right-0 top-0 bg-[url(/background.gif)]">
-        <div class="sm:w-[40rem] w-[35rem] text-center sm:pb-[36rem] pb-[34rem] pt-[7rem]">
+<section class="flex transition ease-in-out bg-cover bg-fixed bg-black delay-150 h-[100vh] min-h-[1000px] sm:w-[100vw] bg-[center_-5rem] items-start justify-center absolute left-0 right-0 top-0 bg-[url(/background.gif)]">
+        <div class="sm:w-[40rem] w-[35rem] text-center  pt-[180px]">
             <h1 class="font-bold text-5xl sm:text-6xl m-10 text-white drop-shadow-[10px_10px_2px#000] ">
                 Your Loyal Superhero Sidekick!
             </h1>
@@ -90,7 +90,7 @@
                 Request Early Access
             </button>
         </div>
-        <div :style="'width: '+ 26 * testimonials?.length +'rem'" class="sm:mt-[90vh] mt-[85vh] absolute left-0 top-0 bg-center bg-gradient-to-t from-[#f3f4f6] from-30% py-10 flex overflow-x-hidden justify-center" @mouseenter="toggleAnimation" @mouseleave="toggleAnimation">
+        <div :style="'width: '+ 26 * testimonials?.length +'rem'" class="sm:mt-[92vh] mt-[85vh] absolute left-0 top-0 bg-center bg-gradient-to-t from-[#f3f4f6] from-60% py-10 flex overflow-x-hidden justify-center" @mouseenter="toggleAnimation" @mouseleave="toggleAnimation">
             <div :style="'animation-duration:'+5 * testimonials?.length +'s'" :class="[hovered ? '' : 'animate-r_marquee2', { 'animation-paused': animationPaused }]" class="flex justify-around w-full max-w-none">
                 <div v-for="(testimonial, index) in testimonials" :key="index + '-testi-cards'" class="w-[26rem] mr-10 text-4xl  bg-white p-5 rounded-2xl flex flex-wrap content-between">
                     <div class="">
@@ -260,8 +260,16 @@
                 <div class="text-black">Creating forms to attract and manage volunteers efficiently.</div>
             </div>
         </div>
+        <div class="w-full text-center mt-10 mb-10">
+            <router-link :to="{ name: 'features' }" class="duration-300 hover:scale-105 text-center w-full text-2xl py-3 px-5 hover:bg-main-color bg-white hover:text-white text-main-color font-semibold rounded-xl border-[1px] border-main-color">
+                See all features
+            </router-link>
+        </div>
         <div id="pricing" class="pt-8">
             <price-selection />
+        </div>
+        <div id="FAQ" class="pt-8">
+            <FAQ></FAQ>
         </div>
     </section>
 </template>

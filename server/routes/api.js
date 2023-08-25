@@ -6,6 +6,10 @@ import getTools from './api/tools.js';
 import starCreditRoutes from './api/starCredits.js';
 import authRoutes from './api/authRoutes.js';
 import testimonialRoutes from './api/testimonials.js';
+import newsletterRoutes from './api/newsletter.js';
+import featureRoutes from './api/tools.js';
+import suggestToolRoutes from './api/suggestTools.js';
+import reviewRoutes from './api/reviews.js';
 
 const router = express.Router();
 
@@ -35,10 +39,15 @@ router.use(express.json());
 router.use(express.urlencoded({ extended: true}));
 router.use(middleware);
 
+router.use('/reviews', reviewRoutes);
+router.use('/suggest-tools', suggestToolRoutes);
+router.use('/newsletters', newsletterRoutes);
+router.use('/features', featureRoutes);
 router.use('/testimonials', testimonialRoutes);
 router.use('/auth', authRoutes);
 router.use('/stars', restrict, starCreditRoutes);
 router.use('/generate', restrict, generateRoutes);
 router.use('/tools', restrict, getTools);
+
 
 export default router;

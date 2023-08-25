@@ -2,7 +2,7 @@
     import { computed, onMounted, ref } from "vue";
     import SignUp from './../views/sign/Up.vue';
     import { useRouter } from 'vue-router';
-    import AddNewsletterModel from "../models/newsLetters";
+    import expressModel from "../models/express";
     import { getFirestore, getDocs, where, query, collection, orderBy,} from "firebase/firestore";
     import Swal from 'sweetalert2';
     import 'sweetalert2/dist/sweetalert2.min.css';
@@ -11,7 +11,7 @@
     const products = ref([]);
     const isLoading = ref(false);
     const showRegister = ref(false);
-    const addNewsLetter = new AddNewsletterModel();
+    const backEndModel = new expressModel();
     const selectedPrice = ref();
     const email = ref('');
     const user = ref();
@@ -100,7 +100,7 @@
 			    })
                 email.value = result.value
 			}
-            addNewsLetter.addNewsletter(email.value);
+            backEndModel.addNewsletter(email.value);
         });
     }
 </script>
@@ -121,7 +121,7 @@
                 </h5>
                 <p class="relative -m-3 text-xl top-2 left-7">399</p>
                 <div class="flex items-baseline justify-center text-grey-600 dark:text-white">
-                    <span class="text-2xl font-semibold">
+                    <span class="text-2xl font-semibold text-gray-500">
                         ₱
                     </span>
                     <span class="text-5xl font-extrabold tracking-tight text-red-500 line-through">

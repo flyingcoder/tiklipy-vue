@@ -4,21 +4,15 @@ class ToolModel {
         return cards;
     }
 
-    getToolSystemPrompt() {
-
-    }
-
     getFeatures() {
-        let features = [];
-
-        for (const card of cards) {
+        const features = [];
+        for ( const card of cards) {
             features.push({
                 title: card.title,
                 description: card.description,
-                icon: card.icon,
-            });
+                icon:card.icon
+            })
         }
-
         return features;
     }
 }
