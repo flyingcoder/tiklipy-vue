@@ -34,8 +34,7 @@ class ExpressModel {
 
     getFeatures() {
         try {
-            axios.defaults.headers.common[''] = auth?.currentUser?.accessToken;
-            return axios.get('/api/v1/tools/features');
+            return axios.get('/api/v1/features');
         } catch (error) {   
             console.log(error);
             return false;

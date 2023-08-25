@@ -90,7 +90,7 @@
                 Request Early Access
             </button>
         </div>
-        <div :style="'width: '+ 26 * testimonials?.length +'rem'" class="sm:mt-[90vh] mt-[85vh] absolute left-0 top-0 bg-center bg-gradient-to-t from-[#f3f4f6] from-30% py-10 flex overflow-x-hidden justify-center" @mouseenter="toggleAnimation" @mouseleave="toggleAnimation">
+        <div :style="'width: '+ 26 * testimonials?.length +'rem'" class="sm:mt-[92vh] mt-[85vh] absolute left-0 top-0 bg-center bg-gradient-to-t from-[#f3f4f6] from-30% py-10 flex overflow-x-hidden justify-center" @mouseenter="toggleAnimation" @mouseleave="toggleAnimation">
             <div :style="'animation-duration:'+5 * testimonials?.length +'s'" :class="[hovered ? '' : 'animate-r_marquee2', { 'animation-paused': animationPaused }]" class="flex justify-around w-full max-w-none">
                 <div v-for="(testimonial, index) in testimonials" :key="index + '-testi-cards'" class="w-[26rem] mr-10 text-4xl  bg-white p-5 rounded-2xl flex flex-wrap content-between">
                     <div class="">
