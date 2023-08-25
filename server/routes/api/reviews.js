@@ -1,11 +1,11 @@
 import express from 'express';
-import SuggestTool from '../../models/SuggestTool.js';
+import Review from '../../models/Review.js';
 
 const router = express.Router();
-const SuggestToolModel = new SuggestTool();
+const ReviewModel = new Review();
 
 router.post('/', async (req, res) => {
-    const resource = await SuggestToolModel.addSuggestTool(req.body);
+    const resource = await ReviewModel.addReview(req.body);
 });
 
 export default router;

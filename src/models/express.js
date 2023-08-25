@@ -65,6 +65,16 @@ class ExpressModel {
         }
     }
 
+    addReviews(data) {
+        try {
+            axios.defaults.headers.common['Authorization'] = auth?.currentUser?.accessToken;
+            return axios.post('/api/v1/reviews', data);
+        } catch (error) {
+            console.log(error);
+            return false;
+        }
+    }
+
 }
 
 export default ExpressModel;
