@@ -7,7 +7,6 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -44,46 +43,40 @@ jobs:
           FIREBASE_CLIENT_CERT_URL: ${{ secrets.FIREBASE_CLIENT_CERT_URL }}
           FIREBASE_UNIVERSE_DOMAIN: ${{ secrets.FIREBASE_UNIVERSE_DOMAIN }}
 
-      - name: Install Dependencies
-        run: npm install
-
-      - name: Build Application
-        run: npm run build
-
-      - name: Create Archive
+      - name: Build container
         run: |
           cd $GITHUB_WORKSPACE
-          tar -czf app.tar.gz \
-          ./dist \
-          ./views \
-          ./server \
-          ./.env \
-          ./package-lock.json \
-          ./package.json \
-          ./postcss.config.js \
-          ./tailwind.config.js \
-          ./vite.config.js
+          docker build -t tiklipy.dock .
+          docker save -o tiklipy.dock.tar tiklipy.dock
 
-      - name: Deploy Archive to Server
+      - name: Caching docker
+      - uses: actions/cache@v3
+        with:
+          path: tiklipy.dock.tar
+          key: jobBuildContainer-${{ github.sha }}
+      
+      - name: Copy docker container to server
+        uses: burnett01/rsync-deployments@4.1
+        with:
+          switches: -avzr --delete
+          path: tiklipy.dock.tar
+          remote_path: /home/${{ secrets.SSH_USERNAME }}/tiklipy.dock.tar
+          remote_host: ${{ secrets.SSH_HOST }}
+          remote_user: ${{ secrets.SSH_USERNAME }}
+          remote_key: ${{ secrets.SSH_KEY }}
+
+      - name: Run container
+        uses: appleboy/ssh-action@master
         env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          SSH_USERNAME: ${{ secrets.SSH_USERNAME }}
-          SSH_HOST: ${{ secrets.SSH_HOST }}
-        run: |
-          
-          scp -i ${{ secrets.SSH_PRIVATE_KEY }} app.tar.gz \
-          ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}:/var/www/tiklipy.com/
-          ssh -i ${{ secrets.SSH_PRIVATE_KEY }} ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}
-      
-      - name: Extract Archive File
-        run: |
-          cd /var/www/tiklipy.com/
-          tar -xzf app.tar.gz && rm app.tar.gz
-      
-      - name: Install npm Dependencies
-        run: |
-          npm install && pm2 start npm --name "tiklipy" -- start --production -- --watch
-
-      - name: Save PM2 Configuration
-        run: |
-          pm2 save
+          USERNAME: ${{ secrets.SSH_USERNAME }}
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+          envs: USERNAME
+          script: |
+            cd /home/$USERNAME
+            docker load -i tiklipy.dock.tar
+            docker stop tiklipy
+            docker rm tiklipy
+            docker run -d -p 3000:3000 --restart unless-stopped --name tiklipy tiklipy.dock
