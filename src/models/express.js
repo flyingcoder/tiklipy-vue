@@ -55,6 +55,15 @@ class ExpressModel {
         }
     }
 
+    getNewsletter() {
+        try {
+            return axios.get('/api/v1/newsletters');
+        } catch (error) {
+            console.log(error);
+            return false;
+        }
+    }
+
     suggestTools(data) {
         try {
             axios.defaults.headers.common['Authorization'] = auth?.currentUser?.accessToken;
