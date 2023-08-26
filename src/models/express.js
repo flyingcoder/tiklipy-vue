@@ -114,6 +114,16 @@ class ExpressModel {
         }
     }
 
+    getPosts() {
+        try {
+            axios.defaults.headers.common['Authorization'] = auth?.currentUser?.accessToken;
+            return axios.get('/api/v1/posts');
+        } catch (error) {
+            console.log(error);
+            return false;
+        }
+    }
+
 }
 
 export default ExpressModel;
