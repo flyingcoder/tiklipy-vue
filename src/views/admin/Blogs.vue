@@ -1,60 +1,62 @@
 <script setup>
-    import { ref, onMounted } from 'vue';
-    import expressModel from "../../models/express";
-    import { Button } from 'flowbite-vue';
+import { ref, onMounted } from 'vue';
+import expressModel from "../../models/express";
+import { Button } from 'flowbite-vue';
 
-    const backEndModel = new expressModel();
-    const blogs = ref([]);
+const backEndModel = new expressModel();
+const blogs = ref([]);
 
-    const getBlogs = () => {
-        backEndModel.getPosts().then((data) => {
-            blogs.value = data.data.reviews;
-        }).catch((error) => {
-            console.error("Error fetching reviews:", error);
-        });
-    };
+const formatDate = (dateString) => {
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    const date = new Date(dateString);
+    return date.toLocaleDateString(undefined, options);
+};
 
-    onMounted(() => {
-        getBlogs();
+const getBlogs = () => {
+    backEndModel.getPosts().then((data) => {
+        blogs.value = data.data.blogs;
+    }).catch((error) => {
+        console.error("Error fetching reviews:", error);
     });
+};
+
+onMounted(() => {
+    getBlogs();
+});
 </script>
+<style>
+.desciption-style h1 {
+    font-size: 20px;
+}
+.desciption-style p {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+}
+</style>
 <template>
-    <div class="lg:container md:mx-auto">
+    <div class="lg:container md:mx-auto">         
         <div class="bg-white">
-            <div class="p-5 text-center">
-                <h1 class="text-center text-black text-3xl font-semibold">
+            <div class="p-5 ">
+                <h1 class="text-center text-black text-3xl font-semibold mb-10">
                     Blogs
                 </h1>
-                
                 <div class="grid mb-8  dark:border-gray-700 md:mb-12 md:grid-cols-3 gap-4">
-                    <figure v-for="(blog, index) in blogs" :key="index + '-review-cards'" class="flex shadow-lg rounded-lg flex-col items-center justify-center p-8 text-center bg-white border-gray-200 rounded-t-lg md:rounded-tl-lg dark:bg-gray-800">
-                        <blockquote class="max-w-2xl mx-auto mb-2 text-gray-500 lg:mb-2 dark:text-gray-400">
-                            <span :class="testimonial.status == 'Pending' ? ' bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-300' : 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300'" class="inline-flex items-center  text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full ">
-                                <span :class="testimonial.status == 'Pending' ? 'bg-red-500' : 'bg-green-500'" class="w-2 h-2 mr-1 bg-green-500 rounded-full"></span>
-                                {{testimonial.status}}
-                            </span>
-                            <h3 class="text-lg font-semibold mt-2 text-gray-900 dark:text-white">{{ testimonial.role }}</h3>
-                            <p class="my-3"> {{ testimonial.message }}</p>
-                            <div class="text-black mb-2">
-                                <div class="star-rating">
-                                <label v-for="star in testimonial.star" :key="star" :title="star + ' stars'">
-                                    <i class="text-yellow-300 ti ti-star-filled text-2xl"
-                                    aria-hidden="true"
-                                    ></i>
-                                </label>
+                    <div v-for="(blog, index) in blogs" :key="index + '-features-cards'" class="border-[1px] border-color-main-color w-full mb-5 bg-white  p-5 2xl:p-10  content-between rounded-xl hover:scale-105 ease-linear duration-200 shadow-sm">
+                        <div class="">
+                            <h1 class="text-black font-bold text-3xl">{{ blog.title }}</h1>
+                            <div class="text-black flex w-full mb-7"><span>Read Time:&nbsp;</span> <span>{{ blog.readTime }}</span></div>
+                            <div v-html="blog.blog" class="text-black desciption-style"></div>
+                            <div class="flex flex-wrap items-center gap-5 mt-5">
+                                <img src="/tiklipy-logo-icon.png" alt="hero" class="w-16 rounded-full">
+                                <div class="">
+                                    <h5 class="mb-1 text-lg font-bold leading-3 text-black ">{{ blog.author }}</h5>
+                                    <p class="text-sm font-light leading-3 text-black">{{ formatDate(blog.dateCreated) }}</p>
                                 </div>
                             </div>
-                        </blockquote>
-                        <figcaption class="flex items-center justify-center space-x-3">
-                            <img class="rounded-full w-9 h-9" :src="testimonial.profile" alt="profile picture">
-                            <div class="space-y-0.5 font-medium dark:text-white text-left text-black">
-                                <div>{{ testimonial.name }}</div>
-                            </div>
-                        </figcaption> 
-                        <div class="flex justify-center" v-if="testimonial.status == 'Pending'">
-                            <Button type="submit" size="lg" @click="addToTestimonials(testimonial)" class="w-full bg-main-color text-center hover:bg-secondary-color mt-6 p-3 rounded-lg border-0 text-sm font-semibold">Add To Testimonials</Button>
                         </div>
-                    </figure>
+                    </div>
                 </div>
             </div>
         </div>
