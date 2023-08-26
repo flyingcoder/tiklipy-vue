@@ -46,6 +46,7 @@ router.use('/suggest-tools', suggestToolRoutes);
 router.use('/newsletters', newsletterRoutes);
 router.use('/features', featureRoutes);
 router.use('/testimonials', testimonialRoutes);
+router.use('/update', testimonialRoutes);
 router.use('/auth', authRoutes);
 router.use('/stars', restrict, starCreditRoutes);
 router.use('/generate', restrict, generateRoutes);

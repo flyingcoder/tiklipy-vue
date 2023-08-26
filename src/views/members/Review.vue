@@ -8,7 +8,7 @@
     const authStore = useAuthStore();
     const backEndModel = new expressModel();
     const name = ref('');
-    const title = ref('');
+    const role = ref('');
     const selectedRating = ref(0);
     const star = ref(0);
     const hoverRating = ref(0);
@@ -31,9 +31,10 @@
     const submitReview = () => {
         const review = {
             name: name.value,
-            title: title.value,
+            role: role.value,
             star: star.value,
             message: message.value,
+            status: 'Pending',
             profile: authStore.user.photoURL,
             dateCreated: dayjs().format(),
         }
@@ -54,7 +55,7 @@
                 </div>
             </div>
             <Input size="md" label="Name" v-model="name" class="mb-2" />
-            <Input size="md" label="Title" v-model="title" class="mb-2" />
+            <Input size="md" label="Role" v-model="role" class="mb-2" />
             <Textarea rows="4" placeholder="Review" v-model="message" label="Your Review" class="mb-4" />
             <div class="flex justify-center">
                 <Button type="submit" size="lg" @click="submitReview" class="w-full bg-main-color text-center hover:bg-secondary-color mt-4 border-0 text-sm font-semibold">Submit</Button>
