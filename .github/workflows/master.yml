@@ -72,7 +72,7 @@ jobs:
         run: |
           scp -i ${{ secrets.SSH_PRIVATE_KEY }} app.tar.gz \
           ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}:/var/www/tiklipy.com/
-          ssh -i ${{ secrets.SSH_PRIVATE_KEY }} ${{ secrets.SSH_USERNAME }}@${{ sercets.SSH_HOST }}
+          ssh -i ${{ secrets.SSH_PRIVATE_KEY }} ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}
       
       - name: Extract Archive File
         run: |
