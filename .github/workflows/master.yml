@@ -43,7 +43,7 @@ jobs:
           FIREBASE_CLIENT_CERT_URL: ${{ secrets.FIREBASE_CLIENT_CERT_URL }}
           FIREBASE_UNIVERSE_DOMAIN: ${{ secrets.FIREBASE_UNIVERSE_DOMAIN }}
 
-      - name: Build container
+      - name: Build docker container then archive it
         run: |
           cd $GITHUB_WORKSPACE
           docker build -t tiklipy.dock .
