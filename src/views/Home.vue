@@ -73,7 +73,7 @@
 </script>
 
 <template>
-<section class="flex transition ease-in-out bg-cover bg-fixed bg-black delay-150 h-[100vh] min-h-[1000px] sm:w-[100vw] bg-[center_-5rem] items-start justify-center absolute left-0 right-0 top-0 bg-[url(/background.gif)]">
+<section class="flex transition ease-in-out bg-cover bg-fixed bg-black delay-150 h-[1000px] min-h-[1000px] sm:w-[100vw] bg-[center_-5rem] items-start justify-center absolute left-0 right-0 top-0 bg-[url(/background.gif)]">
         <div class="sm:w-[40rem] w-[35rem] text-center  pt-[180px]">
             <h1 class="font-bold text-5xl sm:text-6xl m-10 text-white drop-shadow-[10px_10px_2px#000] ">
                 Your Loyal Superhero Sidekick!
@@ -95,32 +95,40 @@
                 <div v-for="(testimonial, index) in testimonials" :key="index + '-testi-cards'" class="w-[26rem] mr-10 text-4xl  bg-white p-5 rounded-2xl flex flex-wrap content-between">
                     <div class="">
                         <div class="flex flex-wrap mb-5 text-lg stars">
-                            {{ testimonial.star }}
+                            <label v-for="star in testimonial.star" :key="star" :title="star + ' stars'" class="mr-1">
+                                <i class="text-yellow-300 ti ti-star-filled text-2xl "
+                                aria-hidden="true"
+                                ></i>
+                            </label>
                         </div>
-                        <p class="text-xl text-black "> {{ testimonial.review }}</p>
+                        <p class="text-xl text-black "> {{ testimonial.message }}</p>
                     </div>
                     <div class="flex flex-wrap items-center gap-5 mt-5">
                         <img :src="testimonial.profile" alt="hero" class="w-16 rounded-full">
                         <div class="">
                             <h5 class="mb-1 text-lg font-bold leading-3 text-black ">{{ testimonial.name }}</h5>
-                            <p class="text-sm font-light leading-3 text-black">{{ testimonial.title }}</p>
+                            <p class="text-sm font-light leading-3 text-black">{{ testimonial.role }}</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div :style="'animation-duration:'+15  * testimonials?.length +'s'" :class="[hovered ? '' : 'animate-r_marquee', { 'animation-paused': animationPaused }]" class="absolute flex justify-around w-full max-w-none">
-                <div v-for="(testimonial, index) in testimonials" :key="index + '-testi-cards'" class="w-[26rem] mr-10 text-4xl  bg-white p-5 rounded-2xl flex flex-wrap content-between ">
+            <div :style="'animation-duration:'+15 * testimonials?.length +'s'" :class="[hovered ? '' : 'animate-r_marquee2', { 'animation-paused': animationPaused }]" class="flex justify-around w-full max-w-none">
+                <div v-for="(testimonial, index) in testimonials" :key="index + '-testi-cards'" class="w-[26rem] mr-10 text-4xl  bg-white p-5 rounded-2xl flex flex-wrap content-between">
                     <div class="">
                         <div class="flex flex-wrap mb-5 text-lg stars">
-                            {{ testimonial.star }}
+                            <label v-for="star in testimonial.star" :key="star" :title="star + ' stars'" class="mr-1">
+                                <i class="text-yellow-300 ti ti-star-filled text-2xl "
+                                aria-hidden="true"
+                                ></i>
+                            </label>
                         </div>
-                        <p class="text-xl text-black "> {{ testimonial.review }}</p>
+                        <p class="text-xl text-black "> {{ testimonial.message }}</p>
                     </div>
                     <div class="flex flex-wrap items-center gap-5 mt-5">
                         <img :src="testimonial.profile" alt="hero" class="w-16 rounded-full">
                         <div class="">
                             <h5 class="mb-1 text-lg font-bold leading-3 text-black ">{{ testimonial.name }}</h5>
-                            <p class="text-sm font-light leading-3 text-black">{{ testimonial.title }}</p>
+                            <p class="text-sm font-light leading-3 text-black">{{ testimonial.role }}</p>
                         </div>
                     </div>
                 </div>

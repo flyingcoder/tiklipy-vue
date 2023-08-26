@@ -1,8 +1,9 @@
 <script setup>
-import { onMounted, ref } from "vue";
+    import { onMounted, ref } from "vue";
     import InviteCodeModel from "../../models/InviteCode";
     import AuthModel from "../../models/Auth";
     import { useRouter } from "vue-router";
+    import { Button } from 'flowbite-vue';
 
     const codes = ref([]);
     const router = useRouter();
@@ -53,12 +54,12 @@ import { onMounted, ref } from "vue";
 </script>
 <template>
     <div class="lg:container md:mx-auto">
-        <div class="bg-white w-[50vw] mx-auto mt-20 rounded-lg">
+        <div class="bg-white mx-auto">
             <div class="p-5 text-center">
                 <div class="">
-                    <label class="text-center text-black" for="codes">Add codes separete with comma</label><br>
-                    <button v-if="!isSaving" @click="generateCode" class="mx-1 my-5 text-white bg-main-color">Generate Code</button>
-                    <button v-if="!isSaving" @click="submitCodes" class="mx-1 my-5 text-white bg-main-color">Add</button>
+                    <label class="text-center text-black text-3xl font-semibold" for="codes">Add codes separete with comma</label><br>
+                    <Button v-if="!isSaving" @click="generateCode" class="mx-1 my-5 font-semibold text-lg text-white bg-main-color ">Generate Code</Button>
+                    <Button v-if="!isSaving" @click="submitCodes" class="mx-1 my-5 font-semibold text-lg text-white bg-main-color">Add</Button>
                     <textarea class="block w-full text-black border-gray-300 rounded-lg" v-model="inputCodes" id="" cols="80" rows="3"></textarea>
                 </div>
                 <h1 class="my-6 text-2xl font-bold text-black">

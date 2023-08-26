@@ -55,6 +55,15 @@ class ExpressModel {
         }
     }
 
+    getNewsletter() {
+        try {
+            return axios.get('/api/v1/newsletters');
+        } catch (error) {
+            console.log(error);
+            return false;
+        }
+    }
+
     suggestTools(data) {
         try {
             axios.defaults.headers.common['Authorization'] = auth?.currentUser?.accessToken;
@@ -79,6 +88,36 @@ class ExpressModel {
         try {
             axios.defaults.headers.common['Authorization'] = auth?.currentUser?.accessToken;
             return axios.post('/api/v1/posts', data);
+        } catch (error) {
+            console.log(error);
+            return false;
+        }
+    }
+
+    getReviews() {
+        try {
+            axios.defaults.headers.common['Authorization'] = auth?.currentUser?.accessToken;
+            return axios.get('/api/v1/reviews');
+        } catch (error) {
+            console.log(error);
+            return false;
+        }
+    }
+
+    async updateTestimonial(data) {
+        try {
+            axios.defaults.headers.common['Authorization'] = auth?.currentUser?.accessToken;
+            return axios.put('/api/v1/testimonials/update', data);
+        } catch (error) {
+            console.log(error);
+            return false;
+        }
+    }
+
+    getPosts() {
+        try {
+            axios.defaults.headers.common['Authorization'] = auth?.currentUser?.accessToken;
+            return axios.get('/api/v1/posts');
         } catch (error) {
             console.log(error);
             return false;
