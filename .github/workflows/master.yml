@@ -63,7 +63,7 @@ jobs:
           remote_path: /home/${{ secrets.SSH_USERNAME }}/tiklipy.dock.tar
           remote_host: ${{ secrets.SSH_HOST }}
           remote_user: ${{ secrets.SSH_USERNAME }}
-          remote_key: ${{ secrets.SSH_KEY }}
+          remote_key: ${{ secrets.SSH_PRIVATE_KEY }}
 
       - name: Run container
         uses: appleboy/ssh-action@master
@@ -72,7 +72,7 @@ jobs:
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
-          key: ${{ secrets.SSH_KEY }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
           envs: USERNAME
           script: |
             cd /home/$USERNAME
