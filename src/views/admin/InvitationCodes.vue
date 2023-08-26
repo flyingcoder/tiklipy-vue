@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, ref } from "vue";
+    import { onMounted, ref } from "vue";
     import InviteCodeModel from "../../models/InviteCode";
     import AuthModel from "../../models/Auth";
     import { useRouter } from "vue-router";

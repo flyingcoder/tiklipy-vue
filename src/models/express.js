@@ -94,6 +94,26 @@ class ExpressModel {
         }
     }
 
+    getReviews() {
+        try {
+            axios.defaults.headers.common['Authorization'] = auth?.currentUser?.accessToken;
+            return axios.get('/api/v1/reviews');
+        } catch (error) {
+            console.log(error);
+            return false;
+        }
+    }
+
+    async updateTestimonial(data) {
+        try {
+            axios.defaults.headers.common['Authorization'] = auth?.currentUser?.accessToken;
+            return axios.put('/api/v1/testimonials/update', data);
+        } catch (error) {
+            console.log(error);
+            return false;
+        }
+    }
+
 }
 
 export default ExpressModel;
