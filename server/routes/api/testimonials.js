@@ -9,6 +9,7 @@ const router = express.Router();
 router.get('/', async (req, res) => {
     const testimonials = await testimonial.getTestimonials();
     res.json(testimonials);
+
 });
 
 router.put('/update', async (req, res) => {
