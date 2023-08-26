@@ -30,12 +30,11 @@
 </script>
 <template>
     <div class="lg:container md:mx-auto">
-        <div class="bg-white">
+        <div class="bg-white mx-auto rounded-lg">
             <div class="p-5 text-center">
-                <h1 class="text-center text-black text-3xl font-semibold">
-                    Reviews
+                <h1 class="my-6 text-2xl font-bold text-black">
+                    Newsletter
                 </h1>
-                
                 <div class="grid mb-8  dark:border-gray-700 grid-cols-3 gap-4">
                     <figure v-for="(testimonial, index) in reviews" :key="index + '-review-cards'" class="flex shadow-lg rounded-lg flex-col items-center justify-center p-8 text-center bg-white border-gray-200 rounded-t-lg md:rounded-tl-lg dark:bg-gray-800">
                         <blockquote class="max-w-2xl mx-auto mb-2 text-gray-500 lg:mb-2 dark:text-gray-400">
@@ -43,15 +42,15 @@
                                 <span :class="testimonial.status == 'Pending' ? 'bg-red-500' : 'bg-green-500'" class="w-2 h-2 mr-1 bg-green-500 rounded-full"></span>
                                 {{testimonial.status}}
                             </span>
-                            <h3 class="text-lg font-semibold mt-2 text-gray-900 dark:text-white">{{ testimonial.role }}</h3>
-                            <p class="my-3"> {{ testimonial.message }}</p>
+                            <h3 class="text-lg font-semibold text-gray-900 dark:text-white">{{ testimonial.role }}</h3>
+                            <p class="my-4"> {{ testimonial.message }}</p>
                             <div class="text-black mb-2">
                                 <div class="star-rating">
-                                <label v-for="star in testimonial.star" :key="star" :title="star + ' stars'">
-                                    <i class="text-yellow-300 ti ti-star-filled text-2xl"
-                                    aria-hidden="true"
-                                    ></i>
-                                </label>
+                                    <label v-for="star in testimonial.star" :key="star" :title="star + ' stars'">
+                                        <i class="text-yellow-300 ti ti-star-filled text-2xl"
+                                        aria-hidden="true"
+                                        ></i>
+                                    </label>
                                 </div>
                             </div>
                         </blockquote>

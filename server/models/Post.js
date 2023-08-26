@@ -10,6 +10,20 @@ class AddPostModel {
     async addPost(data) {
         await this.col.add(data);
     }
+
+    async getPost() {
+        try {
+            const snap = await this.col.get();
+            const blogs = snap.docs.map((doc) => ({
+                id: doc.id,
+                ...doc.data()
+            }));
+            return blogs;
+        } catch (error) {
+            console.error("Error on get reviews:", error);
+            return false;
+        }
+    }
 }
 
 export default AddPostModel;

@@ -73,7 +73,7 @@
 </script>
 
 <template>
-<section class="flex transition ease-in-out bg-cover bg-fixed bg-black delay-150 h-[100vh] min-h-[1000px] sm:w-[100vw] bg-[center_-5rem] items-start justify-center absolute left-0 right-0 top-0 bg-[url(/background.gif)]">
+<section class="flex transition ease-in-out bg-cover bg-fixed bg-black delay-150 h-[1000px] min-h-[1000px] sm:w-[100vw] bg-[center_-5rem] items-start justify-center absolute left-0 right-0 top-0 bg-[url(/background.gif)]">
         <div class="sm:w-[40rem] w-[35rem] text-center  pt-[180px]">
             <h1 class="font-bold text-5xl sm:text-6xl m-10 text-white drop-shadow-[10px_10px_2px#000] ">
                 Your Loyal Superhero Sidekick!
