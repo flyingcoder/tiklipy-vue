@@ -1,0 +1,6 @@
+node_modules
+npm-debug.log
+.vscode
+.github\workflows
+.git
+.env

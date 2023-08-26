@@ -1,6 +1,6 @@
 <script setup>
     import expressModel from "../../models/express";
-    import GeneratedResourceModel from "../../models/generatedResources";
+    import GeneratedResourceModel from "../../models/generatedResources.js";
     import { useFormStore } from '../../stores/form';
     import SwalCheckIcon from '../../components/SwalCheckIcon.vue';
     import { onMounted, ref  } from 'vue'

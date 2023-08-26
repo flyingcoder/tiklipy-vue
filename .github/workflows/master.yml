@@ -70,6 +70,7 @@ jobs:
           SSH_USERNAME: ${{ secrets.SSH_USERNAME }}
           SSH_HOST: ${{ secrets.SSH_HOST }}
         run: |
+          
           scp -i ${{ secrets.SSH_PRIVATE_KEY }} app.tar.gz \
           ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}:/var/www/tiklipy.com/
           ssh -i ${{ secrets.SSH_PRIVATE_KEY }} ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}

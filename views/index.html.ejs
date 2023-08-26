@@ -4,80 +4,48 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="application-name" content="<%= meta.app_name %>">
+    <meta name="description" content="<%= meta.app_description %>">
+    <meta name="keywords" content="<%= meta.app_keywords %>">
+    <meta name="image" content="/background.gif" />
 
-    <title>Tiklipy - The Best AI Assistant</title>
-    <meta name="title" content="Tiklipy - The Best AI Assistant" />
-    <meta name="description" content="Elevate, Educate, and Innovate: Tiklipy - Your Time-Saving, Technique-Boosting Teaching AI Assistant!">
-    <meta name="keywords" content="AI assistant for teachers, time-saving tool, teaching techniques enhancement, educational technology app, classroom management, lesson planning automation, assessment generator, paperless education, teacher productivity, teacher resources">
+    <!-- meta http-equiv="refresh" content="30" --> <!-- e refresh niya ang docs every 30 sec-->
 
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://tiklipy-728ce4bc78c1.herokuapp.com" />
-    <meta property="og:title" content="Tiklipy - The Best AI Assistant" />
-    <meta property="og:description" content="Elevate, Educate, and Innovate: Tiklipy - Your Time-Saving, Technique-Boosting Teaching AI Assistant!" />
-    <meta property="og:image" content="https://tiklipy-728ce4bc78c1.herokuapp.com/background.gif" />
-
+    <meta property="og:url" content="<%= meta.app_url %>" />
+    <meta property="og:title" content="<%= meta.app_title %>" />
+    <meta property="og:description" content="<%= meta.app_description %>" />
+    <meta property="og:image" content="<%= meta.app_url %>/background.gif" />
+    
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://tiklipy-728ce4bc78c1.herokuapp.com" />
-    <meta property="twitter:title" content="Tiklipy - The Best AI Assistant" />
-    <meta property="twitter:description" content="Elevate, Educate, and Innovate: Tiklipy - Your Time-Saving, Technique-Boosting Teaching AI Assistant!" />
-    <meta property="twitter:image" content="https://tiklipy-728ce4bc78c1.herokuapp.com/background.gif" />
+    <meta property="twitter:url" content="<%= meta.app_url %>" />
+    <meta property="twitter:title" content="<%= meta.app_title %>" />
+    <meta property="twitter:description" content="<%= meta.app_description %>" />
+    <meta property="twitter:image" content="<%= meta.app_url %>/background.gif" />
+    <meta name="twitter:site" content="@<%= meta.app_name %>">
 
-    <link rel="icon" href="/favicon.ico" />
+    <title><%= meta.app_title %></title>
+    <link rel="icon" href="<%= meta.app_url %>/favicon.ico" />
     <!-- link rel="manifest" href="/icons/manifest.json" /-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
-
+    
+    <noscript>Your browser does not support JavaScript!</noscript>
     <% if (environment === 'production') { %>
     <link rel="stylesheet" href="<%= manifest['src/main.css'].file %>" />
     <% } %>
   </head>
-<style>
-  ::selection {
-    color:#fff ;
-    background: #818cf8
-  }
-  body {
-    background-image: url('/bg-body.png');
-    background-color: #f3f4f6 !important;
-    min-height: 100%;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    overflow-x: hidden;
-  }
-  /* @media (prefers-color-scheme: dark) {
-    /* #app {
-      opacity: .75;
-      transition: opacity .5s ease-in-out;
-      background-image:url('/bg-body-2.png');
-    } 
-  } */
-</style>
   <body>
-    
     <!-- Main div -->
-    <div id="app" class="w-full h-full min-h-screen overflow-x-hidden relative"></div>
+    <div id="app" class="relative w-full h-full min-h-screen overflow-x-hidden"></div>
     <!-- End Main div -->
-    
+  
     <% if(environment === 'production') { %>
     <script type="module" src="<%= manifest['src/main.js'].file %>"></script>
+    <script type="application/ld+json" src="/schema-ld.json"></script>
     <% } else { %>
     <script type="module" src="http://localhost:5173/@vite/client"></script>
     <script type="module" src="http://localhost:5173/src/main.js"></script>
     <% } %>
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org/",
-        "@type": "WebSite",
-        "name": "Tiklipy",
-        "url": "https://www.tiklipy.com/",
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": "https://www.tiklipy.com/FAQ{search_term_string}",
-          "query-input": "required name=search_term_string"
-        }
-      }
-      </script>
   </body>
   
 </html>
