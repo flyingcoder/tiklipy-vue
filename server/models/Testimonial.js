@@ -1,6 +1,28 @@
-class Testimonial {
+import admin from "../plugins/firebase-handler.js";
+import { getFirestore } from "firebase-admin/firestore";
 
-    getTestimonials() {
+class Testimonial {
+    constructor() {
+        const db = getFirestore(admin);
+        this.col = db.collection('Testimonials');
+    }
+
+    addTestimonials(data) {
+        this.col.add(data);
+    }
+
+    async getTestimonials() {
+        // try {
+        //     const snap = await this.col.get();
+        //     const reviews = snap.docs.map((data) => ({
+        //         id: data.id,
+        //         ...data.data()
+        //     }));
+        //     return reviews;
+        // } catch (error) {
+        //     console.error("Error on get reviews:", error);
+        //     return false;
+        // }
         return [
             {
                 star:'⭐⭐⭐⭐⭐',
