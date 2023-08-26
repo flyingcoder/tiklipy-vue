@@ -1,5 +1,5 @@
 # Use the official Node.js image as the base image
-FROM node:18
+FROM node:18-alpine
 
 # Set the working directory inside the container
 WORKDIR /app
@@ -16,8 +16,11 @@ COPY . .
 # Build the frontend
 RUN npm run build
 
+# Set NODE_ENV to production
+ENV NODE_ENV=production
+
 # Expose the port that the Express app will run on
 EXPOSE 3000
 
 # Command to start the server
-RUN npm run start
+CMD ["node", "server/index.js"]
