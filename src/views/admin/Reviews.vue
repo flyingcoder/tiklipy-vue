@@ -36,7 +36,7 @@
                     Reviews
                 </h1>
                 
-                <div class="grid mb-8  dark:border-gray-700 md:mb-12 md:grid-cols-3 gap-4">
+                <div class="grid mb-8  dark:border-gray-700 grid-cols-3 gap-4">
                     <figure v-for="(testimonial, index) in reviews" :key="index + '-review-cards'" class="flex shadow-lg rounded-lg flex-col items-center justify-center p-8 text-center bg-white border-gray-200 rounded-t-lg md:rounded-tl-lg dark:bg-gray-800">
                         <blockquote class="max-w-2xl mx-auto mb-2 text-gray-500 lg:mb-2 dark:text-gray-400">
                             <span :class="testimonial.status == 'Pending' ? ' bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-300' : 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300'" class="inline-flex items-center  text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full ">
