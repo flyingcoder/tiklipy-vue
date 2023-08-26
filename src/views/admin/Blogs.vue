@@ -5,6 +5,7 @@ import { Button } from 'flowbite-vue';
 
 const backEndModel = new expressModel();
 const blogs = ref([]);
+const showFullContent = ref(false);
 
 const formatDate = (dateString) => {
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
@@ -19,6 +20,13 @@ const getBlogs = () => {
         console.error("Error fetching reviews:", error);
     });
 };
+
+const truncateText = (text, maxLength) => {
+    if (!showFullContent.value && text.length > maxLength) {
+        return text.slice(0, maxLength) + "...";
+    }
+    return text;
+}
 
 onMounted(() => {
     getBlogs();
@@ -43,11 +51,11 @@ onMounted(() => {
                     Blogs
                 </h1>
                 <div class="grid mb-8  dark:border-gray-700 md:mb-12 md:grid-cols-3 gap-4">
-                    <div v-for="(blog, index) in blogs" :key="index + '-features-cards'" class="border-[1px] border-color-main-color w-full mb-5 bg-white  p-5 2xl:p-10  content-between rounded-xl hover:scale-105 ease-linear duration-200 shadow-sm">
+                    <div v-for="(blog, index) in blogs" :key="index + '-features-cards'" class="border-[1px] border-color-main-color cursor-pointer w-full mb-5 bg-white  p-5 2xl:p-10  content-between rounded-xl hover:scale-105 ease-linear duration-200 shadow-sm">
                         <div class="">
-                            <h1 class="text-black font-bold text-3xl">{{ blog.title }}</h1>
+                            <h1 class="text-main-color font-semibold text-2xl">{{ blog.title }}</h1>
                             <div class="text-black flex w-full mb-7"><span>Read Time:&nbsp;</span> <span>{{ blog.readTime }}</span></div>
-                            <div v-html="blog.blog" class="text-black desciption-style"></div>
+                            <div v-html="truncateText(blog.blog, 80)" class="text-black desciption-style"></div>
                             <div class="flex flex-wrap items-center gap-5 mt-5">
                                 <img src="/tiklipy-logo-icon.png" alt="hero" class="w-16 rounded-full">
                                 <div class="">
