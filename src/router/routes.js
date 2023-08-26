@@ -11,6 +11,7 @@ import InvitationCodes from '../views/admin/InvitationCodes.vue'
 import Reviews from '../views/admin/Reviews.vue'
 import AdminBlogs from '../views/admin/Blogs.vue'
 import Newsletters from '../views/admin/Newsletters.vue'
+import Posts from '../views/admin/Post.vue';
 const routes = [
     //main pages routes
     { 
@@ -59,7 +60,8 @@ const routes = [
                 { path:'', name: 'invite-code', component: InvitationCodes },
                 { path:'reviews', name: 'reviews', component: Reviews },
                 { path:'newsletters', name: 'newsletters', component: Newsletters },
-                { path: 'blogs', name: 'admin-blogs', component: AdminBlogs }
+                { path: 'blogs', name: 'admin-blogs', component: AdminBlogs },
+                { path: 'posts', name: 'posts', component: Posts } 
             ]},
         ],
     },

@@ -1,60 +1,62 @@
 <script setup>
-    import { ref } from 'vue';
+    import { ref, onMounted } from 'vue';
     import expressModel from "../../models/express";
-    import { QuillEditor } from '@vueup/vue-quill';
-    import { Textarea, Button, Input, FileInput } from 'flowbite-vue';
-    import '@vueup/vue-quill/dist/vue-quill.snow.css';
-    import dayjs from "dayjs";
+    import { Button } from 'flowbite-vue';
 
-    const toolbarOptions = [
-        [{ 'size': ['small', false, 'large', 'huge'] }],
-        ['bold', 'italic', 'underline', 'strike'],
-        ['blockquote', 'code-block'],
-        [{ 'header': 1 }, { 'header': 2 }],
-        [{ 'list': 'ordered'}, { 'list': 'bullet' }],
-        [{ 'script': 'sub'}, { 'script': 'super' }],
-        [{ 'indent': '-1'}, { 'indent': '+1' }],
-        [{ 'direction': 'rtl' }],   
-        [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
-        [{ 'color': [] }, { 'background': [] }],
-        [{ 'font': [] }],
-        [{ 'align': [] }],
-        ['clean']
-    ];
-    const blog = ref('');
-    const title =  ref('');
-    const author = ref('');
-    const readTime = ref('');
-    const profile = ref('');
     const backEndModel = new expressModel();
+    const blogs = ref([]);
 
-    const submitContent = () => {
-        const post = {
-            blog: blog.value,
-            title: title.value,
-            author: author.value,
-            profile: profile.value.name,
-            readTime: readTime.value,
-            dateCreated: dayjs().format(),
-        }
-        backEndModel.addBlog(post);
-    }
+    const getBlogs = () => {
+        backEndModel.getPosts().then((data) => {
+            blogs.value = data.data.reviews;
+        }).catch((error) => {
+            console.error("Error fetching reviews:", error);
+        });
+    };
 
+    onMounted(() => {
+        getBlogs();
+    });
 </script>
 <template>
-    <div class="mt-8 w-3/5 mx-auto bg-white p-6 rounded-lg text-black">
-        <div class="text-4xl font-semibold text-center pb-4">
-            Create Post
+    <div class="lg:container md:mx-auto">
+        <div class="bg-white">
+            <div class="p-5 text-center">
+                <h1 class="text-center text-black text-3xl font-semibold">
+                    Blogs
+                </h1>
+                
+                <div class="grid mb-8  dark:border-gray-700 md:mb-12 md:grid-cols-3 gap-4">
+                    <figure v-for="(blog, index) in blogs" :key="index + '-review-cards'" class="flex shadow-lg rounded-lg flex-col items-center justify-center p-8 text-center bg-white border-gray-200 rounded-t-lg md:rounded-tl-lg dark:bg-gray-800">
+                        <blockquote class="max-w-2xl mx-auto mb-2 text-gray-500 lg:mb-2 dark:text-gray-400">
+                            <span :class="testimonial.status == 'Pending' ? ' bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-300' : 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300'" class="inline-flex items-center  text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full ">
+                                <span :class="testimonial.status == 'Pending' ? 'bg-red-500' : 'bg-green-500'" class="w-2 h-2 mr-1 bg-green-500 rounded-full"></span>
+                                {{testimonial.status}}
+                            </span>
+                            <h3 class="text-lg font-semibold mt-2 text-gray-900 dark:text-white">{{ testimonial.role }}</h3>
+                            <p class="my-3"> {{ testimonial.message }}</p>
+                            <div class="text-black mb-2">
+                                <div class="star-rating">
+                                <label v-for="star in testimonial.star" :key="star" :title="star + ' stars'">
+                                    <i class="text-yellow-300 ti ti-star-filled text-2xl"
+                                    aria-hidden="true"
+                                    ></i>
+                                </label>
+                                </div>
+                            </div>
+                        </blockquote>
+                        <figcaption class="flex items-center justify-center space-x-3">
+                            <img class="rounded-full w-9 h-9" :src="testimonial.profile" alt="profile picture">
+                            <div class="space-y-0.5 font-medium dark:text-white text-left text-black">
+                                <div>{{ testimonial.name }}</div>
+                            </div>
+                        </figcaption> 
+                        <div class="flex justify-center" v-if="testimonial.status == 'Pending'">
+                            <Button type="submit" size="lg" @click="addToTestimonials(testimonial)" class="w-full bg-main-color text-center hover:bg-secondary-color mt-6 p-3 rounded-lg border-0 text-sm font-semibold">Add To Testimonials</Button>
+                        </div>
+                    </figure>
+                </div>
+            </div>
         </div>
-        <FileInput label="Author Image" class="mb-4" v-model="profile"></FileInput>
-        <Input size="md" label="Title" v-model="title" class="mb-2" />
-        <Input size="md" label="Author" v-model="author" class="mb-2" />
-        <Input size="md" label="Time Read" v-model="readTime" class="mb-2" />
-        <div>
-            <label class="font-lg font-semibold">Content</label>
-            <QuillEditor theme="snow" :toolbar="toolbarOptions" v-model:content="blog" contentType="html" class="text-black"/>
-        </div>
-        
-        <button @click="submitContent" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded">Submit</button>
     </div>
 </template>
