@@ -10,7 +10,7 @@ pnpm-debug.log*
 lerna-debug.log*
 
 server/secret
-
+.awspolicy
 node_modules
 dist
 dist-ssr
