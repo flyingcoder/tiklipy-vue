@@ -1,6 +1,5 @@
 import admin from "../plugins/firebase-handler.js";
 import { getFirestore } from "firebase-admin/firestore";
-import cards from '../temp/cards.js';
 
 class ToolModel {
     constructor() {
@@ -30,8 +29,9 @@ class ToolModel {
         }
     }
 
-    getFeatures() {
+    async getFeatures() {
         const features = [];
+        const cards = await this.getTools();
         for ( const card of cards) {
             features.push({
                 title: card.title,
