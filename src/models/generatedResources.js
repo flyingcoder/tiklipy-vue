@@ -13,10 +13,14 @@ class GeneratedResourceModel {
 
     async getGeneratedResources() {
       try {
-          const queryRef = query(this.collectionRef, where('teacherId', '==', this.authStore.user.uid));
-          const snaps = await getDocs(queryRef);
-          return snaps.docs.map((doc) => {
-            return { id: doc.id, data: doc.data() };
+          // const queryRef = query(this.collectionRef, where('teacherId', '==', this.authStore.user.uid));
+          // const snaps = await getDocs(queryRef);
+          // return snaps.docs.map((doc) => {
+          //   return { id: doc.id, data: doc.data() };
+          // });
+
+          return axios.get('api/v1/resources', {
+            uid: this.authStore.user.uid
           });
       } catch (error) {
           console.log(error);
@@ -26,10 +30,13 @@ class GeneratedResourceModel {
 
     async getGeneratedDoc(docId) {
       try {
-          const docRef = doc(db, this.collectionName, docId);
-          const snap = await getDoc(docRef);
-          if(snap.exists()) return snap.data();
-          else return false;
+          // const docRef = doc(db, this.collectionName, docId);
+          // const snap = await getDoc(docRef);
+          // if(snap.exists()) return snap.data();
+          // else return false;
+          return axios.get('api/v1/resources/generate-doc', {
+            docId: docId
+          });
       } catch (error) {
           console.log(error);
           return false;
