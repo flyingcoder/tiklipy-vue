@@ -7,7 +7,7 @@ import robots from 'express-robots-txt';
 
 // Initialize Express app
 const app = express();
-const port = process.env.PORT || 3483;
+const port = process.env.PORT || 3000;
 const publicPath = path.join(path.resolve(), "public");
 const distPath = path.join(path.resolve(), "dist");
 
