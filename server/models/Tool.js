@@ -10,9 +10,10 @@ class ToolModel {
     async getTools() {
         try {
             const snaps = await this.col.get();
-            return snaps.docs.map((data) => ({
+            const tools = snaps.docs.map((data) => ({
                 ...data.data()
             }));
+            return tools;
         } catch (error) {
             console.error("Error getting tools", error);
             return [];
