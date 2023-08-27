@@ -1,4 +1,4 @@
-import '../plugins/firebase-handler.js';
+import admin from '../plugins/firebase-handler.js';
 import express from 'express';
 import { getAuth } from 'firebase-admin/auth';
 import generateRoutes from './api/generate.js';

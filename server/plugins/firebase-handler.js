@@ -1,7 +1,7 @@
 import { initializeApp, cert } from "firebase-admin/app";
 import 'dotenv/config';
 
-export default initializeApp({
+const config = {
     credential: cert({
         "type": process.env.FIREBASE_TYPE,
         "project_id": process.env.FIREBASE_PROJECTID,
@@ -15,7 +15,12 @@ export default initializeApp({
         "client_x509_cert_url": process.env.FIREBASE_CLIENT_CERT_URL,
         "universe_domain": process.env.FIREBASE_UNIVERSE_DOMAIN,
     }),
-    projectId: process.env.VITE_FIREBASE_PROJECTID,
-});
+    projectId: process.env.FIREBASE_PROJECTID,
+};
+
+const tiklipy = initializeApp(config);
+
+export default tiklipy;
+
 
 
