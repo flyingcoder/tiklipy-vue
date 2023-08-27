@@ -10,9 +10,9 @@ router.post('/', (req, res) => {
     else res.json({ msg: "Something went wrong!"});
 });
 
-router.get('/',  (req, res) => {
+router.get('/', async (req, res) => {
     try {
-        const toolsData = toolModel.getTools();
+        const toolsData = await toolModel.getTools();
         if (toolsData) res.json(toolsData);
         else res.json({ error: 'Something went wrong' });
     } catch (error) {
