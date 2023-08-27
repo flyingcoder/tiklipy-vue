@@ -49,7 +49,7 @@ router.use('/testimonials', testimonialRoutes);
 router.use('/update', testimonialRoutes);
 router.use('/auth', authRoutes);
 router.use('/stars', restrict, starCreditRoutes);
-router.use('/generate', restrict, generateRoutes);
+router.use('/resources', restrict, generateRoutes);
 router.use('/tools', restrict, getTools);
 
 
