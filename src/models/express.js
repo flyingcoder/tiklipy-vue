@@ -4,12 +4,21 @@ import dayjs from "dayjs";
 
 class ExpressModel {
 
+    getSystemPrompt(id) {
+        try {
+            return axios.post('/api/v1/resources/system-prompt', id);
+        } catch (error) {
+            constole.log(error);
+            return true;
+        }
+    } 
+
     generateResource(data) {
         try {
             axios.defaults.headers.common['Authorization'] = auth?.currentUser?.accessToken;
-            return axios.post('/api/v1/resources', data);
+            return axios.post('/api/v1/resources/generate', data);
         } catch (error) {
-            console.log(error);
+            console.log("Error generating resource");
             return false;
         }
     }
