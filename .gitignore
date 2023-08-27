@@ -8,7 +8,7 @@ pnpm-debug.log*
 .env
 .env.production
 lerna-debug.log*
-
+server/routes/alvin.js
 server/secret
 .awspolicy
 node_modules
