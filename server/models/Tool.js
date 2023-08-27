@@ -5,12 +5,19 @@ import cards from '../temp/cards.js';
 class ToolModel {
     constructor() {
         const db = getFirestore(admin);
-        this.col = db.collection('invitationCodes');
+        this.col = db.collection('Tools');
     }
 
-    getTools() {
-        
-        return cards;
+    async getTools() {
+        try {
+            const snaps = await this.col.get();
+            return snaps.docs.map((data) => ({
+                ...data.data()
+            }));
+        } catch (error) {
+            console.error("Error getting tools", error);
+            return [];
+        }
     }
 
     async addTool(data) {
