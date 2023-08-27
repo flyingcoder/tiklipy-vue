@@ -41,5 +41,14 @@ router.get('/', async (req, res) => {
     }
 });
 
+router.get('/generate-doc', async (req, res) => {
+    const resource = await generate.getResource(req.body.docId);
+    if(resource) {
+        res.json(resource);
+    } else {
+        res.json({error: 'Something went wrong'})
+    }
+});
+
 
 export default router;
