@@ -23,7 +23,7 @@ router.post('/consult', async (req, res) => {
 //    } 
 //});
 //routes from here down below needs to have some star credit.
-router.post('/', async (req, res) => {
+router.post('/generate', async (req, res) => {
     const resource = await generate.global(req.body);
     if(resource) {
         res.json(resource);
@@ -32,15 +32,23 @@ router.post('/', async (req, res) => {
     }
 });
 
-router.post('/lesson-plan', async (req, res) => {
-    const resource = await generate.lessonPlan(req.body);
+router.get('/', async (req, res) => {
+    const resource = await generate.getResources(req.body.uid);
     if(resource) {
-        res.json({resource: resource, starBalance: balance});
+        res.json(resource);
     } else {
         res.json({error: 'Something went wrong'})
     }
 });
 
+router.get('/generate-doc', async (req, res) => {
+    const resource = await generate.getResource(req.body.docId);
+    if(resource) {
+        res.json(resource);
+    } else {
+        res.json({error: 'Something went wrong'})
+    }
+});
 
 
 export default router;

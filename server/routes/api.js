@@ -1,4 +1,4 @@
-import '../plugins/firebase-handler.js';
+import admin from '../plugins/firebase-handler.js';
 import express from 'express';
 import { getAuth } from 'firebase-admin/auth';
 import generateRoutes from './api/generate.js';
@@ -49,7 +49,7 @@ router.use('/testimonials', testimonialRoutes);
 router.use('/update', testimonialRoutes);
 router.use('/auth', authRoutes);
 router.use('/stars', restrict, starCreditRoutes);
-router.use('/generate', restrict, generateRoutes);
+router.use('/resources', restrict, generateRoutes);
 router.use('/tools', restrict, getTools);
 
 

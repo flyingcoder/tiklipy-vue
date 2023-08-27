@@ -7,7 +7,7 @@ class ExpressModel {
     generateResource(data) {
         try {
             axios.defaults.headers.common['Authorization'] = auth?.currentUser?.accessToken;
-            return axios.post('/api/v1/generate', data);
+            return axios.post('/api/v1/resources', data);
         } catch (error) {
             console.log(error);
             return false;

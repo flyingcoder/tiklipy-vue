@@ -21,14 +21,14 @@ class AuthModel {
             const stop = onAuthStateChanged(auth, async (u) => {
                  stop();
                  if (u) {
-                     const cusDoc = await this.getUser(u.uid);
-                     const user = {
-                         uid : u.uid ?? null, email : u.email ?? null,
-                         displayName: u.displayName ?? null, accessToken: u.accessToken ?? null,
-                         photoURL: u.photoURL ?? null, phoneNumber: u.phoneNumber ?? null, isAdmin: cusDoc?.isAdmin ?? false
-                     }
-                     authStore.setUserToLocal(user);
-                     resolve(user);
+                    //const cusDoc = await this.getUser(u.uid);
+                    const user = {
+                        uid : u.uid ?? null, email : u.email ?? null,
+                        displayName: u.displayName ?? null, accessToken: u.accessToken ?? null,
+                        photoURL: u.photoURL ?? null, phoneNumber: u.phoneNumber ?? null
+                    }
+                    authStore.setUserToLocal(user);
+                    resolve(user);
                  } else {
                      resolve(null);
                  }

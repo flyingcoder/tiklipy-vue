@@ -20,11 +20,14 @@ app.use(robots({
 }));
 
 // Use routers and static files
+
 app.use("/api/v1", apiRouter);
 
 if (process.env.NODE_ENV === "production") {
   app.use("/", express.static(distPath));
 } else {
+  //import alvinRoutes from "./routes/alvin.js";
+  //app.use("/alvin", alvinRoutes);
   app.use("/", express.static(publicPath));
   app.use("/src", assetRouter);
 }

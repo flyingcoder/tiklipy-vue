@@ -5,3 +5,5 @@ npm-debug.log
 .git
 .env.production
 .awspolicy
+server/temp
+server/routes/alvin.js
