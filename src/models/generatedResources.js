@@ -1,27 +1,18 @@
-import { db } from "../plugins/firebase"
 import dayjs from "dayjs";
-import { collection, addDoc, getDoc, getDocs, query, where } from "firebase/firestore";
 import { useAuthStore } from "../stores/auth";
 import { useFormStore } from "../stores/form";
+import { auth } from "../plugins/firebase";
+import axios from "axios";
 
 class GeneratedResourceModel {
     constructor() {
-      this.collectionName = 'generatedResources';
-      this.collectionRef = collection(db, this.collectionName );
       this.authStore = new useAuthStore();
     }
 
     async getGeneratedResources() {
       try {
-          // const queryRef = query(this.collectionRef, where('teacherId', '==', this.authStore.user.uid));
-          // const snaps = await getDocs(queryRef);
-          // return snaps.docs.map((doc) => {
-          //   return { id: doc.id, data: doc.data() };
-          // });
-
-          return axios.get('api/v1/resources', {
-            uid: this.authStore.user.uid
-          });
+        axios.defaults.headers.common['Authorization'] = auth?.currentUser?.accessToken;
+        return axios.get('api/v1/resources');
       } catch (error) {
           console.log(error);
           return [];
@@ -30,10 +21,7 @@ class GeneratedResourceModel {
 
     async getGeneratedDoc(docId) {
       try {
-          // const docRef = doc(db, this.collectionName, docId);
-          // const snap = await getDoc(docRef);
-          // if(snap.exists()) return snap.data();
-          // else return false;
+          axios.defaults.headers.common['Authorization'] = auth?.currentUser?.accessToken;
           return axios.get('api/v1/resources/generate-doc', {
             docId: docId
           });
@@ -44,7 +32,6 @@ class GeneratedResourceModel {
     }
 
     parseTitle(rawData) {
-      console.log(rawData);
       const choice = rawData?.choice;
       const firstLine = choice?.message?.content?.split('\n');
       if(firstLine?.length > 0)
@@ -67,11 +54,12 @@ class GeneratedResourceModel {
           teacherId: this.authStore.user.uid,
           usage: rawData.usage,
         }
-        console.log(data)
-        await addDoc(this.collectionRef, data);
-        console.log('Resource is added successfully.');
+        axios.defaults.headers.common['Authorization'] = auth?.currentUser?.accessToken;
+        await axios.post('/api/v1/resources', data);
+        return true;
       } catch (error) {
-        console.log('Error adding resources to firebase:', error);
+        console.error('Error adding resources to firebase:', error);
+        return false;
       }
     }
   }

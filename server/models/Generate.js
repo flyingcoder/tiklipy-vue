@@ -1,5 +1,7 @@
 import openai from '../plugins/openai-handler.js';
 import StarCreditModel from './StarCredit.js';
+import admin from '../plugins/firebase-handler.js';
+import { getFirestore } from 'firebase-admin/firestore';
 
 class generateModel {
     constructor() {
@@ -10,10 +12,40 @@ class generateModel {
             frequency_penalty: 0,
             presence_penalty: 0
         };
-
+        const db = getFirestore(admin);
+        this.SystemColRef = db.collection('SystemPrompts');
         this.starCredit = new StarCreditModel();
     }
 
+    async injectInstruction(obj) {
+        if(obj.role === 'system') {
+            const docRef = this.SystemColRef.doc(obj.content);
+            const systemPrompt = await docRef.get().then((doc) => doc.data());
+            return { role: obj.role, content: systemPrompt.content};
+        }
+        return obj;
+    }
+
+    async global(data) {
+        try {
+            const prompt = await Promise.all(data.map(obj => this.injectInstruction(obj)));
+            console.log(prompt);
+            const param = { 
+                messages: prompt,
+                max_tokens: 800,
+                ...this.options
+            };
+            const chatCompletion = await openai.createChatCompletion(param)
+                                        .then(res => res.data);
+            //this.starCredit.manager(chatCompletion);
+            return chatCompletion;
+        } catch (error) {
+            console.error("Error generating resource", error);
+            return false;
+        }
+    }
+
+    
     async consultation(data) {
         try {
             const param = { 
@@ -46,22 +78,6 @@ class generateModel {
         }
     }
 
-    async global(prompt) {
-        try {
-            const param = { 
-                messages: prompt,
-                max_tokens: 800,
-                ...this.options
-            };
-            const chatCompletion = await openai.createChatCompletion(param)
-                                        .then(res => res.data);
-            //this.starCredit.manager(chatCompletion);
-            return chatCompletion;
-        } catch (error) {
-            console.error(error);
-            return false;
-        }
-    }
 
     async lessonPlan(prompt) {
         try {
