@@ -5,13 +5,13 @@
 
   const loaderStore = useLoaderStore();
 
-  onMounted(() => {
-    document.addEventListener('click', handleGlobalClick);
-  })
+  // onMounted(() => {
+  //   document.addEventListener('click', handleGlobalClick);
+  // })
 
-  const handleGlobalClick = (event) => {
-    loaderStore.forceClose();
-  }
+  // const handleGlobalClick = (event) => {
+  //   loaderStore.forceClose();
+  // }
   
 </script>
 <template>
