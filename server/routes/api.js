@@ -11,6 +11,7 @@ import featureRoutes from './api/tools.js';
 import suggestToolRoutes from './api/suggestTools.js';
 import reviewRoutes from './api/reviews.js';
 import postRoutes from  './api/blog.js';
+import helpRoute from './api/help.js';
 
 const router = express.Router();
 
@@ -45,6 +46,7 @@ router.use('/reviews', reviewRoutes);
 router.use('/suggest-tools', suggestToolRoutes);
 router.use('/newsletters', newsletterRoutes);
 router.use('/features', featureRoutes);
+router.use('/help', helpRoute);
 router.use('/testimonials', testimonialRoutes);
 router.use('/update', testimonialRoutes);
 router.use('/auth', authRoutes);

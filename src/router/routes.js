@@ -12,6 +12,7 @@ import Reviews from '../views/admin/Reviews.vue'
 import AdminBlogs from '../views/admin/Blogs.vue'
 import Newsletters from '../views/admin/Newsletters.vue'
 import Posts from '../views/admin/Post.vue';
+import AdminHelp from '../views/admin/Help.vue';
 const routes = [
     //main pages routes
     { 
@@ -61,7 +62,8 @@ const routes = [
                 { path:'reviews', name: 'reviews', component: Reviews },
                 { path:'newsletters', name: 'newsletters', component: Newsletters },
                 { path: 'blogs', name: 'admin-blogs', component: AdminBlogs },
-                { path: 'posts', name: 'posts', component: Posts } 
+                { path: 'posts', name: 'posts', component: Posts },
+                { path: 'help', name: 'admin-help', component: AdminHelp } 
             ]},
         ],
     },
