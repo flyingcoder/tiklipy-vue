@@ -1,12 +1,10 @@
 import admin from "../plugins/firebase-handler.js";
 import { getFirestore } from "firebase-admin/firestore";
-import { useAuthStore } from "../../src/stores/auth";
 
-class ResourcesModel {
+class ResourceModel {
     constructor() {
         const db = getFirestore(admin);
-        this.col = db.collection('generatedResources');
-        this.authStore = new useAuthStore();
+        this.col = db.collection('Resources');
     }
 
     async getResources(uid) {
@@ -20,16 +18,20 @@ class ResourcesModel {
         }
     }
 
+    async addResource(data) {
+        try {
+            await this.col.add(data);
+            return true;
+        } catch (error) {
+            console.error("Adding a resource error:", error)
+            return false;
+        }
+    }
+
     async getResource(docId) {
         try {
             const docRef = this.col.doc(docId);
-            const docSnap = await getDoc(docRef);
-            if (docSnap.exists()) return docSnap.data();
-            return false;
-            // const docRef = doc(db, this.collectionName, docId);
-            // const snap = await getDoc(docRef);
-            // if(snap.exists()) return snap.data();
-            // else return false;
+            return await docRef.get().then((doc) => doc.data());
         } catch (error) {
             console.error('Error in getting all resource', error);
             return false;
@@ -37,4 +39,4 @@ class ResourcesModel {
     }
 }
 
-export default ResourcesModel;
+export default ResourceModel;

@@ -3,6 +3,7 @@ import path from "path";
 import homeRouter from "./routes/home.js";
 import assetRouter from "./routes/assets.js";
 import apiRouter from "./routes/api.js";
+import sitemap from "express-sitemap";
 import robots from 'express-robots-txt';
 
 // Initialize Express app

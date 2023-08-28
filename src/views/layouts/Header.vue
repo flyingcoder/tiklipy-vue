@@ -4,6 +4,7 @@
     import { useAuthStore } from "../../stores/auth";
     import { useUserStore } from "../../stores/user";
     import { useRoute } from "vue-router";
+    import { useLoaderStore } from "../../stores/loader";
     // import LiveChat from '../../components/LiveChat.vue';
     
     const isLoggedIn = ref(false);
@@ -11,6 +12,7 @@
     const dropdownMenu = ref(true);
     const authStore = useAuthStore();
     const userStore = useUserStore();
+    const loaderStore = useLoaderStore();
     const route = useRoute();
 
     onMounted(() => {
@@ -30,12 +32,6 @@
         dropdownMenu.value = !dropdownMenu.value;
     };
 
-    // const scrollToSection = (sectionId) => {
-    //     const section = document.getElementById(sectionId);
-    //     if (section) {
-    //         section.scrollIntoView({ behavior: 'smooth' });
-    //     }
-    // }
 </script>
 <template>
     <!-- <LiveChat /> -->
@@ -87,7 +83,7 @@
                                     d="m1 1 4 4 4-4"/>
                             </svg>
                         </button>
-                        <div id="mega-menu-dropdown" :class="{'hidden' : dropdownMenu}" class="absolute z-10 w-auto text-sm bg-white border border-gray-100 rounded-lg shadow-md dark:border-gray-700 md:grid-cols-3 dark:bg-gray-700">
+                        <div id="mega-menu-dropdown" :class="{'hidden' : dropdownMenu || loaderStore.close }" class="absolute z-10 w-auto text-sm bg-white border border-gray-100 rounded-lg shadow-md dark:border-gray-700 md:grid-cols-3 dark:bg-gray-700">
                             <div class="w-80">
                                 <ul class="space-y-4">
                                     <router-link to="/blogs"  class="dark:text-white hover:text-main-color dark:hover:text-main-color" active-class="text-main-color dark:text-main-color">
