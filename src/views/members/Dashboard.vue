@@ -50,7 +50,6 @@
     }
 
     const cards = computed(() => {
-        console.log(rawCards.value)
         if(rawCards?.value)
             return rawCards.value.data.filter(item => item.title.toLowerCase().includes(searchQuery.value.toLowerCase()))
     })

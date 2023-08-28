@@ -34,7 +34,6 @@
     const fetchProducts = async () => {
         const productsRes = await backEndModel.getStripeProduct();
         products.value = productsRes.data;
-        console.log(productsRes);
     };
 
     const emailLogin = () => {

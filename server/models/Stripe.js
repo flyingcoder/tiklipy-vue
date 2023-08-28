@@ -9,7 +9,6 @@ class StripeModel {
 
     async getPrices(snaps) {
         snaps.forEach( async (product) => {
-            console.log(product.id);
 
             const colRef = this.productCol.doc(product.id).collection('prices');
             const priceRes = await colRef.orderBy("interval", "asc").get();
