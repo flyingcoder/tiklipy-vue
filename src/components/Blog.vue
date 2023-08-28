@@ -25,18 +25,14 @@ const getData = () => {
 </script>
 <template>
     
-<section :style="{ backgroundImage: `url(${blog.featuredImage})` }" class="bg-center bg-no-repeat bg-gray-700 bg-blend-multiply">
-
-<div class="px-4 mx-auto max-w-screen-xl text-center py-24 lg:py-56">
-   
+<div class="px-4 mx-auto max-w-screen-xl text-center m-auto">
+    <img :src="blog.featuredImage" alt="">
 </div>
-</section>
-
-<div class="container mx-auto py-8 my-10 text-black">
-    <div class="container mx-auto py-8 my-10 text-black">
-        <div class="max-w-3xl mx-auto p-4">
-            <div class="text-gray-800 text-2xl midlg:text-5xl font-semibold text-center">{{ blog.title }}</div>
-            <Avatar status="online" class="flex justify-center my-10" size="lg" rounded :img="blog.authorImage" />
+<div class="container mx-auto pb-8 text-black">
+    <div class="container mx-auto pb-8 text-black">
+        <div class="max-w-3xl mx-auto px-4 pb-4">
+            <!-- <div class="text-gray-800 text-2xl midlg:text-5xl font-semibold text-center">{{ blog.title }}</div> -->
+            <Avatar status="online" class="flex justify-center mb-5" size="lg" rounded :img="blog.authorImage" />
             <div class="text-center mb-12">
                 <span class="font-semibold text-gray-700 text-lg">{{blog.author}}</span>
                 <div class="flex justify-center mt-2 text-sm text-gray-700">

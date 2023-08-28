@@ -35,10 +35,10 @@
 }
 </style>
 <template>
-    <div class="container FAQ my-10 m-auto">
+    <div class="container FAQ max-md: px-3 mt-4 md:mt-10  m-auto">
         <div class="max-w-3xl mx-auto">
             <div class="block justify-center">
-                <h2 class="text-center text-4xl font-semibold text-gray-800">Frequently Asked Questions</h2>
+                <h2 class="mb-3 md:mb-10 text-3xl md:text-5xl font-semibold text-center uppercase text-main-color">Frequently Asked Questions</h2>
                 <p class="text-center text-black mt-3 text-gray-700 text-xl mb-5">Tiklipy Common Questions: Find quick resolutions to familiar Tiklipy concerns.</p>
             </div>
             <Accordion flush>
