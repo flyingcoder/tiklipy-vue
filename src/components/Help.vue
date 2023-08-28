@@ -1,15 +1,32 @@
 <script setup>
     import { Avatar } from 'flowbite-vue';
+    import dayjs from 'dayjs';
+    import { ref, onMounted } from 'vue';
+    import expressModel from "../models/express";
+    
+    const backEndModel = new expressModel();
+    const helps = ref();
+
+    onMounted(() => {
+        getHelp();
+    });
+
+    const getHelp = async () => {
+        helps.value = await backEndModel.getHelp().then((data) => data.data.blogs );
+    } 
+    const formatDate = (dateString) => {
+        return dayjs(dateString).format('MMMM D, YYYY')
+    };
 </script>
 <template>
     <div class="container mx-auto py-8 my-10 text-black">
-        <div class="max-w-3xl mx-auto p-4">
+        <div v-for="(help, index ) in helps" :key="index + 'Help-content'" class="max-w-3xl mx-auto p-4">
             <div class="text-gray-800 text-2xl midlg:text-5xl font-semibold text-center">Tiklipy and Artificial Intelligence (AI): An Amicable Overview</div>
             <Avatar status="online" class="flex justify-center my-10" size="lg" rounded img="/tiklipy-logo-icon.png" />
             <div class="text-center mb-12">
                 <span class="font-semibold text-gray-700 text-lg">Paige, Co-Founder of Tiklipy</span>
                 <div class="flex justify-center mt-2 text-sm text-gray-700">
-                    <div class="pr-4">July 25, 2023</div>
+                    <div class="pr-4">{{ formatDate(help.dateCreated) }}</div>
                     <div class="pl-4">5 mins read</div>
                 </div>
             </div>

@@ -13,8 +13,8 @@ router.post('/', async (req, res) => {
     
 });
 
-// router.get('/', async (req, res) => {
-//     const email = await NewsletterModel.getNewsletters();
-//     res.json({ emails: email });
-// });
+router.get('/', async (req, res) => {
+    const help = await HelpModel.getHelp();
+    res.json({ helps: help });
+});
 export default router;

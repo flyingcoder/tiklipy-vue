@@ -37,7 +37,7 @@
                                 <h2 class="mb-6 text-xs font-semibold text-gray-600 uppercase dark:text-white">Product</h2>
                                 <ul class="text-gray-500 dark:text-gray-400 font-medium">
                                     <li class="mb-4">
-                                        <router-link @click="scrollToSection('features')" :to="{ name: 'home' }" class="text-gray-900 font-semibold">Pricing</router-link>
+                                        <router-link :to="{ name: 'home', hash: '#pricing' }" class="text-gray-900 font-semibold">Pricing</router-link>
                                     </li>
                                     <li class="mb-4">
                                         <router-link :to="{name: 'gifts'}" class="text-gray-900 font-semibold">Send A Gift</router-link>

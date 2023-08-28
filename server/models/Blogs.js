@@ -11,12 +11,16 @@ class AddPostModel {
         await this.col.add(data);
     }
 
-    async getPost(slug) {
+    async getPostBySlug(slug) {
         try {
-            const docRef = this.col.doc(slug);
-            return await docRef.get().then((doc) => doc.data());
+            const querySnapshot = await this.col.where("slug", "==", slug).get();
+            if (querySnapshot.empty) {
+                return null; // Blog not found
+            }
+            const doc = querySnapshot.docs[0];
+            return { id: doc.id, ...doc.data() };
         } catch (error) {
-            console.error("Error on get reviews:", error);
+            console.error("Error on get blogs:", error);
             return false;
         }
     }
@@ -30,7 +34,7 @@ class AddPostModel {
             }));
             return blogs;
         } catch (error) {
-            console.error("Error on get reviews:", error);
+            console.error("Error on get blogs:", error);
             return false;
         }
     }

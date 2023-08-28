@@ -102,13 +102,22 @@ class ExpressModel {
             return false;
         }
     }
-
-    addBlog(data) {
+    
+    getHelp() {
         try {
             axios.defaults.headers.common['Authorization'] = auth?.currentUser?.accessToken;
-            return axios.post('/api/v1/posts', data, {
-                headers: { 'Content-Type': 'multipart/form-data' }
-              });
+            return axios.get('/api/v1/help');
+        } catch (error) {   
+            console.log(error);
+            return false;
+        }
+    }
+
+    addBlog(formData) {
+        try {
+            axios.defaults.headers.common['Authorization'] = auth?.currentUser?.accessToken;
+            return axios.post('/api/v1/posts', formData);
+            // {headers: { 'Content-Type': 'multipart/form-data' }}
         } catch (error) {
             console.log(error);
             return false;
@@ -138,6 +147,15 @@ class ExpressModel {
     getPosts() {
         try { 
             return axios.get('/api/v1/posts');
+        } catch (error) {
+            console.log(error);
+            return false;
+        }
+    }
+
+    getPostBySlug(slug) {
+        try { 
+            return axios.get(`/api/v1/posts/${slug}`);
         } catch (error) {
             console.log(error);
             return false;
