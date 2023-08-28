@@ -10,6 +10,8 @@ const port = process.env.PORT || 3000;
 const publicPath = path.join(path.resolve(), "public");
 const distPath = path.join(path.resolve(), "dist");
 
+
+
 // Use routers and static files
 app.use("/api/v1", apiRouter);
 
