@@ -12,6 +12,7 @@ import suggestToolRoutes from './api/suggestTools.js';
 import reviewRoutes from './api/reviews.js';
 import postRoutes from  './api/blog.js';
 import helpRoute from './api/help.js';
+import stripeRoutes from './api/help.js';
 
 const router = express.Router();
 
@@ -50,6 +51,7 @@ router.use('/help', helpRoute);
 router.use('/testimonials', testimonialRoutes);
 router.use('/update', testimonialRoutes);
 router.use('/auth', authRoutes);
+router.use('/stripes', stripeRoutes);
 router.use('/stars', restrict, starCreditRoutes);
 router.use('/resources', restrict, generateRoutes);
 router.use('/tools', restrict, getTools);
