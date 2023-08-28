@@ -81,7 +81,7 @@
                 Your Loyal Superhero Sidekick!
             </h1>
             <p class="leading-7 text-white drop-shadow-[0px_2px_10px_#24242a] text-xl bg-[#24242a80]">
-                Because Every Teacher Is a Superhero, and Every Superhero Deserves Tiklipy! Unleash Your Teaching Superpowers with AI: Elevate Education Effortlessly and Evolve Your Teaching Tactics!
+                Because Every Teacher is a Superhero, and Every Superhero Deserves Tiklipy! Unleash Your Teaching Superpowers with AI: Elevate Education Effortlessly and Evolve Your Teaching Tactics!
             </p>
             <!-- <router-link :to="{ name: 'pricing' }">
                 <button type="button" @ class="transition duration-240 rounded-md bg-main-color hover:shadow-md hover:shadow-[#969cf9] hover:bg-secondary-color border-0 w-fit bg-main-color text-white focus:ring-4 focus:outline-none focus:ring-secondary-color dark:focus:ring-main-color font-medium rounded-lg text-lg px-5 py-2.5 inline-flex justify-center text-center">
