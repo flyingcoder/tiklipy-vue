@@ -192,25 +192,25 @@
                             </ul>
                         </transition>
                     </li>
-                    <li class="hidden max-xs:block w-fit">
-                        <router-link :to="{ name: 'consult' }" active-class="text-main-color dark:text-white" class="block px-3 py-2 text-lg font-medium text-gray-900 divide-gray-100 dark:hover:text-main-color md:border-0 md:p-0">
-                            <i class="pb-1 mr-1 text-lg ti ti-atom"></i> Consult
+                    <li class="hidden max-xs:block w-fit py-1">
+                        <router-link :to="{ name: 'consult' }" active-class="text-main-color dark:text-white" class="block px-3  text-lg font-medium text-gray-900 divide-gray-100 dark:hover:text-main-color md:border-0 md:p-0">
+                            <i class="mr-1 text-lg ti ti-atom"></i> Consult
                         </router-link>
 
                     </li>
-                    <li class="hidden max-xs:block w-fit">
+                    <li class="hidden max-xs:block w-fit py-1">
                         <router-link :to="{name: 'account'}" active-class="text-main-color dark:text-white" class="block px-3 text-lg font-medium text-gray-900 divide-gray-100 dark:hover:text-main-color md:border-0 md:p-0">
-                            Account
+                           <i class="ti ti-user-square pb-1 mr-2"></i>Account
                         </router-link>
                     </li>
-                    <li class="hidden max-xs:block w-fit">
+                    <li class="hidden max-xs:block w-fit ">
                         <router-link :to="{name: 'my-reviews'}" active-class="text-main-color dark:text-white" class="block px-3 text-lg font-medium text-gray-900 divide-gray-100 dark:hover:text-main-color md:border-0 md:p-0">
-                            Submit review
+                            <i class="ti ti-star mr-1"></i> Submit review
                         </router-link>
                     </li>
-                    <li class="hidden max-xs:block w-fit">
+                    <li class="hidden max-xs:block w-fit mb-2 py-1">
                         <router-link :to="{name: 'suggest-tools'}" active-class="text-main-color dark:text-white" class="block px-3 pb-2 text-lg font-medium text-gray-900 divide-gray-100 dark:hover:text-main-color md:border-0 md:p-0">
-                            Suggest a tool
+                            <i class="ti ti-tools pb-2 mr-1"></i> Suggest a tool
                         </router-link>
                     </li>
                     <li class="hidden max-xs:block w-fit">
