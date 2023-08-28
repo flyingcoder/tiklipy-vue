@@ -32,39 +32,9 @@
     };
 
     const fetchProducts = async () => {
+        const productsRes = await getStripeProduct();
 
-        const productsRes = await getDocs(
-            query(
-                collection(
-                    getFirestore(), 
-                    "products"
-                ), 
-                where("active", "==", true)
-            )
-        );
 
-        productsRes.forEach( async (product) => {
-            const priceRes = await getDocs(
-                query(
-                    collection(
-                        getFirestore(),
-                        "products",
-                        product.id,
-                        "prices"
-                    ),
-                    orderBy("interval", "asc")
-                )
-            );
-
-            products.value.push({
-                id: product.id,
-                ...product.data(),
-                prices: [{
-                    id: priceRes.docs[0].id,
-                    ...priceRes.docs[0].data(),
-                }]
-            });
-        });
     };
     const emailLogin = () => {
         Swal.fire({
@@ -108,7 +78,7 @@
 <template>
     <SignUp :show-modal="showRegister" :selected-price="selectedPrice"/>
     <div class="mt-10 text-center">
-        <h2 class="mb-3 md:mb-10 text-3xl md:text-5xl font-semibold text-center uppercase text-main-color">Easy & Very Affordable Pricing</h2>
+        <h2 class="mb-3 text-3xl font-semibold text-center uppercase md:mb-10 md:text-5xl text-main-color">Easy & Very Affordable Pricing</h2>
         <p class="mx-4 mt-8 text-xl text-center text-gray-700 mb-11">At a wallet-friendly cost, become the teacher every student deserve - without breaking the bank.</p>
         
         <div v-for="(product, index) in products" :key="index + '-product'" 

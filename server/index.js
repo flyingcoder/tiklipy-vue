@@ -3,8 +3,6 @@ import path from "path";
 import homeRouter from "./routes/home.js";
 import assetRouter from "./routes/assets.js";
 import apiRouter from "./routes/api.js";
-import sitemap from "express-sitemap";
-import robots from 'express-robots-txt';
 
 // Initialize Express app
 const app = express();
@@ -12,16 +10,7 @@ const port = process.env.PORT || 3000;
 const publicPath = path.join(path.resolve(), "public");
 const distPath = path.join(path.resolve(), "dist");
 
-// Set up robots.txt middleware
-app.use(robots({
-  UserAgent: '*',
-  Disallow: '/',
-  CrawlDelay: '5',
-  Sitemap: 'https://nowhere.com/sitemap.xml',
-}));
-
 // Use routers and static files
-
 app.use("/api/v1", apiRouter);
 
 if (process.env.NODE_ENV === "production") {

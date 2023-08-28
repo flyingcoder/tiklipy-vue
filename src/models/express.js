@@ -13,6 +13,15 @@ class ExpressModel {
         }
     }
 
+    getStripeProduct() {
+        try {
+            return axios.get('/api/v1/stripes');
+        } catch (error) {
+            console.log(error);
+            return true;
+        }
+    }
+
     generateResource(data) {
         try {
             axios.defaults.headers.common['Authorization'] = auth?.currentUser?.accessToken;
