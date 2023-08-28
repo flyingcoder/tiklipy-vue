@@ -20,8 +20,8 @@ const routes = [
         children: [
             { path: '/', name: 'home', component: Home },
             { path: '/about', name: 'about', component: About },
-            { path: '/help', name: 'help', component: Help },
-            { path: '/help/:slug', name: 'helps', component: Helps },
+            { path: '/helps', name: 'help', component: Helps },
+            { path: '/helps/:slug', name: 'helps', component: Help },
             { path: '/blogs', name: 'blogs', component: Blogs },
             { path: '/blogs/:slug', name: 'blog', component: Blog },
             { path: '/pricing', name: 'pricing', component: Pricing },
