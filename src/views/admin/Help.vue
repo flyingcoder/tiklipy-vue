@@ -9,7 +9,8 @@
     const title = ref('');
     const shortDesc = ref('');
     const content = ref('');
-    const category = ref('')
+    const category = ref('');
+    const slug = ref('');
     const available_category = [
         { value: 'initiation', name: 'Initiation' },
         { value: 'knowhow', name: 'KnowHow' },
@@ -18,7 +19,22 @@
         { value: 'accountancy', name: 'Accountancy' },
         { value: 'assistance', name: 'Assistance' },
         { value: 'visuals', name: 'Visuals' },
-    ]
+    ];
+    const toolbarOptions = [
+        [{ 'size': ['small', false, 'large', 'huge'] }],
+        ['bold', 'italic', 'underline', 'strike'],
+        ['blockquote', 'code-block'],
+        [{ 'header': 1 }, { 'header': 2 }],
+        [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+        [{ 'script': 'sub'}, { 'script': 'super' }],
+        [{ 'indent': '-1'}, { 'indent': '+1' }],
+        [{ 'direction': 'rtl' }],   
+        [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+        [{ 'color': [] }, { 'background': [] }],
+        [{ 'font': [] }],
+        [{ 'align': [] }],
+        ['clean']
+    ];
     const backEndModel = new expressModel();
 
 
@@ -27,10 +43,17 @@
             title: title.value,
             shortDesc: shortDesc.value,
             content: content.value,
+            slug: slug.value,
             category: category.value,
             dateCreated: dayjs().format(),
         }
         backEndModel.addHelp(data);
+
+        title.value = '';
+        shortDesc.value = '';
+        content.value = '';
+        slug.value = '';
+        category.value = '';
     };
 </script>
 <template>
@@ -42,10 +65,12 @@
             <div class="grid grid-cols-2 gap-4 mt-5 ">
                 <Input size="md" label="Title" v-model="title" class="" />
                 <Input size="md" label="Short Description" v-model="shortDesc" class="" />
+                <Input size="md" label="Slug" v-model="slug" class="" />
                 <Select v-model="category" :options="available_category" label="Category"/>
             </div>
             <div class="mt-5">
-                <Textarea rows="4" v-model="content" label="Content" />
+                <label class="font-lg font-semibold">Content</label>
+                <QuillEditor theme="snow" :toolbar="toolbarOptions" v-model:content="content" contentType="html" class="text-black"/>
             </div>
             <button @click="submitContent" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded font-semibold text-lg">Add Post</button>
         </div>
