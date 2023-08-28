@@ -226,8 +226,8 @@ class ExpressModel {
     }
 
     getPostBySlug(slug) {
-        try { 
-            return axios.get(`/api/v1/posts/${slug}`);
+        try {
+            return axios.get(`/api/v1/posts/post?slug=${slug}`);
         } catch (error) {
             console.log(error);
             return false;

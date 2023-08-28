@@ -13,10 +13,14 @@ router.get('/', async (req, res) => {
     res.json({ blogs: blogs });
 });
 
-router.get('/:slug', async (req, res) => {
-    const slug = req.params.slug;
-    const blogs = await PostModel.getPostBySlug(slug);
-    res.json({ blogs: blogs });
+router.get('/post', async (req, res) => {
+    try {
+        const slug = req.query.slug;
+        const data = await PostModel.getPostBySlug(slug);
+        res.json({ data: data });
+    } catch (error) {
+        res.status(500).json({ msg: 'Something went wrong', payload: req.body });
+    }
 });
 
 
