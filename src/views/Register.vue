@@ -27,7 +27,6 @@
     const loginVia = async (provider) => {
         loaderStore.toggle();
         const pass = await invite.checkInviteCode(inviteCode.value);
-        console.log(pass);
         let success = false; let done = false;
         if(pass) success = await authStore.loginVia(provider);
         if(success) done = await invite.useCode(inviteCode.value);
@@ -41,7 +40,6 @@
         if (!success) {
             loginFail();
             hasError.value = true;
-            console.log("asdasd");
         } else { 
             router.push({ name: 'dashboard' });
         }
