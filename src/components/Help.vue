@@ -10,7 +10,6 @@ const route = useRoute();
 
 onMounted(() => {
     getData();
-    console.log(route);
 });
 
 const getData = () => {
