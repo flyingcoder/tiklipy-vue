@@ -23,8 +23,6 @@ class HelpsModel {
         }
     }
 
-<<<<<<< HEAD
-=======
     async getHelpKnowHow() {
         try {
             const colRef = this.col.where('category', '==', 'knowhow');
@@ -115,7 +113,6 @@ class HelpsModel {
     }
     
 
->>>>>>> af3e3deef1aec2a49bcc99a535b15a6157819e3f
 }
 
 export default HelpsModel;
