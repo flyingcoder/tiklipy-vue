@@ -1,3 +1,8 @@
+# Server
+server/routes/alvin.js
+server/secret
+server/index-temp.js
+
 # Logs
 logs
 *.log
@@ -8,8 +13,7 @@ pnpm-debug.log*
 .env
 .env.production
 lerna-debug.log*
-server/routes/alvin.js
-server/secret
+
 .awspolicy
 node_modules
 dist
