@@ -11,7 +11,7 @@ class ExpressModel {
             constole.log(error);
             return true;
         }
-    } 
+    }
 
     generateResource(data) {
         try {
@@ -67,6 +67,78 @@ class ExpressModel {
     getNewsletter() {
         try {
             return axios.get('/api/v1/newsletters');
+        } catch (error) {
+            console.log(error);
+            return false;
+        }
+    }
+
+    getInitiation() {
+        try {
+            return axios.get('/api/v1/help/initiation');
+        } catch (error) {
+            console.log(error);
+            return false;
+        }
+    }
+
+    getKnowHow() {
+        try {
+            return axios.get('/api/v1/help/knowhow');
+        } catch (error) {
+            console.log(error);
+            return false;
+        }
+    }
+
+    getEthics() {
+        try {
+            return axios.get('/api/v1/help/ethics');
+        } catch (error) {
+            console.log(error);
+            return false;
+        }
+    }
+
+    getApplications() {
+        try {
+            return axios.get('/api/v1/help/applications');
+        } catch (error) {
+            console.log(error);
+            return false;
+        }
+    }
+
+    getAccountancy() {
+        try {
+            return axios.get('/api/v1/help/accountancy');
+        } catch (error) {
+            console.log(error);
+            return false;
+        }
+    }
+
+    getAssistance() {
+        try {
+            return axios.get('/api/v1/help/assistance');
+        } catch (error) {
+            console.log(error);
+            return false;
+        }
+    }
+
+    getVisuals() {
+        try {
+            return axios.get('/api/v1/help/visuals');
+        } catch (error) {
+            console.log(error);
+            return false;
+        }
+    }
+
+    getHelpData(slug) {
+        try {
+            return axios.get(`/api/v1/help/helps?slug=${slug}`);
         } catch (error) {
             console.log(error);
             return false;

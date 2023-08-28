@@ -11,16 +11,111 @@ class HelpsModel {
         await this.col.add(data);
     }
 
-    async getHelp(slug) {
+    async getHelpInitiation() {
         try {
-            const docRef = this.col.doc(slug);
-            return await docRef.get().then((doc) => doc.data());
+            const colRef = this.col.where('category', '==', 'initiation');
+            const snaps = await colRef.get();
+            const data = snaps.docs.map((doc) => doc.data());
+            return data;
         } catch (error) {
-            console.error("Error on get Help:", error);
+            console.error('Error in getting initiation category', error);
             return false;
         }
     }
 
+<<<<<<< HEAD
+=======
+    async getHelpKnowHow() {
+        try {
+            const colRef = this.col.where('category', '==', 'knowhow');
+            const snaps = await colRef.get();
+            const data = snaps.docs.map((doc) => doc.data());
+            return data;
+        } catch (error) {
+            console.error('Error in getting knowhow category', error);
+            return false;
+        }
+    }
+
+    async getHelpEthics() {
+        try {
+            const colRef = this.col.where('category', '==', 'ethics');
+            const snaps = await colRef.get();
+            const data = snaps.docs.map((doc) => doc.data());
+            return data;
+        } catch (error) {
+            console.error('Error in getting knowhow category', error);
+            return false;
+        }
+    }
+
+    async getHelpApplications() {
+        try {
+            const colRef = this.col.where('category', '==', 'applications');
+            const snaps = await colRef.get();
+            const data = snaps.docs.map((doc) => doc.data());
+            return data;
+        } catch (error) {
+            console.error('Error in getting knowhow category', error);
+            return false;
+        }
+    }
+
+    async getHelpAccountancy() {
+        try {
+            const colRef = this.col.where('category', '==', 'accountancy');
+            const snaps = await colRef.get();
+            const data = snaps.docs.map((doc) => doc.data());
+            return data;
+        } catch (error) {
+            console.error('Error in getting knowhow category', error);
+            return false;
+        }
+    }
+
+    async getHelpAssistance() {
+        try {
+            const colRef = this.col.where('category', '==', 'assistance');
+            const snaps = await colRef.get();
+            const data = snaps.docs.map((doc) => doc.data());
+            return data;
+        } catch (error) {
+            console.error('Error in getting knowhow category', error);
+            return false;
+        }
+    }
+
+    async getHelpVisuals() {
+        try {
+            const colRef = this.col.where('category', '==', 'visuals');
+            const snaps = await colRef.get();
+            const data = snaps.docs.map((doc) => doc.data());
+            return data;
+        } catch (error) {
+            console.error('Error in getting knowhow category', error);
+            return false;
+        }
+    }
+
+    async getHelpData(slug) {
+        try {
+            const colRef = this.col.where('slug', '==', slug);
+            const snaps = await colRef.get();
+            
+            if (!snaps.empty) {
+                const data = snaps.docs.map((doc) => doc.data());
+                return data;
+            } else {
+                return [];
+            }
+        } catch (error) {
+            console.error('Error in getting knowhow category', error);
+            return false;
+        }
+    }
+    
+
+>>>>>>> af3e3deef1aec2a49bcc99a535b15a6157819e3f
 }
 
 export default HelpsModel;
