@@ -22,7 +22,6 @@
     });
     
     const resourcesFunc = () => {
-        console.log(route.params);
         if(route.params.type !== "all") {
             resources.value = resourcesRaw.filter(item => item.data.type.toLowerCase().includes(route.params.type.toLowerCase()));
         } else {
