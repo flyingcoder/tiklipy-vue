@@ -13,7 +13,6 @@
     const getData = () => {
         backEndModel.getInitiation().then((data) => {
             initiation.value = data.data.initiation;
-            console.log(initiation);
         }).catch((error) => {
             console.error("Error fetching reviews:", error);
         });
