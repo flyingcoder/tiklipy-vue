@@ -85,8 +85,8 @@ router.get('/helps', async (req, res) => {
     }
 });
 
-router.get('/', async (req, res) => {
-    const help = await helpModel.getHelp();
-    res.json({ helps: help });
-});
+// router.get('/', async (req, res) => {
+//     const help = await helpModel.getHelp();
+//     res.json({ helps: help });
+// });
 export default router;
