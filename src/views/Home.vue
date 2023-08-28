@@ -61,12 +61,11 @@
 			      html: 'Email: ' + result.value
 			    })
                 email.value = result.value
+                backEndModel.addNewsletter(email.value);
             } else if (result.dismiss === Swal.DismissReason.cancel) {
-            // Handle cancel action here, for example, you can log a message
-            console.log('User canceled the action');
-        }
-
-            backEndModel.addNewsletter(email.value);
+                // Handle cancel action here, for example, you can log a message
+                console.log('User canceled the action');
+            }
         });
     }
     // const translate = () => {
