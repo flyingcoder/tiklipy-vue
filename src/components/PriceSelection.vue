@@ -32,10 +32,10 @@
     };
 
     const fetchProducts = async () => {
-        const productsRes = await getStripeProduct();
-
-
+        const productsRes = await backEndModel.getStripeProduct();
+        products.value = productsRes.data;
     };
+
     const emailLogin = () => {
         Swal.fire({
             title: 'Email Address',

@@ -6,27 +6,57 @@ class StripeModel {
         const db = getFirestore(admin);
         this.productCol = db.collection('products');
     }
+
+    async getPrices(snaps) {
+        snaps.forEach( async (product) => {
+
+            const colRef = this.productCol.doc(product.id).collection('prices');
+            const priceRes = await colRef.orderBy("interval", "asc").get();
+            priceRes.forEach((price) => {
+                products.push({
+                    id: product.id,
+                    ...product.data(),
+                    prices: [{
+                        id: price.id,
+                        ...price.data(),
+                    }]
+                });
+            });
+            
+        });
+    }
   
     async getProducts() {
-        let products = [];
-        const docRef = this.productCol.where('active', '===', true);
-        const snaps = docRef.get();
-        const productsRef = snaps.docs.map((data) => ({
-            ...data.data()
-        }));
-        productsRef.forEach( async (product) => {
-            const colRef = this.productCol.doc(product.id).collection('prices');
-            const docRef = await colRef.orderBy("interval", "asc").get();
+        const products = [];
+        const docRef = this.productCol.where('active', '==', true);
+        try {
+            const snaps = await docRef.get();
+            
+            const promises = snaps.docs.map(async (product) => {
+                console.log(product.id);
 
-            products.push({
-                id: product.id,
-                ...product.data(),
-                prices: [{
-                    id: priceRes.docs[0].id,
-                    ...priceRes.docs[0].data(),
-                }]
+                const colRef = this.productCol.doc(product.id).collection('prices');
+                const priceRes = await colRef.orderBy("interval", "asc").get();
+                
+                const prices = priceRes.docs.map(price => ({
+                    id: price.id,
+                    ...price.data(),
+                }));
+                
+                products.push({
+                    id: product.id,
+                    ...product.data(),
+                    prices: [prices[0]],
+                });
             });
-        });
+
+            await Promise.all(promises);
+            
+            return products;
+        } catch (error) {
+            console.error("Error fetching products:", error);
+            return [];
+        }
     }
 }
 
