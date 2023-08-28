@@ -1,5 +1,5 @@
 import express from 'express';
-import Post from '../../models/Post.js';
+import Post from '../../models/Blogs.js';
 
 const router = express.Router();
 const PostModel = new Post();
@@ -9,7 +9,7 @@ router.post('/', async (req, res) => {
 });
 
 router.get('/', async (req, res) => {
-    const blogs = await PostModel.getPost();
+    const blogs = await PostModel.getPosts();
     res.json({ blogs: blogs });
 });
 

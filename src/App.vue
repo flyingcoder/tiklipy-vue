@@ -1,5 +1,5 @@
 <script setup>
-  import { onMounted } from 'vue/dist/vue';
+  import { onMounted } from 'vue';
   import Preloader from './components/Preloader.vue';
   import { useLoaderStore } from './stores/loader';
 

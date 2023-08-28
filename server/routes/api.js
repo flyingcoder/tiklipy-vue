@@ -10,7 +10,7 @@ import newsletterRoutes from './api/newsletter.js';
 import featureRoutes from './api/tools.js';
 import suggestToolRoutes from './api/suggestTools.js';
 import reviewRoutes from './api/reviews.js';
-import postRoutes from  './api/post.js';
+import postRoutes from  './api/blog.js';
 
 const router = express.Router();
 

@@ -1,5 +1,18 @@
 <script setup>
-    import { TheCard } from 'flowbite-vue'
+    import { ref , onMounted } from 'vue';
+    import { TheCard } from 'flowbite-vue';
+    import expressModel from "../models/express";
+    
+    const backEndModel = new expressModel();
+    const blogs = ref();
+
+    onMounted(() => {
+        getBlogs();
+    });
+
+    const getBlogs = async () => {
+        blogs.value = await backEndModel.getPosts().then((data) => data.data.blogs );
+    } 
 </script>
 
 <template>
@@ -11,31 +24,13 @@
         </div>
     </section>
 
-    <div class="max-w-screen-2xl mx-auto mt-5 midlg:mt-32">
+    <div class="max-w-screen-2xl mx-auto mt-5 midlg:mt-5">
         <div class="mx-2 sm:mx-5 flex max-lg:flex-wrap justify-center lg:justify-between justify-items-center">
-            <router-link class="sm:mx-2 pb-5" :to="{name: 'blog', params: { slug: 'tiklipy-and-artificial-intelligence' }}">
+            <router-link v-for="(blog, index ) in blogs" :key="index + 'blog-card'" class="sm:mx-2 pb-5" :to="{ name: 'blog', params: { slug: blog.slug } }">
                 <the-card variant="image" class="m-auto h-full	 mb-5 cursor-pointer pt-5" img-src="/ai.png" img-alt="Desk">
                     <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Tiklipy and Artificial Intelligence (AI): An Amicable Overview</h5>
                     <p class="font-normal text-gray-700 dark:text-gray-400">
-                        If you're familiar with AI, you might be curious about its essence. Here's an insight into what educators should understand concerning generative AI models and their distinctions from Tiklipy.
-                    </p>
-                </the-card>
-            </router-link>
-            
-            <router-link class="sm:mx-2 pb-5" :to="{name: 'blog', params: { slug: 'a-complete-guide-to-addressing-your-queries' }}">
-                <the-card variant="image" class="h-full mb-5 cursor-pointer pt-5" img-src="/assesment.png" img-alt="Desk">
-                    <h5 class=" mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Tiklipy's FAQ: A Complete Guide to Addressing Your Queries</h5>
-                    <p class="font-normal text-gray-700 dark:text-gray-400">
-                        Presented below are the most significant technology acquisitions within the enterprise sector for the year 2021, listed in reverse chronological order.
-                    </p>
-                </the-card>
-            </router-link>
-
-            <router-link class="sm:mx-2 pb-5" :to="{name: 'blog', params: { slug: 'enabling-our-experties-to-assist-your-endeavor' }}">
-                <the-card variant="image" class="h-full mb-5 cursor-pointer pt-5" img-src="/learning.png" img-alt="Desk">
-                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Commencement: Enabling Our Expertise to Assist Your Endeavors</h5>
-                    <p class="font-normal text-gray-700 dark:text-gray-400">
-                    HCome aboard as we unveil our narrative. Unearth the roots of our inception and glimpse into our future vision, as we persist in making a distinctive impact for educators through our innovative methodology.
+                        {{ blog.shortDesc }}
                     </p>
                 </the-card>
             </router-link>

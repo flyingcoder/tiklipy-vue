@@ -3,16 +3,18 @@
     import { Accordion, AccordionPanel, AccordionHeader, AccordionContent } from 'flowbite-vue';
 </script>
 <template>
-    <div class="container mx-auto my-7 text-center">
-        <div class="text-6xl text-gray-800 font-semibold">The present that simplifies<br> the art of teaching.</div>
-        <p class="mt-9 text-lg text-gray-700 leading-9">Demonstrate your gratitude to educators by offering them the gift of more time and a reduced workload. A gift <br> subscription is an ideal choice for both teachers who are already enthusiasts of Tiklipy and those who<br> are just discovering the platform.</p>
-        <div class="max-w-md mt-16 bg-gray-100 border border-gray-200 rounded-lg shadow mx-auto dark:bg-gray-800 dark:border-gray-700">
+    <div class="container mx-auto my-7 text-center px-3">
+        <div class="max-w-[40rem] m-auto">
+            <div class="text-4xl sm:text-6xl text-gray-800 font-semibold">The present that simplifies the art of teaching.</div>
+            <p class="mt-3 md:mt-9 text-lg text-gray-700">Demonstrate your gratitude to educators by offering them the gift of more time and a reduced workload. A gift subscription is an ideal choice for both teachers who are already enthusiasts of Tiklipy and those who are just discovering the platform.</p>
+        </div>
+        <div class="max-w-md mt-5 md:mt-16 bg-gray-100 border border-gray-200 rounded-lg shadow mx-auto dark:bg-gray-800 dark:border-gray-700">
             <div class="p-5 border-b-2">
-                <div class="justify-between flex text-gray-700 text-base font-medium">
+                <div class="justify-between flex text-gray-700 text-base font-medium !outline-0 !border-0">
                     <div class="self-center">1 Month Subscription</div>
                     <div>
                         <span class="pr-3">₱500</span>
-                        <Button class="border-0 bg-main-color font-semibold transition duration-240 rounded-md hover:bg-secondary-color hover:shadow-md hover:shadow-[#646cffa6]">Buy</Button>
+                        <Button class="!outline-0 !border-0 bg-main-color font-semibold transition duration-240 rounded-md hover:bg-secondary-color hover:shadow-md hover:shadow-[#646cffa6]">Buy</Button>
                     </div>
                     
                 </div>
@@ -66,9 +68,7 @@
                         <span class="pr-3">₱3500</span>
                         <Button class="border-0 bg-main-color font-semibold transition duration-240 rounded-md hover:bg-secondary-color hover:shadow-md hover:shadow-[#646cffa6]">Buy</Button>
                     </div>
-                    
                 </div>
-                
                 <div class="mt-2">
                     <p class="text-justify text-gray-500 text-sm">Explore the essence of Tiklipy's gift - the ultimate companion for every teacher! This token of appreciation offers a full year of free access to Tiklipy's powerful teaching tools, providing the perfect way to brighten an educator's day.</p>
                     <div id="accordion-collapse" data-accordion="collapse">
