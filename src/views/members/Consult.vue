@@ -35,9 +35,7 @@
             const docRef = collection( getFirestore(), "customers", this.uid, "consultations" );
             const docSnaps = await getDocs(docRef);
             const consults = [];
-            console.log(docSnaps.exists())
             docSnaps.forEach((doc) => { consults.push(doc.data()) });
-            console.log(consults)
         } catch(error) {
             console.log(error)
             return false;

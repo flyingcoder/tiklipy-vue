@@ -14,7 +14,6 @@ class AddNewsletterModel {
           email: rawData,
           dateCreated: dayjs().format(),
         }
-        console.log(data)
         await addDoc(this.collectionRef, data);
         console.log('Resource is added successfully.');
       } catch (error) {
