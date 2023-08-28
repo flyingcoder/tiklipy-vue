@@ -1,7 +1,7 @@
 import admin from "../plugins/firebase-handler.js";
 import { getFirestore } from "firebase-admin/firestore";
 
-class HelpsModel {
+class HelpModel {
     constructor() {
         const db = getFirestore(admin);
         this.col = db.collection('Help');
@@ -115,4 +115,4 @@ class HelpsModel {
 
 }
 
-export default HelpsModel;
+export default HelpModel;

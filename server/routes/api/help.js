@@ -2,11 +2,11 @@ import express from 'express';
 import Help from '../../models/Help.js';
 
 const router = express.Router();
-const HelpModel = new Help();
+const helpModel = new Help();
 
 router.post('/', async (req, res) => {
     try {
-        const pass = await HelpModel.addHelp(req.body);
+        const pass = await helpModel.addHelp(req.body);
     } catch (error) {
         res.json({msg: 'Something went wrong', payload: req.body }, 500);
     } 
@@ -14,7 +14,7 @@ router.post('/', async (req, res) => {
 
 router.get('/initiation', async (req, res) => {
     try {
-        const initiation = await HelpModel.getHelpInitiation();
+        const initiation = await helpModel.getHelpInitiation();
         res.json({ initiation: initiation });
     } catch (error) {
         res.status(500).json({ msg: 'Something went wrong', payload: req.body });
@@ -23,7 +23,7 @@ router.get('/initiation', async (req, res) => {
 
 router.get('/knowhow', async (req, res) => {
     try {
-        const knowhow = await HelpModel.getHelpKnowHow();
+        const knowhow = await helpModel.getHelpKnowHow();
         res.json({ knowhow: knowhow });
     } catch (error) {
         res.status(500).json({ msg: 'Something went wrong', payload: req.body });
@@ -32,7 +32,7 @@ router.get('/knowhow', async (req, res) => {
 
 router.get('/ethics', async (req, res) => {
     try {
-        const ethic = await HelpModel.getHelpEthics();
+        const ethic = await helpModel.getHelpEthics();
         res.json({ ethics: ethic });
     } catch (error) {
         res.status(500).json({ msg: 'Something went wrong', payload: req.body });
@@ -41,7 +41,7 @@ router.get('/ethics', async (req, res) => {
 
 router.get('/applications', async (req, res) => {
     try {
-        const application = await HelpModel.getHelpApplications();
+        const application = await helpModel.getHelpApplications();
         res.json({ applications: application });
     } catch (error) {
         res.status(500).json({ msg: 'Something went wrong', payload: req.body });
@@ -50,7 +50,7 @@ router.get('/applications', async (req, res) => {
 
 router.get('/accountancy', async (req, res) => {
     try {
-        const accountancy = await HelpModel.getHelpAccountancy();
+        const accountancy = await helpModel.getHelpAccountancy();
         res.json({ accountancy: accountancy });
     } catch (error) {
         res.status(500).json({ msg: 'Something went wrong', payload: req.body });
@@ -59,7 +59,7 @@ router.get('/accountancy', async (req, res) => {
 
 router.get('/assistance', async (req, res) => {
     try {
-        const assistance = await HelpModel.getHelpAssistance();
+        const assistance = await helpModel.getHelpAssistance();
         res.json({ assistance: assistance });
     } catch (error) {
         res.status(500).json({ msg: 'Something went wrong', payload: req.body });
@@ -68,7 +68,7 @@ router.get('/assistance', async (req, res) => {
 
 router.get('/visuals', async (req, res) => {
     try {
-        const visuals = await HelpModel.getHelpVisuals();
+        const visuals = await helpModel.getHelpVisuals();
         res.json({ visuals: visuals });
     } catch (error) {
         res.status(500).json({ msg: 'Something went wrong', payload: req.body });
@@ -78,7 +78,7 @@ router.get('/visuals', async (req, res) => {
 router.get('/helps', async (req, res) => {
     try {
         const slug = req.query.slug;
-        const data = await HelpModel.getHelpData(slug);
+        const data = await helpModel.getHelpData(slug);
         res.json({ data: data });
     } catch (error) {
         res.status(500).json({ msg: 'Something went wrong', payload: req.body });
@@ -86,7 +86,7 @@ router.get('/helps', async (req, res) => {
 });
 
 router.get('/', async (req, res) => {
-    const help = await HelpModel.getHelp();
+    const help = await helpModel.getHelp();
     res.json({ helps: help });
 });
 export default router;

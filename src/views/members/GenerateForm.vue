@@ -147,7 +147,7 @@
                                     <i class="mr-2 text-2xl align-middle ti ti-bookmark"></i>
                                     Save
                                 </span>
-                                <SwalCheckIcon class="mt-0 text-[5px]" v-if="resourceSaved"/>
+                                <SwalCheckIcon class="!mt-0 text-[5px]" v-if="resourceSaved"/>
                             </Button>
                             <Button @click="regenerate" color="default" class="p-2 mr-3 font-semibold uppercase border-0 bg-main-color hover:bg-secondary-color">
                                 <i class="mr-2 text-xl align-middle ti ti-repeat"></i>
