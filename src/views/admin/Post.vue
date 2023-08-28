@@ -25,44 +25,34 @@
 
     const slug = ref('');
     const content = ref('');
-    const title =  ref('');
+    const title = ref('');
     const author = ref('');
     const readTime = ref('');
-    const profile = ref('');
     const shortDesc = ref('');
     const featuredImageFile = ref(null);
     const authorImageFile = ref(null);
 
-    // const handleFeaturedImageChange = () => {
-    //     if (featuredImageFile.value && featuredImageFile.value.file.length > 0) {
-    //         console.log('Featured Image:', featuredImageFile.value.file[0]);
-    //     }
-    // };
-
-
-    // const handleAuthorImageChange = () => {
-    //     if (authorImageFile.value && authorImageFile.value.file.length > 0) {
-    //         console.log('Author Image:', authorImageFile.value.file[0]);
-    //     }
-    // };
-
     const submitContent = () => {
-        const formData = {
-            title: title.value,
-            author: author.value,
-            readTime: readTime.value,
-            shortDesc: shortDesc.value,
-            content: content.value,
-            dateCreated: dayjs().format(),
-            slug: slug.value,
-            // featuredImage: featuredImageFile.value && featuredImageFile.value.file[0],
-            // authorImage: authorImageFile.value && authorImageFile.value.file[0],
-            featuredImage: '/' + featuredImageFile.value.name,
-            authorImage: '/' + authorImageFile.value.name,
-        };
+    const formData = new FormData();
 
-        backEndModel.addBlog(formData);
+    formData.append('title', title.value);
+    formData.append('author', author.value);
+    formData.append('readTime', readTime.value);
+    formData.append('shortDesc', shortDesc.value);
+    formData.append('content', content.value);
+    formData.append('dateCreated', dayjs().format());
+    formData.append('slug', slug.value);
+
+    if (featuredImageFile.value) {
+        formData.append('featuredImage', featuredImageFile.value);
     }
+
+    if (authorImageFile.value) {
+        formData.append('authorImage', authorImageFile.value);
+    }
+
+    backEndModel.addBlog(formData);
+}
 </script>
 
 <template>
