@@ -78,7 +78,6 @@ router.get('/visuals', async (req, res) => {
 router.get('/helps', async (req, res) => {
     try {
         const slug = req.query.slug;
-        // Fetch data using slug
         const data = await HelpModel.getHelpData(slug);
         res.json({ data: data });
     } catch (error) {
