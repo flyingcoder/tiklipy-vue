@@ -3,6 +3,7 @@ import { defineStore } from "pinia";
 export const useLoaderStore = defineStore("loader", {
     state: () => ({ 
         isLoading: false,
+        close: false,
     }),
     getters: {
         loading: (state) => state.isLoading
@@ -10,6 +11,9 @@ export const useLoaderStore = defineStore("loader", {
     actions: {
         toggle() {
             this.isLoading = !this.isLoading;
+        },
+        forceClose() {
+            this.close = true;
         }
     }
 });
