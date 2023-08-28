@@ -24,16 +24,23 @@ const getData = () => {
 };
 </script>
 <template>
+    
+<section :style="{ backgroundImage: `url(${blog.featuredImage})` }" class="bg-center bg-no-repeat bg-gray-700 bg-blend-multiply">
+
+<div class="px-4 mx-auto max-w-screen-xl text-center py-24 lg:py-56">
+   
+</div>
+</section>
+
 <div class="container mx-auto py-8 my-10 text-black">
     <div class="container mx-auto py-8 my-10 text-black">
-        <img :src="blog.featuredImage" width="100" class="mx-auto" alt="">
         <div class="max-w-3xl mx-auto p-4">
             <div class="text-gray-800 text-2xl midlg:text-5xl font-semibold text-center">{{ blog.title }}</div>
-            <Avatar status="online" class="flex justify-center my-10" size="lg" rounded :img="blog.profile" />
+            <Avatar status="online" class="flex justify-center my-10" size="lg" rounded :img="blog.authorImage" />
             <div class="text-center mb-12">
                 <span class="font-semibold text-gray-700 text-lg">{{blog.author}}</span>
                 <div class="flex justify-center mt-2 text-sm text-gray-700">
-                    <div class="pr-4">{{ dayjs(blog.dateCreated).format("YYYY-MM-DD HH:mm:ss") }}</div>
+                    <div class="pr-4">{{ dayjs(blog.dateCreated).format("MMMM D, YYYY") }}</div>
                     <div class="pl-4">{{blog.readTime}}</div>
                 </div>
             </div>

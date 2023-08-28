@@ -33,34 +33,35 @@
     const featuredImageFile = ref(null);
     const authorImageFile = ref(null);
 
-    const handleFeaturedImageChange = () => {
-        if (featuredImageFile.value && featuredImageFile.value.file.length > 0) {
-            console.log('Featured Image:', featuredImageFile.value.file[0]);
-        }
-    };
+    // const handleFeaturedImageChange = () => {
+    //     if (featuredImageFile.value && featuredImageFile.value.file.length > 0) {
+    //         console.log('Featured Image:', featuredImageFile.value.file[0]);
+    //     }
+    // };
 
 
-    const handleAuthorImageChange = () => {
-        if (authorImageFile.value && authorImageFile.value.file.length > 0) {
-            console.log('Author Image:', authorImageFile.value.file[0]);
-        }
-    };
+    // const handleAuthorImageChange = () => {
+    //     if (authorImageFile.value && authorImageFile.value.file.length > 0) {
+    //         console.log('Author Image:', authorImageFile.value.file[0]);
+    //     }
+    // };
 
     const submitContent = () => {
         const formData = {
             title: title.value,
             author: author.value,
-            profile: profile.value.name,
             readTime: readTime.value,
             shortDesc: shortDesc.value,
             content: content.value,
             dateCreated: dayjs().format(),
             slug: slug.value,
-            featuredImage: featuredImageFile.value && featuredImageFile.value.file[0],
-            authorImage: authorImageFile.value && authorImageFile.value.file[0],
+            // featuredImage: featuredImageFile.value && featuredImageFile.value.file[0],
+            // authorImage: authorImageFile.value && authorImageFile.value.file[0],
+            featuredImage: '/' + featuredImageFile.value.name,
+            authorImage: '/' + authorImageFile.value.name,
         };
-        console.log(formData);
-        // backEndModel.addBlog(formData);
+
+        backEndModel.addBlog(formData);
     }
 </script>
 
@@ -71,8 +72,10 @@
     </h1>
     <div class="w-3/4 mx-auto">
         <div class="grid grid-cols-2 gap-4 mt-5 ">
-            <FileInput label="Featured Image" v-model="featuredImageFile" @change="handleFeaturedImageChange" class=""></FileInput>
-            <FileInput label="Author Image" v-model="authorImageFile" @change="handleAuthorImageChange" class=""></FileInput>
+            <!-- <FileInput label="Featured Image" v-model="featuredImageFile" @change="handleFeaturedImageChange" class=""></FileInput>
+            <FileInput label="Author Image" v-model="authorImageFile" @change="handleAuthorImageChange" class=""></FileInput> -->
+            <FileInput label="Featured Image" v-model="featuredImageFile" class=""></FileInput>
+            <FileInput label="Author Image" v-model="authorImageFile" class=""></FileInput>
             <Input size="md" label="Title" v-model="title" class="" />
             <Input size="md" label="Author" v-model="author" class="" />
             <Input size="md" label="Time Read" v-model="readTime" class="" />
