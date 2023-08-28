@@ -56,7 +56,7 @@ const routes = [
             { path: 'my-reviews', name: 'my-reviews', component: MyReviews, meta: { displayName: 'Reviews', siteDescription: 'Your Reviews: Your Voice, Your Opinions' } },
             { path: 'suggest-tools', name: 'suggest-tools', component: SuggestTools, meta: { displayName: 'Suggest Tools', siteDescription: 'SuggestTools: Your Source for Smart Solutions' } },
             { path: 'generate', name: 'generate', component: GenerateForm },
-            { path: 'admin', name: 'admin', component: Admin, children: [
+            { path: 'admin', name: 'admin', component: Admin, meta: { requiresAdmin: true }, children: [
                 { path:'', name: 'invite-code', component: InvitationCodes },
                 { path:'reviews', name: 'reviews', component: Reviews },
                 { path:'newsletters', name: 'newsletters', component: Newsletters },
