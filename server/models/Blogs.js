@@ -13,14 +13,17 @@ class AddPostModel {
 
     async getPostBySlug(slug) {
         try {
-            const querySnapshot = await this.col.where("slug", "==", slug).get();
-            if (querySnapshot.empty) {
-                return null; // Blog not found
+            const colRef = this.col.where('slug', '==', slug);
+            const snaps = await colRef.get();
+            
+            if (!snaps.empty) {
+                const data = snaps.docs.map((doc) => doc.data());
+                return data;
+            } else {
+                return [];
             }
-            const doc = querySnapshot.docs[0];
-            return { id: doc.id, ...doc.data() };
         } catch (error) {
-            console.error("Error on get blogs:", error);
+            console.error('Error in getting Blog', error);
             return false;
         }
     }
