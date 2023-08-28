@@ -12,7 +12,7 @@ import suggestToolRoutes from './api/suggestTools.js';
 import reviewRoutes from './api/reviews.js';
 import postRoutes from  './api/blog.js';
 import helpRoutes from './api/help.js';
-import stripeRoutes from './api/help.js';
+import stripeRoutes from './api/stripeRoutes.js';
 
 const router = express.Router();
 
