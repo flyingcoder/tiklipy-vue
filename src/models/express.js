@@ -84,7 +84,7 @@ class ExpressModel {
 
     getInitiation() {
         try {
-            return axios.get('/api/v1/help/initiation');
+            return axios.get('/api/v1/helps/initiation');
         } catch (error) {
             console.log(error);
             return false;
@@ -93,7 +93,7 @@ class ExpressModel {
 
     getKnowHow() {
         try {
-            return axios.get('/api/v1/help/knowhow');
+            return axios.get('/api/v1/helps/knowhow');
         } catch (error) {
             console.log(error);
             return false;
@@ -102,7 +102,7 @@ class ExpressModel {
 
     getEthics() {
         try {
-            return axios.get('/api/v1/help/ethics');
+            return axios.get('/api/v1/helps/ethics');
         } catch (error) {
             console.log(error);
             return false;
@@ -111,7 +111,7 @@ class ExpressModel {
 
     getApplications() {
         try {
-            return axios.get('/api/v1/help/applications');
+            return axios.get('/api/v1/helps/applications');
         } catch (error) {
             console.log(error);
             return false;
@@ -120,7 +120,7 @@ class ExpressModel {
 
     getAccountancy() {
         try {
-            return axios.get('/api/v1/help/accountancy');
+            return axios.get('/api/v1/helps/accountancy');
         } catch (error) {
             console.log(error);
             return false;
@@ -129,7 +129,7 @@ class ExpressModel {
 
     getAssistance() {
         try {
-            return axios.get('/api/v1/help/assistance');
+            return axios.get('/api/v1/helps/assistance');
         } catch (error) {
             console.log(error);
             return false;
@@ -138,7 +138,7 @@ class ExpressModel {
 
     getVisuals() {
         try {
-            return axios.get('/api/v1/help/visuals');
+            return axios.get('/api/v1/helps/visuals');
         } catch (error) {
             console.log(error);
             return false;
@@ -147,7 +147,7 @@ class ExpressModel {
 
     getHelpData(slug) {
         try {
-            return axios.get(`/api/v1/help/helps?slug=${slug}`);
+            return axios.get(`/api/v1/helps/helps?slug=${slug}`);
         } catch (error) {
             console.log(error);
             return false;
@@ -177,7 +177,7 @@ class ExpressModel {
     addHelp(data) {
         try {
             axios.defaults.headers.common['Authorization'] = auth?.currentUser?.accessToken;
-            return axios.post('/api/v1/help', data);
+            return axios.post('/api/v1/helps', data);
         } catch (error) {
             console.log(error);
             return false;
@@ -187,7 +187,7 @@ class ExpressModel {
     getHelp() {
         try {
             axios.defaults.headers.common['Authorization'] = auth?.currentUser?.accessToken;
-            return axios.get('/api/v1/help');
+            return axios.get('/api/v1/helps');
         } catch (error) {   
             console.log(error);
             return false;
