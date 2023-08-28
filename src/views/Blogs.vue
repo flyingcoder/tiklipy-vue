@@ -19,8 +19,8 @@
 
     <section class="bg-secondary-color dark:bg-gray-900">
         <div class="py-2 px-4 mx-auto max-w-screen-xl text-center lg:py-16">
-            <h1 class="mb-4  pt-7 font-semibold tracking-tight leading-none text-white md:text-3xl lg:text-5xl dark:text-white">Unleashed Insights: Our Blog</h1>
-            <p class="mb-8 mt-7 font-normal text-white lg:text-xl sm:px-16 lg:px-48 dark:text-gray-400">Tales of Teaching, Technology, and Education.</p>
+            <h1 class="mb-4  pt-7 font-semibold tracking-tight leading-none text-white text-3xl md:text-3xl lg:text-5xl dark:text-white">Unleashed Insights: Our Blog</h1>
+            <p class="mb-8 sm:mt-7 font-normal text-white lg:text-xl sm:px-16 lg:px-48 dark:text-gray-400">Tales of Teaching, Technology, and Education.</p>
         </div>
     </section>
     <div class="max-w-screen-2xl mt-5 midlg:mt-5">
