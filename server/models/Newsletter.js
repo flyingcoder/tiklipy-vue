@@ -11,12 +11,12 @@ class NewsletterModel {
         await this.col.add(data);
     }
     
-    async emailExists(email) {
-        const q = query(this.col, where("email", "==", email));
-        const querySnapshot = await getDocs(q);
+    // async emailExists(email) {
+    //     const q = query(this.col, where("email", "==", email));
+    //     const querySnapshot = await getDocs(q);
 
-        return !querySnapshot.empty;
-    }
+    //     return !querySnapshot.empty;
+    // }
 
     async getNewsletters() {
         try {
