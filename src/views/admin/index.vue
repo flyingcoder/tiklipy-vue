@@ -59,6 +59,16 @@
                 :to="{ name: 'posts' }"
                 exact>Posts</router-link>
         </li>
+        <li class="w-full rounded-tr-lg">
+            <router-link class="rounded-tr-lg" 
+                :class="{
+                'text-blue-600 border-b-4 border-blue-600 font-semibold inline-block w-full p-4 bg-white hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-transparent focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700': $route.name === 'admin-help',
+                'font-semibold inline-block w-full p-4 bg-white hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-transparent focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700':
+                    $route.name !== 'admin-help'
+                }"
+                :to="{ name: 'admin-help' }"
+                exact>Help</router-link>
+        </li>
     </ul>
     <router-view></router-view>
 </template>
