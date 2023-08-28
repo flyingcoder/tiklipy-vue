@@ -45,10 +45,14 @@
 
     if (featuredImageFile.value) {
         formData.append('featuredImage', featuredImageFile.value);
+    } else {
+        formData.append('featuredImage', 'tiklipy-logo-indigo');
     }
 
     if (authorImageFile.value) {
         formData.append('authorImage', authorImageFile.value);
+    } else {
+        formData.append('authorImage', 'tiklipy-logo-icon');
     }
 
     backEndModel.addBlog(formData);
