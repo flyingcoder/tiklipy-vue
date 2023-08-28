@@ -96,7 +96,9 @@ class ExpressModel {
     addBlog(data) {
         try {
             axios.defaults.headers.common['Authorization'] = auth?.currentUser?.accessToken;
-            return axios.post('/api/v1/posts', data);
+            return axios.post('/api/v1/posts', data, {
+                headers: { 'Content-Type': 'multipart/form-data' }
+              });
         } catch (error) {
             console.log(error);
             return false;
@@ -124,8 +126,7 @@ class ExpressModel {
     }
 
     getPosts() {
-        try {
-            axios.defaults.headers.common['Authorization'] = auth?.currentUser?.accessToken;
+        try { 
             return axios.get('/api/v1/posts');
         } catch (error) {
             console.log(error);

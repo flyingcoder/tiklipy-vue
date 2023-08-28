@@ -112,7 +112,7 @@
                     </div>
                 </div>
             </div>
-            <div :style="'animation-duration:'+15 * testimonials?.length +'s'" :class="[hovered ? '' : 'animate-r_marquee2', { 'animation-paused': animationPaused }]" class="flex justify-around w-full max-w-none">
+            <div :style="'animation-duration:'+15  * testimonials?.length +'s'" :class="[hovered ? '' : 'animate-r_marquee', { 'animation-paused': animationPaused }]" class="absolute flex justify-around w-full max-w-none">
                 <div v-for="(testimonial, index) in testimonials" :key="index + '-testi-cards'" class="w-[26rem] mr-10 text-4xl  bg-white p-5 rounded-2xl flex flex-wrap content-between">
                     <div class="">
                         <div class="flex flex-wrap mb-5 text-lg stars">
@@ -138,52 +138,52 @@
     <section  id="features" class="w-full rounded-xl px-3 xs:p-6 mt-[1100px] sm:mt-[1000px] overflow-hidden">
         <div class="">
             <div class="m-auto my-10">
-                <p class="mb-10 text-5xl font-semibold text-center uppercase text-main-color">
+                <p class=" mb-3 md:mb-10 text-5xl font-semibold text-center uppercase text-main-color">
                     Features
                 </p>
-                <h2 class="mb-5 text-3xl font-semibold text-center text-main-color sm:text-4xl">
+                <h2 class="mb-5 text-2xl font-semibold text-center text-main-color sm:text-4xl">
                     Discover effective strategies for handling challenging student behavior.
                 </h2>
                 <div class="text-center text-black">Immerse yourself in over 30 potent teaching tools. Write, organize, and discover boundless inspiration. Also, access expert advice whenever you need.</div>
             </div>
             <!-- Contents -->
             <div class="flex flex-wrap justify-center my-10 sm:justify-between">
-                <div class="sm:w-[49%] midlg:w-[30%] mb-10 bg-white px-5 py-8 rounded-md">
+                <div class="sm:w-[49%] midlg:w-[30%] mb-4 md:mb-10 bg-white px-5 py-8 rounded-md">
                     <div class="rounded-[100px] overflow-hidden bg-red-100 w-fit m-auto mb-5">
                         <img class="w-40 p-7" src="/Lifebuoy.svg" alt="">
                     </div>
                     <h2 class="pb-3 text-2xl font-semibold text-center text-black">Receive Guidance</h2>
                     <div class="text-center text-black">Receive expert assistance for challenges in your career and classroom.</div>
                 </div>
-                <div class="sm:w-[49%] midlg:w-[30%] mb-10 bg-white px-5 py-8 rounded-md">
+                <div class="sm:w-[49%] midlg:w-[30%] mb-4 md:mb-10 bg-white px-5 py-8 rounded-md">
                     <div class="rounded-[100px] overflow-hidden bg-yellow-100 w-fit m-auto mb-5">
                         <img class="w-40 p-7"  src="/Strategy.svg" alt="">
                     </div>
                     <h2 class="pb-3 text-2xl font-semibold text-center text-black">Handle Challenging Behavior</h2>
                     <div class="text-center text-black">Uncover impactful techniques to manage challenging student behavior.</div>
                 </div>
-                <div class="sm:w-[49%] midlg:w-[30%] mb-10 bg-white px-5 py-8 rounded-md">
+                <div class="sm:w-[49%] midlg:w-[30%] mb-4 md:mb-10 bg-white px-5 py-8 rounded-md">
                     <div class="rounded-[100px] overflow-hidden bg-blue-100 w-fit m-auto mb-5">
                         <img class="w-40 p-7" src="/Essay.svg" alt="">
                     </div>
                     <h2 class="pb-3 text-2xl font-semibold text-center text-black">Create New Evaluation Method</h2>
                     <div class="text-center text-black">Craft an unconventional assessments strategy to gauge student understanding</div>
                 </div>
-                <div class="sm:w-[49%] midlg:w-[30%] mb-10 bg-white px-5 py-8 rounded-md">
+                <div class="sm:w-[49%] midlg:w-[30%] mb-4 md:mb-10 bg-white px-5 py-8 rounded-md">
                     <div class="rounded-[100px] overflow-hidden bg-green-100 w-fit m-auto mb-5">
                         <img class="w-40 p-7"  src="/Promotion.svg" alt="">
                     </div>
                     <h2 class="pb-3 text-2xl font-semibold text-center text-black">Make Feedback</h2>
                     <div class="text-center text-black">Offer valuable support and guidance to both students and colleagues.</div>
                 </div>
-                <div class="sm:w-[49%] midlg:w-[30%] mb-10 bg-white px-5 py-8 rounded-md">
+                <div class="sm:w-[49%] midlg:w-[30%] mb-4 md:mb-10 bg-white px-5 py-8 rounded-md">
                     <div class="rounded-[100px] overflow-hidden bg-indigo-100 w-fit m-auto mb-5">
                         <img class="w-40 p-7"  src="/Medal.svg" alt="">
                     </div>
                     <h2 class="pb-3 text-2xl font-semibold text-center text-black">Cultivate Student Enthusiasm</h2>
                     <div class="text-center text-black">Explore approaches to boost student motivation and achieve success.</div>
                 </div>
-                <div class="sm:w-[49%] midlg:w-[30%] mb-10 bg-white px-5 py-8 rounded-md">
+                <div class="sm:w-[49%] midlg:w-[30%] mb-4 md:mb-10 bg-white px-5 py-8 rounded-md">
                     <div class="rounded-[100px] overflow-hidden bg-orange-100 w-fit m-auto mb-5">
                         <img class="w-40 p-7" src="/Learn.svg" alt="">
                     </div>
@@ -193,12 +193,12 @@
             </div>
         </div>
             <!-- Title -->
-        <div class="mt-[5rem] mb-10 sm:w-[40rem] m-auto">
+        <div class="mt-[5rem] mb-4 md:mb-10 sm:w-[40rem] m-auto">
             <h2 class="mb-5 text-3xl font-semibold text-center text-main-color">Plus, there's more!</h2>
         </div>
         <!-- Contents -->
-        <div class="flex flex-wrap justify-center mt-10 sm:justify-between">
-            <div class="border-[1px] border-color-main-color w-full sm:w-[49%] midlg:w-[32%] mb-5 bg-white hover:bg-red-100 p-5 2xl:p-10  content-between rounded-xl hover:scale-105 ease-linear duration-200 shadow-sm hover:shadow-red-200">
+        <div class="flex flex-wrap justify-center mb-4 md:mb-10 sm:justify-between">
+            <div class="border-[1px] border-color-main-color w-full sm:w-[49%] midlg:w-[32%] mb-3 md:mb-10 bg-white hover:bg-red-100 p-5 2xl:p-10  content-between rounded-xl hover:scale-105 ease-linear duration-200 shadow-sm hover:shadow-red-200">
                 <div class="overflow-hidden  w-full mb-[4rem]">
                     <img class="rounded-[10px]  bg-main-color w-12  p-2"  src="/195.png" alt="">
                 </div>
@@ -207,7 +207,7 @@
                     <div class="text-black">Breaking down complex topics for easier understanding.</div>
                 </div>
             </div>
-            <div class="border-[1px] border-color-main-color w-full sm:w-[49%] midlg:w-[32%] mb-5 bg-white  hover:bg-green-100 p-5  2xl:p-10 content-between rounded-xl hover:scale-105 ease-linear duration-200 shadow-sm hover:shadow-green-200">
+            <div class="border-[1px] border-color-main-color w-full sm:w-[49%] midlg:w-[32%] mb-3 md:mb-10 bg-white  hover:bg-green-100 p-5  2xl:p-10 content-between rounded-xl hover:scale-105 ease-linear duration-200 shadow-sm hover:shadow-green-200">
                 <div class="overflow-hidden  w-full mb-[4rem]">
                     <img class="rounded-[10px]  bg-main-color w-12  p-2"  src="/73.png" alt="">
                 </div>
@@ -216,7 +216,7 @@
                     <div class="text-black">Generating engaging queries based on written material.</div>
                 </div>
             </div>
-            <div class="border-[1px] border-color-main-color w-full sm:w-[49%] midlg:w-[32%] mb-5 bg-white hover:bg-yellow-100 p-5 2xl:p-10  content-between rounded-xl hover:scale-105 ease-linear duration-200 shadow-sm hover:shadow-yellow-200">
+            <div class="border-[1px] border-color-main-color w-full sm:w-[49%] midlg:w-[32%] mb-3 md:mb-10 bg-white hover:bg-yellow-100 p-5 2xl:p-10  content-between rounded-xl hover:scale-105 ease-linear duration-200 shadow-sm hover:shadow-yellow-200">
                 <div class="overflow-hidden  w-full mb-[4rem]">
                     <img class="rounded-[10px]  bg-main-color w-12  p-2"  src="/134.png" alt="">
                 </div>
@@ -225,42 +225,42 @@
                     <div class="text-black">Enhancing performance and behavior through a constructive classroom environment.</div>
                 </div>
             </div>
-            <div class="border-[1px] border-color-main-color w-full sm:w-[49%] midlg:w-[32%] mb-5 bg-white hover:bg-blue-100 p-5 2xl:p-10 content-between rounded-xl hover:scale-105 ease-linear duration-200 shadow-sm hover:shadow-blue-200">
+            <div class="border-[1px] border-color-main-color w-full sm:w-[49%] midlg:w-[32%] mb-3 md:mb-10 bg-white hover:bg-blue-100 p-5 2xl:p-10 content-between rounded-xl hover:scale-105 ease-linear duration-200 shadow-sm hover:shadow-blue-200">
                 <div class="overflow-hidden  w-full mb-[4rem]">
                     <img class="rounded-[10px]  bg-main-color w-12  p-2"  src="/73.png" alt="">
                 </div>
                 <h2 class="text-[1.2rem] mb-2 sm:text-2xl text-main-color font-bold dark:text-white">Crafting Newsletters</h2>
                 <div class="text-black">Generating customized letters, blog posts, and updates instantly.</div>
             </div>
-            <div class="border-[1px] border-color-main-color w-full sm:w-[49%] midlg:w-[32%] mb-5 bg-white hover:bg-teal-100 p-5  2xl:p-10 content-between rounded-xl hover:scale-105 ease-linear duration-200 shadow-sm hover:shadow-teal-200">
+            <div class="border-[1px] border-color-main-color w-full sm:w-[49%] midlg:w-[32%] mb-3 md:mb-10 bg-white hover:bg-teal-100 p-5  2xl:p-10 content-between rounded-xl hover:scale-105 ease-linear duration-200 shadow-sm hover:shadow-teal-200">
                 <div class="overflow-hidden  w-full mb-[4rem]">
                     <img class="rounded-[10px]  bg-main-color w-12  p-2"  src="/123.png" alt="">
                 </div>
                 <h2 class="text-[1.2rem] mb-2 sm:text-2xl text-main-color font-bold dark:text-white">Writing Articles and Short Stories</h2>
                 <div class="text-black">Producing tailored content to meet individual needs.</div>
             </div>
-            <div class="border-[1px] border-color-main-color w-full sm:w-[49%] midlg:w-[32%] mb-5 bg-white hover:bg-red-100 p-5  2xl:p-10 content-between rounded-xl hover:scale-105 ease-linear duration-200 shadow-sm hover:shadow-red-200">
+            <div class="border-[1px] border-color-main-color w-full sm:w-[49%] midlg:w-[32%] mb-3 md:mb-10 bg-white hover:bg-red-100 p-5  2xl:p-10 content-between rounded-xl hover:scale-105 ease-linear duration-200 shadow-sm hover:shadow-red-200">
                 <div class="overflow-hidden  w-full mb-[4rem]">
                     <img class="rounded-[10px]  bg-main-color w-12  p-2"  src="/185.png" alt="">
                 </div>
                 <h2 class="text-[1.2rem] mb-2 sm:text-2xl text-main-color font-bold dark:text-white">Exploring History from Various Perspectives</h2>
                 <div class="text-black">Examining history through different viewpoints and angles.</div>
             </div>
-            <div class="border-[1px] border-color-main-color w-full sm:w-[49%] midlg:w-[32%] max-midlg:mb-5 bg-white hover:bg-green-100 p-5 2xl:p-10 content-between rounded-xl hover:scale-105 ease-linear duration-200 shadow-sm hover:shadow-green-200">
+            <div class="border-[1px] border-color-main-color w-full sm:w-[49%] midlg:w-[32%] max-midlg:mb-3 md:mb-10 bg-white hover:bg-green-100 p-5 2xl:p-10 content-between rounded-xl hover:scale-105 ease-linear duration-200 shadow-sm hover:shadow-green-200">
                 <div class="overflow-hidden  w-full mb-[4rem]">
                     <img class="rounded-[10px]  bg-main-color w-12  p-2"  src="/95.png" alt="">
                 </div>
                 <h2 class="text-[1.2rem] mb-2 sm:text-2xl text-main-color font-bold dark:text-white">Writing Effective Emails</h2>
                 <div class="text-black">Generating impactful emails with a personal touch.</div>
             </div>
-            <div class="border-[1px] border-color-main-color w-full sm:w-[49%] midlg:w-[32%] max-midlg:mb-5 bg-white hover:bg-yellow-100 p-5 2xl:p-10 content-between rounded-xl hover:scale-105 ease-linear duration-200 shadow-sm hover:shadow-yellow-200">
+            <div class="border-[1px] border-color-main-color w-full sm:w-[49%] midlg:w-[32%] max-midlg:mb-3 md:mb-10 bg-white hover:bg-yellow-100 p-5 2xl:p-10 content-between rounded-xl hover:scale-105 ease-linear duration-200 shadow-sm hover:shadow-yellow-200">
                 <div class="overflow-hidden  w-full mb-[4rem]">
                     <img class="rounded-[10px]  bg-main-color w-12 p-2"  src="/195.png" alt="">
                 </div>
                 <h2 class="text-[1.2rem] mb-2 sm:text-2xl text-main-color font-bold dark:text-white">Discovering Science and Math Experiments</h2>
                 <div class="text-black">Finding captivating ways to test hypotheses through hands-on trials.</div>
             </div>
-            <div class="border-[1px] border-color-main-color w-full sm:w-[49%] midlg:w-[32%] max-midlg:mb-5 bg-white hover:bg-blue-100 p-5 2xl:p-10 content-between rounded-xl hover:scale-105 ease-linear duration-200 shadow-sm hover:shadow-blue-200">
+            <div class="border-[1px] border-color-main-color w-full sm:w-[49%] midlg:w-[32%] max-midlg:mb-3 md:mb-10 bg-white hover:bg-blue-100 p-5 2xl:p-10 content-between rounded-xl hover:scale-105 ease-linear duration-200 shadow-sm hover:shadow-blue-200">
                 <div class="overflow-hidden  w-full mb-[4rem]">
                     <img class="rounded-[10px]  bg-main-color w-12  p-2"  src="/123.png" alt="">
                 </div>
@@ -268,7 +268,7 @@
                 <div class="text-black">Creating forms to attract and manage volunteers efficiently.</div>
             </div>
         </div>
-        <div class="w-full text-center mt-10 mb-10">
+        <div class="w-full text-center mb-3 md:mb-10 mb-10">
             <router-link :to="{ name: 'features' }" class="duration-300 hover:scale-105 text-center w-full text-2xl py-3 px-5 hover:bg-main-color bg-white hover:text-white text-main-color font-semibold rounded-xl border-[1px] border-main-color">
                 See all features
             </router-link>

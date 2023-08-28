@@ -21,23 +21,47 @@
         [{ 'align': [] }],
         ['clean']
     ];
+    const backEndModel = new expressModel();
+
+    const slug = ref('');
     const blog = ref('');
     const title =  ref('');
     const author = ref('');
     const readTime = ref('');
     const profile = ref('');
-    const backEndModel = new expressModel();
+    const fileInput = ref(null);
+    const featuredImage = ref(null);
 
+    const handleFileChange = () => {
+        
+        console.log('image:', fileInput.value.file[0]);  
+        // const file = fileInput.value.files[0]; 
+    };
+
+    // const submitContent = async () => {
+    //     const file = fileInput.value.files[0];
+    //     console.log('image:', file); 
+    //     const formData = new FormData();
+    //     formData.append('image', file);
+    //     formData.append('title', title.value);
+    //     formData.append('author', author.value);
+    //     formData.append('profile', profile.value);
+    //     formData.append('readTime', readTime.value);
+    //     formData.append('dateCreated', dayjs().format());
+    //     formData.append('slug', slug.value);
+    //     backEndModel.addBlog(formData);
+    // };
     const submitContent = () => {
-        const post = {
-            blog: blog.value,
+        const formData = {
             title: title.value,
             author: author.value,
             profile: profile.value.name,
+            profile: profile.value.name,    
             readTime: readTime.value,
             dateCreated: dayjs().format(),
+            slug: slug.value,
         }
-        backEndModel.addBlog(post);
+        backEndModel.addBlog(formData);
     }
 
 </script>
@@ -48,10 +72,12 @@
         </h1>
         <div class="w-3/4 mx-auto">
             <div class="grid grid-cols-2 gap-4 mt-5 ">
-                <FileInput label="Author Image" class="" v-model="profile"></FileInput>
+                <FileInput ref="featuredImage" label="Featured Image" @change="handleFileChange" class=""></FileInput>
+                <FileInput ref="fileInput" label="Author Image" @change="handleFileChange" class=""></FileInput>
                 <Input size="md" label="Title" v-model="title" class="" />
                 <Input size="md" label="Author" v-model="author" class="" />
                 <Input size="md" label="Time Read" v-model="readTime" class="" />
+                <Input size="md" label="Slug" v-model="slug" class="" />
             </div>
             <div class="mt-5">
                 <label class="font-lg font-semibold">Content</label>
