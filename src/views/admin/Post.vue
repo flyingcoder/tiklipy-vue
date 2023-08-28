@@ -29,6 +29,7 @@
     const author = ref('');
     const readTime = ref('');
     const profile = ref('');
+    const shortDesc = ref('');
     const fileInput = ref(null);
     const featuredImage = ref(null);
 
@@ -58,6 +59,7 @@
             profile: profile.value.name,
             profile: profile.value.name,    
             readTime: readTime.value,
+            shortDesc: shortDesc.value,
             dateCreated: dayjs().format(),
             slug: slug.value,
         }
@@ -78,6 +80,7 @@
                 <Input size="md" label="Author" v-model="author" class="" />
                 <Input size="md" label="Time Read" v-model="readTime" class="" />
                 <Input size="md" label="Slug" v-model="slug" class="" />
+                <Textarea rows="4" v-model="shortDesc" class=""></Textarea>
             </div>
             <div class="mt-5">
                 <label class="font-lg font-semibold">Content</label>

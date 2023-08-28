@@ -9,10 +9,11 @@ import { Avatar } from 'flowbite-vue';
 
     onMounted(() => {
         getBlogs();
+        console.log("asd");
     });
 
-    const getBlogs = async () => {
-        blogs.value = await backEndModel.getPosts().then((data) => data.data.blogs );
+    const getBlogs = async (slug) => {
+        blogs.value = await backEndModel.getPostBySlug(slug).then((data) => data.data.blog );
     } 
     const formatDate = (dateString) => {
         return dayjs(dateString).format('MMMM D, YYYY')
@@ -31,7 +32,6 @@ import { Avatar } from 'flowbite-vue';
                     <div class="pl-4">{{ blog.readTime }}</div>
                 </div>
             </div>
-
             <div v-html="blog.content">
             </div>
         </div>

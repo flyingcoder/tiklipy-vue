@@ -13,5 +13,11 @@ router.get('/', async (req, res) => {
     res.json({ blogs: blogs });
 });
 
+router.get('/:slug', async (req, res) => {
+    const slug = req.params.slug;
+    const blogs = await PostModel.getPostBySlug(slug);
+    res.json({ blogs: blogs });
+});
+
 
 export default router;

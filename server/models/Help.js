@@ -1,7 +1,7 @@
 import admin from "../plugins/firebase-handler.js";
-import { getFirestore , } from "firebase-admin/firestore";
+import { getFirestore } from "firebase-admin/firestore";
 
-class NewsletterModel {
+class HelpsModel {
     constructor() {
         const db = getFirestore(admin);
         this.col = db.collection('Help');
@@ -23,6 +23,8 @@ class NewsletterModel {
         }
     }
 
+<<<<<<< HEAD
+=======
     async getHelpKnowHow() {
         try {
             const colRef = this.col.where('category', '==', 'knowhow');
@@ -113,6 +115,7 @@ class NewsletterModel {
     }
     
 
+>>>>>>> af3e3deef1aec2a49bcc99a535b15a6157819e3f
 }
 
-export default NewsletterModel;
+export default HelpsModel;
