@@ -15,7 +15,7 @@ class ExpressModel {
 
     getStripeProduct() {
         try {
-            return axios.get('/api/v1/stripes');
+            return axios.get('/api/v1/stripes/products');
         } catch (error) {
             console.log(error);
             return true;
