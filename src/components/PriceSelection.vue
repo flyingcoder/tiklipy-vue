@@ -108,7 +108,7 @@
 <template>
     <SignUp :show-modal="showRegister" :selected-price="selectedPrice"/>
     <div class="mt-10 text-center">
-        <h2 class="text-4xl font-semibold text-center text-main-color">Easy & Very Affordable Pricing</h2>
+        <h2 class="mb-3 md:mb-10 text-3xl md:text-5xl font-semibold text-center uppercase text-main-color">Easy & Very Affordable Pricing</h2>
         <p class="mx-4 mt-8 text-xl text-center text-gray-700 mb-11">At a wallet-friendly cost, become the teacher every student deserve - without breaking the bank.</p>
         
         <div v-for="(product, index) in products" :key="index + '-product'" 

@@ -141,10 +141,10 @@
     <section  id="features" class="w-full rounded-xl px-3 xs:p-6 mt-[1100px] sm:mt-[1000px] overflow-hidden">
         <div class="">
             <div class="m-auto my-10">
-                <p class=" mb-3 md:mb-10 text-5xl font-semibold text-center uppercase text-main-color">
+                <p class=" mb-3 md:mb-10 text-3xl md:text-5xl font-semibold text-center uppercase text-main-color">
                     Features
                 </p>
-                <h2 class="mb-5 text-2xl font-semibold text-center text-main-color sm:text-4xl">
+                <h2 class="mb-5 text-xl font-semibold text-center text-main-color sm:text-4xl leading-[1.4rem]">
                     Discover effective strategies for handling challenging student behavior.
                 </h2>
                 <div class="text-center text-black">Immerse yourself in over 30 potent teaching tools. Write, organize, and discover boundless inspiration. Also, access expert advice whenever you need.</div>
