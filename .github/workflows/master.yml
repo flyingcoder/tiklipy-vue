@@ -43,8 +43,8 @@ jobs:
           VITE_FIREBASE_MESSAGING_SENDER_ID: ${{ secrets.VITE_FIREBASE_MESSAGING_SENDER_ID }}
           VITE_FIREBASE_APP_ID: ${{ secrets.VITE_FIREBASE_APP_ID }}
           VITE_FIREBASE_MEASUREMENT_ID: ${{ secrets.VITE_FIREBASE_MEASUREMENT_ID }}
-          STRIPE_APP_KEY: ${{ secrets.STRIPE_APP_KEY }}
-          STRIPE_APP_PLAN: ${{ secrets.STRIPE_APP_PLAN }}
+          OPENAI_API_URL: ${{ secrets.OPENAI_API_URL }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           FIREBASE_TYPE: ${{ secrets.FIREBASE_TYPE }}
           FIREBASE_PROJECTID: ${{ secrets.FIREBASE_PROJECTID }}
           FIREBASE_PRIVATE_KEY_ID: ${{ secrets.FIREBASE_PRIVATE_KEY_ID }}
@@ -60,6 +60,7 @@ jobs:
       - name: Build docker container then archive it
         run: |
           cd $GITHUB_WORKSPACE
+          cat .env
           docker build -t tiklipy.dock .
           docker save -o tiklipy.dock.tar tiklipy.dock
 
