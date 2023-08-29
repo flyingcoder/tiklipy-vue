@@ -41,14 +41,16 @@
             confirmButtonText: 'Submit',
             showLoaderOnConfirm: true,
             preConfirm: (email) => {
-                return new Promise((resolve) => {
+                return new Promise((resolve, reject) => {
                     setTimeout(() => {
-                    if (email === 'example@email.com') {
+                    if (email === '') {
                         Swal.fire.showValidationError(
-                        'This email is already taken.'
+                            'Please enter a valid email.'
                         )
+                        reject()
+                    } else {
+                        resolve(email)
                     }
-                    resolve()
                     }, 2000)
                 })
             },
@@ -98,7 +100,7 @@
                     <div class="">
                         <div class="flex flex-wrap mb-5 text-lg stars">
                             <label v-for="star in testimonial.star" :key="star" :title="star + ' stars'" class="mr-1">
-                                <i class="text-yellow-300 ti ti-star-filled text-2xl "
+                                <i class="text-2xl text-yellow-300 ti ti-star-filled "
                                 aria-hidden="true"
                                 ></i>
                             </label>
@@ -119,7 +121,7 @@
                     <div class="">
                         <div class="flex flex-wrap mb-5 text-lg stars">
                             <label v-for="star in testimonial.star" :key="star" :title="star + ' stars'" class="mr-1">
-                                <i class="text-yellow-300 ti ti-star-filled text-2xl "
+                                <i class="text-2xl text-yellow-300 ti ti-star-filled "
                                 aria-hidden="true"
                                 ></i>
                             </label>
@@ -140,7 +142,7 @@
     <section  id="features" class="w-full rounded-xl px-3 xs:p-6 mt-[1100px] sm:mt-[1000px] overflow-hidden">
         <div class="">
             <div class="m-auto my-10">
-                <p class=" mb-3 md:mb-10 text-3xl md:text-5xl font-semibold text-center uppercase text-main-color">
+                <p class="mb-3 text-3xl font-semibold text-center uppercase md:mb-10 md:text-5xl text-main-color">
                     Features
                 </p>
                 <h2 class="mb-5 text-xl font-semibold text-center text-main-color sm:text-4xl leading-[1.4rem]">
@@ -270,7 +272,7 @@
                 <div class="text-black">Creating forms to attract and manage volunteers efficiently.</div>
             </div>
         </div>
-        <div class="w-full text-center mb-3 md:mb-10 mb-10">
+        <div class="w-full mb-3 mb-10 text-center md:mb-10">
             <router-link :to="{ name: 'features' }" class="duration-300 hover:scale-105 text-center w-full text-2xl py-3 px-5 hover:bg-main-color bg-white hover:text-white text-main-color font-semibold rounded-xl border-[1px] border-main-color">
                 See all features
             </router-link>
