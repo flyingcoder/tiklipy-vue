@@ -32,7 +32,7 @@ export const useFormStore = defineStore("form", {
         joinInputs() {
             const sentenceParts = Object.keys
                 (this.inputs).map((key) => {
-                    return `${key}: "${this.inputs[key].value}"`;
+                    return `${key}=${this.inputs[key].value}`;
                 }
             );
             const enclosed = sentenceParts.join(', ');
