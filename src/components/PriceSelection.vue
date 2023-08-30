@@ -69,8 +69,9 @@
 			      html: 'Submitted email: ' + result.value
 			    })
                 email.value = result.value
+
+                backEndModel.addNewsletter(email.value);
 			}
-            backEndModel.addNewsletter(email.value);
         });
     }
 </script>
