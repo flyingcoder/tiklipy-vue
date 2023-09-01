@@ -93,7 +93,7 @@
     <div class="fixed top-0 left-0" v-if="copyContent">
         <Alert type="success">Copied</Alert>
     </div>
-    <div class="container px-3 mx-auto mt-7">
+    <div class="container text-black px-3 mx-auto mt-7">
         <div class="">
             <div class="flex py-4 bg-indigo-500 shadow-md px-9 rounded-3xl">
                 <div>
