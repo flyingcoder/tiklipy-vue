@@ -3,7 +3,6 @@
     import expressModel from "../../models/express";
     import { QuillEditor } from '@vueup/vue-quill';
     import { Textarea, Button, Input, FileInput } from 'flowbite-vue';
-    import '@vueup/vue-quill/dist/vue-quill.snow.css';
     import dayjs from "dayjs";
 
     const toolbarOptions = [
@@ -60,8 +59,8 @@
 </script>
 
 <template>
-<div class="bg-white p-6 rounded-lg text-black">
-    <h1 class="text-center text-black text-3xl font-semibold">
+<div class="p-6 text-black bg-white rounded-lg">
+    <h1 class="text-3xl font-semibold text-center text-black">
         Create Post
     </h1>
     <div class="w-3/4 mx-auto">
@@ -77,10 +76,10 @@
             <Textarea rows="4" label="Short Description" v-model="shortDesc" class=""></Textarea>
         </div>
         <div class="mt-5">
-            <label class="font-lg font-semibold">Content</label>
+            <label class="font-semibold font-lg">Content</label>
             <QuillEditor theme="snow" :toolbar="toolbarOptions" v-model:content="content" contentType="html" class="text-black"/>
         </div>
-        <button @click="submitContent" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded font-semibold text-lg">Add Post</button>
+        <button @click="submitContent" class="px-4 py-2 mt-4 text-lg font-semibold text-white bg-blue-500 rounded">Add Post</button>
     </div>
 </div>
 </template>

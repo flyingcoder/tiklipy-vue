@@ -1,5 +1,4 @@
 <script setup>
-    import 'sweetalert2/dist/sweetalert2.min.css';
     import Swal from 'sweetalert2';
     import { onMounted, ref } from "vue";
     import { useRouter } from "vue-router";

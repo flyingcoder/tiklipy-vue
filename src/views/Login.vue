@@ -1,5 +1,4 @@
 <script setup>
-    import 'sweetalert2/dist/sweetalert2.min.css';
     import Swal from 'sweetalert2';
     import { onMounted, ref } from "vue";
     import { useRouter } from "vue-router";
@@ -123,7 +122,7 @@
                     <div class="mt-5">
                         <div class="flex flex-wrap justify-between mb-1">
                             <label for="password" class="block text-sm font-semibold text-gray-700 dark:text-white">Password</label>
-                            <p @click="forgotPassword" class="w-fit text-sm font-semibold ">
+                            <p @click="forgotPassword" class="text-sm font-semibold w-fit ">
                                 <a href="#" class="text-black hover:underline">Forgot Password?</a>
                             </p>
                         </div>
@@ -133,7 +132,7 @@
                 <button @click="login"  :disabled="!email || !password" :class="(!email || !password) || isLoading ? 'cursor-not-allowed !bg-gray-500 hover:bg-gray-500' : 'bg-main-color hover:bg-secondary-color border-0'" class="w-full px-4 py-2 mt-2 font-bold text-white rounded bg-main-color hover:bg-secondary-color">
                     {{ isLoading ? "Loading..." : "Login" }}
                 </button>
-                <p @click="forgotPassword" class="mt-5 w-fit text-sm  text-center m-auto">
+                <p @click="forgotPassword" class="m-auto mt-5 text-sm text-center w-fit">
                     Dont have an account yet? <br class="lg:hidden">
                     <router-link :to="{ name: 'register' } " class="  !text-main-color hover:!text-secondary-color hover:underline !font-bold">
                         Get 1 Month Free Now!

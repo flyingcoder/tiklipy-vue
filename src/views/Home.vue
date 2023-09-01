@@ -2,7 +2,6 @@
     import { onMounted, ref } from "vue";
     import expressModel from "../models/express";
     import Swal from 'sweetalert2';
-    import 'sweetalert2/dist/sweetalert2.min.css';
     import PriceSelection from '../components/PriceSelection.vue';
     import FAQ from '../components/FAQ.vue';
 
