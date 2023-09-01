@@ -93,7 +93,7 @@
     <div class="fixed top-0 left-0" v-if="copyContent">
         <Alert type="success">Copied</Alert>
     </div>
-    <div class="container px-3 mx-auto text-black mt-7">
+    <div class="container px-3 mx-auto mt-7">
         <div class="">
             <div class="flex py-4 bg-indigo-500 shadow-md px-9 rounded-3xl">
                 <div>
@@ -115,10 +115,10 @@
                             <p class="p-2 mb-4 text-center bg-blue-200">We offer hints and examples to enhance the accuracy of your generation process.</p>
                             <div class="space-y-6">
                                 <div v-for="(input, index) in formStore.inputs" :key="index + '-generate-form-hints'">
-                                    <h2 class="text-xl">
-                                        <strong class="capitalize">{{ input.label }}: </strong> 
-                                        <br>{{ input.hint }}
-                                    </h2>
+                                    <div class="">
+                                        <h2 class="text-xl font-bold">{{ input.label }}: </h2>
+                                        <p class="text-xl">{{ input.hint }}</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
