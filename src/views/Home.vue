@@ -4,8 +4,12 @@
     import Swal from 'sweetalert2';
     import PriceSelection from '../components/PriceSelection.vue';
     import FAQ from '../components/FAQ.vue';
+    import { useAuthStore } from "../stores/auth";
+    import { useRouter } from "vue-router"; // Import useRouter
+    // import LiveChat from '../../components/LiveChat.vue';
 
-
+    const router = useRouter();
+    const authStore = useAuthStore();
     const hovered = ref(false);
     const animationPaused = ref(false);
     const backEndModel = new expressModel();
@@ -15,10 +19,11 @@
     onMounted(() => {
         getTestimonials();
     });
+
     const getTestimonials = async () => {
         testimonials.value = await backEndModel.getTestimonials().then((data) => data.data );
     } 
-    
+
     const toggleAnimation = () => {
         animationPaused.value = !animationPaused.value;
     };
@@ -28,46 +33,50 @@
     }
 
     const emailLogin = () => {
-        Swal.fire({
-            title: 'Email Address',
-            input: 'email',
-            inputPlaceholder: 'Example@email.xxx',
-            customClass: {
-                title: 'text-main-color',
-                input: 'text-gray-900 font-semibold border border-gray-300 rounded-full bg-white focus:ring-transparent focus:border-main-color dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-transparent'
-            }, 
-            showCancelButton: true,
-            confirmButtonText: 'Submit',
-            showLoaderOnConfirm: true,
-            preConfirm: (email) => {
-                return new Promise((resolve, reject) => {
-                    setTimeout(() => {
-                    if (email === '') {
-                        Swal.fire.showValidationError(
-                            'Please enter a valid email.'
-                        )
-                        reject()
-                    } else {
-                        resolve(email)
-                    }
-                    }, 2000)
-                })
-            },
-            allowOutsideClick: false
-        }).then((result) => {
-            if (result.value) {
-			    Swal.fire({
-			      icon: 'success',
-			      title: 'Thank You',
-			      html: 'Email: ' + result.value
-			    })
-                email.value = result.value
-                backEndModel.addNewsletter(email.value);
-            } else if (result.dismiss === Swal.DismissReason.cancel) {
-                // Handle cancel action here, for example, you can log a message
-                console.log('User canceled the action');
-            }
-        });
+        if (!authStore.user) {
+            Swal.fire({
+                title: 'Email Address',
+                input: 'email',
+                inputPlaceholder: 'Example@email.xxx',
+                customClass: {
+                    title: 'text-main-color',
+                    input: 'text-gray-900 font-semibold border border-gray-300 rounded-full bg-white focus:ring-transparent focus:border-main-color dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-transparent'
+                }, 
+                showCancelButton: true,
+                confirmButtonText: 'Submit',
+                showLoaderOnConfirm: true,
+                preConfirm: (email) => {
+                    return new Promise((resolve, reject) => {
+                        setTimeout(() => {
+                        if (email === '') {
+                            Swal.fire.showValidationError(
+                                'Please enter a valid email.'
+                            )
+                            reject()
+                        } else {
+                            resolve(email)
+                        }
+                        }, 2000)
+                    })
+                },
+                allowOutsideClick: false
+            }).then((result) => {
+                if (result.value) {
+                    Swal.fire({
+                    icon: 'success',
+                    title: 'Thank You',
+                    html: 'Email: ' + result.value
+                    })
+                    email.value = result.value
+                    backEndModel.addNewsletter(email.value);
+                } else if (result.dismiss === Swal.DismissReason.cancel) {
+                    // Handle cancel action here, for example, you can log a message
+                    console.log('User canceled the action');
+                }
+            });
+        } else {
+            router.push({ name: 'dashboard' });
+        }
     }
     // const translate = () => {
     //    const englishElement = document.getElementsByClassName('is-english');
@@ -90,7 +99,7 @@
                 </button>
             </router-link> -->
             <button type="button" @click="emailLogin()" class="mt-10 transition uppercase duration-240 hover:shadow-md hover:shadow-[#969cf9] hover:bg-secondary-color border-0 w-fit bg-main-color text-white focus:ring-4 focus:outline-none focus:ring-secondary-color dark:focus:ring-main-color font-semibold rounded-lg text-lg px-5 py-2.5 inline-flex justify-center text-center">
-                Request Early Access
+                {{ authStore.user ? 'GO TO PORTAL' : 'REQUEST EARLY ACCESS' }}
             </button>
         </div>
         <div :style="'width: '+ 26 * testimonials?.length +'rem'" class="sm:mt-[700px] mt-[800px] absolute left-0 top-0 bg-center bg-gradient-to-t from-[#f3f4f6] from-60% py-10 flex overflow-x-hidden justify-center" @mouseenter="toggleAnimation" @mouseleave="toggleAnimation">

@@ -1,10 +1,12 @@
 <script setup>
-    import { computed, onMounted, ref } from "vue";
+    import { onMounted, ref } from "vue";
     import SignUp from './../views/sign/Up.vue';
     import { useRouter } from 'vue-router';
     import expressModel from "../models/express";
-    import { getFirestore, getDocs, where, query, collection, orderBy,} from "firebase/firestore";
     import Swal from 'sweetalert2';
+    import 'sweetalert2/dist/sweetalert2.min.css';
+    import { useAuthStore } from "../stores/auth";
+
 
     const router = useRouter();
     const products = ref([]);
@@ -14,10 +16,10 @@
     const selectedPrice = ref();
     const email = ref('');
     const user = ref();
+    const authStore = useAuthStore();
 
     onMounted(async () => {
         await fetchProducts();
-        console.log(products)
     });
 
     const createSub = (price_id) => {
@@ -36,42 +38,47 @@
     };
 
     const emailLogin = () => {
-        Swal.fire({
-            title: 'Email Address',
-            input: 'email',
-            inputPlaceholder: 'Example@email.xxx',
-            customClass: {
-                title: 'text-main-color',
-                input: 'text-gray-900 font-semibold border border-gray-300 rounded-full bg-white focus:ring-transparent focus:border-main-color dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-transparent'
-            }, 
-            showCancelButton: true,
-            confirmButtonText: 'Submit',
-            showLoaderOnConfirm: true,
-            preConfirm: (email) => {
-                return new Promise((resolve) => {
-                    setTimeout(() => {
-                    if (email === 'example@email.com') {
-                        Swal.fire.showValidationError(
-                        'This email is already taken.'
-                        )
-                    }
-                    resolve()
-                    }, 2000)
-                })
-            },
-            allowOutsideClick: false
-        }).then((result) => {
-            if (result.value) {
-			    Swal.fire({
-			      type: 'success',
-			      title: 'Thankyou',
-			      html: 'Submitted email: ' + result.value
-			    })
-                email.value = result.value
-
-                backEndModel.addNewsletter(email.value);
-			}
-        });
+       if (!authStore.user) {
+            Swal.fire({
+                title: 'Email Address',
+                input: 'email',
+                inputPlaceholder: 'Example@email.xxx',
+                customClass: {
+                    title: 'text-main-color',
+                    input: 'text-gray-900 font-semibold border border-gray-300 rounded-full bg-white focus:ring-transparent focus:border-main-color dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-transparent'
+                }, 
+                showCancelButton: true,
+                confirmButtonText: 'Submit',
+                showLoaderOnConfirm: true,
+                preConfirm: (email) => {
+                    return new Promise((resolve) => {
+                        setTimeout(() => {
+                        if (email === 'example@email.com') {
+                            Swal.fire.showValidationError(
+                            'This email is already taken.'
+                            )
+                        }
+                        resolve()
+                        }, 2000)
+                    })
+                },
+                allowOutsideClick: false
+            }).then((result) => {
+                if (result.value) {
+                    Swal.fire({
+                    icon: 'success',
+                    title: 'Thank You',
+                    html: 'Email: ' + result.value
+                    })
+                    email.value = result.value
+                    backEndModel.addNewsletter(email.value);
+                } else if (result.dismiss === Swal.DismissReason.cancel) {
+                    console.log('User canceled the action');
+                }
+            });
+        } else {
+            router.push({ name: 'dashboard' });
+        }
     }
 </script>
 
@@ -155,7 +162,7 @@
                     </li>
                 </ul>
                 <button type="button" @click="emailLogin()" class="uppercase transition uppercase duration-240 hover:shadow-md hover:shadow-[#969cf9] hover:bg-secondary-color border-0 w-fit bg-main-color text-white focus:ring-4 focus:outline-none focus:ring-secondary-color dark:focus:ring-main-color font-semibold rounded-lg text-lg px-5 py-2.5 inline-flex justify-center text-center">
-                    Request early access
+                    {{ authStore.user ? 'GO TO PORTAL' : 'REQUEST EARLY ACCESS' }}
                 </button>
             </div>
         </div>
