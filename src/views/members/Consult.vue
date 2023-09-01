@@ -1,5 +1,4 @@
 <script setup>
-    import 'sweetalert2/dist/sweetalert2.min.css';
     import Swal from 'sweetalert2';
     import axios from '../../plugins/axios';
     import { ref, onMounted, watch } from 'vue';
@@ -191,8 +190,8 @@
         </div>
         </div>
         <div v-if="!hasChat" class="text-center">
-            <p class="text-3xl text-black text-center pb-4">Initiate a new chat effortlessly and elegantly, crafting seamless connections with just a click.</p>
-            <button @click="hasChat = !hasChat" class="w-80 px-4 py-2 mt-2 font-bold text-white rounded bg-main-color hover:bg-secondary-color">
+            <p class="pb-4 text-3xl text-center text-black">Initiate a new chat effortlessly and elegantly, crafting seamless connections with just a click.</p>
+            <button @click="hasChat = !hasChat" class="px-4 py-2 mt-2 font-bold text-white rounded w-80 bg-main-color hover:bg-secondary-color">
                 <i class="pb-1 mr-1 text-lg ti ti-plus"></i> New Chat
             </button>
         </div>

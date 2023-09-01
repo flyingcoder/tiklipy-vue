@@ -41,8 +41,7 @@ router.get('/system-prompt', async (req, res) => {
 
 router.post('/generate', async (req, res) => {
     const resource = await generate.global(req.body);
-    if(resource) res.json(resource);
-    else res.json({error: 'Something went wrong'});
+    res.json(resource);
 });
 // note: return the last 5 message of a messages to save token
 router.post('/consult', async (req, res) => {

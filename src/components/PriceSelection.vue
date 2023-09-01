@@ -1,9 +1,8 @@
 <script setup>
-    import { computed, onMounted, ref } from "vue";
+    import { onMounted, ref } from "vue";
     import SignUp from './../views/sign/Up.vue';
     import { useRouter } from 'vue-router';
     import expressModel from "../models/express";
-    import { getFirestore, getDocs, where, query, collection, orderBy,} from "firebase/firestore";
     import Swal from 'sweetalert2';
     import 'sweetalert2/dist/sweetalert2.min.css';
     import { useAuthStore } from "../stores/auth";
