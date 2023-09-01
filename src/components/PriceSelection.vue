@@ -5,7 +5,6 @@
     import expressModel from "../models/express";
     import { getFirestore, getDocs, where, query, collection, orderBy,} from "firebase/firestore";
     import Swal from 'sweetalert2';
-    import 'sweetalert2/dist/sweetalert2.min.css';
 
     const router = useRouter();
     const products = ref([]);

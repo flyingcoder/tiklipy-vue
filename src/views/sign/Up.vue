@@ -1,5 +1,4 @@
 <script setup>
-    import 'sweetalert2/dist/sweetalert2.min.css';
     import Swal from 'sweetalert2';
     import { ref } from "vue";
     import { Modal } from 'flowbite-vue';

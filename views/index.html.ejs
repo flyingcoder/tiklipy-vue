@@ -30,8 +30,14 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
     
     <noscript>Your browser does not support JavaScript!</noscript>
-    <% if (environment === 'production') { %>
-    <link rel="stylesheet" href="<%= manifest['src/main.css'].file %>" />
+    
+    <% if (environment === 'production') { 
+      for (const key in manifest) { 
+        const fileInfo = manifest[key];
+        if(fileInfo.file.endsWith('.css')) { %>
+          <link rel="stylesheet" href="<%= fileInfo.file %>" />
+      <% }
+      } %>
     <% } %>
   </head>
   <body>
@@ -39,12 +45,17 @@
     <div id="app" class="relative w-full h-full min-h-screen overflow-x-hidden"></div>
     <!-- End Main div -->
   
-    <% if(environment === 'production') { %>
-    <script type="module" src="<%= manifest['src/main.js'].file %>"></script>
-    <script type="application/ld+json" src="/schema-ld.json"></script>
+    <% if(environment === 'production') {
+      for (const key in manifest) { 
+        const fileInfo = manifest[key];
+        if(fileInfo.file.endsWith('.js')) { %>
+          <script type="module" src="<%= fileInfo.file %>"></script>
+      <% }
+      } %>
+      <script type="application/ld+json" src="/schema-ld.json"></script>
     <% } else { %>
-    <script type="module" src="http://localhost:5173/@vite/client"></script>
-    <script type="module" src="http://localhost:5173/src/main.js"></script>
+      <script type="module" src="http://localhost:5173/@vite/client"></script>
+      <script type="module" src="http://localhost:5173/src/main.js"></script>
     <% } %>
   </body>
   
