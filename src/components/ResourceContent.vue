@@ -5,7 +5,6 @@
         type: String,
         content: String,
     });
-
 </script>
 <template>
     <div class="flex flex-wrap justify-between asda">
