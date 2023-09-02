@@ -1,18 +1,17 @@
-import admin from '../plugins/firebase-handler.js';
 import express from 'express';
 import { getAuth } from 'firebase-admin/auth';
-import generateRoutes from './api/generate.js';
-import getTools from './api/tools.js';
-import starCreditRoutes from './api/starCredits.js';
+import generateRoutes from '../controllers/generate.js';
+import getTools from '../controllers/tools.js';
+import starCreditRoutes from '../controllers/starCredits.js';
 import authRoutes from './api/authRoutes.js';
-import testimonialRoutes from './api/testimonials.js';
-import newsletterRoutes from './api/newsletter.js';
-import featureRoutes from './api/tools.js';
-import suggestToolRoutes from './api/suggestTools.js';
-import reviewRoutes from './api/reviews.js';
-import postRoutes from  './api/blog.js';
-import helpRoutes from './api/help.js';
-import stripeRoutes from './api/stripeRoutes.js';
+import testimonialRoutes from '../controllers/testimonials.js';
+import newsletterRoutes from '../controllers/newsletter.js';
+import featureRoutes from '../controllers/tools.js';
+import suggestToolRoutes from '../controllers/suggestTools.js';
+import reviewRoutes from '../controllers/reviews.js';
+import postRoutes from  '../controllers/blog.js';
+import helpRoutes from '../controllers/help.js';
+import stripeRoutes from '../controllers/stripeRoutes.js';
 
 const router = express.Router();
 
