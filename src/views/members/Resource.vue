@@ -1,32 +1,35 @@
 <script setup>
   import { onMounted, ref } from 'vue';
   import { useRoute } from 'vue-router';
-  import ResourceContent from '../../components/ResourceContent.vue';
+  import ResourceContent from '../../components/resourcecontent.vue';
   import ResourceModel from '../../models/generatedResources.js';
 
   const resourceModel = new ResourceModel();
   const route = useRoute();
   const type = ref('');
-  const content = ref();
+  const title = ref('');
+  const content = ref('');
 
   onMounted(() => {
     if(route?.params?.id)
       getResource(route.params.id);
+    console.log(content.value);
   })
 
   const getResource = async (docId) => {
     await resourceModel.getGeneratedDoc(docId).then((res) => {
       content.value = res.data?.content?.choice?.message?.content?.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>') ?? '';
       type.value = res.data?.type ?? '';
+      title.value = res.data?.title ?? '';
     })
   } 
 </script>
 
 <template>
     <div class="mt-10">
-        <div class="p-4 bg-white shadow-md page print:page-break-after">
+        <div class="p-4 bg-white text-black shadow-md page print:page-break-after">
             <div class="content">
-                <ResourceContent :content="content" :type="type"/>
+                <ResourceContent :content="content" :title="title" :type="type"/>
             </div>
         </div>
     </div>
