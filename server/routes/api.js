@@ -32,7 +32,6 @@ const restrict = (req, res, next) => {
         next();
     } else {
         res.locals.error = 'Access denied';
-        console.error(res.locals.error)
         res.json({ error: res.locals.error });
     }
 }
