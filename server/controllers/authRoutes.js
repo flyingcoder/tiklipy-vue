@@ -14,7 +14,7 @@ router.post('/verify-code', async (req, res) => {
 router.put('/codes', async (req, res) => {
     const payload = req.body;
     const success = await inviteCode.useCode(payload);
-    console.log('this is success' +success);
+    req.log.info('This is success' +success);
     if(success) res.json({ done: success });
     else res.status(500).json({ msg: 'Something went wrong! Call Alvin'});
 });

@@ -11,13 +11,14 @@ const port = process.env.PORT || 3000;
 const publicPath = path.join(path.resolve(), "public");
 const distPath = path.join(path.resolve(), "dist");
 
+// Pino logger for express request logs
+app.use(pino);
+
 // Use routers and static files
 app.use("/api/v1", apiRouter);
 
 if (process.env.NODE_ENV === "production") {
   app.use("/", express.static(distPath));
-  // Pino logger for express request logs
-  app.use(pino);
 } else {
   //import alvinRoutes from "./routes/alvin.js";
   //app.use("/alvin", alvinRoutes);
