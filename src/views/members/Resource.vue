@@ -1,7 +1,7 @@
 <script setup>
   import { onMounted, ref } from 'vue';
   import { useRoute } from 'vue-router';
-  import ResourceContent from '../../components/ResourceContent';
+  import ResourceContent from '../../components/ResourceContent.vue';
   import ResourceModel from '../../models/generatedResources.js';
 
   const resourceModel = new ResourceModel();
