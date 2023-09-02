@@ -1,7 +1,7 @@
 <script setup>
   import { onMounted, ref } from 'vue';
   import { useRoute } from 'vue-router';
-  import ResourceContent from '../../components/resourcecontent.vue';
+  import ResourceContent from '../../components/ResourceContent';
   import ResourceModel from '../../models/generatedResources.js';
 
   const resourceModel = new ResourceModel();
@@ -27,7 +27,7 @@
 
 <template>
     <div class="mt-10">
-        <div class="p-4 bg-white text-black shadow-md page print:page-break-after">
+        <div class="p-4 text-black bg-white shadow-md page print:page-break-after">
             <div class="content">
                 <ResourceContent :content="content" :title="title" :type="type"/>
             </div>
