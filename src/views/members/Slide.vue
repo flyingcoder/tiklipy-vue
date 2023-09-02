@@ -53,7 +53,7 @@
                 class="h-[40rem] bg-gray-300 w-full block object-cover object-center rounded-lg p-4 xs:px-16"
                 id="contentDisplay"
             >
-                <div>{{ content}}</div>
+                <div>{{ content }}</div>
             </div>
         </div>
     </div>
