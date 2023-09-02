@@ -9,6 +9,7 @@
   const type = ref('');
   const content = ref();
 
+
   onMounted(() => {
     if(route?.params?.id)
       getResource(route.params.id);
