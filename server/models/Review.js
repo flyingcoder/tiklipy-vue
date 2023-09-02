@@ -7,20 +7,16 @@ class ReviewModel {
         this.col = db.collection('Reviews');
     }
   
-    addReview(data) {
-        this.col.add(data);
+    async addReview(data) {
+        try {
+            await this.col.add(data);
+            return true;
+        } catch (error) {
+            console.error("Error adding a review:", data);
+            return false;
+        }
+        
     }
-
-    // async getReviews() {
-    //     try {
-    //         const snap = await this.col.get();
-    //         const reviews = snap.docs.map((doc) => doc.data());
-    //         return reviews;
-    //     } catch (error) {
-    //         console.error("Error on get reviews:", error);
-    //         return false;
-    //     }
-    // }
 
     async getReviews() {
         try {
