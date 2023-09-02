@@ -3,7 +3,7 @@ import { getAuth } from 'firebase-admin/auth';
 import generateRoutes from '../controllers/generate.js';
 import getTools from '../controllers/tools.js';
 import starCreditRoutes from '../controllers/starCredits.js';
-import authRoutes from './api/authRoutes.js';
+import authRoutes from '../controllers/authRoutes.js';
 import testimonialRoutes from '../controllers/testimonials.js';
 import newsletterRoutes from '../controllers/newsletter.js';
 import featureRoutes from '../controllers/tools.js';
