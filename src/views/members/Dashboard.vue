@@ -60,7 +60,6 @@
 </script>
 
 <template>
-    <Preloader />
     <HeaderFilter @search-change="searchFilter"/>
     <div v-if="searchQuery" class="px-3 mt-7">
         <div class="mb-16">
