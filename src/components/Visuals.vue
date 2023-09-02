@@ -8,6 +8,7 @@
 
     onMounted(() => {
         getData();
+        console.log('asdasd');
     });
 
     const getData = () => {

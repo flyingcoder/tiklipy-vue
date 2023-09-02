@@ -3,17 +3,21 @@
 
     const props = defineProps({
         type: String,
+        title: String,
         content: String,
     });
 
 </script>
 <template>
-    <div class="flex flex-wrap justify-between">
+    <div class="flex flex-wrap justify-between asda">
         <div class="w-full col-span-4">
             <div class="generated-lesson-plan">
-                <header class="uppercase">{{ props.type }}</header>
-                <br><br><br>
-                <span v-html="props.content"></span>
+                <header class="text-center text-lg font-semibold text-main-color uppercase">{{ props.type }}</header>
+                <span class="flex justify-center mt-3 text-4xl font-semibold">{{ props.title }}</span>
+                <br><br>
+                <div class="flex justify-center">
+                    <span v-html="props.content"></span>
+                </div>
             </div>
         </div>
     </div>
