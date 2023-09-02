@@ -13,6 +13,7 @@ import reviewRoutes from './api/reviews.js';
 import postRoutes from  './api/blog.js';
 import helpRoutes from './api/help.js';
 import stripeRoutes from './api/stripeRoutes.js';
+import promptRoutes from './api/prompt.js';
 
 const router = express.Router();
 
@@ -43,6 +44,7 @@ router.use(express.urlencoded({ extended: true}));
 router.use(middleware);
 
 router.use('/posts', postRoutes);
+router.use('/prompts', promptRoutes);
 router.use('/reviews', reviewRoutes);
 router.use('/suggest-tools', suggestToolRoutes);
 router.use('/newsletters', newsletterRoutes);
