@@ -1,22 +1,14 @@
 <script setup>
   import { onMounted, ref } from 'vue';
   import { useRoute } from 'vue-router';
-<<<<<<< HEAD
-  import ResourceContent from '../../components/ResourceContent';
-=======
   import ResourceContent from '../../components/ResourceContent.vue';
->>>>>>> 0e78819 (Single resource display feature completed)
   import ResourceModel from '../../models/generatedResources.js';
 
   const resourceModel = new ResourceModel();
   const route = useRoute();
   const type = ref('');
-<<<<<<< HEAD
-  const title = ref('');
-  const content = ref('');
-=======
   const content = ref();
->>>>>>> 0e78819 (Single resource display feature completed)
+
 
   onMounted(() => {
     if(route?.params?.id)
@@ -28,10 +20,7 @@
     await resourceModel.getGeneratedDoc(docId).then((res) => {
       content.value = res.data?.content?.choice?.message?.content?.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>') ?? '';
       type.value = res.data?.type ?? '';
-<<<<<<< HEAD
       title.value = res.data?.title ?? '';
-=======
->>>>>>> 0e78819 (Single resource display feature completed)
     })
   } 
 </script>
@@ -40,11 +29,7 @@
     <div class="mt-10">
         <div class="p-4 text-black bg-white shadow-md page print:page-break-after">
             <div class="content">
-<<<<<<< HEAD
                 <ResourceContent :content="content" :title="title" :type="type"/>
-=======
-                <ResourceContent :content="content" :type="type"/>
->>>>>>> 0e78819 (Single resource display feature completed)
             </div>
         </div>
     </div>
