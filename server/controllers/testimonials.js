@@ -9,7 +9,6 @@ const router = express.Router();
 router.get('/', async (req, res) => {
     const testimonials = await testimonial.getTestimonials();
     res.json(testimonials);
-
 });
 
 router.put('/update', async (req, res) => {
@@ -17,13 +16,10 @@ router.put('/update', async (req, res) => {
     try {
         const success = await review.updateReview(data);
         const testimonials = await testimonial.addTestimonials(data);
-        if (success) {
-            res.json({ message: "Review updated successfully." });
-        } else {
-            res.status(500).json({ error: "An error occurred while updating the review." });
-        }
+        if (success) res.json({ message: "Review updated successfully." });
+        else res.status(500).json({ error: "An error occurred while updating the review." });
     } catch (error) {
-        console.error("Error updating review:", error);
+        req.log.error("Error updating review:", error);
         res.status(500).json({ error: "An error occurred while updating the review." });
     }
 });

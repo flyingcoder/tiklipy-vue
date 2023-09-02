@@ -21,8 +21,7 @@ const middleware = async (req, res, next) => {
         const auth = await getAuth().verifyIdToken(token).then((res));
         res.locals.currentUser = auth;
     } else {
-        res.locals.error = 'Access without user';
-        console.error(res.locals.error)
+        req.log.info('Access without user');
     }
     next();
 }
@@ -31,7 +30,7 @@ const restrict = (req, res, next) => {
     if(res.locals.currentUser) {
         next();
     } else {
-        res.locals.error = 'Access denied';
+        req.log.error('Access denied');
         res.json({ error: res.locals.error });
     }
 }
@@ -53,6 +52,5 @@ router.use('/stripes', stripeRoutes);
 router.use('/stars', restrict, starCreditRoutes);
 router.use('/resources', restrict, generateRoutes);
 router.use('/tools', restrict, getTools);
-
 
 export default router;
