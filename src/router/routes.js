@@ -4,7 +4,8 @@ import {
     Blogs, Blog, About, Pricing, Features, Terms, Privacy, License, 
     MembersLayout, GuestsLayout, Projects, Activities, GenerateForm, 
     Login, SendGift, FAQ, Featured, ThankYou, PaymentCancel, PageNotFound,
-    Helps, Register, Tools, Resources, Resource, MyReviews, SuggestTools
+    Helps, Register, Tools, Resources, Resource, MyReviews, SuggestTools,
+    Slide
 } from './components';
 import Admin from '../views/admin/index.vue';
 import InvitationCodes from '../views/admin/InvitationCodes.vue'
@@ -54,6 +55,7 @@ const routes = [
             { path: 'activities', name: 'activities', component: Resources, meta: {type: 'activities', displayName: 'Activities', siteDescription: 'Interactive activities for engaging learning experiences.' } },
             { path: 'resources/:type', name: 'resources', component: Resources, meta: { displayName: 'Resources', siteDescription: 'Discover curated articles and tools to fuel your growth and learning.' } },
             { path: 'resource/:id', name: 'resource', component: Resource, },
+            { path: 'resources/slides/:docId:', component: Slide },
             { path: 'my-reviews', name: 'my-reviews', component: MyReviews, meta: { displayName: 'Reviews', siteDescription: 'Your Reviews: Your Voice, Your Opinions' } },
             { path: 'suggest-tools', name: 'suggest-tools', component: SuggestTools, meta: { displayName: 'Suggest Tools', siteDescription: 'SuggestTools: Your Source for Smart Solutions' } },
             { path: 'generate', name: 'generate', component: GenerateForm },

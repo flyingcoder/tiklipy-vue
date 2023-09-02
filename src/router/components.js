@@ -39,6 +39,7 @@ import Featured from '../components/Features.vue';
 import Register from '../views/Register.vue';
 import Resources from '../views/members/Resources.vue';
 import Resource from '../views/members/Resource.vue';
+import Slide from '../views/members/Slide.vue';
 //layouts
 import GuestsLayout from '../views/GuestIndex.vue';
 import MembersLayout from '../views/members/MembersIndex.vue';
@@ -49,5 +50,6 @@ export {
     Blogs, Blog, About, Pricing, Features, Terms, Privacy, License, 
     MembersLayout, GuestsLayout, Projects, Activities, GenerateForm, 
     Login, SendGift, FAQ, Featured, ThankYou, PaymentCancel, PageNotFound,
-    Helps, Register,Tools, Resources, Resource, MyReviews, SuggestTools
+    Helps, Register,Tools, Resources, Resource, MyReviews, SuggestTools,
+    Slide
 };
