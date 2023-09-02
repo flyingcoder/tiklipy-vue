@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-    <nav class="mx-auto border-gray-200 dark:bg-gray-900 max-w-screen-2xl">
+    <nav class="mx-auto border-gray-200 dark:bg-gray-900 max-w-screen-2xl" id="navigation">
         <div class="flex flex-wrap items-center justify-between px-4 py-6 mx-auto max-lg:justify-end">
             <div class="relative z-10 flex items-center lg:order-3">
                 <slot name="right"></slot>

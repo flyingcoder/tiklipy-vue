@@ -26,6 +26,7 @@
     "flowbite": "^1.8.1",
     "flowbite-vue": "^0.0.17-next.0",
     "openai": "^3.3.0",
+    "party-js": "^2.2.0",
     "pinia": "^2.1.6",
     "pino": "^8.15.0",
     "pino-http": "^8.4.0",

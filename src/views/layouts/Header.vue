@@ -86,19 +86,6 @@
                         <div id="mega-menu-dropdown" :class="{'hidden' : dropdownMenu || loaderStore.close }" class="absolute z-10 w-auto text-sm bg-white border border-gray-100 rounded-lg shadow-md dark:border-gray-700 md:grid-cols-3 dark:bg-gray-700">
                             <div class="w-80">
                                 <ul class="space-y-4">
-                                    <router-link to="/blogs"  class="dark:text-white hover:text-main-color dark:hover:text-main-color" active-class="text-main-color dark:text-main-color">
-                                        <li class="flex p-5 font-semibold hover:bg-gray-50">
-                                            <div class="pr-1"><i class="pb-1 mr-1 text-2xl ti ti-align-left"></i></div>
-                                            <div class="px-2">
-                                                <div class="pb-1 text-base font-semibold">
-                                                    Post
-                                                </div>
-                                                <p class="font-light tracking-wide">
-                                                    Compelling Tales of Tiklipy: A Journey through Education and Teaching
-                                                </p>
-                                            </div>
-                                        </li>
-                                    </router-link>
                                     <router-link to="/about" class=" dark:text-gray-400 hover:text-main-color dark:hover:text-main-color" active-class="text-main-color dark:text-main-color">
                                         <li class="flex p-5 font-semibold hover:bg-gray-50">
                                             <div class="pr-1"><i class="pb-1 mr-1 text-2xl ti ti-info-circle"></i></div>
@@ -108,6 +95,32 @@
                                                 </div>
                                                 <p class="font-light tracking-wide">
                                                     Discover Our Vision to Transform the Landscape of Education.
+                                                </p>
+                                            </div>
+                                        </li>
+                                    </router-link>
+                                    <router-link to="/blogs"  class="dark:text-white hover:text-main-color dark:hover:text-main-color" active-class="text-main-color dark:text-main-color">
+                                        <li class="flex p-5 font-semibold hover:bg-gray-50">
+                                            <div class="pr-1"><i class="pb-1 mr-1 text-2xl ti ti-align-left"></i></div>
+                                            <div class="px-2">
+                                                <div class="pb-1 text-base font-semibold">
+                                                    Blogs
+                                                </div>
+                                                <p class="font-light tracking-wide">
+                                                    Compelling Tales of Tiklipy: A Journey through Education and Teaching
+                                                </p>
+                                            </div>
+                                        </li>
+                                    </router-link>
+                                    <router-link to="/helps"  class="dark:text-white hover:text-main-color dark:hover:text-main-color" active-class="text-main-color dark:text-main-color">
+                                        <li class="flex p-5 font-semibold hover:bg-gray-50">
+                                            <div class="pr-1"><i class="pb-1 mr-1 text-2xl ti ti-help-circle"></i></div>
+                                            <div class="px-2">
+                                                <div class="pb-1 text-base font-semibold">
+                                                    Help
+                                                </div>
+                                                <p class="font-light tracking-wide">
+                                                    Commonly Addressed Subjects: Tiklipy's Functionality, Billing Queries, and FAQs.
                                                 </p>
                                             </div>
                                         </li>
