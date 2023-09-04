@@ -14,22 +14,19 @@ const promptExample = ref('');
 const systemPrompt = ref('');
 const tags = ref([]);
 const tagInput = ref('');
-const inputs = ref([]); // Initialize as an empty array
+const inputs = ref([]);
 
 const backEndModel = new expressModel();
 
 const addNewInput = () => {
-    const newInput = {
-        hint: '', 
-        inputType: '', 
-        label: '', 
-        value: '' 
+    const newInput = {};
+    newInput[input.objectName] = {
+        hint: '',
+        inputType: '',
+        label: '',
+        value: ''
     };
-    addKeyToObject(inputs, newInput); // Call the addKeyToObject function with the newInput
-};
-
-const addKeyToObject = (obj, value) => {
-    obj.push(value); // Push the new input object to the array
+    inputs.value.push(newInput);
 };
 
 const handleTagInput = () => {
@@ -76,11 +73,11 @@ const submitContent = () => {
             <div class="px-5">
                 <div v-for="(input, index) in inputs" :key="index" class="flex w-full gap-4 pt-3">
                     <div class="w-[50px] flex  items-center text-lg font-semibold">{{ index + 1 }}.</div>
-                    <Input size="md" label="Index Name" v-model="input.indexName" class="w-full" />
-                    <Input size="md" label="Placeholder" v-model="input.hint" class="w-full" />
-                    <Input size="md" label="Input Type" v-model="input.inputType" class="w-full" />
-                    <Input size="md" label="Label" v-model="input.label" class="w-full" />
-                    <Input size="md" label="Slug" v-model="input.value" hidden class="" />
+                    <Input size="md" label="Object Name" v-model="input.objectName" class="w-full" />
+                    <Input size="md" label="Placeholder" v-model="input[input.objectName].hint" class="w-full" />
+                    <Input size="md" label="Input Type" v-model="input[input.objectName].inputType" class="w-full" />
+                    <Input size="md" label="Label" v-model="input[input.objectName].label" class="w-full" />
+                    <Input size="md" label="Slug" v-model="input[input.objectName].value" hidden class="" />
                 </div>
                 <Button color="default" class="mt-4" @click="addNewInput">
                     Add
