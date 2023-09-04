@@ -1,10 +1,10 @@
+import SystemPromptModel from '../models/SystemPrompt.js';
 import express from 'express';
-import Prompt from '../models/Prompt.js';
 import Tool from '../models/Tool.js';
 import dayjs from "dayjs";
 
 const router = express.Router();
-const PromptModel = new Prompt();
+const PromptModel = new SystemPromptModel();
 const ToolModel = new Tool();
 
 router.post('/', async (req, res) => {
