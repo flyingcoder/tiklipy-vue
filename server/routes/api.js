@@ -13,6 +13,7 @@ import postRoutes from  '../controllers/blog.js';
 import helpRoutes from '../controllers/help.js';
 import stripeRoutes from '../controllers/stripeRoutes.js';
 import promptRoutes from '../controllers/prompt.js';
+import userRoutes from '../controllers/userRoutes.js';
 
 const router = express.Router();
 
@@ -51,6 +52,7 @@ router.use('/testimonials', testimonialRoutes);
 router.use('/update', testimonialRoutes);
 router.use('/auth', authRoutes);
 router.use('/stripes', stripeRoutes);
+router.use('/users', restrict, userRoutes);
 router.use('/stars', restrict, starCreditRoutes);
 router.use('/resources', restrict, generateRoutes);
 router.use('/tools', restrict, getTools);
