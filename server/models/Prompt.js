@@ -7,7 +7,8 @@ class PromptModel {
     }
 
     async addPrompt(data) {
-        await this.col.add(data);
+        const docRef = await this.col.add(data);
+        return docRef.id;
     }
 }
 export default PromptModel;
