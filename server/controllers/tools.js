@@ -1,5 +1,5 @@
 import express from 'express';
-import Tool from '../../models/Tool.js';
+import Tool from '../models/Tool.js';
 
 const router = express.Router();
 const toolModel = new Tool();

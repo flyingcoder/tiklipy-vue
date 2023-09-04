@@ -1,5 +1,5 @@
 import express from 'express';
-import Newsletter from '../../models/Newsletter.js';
+import Newsletter from '../models/Newsletter.js';
 
 const router = express.Router();
 const NewsletterModel = new Newsletter();

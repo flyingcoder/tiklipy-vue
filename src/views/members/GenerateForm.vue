@@ -9,10 +9,11 @@
     import { Textarea } from 'flowbite-vue';
     import { Button } from 'flowbite-vue';
     import { useRouter } from 'vue-router';
-    import 'animate.css';
-
+    import { useLoaderStore } from "../../stores/loader";
+    
     const router = useRouter();
     const formStore = useFormStore();
+    const loaderStore = useLoaderStore();
     const backEndModel = new expressModel();
     const generateResource = new GeneratedResourceModel();
 
@@ -47,6 +48,7 @@
                     usage: completion?.data?.usage
                 };
                 generatedResource.value = choice?.message?.content?.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>') 
+                loaderStore.startConfetti();
             });
         catDoneTyping.value = true;
     }
@@ -88,12 +90,17 @@
             copyContent.value = !copyContent.value;
         }, 3000);
     };
+  
 </script>
 <template>
     <div class="fixed top-0 left-0" v-if="copyContent">
         <Alert type="success">Copied</Alert>
     </div>
     <div class="container text-black px-3 mx-auto mt-7">
+        <div>
+            <div id="generated-resources">
+            </div>
+        </div>
         <div class="">
             <div class="flex py-4 bg-indigo-500 shadow-md px-9 rounded-3xl">
                 <div>

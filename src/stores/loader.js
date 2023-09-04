@@ -1,4 +1,5 @@
 import { defineStore } from "pinia";
+import party from "party-js";
 
 export const useLoaderStore = defineStore("loader", {
     state: () => ({ 
@@ -14,6 +15,14 @@ export const useLoaderStore = defineStore("loader", {
         },
         forceClose() {
             this.close = true;
+        },
+        startConfetti() {
+            const targetElement = document.getElementById('navigation')
+            if (targetElement) {
+                party.confetti(targetElement, {
+                    count: party.variation.range(60, 80)
+                });
+            }
         }
     }
 });

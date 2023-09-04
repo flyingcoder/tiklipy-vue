@@ -1,5 +1,5 @@
 import express from 'express';
-import SuggestTool from '../../models/SuggestTool.js';
+import SuggestTool from '../models/SuggestTool.js';
 
 const router = express.Router();
 const SuggestToolModel = new SuggestTool();

@@ -12,7 +12,7 @@ class GeneratedResourceModel {
     async getGeneratedResources() {
       try {
         axios.defaults.headers.common['Authorization'] = auth?.currentUser?.accessToken;
-        return axios.get('api/v1/resources');
+        return axios.get('/api/v1/resources');
       } catch (error) {
           console.log(error);
           return [];
@@ -22,9 +22,7 @@ class GeneratedResourceModel {
     async getGeneratedDoc(docId) {
       try {
           axios.defaults.headers.common['Authorization'] = auth?.currentUser?.accessToken;
-          return axios.get('api/v1/resources/generate-doc', {
-            docId: docId
-          });
+          return axios.get('/api/v1/resources/doc/'+docId);
       } catch (error) {
           console.log(error);
           return false;

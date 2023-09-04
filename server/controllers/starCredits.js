@@ -1,5 +1,5 @@
 import express from 'express';
-import StarCreditModel from '../../models/StarCredit.js';
+import StarCreditModel from '../models/StarCredit.js';
 
 const router = express.Router();
 const starCredit = new StarCreditModel();

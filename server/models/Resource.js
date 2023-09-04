@@ -9,9 +9,10 @@ class ResourceModel {
 
     async getResources(uid) {
         try {
-            const colRef = this.col.where('teacherId', '===', uid);
-            const snaps = await colRef.get().then((snaps) => snaps );
-            if(!snaps.empty) return true;
+            const colRef = this.col.where('teacherId', '==', uid);
+            const snaps = await colRef.get();
+            const resources = snaps.docs.map((doc)=>{ return {id: doc.id, ...doc.data()}; });
+            if(!snaps.empty) return resources;
         } catch (error) {
             console.error('Error in getting all resources', error);
             return false;

@@ -6,7 +6,7 @@
     import Ethics from '../components/Ethics.vue';
     import Initiation from '../components/Initiation.vue';
     import Knowhow from '../components/Knowhow.vue';
-    // import Visual from '../components/Visuals.vue';
+    import Visual from '../components/Visuals.vue';
 
     const activeView = ref('initiation');
 
@@ -53,9 +53,9 @@
             <li class="w-[49%] max-w-fit " @click="setActiveView('assistance')">
                 <a class="inline-block w-full p-4 text-white font-semibold cursor-pointer rounded-lg xl:!rounded-t-xl  xl:!rounded-b-none   transition duration-200	 bg-secondary-color hover:text-white hover:bg-[#a1a7e3] focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700" :class="{ '!text-black !bg-white': isViewActive('assistance') }">Tiklipy Assistance</a>
             </li>
-            <!-- <li class="w-[49%] max-w-fit " @click="setActiveView('visual')">
+            <li class="w-[49%] max-w-fit " @click="setActiveView('visual')">
                 <a class="inline-block w-full p-4 text-white font-semibold cursor-pointer rounded-lg xl:!rounded-t-xl  xl:!rounded-b-none   transition duration-200	 bg-secondary-color hover:text-white hover:bg-[#a1a7e3] focus:outline-none focus:ring-blue-300 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700" :class="{ '!text-black !bg-white': isViewActive('visual') }">Tiklipy Visuals</a>
-            </li> -->
+            </li>
         </ul>
     </section>
     <div class=" ">
@@ -65,6 +65,6 @@
         <Ethics v-if="isViewActive('ethics')"/>
         <Initiation v-if="isViewActive('initiation')"/>
         <Knowhow v-if="isViewActive('knowhow')"/>
-        <!-- <Visual v-if="isViewActive('visual')"/> -->
+        <Visual v-if="isViewActive('visual')"/>
     </div>
 </template>

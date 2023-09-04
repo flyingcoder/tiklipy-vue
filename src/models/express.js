@@ -215,7 +215,7 @@ class ExpressModel {
         }
     }
 
-    async updateTestimonial(data) {
+    updateTestimonial(data) {
         try {
             axios.defaults.headers.common['Authorization'] = auth?.currentUser?.accessToken;
             return axios.put('/api/v1/testimonials/update', data);

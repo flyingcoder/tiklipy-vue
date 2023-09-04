@@ -70,6 +70,9 @@
                 <!-- <router-link :to="{name: 'account'}" class="px-2">
                     ⭐150 
                 </router-link> -->
+                <router-link :to="{ name: 'help' }"  active-class="text-main-color dark:text-white" class="mr-3 block px-3 py-2 text-lg font-medium divide-gray-100 max-xs:hidden dark:hover:text-main-color md:border-0 md:p-0">
+                    <i class="pb-1 mr-1 text-lg ti ti-help-circle"></i> Help
+                </router-link>
                 <router-link :to="{ name: 'consult' }" :class="{'text-white' : route.name == 'home', 'text-grey-900' : route.name != 'home'}"  active-class="text-main-color dark:text-white" class="block px-3 py-2 text-lg font-medium divide-gray-100 max-xs:hidden dark:hover:text-main-color md:border-0 md:p-0">
                     <i class="pb-1 mr-1 text-lg ti ti-atom"></i> Consult
                 </router-link>
@@ -196,7 +199,6 @@
                         <router-link :to="{ name: 'consult' }" active-class="text-main-color dark:text-white" class="block px-3  text-lg font-medium text-gray-900 divide-gray-100 dark:hover:text-main-color md:border-0 md:p-0">
                             <i class="mr-1 text-lg ti ti-atom"></i> Consult
                         </router-link>
-
                     </li>
                     <li class="hidden max-xs:block w-fit py-1">
                         <router-link :to="{name: 'account'}" active-class="text-main-color dark:text-white" class="block px-3 text-lg font-medium text-gray-900 divide-gray-100 dark:hover:text-main-color md:border-0 md:p-0">

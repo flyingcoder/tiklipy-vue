@@ -1,5 +1,5 @@
 import express from 'express';
-import StripeModel from "../../models/Stripe.js";
+import StripeModel from "../models/Stripe.js";
 
 const router = express.Router();
 const stripeModel = new StripeModel();

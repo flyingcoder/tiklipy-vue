@@ -1,5 +1,5 @@
 import express from 'express';
-import Help from '../../models/Help.js';
+import Help from '../models/Help.js';
 
 const router = express.Router();
 const helpModel = new Help();
