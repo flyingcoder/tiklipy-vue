@@ -14,6 +14,7 @@ import AdminBlogs from '../views/admin/Blogs.vue'
 import Newsletters from '../views/admin/Newsletters.vue'
 import Posts from '../views/admin/Post.vue';
 import AdminHelp from '../views/admin/Help.vue';
+import Prompt from '../views/admin/Prompt.vue';
 const routes = [
     //main pages routes
     { 
@@ -65,7 +66,8 @@ const routes = [
                 { path:'newsletters', name: 'newsletters', component: Newsletters },
                 { path: 'blogs', name: 'admin-blogs', component: AdminBlogs },
                 { path: 'posts', name: 'posts', component: Posts },
-                { path: 'help', name: 'admin-help', component: AdminHelp } 
+                { path: 'help', name: 'admin-help', component: AdminHelp },
+                { path: 'prompt', name: 'prompt', component: Prompt }
             ]},
         ],
     },
