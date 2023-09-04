@@ -40,7 +40,7 @@ const routes = [
         path: "/members", component: MembersLayout,
         meta: { requiresAuth: true },
         children: [
-            { path: '', name: 'dashboard', component: Dashboard, meta: { displayName: 'Dashboard', siteDescription: 'Discover AI-powered tools tailored to your needs and explore a new realm of possibilities.' } },
+            { path: '', name: 'dashboard', component: Dashboard, meta: { displayName: 'Dashboard', siteDescription: 'Explore the available tools by clicking on or searching through the cards.' } },
             { path: 'account', name: 'account', component: Account, meta: { displayName: 'Account', pageTitle: 'Account Setting', siteDescription: 'Welcome to Your Tiklipy Account Page' } },
             { path: 'consult', name: 'consult', component: Consult, meta: { displayName: 'Consult', siteDescription: 'Personalized consulting for tailored guidance and support.' } },
             { path: 'assessments', name: 'assessments', component: Resources, meta: {type: 'assessments', displayName: 'Assessments', siteDescription: 'Measuring Proficiency: Gauging Learning Outcomes and Knowledge Mastery' } },
