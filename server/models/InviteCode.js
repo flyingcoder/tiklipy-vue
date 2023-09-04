@@ -1,6 +1,7 @@
 import admin from "../plugins/firebase-handler.js";
 import { getFirestore } from "firebase-admin/firestore";
 import dayjs from "dayjs";
+import pino from '../logger.js';
 
 class InviteCodeModel {
     constructor() {
@@ -27,21 +28,12 @@ class InviteCodeModel {
         }
     }
 
-    async checkIfAlreadyRegistered(email) {
-        try {
-            return await admin.auth().getUserByEmail(email);
-        } catch (error) {
-            console.error("Error in check if email is registered: ", error);
-            return false;
-        }
-    }
-
     async verifyCode(code) {
         try {
             const queryRef = this.col.where('code', '==', code);
-            const snaps = await queryRef.get().then((snaps) => snaps );
-            if(!snaps.empty) return true;
-            else return false;
+            const snaps = await queryRef.get();
+            const code = snaps.docs.map((snap) => ({ ...snap.data() }));
+            return code;
         } catch (error) {
             console.error("Error in verifying code:", error);
             return false;
@@ -64,16 +56,12 @@ class InviteCodeModel {
 
     async getCodeCollection() {
         try {
-            let codes = [];
-            await this.col.get().then((snap) => {
-                snap.forEach((doc) => {
-                    codes.push(doc.data());
-                })
-            })
+            const snaps = await this.col.orderBy('status', 'asc').get();
+            const codes = snaps.docs.map((snap) => ({ ...snap.data() }));
             return codes;
         } catch (error) {
-            console.error("Error on get invite code:", error);
-            return false;
+            pino.logger.error("Error fetching invite codes " + error);
+            return [];
         }
     }
 }

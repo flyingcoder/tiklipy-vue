@@ -6,7 +6,7 @@ class InviteCodeModel {
     async checkInviteCode(code) {
         try {
             const check = await axios.post('/api/v1/auth/verify-code', { code: code })
-                                    .then((pass) => pass.data );
+                                     .then((pass) => pass.data );
             return check.pass;
         } catch (error) {
             console.log(error);
@@ -29,8 +29,8 @@ class InviteCodeModel {
     async addCodes(codes) {
         try {
             axios.defaults.headers.common['Authorization'] = auth?.currentUser?.accessToken;
-            const msg = axios.post('/api/v1/auth/codes', { codes: codes })
-                        .then((pass) => pass.data);
+            const msg = await axios.post('/api/v1/codes', { codes: codes })
+                                   .then((pass) => pass.data);
             return msg;
         } catch (error) {
             console.log(error);
@@ -41,7 +41,7 @@ class InviteCodeModel {
     getCodes() {
         try {
             axios.defaults.headers.common['Authorization'] = auth?.currentUser?.accessToken;
-            return axios.get('/api/v1/auth/codes');
+            return axios.get('/api/v1/codes');
         } catch (error) {
             console.log(error);
             return false;

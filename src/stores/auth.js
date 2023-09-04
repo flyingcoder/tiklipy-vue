@@ -47,7 +47,7 @@ export const useAuthStore = defineStore("auth", {
                 this.user = userCred.user;
                 return true;
             } catch(error) {
-                console.error("Login via provider:", error);
+                console.log("Login via provider:", error);
                 return false;
             }
         },

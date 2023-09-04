@@ -17,6 +17,15 @@ class UserModel {
             return false;
         }
     }
+
+    async getUserByEmail(email) {
+        try {
+            return await admin.auth().getUserByEmail(email);
+        } catch (error) {
+            pino.logger.error("Error in check if email is registered: "+ error);
+            return false;
+        }
+    }
 }
 
 export default UserModel;
