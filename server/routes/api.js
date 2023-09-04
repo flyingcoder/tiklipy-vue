@@ -12,6 +12,7 @@ import reviewRoutes from '../controllers/reviews.js';
 import postRoutes from  '../controllers/blog.js';
 import helpRoutes from '../controllers/help.js';
 import stripeRoutes from '../controllers/stripeRoutes.js';
+import promptRoutes from '../controllers/prompt.js';
 
 const router = express.Router();
 

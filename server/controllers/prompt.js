@@ -1,6 +1,6 @@
 import express from 'express';
-import Prompt from '../../models/Prompt.js';
-import Tool from '../../models/Tool.js';
+import Prompt from '../models/Prompt.js';
+import Tool from '../models/Tool.js';
 import dayjs from "dayjs";
 
 const router = express.Router();
