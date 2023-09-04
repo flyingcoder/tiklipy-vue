@@ -1,5 +1,6 @@
 import admin from "../plugins/firebase-handler.js";
 import { getFirestore } from "firebase-admin/firestore";
+import pino from "../logger.js";
 
 class SystemPromptModel {
     constructor() {
@@ -12,9 +13,31 @@ class SystemPromptModel {
             const docRef = this.col.doc(docId);
             return await docRef.get().then((doc) => doc.data());
         } catch (error) {
-            console.error("Error getting system prompt:", error);
+            pino.logger.error("Error getting system prompt:" + error);
             return false;
         }
+    }
+
+    async searchPrompt(query) {
+        try {
+            const docRef = this.col.where('content', '==', query);
+            const snaps = await docRef.get();
+            return snaps.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+        } catch (error) {
+            pino.logger.error("Error searching system prompt:" + error);
+            return false;
+        }
+    }
+
+    async addPrompt(data) {
+        try {
+            const docRef = await this.col.add(data);
+            return docRef.id;
+        } catch (error) {
+            pino.logger.error("Error adding system prompt:" + error);
+            return false;
+        }
+
     }
 }
 

@@ -24,6 +24,7 @@
     const catDoneTyping = ref(true);
     const resourceObject = ref();
     const resourceSaved = ref(false);
+    const assessmentSaved = ref(false);
 
     const notSaveModal = () => {
         Swal.fire({
@@ -160,8 +161,9 @@
                     <div class="block" v-if="generatedResource">
                         <div class="flex mt-8">
                             <Button color="default" @click="generateAssessments()" class="p-2 mr-3 font-semibold uppercase border-0 bg-main-color hover:bg-secondary-color">
-                                <i class="mr-2 text-xl align-middle ti ti-playlist-add"></i>
+                                <i v-if="!assessmentSaved" class="mr-2 text-xl align-middle ti ti-playlist-add"></i>
                                 Generate Assessments
+                                <SwalCheckIcon class="!mt-0 text-[5px]" v-if="assessmentSaved"/>
                             </Button>
                             <Button color="default" class="p-2 mr-3 font-semibold uppercase border-0 bg-main-color hover:bg-secondary-color">
                                 <i class="mr-2 text-xl align-middle ti ti-playlist-add"></i>
