@@ -2,7 +2,8 @@
     import expressModel from "../../models/express";
     import GeneratedResourceModel from "../../models/generatedResources.js";
     import { useFormStore } from '../../stores/form';
-    import SwalCheckIcon from '../../components/SwalCheckIcon.vue';
+    import SwalCheckIcon from '../../components/SwalCheckIcon.vue'
+    import Swal from 'sweetalert2';
     import { onMounted, ref  } from 'vue'
     import { Input } from 'flowbite-vue';
     import { Alert } from 'flowbite-vue';
@@ -22,7 +23,31 @@
     const isGenerating = ref(false);
     const catDoneTyping = ref(true);
     const resourceObject = ref();
-    const resourceSaved = ref(false)
+    const resourceSaved = ref(false);
+    const assessmentSaved = ref(false);
+
+    const notSaveModal = () => {
+        Swal.fire({
+            title: "Reminder",
+            text:
+                "Before generating, make sure to save the document.",
+            icon: "warning",
+            confirmButtonText: 'Save',
+            allowOutsideClick: false
+        }).then((result) => {
+            if (result.isConfirmed) {
+                saveToFireBase();
+            }
+        });
+    };
+
+    const generateAssessments = () => {
+        if(resourceSaved == true) {
+            console.log("it is already save");
+        } else {
+            notSaveModal();
+        }
+    };
 
     const saveToFireBase = () => {
         if(resourceObject.value)
@@ -134,10 +159,11 @@
                         </div>
                     </div>
                     <div class="block" v-if="generatedResource">
-                        <div class="flex mt-8" v-if="formStore.type == 'lesson-plan'">
-                            <Button color="default" class="p-2 mr-3 font-semibold uppercase border-0 bg-main-color hover:bg-secondary-color">
-                                <i class="mr-2 text-xl align-middle ti ti-playlist-add"></i>
+                        <div class="flex mt-8">
+                            <Button color="default" @click="generateAssessments()" class="p-2 mr-3 font-semibold uppercase border-0 bg-main-color hover:bg-secondary-color">
+                                <i v-if="!assessmentSaved" class="mr-2 text-xl align-middle ti ti-playlist-add"></i>
                                 Generate Assessments
+                                <SwalCheckIcon class="!mt-0 text-[5px]" v-if="assessmentSaved"/>
                             </Button>
                             <Button color="default" class="p-2 mr-3 font-semibold uppercase border-0 bg-main-color hover:bg-secondary-color">
                                 <i class="mr-2 text-xl align-middle ti ti-playlist-add"></i>
