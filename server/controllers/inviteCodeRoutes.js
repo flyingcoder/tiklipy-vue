@@ -24,6 +24,12 @@ router.get('/', adminOnly, async (req, res) => {
     
 });
 
+router.post('/delete', async (req, res) => {
+    const success = await inviteCode.deleteCode(req.body);
+    if(success) res.json({ msg: 'Code are deleted!'});
+    else res.status(500).json({ msg: 'Something went wrong! Call Alvin'});
+});
+
 router.post('/', async (req, res) => {
     const codes = req.body.codes;
     const success = await inviteCode.addCodeDocuments(codes);

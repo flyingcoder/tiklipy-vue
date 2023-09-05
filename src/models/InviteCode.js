@@ -26,6 +26,16 @@ class InviteCodeModel {
 
     }
 
+    async deleteCode(code) {
+        try {
+            axios.defaults.headers.common['Authorization'] = auth?.currentUser?.accessToken;
+            return axios.post('/api/v1/codes/delete', code)
+        } catch (error) {
+            console.log(error);
+            return false;
+        }
+    }
+
     async addCodes(codes) {
         try {
             axios.defaults.headers.common['Authorization'] = auth?.currentUser?.accessToken;
