@@ -16,7 +16,16 @@
     const backEndModel = new expressModel();
     const searchQuery = ref('');
     const rawCards = ref();
-    const tags = formStore.tags;
+    const tags = ref([
+        { name: 'featured', desc: ''},
+        { name: 'lessons', desc: 'Effortlessly generate a lesson plan tailored to your teaching style.'},
+        { name: 'tools', desc: 'Empowering Efficiency: Unleashing the Potential of Essential Tools.'},
+        { name: 'explore', desc: 'Unveiling the Unknown: Embarking on Journeys of Exploration'},
+        { name: 'manage', desc: 'Navigating Success: Mastering the Art of Effective Management'},
+        { name: 'organize', desc: 'Harmonize and Systematize: The Essence of Effective Organization'},
+        { name: 'modify', desc: 'Crafting Change: The Art of Skillful Modification'},
+        { name: 'write', desc: 'Effortlessly Generate Diverse Content with Personalized Style and Substance.'},
+    ]);
     
     onAuthStateChanged(auth, async (user) => {
         if(user?.accessToken) {
@@ -59,15 +68,15 @@
                     <the-card @click="cardIsClick(card)" class="text-main-color animate__animated animate__fadeInUp w-[28rem] bg-white sm:mr-5 mb-5 flex border-none rounded-lg shadow-none hover:bg-white hover:shadow-md bg-[url('/p-1.png')] bg-no-repeat bg-contain" style="max-width: 100% !important">
                         <div class="p-4 max-xs:!p-0 dark:bg-gray-800 dark:border-gray-700">
                             <i :class="card.icon" class="text-4xl font-medium text-main-color dark:text-white ti"></i>
-                            <div class= "capitalize mt-7 group-hover:text-gray-500">
-                                {{ $filters.capitalizeSentencesInParagraph(card.category) }}
+                            <div class= "mt-7 group-hover:text-gray-500">
+                                {{ card.category }}
                             </div>
                             <div class="flex flex-col justify-between leading-normal">
-                                <h5 class=" mb-2 text-2xl font-bold tracking-tight dark:text-white">
-                                    {{ $filters.capitalizeSentencesInParagraph(card.title) }}
+                                <h5 class="mb-2 text-2xl font-bold tracking-tight dark:text-white">
+                                    {{ card.title }}
                                 </h5>
                                 <p class="font-normal text-gray-500 dark:text-gray-400">
-                                    {{ $filters.capitalizeSentencesInParagraph(card.description) }}
+                                    {{ card.description }}
                                 </p>
                             </div>
                         </div>
@@ -89,15 +98,15 @@
                     <the-card @click="cardIsClick(card)" v-if="card.tag.includes(tag.name)" class="text-main-color cursor-pointer animate__animated animate__fadeInUp w-[28rem] bg-white sm:mr-5 mb-5 flex border-none rounded-lg shadow-none hover:bg-white hover:shadow-md bg-[url('/p-1.png')] bg-no-repeat bg-contain" style="max-width: 100% !important">
                         <div class="p-4 max-xs:!p-0 dark:bg-gray-800 dark:border-gray-700">
                             <i :class="card.icon" class="text-4xl font-medium text-main-color dark:text-white ti"></i>
-                            <div class= " mt-7 group-hover:text-gray-500">
-                                {{ $filters.capitalizeSentencesInParagraph(card.category) }}
+                            <div class= "mt-7 group-hover:text-gray-500">
+                                {{ card.category }}
                             </div>
                             <div class="flex flex-col justify-between leading-normal">
-                                <h5 class=" mb-2 text-2xl font-bold tracking-tight dark:text-white">
-                                    {{ $filters.capitalizeSentencesInParagraph(card.title) }}
+                                <h5 class="mb-2 text-2xl font-bold tracking-tight dark:text-white">
+                                    {{ card.title }}
                                 </h5>
-                                <p class=" font-normal text-gray-500 dark:text-gray-400">
-                                    {{ $filters.capitalizeSentencesInParagraph(card.description) }}
+                                <p class="font-normal text-gray-500 dark:text-gray-400">
+                                    {{ card.description }}
                                 </p>
                             </div>
                         </div>

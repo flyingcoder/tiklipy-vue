@@ -66,8 +66,8 @@
             <h4 class="text-lg font-semibold mt-8 mb-4"><strong>11. Do-Not-Track Controls: Managing Tracking Features</strong></h4>
             <p>We currently don't respond to Do-Not-Track browser signals.</p>
 
-            <h4 class="text-lg font-semibold mt-8 mb-4"><strong>12. California Residents' Rights: Specific Privacy Rights?</strong></h4>
-            <p>Yes, California residents have specific rights to access personal information. The “Shine The Light” law enables you to request data disclosure.</p>
+            <h4 class="text-lg font-semibold mt-8 mb-4"><strong>12. Philippines Residents' Rights: Specific Privacy Rights?</strong></h4>
+            <p>Yes, Philippines residents have specific rights to access personal information. The “Shine The Light” law enables you to request data disclosure.</p>
 
             <h4 class="text-lg font-semibold mt-8 mb-4"><strong>13. Policy Updates: Evolution of This Policy</strong></h4>
             <p>This policy is updated as required to comply with laws. We notify significant changes and encourage periodic review.</p>

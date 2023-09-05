@@ -7,13 +7,13 @@
         <div class="max-w-3xl mx-auto p-6 bg-white rounded-xl shadow-md">
 
             <h1 class="text-3xl font-semibold mb-4 text-center">End-User License Agreement</h1>
-            <p class="mb-6 text-center">Effective Date: June 1, 2023</p>
+            <p class="mb-6 text-center">Effective Date: August 29, 2023</p>
 
             <div class="mb-8">
                 <h2 class="text-xl font-semibold mb-4">Our Philosophy and the Tiklipy End-User License Agreement</h2>
                 <p>Our approach to licensing sets us apart, creating a better experience for all. This end-user license
                     agreement (referred to as the "Agreement") establishes the understanding between the Subscriber and
-                    Tiklipy, a corporation based in Utah. In this Agreement, "Subscriber" pertains to any entity that
+                    Tiklipy, a corporation based in Philippines. In this Agreement, "Subscriber" pertains to any entity that
                     engages in a subscription arrangement with Tiklipy.</p>
             </div>
 
