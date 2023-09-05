@@ -14,6 +14,14 @@
         await tableReload();
     })
 
+    const deleteCode = async (codename) => {
+        const code = {
+            code: codename
+        }
+        await invite.deleteCode(code);
+        await tableReload();
+    }
+
     const parseInputCodes = () => {
         let trimed = inputCodes.value.replace(/\s+/g, '');
         const lastChar = trimed.charAt(trimed.length - 1);
@@ -97,6 +105,9 @@
                             <th scope="col" class="px-6 py-3">
                                 Expiration
                             </th>
+                            <th scope="col" class="px-6 py-3 text-right">
+                                Actions
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -112,6 +123,10 @@
                             </td>
                             <td class="px-6 py-4">
                                 {{ item.expire_at }}
+                            </td>
+                            <td class="px-6 py-4 text-right text-gray-600">
+                                <i class="ti ti-pencil text-2xl cursor-pointer"></i>
+                                <i class="ti ti-trash text-2xl cursor-pointer" @click="deleteCode(item.code)"></i>
                             </td>
                         </tr>
                     </tbody>
