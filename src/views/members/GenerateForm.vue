@@ -127,19 +127,54 @@
             </div>
         </div>
         <div class="">
-            <div class="flex py-4 bg-indigo-500 shadow-md px-9 rounded-3xl">
-                <div>
-                    <div class="inline-flex items-center p-1.5 text-xl font-medium text-center bg-gray-100 border rounded-full text-main-color bg-opacity-30 focus:ring-4 focus:outline-none focus:ring-secondary-color dark:hover:text-white hover:border-transparent">
-                        <i :class="formStore.icon" class="text-4xl text-white ti dark:text-white"></i>
-                    </div>
-                </div>
-                <h1 class="self-center pl-4 text-2xl font-bold text-white">
-                    {{ formStore.title }}
-                </h1>
-            </div>
+            
             <div class="flex flex-wrap gap-4 p-3 sm:p-9">
-                <div class="w-full lg:w-[68%] col-span-4 animate__fadeInUp animate__animated">
-                    <div class="px-10 py-6 bg-white">
+                <div class="w-full lg:w-[68%] col-span-4 mx-auto animate__fadeInUp animate__animated">
+                    <div class="flex py-4 bg-indigo-500 shadow-md px-9 rounded-3xl mb-4">
+                        <div>
+                            <div class="inline-flex items-center p-1.5 text-xl font-medium text-center bg-gray-100 border rounded-full text-main-color bg-opacity-30 focus:ring-4 focus:outline-none focus:ring-secondary-color dark:hover:text-white hover:border-transparent">
+                                <i :class="formStore.icon" class="text-4xl text-white ti dark:text-white"></i>
+                            </div>
+                        </div>
+                        <h1 class="self-center pl-4 text-2xl font-bold text-white">
+                            {{ formStore.title }}
+                        </h1>
+                    </div>
+                    <div v-if="isGenerating" :class="{'animate__fadeOutUp' : !isGenerating, 'animate__fadeInDown' : isGenerating  }" class="p-6 bg-white rounded-3xl animate__animated">
+                        <div v-if="!catDoneTyping" class="text-center">
+                            <img src="/bongo-cat/coding-bongo-cat.gif" class="mx-auto" width="200" alt="">
+                            <p class="text-2xl font-bold text-secondary-color animate-bounce">
+                                GENERATING!
+                            </p>
+                        </div>
+                        <div v-if="catDoneTyping" class="text-center">
+                            <p class="text-2xl font-bold uppercase text-secondary-color">
+                                document is ready!
+                            </p>
+                        </div>
+                    </div>
+                    <div v-if="!isGenerating" :class="{'animate__fadeOutDown' : isGenerating, 'animate__fadeInUp' : !isGenerating  }" class="p-6 bg-white rounded-3xl animate__animated">
+                        <!-- <Button @click.prevent="generate" type="submit" size="lg" class="mt-5 w-full bg-main-color hover:bg-secondary-color border-0 text-sm lg:text-[0.775rem] xl:text-lg font-semibold">
+                           Generate Now!
+                        </Button>
+                        <div class="inline-flex items-center justify-center w-full px-6">
+                            <hr class="w-64 h-px my-8 bg-gray-900 border-0 dark:bg-gray-700">
+                            <span class="absolute px-3 font-medium text-gray-900 -translate-x-1/2 bg-white left-1/2 dark:text-white dark:bg-gray-900">
+                            or
+                            </span>
+                        </div> -->
+                        <h3 class="mb-6 text-xl font-bold leading-snug text-center text-black capitalize">
+                            Enhance results with more details.
+                        </h3>
+                        <div v-for="(input, index) in formStore.inputs" :key="index + '-generate-form-input'" class="mb-4 font-semibold generate-form-section">
+                            <Textarea :rows="input.rows" placeholder="Write here" v-model="formStore.inputs[index].value" v-if="input.inputType === 'textarea'" class="font-semibold" :label="input.label" />
+                            <Input placeholder="Write here" v-model="formStore.inputs[index].value" v-else type="text" :label="input.label" class="font-semibold"/>
+                        </div>
+                        <Button @click.prevent="generate" type="submit" size="lg" class="mt-5 w-full bg-main-color hover:bg-secondary-color border-0 text-sm lg:text-[0.775rem] xl:text-lg font-semibold">
+                           Tiklipy Go!
+                        </Button>
+                    </div>
+                    <!-- <div class="px-10 py-6 bg-white">
                         <div class="w-full py-4 animate__animated generated-value" v-if="!generatedResource">
                             <h2 class="mb-6 text-2xl font-semibold">
                                 {{ formStore.description }}
@@ -157,8 +192,8 @@
                         <div class="w-full py-4 animate__animated generated-value" id="generated-resources" v-if="generatedResource" v-html="generatedResource">
                             
                         </div>
-                    </div>
-                    <div class="block" v-if="generatedResource">
+                    </div> -->
+                    <!-- <div class="block" v-if="generatedResource">
                         <div class="flex mt-8">
                             <Button color="default" @click="generateAssessments()" class="p-2 mr-3 font-semibold uppercase border-0 bg-main-color hover:bg-secondary-color">
                                 <i v-if="!assessmentSaved" class="mr-2 text-xl align-middle ti ti-playlist-add"></i>
@@ -187,44 +222,7 @@
                                 Regenerate
                             </Button>
                         </div>
-                    </div>
-                </div>
-                
-                <div class="w-full lg:w-[30%] col-span-2">
-                    <div v-if="isGenerating" :class="{'animate__fadeOutUp' : !isGenerating, 'animate__fadeInDown' : isGenerating  }" class="p-6 bg-white rounded-3xl animate__animated">
-                        <div v-if="!catDoneTyping" class="text-center">
-                            <img src="/bongo-cat/coding-bongo-cat.gif" class="mx-auto" width="200" alt="">
-                            <p class="text-2xl font-bold text-secondary-color animate-bounce">
-                                GENERATING!
-                            </p>
-                        </div>
-                        <div v-if="catDoneTyping" class="text-center">
-                            <p class="text-2xl font-bold uppercase text-secondary-color">
-                                document is ready!
-                            </p>
-                        </div>
-                    </div>
-                    <div v-if="!isGenerating" :class="{'animate__fadeOutDown' : isGenerating, 'animate__fadeInUp' : !isGenerating  }" class="p-6 bg-white rounded-3xl animate__animated">
-                        <Button @click.prevent="generate" type="submit" size="lg" class="mt-5 w-full bg-main-color hover:bg-secondary-color border-0 text-sm lg:text-[0.775rem] xl:text-lg font-semibold">
-                           Generate Now!
-                        </Button>
-                        <div class="inline-flex items-center justify-center w-full px-6">
-                            <hr class="w-64 h-px my-8 bg-gray-900 border-0 dark:bg-gray-700">
-                            <span class="absolute px-3 font-medium text-gray-900 -translate-x-1/2 bg-white left-1/2 dark:text-white dark:bg-gray-900">
-                            or
-                            </span>
-                        </div>
-                        <h3 class="mb-6 text-xl font-bold leading-snug text-center text-black capitalize">
-                            Enhance results with more details.
-                        </h3>
-                        <div v-for="(input, index) in formStore.inputs" :key="index + '-generate-form-input'" class="mb-4 font-semibold generate-form-section">
-                            <Textarea :rows="input.rows" placeholder="Write here" v-model="formStore.inputs[index].value" v-if="input.inputType === 'textarea'" class="font-semibold" :label="input.label" />
-                            <Input placeholder="Write here" v-model="formStore.inputs[index].value" v-else type="text" :label="input.label" class="font-semibold"/>
-                        </div>
-                        <Button @click.prevent="generate" type="submit" size="lg" class="mt-5 w-full bg-main-color hover:bg-secondary-color border-0 text-sm lg:text-[0.775rem] xl:text-lg font-semibold">
-                           Tiklipy Go!
-                        </Button>
-                    </div>
+                    </div> -->
                 </div>
             </div> 
         </div>

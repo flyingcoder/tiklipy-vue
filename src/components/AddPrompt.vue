@@ -22,7 +22,7 @@
     const loading = ref(false);
     const formStore = useFormStore();
     const tagsList = formStore.tags;
-    const showTagDropdown = ref(true);
+    const showTagDropdown = ref(false);
     const backEndModel = new expressModel();
 
     const filteredTags = computed(() => {

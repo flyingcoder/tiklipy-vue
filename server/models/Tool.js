@@ -11,6 +11,7 @@ class ToolModel {
         try {
             const snaps = await this.col.get();
             const tools = snaps.docs.map((data) => ({
+                id: data.id,
                 ...data.data()
             }));
             return tools;
