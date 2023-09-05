@@ -77,7 +77,8 @@
                     $route.name !== 'prompt'
                 }"
                 :to="{ name: 'prompt' }"
-                exact>Prompt</router-link>
+                exact>Prompt
+            </router-link>
         </li>
     </ul>
     <router-view></router-view>
