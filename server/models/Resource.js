@@ -11,8 +11,7 @@ class ResourceModel {
         try {
             const colRef = this.col.where('teacherId', '==', uid);
             const snaps = await colRef.get();
-            const resources = snaps.docs.map((doc)=>{ return {id: doc.id, ...doc.data()}; });
-            if(!snaps.empty) return resources;
+            return snaps.docs.map((doc)=> ({ id: doc.id, ...doc.data() }));
         } catch (error) {
             console.error('Error in getting all resources', error);
             return false;

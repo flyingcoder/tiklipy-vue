@@ -18,13 +18,19 @@ const router = createRouter({
 });
 
 router.beforeEach(async (to, from, next) => {
-  const user = await auth.fireAuthState();
-  if (to.meta.requiresAuth && to.meta.requiresAdmin) {
-      if (user?.isAdmin) next();
-      else next(false);
-  } else if (to.meta.requiresAuth) {
-      if (user) next();
-      else next('/login');
+  if (to.meta.requiresAuth) {
+    const user = await auth.fireAuthState();
+    if(user) {
+      if(to.meta.adminOnly) {
+        const isAdmin = await auth.checkIfAdmin(user.uid);
+        if(isAdmin) next();
+        else next(false);
+      } else {
+        next();
+      }
+    } else {
+      next('/login');
+    }
   } else {
       next();
   }

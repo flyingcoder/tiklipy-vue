@@ -1,13 +1,9 @@
 import dayjs from "dayjs";
-import { useAuthStore } from "../stores/auth";
 import { useFormStore } from "../stores/form";
 import { auth } from "../plugins/firebase";
 import axios from "axios";
 
 class GeneratedResourceModel {
-    constructor() {
-      this.authStore = new useAuthStore();
-    }
 
     async getGeneratedResources() {
       try {
@@ -49,7 +45,7 @@ class GeneratedResourceModel {
           title: parseTitle,
           icon: formStore.icon,
           formInput: formStore.inputs,
-          teacherId: this.authStore.user.uid,
+          teacherId: auth?.currentUser?.uid,
           usage: rawData.usage,
         }
         axios.defaults.headers.common['Authorization'] = auth?.currentUser?.accessToken;

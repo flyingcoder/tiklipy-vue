@@ -20,10 +20,14 @@
     const facebookProvider =  new FacebookAuthProvider();
 
     onMounted(() => {
-        
+        loaderStore.isLoading = false;
     });
 
     const loginVia = async (provider) => {
+        if(inviteCode.value == '') {
+            hasError.value = true;
+            return 0;
+        }
         loaderStore.toggle();
         const pass = await invite.checkInviteCode(inviteCode.value);
         let success = false; let done = false;
@@ -69,7 +73,7 @@
         })
     };
 
-    const googleLoginFailed = () => {
+    const googleLoginFailed = (msg) => {
         Swal.fire({
             html: `
                 <div style="display: flex; justify-content: space-between;">
@@ -78,8 +82,12 @@
                     </div>
                 </div>
 
-                <h2 class="swal2-title !p-0 text-black text-xl text-red-500" id="swal2-title" style="display: block;">Nya-oh! We've encountered a slight hiccup</h2> 
-                <p class="swal2-title !p-0 text-black text-sm text-black" id="swal2-title" style="display: block;">We've encountered a problem in verifying your email and password, meow. Please bear with us or give a little meow for assistance.</p> 
+                <h2 class="swal2-title !p-0 text-black text-xl text-red-500" id="swal2-title" style="display: block;">
+                    Nya-oh! We've encountered a slight hiccup
+                </h2> 
+                <p class="swal2-title !p-0 text-black text-sm text-black" id="swal2-title" style="display: block;">
+                    ${msg}
+                </p>
             `,
             width: 600,
             padding: '',
@@ -139,15 +147,18 @@
                 or
                 </span>
             </div> -->
+            <h3 class="mt-4 text-2xl text-center font-blod">Login / Registration Page</h3>
             <div class="px-6 mt-6">
                 <div >
-                    <label for="email" class="block mb-1 text-sm font-semibold text-gray-700 dark:text-white">Invitation Code</label>
-                    <input type="invitation_code" required v-model="inviteCode" id="invitation_code" :class="hasError||wrongCred ? 'border-red-500':''"  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main-color focus:border-main-color block w-full p-2.5 dark:border-gray-600 dark:text-white dark:focus:ring-main-color dark:focus:border-main-color" placeholder="Invitation Code">
+                    <label for="email" class="block mb-1 text-sm font-semibold text-gray-700 dark:text-white">
+                        Invitation Code <span class="font-bold text-red-500">*</span>
+                    </label>
+                    <input type="text" required v-model="inviteCode" id="invitation_code" :class="hasError||wrongCred ? 'border-red-500':''"  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main-color focus:border-main-color block w-full p-2.5 dark:border-gray-600 dark:text-white dark:focus:ring-main-color dark:focus:border-main-color" placeholder="Invitation Code">
                 </div>
             </div>
             <p class="mt-6 font-semibold text-center text-black">Access using</p>
-            <div class="flex px-6 text-black">
-                <button @click="loginVia(googleProvider)" class="hover:!border-secondary-color flex items-center justify-center w-full py-2 mt-3 bg-transparent border-gray-300 focus:border-gray-300 focus:outline-none">
+            <div class="flex px-6 mt-6 text-black">
+                <button @click="loginVia(googleProvider)" class="flex items-center justify-center w-full py-2 bg-white border-2 border-gray-300 rounded-md hover:bg-main-color hover:text-white hover:border-main-color">
                     <img src="/google-logo.svg" class="w-5" alt="">
                     <b class="ml-2">Google</b>
                 </button>

@@ -68,7 +68,7 @@ const routes = [
                 { path: 'posts', name: 'posts', component: Posts },
                 { path: 'help', name: 'admin-help', component: AdminHelp },
                 { path: 'prompt', name: 'prompt', component: Prompt }
-            ]},
+            ], meta: { adminOnly: true }},
         ],
     },
     { path: '/login', name: 'login', component: Register },

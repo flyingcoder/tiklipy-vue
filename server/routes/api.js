@@ -13,6 +13,8 @@ import postRoutes from  '../controllers/blog.js';
 import helpRoutes from '../controllers/help.js';
 import stripeRoutes from '../controllers/stripeRoutes.js';
 import promptRoutes from '../controllers/prompt.js';
+import userRoutes from '../controllers/userRoutes.js';
+import inviteCodeRoutes from '../controllers/inviteCodeRoutes.js';
 
 const router = express.Router();
 
@@ -32,7 +34,7 @@ const restrict = (req, res, next) => {
         next();
     } else {
         req.log.error('Access denied');
-        res.json({ error: res.locals.error });
+        res.json({ error: 'This api is for tiklipy subscribers only.' }, 401);
     }
 }
 
@@ -51,6 +53,8 @@ router.use('/testimonials', testimonialRoutes);
 router.use('/update', testimonialRoutes);
 router.use('/auth', authRoutes);
 router.use('/stripes', stripeRoutes);
+router.use('/codes', restrict, inviteCodeRoutes);
+router.use('/users', restrict, userRoutes);
 router.use('/stars', restrict, starCreditRoutes);
 router.use('/resources', restrict, generateRoutes);
 router.use('/tools', restrict, getTools);
