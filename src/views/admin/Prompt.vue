@@ -5,7 +5,7 @@
     import { Textarea, Button, Input, FileInput, Select } from 'flowbite-vue';
     import '@vueup/vue-quill/dist/vue-quill.snow.css';
     import dayjs from "dayjs";
-import { useFormStore } from '../../stores/form';
+    import { useFormStore } from '../../stores/form';
 
     const title = ref('');
     const description = ref('');
@@ -26,26 +26,30 @@ import { useFormStore } from '../../stores/form';
     const backEndModel = new expressModel();
 
     const filteredTags = computed(() => {
-        return tagsList.filter(tag =>
+        return (tagsList ?? []).filter(tag =>
             tag.name.toLowerCase().includes(tagInput.value.toLowerCase())
         );
     });
+
 
     const closeDropdown = () => {
         showTagDropdown.value = false;
     }
 
     const addTag = (tag) => {
-        if(!selectTag.value.includes(tag)) {
-            selectTag.value.push(tag);
+        if (!tags.value.includes(tag)) {
+            tags.value.push(tag);
             tagInput.value = '';
             closeDropdown();
         }
-    }
+    };
+
 
     const removeTag = (index) => {
-        selectTag.value.splice(index, 1);
-    }
+        if (tags.value) {
+            tags.value.splice(index, 1);
+        }
+    };
 
     const selectNext = () => {
 
@@ -104,13 +108,6 @@ import { useFormStore } from '../../stores/form';
         inputs.value.splice(index, 1);
     };
 
-    const handleTagInput = () => {
-        if (tagInput.value.trim() !== '') {
-            const newTags = tagInput.value.split(',').map(tag => tag.trim());
-            tags.value = newTags;
-        }
-    };
-
     const transformedType = computed(() => type.value.toLowerCase().replace(/\s+/g, '_'));
 
     const submitContent = async () => {
@@ -155,11 +152,12 @@ import { useFormStore } from '../../stores/form';
     }
 
     const selectTag = (tag) => {
-        tagInput = tag.name
-    }
+        tagInput.value = tag.name;
+        addTag(tag.name); // Add the selected tag to the tags array
+    };
 
     const filterTags = () => {
-
+        showTagDropdown.value = true;
     }
 </script>
 
@@ -172,41 +170,45 @@ import { useFormStore } from '../../stores/form';
     <div class="w-3/4 mx-auto">
         <div class="grid grid-cols-2 gap-4 mt-5 ">
             <Input size="md" label="Title *" v-model="title" class="" />
-            <Input
-                @input="filterTags"
-                @keydown.down="selectNext"
-                @keydown.up="selectPrevious"
-                @keydown.enter="addTag"
-                @keydown.esc="closeDropdown"
-                size="md" label="Tags *" v-model="tagInput" class="" 
-            />
-            <div v-show="showTagDropdown" class="absolute left-0 mt-1 w-full bg-white border border-gray-300 rounded shadow-lg z-10">
-                <ul>
-                    <li
-                    v-for="(tag, index) in filteredTags"
-                    :key="index"
-                    @click="addTag(tag)"
-                    class="cursor-pointer px-4 py-2 hover:bg-blue-100"
-                    >
-                    {{ tag.name }}
-                    </li>
-                </ul>
-            </div>
-            <div class="flex flex-wrap mt-2">
+            <div class="relative">
+                <Input
+                    @input="filterTags"
+                    @keydown.down="selectNext"
+                    @keydown.up="selectPrevious"
+                    @keydown.enter="addTag(filteredTags[0])"
+                    @keydown.esc="closeDropdown"
+                    size="md"
+                    label="Tags *"
+                    v-model="tagInput"
+                    class=""
+                />
+                <div v-if="showTagDropdown" class="absolute left-0 mt-1 w-full bg-white border border-gray-300 rounded shadow-lg z-10">
+                    <ul>
+                        <li
+                            v-for="(tag, index) in filteredTags"
+                            :key="index"
+                            @click="addTag(tag)"
+                            class="cursor-pointer px-4 py-2 hover:bg-blue-100"
+                        >
+                            {{ tag.name }}
+                        </li>
+                    </ul>
+                </div>
                 <div
-                    v-for="(tag, index) in tagsList"
-                    :key="index*12 -'input-tag-dropdown'"
+                    v-for="(tag, index) in tags"
+                    :key="tag.id"
                     class="px-2 py-1 bg-blue-500 text-white rounded-full mr-2 mb-2"
                 >
                     {{ tag.name }}
                     <button
-                        @click="removeTag(index)"
-                        class="ml-1 focus:outline-none hover:text-red-500"
+                    @click="removeTag(index)"
+                    class="ml-1 focus:outline-none hover:text-red-500"
                     >
-                        x
+                    x
                     </button>
                 </div>
             </div>
+
             <Input size="md" label="Category *" v-model="category" class="" />
             <Input size="md" label="Type *" v-model.trim="type" class="" />
             <Input size="md" label="Icon *" v-model="icon" class="" />
