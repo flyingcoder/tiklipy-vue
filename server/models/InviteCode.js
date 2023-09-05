@@ -40,6 +40,19 @@ class InviteCodeModel {
         }
     }
 
+    async deleteCode(code) {
+        try {
+            const docRef = this.col.doc(code.code);
+            await docRef.delete();
+    
+            console.log('Document deleted successfully');
+            return true;
+        } catch (error) {
+            console.error('Error in deleting code document:', error);
+            return false;
+        }
+    }
+
     async addCodeDocuments(codes) {
         try {
             const now = dayjs();
