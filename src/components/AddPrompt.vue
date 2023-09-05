@@ -1,11 +1,15 @@
 <script setup>
-    import { ref, computed } from 'vue';
+    import { ref, computed, onMounted, defineProps } from 'vue';
     import expressModel from "../models/express";
     import { QuillEditor } from '@vueup/vue-quill';
     import { Textarea, Button, Input, FileInput, Select } from 'flowbite-vue';
     import '@vueup/vue-quill/dist/vue-quill.snow.css';
     import dayjs from "dayjs";
     import { useFormStore } from '../stores/form';
+
+    defineProps({
+        data: Array,
+    });
 
     const title = ref('');
     const description = ref('');
@@ -21,6 +25,7 @@
     const backEndModel = new expressModel();
 
     const formStore = useFormStore();
+    const error = ref('');
     const tagsList = formStore.tags;
     const showTagDropdown = ref(false);
 
@@ -54,7 +59,6 @@
         };
 
         const objectName = data.objectName;
-
         objInputs.value[objectName] = newInput;
         inputs.value[index].processed = true;
         
@@ -64,16 +68,6 @@
         delete objInputs.value[objectName];
         inputs.value.splice(index, 1);
     };
-
-
-
-    const handleTagInput = () => {
-        if (tagInput.value.trim() !== '') {
-            const newTags = tagInput.value.split(',').map(tag => tag.trim());
-            tags.value = newTags;
-        }
-    };
-
 
     const transformedType = computed(() => type.value.toLowerCase().replace(/\s+/g, '_'));
 
@@ -106,6 +100,17 @@
 
         backEndModel.addPrompt(data);
     };
+
+    const checkPrompt = computed(() => {
+        return title.value !== '' &&
+               description.value !== '' &&
+               category.value !== '' &&
+               icon.value !== '' &&
+               systemPrompt.value !== '' &&
+               tags.value.length > 0 &&
+               type.value !== '';
+
+    });
 
     const filterTags = () => {
         showTagDropdown.value = true;
@@ -148,8 +153,9 @@
 <template>
 <div class="bg-white p-6 rounded-lg text-black">
     <div class="w-3/4 mx-auto">
+        <p class="text-red-500 my-2" v-if="error">{{ error }}</p>
         <div class="grid grid-cols-2 gap-4 mt-5 ">
-            <Input size="md" label="Title" v-model="title" class="" />
+            <Input size="md" label="Title *" v-model="title" class="" />
             
             <div class="relative">
                 <Input
@@ -190,12 +196,12 @@
                 </div>
             </div>
 
-            <Input size="md" label="Category" v-model="category" class="" />
-            <Input size="md" label="Type" v-model.trim="type" class="" />
-            <Input size="md" label="Icon" v-model="icon" class="" />
+            <Input size="md" label="Category *" v-model="category" class="" />
+            <Input size="md" label="Type *" v-model.trim="type" class="" />
+            <Input size="md" label="Icon *" v-model="icon" class="" />
             <Textarea rows="4" label="Prompt Example" v-model="promptExample" class=""></Textarea>
-            <Textarea rows="4" label="System Prompt" v-model="systemPrompt" class=""></Textarea>
-            <Textarea rows="4" label="Description" v-model="description" class=""></Textarea>
+            <Textarea rows="4" label="System Prompt *" v-model="systemPrompt" class=""></Textarea>
+            <Textarea rows="4" label="Description *" v-model="description" class=""></Textarea>
         </div>
         <div class="my-4">
             <div class="text-lg font-semibold pb-1">Inputs</div>
@@ -224,7 +230,7 @@
                 </Button>
             </div>
         </div>
-        <button @click="submitContent" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded font-semibold text-lg">Add Prompt</button>
+        <button :disabled="!checkPrompt" @click="submitContent" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded font-semibold text-lg">Add Prompt</button>
     </div>
 </div>
 </template>
