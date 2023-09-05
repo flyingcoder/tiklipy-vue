@@ -34,8 +34,8 @@
                 </div>
             </div>
             <div class="">
-                <h2 class="text-[1.2rem] mb-2 sm:text-2xl text-main-color font-bold dark:text-white">{{ feature.title }}</h2>
-                <div class="text-black">{{ feature.description }}</div>
+                <h2 class="text-[1.2rem] mb-2 sm:text-2xl text-main-color font-bold dark:text-white">{{ $filters.capitalizeFirstLetterSentence(feature.title) }}</h2>
+                <div class="text-black">{{ $filters.capitalizeSentencesInParagraph(feature.description) }}</div>
             </div>
         </div>
     </div>
