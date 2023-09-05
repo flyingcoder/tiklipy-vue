@@ -23,8 +23,12 @@ const cards = computed(() => {
   }
 });
 
-const deleteTool = () => {
-  
+const deleteTool = async (id) => {
+  const data = {
+    id: id
+  }
+  const tool = await backEndModel.delTool(data);
+  getToolsData();
 }
 
 const editTool = () => {
@@ -44,9 +48,9 @@ onMounted(() => {
         :key="index + '-card-generate-filtered'"
         class="flex justify-center max-sm:w-full"
         >
-        <a class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+        <a class="block max-w-sm p-6 w-full bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
           <div class="flex justify-end">
-            <i class="ti ti-trash text-2xl mr-2 cursor-pointer hover:scale-[1.2]" @click="deleteTool"></i>
+            <i class="ti ti-trash text-2xl mr-2 cursor-pointer hover:scale-[1.2]" @click="deleteTool(card.id)"></i>
             <i class="ti ti-pencil text-2xl cursor-pointer hover:scale-[1.2]" @click="editTool"></i>
           </div>
           <span class="text-2 text-black font-semibold">{{ $filters.capitalizeSentencesInParagraph(card.category) }}</span>
