@@ -42,7 +42,7 @@ class InviteCodeModel {
 
     async deleteCode(code) {
         try {
-            const docRef = this.col.doc(code.code);
+            const docRef = await this.col.doc(code.code);
             await docRef.delete();
     
             console.log('Document deleted successfully');

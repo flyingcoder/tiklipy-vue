@@ -51,6 +51,16 @@ class ExpressModel {
         }
     }
 
+    delTool(data) {
+        try {
+            axios.defaults.headers.common['Authorization'] = auth?.currentUser?.accessToken;
+            return axios.post('/api/v1/tools/delete', data);
+        } catch (error) {   
+            console.log(error);
+            return false;
+        }
+    }
+
     getFeatures() {
         try {
             return axios.get('/api/v1/features');

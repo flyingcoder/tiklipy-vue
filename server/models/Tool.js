@@ -31,6 +31,18 @@ class ToolModel {
         }
     }
 
+    async delTool(data) {
+        try {
+            const docRef = this.col.doc(data);
+            const del = await docRef.delete();
+            return del;
+        } catch (error) {
+            console.error("Error Deleting a Tool", error);
+            return false;
+        }
+    }
+    
+
     async getFeatures() {
         const features = [];
         const cards = await this.getTools();
