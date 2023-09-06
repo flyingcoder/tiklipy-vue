@@ -1,11 +1,15 @@
 <script setup>
-    import { ref, computed, onMounted } from 'vue';
+    import { ref, computed, onMounted, defineProps } from 'vue';
     import expressModel from "../models/express";
     import { QuillEditor } from '@vueup/vue-quill';
     import { Textarea, Button, Input, FileInput, Select } from 'flowbite-vue';
     import '@vueup/vue-quill/dist/vue-quill.snow.css';
     import dayjs from "dayjs";
     import { useFormStore } from '../stores/form';
+
+    defineProps({
+        data: Array,
+    });
 
     const title = ref('');
     const description = ref('');
