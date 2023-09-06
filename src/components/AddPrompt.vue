@@ -1,11 +1,15 @@
 <script setup>
-    import { ref, computed, onMounted } from 'vue';
-    import expressModel from "../models/express.js";
+    import { ref, computed, onMounted, defineProps } from 'vue';
+    import expressModel from "../models/express";
     import { QuillEditor } from '@vueup/vue-quill';
     import { Textarea, Button, Input, FileInput, Select } from 'flowbite-vue';
     import '@vueup/vue-quill/dist/vue-quill.snow.css';
     import dayjs from "dayjs";
     import { useFormStore } from '../stores/form';
+
+    defineProps({
+        data: Array,
+    });
 
     const title = ref('');
     const description = ref('');
@@ -18,70 +22,28 @@
     const type = ref('');
     const inputs = ref([]);
     const objInputs = ref({});
-    const error = ref('');
-    const loading = ref(false);
-    const formStore = useFormStore();
-    const tagsList = formStore.tags;
-    const showTagDropdown = ref(true);
     const backEndModel = new expressModel();
 
-    const filteredTags = computed(() => {
-        return (tagsList ?? []).filter(tag =>
-            tag.name.toLowerCase().includes(tagInput.value.toLowerCase())
-        );
-    });
-
-
-    const closeDropdown = () => {
-        showTagDropdown.value = false;
-    }
-
-    const addTag = (tag) => {
-        if (!tags.value.includes(tag)) {
-            tags.value.push(tag);
-            tagInput.value = '';
-            closeDropdown();
-        }
-    };
-
-
-    const removeTag = (index) => {
-        if (tags.value) {
-            tags.value.splice(index, 1);
-        }
-    };
-
-    const selectNext = () => {
-
-    }
-
-    const selectPrevious = () => {
-
-    }
-
-    const checkPrompt = () => {
-        return title.value !== '' &&
-               description.value !== '' &&
-               category.value !== '' &&
-               icon.value !== '' &&
-               systemPrompt !== '' &&
-               tagInput.value !== '' &&
-               type.value !== ''
-    }
+    const formStore = useFormStore();
+    const error = ref('');
+    const tagsList = formStore.tags;
+    const showTagDropdown = ref(false);
 
     const addNewInput = () => {
+        // Check if the current input object is valid
         if (
             inputs.value.every(input => {
                 return input.objectName.trim() !== '' && input.hint.trim() !== '' && input.inputType.trim() !== '' && input.label.trim() !== '';
             })
         ) {
-            if(inputs.value.length > 0) {
-                inputs.value.forEach((input, index) => {
-                    console.log(input.objectName);
-                    objKey(input, index);
-                });
-            }
-            const newInput={objectName: '', hint: '',inputType: '',label:'', value: ''};
+            const newInput = {
+                objectName: '',
+                hint: '',
+                inputType: '',
+                label: '',
+                value: ''
+            };
+            
             inputs.value.push(newInput);
         }
     };
@@ -97,7 +59,6 @@
         };
 
         const objectName = data.objectName;
-
         objInputs.value[objectName] = newInput;
         inputs.value[index].processed = true;
         
@@ -110,63 +71,92 @@
 
     const transformedType = computed(() => type.value.toLowerCase().replace(/\s+/g, '_'));
 
-    const submitContent = async () => {
-        if(!checkPrompt()) {
-            error.value = "Fill in all required inputs";
-        } else {
-            loading.value = true;
-            const filteredInputs = inputs.value.filter(input => input.processed);
 
-            const objInputsValue = {};
-            filteredInputs.forEach((input, index) => {
-                const objectName = input.objectName;
-                objInputsValue[objectName] = {
-                    hint: input.hint,
-                    inputType: input.inputType,
-                    label: input.label,
-                    value: input.value,
-                };
-            });
+    const submitContent = () => {
+        const filteredInputs = inputs.value.filter(input => input.processed);
 
-            const data = {
-                title: title.value,
-                description: description.value,
-                category: category.value,
-                icon: icon.value,
-                promptExample: promptExample.value,
-                systemPrompt: systemPrompt.value,
-                tag: tags.value,
-                type: transformedType.value,
-                inputs: objInputsValue
+        const objInputsValue = {};
+        filteredInputs.forEach((input, index) => {
+            const objectName = input.objectName;
+            objInputsValue[objectName] = {
+                hint: input.hint,
+                inputType: input.inputType,
+                label: input.label,
+                value: input.value,
             };
+        });
 
-            await backEndModel.addPrompt(data);
+        const data = {
+            title: title.value,
+            description: description.value,
+            category: category.value,
+            icon: icon.value,
+            promptExample: promptExample.value,
+            systemPrompt: systemPrompt.value,
+            tag: tags.value,
+            type: transformedType.value,
+            inputs: objInputsValue
+        };
 
-            loading.value = false;
-        }
+        backEndModel.addPrompt(data);
     };
 
-    const saveTag = () => {
-        if(tagInput.value !== '')
-            formStore.addTag(tagInput.value);
-    }
+    const checkPrompt = computed(() => {
+        return title.value !== '' &&
+               description.value !== '' &&
+               category.value !== '' &&
+               icon.value !== '' &&
+               systemPrompt.value !== '' &&
+               tags.value.length > 0 &&
+               type.value !== '';
 
-    const selectTag = (tag) => {
-        tagInput.value = tag.name;
-        addTag(tag.name); // Add the selected tag to the tags array
-    };
+    });
 
     const filterTags = () => {
         showTagDropdown.value = true;
     }
+
+    const selectNext = () => {
+
+    }
+
+    const selectPrevious = () => {
+
+    }
+
+    const addTag = (tag) => {
+        if (!tags.value.includes(tag)) {
+            tags.value.push(tag);
+            tagInput.value = '';
+            closeDropdown();
+        }
+    };
+
+    const closeDropdown = () => {
+        showTagDropdown.value = false;
+    }
+
+    const filteredTags = computed(() => {
+        return (tagsList ?? []).filter(tag =>
+            tag.name.toLowerCase().includes(tagInput.value.toLowerCase())
+        );
+    });
+
+    const removeTag = (index) => {
+        if (tags.value) {
+            tags.value.splice(index, 1);
+        }
+    };
+
 </script>
 
 <template>
 <div class="bg-white p-6 rounded-lg text-black">
-    <p class="text-red-500 my-2" v-if="error">{{ error }}</p>
     <div class="w-3/4 mx-auto">
+        <p class="text-red-500 my-2" v-if="error">{{ error }}</p>
         <div class="grid grid-cols-2 gap-4 mt-5 ">
             <Input size="md" label="Title *" v-model="title" class="" />
+            
             <div class="relative">
                 <Input
                     @input="filterTags"
@@ -218,18 +208,17 @@
             <div class="px-5">
                 <div v-for="(input, index) in inputs" :key="index" class="flex items-center w-full gap-4 pt-3">
                     <div class="w-[50px] flex  items-center text-lg font-semibold">{{ index + 1 }}.</div>
-                    <Input size="md" label="Input name" v-model="input.objectName" class="w-full" />
+                    <Input size="md" label="Input Name" v-model="input.objectName" class="w-full" />
                     <Input size="md" label="Placeholder" v-model="input.hint" class="w-full" />
                     <Input size="md" label="Input Type" v-model="input.inputType" class="w-full" />
                     <Input size="md" label="Label" v-model="input.label" class="w-full" />
                     <Input size="md" label="Default Value" v-model="input.value" class="w-full" />
-                    <Button color="white" pill square class="h-10 w-10" v-if="input.processed">
-                        <i class="ti ti-check"></i>
-                    </Button>
                     <Button color="white" pill square class="h-10 w-10" @click="removeRow(input.objectName, index)">
-                        <i class="ti ti-trash"></i>
+                        <i class="ti ti-trash text-xl"></i>
                     </Button>
-                    
+                    <Button color="white" pill square class="h-10 w-10" @click="objKey(input, index)" v-if="!input.processed">
+                        <i class="ti ti-check text-xl"></i>
+                    </Button>
                 </div>
                 <Button color="default" class="mt-4" @click="addNewInput">
                     Add
@@ -241,10 +230,7 @@
                 </Button>
             </div>
         </div>
-        <Button :disabled="!checkPrompt()" :loading="loading" @click="submitContent" :class="checkPrompt() ? 'bg-blue-700' : 'hover:bg-gray-400 bg-gray-400 cursor-not-allowed' " class="mt-4">
-            Save Prompt
-            <i class="ti ti-save"></i>
-        </Button>
+        <button :disabled="!checkPrompt" @click="submitContent" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded font-semibold text-lg">Add Prompt</button>
     </div>
 </div>
 </template>

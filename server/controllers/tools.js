@@ -21,4 +21,15 @@ router.get('/', async (req, res) => {
     }
 });
 
+router.post('/delete', async (req, res) => {
+    try {
+        const toolsData = await toolModel.delTool(req.body.id);
+        if (toolsData) res.json(toolsData);
+        else res.json({ error: 'Something went wrong' });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+});
+
 export default router;

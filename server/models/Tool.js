@@ -11,6 +11,7 @@ class ToolModel {
         try {
             const snaps = await this.col.get();
             const tools = snaps.docs.map((data) => ({
+                id: data.id,
                 ...data.data()
             }));
             return tools;
@@ -29,6 +30,18 @@ class ToolModel {
             return false;
         }
     }
+
+    async delTool(data) {
+        try {
+            const docRef = this.col.doc(data);
+            const del = await docRef.delete();
+            return del;
+        } catch (error) {
+            console.error("Error Deleting a Tool", error);
+            return false;
+        }
+    }
+    
 
     async getFeatures() {
         const features = [];
