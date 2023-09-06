@@ -28,6 +28,40 @@
     const tagsList = formStore.tags;
     const showTagDropdown = ref(false);
 
+    onMounted(() => {
+        console.log(props.data.tag);
+        if (props.data) {
+            title.value = props.data.title || '';
+            description.value = props.data.description || '';
+            category.value = props.data.category || '';
+            icon.value = props.data.icon || '';
+            promptExample.value = props.data.promptExample || '';
+            systemPrompt.value = props.data.systemPrompt.content || 'You are a helpful assistant.';
+            tags.value = props.data.tag || [];
+            type.value = props.data.type || '';
+            
+            // Populate the inputs
+            const inputKeys = Object.keys(props.data.inputs || {});
+            inputKeys.forEach((key) => {
+                const input = props.data.inputs[key];
+                inputs.value.push({
+                    objectName: key,
+                    hint: input.hint || '',
+                    inputType: input.inputType || '',
+                    label: input.label || '',
+                    value: input.value || '',
+                    processed: true,
+                });
+                objInputs.value[key] = {
+                    hint: input.hint || '',
+                    inputType: input.inputType || '',
+                    label: input.label || '',
+                    value: input.value || '',
+                    processed: true,
+                };
+            });
+        }
+    });
 
     const objKey = (data, index) => {
         const newInput = {
@@ -44,16 +78,13 @@
         
     };
 
-    const submitContent = () => {
-        
-    }
-
     const removeRow = (objectName, index) => {
         delete objInputs.value[objectName];
         inputs.value.splice(index, 1);
     };
 
     const addNewInput = () => {
+        // Check if the current input object is valid
         if (
             inputs.value.every(input => {
                 return input.objectName.trim() !== '' && input.hint.trim() !== '' && input.inputType.trim() !== '' && input.label.trim() !== '';
@@ -71,16 +102,9 @@
         }
     };
 
-    const checkPrompt = computed(() => {
-        return title.value !== '' &&
-               description.value !== '' &&
-               category.value !== '' &&
-               icon.value !== '' &&
-               systemPrompt.value !== '' &&
-               tags.value.length > 0 &&
-               type.value !== '';
-
-    });
+    const submitContent = () => {
+        
+    }
 
     const filterTags = () => {
         showTagDropdown.value = true;

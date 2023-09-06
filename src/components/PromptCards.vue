@@ -49,8 +49,6 @@ const deleteTool = async (id) => {
 const editTool = (selectedTool) => {
     tool.value = selectedTool;
     isEditing.value = true;
-
-    router.push({ hash: '#editTool' });
 }
 
 onMounted(() => {
