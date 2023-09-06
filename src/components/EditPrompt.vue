@@ -1,11 +1,15 @@
 <script setup>
-    import { ref, computed, onMounted } from 'vue';
+    import { ref, computed, onMounted, defineProps } from 'vue';
     import expressModel from "../models/express";
     import { QuillEditor } from '@vueup/vue-quill';
     import { Textarea, Button, Input, FileInput, Select } from 'flowbite-vue';
     import '@vueup/vue-quill/dist/vue-quill.snow.css';
     import dayjs from "dayjs";
     import { useFormStore } from '../stores/form';
+
+    const props = defineProps({
+        data: Object,
+    });
 
     const title = ref('');
     const description = ref('');
@@ -21,28 +25,8 @@
     const backEndModel = new expressModel();
 
     const formStore = useFormStore();
-    const error = ref('');
     const tagsList = formStore.tags;
     const showTagDropdown = ref(false);
-
-    const addNewInput = () => {
-        // Check if the current input object is valid
-        if (
-            inputs.value.every(input => {
-                return input.objectName.trim() !== '' && input.hint.trim() !== '' && input.inputType.trim() !== '' && input.label.trim() !== '';
-            })
-        ) {
-            const newInput = {
-                objectName: '',
-                hint: '',
-                inputType: '',
-                label: '',
-                value: ''
-            };
-            
-            inputs.value.push(newInput);
-        }
-    };
 
 
     const objKey = (data, index) => {
@@ -60,41 +44,31 @@
         
     };
 
+    const submitContent = () => {
+        
+    }
+
     const removeRow = (objectName, index) => {
         delete objInputs.value[objectName];
         inputs.value.splice(index, 1);
     };
 
-    const transformedType = computed(() => type.value.toLowerCase().replace(/\s+/g, '_'));
-
-
-    const submitContent = () => {
-        const filteredInputs = inputs.value.filter(input => input.processed);
-
-        const objInputsValue = {};
-        filteredInputs.forEach((input, index) => {
-            const objectName = input.objectName;
-            objInputsValue[objectName] = {
-                hint: input.hint,
-                inputType: input.inputType,
-                label: input.label,
-                value: input.value,
+    const addNewInput = () => {
+        if (
+            inputs.value.every(input => {
+                return input.objectName.trim() !== '' && input.hint.trim() !== '' && input.inputType.trim() !== '' && input.label.trim() !== '';
+            })
+        ) {
+            const newInput = {
+                objectName: '',
+                hint: '',
+                inputType: '',
+                label: '',
+                value: ''
             };
-        });
-
-        const data = {
-            title: title.value,
-            description: description.value,
-            category: category.value,
-            icon: icon.value,
-            promptExample: promptExample.value,
-            systemPrompt: systemPrompt.value,
-            tag: tags.value,
-            type: transformedType.value,
-            inputs: objInputsValue
-        };
-
-        backEndModel.addPrompt(data);
+            
+            inputs.value.push(newInput);
+        }
     };
 
     const checkPrompt = computed(() => {
@@ -143,17 +117,13 @@
             tags.value.splice(index, 1);
         }
     };
-
 </script>
-
 <template>
-<div class="bg-white p-6 rounded-lg text-black">
-    <div class="w-3/4 mx-auto">
-        <p class="text-red-500 my-2" v-if="error">{{ error }}</p>
+    <div class="mx-auto">
+        <div class="text-xl text-black font-semibold">{{ props.data.title }}</div>
         <div class="grid grid-cols-2 gap-4 mt-5 ">
             <Input size="md" label="Title *" v-model="title" class="" />
-            
-            <div class="relative">
+            <div class="flex flex-wrap items-center relative w-full">
                 <Input
                     @input="filterTags"
                     @keydown.down="selectNext"
@@ -163,35 +133,36 @@
                     size="md"
                     label="Tags *"
                     v-model="tagInput"
-                    class=""
+                    class="w-full"
                 />
-                <div v-if="showTagDropdown" class="absolute left-0 mt-1 w-full bg-white border border-gray-300 rounded shadow-lg z-10">
-                    <ul>
-                        <li
-                            v-for="(tag, index) in filteredTags"
-                            :key="index"
-                            @click="addTag(tag)"
-                            class="cursor-pointer px-4 py-2 hover:bg-blue-100"
-                        >
-                            {{ tag.name }}
-                        </li>
-                    </ul>
-                </div>
-                <div
+                <div class="absolute bottom-[6px] left-0 w-full flex">
+                    <div
                     v-for="(tag, index) in tags"
                     :key="tag.id"
-                    class="px-2 py-1 bg-blue-500 text-white rounded-full mr-2 mb-2"
-                >
-                    {{ tag.name }}
-                    <button
-                    @click="removeTag(index)"
-                    class="ml-1 focus:outline-none hover:text-red-500"
+                    class="px-2 py-1 bg-blue-500 text-white rounded-full ml-2 mt-2"
                     >
-                    x
+                    {{ tag }}
+                    <button
+                        @click="removeTag(index)"
+                        class="ml-1 focus:outline-none hover:text-red-500"
+                    >
+                        x
                     </button>
+                    </div>
                 </div>
             </div>
-
+            <div v-if="showTagDropdown" class="absolute left-0 mt-1 w-full bg-white border border-gray-300 rounded shadow-lg z-10">
+                <ul>
+                    <li
+                    v-for="(tag, index) in filteredTags"
+                    :key="index"
+                    @click="addTag(tag.name)"
+                    class="cursor-pointer px-4 py-2 hover:bg-blue-100"
+                    >
+                    {{ tag.name }}
+                    </li>
+                </ul>
+            </div>
             <Input size="md" label="Category *" v-model="category" class="" />
             <Input size="md" label="Type *" v-model.trim="type" class="" />
             <Input size="md" label="Icon *" v-model="icon" class="" />
@@ -201,7 +172,7 @@
         </div>
         <div class="my-4">
             <div class="text-lg font-semibold pb-1">Inputs</div>
-            <div class="px-5">
+            <div class="px-5 h-[260px] overflow-y-scroll">
                 <div v-for="(input, index) in inputs" :key="index" class="flex items-center w-full gap-4 pt-3">
                     <div class="w-[50px] flex  items-center text-lg font-semibold">{{ index + 1 }}.</div>
                     <Input size="md" label="Input Name" v-model="input.objectName" class="w-full" />
@@ -226,7 +197,6 @@
                 </Button>
             </div>
         </div>
-        <button :disabled="!checkPrompt" @click="submitContent" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded font-semibold text-lg">Add Prompt</button>
+        <button @click="submitContent" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded font-semibold text-lg">Save Prompt</button>
     </div>
-</div>
 </template>
