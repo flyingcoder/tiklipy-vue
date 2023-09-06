@@ -24,6 +24,7 @@ class ToolModel {
     
                 const toolWithoutPrompt = {
                     id: doc.id,
+                    systemPromptId: data.systemPrompt,
                     ...data,
                 };
     
@@ -42,8 +43,27 @@ class ToolModel {
             return [];
         }
     }
-    
-    
+
+    async updateTool(rawData) {
+        try {
+            const data = {
+                category: rawData.category,
+                description: rawData.description,
+                icon: rawData.icon,
+                inputs: rawData.inputs,
+                promptExample: rawData.promptExample,
+                tag: rawData.tag,
+                title: rawData.title,
+                type: rawData.type
+            }
+            const docRef = this.col.doc(rawData.id);
+            await docRef.update(data);
+            await SystemPromptModel.updatePrompt(rawData.promptId, rawData.systemPrompt, rawData.type);
+        } catch (error) {
+            console.error("Error Adding a Tool", error);
+            return false;
+        }
+    }
 
     async addTool(data) {
         try {

@@ -32,4 +32,15 @@ router.post('/delete', async (req, res) => {
     }
 });
 
+router.post('/update', async (req, res) => {
+    try {
+        const toolsData = await toolModel.updateTool(req.body);
+        if (toolsData) res.json(toolsData);
+        else res.json({ error: 'Something went wrong' });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+});
+
 export default router;
