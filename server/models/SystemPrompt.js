@@ -1,6 +1,7 @@
 import admin from "../plugins/firebase-handler.js";
 import { getFirestore } from "firebase-admin/firestore";
 import pino from "../logger.js";
+import dayjs from "dayjs";
 
 class SystemPromptModel {
     constructor() {
@@ -29,6 +30,22 @@ class SystemPromptModel {
         }
     }
 
+    async updatePrompt(id, content, type) {
+        try {
+            const docRef = this.col.doc(id);
+            const data = {
+                content: content,
+                dateCreated: dayjs().format(),
+                type: type
+            }
+            await docRef.update(data);
+            return true;
+        } catch (error) {
+            pino.logger.error("Error adding system prompt:" + error);
+            return false;
+        }
+    }
+
     async addPrompt(data) {
         try {
             const docRef = await this.col.add(data);
@@ -37,7 +54,6 @@ class SystemPromptModel {
             pino.logger.error("Error adding system prompt:" + error);
             return false;
         }
-
     }
 }
 

@@ -102,9 +102,38 @@
         }
     };
 
-    const submitContent = () => {
-        
-    }
+    const transformedType = computed(() => type.value.toLowerCase().replace(/\s+/g, '_'));
+
+    const submitContent = async() => {
+        const filteredInputs = inputs.value.filter(input => input.processed);
+
+        const objInputsValue = {};
+        filteredInputs.forEach((input, index) => {
+            const objectName = input.objectName;
+            objInputsValue[objectName] = {
+                hint: input.hint,
+                inputType: input.inputType,
+                label: input.label,
+                value: input.value,
+            };
+        });
+
+        const data = {
+            id: props.data.id,
+            title: title.value,
+            promptId: props.data.systemPromptId,
+            description: description.value,
+            category: category.value,
+            icon: icon.value,
+            promptExample: promptExample.value,
+            systemPrompt: systemPrompt.value,
+            tag: tags.value,
+            type: transformedType.value,
+            inputs: objInputsValue
+        };
+        await backEndModel.updatePrompt(data);
+        window.location.reload();
+    };
 
     const filterTags = () => {
         showTagDropdown.value = true;
@@ -157,9 +186,9 @@
                     size="md"
                     label="Tags *"
                     v-model="tagInput"
-                    class="w-full"
+                    class="w-full bg-transparent z-10 relative"
                 />
-                <div class="absolute bottom-[6px] left-0 w-full flex">
+                <div class="absolute bottom-[6px] z-0 left-0 w-full flex">
                     <div
                     v-for="(tag, index) in tags"
                     :key="tag.id"

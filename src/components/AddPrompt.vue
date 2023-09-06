@@ -126,7 +126,7 @@
 
     const addTag = (tag) => {
         if (!tags.value.includes(tag)) {
-            tags.value.push(tag);
+            tags.value.push(tag.name);
             tagInput.value = '';
             closeDropdown();
         }
@@ -186,7 +186,7 @@
                     :key="tag.id"
                     class="px-2 py-1 bg-blue-500 text-white rounded-full mr-2 mb-2"
                 >
-                    {{ tag.name }}
+                    {{ tag }}
                     <button
                     @click="removeTag(index)"
                     class="ml-1 focus:outline-none hover:text-red-500"
