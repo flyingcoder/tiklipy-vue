@@ -66,7 +66,7 @@
 
                 <div class="mt-3">
                     <h3 class="text-xl font-semibold mb-4">Communications</h3>
-                    <p>By creating an account on our Service, you consent to receiving newsletters, marketing materials, and other information from us. You can opt out of these communications by using the unsubscribe link or contacting us at help@tiklipy.com. By visiting https://www.tiklipy.com or sending emails to Tiklipy, you agree to receive electronic communications. You acknowledge that electronic communications, including emails and notices on the Site, fulfill any legal requirements for written communication.</p>
+                    <p>By creating an account on our Service, you consent to receiving newsletters, marketing materials, and other information from us. You can opt out of these communications by using the unsubscribe link or contacting us <router-link :to="{name:'contact'}" class="text-main-color underline">Here</router-link>. By visiting https://www.tiklipy.com or sending emails to Tiklipy, you agree to receive electronic communications. You acknowledge that electronic communications, including emails and notices on the Site, fulfill any legal requirements for written communication.</p>
                 </div>
             </div>
 
