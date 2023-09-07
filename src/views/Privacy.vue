@@ -1,5 +1,5 @@
 <script setup>
-
+    import { useRoute } from "vue-router";
 </script>
 
 <template>
@@ -7,7 +7,7 @@
         <div class="max-w-3xl mx-auto p-6 bg-white rounded-xl shadow-md">
             <h4 class="text-4xl font-bold text-gray-700 mb-4 text-center">Discover Tiklipy and Our Privacy Commitment</h4>
             <p class="text-gray-700 leading-7 mb-6">
-                Embrace the Tiklipy community ("Company," "we," "us," or "our") and trust our dedication to securing your personal information and respecting your privacy. If any inquiries arise regarding our practices or policies concerning your personal data, reach out to us at help@tiklipy.com.
+                Embrace the Tiklipy community ("Company," "we," "us," or "our") and trust our dedication to securing your personal information and respecting your privacy. If any inquiries arise regarding our practices or policies concerning your personal data, reach out to us at  <router-link :to="{name:'contact'}" class="text-main-color underline">Here</router-link>
             </p>
             <p class="text-gray-700 leading-7 mb-6">
                 This privacy policy encompasses all data gathered through our website and related services, sales, marketing, and events ("Services"). Upon visiting <a href="https://www.tiklipy.com" class="text-main-color underline">https://www.tiklipy.com</a> and utilizing our Services, you entrust your personal data to us. This document transparently outlines our policy ("Policy"), detailing data collection, usage, and your associated rights. We urge you to carefully peruse it. If certain terms are incongruent with your beliefs, please discontinue use of our sites and Services.
@@ -73,7 +73,7 @@
             <p>This policy is updated as required to comply with laws. We notify significant changes and encourage periodic review.</p>
 
             <h4 class="text-lg font-semibold mt-8 mb-4"><strong>14. Contact Us: How to Reach Us</strong></h4>
-            <p>For queries or feedback, email us at help@tiklipy.com.</p>
+            <p>For queries or feedback, <router-link :to="{name:'contact'}" class="text-main-color underline">Contact us</router-link>.</p>
         </div>
     </div>
 </template>

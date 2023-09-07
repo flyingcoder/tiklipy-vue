@@ -5,7 +5,7 @@ import {
     MembersLayout, GuestsLayout, Projects, Activities, GenerateForm, 
     Login, SendGift, FAQ, Featured, ThankYou, PaymentCancel, PageNotFound,
     Helps, Register, Tools, Resources, Resource, MyReviews, SuggestTools,
-    Slide
+    Slide, Contact
 } from './components';
 import Admin from '../views/admin/index.vue';
 import InvitationCodes from '../views/admin/InvitationCodes.vue'
@@ -35,6 +35,7 @@ const routes = [
             { path: '/send-gifts', name: 'gifts', component: SendGift },
             { path: '/faq', name: 'faq', component:  FAQ },
             { path: '/featured', name: 'featured', component: Featured },
+            { path: '/contact', name: 'contact', component: Contact },
         ]
     },{ 
         path: "/members", component: MembersLayout,

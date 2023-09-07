@@ -10,6 +10,7 @@ import featureRoutes from '../controllers/tools.js';
 import suggestToolRoutes from '../controllers/suggestTools.js';
 import reviewRoutes from '../controllers/reviews.js';
 import postRoutes from  '../controllers/blog.js';
+import contactRoutes from  '../controllers/contact.js';
 import helpRoutes from '../controllers/help.js';
 import stripeRoutes from '../controllers/stripeRoutes.js';
 import promptRoutes from '../controllers/prompt.js';
@@ -42,6 +43,7 @@ router.use(express.json());
 router.use(express.urlencoded({ extended: true}));
 router.use(middleware);
 
+router.use('/contacts', contactRoutes);
 router.use('/posts', postRoutes);
 router.use('/prompts', promptRoutes);
 router.use('/reviews', reviewRoutes);
