@@ -65,7 +65,7 @@
                                         <router-link :to="{name: 'about'}" class="text-gray-900 font-semibold">About</router-link>
                                     </li>
                                     <li class="mb-4">
-                                        <a href="tel:+1234567890" class="text-gray-900 font-semibold">Contact</a>
+                                        <router-link :to="{name: 'contact'}" class="text-gray-900 font-semibold">Contact</router-link>
                                     </li>
                                 </ul>
                             </div>
