@@ -215,6 +215,15 @@ class ExpressModel {
         }
     }
 
+    addContact(formData) {
+        try {
+            return axios.post('/api/v1/contacts', formData);
+        } catch (error) {
+            console.log(error);
+            return false;
+        }
+    }
+
     getReviews() {
         try {
             axios.defaults.headers.common['Authorization'] = auth?.currentUser?.accessToken;
