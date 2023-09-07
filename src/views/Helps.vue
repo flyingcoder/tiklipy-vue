@@ -7,7 +7,7 @@
     import Initiation from '../components/Initiation.vue';
     import Knowhow from '../components/Knowhow.vue';
     import Visual from '../components/Visuals.vue';
-
+    
     const activeView = ref('initiation');
 
     const setActiveView = (view) => {

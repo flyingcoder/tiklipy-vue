@@ -1,17 +1,24 @@
 <script setup>
     import { ref , onMounted } from 'vue';
     import { TheCard } from 'flowbite-vue';
+    import { useLoaderStore } from '../stores/loader';
     import expressModel from "../models/express";
     
     const backEndModel = new expressModel();
+    const loaderStore = useLoaderStore();
     const blogs = ref();
 
     onMounted(() => {
+        loaderStore.isLoading = true;
         getBlogs();
     });
 
     const getBlogs = async () => {
-        blogs.value = await backEndModel.getPosts().then((data) => data.data.blogs );
+        blogs.value = await backEndModel.getPosts()
+        .then((data) => data.data.blogs )
+        .finally(() => {
+            loaderStore.isLoading = false;
+        });
     } 
 </script>
 

@@ -2,19 +2,24 @@
     import { onMounted, ref } from 'vue';
     import { TheCard } from 'flowbite-vue';
     import expressModel from "../models/express";
+    import { useLoaderStore } from '../stores/loader';
 
+    const loaderStore = useLoaderStore();
     const backEndModel = new expressModel();
     const accountancy = ref([]);
 
     onMounted(() => {
+        loaderStore.isLoading = true;
         getData();
     });
 
     const getData = () => {
         backEndModel.getAccountancy().then((data) => {
             accountancy.value = data.data.accountancy;
+            loaderStore.isLoading = false;
         }).catch((error) => {
             console.error("Error fetching reviews:", error);
+            loaderStore.isLoading = false;
         });
     };
 </script>

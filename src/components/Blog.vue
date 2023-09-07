@@ -2,14 +2,17 @@
 import { Avatar } from 'flowbite-vue';
 import { onMounted, ref } from 'vue';
 import expressModel from "../models/express";
+import { useLoaderStore } from '../stores/loader';
 import { useRoute } from 'vue-router';
 import dayjs from "dayjs";
 
 const backEndModel = new expressModel();
 const blog = ref({});
+const loaderStore = useLoaderStore();
 const route = useRoute();
 
 onMounted(() => {
+    loaderStore.isLoading = true;
     getData();
 });
 
@@ -18,8 +21,12 @@ const getData = () => {
 
     backEndModel.getPostBySlug(path).then((data) => {
         blog.value = data.data.data[0];
+        loaderStore.isLoading = true;
     }).catch((error) => {
         console.error("Error fetching data:", error);
+        loaderStore.isLoading = false;
+    }).finally(() => {
+        loaderStore.isLoading = false;
     });
 };
 </script>
