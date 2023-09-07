@@ -7,8 +7,8 @@
     import dayjs from "dayjs";
     import { useFormStore } from '../stores/form';
 
-    defineProps({
-        data: Array,
+    const props = defineProps({
+        data: Object,
     });
 
     const title = ref('');
@@ -25,29 +25,43 @@
     const backEndModel = new expressModel();
 
     const formStore = useFormStore();
-    const error = ref('');
     const tagsList = formStore.tags;
     const showTagDropdown = ref(false);
 
-    const addNewInput = () => {
-        // Check if the current input object is valid
-        if (
-            inputs.value.every(input => {
-                return input.objectName.trim() !== '' && input.hint.trim() !== '' && input.inputType.trim() !== '' && input.label.trim() !== '';
-            })
-        ) {
-            const newInput = {
-                objectName: '',
-                hint: '',
-                inputType: '',
-                label: '',
-                value: ''
-            };
+    onMounted(() => {
+        console.log(props.data.tag);
+        if (props.data) {
+            title.value = props.data.title || '';
+            description.value = props.data.description || '';
+            category.value = props.data.category || '';
+            icon.value = props.data.icon || '';
+            promptExample.value = props.data.promptExample || '';
+            systemPrompt.value = props.data.systemPrompt.content || 'You are a helpful assistant.';
+            tags.value = props.data.tag || [];
+            type.value = props.data.type || '';
             
-            inputs.value.push(newInput);
+            // Populate the inputs
+            const inputKeys = Object.keys(props.data.inputs || {});
+            inputKeys.forEach((key) => {
+                const input = props.data.inputs[key];
+                inputs.value.push({
+                    objectName: key,
+                    hint: input.hint || '',
+                    inputType: input.inputType || '',
+                    label: input.label || '',
+                    value: input.value || '',
+                    processed: true,
+                });
+                objInputs.value[key] = {
+                    hint: input.hint || '',
+                    inputType: input.inputType || '',
+                    label: input.label || '',
+                    value: input.value || '',
+                    processed: true,
+                };
+            });
         }
-    };
-
+    });
 
     const objKey = (data, index) => {
         const newInput = {
@@ -69,10 +83,28 @@
         inputs.value.splice(index, 1);
     };
 
+    const addNewInput = () => {
+        // Check if the current input object is valid
+        if (
+            inputs.value.every(input => {
+                return input.objectName.trim() !== '' && input.hint.trim() !== '' && input.inputType.trim() !== '' && input.label.trim() !== '';
+            })
+        ) {
+            const newInput = {
+                objectName: '',
+                hint: '',
+                inputType: '',
+                label: '',
+                value: ''
+            };
+            
+            inputs.value.push(newInput);
+        }
+    };
+
     const transformedType = computed(() => type.value.toLowerCase().replace(/\s+/g, '_'));
 
-
-    const submitContent = () => {
+    const submitContent = async() => {
         const filteredInputs = inputs.value.filter(input => input.processed);
 
         const objInputsValue = {};
@@ -87,7 +119,9 @@
         });
 
         const data = {
+            id: props.data.id,
             title: title.value,
+            promptId: props.data.systemPromptId,
             description: description.value,
             category: category.value,
             icon: icon.value,
@@ -97,20 +131,9 @@
             type: transformedType.value,
             inputs: objInputsValue
         };
-
-        backEndModel.addPrompt(data);
+        await backEndModel.updatePrompt(data);
+        window.location.reload();
     };
-
-    const checkPrompt = computed(() => {
-        return title.value !== '' &&
-               description.value !== '' &&
-               category.value !== '' &&
-               icon.value !== '' &&
-               systemPrompt.value !== '' &&
-               tags.value.length > 0 &&
-               type.value !== '';
-
-    });
 
     const filterTags = () => {
         showTagDropdown.value = true;
@@ -126,7 +149,7 @@
 
     const addTag = (tag) => {
         if (!tags.value.includes(tag)) {
-            tags.value.push(tag.name);
+            tags.value.push(tag);
             tagInput.value = '';
             closeDropdown();
         }
@@ -147,17 +170,13 @@
             tags.value.splice(index, 1);
         }
     };
-
 </script>
-
 <template>
-<div class="bg-white p-6 rounded-lg text-black">
-    <div class="w-3/4 mx-auto">
-        <p class="text-red-500 my-2" v-if="error">{{ error }}</p>
+    <div class="mx-auto">
+        <div class="text-xl text-black font-semibold">{{ props.data.title }}</div>
         <div class="grid grid-cols-2 gap-4 mt-5 ">
             <Input size="md" label="Title *" v-model="title" class="" />
-            
-            <div class="relative">
+            <div class="flex flex-wrap items-center relative w-full">
                 <Input
                     @input="filterTags"
                     @keydown.down="selectNext"
@@ -167,35 +186,36 @@
                     size="md"
                     label="Tags *"
                     v-model="tagInput"
-                    class=""
+                    class="w-full bg-transparent z-10 relative"
                 />
-                <div v-if="showTagDropdown" class="absolute left-0 mt-1 w-full bg-white border border-gray-300 rounded shadow-lg z-10">
-                    <ul>
-                        <li
-                            v-for="(tag, index) in filteredTags"
-                            :key="index"
-                            @click="addTag(tag)"
-                            class="cursor-pointer px-4 py-2 hover:bg-blue-100"
-                        >
-                            {{ tag.name }}
-                        </li>
-                    </ul>
-                </div>
-                <div
+                <div class="absolute bottom-[6px] z-0 left-0 w-full flex">
+                    <div
                     v-for="(tag, index) in tags"
                     :key="tag.id"
-                    class="px-2 py-1 bg-blue-500 text-white rounded-full mr-2 mb-2"
-                >
+                    class="px-2 py-1 bg-blue-500 text-white rounded-full ml-2 mt-2"
+                    >
                     {{ tag }}
                     <button
-                    @click="removeTag(index)"
-                    class="ml-1 focus:outline-none hover:text-red-500"
+                        @click="removeTag(index)"
+                        class="ml-1 focus:outline-none hover:text-red-500"
                     >
-                    x
+                        x
                     </button>
+                    </div>
                 </div>
             </div>
-
+            <div v-if="showTagDropdown" class="absolute left-0 mt-1 w-full bg-white border border-gray-300 rounded shadow-lg z-10">
+                <ul>
+                    <li
+                    v-for="(tag, index) in filteredTags"
+                    :key="index"
+                    @click="addTag(tag.name)"
+                    class="cursor-pointer px-4 py-2 hover:bg-blue-100"
+                    >
+                    {{ tag.name }}
+                    </li>
+                </ul>
+            </div>
             <Input size="md" label="Category *" v-model="category" class="" />
             <Input size="md" label="Type *" v-model.trim="type" class="" />
             <Input size="md" label="Icon *" v-model="icon" class="" />
@@ -205,7 +225,7 @@
         </div>
         <div class="my-4">
             <div class="text-lg font-semibold pb-1">Inputs</div>
-            <div class="px-5">
+            <div class="px-5 h-[260px] overflow-y-scroll">
                 <div v-for="(input, index) in inputs" :key="index" class="flex items-center w-full gap-4 pt-3">
                     <div class="w-[50px] flex  items-center text-lg font-semibold">{{ index + 1 }}.</div>
                     <Input size="md" label="Input Name" v-model="input.objectName" class="w-full" />
@@ -230,7 +250,6 @@
                 </Button>
             </div>
         </div>
-        <button :disabled="!checkPrompt" @click="submitContent" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded font-semibold text-lg">Add Prompt</button>
+        <button @click="submitContent" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded font-semibold text-lg">Save Prompt</button>
     </div>
-</div>
 </template>
