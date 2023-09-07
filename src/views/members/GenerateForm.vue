@@ -4,7 +4,7 @@
     import { useFormStore } from '../../stores/form';
     import SwalCheckIcon from '../../components/SwalCheckIcon.vue'
     import Swal from 'sweetalert2';
-    import { onMounted, ref  } from 'vue'
+    import { onMounted, ref, computed  } from 'vue'
     import { Input } from 'flowbite-vue';
     import { Alert } from 'flowbite-vue';
     import { Textarea } from 'flowbite-vue';
@@ -25,6 +25,15 @@
     const resourceObject = ref();
     const resourceSaved = ref(false);
     const assessmentSaved = ref(false);
+    const tooltipValue = ref(false);
+
+    const toolt = computed(() => {
+        return tooltipValue.value;
+    });
+
+    const tooltip = (index, value) => {
+        formStore.inputs[index].tooltipValue = value;
+    };
 
     const notSaveModal = () => {
         Swal.fire({
@@ -167,8 +176,20 @@
                             Enhance results with more details.
                         </h3>
                         <div v-for="(input, index) in formStore.inputs" :key="index + '-generate-form-input'" class="mb-4 font-semibold generate-form-section">
-                            <Textarea :rows="input.rows" placeholder="Write here" v-model="formStore.inputs[index].value" v-if="input.inputType === 'textarea'" class="font-semibold" :label="input.label" />
-                            <Input placeholder="Write here" v-model="formStore.inputs[index].value" v-else type="text" :label="input.label" class="font-semibold"/>
+                            <div class="relative" v-if="input.inputType === 'textarea'">
+                                <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{input.label}}</label>
+                                <textarea id="message" :rows="input.rows" v-model="formStore.inputs[index].value" placeholder="Write here" @blur="tooltip(index, false)" @focus="tooltip(index, true)" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></textarea>
+                                <div :class="!formStore.inputs[index].tooltipValue ? 'hidden' : ''" class="absolute text-black z-10 px-3 py-2 text-sm font-medium rounded-lg shadow-sm tooltip">
+                                    {{ input.hint }}
+                                </div>
+                            </div>
+                            <div class="relative" v-if="input.inputType === 'text'">
+                                <label for="first_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{input.label}}</label>
+                                <input type="text" id="first_name" v-model="formStore.inputs[index].value" @blur="tooltip(index, false)" @focus="tooltip(index, true)" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write here">
+                                <div :class="!formStore.inputs[index].tooltipValue ? 'hidden' : ''" class="absolute text-black z-10 px-3 py-2 text-sm font-medium rounded-lg shadow-sm tooltip">
+                                    {{ input.hint }}
+                                </div>
+                            </div>
                         </div>
                         <Button @click.prevent="generate" type="submit" size="lg" class="mt-5 w-full bg-main-color hover:bg-secondary-color border-0 text-sm lg:text-[0.775rem] xl:text-lg font-semibold">
                            Tiklipy Go!
