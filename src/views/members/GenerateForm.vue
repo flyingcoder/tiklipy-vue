@@ -178,14 +178,14 @@
                         <div v-for="(input, index) in formStore.inputs" :key="index + '-generate-form-input'" class="mb-4 font-semibold generate-form-section">
                             <div class="relative" v-if="input.inputType === 'textarea'">
                                 <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{input.label}}</label>
-                                <textarea id="message" :rows="input.rows" v-model="formStore.inputs[index].value" placeholder="Write here" @blur="tooltip(index, false)" @focus="tooltip(index, true)" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></textarea>
+                                <textarea id="message" autocomplete="off" :rows="input.rows" v-model="formStore.inputs[index].value" placeholder="Write here" @blur="tooltip(index, false)" @focus="tooltip(index, true)" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></textarea>
                                 <div :class="!formStore.inputs[index].tooltipValue ? 'hidden' : ''" class="absolute text-black z-10 px-3 py-2 text-sm font-medium rounded-lg shadow-sm tooltip">
                                     {{ input.hint }}
                                 </div>
                             </div>
                             <div class="relative" v-if="input.inputType === 'text'">
                                 <label for="first_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{input.label}}</label>
-                                <input type="text" id="first_name" v-model="formStore.inputs[index].value" @blur="tooltip(index, false)" @focus="tooltip(index, true)" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write here">
+                                <input type="text" id="first_name" autocomplete="off" v-model="formStore.inputs[index].value" @blur="tooltip(index, false)" @focus="tooltip(index, true)" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write here">
                                 <div :class="!formStore.inputs[index].tooltipValue ? 'hidden' : ''" class="absolute text-black z-10 px-3 py-2 text-sm font-medium rounded-lg shadow-sm tooltip">
                                     {{ input.hint }}
                                 </div>
@@ -195,26 +195,11 @@
                            Tiklipy Go!
                         </Button>
                     </div>
-                    <!-- <div class="px-10 py-6 bg-white">
-                        <div class="w-full py-4 animate__animated generated-value" v-if="!generatedResource">
-                            <h2 class="mb-6 text-2xl font-semibold">
-                                {{ formStore.description }}
-                            </h2>
-                            <p class="p-2 mb-4 text-center bg-blue-200">We offer hints and examples to enhance the accuracy of your generation process.</p>
-                            <div class="space-y-6">
-                                <div v-for="(input, index) in formStore.inputs" :key="index + '-generate-form-hints'">
-                                    <div class="">
-                                        <h2 class="text-xl font-bold">{{ input.label }}: </h2>
-                                        <p class="text-xl">{{ input.hint }}</p>
-                                    </div>
-                                </div>
-                            </div>
+                    <div class="p-6 bg-white rounded-3xl animate__animated" v-if="generatedResource">
+                        <div class="w-full py-4 animate__animated generated-value" id="generated-resources" v-html="generatedResource">
                         </div>
-                        <div class="w-full py-4 animate__animated generated-value" id="generated-resources" v-if="generatedResource" v-html="generatedResource">
-                            
-                        </div>
-                    </div> -->
-                    <!-- <div class="block" v-if="generatedResource">
+                    </div>
+                    <div class="block" v-if="generatedResource">
                         <div class="flex mt-8">
                             <Button color="default" @click="generateAssessments()" class="p-2 mr-3 font-semibold uppercase border-0 bg-main-color hover:bg-secondary-color">
                                 <i v-if="!assessmentSaved" class="mr-2 text-xl align-middle ti ti-playlist-add"></i>
@@ -242,6 +227,25 @@
                                 <i class="mr-2 text-xl align-middle ti ti-repeat"></i>
                                 Regenerate
                             </Button>
+                        </div>
+                    </div>
+                    <!-- <div class="px-10 py-6 bg-white">
+                        <div class="w-full py-4 animate__animated generated-value" v-if="!generatedResource">
+                            <h2 class="mb-6 text-2xl font-semibold">
+                                {{ formStore.description }}
+                            </h2>
+                            <p class="p-2 mb-4 text-center bg-blue-200">We offer hints and examples to enhance the accuracy of your generation process.</p>
+                            <div class="space-y-6">
+                                <div v-for="(input, index) in formStore.inputs" :key="index + '-generate-form-hints'">
+                                    <div class="">
+                                        <h2 class="text-xl font-bold">{{ input.label }}: </h2>
+                                        <p class="text-xl">{{ input.hint }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-full py-4 animate__animated generated-value" id="generated-resources" v-if="generatedResource" v-html="generatedResource">
+                            
                         </div>
                     </div> -->
                 </div>
