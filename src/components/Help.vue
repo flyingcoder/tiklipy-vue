@@ -1,27 +1,31 @@
 <script setup>
-import { Avatar } from 'flowbite-vue';
-import { onMounted, ref } from 'vue';
-import expressModel from "../models/express";
-import { useRoute } from 'vue-router';
+    import { Avatar } from 'flowbite-vue';
+    import { onMounted, ref } from 'vue';
+    import expressModel from "../models/express";
+    import { useRoute } from 'vue-router';
+    import { useLoaderStore } from '../stores/loader';
+        
+    const loaderStore = useLoaderStore();
+    const backEndModel = new expressModel();
+    const ethics = ref({});
+    const route = useRoute();
 
-const backEndModel = new expressModel();
-const ethics = ref({});
-const route = useRoute();
-
-onMounted(() => {
-    getData();
-});
-
-const getData = () => {
-    const path = route.path.substring(route.path.lastIndexOf('/') + 1);
-
-    backEndModel.getHelpData(path).then((data) => {
-        ethics.value = data.data.data[0];
-        console.log(ethics.value);
-    }).catch((error) => {
-        console.error("Error fetching data:", error);
+    onMounted(() => {
+        loaderStore.isLoading = true;
+        getData();
     });
-};
+
+    const getData = () => {
+        const path = route.path.substring(route.path.lastIndexOf('/') + 1);
+
+        backEndModel.getHelpData(path).then((data) => {
+            ethics.value = data.data.data[0];
+            loaderStore.isLoading = false;
+        }).catch((error) => {
+            console.error("Error fetching data:", error);
+            loaderStore.isLoading = false;
+        });
+    };
 </script>
 <template>
 <div class="container mx-auto py-8 my-10 text-black">
