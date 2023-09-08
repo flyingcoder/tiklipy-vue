@@ -52,7 +52,7 @@ export const useFormStore = defineStore("form", {
         processInstruction() {
             const mergeText = this.joinInputs();
             return [
-                { role: 'system', content: this.systemPrompt },
+                { role: 'system', content: this.systemPrompt.content },
                 { role: 'user', content:`${mergeText}` }
             ];
         }
