@@ -25,6 +25,7 @@
     const resourceObject = ref();
     const resourceSaved = ref(false);
     const assessmentSaved = ref(false);
+    const slideSaved = ref(false);
     const tooltipValue = ref(false);
 
     const toolt = computed(() => {
@@ -50,13 +51,57 @@
         });
     };
 
-    const generateAssessments = () => {
-        if(resourceSaved == true) {
+    const generateSlides = () => {
+        if(resourceSaved.value == true) {
             console.log("it is already save");
+            //  slideGenerate();
+        } else {
+            notSaveModal();
+        }
+    }
+
+    const generateAssessments = () => {
+        if(resourceSaved.value == true) {
+            console.log("it is already save");
+            //  assessmentGenerate();
         } else {
             notSaveModal();
         }
     };
+
+    const slideGenerate = async() => {
+        isGenerating.value = true;
+        catDoneTyping.value = false;
+        const instruc = formStore.processInstruction();
+        await backEndModel.generateResource(instruc)
+            .then((completion) => {
+                const choice = completion?.data?.choices?.pop();
+                resourceObject.value = {
+                    choice: choice,
+                    usage: completion?.data?.usage
+                };
+                generatedResource.value = choice?.message?.content?.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>') 
+                loaderStore.startConfetti();
+            });
+        catDoneTyping.value = true;
+    }
+
+    const assessmentGenerate = async() => {
+        isGenerating.value = true;
+        catDoneTyping.value = false;
+        const instruc = formStore.processInstruction();
+        await backEndModel.generateResource(instruc)
+            .then((completion) => {
+                const choice = completion?.data?.choices?.pop();
+                resourceObject.value = {
+                    choice: choice,
+                    usage: completion?.data?.usage
+                };
+                generatedResource.value = choice?.message?.content?.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>') 
+                loaderStore.startConfetti();
+            });
+        catDoneTyping.value = true;
+    }
 
     const saveToFireBase = () => {
         if(resourceObject.value)
@@ -148,29 +193,15 @@
                             {{ formStore.title }}
                         </h1>
                     </div>
-                    <div v-if="isGenerating" :class="{'animate__fadeOutUp' : !isGenerating, 'animate__fadeInDown' : isGenerating  }" class="p-6 bg-white rounded-3xl animate__animated">
-                        <div v-if="!catDoneTyping" class="text-center">
+                    <div v-if="isGenerating && !catDoneTyping" :class="{'animate__fadeOutUp' : !isGenerating, 'animate__fadeInDown' : isGenerating  }" class="p-6 bg-white rounded-3xl animate__animated">
+                        <div class="text-center">
                             <img src="/bongo-cat/coding-bongo-cat.gif" class="mx-auto" width="200" alt="">
                             <p class="text-2xl font-bold text-secondary-color animate-bounce">
                                 GENERATING!
                             </p>
                         </div>
-                        <div v-if="catDoneTyping" class="text-center">
-                            <p class="text-2xl font-bold uppercase text-secondary-color">
-                                document is ready!
-                            </p>
-                        </div>
                     </div>
                     <div v-if="!isGenerating" :class="{'animate__fadeOutDown' : isGenerating, 'animate__fadeInUp' : !isGenerating  }" class="p-6 bg-white rounded-3xl animate__animated">
-                        <!-- <Button @click.prevent="generate" type="submit" size="lg" class="mt-5 w-full bg-main-color hover:bg-secondary-color border-0 text-sm lg:text-[0.775rem] xl:text-lg font-semibold">
-                           Generate Now!
-                        </Button>
-                        <div class="inline-flex items-center justify-center w-full px-6">
-                            <hr class="w-64 h-px my-8 bg-gray-900 border-0 dark:bg-gray-700">
-                            <span class="absolute px-3 font-medium text-gray-900 -translate-x-1/2 bg-white left-1/2 dark:text-white dark:bg-gray-900">
-                            or
-                            </span>
-                        </div> -->
                         <h3 class="mb-6 text-xl font-bold leading-snug text-center text-black capitalize">
                             Enhance results with more details.
                         </h3>
@@ -210,12 +241,11 @@
                     </div>
                     <div class="block" v-if="generatedResource">
                         <div class="flex mt-8">
-                            <Button color="default" @click="generateAssessments()" class="p-2 mr-3 font-semibold uppercase border-0 bg-main-color hover:bg-secondary-color">
-                                <i v-if="!assessmentSaved" class="mr-2 text-xl align-middle ti ti-playlist-add"></i>
+                            <Button v-if="!assessmentSaved" color="default" @click="generateAssessments()" class="p-2 mr-3 font-semibold uppercase border-0 bg-main-color hover:bg-secondary-color">
+                                <i class="mr-2 text-xl align-middle ti ti-playlist-add"></i>
                                 Generate Assessments
-                                <SwalCheckIcon class="!mt-0 text-[5px]" v-if="assessmentSaved"/>
                             </Button>
-                            <Button color="default" class="p-2 mr-3 font-semibold uppercase border-0 bg-main-color hover:bg-secondary-color">
+                            <Button v-if="!slideSaved" color="default" @click="generateSlides()" class="p-2 mr-3 font-semibold uppercase border-0 bg-main-color hover:bg-secondary-color">
                                 <i class="mr-2 text-xl align-middle ti ti-playlist-add"></i>
                                 Generate Slides
                             </Button>
@@ -238,25 +268,6 @@
                             </Button>
                         </div>
                     </div>
-                    <!-- <div class="px-10 py-6 bg-white">
-                        <div class="w-full py-4 animate__animated generated-value" v-if="!generatedResource">
-                            <h2 class="mb-6 text-2xl font-semibold">
-                                {{ formStore.description }}
-                            </h2>
-                            <p class="p-2 mb-4 text-center bg-blue-200">We offer hints and examples to enhance the accuracy of your generation process.</p>
-                            <div class="space-y-6">
-                                <div v-for="(input, index) in formStore.inputs" :key="index + '-generate-form-hints'">
-                                    <div class="">
-                                        <h2 class="text-xl font-bold">{{ input.label }}: </h2>
-                                        <p class="text-xl">{{ input.hint }}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="w-full py-4 animate__animated generated-value" id="generated-resources" v-if="generatedResource" v-html="generatedResource">
-                            
-                        </div>
-                    </div> -->
                 </div>
             </div> 
         </div>
