@@ -54,6 +54,7 @@
     const generateSlides = () => {
         if(resourceSaved.value == true) {
             console.log("it is already save");
+            slideSaved.value = true;
             //  slideGenerate();
         } else {
             notSaveModal();
@@ -63,6 +64,7 @@
     const generateAssessments = () => {
         if(resourceSaved.value == true) {
             console.log("it is already save");
+            assessmentSaved.value = true;
             //  assessmentGenerate();
         } else {
             notSaveModal();
