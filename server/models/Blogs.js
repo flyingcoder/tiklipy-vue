@@ -23,6 +23,18 @@ class AddPostModel {
             return false;
         }
     }
+    async updatePost(data) {
+        try {
+            const docRef = await this.col.doc(data.id);
+            await docRef.update(data.data);
+    
+            console.log('Document deleted successfully');
+            return true;
+        } catch (error) {
+            console.error('Error in deleting code document:', error);
+            return false;
+        }
+    }
 
     async getPostBySlug(slug) {
         try {

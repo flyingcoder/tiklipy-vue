@@ -9,17 +9,6 @@
         blog: Object,
     });
 
-    onMounted(() => {
-        slug.value = props.blog.slug,
-        content.value = props.blog.content,
-        title.value = props.blog.title,
-        author.value = props.blog.author,
-        readTime.value = props.blog.readTime,
-        shortDesc.value = props.blog.shortDesc,
-        featuredImageFile.value = props.blog.featuredImageFile,
-        authorImageFile.value = props.blog.authorImageFile
-    });
-
     const toolbarOptions = [
         [{ 'size': ['small', false, 'large', 'huge'] }],
         ['bold', 'italic', 'underline', 'strike'],
@@ -47,29 +36,20 @@
     const authorImageFile = ref(null);
 
     const submitContent = () => {
-        const formData = new FormData();
+        const formData = {
+            title: title.value,
+            author: author.value,
+            readTime: readTime.value,
+            shortDesc: shortDesc.value,
+            content: content.value,
+            dateCreated: dayjs().format(),
+            slug: slug.value,
+            featuredImage: featuredImageFile.value ? '/' + featuredImageFile.value.name :  props.blog.featuredImage,
+            authorImage: authorImageFile.value ? '/' + authorImageFile.value.name :  props.blog.authorImage,
+        };
 
-        formData.append('title', title.value);
-        formData.append('author', author.value);
-        formData.append('readTime', readTime.value);
-        formData.append('shortDesc', shortDesc.value);
-        formData.append('content', content.value);
-        formData.append('dateCreated', dayjs().format());
-        formData.append('slug', slug.value);
-
-        if (featuredImageFile.value) {
-            formData.append('featuredImage', featuredImageFile.value);
-        } else {
-            formData.append('featuredImage', 'tiklipy-logo-indigo');
-        }
-
-        if (authorImageFile.value) {
-            formData.append('authorImage', authorImageFile.value);
-        } else {
-            formData.append('authorImage', 'tiklipy-logo-icon');
-        }
-
-        backEndModel.addBlog(formData);
+        backEndModel.updateBlog(formData, props.blog.id);
+        window.location.reload();
     }
 
     const deleteBlog = (id) => {
@@ -79,6 +59,17 @@
         backEndModel.deleteBlog(data);
         window.location.reload();
     }
+
+    onMounted(() => {
+        slug.value = props.blog.slug,
+        content.value = props.blog.content,
+        title.value = props.blog.title,
+        author.value = props.blog.author,
+        readTime.value = props.blog.readTime,
+        shortDesc.value = props.blog.shortDesc,
+        featuredImageFile.value = props.blog.featuredImageFile,
+        authorImageFile.value = props.blog.authorImageFile
+    });
 </script>
 
 <template>

@@ -283,6 +283,16 @@ class ExpressModel {
         }
     }
 
+    updateBlog(data, id) {
+        try {
+            axios.defaults.headers.common['Authorization'] = auth?.currentUser?.accessToken;
+            return axios.post('/api/v1/posts/update', {data: data, id: id});
+        } catch (error) {
+            console.log(error);
+            return false;
+        }
+    }
+
     getPostBySlug(slug) {
         try {
             return axios.get(`/api/v1/posts/post?slug=${slug}`);
