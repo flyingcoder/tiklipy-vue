@@ -25,6 +25,7 @@
     const resourceObject = ref();
     const resourceSaved = ref(false);
     const assessmentSaved = ref(false);
+    const slideSaved = ref(false);
     const tooltipValue = ref(false);
 
     const toolt = computed(() => {
@@ -50,13 +51,59 @@
         });
     };
 
-    const generateAssessments = () => {
-        if(resourceSaved == true) {
+    const generateSlides = () => {
+        if(resourceSaved.value == true) {
             console.log("it is already save");
+            slideSaved.value = true;
+            //  slideGenerate();
+        } else {
+            notSaveModal();
+        }
+    }
+
+    const generateAssessments = () => {
+        if(resourceSaved.value == true) {
+            console.log("it is already save");
+            assessmentSaved.value = true;
+            //  assessmentGenerate();
         } else {
             notSaveModal();
         }
     };
+
+    const slideGenerate = async() => {
+        isGenerating.value = true;
+        catDoneTyping.value = false;
+        const instruc = formStore.processInstruction();
+        await backEndModel.generateResource(instruc)
+            .then((completion) => {
+                const choice = completion?.data?.choices?.pop();
+                resourceObject.value = {
+                    choice: choice,
+                    usage: completion?.data?.usage
+                };
+                generatedResource.value = choice?.message?.content?.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>') 
+                loaderStore.startConfetti();
+            });
+        catDoneTyping.value = true;
+    }
+
+    const assessmentGenerate = async() => {
+        isGenerating.value = true;
+        catDoneTyping.value = false;
+        const instruc = formStore.processInstruction();
+        await backEndModel.generateResource(instruc)
+            .then((completion) => {
+                const choice = completion?.data?.choices?.pop();
+                resourceObject.value = {
+                    choice: choice,
+                    usage: completion?.data?.usage
+                };
+                generatedResource.value = choice?.message?.content?.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>') 
+                loaderStore.startConfetti();
+            });
+        catDoneTyping.value = true;
+    }
 
     const saveToFireBase = () => {
         if(resourceObject.value)
@@ -148,29 +195,15 @@
                             {{ formStore.title }}
                         </h1>
                     </div>
-                    <div v-if="isGenerating" :class="{'animate__fadeOutUp' : !isGenerating, 'animate__fadeInDown' : isGenerating  }" class="p-6 bg-white rounded-3xl animate__animated">
-                        <div v-if="!catDoneTyping" class="text-center">
+                    <div v-if="isGenerating && !catDoneTyping" :class="{'animate__fadeOutUp' : !isGenerating, 'animate__fadeInDown' : isGenerating  }" class="p-6 bg-white rounded-3xl animate__animated">
+                        <div class="text-center">
                             <img src="/bongo-cat/coding-bongo-cat.gif" class="mx-auto" width="200" alt="">
                             <p class="text-2xl font-bold text-secondary-color animate-bounce">
                                 GENERATING!
                             </p>
                         </div>
-                        <div v-if="catDoneTyping" class="text-center">
-                            <p class="text-2xl font-bold uppercase text-secondary-color">
-                                document is ready!
-                            </p>
-                        </div>
                     </div>
                     <div v-if="!isGenerating" :class="{'animate__fadeOutDown' : isGenerating, 'animate__fadeInUp' : !isGenerating  }" class="p-6 bg-white rounded-3xl animate__animated">
-                        <!-- <Button @click.prevent="generate" type="submit" size="lg" class="mt-5 w-full bg-main-color hover:bg-secondary-color border-0 text-sm lg:text-[0.775rem] xl:text-lg font-semibold">
-                           Generate Now!
-                        </Button>
-                        <div class="inline-flex items-center justify-center w-full px-6">
-                            <hr class="w-64 h-px my-8 bg-gray-900 border-0 dark:bg-gray-700">
-                            <span class="absolute px-3 font-medium text-gray-900 -translate-x-1/2 bg-white left-1/2 dark:text-white dark:bg-gray-900">
-                            or
-                            </span>
-                        </div> -->
                         <h3 class="mb-6 text-xl font-bold leading-snug text-center text-black capitalize">
                             Enhance results with more details.
                         </h3>
@@ -178,10 +211,10 @@
                             <div class="relative d-flex" v-if="input.inputType === 'textarea'">
                                 <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{input.label}}</label>
                                 <div class="lg:flex">
-                                    <textarea id="message" :rows="input.rows" v-model="formStore.inputs[index].value" placeholder="Write here" @blur="tooltip(index, false)" @focus="tooltip(index, true)" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></textarea>
+                                    <textarea id="message" :rows="input.rows" v-model="formStore.inputs[index].value" placeholder="Write here" @blur="tooltip(index, false)" @focus="tooltip(index, true)" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" autocomplete="off"></textarea>
                                     <div :class="!formStore.inputs[index].tooltipValue ? 'hidden' : ''" class="w-full border-[1px] border-gray-300 bg-white max-w-[14rem] right-[-15rem] lg:absolute text-black z-10 px-2 py-2 text-sm font-medium rounded-lg shadow-sm tooltip flex max-lg:mt-[5px]">
                                         <i class="ti ti-bulb-filled text-xl text-yellow-300"></i>&nbsp;<br>
-                                        <span class="pl-[4px] pt-[3px] break-all"> 
+                                        <span class="pl-[4px] pt-[3px] break-word"> 
                                             {{ input.hint }}
                                         </span>
                                     </div>
@@ -190,10 +223,10 @@
                             <div class="relative" v-if="input.inputType === 'text'">
                                 <label for="first_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{input.label}}</label>
                                 <div class="lg:flex">
-                                    <input type="text" id="first_name" v-model="formStore.inputs[index].value" @blur="tooltip(index, false)" @focus="tooltip(index, true)" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write here">
+                                    <input type="text" id="first_name" v-model="formStore.inputs[index].value" @blur="tooltip(index, false)" @focus="tooltip(index, true)" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write here " autocomplete="off">
                                     <div :class="!formStore.inputs[index].tooltipValue ? 'hidden' : ''" class="w-full border-[1px] border-gray-300 bg-white max-w-[14rem] right-[-15rem] lg:absolute text-black z-10 px-2 py-2 text-sm font-medium rounded-lg shadow-sm tooltip flex max-lg:mt-[5px]">
                                         <i class="ti ti-bulb-filled text-xl text-yellow-300"></i>&nbsp;<br>
-                                        <span class="pl-[4px] pt-[3px] break-all"> 
+                                        <span class="pl-[4px] pt-[3px] break-word"> 
                                             {{ input.hint }}
                                         </span>
                                     </div>
@@ -204,33 +237,17 @@
                            Tiklipy Go!
                         </Button>
                     </div>
-                    <!-- <div class="px-10 py-6 bg-white">
-                        <div class="w-full py-4 animate__animated generated-value" v-if="!generatedResource">
-                            <h2 class="mb-6 text-2xl font-semibold">
-                                {{ formStore.description }}
-                            </h2>
-                            <p class="p-2 mb-4 text-center bg-blue-200">We offer hints and examples to enhance the accuracy of your generation process.</p>
-                            <div class="space-y-6">
-                                <div v-for="(input, index) in formStore.inputs" :key="index + '-generate-form-hints'">
-                                    <div class="">
-                                        <h2 class="text-xl font-bold">{{ input.label }}: </h2>
-                                        <p class="text-xl">{{ input.hint }}</p>
-                                    </div>
-                                </div>
-                            </div>
+                    <div class="p-6 bg-white rounded-3xl animate__animated" v-if="generatedResource">
+                        <div class="w-full py-4 animate__animated generated-value" id="generated-resources" v-html="generatedResource">
                         </div>
-                        <div class="w-full py-4 animate__animated generated-value" id="generated-resources" v-if="generatedResource" v-html="generatedResource">
-                            
-                        </div>
-                    </div> -->
-                    <!-- <div class="block" v-if="generatedResource">
+                    </div>
+                    <div class="block" v-if="generatedResource">
                         <div class="flex mt-8">
-                            <Button color="default" @click="generateAssessments()" class="p-2 mr-3 font-semibold uppercase border-0 bg-main-color hover:bg-secondary-color">
-                                <i v-if="!assessmentSaved" class="mr-2 text-xl align-middle ti ti-playlist-add"></i>
+                            <Button v-if="!assessmentSaved" color="default" @click="generateAssessments()" class="p-2 mr-3 font-semibold uppercase border-0 bg-main-color hover:bg-secondary-color">
+                                <i class="mr-2 text-xl align-middle ti ti-playlist-add"></i>
                                 Generate Assessments
-                                <SwalCheckIcon class="!mt-0 text-[5px]" v-if="assessmentSaved"/>
                             </Button>
-                            <Button color="default" class="p-2 mr-3 font-semibold uppercase border-0 bg-main-color hover:bg-secondary-color">
+                            <Button v-if="!slideSaved" color="default" @click="generateSlides()" class="p-2 mr-3 font-semibold uppercase border-0 bg-main-color hover:bg-secondary-color">
                                 <i class="mr-2 text-xl align-middle ti ti-playlist-add"></i>
                                 Generate Slides
                             </Button>
@@ -252,7 +269,7 @@
                                 Regenerate
                             </Button>
                         </div>
-                    </div> -->
+                    </div>
                 </div>
             </div> 
         </div>

@@ -28,9 +28,9 @@ class generateModel {
 
     async global(data) {
         try {
-            const prompt = await Promise.all(data.map(obj => this.injectInstruction(obj)));
+            // const prompt = await Promise.all(data.map(obj => this.injectInstruction(obj)));
             const param = { 
-                messages: prompt,
+                messages: data,
                 max_tokens: 800,
                 ...this.options
             };
