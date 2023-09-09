@@ -225,6 +225,16 @@ class ExpressModel {
         }
     }
 
+    deleteBlog(data) {
+        try {
+            axios.defaults.headers.common['Authorization'] = auth?.currentUser?.accessToken;
+            return axios.post('/api/v1/posts/delete', data);
+        } catch (error) {
+            console.log(error);
+            return false;
+        }
+    }
+
     addContact(formData) {
         try {
             return axios.post('/api/v1/contacts', formData);
