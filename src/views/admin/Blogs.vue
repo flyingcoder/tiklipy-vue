@@ -9,6 +9,7 @@
     const blogs = ref([]);
     const blog = ref(null);
     const size = ref('5xl');
+    const isCardClicked = ref(false);
     const isEditing = ref(false);
     const showFullContent = ref(false);
 
@@ -35,11 +36,17 @@
 
     const closeModal = () => {
         isEditing.value = false
+        document.body.classList.remove('overflow-hidden');
     }
 
     const editBlog = (data) => {
         blog.value = data;
-        console.log(blog.value);
+        const isBodyOverflowHidden = document.body.classList.contains('overflow-hidden');
+
+        if (!isBodyOverflowHidden) {
+            document.body.classList.add('overflow-hidden');
+        }
+
         isEditing.value = true;
     }
 
