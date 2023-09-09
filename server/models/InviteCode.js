@@ -40,6 +40,20 @@ class InviteCodeModel {
         }
     }
 
+    async saveCode(codeData) {
+        try {
+            const docRef = this.col.doc(codeData.id);
+            const updateData = {
+                code: codeData.code,
+            };
+            await docRef.update(updateData);
+            return true;
+        } catch (error) {
+            console.error('Error in updating code document:', error);
+            return false;
+        }
+    }    
+
     async deleteCode(code) {
         try {
             const docRef = await this.col.doc(code.code);
@@ -70,7 +84,10 @@ class InviteCodeModel {
     async getCodeCollection() {
         try {
             const snaps = await this.col.orderBy('status', 'asc').get();
-            const codes = snaps.docs.map((snap) => ({ ...snap.data() }));
+            const codes = snaps.docs.map((snap) => ({
+                id: snap.id,
+                ...snap.data() 
+            }));
             return codes;
         } catch (error) {
             pino.logger.error("Error fetching invite codes " + error);
