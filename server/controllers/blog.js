@@ -13,6 +13,16 @@ router.get('/', async (req, res) => {
     res.json({ blogs: blogs });
 });
 
+router.post('/delete', async (req, res) => {
+    try {
+        const data = await PostModel.deletePost(req.body);
+        if (success) res.json({ msg: "Resource successfully added!" });
+        else res.json({error: 'Something went wrong'},500);
+    } catch (error) {
+        res.status(500).json({ msg: 'Something went wrong', payload: req.body });
+    }
+});
+
 router.get('/post', async (req, res) => {
     try {
         const slug = req.query.slug;

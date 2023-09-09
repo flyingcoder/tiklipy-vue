@@ -11,6 +11,19 @@ class AddPostModel {
         await this.col.add(data);
     }
 
+    async deletePost(data) {
+        try {
+            const docRef = await this.col.doc(data.id);
+            await docRef.delete();
+    
+            console.log('Document deleted successfully');
+            return true;
+        } catch (error) {
+            console.error('Error in deleting code document:', error);
+            return false;
+        }
+    }
+
     async getPostBySlug(slug) {
         try {
             const colRef = this.col.where('slug', '==', slug);
