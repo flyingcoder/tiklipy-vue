@@ -48,6 +48,17 @@ class InviteCodeModel {
         }
     }
 
+    async saveCode(data) {
+        try {
+            axios.defaults.headers.common['Authorization'] = auth?.currentUser?.accessToken;
+            const msg = await axios.post('/api/v1/codes/save', data)
+            return msg;
+        } catch (error) {
+            console.log(error);
+            return false;
+        }
+    }
+
     getCodes() {
         try {
             axios.defaults.headers.common['Authorization'] = auth?.currentUser?.accessToken;

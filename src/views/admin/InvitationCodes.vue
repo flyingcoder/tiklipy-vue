@@ -8,10 +8,14 @@
     const codes = ref([]);
     const inputCodes = ref('');
     const invite = new InviteCodeModel();
+    const isNewCode = ref(false);
     const isSaving = ref(false);
+    const editModes = ref([]);
+    const editingCode = ref(null);
 
     onMounted(async () => {
         await tableReload();
+        editModes.value = Array(codes.value.length).fill(false);
     })
 
     const deleteCode = async (codename) => {
@@ -28,6 +32,23 @@
         if(lastChar === ',')
             trimed = trimed.slice(0, -1);
         return trimed.split(',');
+    }
+
+    const editCode = (item, index) => {
+        editModes.value[index] = true;
+        editingCode.value = item;
+    }
+
+    const saveCode = async (itemId, index, value) => {
+        const data = {
+            id: itemId,
+            code: value
+        }
+        if (index !== -1) {
+            editModes.value[index] = false;
+            await invite.saveCode(data);
+            tableReload();
+        }
     }
 
     const tableReload = async () => {
@@ -111,22 +132,25 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr  v-for="(item, index) in codes" :key="index +'-codes-table'" class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                        <tr v-for="(item, index) in codes" :key="index + '-codes-table'" class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                             <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                {{ item.code }}
+                                <!-- Only show the input when isNewCode is true and matches the current item -->
+                                <template v-if="editModes[index] && item === editingCode">
+                                    <input type="text" class="w-full rounded-md" v-model="editingCode.code">
+                                </template>
+                                <template v-else>
+                                    {{ item.code }}
+                                </template>
                             </th>
-                            <td class="px-6 py-4">
-                                {{ item.status }}
-                            </td>
-                            <td class="px-6 py-4">
-                                {{ item.email }}
-                            </td>
-                            <td class="px-6 py-4">
-                                {{ item.expire_at }}
-                            </td>
+                            <td class="px-6 py-4">{{ item.status }}</td>
+                            <td class="px-6 py-4">{{ item.email }}</td>
+                            <td class="px-6 py-4">{{ item.expire_at }}</td>
                             <td class="px-6 py-4 text-right text-gray-600">
-                                <i class="ti ti-pencil text-2xl cursor-pointer"></i>
-                                <i class="ti ti-trash text-2xl cursor-pointer" @click="deleteCode(item.code)"></i>
+                                <!-- Show edit button only when edit mode is false for this row -->
+                                <i class="ti ti-pencil text-2xl cursor-pointer" v-if="!editModes[index]" @click="editCode(item, index)"></i>
+                                <!-- Show save button when edit mode is true for this row -->
+                                <i class="ti ti-check text-2xl cursor-pointer" v-else @click="saveCode(item.id, index, editingCode.code)"></i>
+                                <i class="ti ti-trash text-2xl cursor-pointer" @click="deleteCode(item.id)"></i>
                             </td>
                         </tr>
                     </tbody>

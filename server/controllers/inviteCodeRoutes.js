@@ -24,6 +24,12 @@ router.get('/', adminOnly, async (req, res) => {
     
 });
 
+router.post('/save', async (req, res) => {
+    const success = await inviteCode.saveCode(req.body);
+    if(success) res.json({ msg: 'Code save'});
+    else res.status(500).json({ msg: 'Something went wrong! Call Alvin'});
+});
+
 router.post('/delete', async (req, res) => {
     const success = await inviteCode.deleteCode(req.body);
     if(success) res.json({ msg: 'Code are deleted!'});
