@@ -225,6 +225,16 @@ class ExpressModel {
         }
     }
 
+    deleteBlog(data) {
+        try {
+            axios.defaults.headers.common['Authorization'] = auth?.currentUser?.accessToken;
+            return axios.post('/api/v1/posts/delete', data);
+        } catch (error) {
+            console.log(error);
+            return false;
+        }
+    }
+
     addContact(formData) {
         try {
             return axios.post('/api/v1/contacts', formData);
@@ -267,6 +277,16 @@ class ExpressModel {
     getPosts() {
         try { 
             return axios.get('/api/v1/posts');
+        } catch (error) {
+            console.log(error);
+            return false;
+        }
+    }
+
+    updateBlog(data, id) {
+        try {
+            axios.defaults.headers.common['Authorization'] = auth?.currentUser?.accessToken;
+            return axios.post('/api/v1/posts/update', {data: data, id: id});
         } catch (error) {
             console.log(error);
             return false;
