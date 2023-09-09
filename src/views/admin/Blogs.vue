@@ -55,7 +55,7 @@ onMounted(() => {
                         <div class="">
                             <h1 class="text-main-color font-semibold text-2xl">{{ blog.title }}</h1>
                             <div class="text-black flex w-full mb-7"><span>Read Time:&nbsp;</span> <span>{{ blog.readTime }}</span></div>
-                            <div v-html="truncateText(blog.blog, 80)" class="text-black desciption-style"></div>
+                            <div v-html="truncateText(blog.content, 80)" class="text-black desciption-style"></div>
                             <div class="flex flex-wrap items-center gap-5 mt-5">
                                 <img src="/tiklipy-logo-icon.png" alt="hero" class="w-16 rounded-full">
                                 <div class="">
