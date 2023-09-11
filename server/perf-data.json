@@ -11,6 +11,74 @@
         ],
         "priority": 0.3
     },
-    { "url": "/about", "changefreq": "monthly", "priority": 0.3 },
-    { "url": "/helps", "changefreq": "monthly", "priority": 0.3 }
+    { "url": "/about" },
+    { "url": "/helps" },
+    { "url": "/blogs" },
+    {
+        "url": "/blogs/the-teachers-toolbox-unwrapping-the-top-10-educational-resources-for-private-tutors",
+        "news" : {
+            "publication" : {
+              "name": "Emmanuel",
+              "language": "en"
+            },
+            "genres": "PressRelease, Blog",
+            "publication_date": "2023-08-29",
+            "title": "The Teacher's Toolbox: Unwrapping the Top10 Educational Resources for Private Tutors",
+            "keywords": "business, merger, acquisition, A, B"
+        }
+    },
+    {
+        "url": "/blogs/7-spectacular-teaching-strategies-a-survival-guide-for-todays-classroom-heroes",
+        "news" : {
+            "publication" : {
+              "name": "Emmanuel",
+              "language": "en"
+            },
+            "genres": "PressRelease, Blog",
+            "publication_date": "2023-08-29",
+            "title": "7 Spectacular Teaching Strategies: A Survival Guide for Today's Classroom Heroes",
+            "keywords": "business, merger, acquisition, A, B"
+        }
+    },
+    {
+        "url": "/blogs/critical-skills-for-21st-century-educators-serving-the-meatloaf-not-the-brussel-sprouts",
+        "news" : {
+            "publication" : {
+              "name": "Emmanuel",
+              "language": "en"
+            },
+            "genres": "PressRelease, Blog",
+            "publication_date": "2023-08-29",
+            "title": "Critical Skills for 21st-Century Educators: Serving the Meatloaf, Not the Brussel Sprouts",
+            "keywords": "business, merger, acquisition, A, B"
+        }
+    },
+    {
+        "url": "/blogs/tiklipy-and-artificial-intiliggence",
+        "news" : {
+            "publication" : {
+              "name": "Emmanuel",
+              "language": "en"
+            },
+            "genres": "PressRelease, Blog",
+            "publication_date": "2023-08-28",
+            "title": "Tiklipy and Artificial Intelligence (AI): An Amicable Overview",
+            "keywords": "business, merger, acquisition, A, B"
+        }
+    },
+    { "url": "/pricing" },
+    { "url": "/features" },
+    {
+        "url": "/legal/license",
+        "news" : {
+            "publication" : {
+              "name": "Tiklipy",
+              "language": "en"
+            },
+            "genres": "PressRelease, Blog",
+            "publication_date": "2023-08-28",
+            "title": "Terms of Use - Tiklipy",
+            "keywords": "business, merger, acquisition, A, B"
+        }
+    }
 ]
