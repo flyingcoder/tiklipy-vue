@@ -24,9 +24,7 @@
                     <p class="text-justify text-gray-500 text-sm">Discover the joy of Tiklipy - the ultimate companion for every teacher! This heartfelt gesture provides a complimentary one-month access to Tiklipy's robust educational resources. An excellent means to bring a smile to any educator's face.</p>
                     <div id="accordion-collapse" data-accordion="collapse">
                         <h2 id="accordion-collapse-heading-1">
-                            <button type="button" class="flex items-center px-0 text-main-color justify-between w-full font-medium text-left hover:border-transparent focus:outline-none border border-b-0 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800" data-accordion-target="#accordion-collapse-body-1" aria-expanded="true" aria-controls="accordion-collapse-body-1">
-                            <span>Terms & Conditions</span>
-                            </button>
+                            <router-link :to="{ name: 'terms' }" class="flex items-center px-0 text-main-color justify-between w-full font-medium text-left hover:border-transparent focus:outline-none border border-b-0 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800"><span>Terms & Conditions</span></router-link>
                         </h2>
                         <div id="accordion-collapse-body-1" class="hidden" aria-labelledby="accordion-collapse-heading-1">
                             <div class=" dark:bg-gray-900">
@@ -50,9 +48,7 @@
                     <p class="text-justify text-gray-500 text-sm">Embrace the gift of Tiklipy - every teacher's best friend! This token of appreciation offers three months of free access to Tiklipy's powerful teaching tools. The perfect way to brighten an educator's day.</p>
                     <div id="accordion-collapse" data-accordion="collapse">
                         <h2 id="accordion-collapse-heading-1">
-                            <button type="button" class="flex items-center px-0 text-main-color justify-between w-full font-medium text-left hover:border-transparent focus:outline-none border border-b-0 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800" data-accordion-target="#accordion-collapse-body-1" aria-expanded="true" aria-controls="accordion-collapse-body-1">
-                            <span>Terms & Conditions</span>
-                            </button>
+                            <router-link :to="{ name: 'terms' }" class="flex items-center px-0 text-main-color justify-between w-full font-medium text-left hover:border-transparent focus:outline-none border border-b-0 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800"><span>Terms & Conditions</span></router-link>
                         </h2>
                         <div id="accordion-collapse-body-1" class="hidden" aria-labelledby="accordion-collapse-heading-1">
                             <div class=" dark:bg-gray-900">
@@ -74,9 +70,7 @@
                     <p class="text-justify text-gray-500 text-sm">Explore the essence of Tiklipy's gift - the ultimate companion for every teacher! This token of appreciation offers a full year of free access to Tiklipy's powerful teaching tools, providing the perfect way to brighten an educator's day.</p>
                     <div id="accordion-collapse" data-accordion="collapse">
                         <h2 id="accordion-collapse-heading-1">
-                            <button type="button" class="flex items-center px-0 text-main-color justify-between w-full font-medium text-left hover:border-transparent focus:outline-none border border-b-0 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800" data-accordion-target="#accordion-collapse-body-1" aria-expanded="true" aria-controls="accordion-collapse-body-1">
-                            <span>Terms & Conditions</span>
-                            </button>
+                            <router-link :to="{ name: 'terms' }" class="flex items-center px-0 text-main-color justify-between w-full font-medium text-left hover:border-transparent focus:outline-none border border-b-0 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800"><span>Terms & Conditions</span></router-link>
                         </h2>
                         <div id="accordion-collapse-body-1" class="hidden" aria-labelledby="accordion-collapse-heading-1">
                             <div class=" dark:bg-gray-900">
