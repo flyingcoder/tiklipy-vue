@@ -4,6 +4,7 @@ import homeRouter from "./routes/home.js";
 import assetRouter from "./routes/assets.js";
 import apiRouter from "./routes/api.js";
 import pino from './logger.js';
+import siteMap from "./routes/sitemap.js";
 
 // Initialize Express app
 const app = express();
@@ -18,6 +19,7 @@ app.use(pino);
 app.use("/api/v1", apiRouter);
 
 if (process.env.NODE_ENV === "production") {
+  app.use("/sitemap.xml", siteMap);
   app.use("/", express.static(distPath));
 } else {
   //import alvinRoutes from "./routes/alvin.js";
