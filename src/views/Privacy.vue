@@ -46,7 +46,7 @@
             <p>You can opt out of third-party communication by contacting us at https://www.tiklipy.com.</p>
 
             <h4 class="text-lg font-semibold mt-8 mb-4"><strong>5. Email Participation: Are We Involved in E-Communications?</strong></h4>
-            <p>We may contact you via email for announcements, offers, confirmations, and communication related to Tiklipy. You can unsubscribe from marketing emails or contact us at help@tiklipy.com.</p>
+            <p>We may contact you via email for announcements, offers, confirmations, and communication related to Tiklipy. You can unsubscribe from marketing emails or contact us at <router-link :to="{name: 'contact'}" class="cursor-pointer">help@tiklipy.com</router-link>.</p>
 
             <h4 class="text-lg font-semibold mt-8 mb-4"><strong>6. Tracking Technologies: Do We Use Cookies and More?</strong></h4>
             <p>We may use cookies and tracking technologies to enhance your online experience. Cookies, web beacons, and pixels save time and facilitate personalized features.</p>
