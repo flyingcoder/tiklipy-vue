@@ -1,6 +1,6 @@
 <script setup>
     import { ref, computed } from 'vue';
-    import { Textarea, Button, Input } from 'flowbite-vue';
+    import { Textarea, Button, Input, Alert } from 'flowbite-vue';
     import { useAuthStore } from '../../stores/auth';
     import expressModel from "../../models/express";
     import dayjs from "dayjs";
@@ -10,6 +10,7 @@
     const name = ref('');
     const role = ref('');
     const selectedRating = ref(0);
+    const showReviewAlert = ref(false);
     const star = ref(0);
     const hoverRating = ref(0);
     const ratings = [1, 2, 3, 4, 5];
@@ -48,9 +49,24 @@
         }
 
         backEndModel.addReviews(review);
+
+        name.value = '';
+        role.value = '';
+        star.value = 0;
+        selectedRating.value = 0;
+        message.value = '';
+
+        showReviewAlert.value = true;
+
+        setTimeout(() => {
+            showReviewAlert.value = false;
+        }, 8000);
     }
 </script>
 <template>
+    <Alert type="success" v-if="showReviewAlert" closable title="Thankyou for Your Feedback" :inline="false" :class="showReviewAlert ? 'animate__animated animate__fadeInRightBig' : 'animate__animated animate__fadeOutRightBig'" class="mb-2 fixed bottom-0 right-0 w-[400px]">
+        Thank you so much for taking the time to leave a review! Your feedback is greatly appreciated, and it means a lot to us.
+    </Alert>
     <div class="flex flex-wrap max-md:flex-col-reverse">
         <div class="md:w-[48%] lg:w-1/3 p-6 bg-white text-gray-800 rounded-lg shadow-md m-1 lg:mx-3 ">
             <div class="text-black mb-2">
