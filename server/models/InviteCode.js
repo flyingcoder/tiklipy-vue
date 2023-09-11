@@ -28,9 +28,9 @@ class InviteCodeModel {
         }
     }
 
-    async verifyCode(code) {
+    async verifyCode(data) {
         try {
-            const queryRef = this.col.where('code', '==', code);
+            const queryRef = this.col.where('code', '==', data);
             const snaps = await queryRef.get();
             const code = snaps.docs.map((snap) => ({ ...snap.data() }));
             return code;
