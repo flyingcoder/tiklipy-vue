@@ -211,7 +211,7 @@
                             <div class="relative d-flex" v-if="input.inputType === 'textarea'">
                                 <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{input.label}}</label>
                                 <div class="lg:flex">
-                                    <textarea id="message" :rows="input.rows" v-model="formStore.inputs[index].value" placeholder="Write here" @blur="tooltip(index, false)" @focus="tooltip(index, true)" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" autocomplete="off"></textarea>
+                                    <textarea id="message" contenteditable  v-model="formStore.inputs[index].value" placeholder="Write here" @blur="tooltip(index, false)" @focus="tooltip(index, true)" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" autocomplete="off"></textarea>
                                     <div :class="!formStore.inputs[index].tooltipValue ? 'hidden' : ''" class="w-full border-[1px] border-gray-300 bg-white max-w-[14rem] right-[-15rem] lg:absolute text-black z-10 px-2 py-2 text-sm font-medium rounded-lg shadow-sm tooltip flex max-lg:mt-[5px]">
                                         <i class="ti ti-bulb-filled text-xl text-yellow-300"></i>&nbsp;<br>
                                         <span class="pl-[4px] pt-[3px] break-word"> 
@@ -220,7 +220,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="relative" v-if="input.inputType === 'text'">
+                            <div class="relative" v-if="input.inputType === 'text' || input.inputType === 'input'">
                                 <label for="first_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{input.label}}</label>
                                 <div class="lg:flex">
                                     <input type="text" id="first_name" v-model="formStore.inputs[index].value" @blur="tooltip(index, false)" @focus="tooltip(index, true)" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write here " autocomplete="off">
