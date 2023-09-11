@@ -7,9 +7,15 @@
     const email = ref('');
 
     const saveToFireBase = () => {
-        if(email.value)
+        if (isValidEmail(email.value) && email.value) 
             backEndModel.addNewsletter(email.value);
+        
     }
+
+    const isValidEmail = (email) => {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    };
 
     const scrollToSection = (sectionId) => {
         const section = document.getElementById(sectionId);
