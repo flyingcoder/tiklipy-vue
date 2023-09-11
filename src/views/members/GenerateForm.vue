@@ -241,8 +241,8 @@
                         <div class="w-full py-4 animate__animated generated-value" id="generated-resources" v-html="generatedResource">
                         </div>
                     </div>
-                    <div class="block" v-if="generatedResource">
-                        <div class="flex mt-8" v-if="formStore.type == 'lesson-plan'">
+                    <div class="block">
+                        <div class="flex mt-8">
                             <Button v-if="!assessmentSaved" color="default" @click="generateAssessments()" class="p-2 mr-3 font-semibold uppercase border-0 bg-main-color hover:bg-secondary-color">
                                 <i class="mr-2 text-xl align-middle ti ti-playlist-add"></i>
                                 Generate Assessments
