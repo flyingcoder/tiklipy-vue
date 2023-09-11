@@ -1,6 +1,7 @@
 <script setup>
-    import { Button } from 'flowbite-vue';
-    import { Accordion, AccordionPanel, AccordionHeader, AccordionContent } from 'flowbite-vue';
+    import { ref } from 'vue';
+    import { Accordion, AccordionPanel, Button, AccordionHeader, AccordionContent } from 'flowbite-vue';
+    const price = 399;
 </script>
 <template>
     <div class="container mx-auto my-7 text-center px-3">
@@ -13,7 +14,7 @@
                 <div class="justify-between flex text-gray-700 text-base font-medium !outline-0 !border-0">
                     <div class="self-center">1 Month Subscription</div>
                     <div>
-                        <span class="pr-3">₱500</span>
+                        <span class="pr-3">₱{{ price }}</span>
                         <Button class="!outline-0 !border-0 bg-main-color font-semibold transition duration-240 rounded-md hover:bg-secondary-color hover:shadow-md hover:shadow-[#646cffa6]">Buy</Button>
                     </div>
                     
@@ -39,7 +40,7 @@
                 <div class="justify-between flex text-gray-700 text-base font-medium">
                     <div class="self-center">3 Months Subscription</div>
                     <div>
-                        <span class="pr-3">₱1500</span>
+                        <span class="pr-3">₱{{ price * 3 }}</span>
                         <Button class="border-0 bg-main-color font-semibold transition duration-240 rounded-md hover:bg-secondary-color hover:shadow-md hover:shadow-[#646cffa6]">Buy</Button>
                     </div>
                     
@@ -65,7 +66,7 @@
                 <div class="justify-between flex text-gray-700 text-base font-medium">
                     <div class="self-center">1 Year Subscription</div>
                     <div>
-                        <span class="pr-3">₱3500</span>
+                        <span class="pr-3">₱{{ price * 7 }}</span>
                         <Button class="border-0 bg-main-color font-semibold transition duration-240 rounded-md hover:bg-secondary-color hover:shadow-md hover:shadow-[#646cffa6]">Buy</Button>
                     </div>
                 </div>
@@ -90,7 +91,7 @@
                     <p class="text-justify text-gray-500 text-xs pb-2">Claiming your Tiklipy Gift Card is effortless. Just head over to www.tiklipy.com and create an account. While signing up, you'll come across a section that reads 'Apply a Discount Code.' Give it a click and input your special Gift Card code. And that's all it takes - you're good to go!</p>
                     <p class="text-justify text-gray-500 text-xs py-2">Already a Tiklipy user? Don't worry, redeeming your Gift Card is a breeze. Simply go to 'Account Settings' and choose 'Plan'. From there, you'll find the 'Add a Discount Code' option where you can easily enter your Gift Card code.</p>
                     <p class="text-justify text-gray-500 text-xs py-2">Need assistance? Contact us at: hello@tiklipy.com</p>
-                    <a href="#" class="text-center text-xs underline">Check your Tiklipy gift code balance.</a>
+                    <!-- <a href="#" class="text-center text-xs underline">Check your Tiklipy gift code balance.</a> -->
                 </div>
             </div>
         </div>

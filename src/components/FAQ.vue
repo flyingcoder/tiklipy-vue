@@ -1,5 +1,8 @@
 <script setup>
+    import { ref } from 'vue';
     import { Accordion, AccordionPanel, AccordionHeader, AccordionContent } from 'flowbite-vue';
+
+    const price = 399;
 </script>
 <style>
 .FAQ button:focus,
@@ -46,7 +49,7 @@
                 <accordion-header>What is the billing process like?</accordion-header>
                 <accordion-content>
                     <div>
-                        <p class="mb-2 text-gray-500 dark:text-gray-400 border-0">Tiklipy's subscription plan offers convenience and great value. For $10 per month, you can access and utilize all of Tiklipy's features on multiple devices. Our prices are set, and there are no additional charges. Furthermore, you have the flexibility to cancel your subscription at any time.</p>
+                        <p class="mb-2 text-gray-500 dark:text-gray-400 border-0">Tiklipy's subscription plan offers convenience and great value. For ₱399 per month, you can access and utilize all of Tiklipy's features on multiple devices. Our prices are set, and there are no additional charges. Furthermore, you have the flexibility to cancel your subscription at any time.</p>
                     </div>
                 </accordion-content>
                 </accordion-panel>
@@ -62,7 +65,7 @@
                 <accordion-header>What are the terms for cancelling a subscription?</accordion-header>
                 <accordion-content>
                     <div>
-                    <p class="mb-2 text-gray-500 dark:text-gray-400">Tiklipy's subscription plan offers convenience and great value. For $10 per month, you can access and utilize all of Tiklipy's features on multiple devices. Our prices are set, and there are no additional charges. Furthermore, you have the flexibility to cancel your subscription at any time.</p>
+                    <p class="mb-2 text-gray-500 dark:text-gray-400">Tiklipy's subscription plan offers convenience and great value. For ₱399 per month, you can access and utilize all of Tiklipy's features on multiple devices. Our prices are set, and there are no additional charges. Furthermore, you have the flexibility to cancel your subscription at any time.</p>
                     </div>
                 </accordion-content>
                 </accordion-panel>
