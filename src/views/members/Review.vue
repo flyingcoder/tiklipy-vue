@@ -1,5 +1,5 @@
 <script setup>
-    import { ref } from 'vue';
+    import { ref, computed } from 'vue';
     import { Textarea, Button, Input } from 'flowbite-vue';
     import { useAuthStore } from '../../stores/auth';
     import expressModel from "../../models/express";
@@ -27,6 +27,14 @@
     function clearHover() {
         hoverRating.value = 0;
     }
+    
+    const haveContent = computed(() => {
+        return selectedRating.value > 0 &&
+            name.value.trim() !== '' &&
+            role.value.trim() !== '' &&
+            message.value.trim() !== '';
+    });
+
 
     const submitReview = () => {
         const review = {
@@ -54,11 +62,11 @@
                     </label>
                 </div>
             </div>
-            <Input size="md" label="Name" v-model="name" class="mb-2" />
-            <Input size="md" label="Role" v-model="role" class="mb-2" />
-            <Textarea rows="4" placeholder="Review" v-model="message" label="Your Review" class="mb-4" />
+            <Input size="md" label="Name" v-model="name" class="mb-2" required/>
+            <Input size="md" label="Role" v-model="role" class="mb-2" required />
+            <Textarea rows="4" placeholder="Review" v-model="message" required label="Your Review" class="mb-4" />
             <div class="flex justify-center">
-                <Button type="submit" size="lg" @click="submitReview" class="w-full bg-main-color text-center hover:bg-secondary-color mt-4 border-0 text-sm font-semibold">Submit</Button>
+                <Button type="submit" size="lg" @click="submitReview" :disabled="!haveContent" impo class="w-full bg-main-color text-center hover:bg-secondary-color mt-4 border-0 text-sm font-semibold">Submit</Button>
             </div>
         </div>
         <div class="md:w-[48%] lg:w-[60%] p-6 bg-[#fbfbfb] rounded-lg shadow-md m-1 lg:mx-3 ">
