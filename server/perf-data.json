@@ -1,0 +1,16 @@
+[
+    {
+        "url": "/",
+        "changefreq": "monthly",
+        "img": [
+            {
+                "url": "/background.gif",
+                "caption": "Happy Students Learning With Tiklipy",
+                "title": "Space Exploration through Modern Education"
+            }
+        ],
+        "priority": 0.3
+    },
+    { "url": "/about", "changefreq": "monthly", "priority": 0.3 },
+    { "url": "/helps", "changefreq": "monthly", "priority": 0.3 }
+]
