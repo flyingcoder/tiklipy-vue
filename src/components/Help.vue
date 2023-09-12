@@ -39,8 +39,10 @@
                 {{ethics.title}}
             </BreadcrumbItem>
         </Breadcrumb>
-        <div class="text-gray-800 text-4xl font-semibold mt-6 mb-3">{{ ethics.title }}</div>
-        <div class="text-xl text-gray-700 font-medium" v-html="ethics.content"></div>
+        <div class="bg-white px-5 py-5 mt-5 rounded-lg">
+            <div class="text-gray-800 text-4xl font-semibold mb-5">{{ ethics.title }}</div>
+            <div class="text-xl text-gray-700 font-medium" v-html="ethics.content"></div>
+        </div>
     </div>
 </div>
 </template>
