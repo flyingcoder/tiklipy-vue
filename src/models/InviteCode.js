@@ -17,7 +17,8 @@ class InviteCodeModel {
     async useCode(code) {
         const authStore = useAuthStore();
         try {
-            return await axios.put('/api/v1/auth/codes', { code: code, email: authStore.user.email })
+            axios.defaults.headers.common['Authorization'] = auth?.currentUser?.accessToken;
+            return await axios.put('/api/v1/codes', { code: code, email: authStore.user.email })
                               .then((res) => res.data.done );
         } catch (error) {
             console.log(error);
