@@ -1,5 +1,5 @@
 <script setup>
-    import { ref } from 'vue';
+    import { ref, onMounted } from 'vue';
     import Accountancy from '../components/Accountancy.vue';
     import Applications from '../components/Applications.vue';
     import Assistance from '../components/Assistance.vue';
@@ -7,11 +7,24 @@
     import Initiation from '../components/Initiation.vue';
     import Knowhow from '../components/Knowhow.vue';
     import Visual from '../components/Visuals.vue';
-    
-    const activeView = ref('initiation');
+    import { useRoute, useRouter } from 'vue-router';
+
+    const route = useRoute();
+    const router = useRouter();
+    const activeView = ref(null);
+
+    onMounted(() => {
+        const setActiveView = (slug) => {
+            activeView.value = slug;
+        };
+        if(!route.params.category)
+            activeView.value = 'initiation'
+    });
 
     const setActiveView = (view) => {
-        activeView.value = view;
+        if (!route.params.category) {
+            activeView.value = view;
+        }
     };
 
     const isViewActive = (view) => {
@@ -36,19 +49,19 @@
         </div> -->
         <ul class=" justify-center text-sm font-medium text-center divide-gray-200 flex flex-wrap dark:divide-gray-700 dark:text-gray-400 px-4">
             <li class="w-[49%] max-w-fit " @click="setActiveView('initiation')">
-                <a class="inline-block w-full p-4 text-white font-semibold cursor-pointer rounded-lg xl:!rounded-t-xl xl:!rounded-b-none  transition duration-200	 bg-secondary-color hover:text-white hover:bg-[#a1a7e3] focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700" :class="{ '!text-black !bg-white': isViewActive('initiation') }">Tiklipy Initiation</a>
+                <a class="inline-block w-full p-4 text-white font-semibold cursor-pointer rounded-lg xl:!rounded-t-xl xl:!rounded-b-none  transition duration-200	 bg-secondary-color hover:text-white hover:bg-[#a1a7e3] focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700" :class="[ {'!text-black !bg-white': isViewActive('initiation') || route.params.category === 'initiation'}, route.params.category ? 'hover:bg-transparent !cursor-default' : '' ]">Tiklipy Initiation</a>
             </li>
             <li class="w-[49%] max-w-fit " @click="setActiveView('knowhow')">
-                <a class="inline-block w-full p-4 text-white font-semibold cursor-pointer rounded-lg xl:!rounded-t-xl  xl:!rounded-b-none   transition duration-200	 bg-secondary-color hover:text-white hover:bg-[#a1a7e3] focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700" :class="{ '!text-black !bg-white': isViewActive('knowhow') }">Tiklipy Knowhow</a>
+                <a class="inline-block w-full p-4 text-white font-semibold cursor-pointer rounded-lg xl:!rounded-t-xl  xl:!rounded-b-none   transition duration-200	 bg-secondary-color hover:text-white hover:bg-[#a1a7e3] focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700" :class="[ {'!text-black !bg-white': isViewActive('knowhow') || route.params.category === 'knowhow'}, route.params.category ? 'hover:bg-transparent !cursor-default' : '' ]">Tiklipy Knowhow</a>
             </li>
             <li class="w-[49%] max-w-fit " @click="setActiveView('ethics')">
-                <a class="inline-block w-full p-4 text-white font-semibold cursor-pointer rounded-lg xl:!rounded-t-xl  xl:!rounded-b-none   transition duration-200	 bg-secondary-color hover:text-white hover:bg-[#a1a7e3] focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700" :class="{ '!text-black !bg-white': isViewActive('ethics') }">Tiklipy Ethics</a>
+                <a class="inline-block w-full p-4 text-white font-semibold cursor-pointer rounded-lg xl:!rounded-t-xl  xl:!rounded-b-none   transition duration-200	 bg-secondary-color hover:text-white hover:bg-[#a1a7e3] focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700" :class="[ {'!text-black !bg-white': isViewActive('ethics') || route.params.category === 'ethics'}, route.params.category ? 'hover:bg-transparent !cursor-default' : '' ]">Tiklipy Ethics</a>
             </li>
             <li class="w-[49%] max-w-fit " @click="setActiveView('applications')">
-                <a class="inline-block w-full p-4 text-white font-semibold cursor-pointer rounded-lg xl:!rounded-t-xl  xl:!rounded-b-none   transition duration-200	 bg-secondary-color hover:text-white hover:bg-[#a1a7e3] focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700" :class="{ '!text-black !bg-white': isViewActive('applications') }">Tiklipy Applications</a>
+                <a class="inline-block w-full p-4 text-white font-semibold cursor-pointer rounded-lg xl:!rounded-t-xl  xl:!rounded-b-none   transition duration-200	 bg-secondary-color hover:text-white hover:bg-[#a1a7e3] focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700" :class="[ {'!text-black !bg-white': isViewActive('applications') || route.params.category === 'applications'}, route.params.category ? 'hover:bg-transparent !cursor-default' : '' ]">Tiklipy Applications</a>
             </li>
             <li class="w-[49%] max-w-fit " @click="setActiveView('accountancy')">
-                <a class="inline-block w-full p-4 text-white font-semibold cursor-pointer rounded-lg xl:!rounded-t-xl  xl:!rounded-b-none   transition duration-200	 bg-secondary-color hover:text-white hover:bg-[#a1a7e3] focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700" :class="{ '!text-black !bg-white': isViewActive('accountancy') }">Tiklipy Accountancy</a>
+                <a class="inline-block w-full p-4 text-white font-semibold cursor-pointer rounded-lg xl:!rounded-t-xl  xl:!rounded-b-none   transition duration-200	 bg-secondary-color hover:text-white hover:bg-[#a1a7e3] focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700" :class="[ {'!text-black !bg-white': isViewActive('accountancy') || route.params.category === 'accountancy'}, route.params.category ? 'hover:bg-transparent !cursor-default' : '' ]">Tiklipy Accountancy</a>
             </li>
             <!-- <li class="w-[49%] max-w-fit " @click="setActiveView('assistance')">
                 <a class="inline-block w-full p-4 text-white font-semibold cursor-pointer rounded-lg xl:!rounded-t-xl  xl:!rounded-b-none   transition duration-200	 bg-secondary-color hover:text-white hover:bg-[#a1a7e3] focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700" :class="{ '!text-black !bg-white': isViewActive('assistance') }">Tiklipy Assistance</a>
@@ -58,7 +71,7 @@
             </li> -->
         </ul>
     </section>
-    <div class=" ">
+    <div class="text-black" v-if="route.path == '/helps'">
         <Accountancy v-if="isViewActive('accountancy')"/>
         <Applications v-if="isViewActive('applications')"/>
         <!-- <Assistance v-if="isViewActive('assistance')"/> -->
