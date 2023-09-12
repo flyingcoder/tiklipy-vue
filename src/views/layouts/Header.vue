@@ -35,7 +35,7 @@
 </script>
 <template>
     <!-- <LiveChat /> -->
-    <header class="relative z-40">
+    <header :class="{'bg-white' : route.name == 'about'}" class="relative z-40 ">
         <Navigation :class="isMenuHidden ? '' : ' max-lg:bg-white'">
             <template #right>
                 <router-link v-if="!isLoggedIn" :to="{ name: 'login' }" active-class="text-main-color dark:text-white" :class="{'max-lg:!text-black': !isMenuHidden, 'text-white' : route.name == 'home', 'text-grey-900' : route.name != 'home'}" class="block px-3 py-2 text-lg transition divide-gray-100 font-mediu max-xs:hidden dark:hover:text-main-color md:border-0 md:p-0 duration-240 ">
