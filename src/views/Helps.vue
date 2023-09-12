@@ -12,19 +12,20 @@
     const route = useRoute();
     const router = useRouter();
     const activeView = ref(null);
+    const title = ref('');
 
     onMounted(() => {
-        const setActiveView = (slug) => {
-            activeView.value = slug;
-        };
-        if(!route.params.category)
+        if(!route.params.category) {
             activeView.value = 'initiation'
+            title.value = 'How can Tiklipy help you effectively?';
+        } else {
+            title.value = route.params.category;
+        }
     });
 
     const setActiveView = (view) => {
-        if (!route.params.category) {
+        if (!route.params.category) 
             activeView.value = view;
-        }
     };
 
     const isViewActive = (view) => {
@@ -34,7 +35,7 @@
 <template>
     <section class="bg-secondary-color dark:bg-gray-900 ">
         <div class="py-2 px-4 mx-auto max-w-screen-xl text-center lg:py-16">
-            <h1 class="mb-9 text-4xl pt-7 font-semibold tracking-tight leading-none text-white md:text-3xl lg:text-5xl dark:text-white">How can Tiklipy help you effectively?</h1>
+            <h1 class="mb-9 text-4xl pt-7 font-semibold tracking-tight leading-none text-white md:text-3xl lg:text-5xl dark:text-white capitalize"> {{ title }}</h1>
            <p class="text-lg mt-5 font-light">Commonly Addressed Subjects: Tiklipy's Functionality, Billing Queries, and FAQs.</p>
         </div>
         
