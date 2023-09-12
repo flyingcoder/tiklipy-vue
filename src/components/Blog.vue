@@ -31,20 +31,22 @@ const getData = () => {
 };
 </script>
 <template>
-    
-<div class="px-4 mx-auto max-w-screen-xl text-center m-auto">
-    <img :src="blog.featuredImage" alt="">
-</div>
-<div class="container mx-auto pb-8 text-black">
-    <div class="container mx-auto pb-8 text-black">
-        <div class="max-w-3xl mx-auto px-4 pb-4">
-            <!-- <div class="text-gray-800 text-2xl midlg:text-5xl font-semibold text-center">{{ blog.title }}</div> -->
-            <Avatar status="online" class="flex justify-center mb-5" size="lg" rounded :img="blog.authorImage" />
-            <div class="text-center mb-12">
-                <span class="font-semibold text-gray-700 text-lg">{{blog.author}}</span>
-                <div class="flex justify-center mt-2 text-sm text-gray-700">
-                    <div class="pr-4">{{ dayjs(blog.dateCreated).format("MMMM D, YYYY") }}</div>
-                    <div class="pl-4">{{blog.readTime}}</div>
+<div class="container mx-auto text-black sm:px-8">
+    <div class="container mx-auto text-black">
+        <div class="max-w-3xl mx-auto mx-3 max-xs:p-3 max-md:p-10 p-24 pt-8 my-10 bg-white rounded-2xl">
+            <img class="w-[40rem] m-auto pb-3 xs:pb-8" :src="blog.featuredImage" alt="">
+            <div class="font-bold text-gray-700 text-xl text-center mb-5" >{{ blog.title }}</div>
+            <div class="text-center ">
+                <div class=" justify-center mt-2 text-sm text-gray-700 mb-3">
+                    <div class="">Published: {{ dayjs(blog.dateCreated).format("MMMM D, YYYY") }}</div>
+                    <div class="">Duration: {{blog.readTime}}</div>
+                </div>
+            </div>
+            <div class="flex align-center content-center justify-center mb-12">
+                <Avatar status="online" class="flex justify-center" size="md" rounded :img="blog.authorImage" />
+                <div class="grid ml-3">
+                    <span class="font-semibold text-gray-700 text-lg">{{blog.author}}</span>
+                    <span class="text-black text-xs -mt-2"> Author </span>
                 </div>
             </div>
 
