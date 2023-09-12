@@ -41,8 +41,7 @@
     
     const cardIsClick = (card) => {
         formStore.setFormDetails(card);
-        console.log(card);
-        // router.push({ name: 'generate' });
+        router.push({ name: 'generate' });
     }
 
     const getToolsData = async () => {
