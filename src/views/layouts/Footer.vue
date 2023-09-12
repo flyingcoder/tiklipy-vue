@@ -2,7 +2,9 @@
     import { ref } from 'vue';
     import { Input, Button } from 'flowbite-vue';
     import expressModel from "../../models/express";
+    import { useRoute } from "vue-router";
 
+    const route = useRoute();
     const backEndModel = new expressModel();
     const email = ref('');
     const isSubmitted = ref(false);
@@ -32,7 +34,7 @@
 </script>
 
 <template>
-    <div>
+    <div :class="{'shadow-black shadow-lg' : route.name == 'about'}">
         <div class="container mx-auto">
             <footer class="dark:bg-gray-900">
                 <div class="mx-auto w-full p-4 pb-6 pt-16">
