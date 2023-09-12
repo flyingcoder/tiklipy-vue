@@ -5,6 +5,7 @@
     const price = 399;
 </script>
 <style>
+
 .FAQ button:focus,
 .FAQ button:active,
 .FAQ button:focus-within,
@@ -14,12 +15,16 @@
 .FAQ button:focus-visible {
     outline: 0px !important;
     --tw-ring-opacity:0px !important;
-    background: transparent;
+    background: transparent !important;
     border-color:#646cff !important;
     color: #646cff;
 }
+.FAQ .no-border button{
+    border-bottom: 0px !important;
+}
 .FAQ button {
     color:#000;
+    background: transparent !important;
     border: 0px;
     border-bottom: 1px solid;
     border-radius: 0px;
@@ -44,10 +49,10 @@
                 <h2 class="mb-3 md:mb-10 text-3xl md:text-5xl font-semibold text-center uppercase text-main-color">Frequently Asked Questions</h2>
                 <p class="text-center text-black mt-3 text-gray-700 text-xl mb-5">Tiklipy Common Questions: Find quick resolutions to familiar Tiklipy concerns.</p>
             </div>
-            <Accordion flush>
+            <Accordion flush class="bg-white px-5 rounded-2xl">
                 <accordion-panel>
-                <accordion-header>What is the billing process like?</accordion-header>
-                <accordion-content>
+                <accordion-header class="test1">What is the billing process like?</accordion-header>
+                <accordion-content class="test2">
                     <div>
                         <p class="mb-2 text-gray-500 dark:text-gray-400 border-0">Tiklipy's subscription plan offers convenience and great value. For ₱399 per month, you can access and utilize all of Tiklipy's features on multiple devices. Our prices are set, and there are no additional charges. Furthermore, you have the flexibility to cancel your subscription at any time.</p>
                     </div>
@@ -103,7 +108,7 @@
                 </accordion-content>
                 </accordion-panel>
                 <accordion-panel>
-                <accordion-header>What sets Tiklipy apart from ChatGPT?</accordion-header>
+                <accordion-header class="no-border">What sets Tiklipy apart from ChatGPT?</accordion-header>
                 <accordion-content>
                     <div>
                     <p class="mb-2 text-gray-500 dark:text-gray-400">Tiklipy is uniquely built to cater to the specific needs of learning and development. It is designed to help users achieve impactful results without the need for complex commands or prompts. This sets Tiklipy apart from platforms like ChatGPT, as it is specifically tailored to support individuals in the field of learning and development, regardless of their role or background.</p>

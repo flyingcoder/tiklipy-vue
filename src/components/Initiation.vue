@@ -25,7 +25,7 @@
 </script>
 <template>
     <div class="flex flex-wrap text-black mt-16 gap-[1%] px-3 ">
-        <router-link v-for="(data, index) in initiation" :key="index + '-initiate'" class="flex w-full md:w-[47%] lg:w-[32%] xl:w-[24%] justify-center " :to="{ name: 'helps', params: { slug: data.slug } }">
+        <router-link v-for="(data, index) in initiation" :key="index + '-initiate'" class="flex w-full md:w-[47%] lg:w-[32%] xl:w-[24%] justify-center " :to="{ name: 'helps', params: { category: data.category, slug: data.slug } }">
             <the-card href="#" class="!max-w-[100%] bg-white rounded-lg mb-5 flex border-none rounded-lg shadow-none hover:bg-white hover:shadow-md bg-[url('/p-1.png')] bg-no-repeat bg-contain" style="">
                 <div class="p-4  dark:bg-gray-800 dark:border-gray-700">
                     <img src="/tiklipy-logo-icon.png" class="" width="70" alt="">

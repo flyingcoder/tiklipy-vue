@@ -4,7 +4,7 @@
 
 <template>
     <div class="container mx-auto p-3 md:py-8 md:my-10 text-black">
-        <div class="max-w-3xl mx-auto p-6 bg-white rounded-xl shadow-md">
+        <div class="max-w-3xl mx-auto p-4 sm:p-10 md:p-24 bg-white rounded-xl shadow-md">
 
             <h1 class="text-3xl font-semibold mb-4 text-center">End-User License Agreement</h1>
             <p class="mb-6 text-center">Effective Date: August 29, 2023</p>

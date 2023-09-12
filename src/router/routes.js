@@ -24,7 +24,7 @@ const routes = [
             { path: '/', name: 'home', component: Home },
             { path: '/about', name: 'about', component: About },
             { path: '/helps', name: 'help', component: Helps },
-            { path: '/helps/:slug', name: 'helps', component: Help },
+            { path: '/helps/:category/:slug', name: 'helps', component: Help },
             { path: '/blogs', name: 'blogs', component: Blogs },
             { path: '/blogs/:slug', name: 'blog', component: Blog },
             { path: '/pricing', name: 'pricing', component: Pricing },
@@ -34,7 +34,6 @@ const routes = [
             { path: '/legal/privacy', name: 'privacy', component: Privacy },
             { path: '/send-gifts', name: 'gifts', component: SendGift },
             { path: '/faq', name: 'faq', component:  FAQ },
-            { path: '/featured', name: 'featured', component: Featured },
             { path: '/contact', name: 'contact', component: Contact },
         ]
     },{ 

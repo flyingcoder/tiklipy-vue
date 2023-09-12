@@ -2,13 +2,21 @@
     import { ref } from 'vue';
     import { Input, Button } from 'flowbite-vue';
     import expressModel from "../../models/express";
+    import { useRoute } from "vue-router";
 
+    const route = useRoute();
     const backEndModel = new expressModel();
     const email = ref('');
+    const isSubmitted = ref(false);
 
     const saveToFireBase = () => {
         if (isValidEmail(email.value) && email.value) 
             backEndModel.addNewsletter(email.value);
+            isSubmitted.value = true;
+
+            setTimeout(() => {
+                isSubmitted.value = false;
+            }, 6000);
         
     }
 
@@ -26,10 +34,10 @@
 </script>
 
 <template>
-    <div>
+    <div :class="{'shadow-black shadow-lg' : route.name == 'about'}">
         <div class="container mx-auto">
             <footer class="dark:bg-gray-900">
-                <div class="mx-auto w-full p-4 py-16 lg:py-20">
+                <div class="mx-auto w-full p-4 pb-6 pt-16">
                     <div class="flex flex-row flex-wrap justify-between">
                         <div class="basis-full lg:basis-2/12">
                                 <div class="mb-6 md:mb-0">
@@ -81,12 +89,18 @@
                             <div class="w-full">
                                 <Input size="lg" type="email" v-model="email" placeholder="Email Address" class="bg-transparent-input">
                                     <template #suffix>
-                                    <Button @click="saveToFireBase" class="border-0 transition duration-240 rounded-md bg-main-color hover:shadow-md hover:shadow-[#969cf9] hover:bg-secondary-color max-xs:hidden">Join</Button>
+                                        <Button @click="saveToFireBase" :class="isSubmitted ? '-m-[3px]': ''" class="border-0 transition duration-240 rounded-md bg-main-color hover:shadow-md hover:shadow-[#969cf9] hover:bg-secondary-color max-xs:hidden">
+                                            <span v-if="!isSubmitted">Join</span>
+                                            <i v-else class="ti ti-check text-lg font-semibold text-green-400"></i>
+                                        </Button>
                                     </template>
                                 </Input>
-                                <Button @click="saveToFireBase" class="!text-base xs:hidden w-full mt-3 py-4  border-0 transition duration-240 rounded-md bg-main-color hover:shadow-md hover:shadow-[#969cf9] hover:bg-secondary-color">Join</Button>
+                                <Button @click="saveToFireBase" :class="isSubmitted ? '-m-[3px]': ''" class="!text-base xs:hidden w-full mt-3 py-4  border-0 transition duration-240 rounded-md bg-main-color hover:shadow-md hover:shadow-[#969cf9] hover:bg-secondary-color">
+                                    <span v-if="!isSubmitted">Join</span>
+                                    <i v-else class="ti ti-check text-lg font-semibold text-green-400"></i>
+                                </Button>
                             </div>
-                            <div class="max-xs:text-black mt-3  text-sm">We care about your privacy</div>
+                            <div class="text-black mt-3  text-sm">We care about your privacy</div>
                         </div>
                     </div>
                     <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:mb-8 mt-16" />
