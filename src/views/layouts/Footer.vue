@@ -29,7 +29,7 @@
     <div>
         <div class="container mx-auto">
             <footer class="dark:bg-gray-900">
-                <div class="mx-auto w-full p-4 py-16 lg:py-20">
+                <div class="mx-auto w-full p-4 pb-6 pt-16">
                     <div class="flex flex-row flex-wrap justify-between">
                         <div class="basis-full lg:basis-2/12">
                                 <div class="mb-6 md:mb-0">
@@ -86,7 +86,7 @@
                                 </Input>
                                 <Button @click="saveToFireBase" class="!text-base xs:hidden w-full mt-3 py-4  border-0 transition duration-240 rounded-md bg-main-color hover:shadow-md hover:shadow-[#969cf9] hover:bg-secondary-color">Join</Button>
                             </div>
-                            <div class="max-xs:text-black mt-3  text-sm">We care about your privacy</div>
+                            <div class="text-black mt-3  text-sm">We care about your privacy</div>
                         </div>
                     </div>
                     <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:mb-8 mt-16" />
