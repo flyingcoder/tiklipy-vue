@@ -13,6 +13,175 @@
     },
     { "url": "/about" },
     { "url": "/helps" },
+    {
+        "url": "/helps/what-s-tiklipy",
+        "news" : {
+            "publication" : {
+                "name": "Tiklipy",
+                "language": "en"
+            },
+            "genres": "Blog",
+            "publication_date": "2023-08-28",
+            "title": "What's Tiklipy",
+            "keywords": "Tiklipy, introduction, technology, software"
+        }
+    },
+    {
+        "url": "/helps/the-fundamentals",
+        "news" : {
+            "publication" : {
+                "name": "Tiklipy",
+                "language": "en"
+            },
+            "genres": "Blog",
+            "publication_date": "2023-08-28",
+            "title": "The Fundamentals",
+            "keywords": "Tiklipy, basics, principles, usage"
+        }
+    },
+    {
+        "url": "/helps/tiklipy-in-action",
+        "news" : {
+            "publication" : {
+                "name": "Tiklipy",
+                "language": "en"
+            },
+            "genres": "Blog",
+            "publication_date": "2023-08-28",
+            "title": "Tiklipy in Action",
+            "keywords": "Tiklipy, demonstration, application, use cases"
+        }
+    },
+    {
+        "url": "/helps/introducing-tiklipy",
+        "news" : {
+            "publication" : {
+                "name": "Tiklipy",
+                "language": "en"
+            },
+            "genres": "Blog",
+            "publication_date": "2023-08-28",
+            "title": "Introducing Tiklipy",
+            "keywords": "Tiklipy, introduction, overview, features"
+        }
+    },
+    {
+        "url": "/helps/tiklipys-operation",
+        "news" : {
+            "publication" : {
+                "name": "Tiklipy",
+                "language": "en"
+            },
+            "genres": "Blog",
+            "publication_date": "2023-08-28",
+            "title": "Tiklipy's Operation",
+            "keywords": "Tiklipy, functioning, operations, processes"
+        }
+    },
+    {
+        "url": "/helps/how-tiklipy-ai-operates",
+        "news" : {
+            "publication" : {
+                "name": "Tiklipy",
+                "language": "en"
+            },
+            "genres": "Blog",
+            "publication_date": "2023-08-28",
+            "title": "How Tiklipy AI Operates",
+            "keywords": "Tiklipy, AI, operation, technology"
+        }
+    },
+    {
+        "url": "/helps/utilizing-tools-within-a-workflow",
+        "news" : {
+            "publication" : {
+                "name": "Tiklipy",
+                "language": "en"
+            },
+            "genres": "Blog",
+            "publication_date": "2023-08-28",
+            "title": "Utilizing Tools Within a Workflow",
+            "keywords": "Tiklipy, tools, workflow, productivity"
+        }
+    },
+    {
+        "url": "/helps/defining-the-optimal-input",
+        "news" : {
+            "publication" : {
+                "name": "Tiklipy",
+                "language": "en"
+            },
+            "genres": "Blog",
+            "publication_date": "2023-08-28",
+            "title": "Defining the Optimal Input",
+            "keywords": "Tiklipy, input, optimization, best practices"
+        }
+    },
+    {
+        "url": "/helps/%20will-tiklipy-replace-human-teachers%3F",
+        "news" : {
+            "publication" : {
+                "name": "Tiklipy",
+                "language": "en"
+            },
+            "genres": "Blog",
+            "publication_date": "2023-08-28",
+            "title": "Will AI Replace Human Teachers?",
+            "keywords": "Tiklipy, AI, education, teaching"
+        }
+    },
+    {
+        "url": "/helps/addressing-ethical-concerns",
+        "news" : {
+            "publication" : {
+                "name": "Tiklipy",
+                "language": "en"
+            },
+            "genres": "Blog",
+            "publication_date": "2023-08-28",
+            "title": "Addressing Ethical Concerns",
+            "keywords": "Tiklipy, ethics, concerns, AI"
+        }
+    },
+    {
+        "url": "/helps/privacy-and-pii-usage",
+        "news" : {
+            "publication" : {
+                "name": "Tiklipy",
+                "language": "en"
+            },
+            "genres": "Blog",
+            "publication_date": "2023-08-28",
+            "title": "Privacy and PII Usage",
+            "keywords": "Tiklipy, privacy, PII, data usage"
+        }
+    },
+    {
+        "url": "/helps/tiklipy-tools-and-engaging-with-text",
+        "news" : {
+            "publication" : {
+                "name": "Tiklipy",
+                "language": "en"
+            },
+            "genres": "Blog",
+            "publication_date": "2023-08-28",
+            "title": "Tiklipy Tools and Engaging with Text",
+            "keywords": "Tiklipy, tools, text, engagement"
+        }
+    },
+    {
+        "url": "/helps/billing",
+        "news" : {
+            "publication" : {
+                "name": "Tiklipy",
+                "language": "en"
+            },
+            "genres": "Blog",
+            "publication_date": "2023-08-28",
+            "title": "Billing",
+            "keywords": "Tiklipy, billing, payment, financial"
+        }
+    },
     { "url": "/blogs" },
     {
         "url": "/blogs/the-teachers-toolbox-unwrapping-the-top-10-educational-resources-for-private-tutors",
@@ -21,10 +190,10 @@
               "name": "Emmanuel",
               "language": "en"
             },
-            "genres": "PressRelease, Blog",
+            "genres": "Blog",
             "publication_date": "2023-08-29",
-            "title": "The Teacher's Toolbox: Unwrapping the Top10 Educational Resources for Private Tutors",
-            "keywords": "business, merger, acquisition, A, B"
+            "title": "The Teacher's Toolbox: Unwrapping the Top 10 Educational Resources for Private Tutors",
+            "keywords": "teacher, educational resources, private tutors, teaching tools"
         }
     },
     {
@@ -34,10 +203,10 @@
               "name": "Emmanuel",
               "language": "en"
             },
-            "genres": "PressRelease, Blog",
+            "genres": "Blog",
             "publication_date": "2023-08-29",
             "title": "7 Spectacular Teaching Strategies: A Survival Guide for Today's Classroom Heroes",
-            "keywords": "business, merger, acquisition, A, B"
+            "keywords": "teaching strategies, classroom heroes, education, survival guide"
         }
     },
     {
@@ -47,10 +216,10 @@
               "name": "Emmanuel",
               "language": "en"
             },
-            "genres": "PressRelease, Blog",
+            "genres": "Blog",
             "publication_date": "2023-08-29",
             "title": "Critical Skills for 21st-Century Educators: Serving the Meatloaf, Not the Brussel Sprouts",
-            "keywords": "business, merger, acquisition, A, B"
+            "keywords": "21st-century educators, critical skills, teaching, education"
         }
     },
     {
@@ -60,13 +229,12 @@
               "name": "Emmanuel",
               "language": "en"
             },
-            "genres": "PressRelease, Blog",
+            "genres": "Blog",
             "publication_date": "2023-08-28",
             "title": "Tiklipy and Artificial Intelligence (AI): An Amicable Overview",
-            "keywords": "business, merger, acquisition, A, B"
+            "keywords": "Tiklipy, artificial intelligence, AI, overview"
         }
     },
-    { "url": "/pricing" },
     { "url": "/features" },
     {
         "url": "/legal/license",
@@ -75,10 +243,39 @@
               "name": "Tiklipy",
               "language": "en"
             },
-            "genres": "PressRelease, Blog",
+            "genres": "Legal, License",
             "publication_date": "2023-08-28",
-            "title": "Terms of Use - Tiklipy",
-            "keywords": "business, merger, acquisition, A, B"
+            "title": "Terms of Use - Tiklipy License",
+            "keywords": "terms of use, license, legal documents"
         }
-    }
+    },
+    {
+        "url": "/legal/terms",
+        "news" : {
+            "publication" : {
+              "name": "Tiklipy",
+              "language": "en"
+            },
+            "genres": "Legal, Terms",
+            "publication_date": "2023-08-28",
+            "title": "Terms of Use - Tiklipy Terms",
+            "keywords": "terms of use, legal terms, legal documents"
+        }
+    },
+    {
+        "url": "/legal/privacy",
+        "news" : {
+            "publication" : {
+              "name": "Tiklipy",
+              "language": "en"
+            },
+            "genres": "Legal, Privacy",
+            "publication_date": "2023-08-28",
+            "title": "Terms of Use - Tiklipy Privacy",
+            "keywords": "terms of use, privacy policy, legal documents"
+        }
+    },
+    { "url": "/send-gifts" },
+    { "url": "/faq" },
+    { "url": "/contact" }
 ]
