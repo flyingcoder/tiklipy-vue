@@ -34,7 +34,6 @@ const routes = [
             { path: '/legal/privacy', name: 'privacy', component: Privacy },
             { path: '/send-gifts', name: 'gifts', component: SendGift },
             { path: '/faq', name: 'faq', component:  FAQ },
-            { path: '/featured', name: 'featured', component: Featured },
             { path: '/contact', name: 'contact', component: Contact },
         ]
     },{ 
