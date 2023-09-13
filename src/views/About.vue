@@ -3,7 +3,7 @@
 </script>
 <template>
     <div class="block pt-[0.1px] mt-0 text-black text-center ">
-        <div class="flex pt-1 mx-auto max-w-screen-midlg midlg:absolute sm:items-center xs:justify-center midlg:h-[600px] lg:h-[800px] midlg:w-[100vw] midlg:max-w-[unset] midlg:left-0 bg-center bg-cover bg-[url(About-background.png)] shadow-gray-100 shadow-lg">
+        <div class="flex pt-1 mx-auto max-w-screen-midlg midlg:absolute sm:items-center xs:justify-center midlg:h-[600px] lg:h-[800px] midlg:w-[100vw] midlg:max-w-[unset] midlg:left-0 bg-center bg-cover bg-[url(/About-background.png)] shadow-gray-100 shadow-lg">
             <div class="block xs:max-w-[25rem] md:max-w-[35rem] midlg:max-w-[40rem] lg:max-w-[50rem] m-[5vw] sm:m-20">
                 <h1 class="mb-8 text-4xl font-bold text-center text-gray-800 md:text-5xl lg:text-6xl capitalize !leading-snug">
                     Forging an innovative route to reshape the landscape of education.
