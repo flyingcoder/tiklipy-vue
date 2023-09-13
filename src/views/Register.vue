@@ -33,7 +33,7 @@
         let success = false; let done = false;
         if(pass) success = await authStore.loginVia(provider);
         if(success) done = await invite.useCode(inviteCode.value);
-        if (!done) googleLoginFailed(); else router.push({ name: 'dashboard' });
+        if (!done) googleLoginFailed('Your code is invalid! Kindly request a code from the administrator.'); else router.push({ name: 'dashboard' });
         loaderStore.toggle();
     }
 
