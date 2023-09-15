@@ -28,12 +28,12 @@ class InviteCodeModel {
         }
     }
 
-    async verifyCode(data) {
+    async verifyCode(code) {
         try {
-            const queryRef = this.col.where('code', '==', data);
-            const snaps = await queryRef.get();
-            const code = snaps.docs.map((snap) => ({ ...snap.data() }));
-            return code;
+            const queryRef = this.col.where('code', '==', code);
+            const snaps = await queryRef.get().then((snaps) => snaps );
+            if(!snaps.empty) return true;
+            else return false;
         } catch (error) {
             console.error("Error in verifying code:", error);
             return false;
