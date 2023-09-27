@@ -29,18 +29,17 @@ export const useUserStore = defineStore("user", {
     setUserSubscription(hasSubscription) {
       this.hasSubscription = hasSubscription;
     },
-    async stripePay(selectedPrice) {
+    async stripePay(selectedPrice, id) {
       const params = {
         price: selectedPrice,
         success_url: window.location.origin + '/thank-you',
         cancel_url: window.location.origin + '/payment-cancel'
       };
-
-      const doc = await addDoc(
-        collection( getFirestore(), "customers", this.uid, "checkout_sessions" ), 
-        params );
+      console.log(id);
+      const checkoutSessionsCollection = collection(getFirestore(), "customers", id, "checkout_sessions");
+      const docRef = await addDoc(checkoutSessionsCollection, params);
       
-      return doc;
+      return docRef;
     },
     setLessons(lessons) {
       this.lessons = lessons;

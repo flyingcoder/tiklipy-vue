@@ -254,6 +254,26 @@ class ExpressModel {
         }
     }
 
+    getChatGPTAPI() {
+        try {
+            axios.defaults.headers.common['Authorization'] = auth?.currentUser?.accessToken;
+            return axios.get('/api/v1/gpt-api');
+        } catch (error) {
+            console.log(error);
+            return false;
+        }
+    }
+
+    postChatGPTAPI(api) {
+        try {
+            axios.defaults.headers.common['Authorization'] = auth?.currentUser?.accessToken;
+            return axios.post('/api/v1/gpt-api', api);
+        } catch (error) {
+            console.log(error);
+            return false;
+        }
+    }
+
     updateTestimonial(data) {
         try {
             axios.defaults.headers.common['Authorization'] = auth?.currentUser?.accessToken;

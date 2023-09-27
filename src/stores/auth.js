@@ -45,7 +45,7 @@ export const useAuthStore = defineStore("auth", {
             try {
                 const userCred = await signInWithPopup(auth, provider);
                 this.user = userCred.user;
-                return true;
+                return this.user;
             } catch(error) {
                 console.log("Login via provider:", error);
                 return false;
