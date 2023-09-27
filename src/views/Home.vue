@@ -183,46 +183,46 @@
                 <h2 class="mb-5 text-xl font-semibold text-center text-main-color sm:text-4xl leading-[1.4rem]">
                     Discover effective strategies for handling challenging student behavior.
                 </h2>
-                <div class="text-center text-black">Immerse yourself in over 30 potent teaching tools. Write, organize, and discover boundless inspiration. Also, access expert advice whenever you need.</div>
+                <div class="text-center text-black">Immerse yourself in over 40 potent teaching tools. Write, organize, and discover boundless inspiration. Also, access expert advice whenever you need.</div>
             </div>
             <!-- Contents -->
             <div class="flex flex-wrap justify-center my-10 sm:justify-between">
-                <div  @click="tutorial('Lesson-plan.gif')" class="cursor-pointer sm:w-[49%] midlg:w-[30%] mb-4 md:mb-10 bg-white px-5 py-8 rounded-md">
+                <div  @click="tutorial('Lesson-plan.gif')" class="cursor-pointer w-full sm:w-[49%] midlg:w-[30%] mb-4 md:mb-10 bg-white px-5 py-8 rounded-md">
                     <div class="rounded-[100px] overflow-hidden bg-red-100 w-fit m-auto mb-5">
                         <img class="w-40 p-7" src="/Lifebuoy.svg" alt="">
                     </div>
                     <h2 class="pb-3 text-2xl font-semibold text-center text-black">Generate Lesson plan</h2>
                     <div class="text-center text-black">Craft a student-led, critical-thinking-focused lesson plan prioritizing exploration and discovery through clear organization.</div>
                 </div>
-                <div   @click="tutorial('/Report.gif')" class="cursor-pointer sm:w-[49%] midlg:w-[30%] mb-4 md:mb-10 bg-white px-5 py-8 rounded-md">
+                <div   @click="tutorial('/Report.gif')" class="cursor-pointer w-full sm:w-[49%] midlg:w-[30%] mb-4 md:mb-10 bg-white px-5 py-8 rounded-md">
                     <div class="rounded-[100px] overflow-hidden bg-yellow-100 w-fit m-auto mb-5">
                         <img class="w-40 p-7"  src="/Strategy.svg" alt="">
                     </div>
                     <h2 class="pb-3 text-2xl font-semibold text-center text-black">Auxiliary Report Generator</h2>
                     <div class="text-center text-black">Simplify your auxiliary assignment. Just share a few details, and Tiklipy will solve your problem.</div>
                 </div>
-                <div @click="tutorial('/Project.gif')" class="cursor-pointer sm:w-[49%] midlg:w-[30%] mb-4 md:mb-10 bg-white px-5 py-8 rounded-md">
+                <div @click="tutorial('/Project.gif')" class="cursor-pointer w-full sm:w-[49%] midlg:w-[30%] mb-4 md:mb-10 bg-white px-5 py-8 rounded-md">
                     <div class="rounded-[100px] overflow-hidden bg-blue-100 w-fit m-auto mb-5">
                         <img class="w-40 p-7" src="/Essay.svg" alt="">
                     </div>
                     <h2 class="pb-3 text-2xl font-semibold text-center text-black">Find a Project Idea</h2>
                     <div class="text-center text-black">Generate a project or activity that is aligned with your individual classroom needs.</div>
                 </div>
-                <div @click="tutorial('/Feedback.gif')" class="cursor-pointer sm:w-[49%] midlg:w-[30%] mb-4 md:mb-10 bg-white px-5 py-8 rounded-md">
+                <div @click="tutorial('/Feedback.gif')" class="cursor-pointer w-full sm:w-[49%] midlg:w-[30%] mb-4 md:mb-10 bg-white px-5 py-8 rounded-md">
                     <div class="rounded-[100px] overflow-hidden bg-green-100 w-fit m-auto mb-5">
                         <img class="w-40 p-7"  src="/Promotion.svg" alt="">
                     </div>
                     <h2 class="pb-3 text-2xl font-semibold text-center text-black">Receive Feedback</h2>
                     <div class="text-center text-black">Generate valuable insights and suggestions.</div>
                 </div>
-                <div @click="tutorial('/Experiment.gif')" class="cursor-pointer sm:w-[49%] midlg:w-[30%] mb-4 md:mb-10 bg-white px-5 py-8 rounded-md">
+                <div @click="tutorial('/Experiment.gif')" class="cursor-pointer w-full sm:w-[49%] midlg:w-[30%] mb-4 md:mb-10 bg-white px-5 py-8 rounded-md">
                     <div class="rounded-[100px] overflow-hidden bg-indigo-100 w-fit m-auto mb-5">
                         <img class="w-40 p-7"  src="/Medal.svg" alt="">
                     </div>
                     <h2 class="pb-3 text-2xl font-semibold text-center text-black">Find a Science or Math Experiment</h2>
                     <div class="text-center text-black">Finding captivating ways to test hypotheses through hands-on trials.</div>
                 </div>
-                <div @click="tutorial('/Advice.gif')" class="cursor-pointer sm:w-[49%] midlg:w-[30%] mb-4 md:mb-10 bg-white px-5 py-8 rounded-md">
+                <div @click="tutorial('/Advice.gif')" class="cursor-pointer w-full sm:w-[49%] midlg:w-[30%] mb-4 md:mb-10 bg-white px-5 py-8 rounded-md">
                     <div class="rounded-[100px] overflow-hidden bg-orange-100 w-fit m-auto mb-5">
                         <img class="w-40 p-7" src="/Learn.svg" alt="">
                     </div>
