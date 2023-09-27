@@ -20,6 +20,7 @@
 
     const props = defineProps({
       selectedPrice: String,
+      // id: String,
       showModal: Boolean,
     });
 
@@ -27,10 +28,12 @@
     const loaderStore = useLoaderStore();
     const userStore = useUserStore();
 
-    const getPaymentUrl = async () => {
-        const doc = await userStore.stripePay(props.selectedPrice)
+    const getPaymentUrl = async (uid) => {
+        const doc = await userStore.stripePay(props.selectedPrice, uid)
+        console.log(doc);
         onSnapshot(doc, (snap) => {
             const { error, url } = snap.data();
+            console.log(snap);
             if(error) {
               console.error("Stripe pay snapshot error:", error);
             }
@@ -62,8 +65,8 @@
     const registerVia = async (provider) => {
         loaderStore.isLoading = true;
         const success = await authStore.loginVia(provider);
-        if(success) {
-          await getPaymentUrl();
+        if(success) { 
+          await getPaymentUrl(success.uid);
         } else {
           //alert jr error message
           googleRegesterFail();
