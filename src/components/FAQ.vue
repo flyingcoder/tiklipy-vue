@@ -70,7 +70,7 @@
                 <accordion-header>What are the terms for cancelling a subscription?</accordion-header>
                 <accordion-content>
                     <div>
-                    <p class="mb-2 text-gray-500 dark:text-gray-400">Tiklipy's subscription plan offers convenience and great value. For ₱399 per month, you can access and utilize all of Tiklipy's features on multiple devices. Our prices are set, and there are no additional charges. Furthermore, you have the flexibility to cancel your subscription at any time.</p>
+                    <p class="mb-2 text-gray-500 dark:text-gray-400">We understand that circumstances can change. You have the flexibility to cancel your plan at any time.</p>
                     </div>
                 </accordion-content>
                 </accordion-panel>
@@ -86,7 +86,7 @@
                 <accordion-header>How frequently do you introduce new features?</accordion-header>
                 <accordion-content>
                     <div>
-                    <p class="mb-2 text-gray-500 dark:text-gray-400">We collaborate closely with prominent educators to ensure our toolkit continues to expand, incorporating fresh functionalities on a regular basis. Should you have any ideas, feel free to share them with us!</p>
+                    <p class="mb-2 text-gray-500 dark:text-gray-400">We collaborate closely with prominent educators to ensure our toolkit continues to expand, incorporating fresh functionalities on a regular basis. If you have any ideas, feel free to share them with us!</p>
                     </div>
                 </accordion-content>
                 </accordion-panel>
