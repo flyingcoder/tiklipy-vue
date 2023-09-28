@@ -2,6 +2,9 @@
     import { Breadcrumb, BreadcrumbItem } from 'flowbite-vue'
     import { ref } from 'vue';
     import { useRoute } from 'vue-router';
+    import { useIdentityStore } from "../../stores/siteIdentity";
+
+    const sitename = useIdentityStore();
     const route = useRoute();
 </script>
 <template>
@@ -29,7 +32,7 @@
                 <Breadcrumb class="text-gray-800">
                     <BreadcrumbItem href="/members" class="text-gray-600 transition duration-300 no-icon hover:text-gray-800">
                         <router-link :to="{name: 'dashboard'}">
-                            Tiklipy
+                            {{sitename.siteName}}
                         </router-link> 
                     </BreadcrumbItem>
                     <BreadcrumbItem class="font-semibold text-gray-800">

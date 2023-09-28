@@ -7,7 +7,9 @@
     import { useAuthStore } from "../stores/auth";
     import { useRouter } from "vue-router"; // Import useRouter
     // import LiveChat from '../../components/LiveChat.vue';
+    import { useIdentityStore } from "../stores/siteIdentity";
 
+    const sitename = useIdentityStore();
     const router = useRouter();
     const authStore = useAuthStore();
     const hovered = ref(false);
@@ -118,7 +120,7 @@
                 Your Loyal Superhero Sidekick!
             </h1>
             <p class="leading-7 text-white drop-shadow-[0px_2px_10px_#24242a] text-xl bg-[#24242a80]">
-                Because Every Teacher is a Superhero, and Every Superhero Deserves Tiklipy! Unleash Your Teaching Superpowers with AI: Elevate Education Effortlessly and Evolve Your Teaching Tactics!
+                Because Every Teacher is a Superhero, and Every Superhero Deserves {{sitename.siteName}}! Unleash Your Teaching Superpowers with AI: Elevate Education Effortlessly and Evolve Your Teaching Tactics!
             </p>
             <!-- <router-link :to="{ name: 'pricing' }">
                 <button type="button" @ class="transition duration-240 rounded-md bg-main-color hover:shadow-md hover:shadow-[#969cf9] hover:bg-secondary-color border-0 w-fit bg-main-color text-white focus:ring-4 focus:outline-none focus:ring-secondary-color dark:focus:ring-main-color font-medium rounded-lg text-lg px-5 py-2.5 inline-flex justify-center text-center">
@@ -199,7 +201,7 @@
                         <img class="w-40 p-7"  src="/Strategy.svg" alt="">
                     </div>
                     <h2 class="pb-3 text-2xl font-semibold text-center text-black">Auxiliary Report Generator</h2>
-                    <div class="text-center text-black">Simplify your auxiliary assignment. Just share a few details, and Tiklipy will solve your problem.</div>
+                    <div class="text-center text-black">Simplify your auxiliary assignment. Just share a few details, and {{sitename.siteName}} will solve your problem.</div>
                 </div>
                 <div @click="tutorial('/Project.gif')" class="cursor-pointer w-full sm:w-[49%] midlg:w-[30%] mb-4 md:mb-10 bg-white px-5 py-8 rounded-md">
                     <div class="rounded-[100px] overflow-hidden bg-blue-100 w-fit m-auto mb-5">

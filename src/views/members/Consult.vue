@@ -4,7 +4,9 @@
     import { ref, onMounted, watch } from 'vue';
     import { onSnapshot } from 'firebase/firestore';
     import { useUserStore } from '../../stores/user';
+    import { useIdentityStore } from "../../stores/siteIdentity";
 
+    const sitename = useIdentityStore();
     const messages = ref([]);
     const isGenerating = ref(false);
     const prompt = ref("");
@@ -151,7 +153,7 @@
                                 </div>
                                 <div class="flex flex-col leading-tight">
                                     <div class="flex items-center mt-1 text-xl font-medium">
-                                        <span class="mr-3 text-gray-700 dark:text-slate-200">Tiklipy Bot</span>
+                                        <span class="mr-3 text-gray-700 dark:text-slate-200">{{sitename.siteName}} Bot</span>
                                     </div>
                                 </div>
                             </div>

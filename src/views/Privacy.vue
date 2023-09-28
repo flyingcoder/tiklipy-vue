@@ -1,16 +1,19 @@
 <script setup>
     import { useRoute } from "vue-router";
+    import { useIdentityStore } from "../stores/siteIdentity";
+
+    const sitename = useIdentityStore();
 </script>
 
 <template>
     <div class="container mx-auto p-3 md:py-8 text-black ">
         <div class="max-w-3xl mx-auto p-4 sm:p-10 md:p-24 bg-white rounded-xl shadow-md">
-            <h4 class="text-4xl font-bold text-gray-700 mb-4 text-center">Discover Tiklipy and Our Privacy Commitment</h4>
+            <h4 class="text-4xl font-bold text-gray-700 mb-4 text-center">Discover {{sitename.siteName}} and Our Privacy Commitment</h4>
             <p class="text-gray-700 leading-7 mb-6">
-                Embrace the Tiklipy community ("Company," "we," "us," or "our") and trust our dedication to securing your personal information and respecting your privacy. If any inquiries arise regarding our practices or policies concerning your personal data, reach out to us at  <router-link :to="{name:'contact'}" class="text-main-color underline">Here</router-link>
+                Embrace the {{sitename.siteName}} community ("Company," "we," "us," or "our") and trust our dedication to securing your personal information and respecting your privacy. If any inquiries arise regarding our practices or policies concerning your personal data, reach out to us at  <router-link :to="{name:'contact'}" class="text-main-color underline">Here</router-link>
             </p>
             <p class="text-gray-700 leading-7 mb-6">
-                This privacy policy encompasses all data gathered through our website and related services, sales, marketing, and events ("Services"). Upon visiting <router-link :to="{name: 'home'}"> <span class="underline">https://www.tiklipy.com</span></router-link>  and utilizing our Services, you entrust your personal data to us. This document transparently outlines our policy ("Policy"), detailing data collection, usage, and your associated rights. We urge you to carefully peruse it. If certain terms are incongruent with your beliefs, please discontinue use of our sites and Services.
+                This privacy policy encompasses all data gathered through our website and related services, sales, marketing, and events ("Services"). Upon visiting <router-link :to="{name: 'home'}"> <span class="underline">https://www.{{sitename.siteName}}.com</span></router-link>  and utilizing our Services, you entrust your personal data to us. This document transparently outlines our policy ("Policy"), detailing data collection, usage, and your associated rights. We urge you to carefully peruse it. If certain terms are incongruent with your beliefs, please discontinue use of our sites and Services.
             </p>
             <p class="text-gray-700 leading-7 mb-6">
                 We encourage you to thoroughly read this privacy policy as it empowers you to make informed decisions about sharing personal data with us.
@@ -37,7 +40,7 @@
             <p>Essentially, we collect certain information automatically when you use our Services. This information, like IP address, browser characteristics, and device data, is essential for security, operation, analytics, and reporting. Cookies and similar technologies may also be utilized.</p>
 
             <h4 class="text-lg font-bold mt-8 mb-4">2. Data Utilization: How Do We Employ Your Information?</h4>
-            <p>In short, we process your data for legitimate business interests, contract fulfillment, legal compliance, and/or your consent. We use personal data collected via our Services for multiple business purposes as detailed below. Our processing relies on legitimate interests, contract obligations, your consent, and legal obligations. We may inform you of other Tiklipy and affiliate products or services.</p>
+            <p>In short, we process your data for legitimate business interests, contract fulfillment, legal compliance, and/or your consent. We use personal data collected via our Services for multiple business purposes as detailed below. Our processing relies on legitimate interests, contract obligations, your consent, and legal obligations. We may inform you of other {{sitename.siteName}} and affiliate products or services.</p>
 
             <h4 class="text-lg font-bold mt-8 mb-4">3. Data Sharing: Will Your Information Be Shared?</h4>
             <p>We share data solely with your consent, to adhere to laws, offer services, safeguard rights, or fulfill business commitments. Sharing may involve vendors, consultants, third-party service providers, business partners, and compliance with legal obligations. Your data may be disclosed or processed for business purposes, legal reasons, contractual performance, and more.</p>
@@ -46,7 +49,7 @@
             <p>You can opt out of third-party communication by contacting us <router-link :to="{name:'contact'}" class="text-main-color underline">Here</router-link> .</p>
 
             <h4 class="text-lg font-bold mt-8 mb-4">5. Email Participation: Are We Involved in E-Communications?</h4>
-            <p>We may contact you via email for announcements, offers, confirmations, and communication related to Tiklipy. You can unsubscribe from marketing emails or contact us <router-link :to="{name:'contact'}" class="text-main-color underline">Here</router-link>.</p>
+            <p>We may contact you via email for announcements, offers, confirmations, and communication related to {{sitename.siteName}}. You can unsubscribe from marketing emails or contact us <router-link :to="{name:'contact'}" class="text-main-color underline">Here</router-link>.</p>
 
             <h4 class="text-lg font-bold mt-8 mb-4">6. Tracking Technologies: Do We Use Cookies and More?</h4>
             <p>We may use cookies and tracking technologies to enhance your online experience. Cookies, web beacons, and pixels save time and facilitate personalized features.</p>

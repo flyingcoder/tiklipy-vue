@@ -1,7 +1,9 @@
 <script setup>
     import { ref } from 'vue';
     import { Accordion, AccordionPanel, AccordionHeader, AccordionContent } from 'flowbite-vue';
+    import { useIdentityStore } from "../stores/siteIdentity";
 
+    const sitename = useIdentityStore();
     const price = 399;
 </script>
 <style>
@@ -47,14 +49,14 @@
         <div class="max-w-3xl mx-auto">
             <div class="block justify-center">
                 <h2 class="mb-3 md:mb-10 text-3xl md:text-5xl font-semibold text-center uppercase text-main-color">Frequently Asked Questions</h2>
-                <p class="text-center text-black mt-3 text-gray-700 text-xl mb-5">Tiklipy Common Questions: Find quick resolutions to familiar Tiklipy concerns.</p>
+                <p class="text-center text-black mt-3 text-gray-700 text-xl mb-5">{{sitename.siteName}} Common Questions: Find quick resolutions to familiar {{sitename.siteName}} concerns.</p>
             </div>
             <Accordion flush class="bg-white px-5 rounded-2xl">
                 <accordion-panel>
                 <accordion-header class="test1">What is the billing process like?</accordion-header>
                 <accordion-content class="test2">
                     <div>
-                        <p class="mb-2 text-gray-500 dark:text-gray-400 border-0">Tiklipy's subscription plan offers convenience and great value. For ₱399 per month, you can access and utilize all of Tiklipy's features on multiple devices. Our prices are set, and there are no additional charges. Furthermore, you have the flexibility to cancel your subscription at any time.</p>
+                        <p class="mb-2 text-gray-500 dark:text-gray-400 border-0">{{sitename.siteName}}'s subscription plan offers convenience and great value. For ₱399 per month, you can access and utilize all of {{sitename.siteName}}'s features on multiple devices. Our prices are set, and there are no additional charges. Furthermore, you have the flexibility to cancel your subscription at any time.</p>
                     </div>
                 </accordion-content>
                 </accordion-panel>
@@ -75,10 +77,10 @@
                 </accordion-content>
                 </accordion-panel>
                 <accordion-panel>
-                <accordion-header>Who can benefit from Tiklipy?</accordion-header>
+                <accordion-header>Who can benefit from {{sitename.siteName}}?</accordion-header>
                 <accordion-content>
                     <div>
-                    <p class="mb-2 text-gray-500 dark:text-gray-400">Tiklipy is designed to serve a diverse group of educators, including administrators, classroom teachers from both public and private schools, as well as homeschooling parents.</p>
+                    <p class="mb-2 text-gray-500 dark:text-gray-400">{{sitename.siteName}} is designed to serve a diverse group of educators, including administrators, classroom teachers from both public and private schools, as well as homeschooling parents.</p>
                     </div>
                 </accordion-content>
                 </accordion-panel>
@@ -91,16 +93,16 @@
                 </accordion-content>
                 </accordion-panel>
                 <accordion-panel>
-                <accordion-header>Which devices can I use with Tiklipy?</accordion-header>
+                <accordion-header>Which devices can I use with {{sitename.siteName}}?</accordion-header>
                 <accordion-content>
                     <div>
-                        <p class="mb-2 text-gray-500 dark:text-gray-400">Tiklipy is compatible with various internet-connected devices, including smartphones, laptops, and desktop computers.</p>
-                        <p class="mb-2 text-gray-500 dark:text-gray-400"> Is it necessary to download an app to utilize Tiklipy? No need to download any app.</p>
+                        <p class="mb-2 text-gray-500 dark:text-gray-400">{{sitename.siteName}} is compatible with various internet-connected devices, including smartphones, laptops, and desktop computers.</p>
+                        <p class="mb-2 text-gray-500 dark:text-gray-400"> Is it necessary to download an app to utilize {{sitename.siteName}}? No need to download any app.</p>
                     </div>
                 </accordion-content>
                 </accordion-panel>
                 <accordion-panel>
-                <accordion-header>Is it necessary to download an app to utilize Tiklipy?</accordion-header>
+                <accordion-header>Is it necessary to download an app to utilize {{sitename.siteName}}?</accordion-header>
                 <accordion-content>
                     <div>
                     <p class="mb-2 text-gray-500 dark:text-gray-400">No need to download any app.</p>
@@ -108,10 +110,10 @@
                 </accordion-content>
                 </accordion-panel>
                 <accordion-panel>
-                <accordion-header class="no-border">What sets Tiklipy apart from ChatGPT?</accordion-header>
+                <accordion-header class="no-border">What sets {{sitename.siteName}} apart from ChatGPT?</accordion-header>
                 <accordion-content>
                     <div>
-                    <p class="mb-2 text-gray-500 dark:text-gray-400">Tiklipy is uniquely built to cater to the specific needs of learning and development. It is designed to help users achieve impactful results without the need for complex commands or prompts. This sets Tiklipy apart from platforms like ChatGPT, as it is specifically tailored to support individuals in the field of learning and development, regardless of their role or background.</p>
+                    <p class="mb-2 text-gray-500 dark:text-gray-400">{{sitename.siteName}} is uniquely built to cater to the specific needs of learning and development. It is designed to help users achieve impactful results without the need for complex commands or prompts. This sets {{sitename.siteName}} apart from platforms like ChatGPT, as it is specifically tailored to support individuals in the field of learning and development, regardless of their role or background.</p>
                     </div>
                 </accordion-content>
                 </accordion-panel>

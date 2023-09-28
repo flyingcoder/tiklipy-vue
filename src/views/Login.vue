@@ -5,7 +5,9 @@
     import { useLoaderStore } from "../stores/loader";
     import { useAuthStore } from "../stores/auth";
     import { GoogleAuthProvider, FacebookAuthProvider } from "firebase/auth";
+    import { useIdentityStore } from "../stores/siteIdentity";
 
+    const sitename = useIdentityStore();
     const router = useRouter();
     const email = ref("");
     const password = ref("");
@@ -101,7 +103,7 @@
         <div class="max-w-md bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 lg:w-2/5 sm:w-96">
             <div class="w-full px-8 py-6 text-gray-200 bg-gray-800 rounded-t-lg">
                 <router-link :to="{ name: 'home' }">
-                    <img class="w-32 mx-auto mb-4" src="/tiklipy-logo-indigo.png" alt="tiklipy logo indigo color">
+                    <img class="w-32 mx-auto mb-4" :src="sitename.logoSrc" alt="tiklipy logo indigo color">
                 </router-link>
                 <h2 class="w-full text-2xl font-semibold text-center">Sign in to Start!</h2>
                 <p class="text-lg font-semibold text-center">

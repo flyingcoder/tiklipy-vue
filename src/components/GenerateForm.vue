@@ -8,7 +8,9 @@
     import { Textarea } from 'flowbite-vue';
     import { Button } from 'flowbite-vue';
     import 'animate.css';
+    import { useIdentityStore } from "../stores/siteIdentity";
 
+    const sitename = useIdentityStore();
     defineEmits(['generation-complete']);
 
     const toggleAssesment = ref(false);
@@ -156,7 +158,7 @@
                 <div class="mb-6">
                     <Textarea rows="4" placeholder="Additional instruction..." v-model="message" label="Your message" />
                 </div>
-                <Button @click.prevent="generate" type="submit" size="lg" class="w-full bg-main-color hover:bg-secondary-color border-0 text-sm lg:text-[0.775rem] xl:text-lg font-semibold">Generate Topic with Tiklipy!</Button>
+                <Button @click.prevent="generate" type="submit" size="lg" class="w-full bg-main-color hover:bg-secondary-color border-0 text-sm lg:text-[0.775rem] xl:text-lg font-semibold">Generate Topic with {{sitename.siteName}}!</Button>
             </form>
         </div>
     </div>
