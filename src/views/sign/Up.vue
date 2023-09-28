@@ -8,6 +8,9 @@
     import { useUserStore } from "../../stores/user";
     import { onSnapshot } from "firebase/firestore";
     import { useRouter } from "vue-router"
+    import { useIdentityStore } from "../../stores/siteIdentity";
+
+    const sitename = useIdentityStore();
 
     const router = useRouter();
 
@@ -160,7 +163,7 @@
   <Modal size="lg" v-if="showModal" @close="showModal = !showModal" persistent>
     <template #header>
       <div class="w-full text-black">
-        <img class="w-32 m-auto" src="/tiklipy-logo-indigo.png" alt="tiklipy logo indigo color">
+        <img class="w-32 m-auto" :src="sitename.logoSrc" alt="tiklipy logo indigo color">
         <h2 class="text-2xl text-center">Account Registration</h2>
         <p class="text-lg text-center">
           Just a few more step to greatness...

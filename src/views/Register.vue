@@ -6,7 +6,9 @@
     import { useAuthStore } from "../stores/auth";
     import InviteCodeModel from "../models/InviteCode.js";
     import { GoogleAuthProvider, FacebookAuthProvider } from "firebase/auth";
+    import { useIdentityStore } from "../stores/siteIdentity";
 
+    const sitename = useIdentityStore();
     const router = useRouter();
     const email = ref("");
     const password = ref("");

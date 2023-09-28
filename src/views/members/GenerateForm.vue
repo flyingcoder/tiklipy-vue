@@ -11,7 +11,9 @@
     import { Button } from 'flowbite-vue';
     import { useRouter } from 'vue-router';
     import { useLoaderStore } from "../../stores/loader";
-    
+    import { useIdentityStore } from "../../stores/siteIdentity";
+
+    const sitename = useIdentityStore();
     const router = useRouter();
     const formStore = useFormStore();
     const loaderStore = useLoaderStore();
@@ -145,7 +147,7 @@
         const content = `
         <html>
         <head>
-          <title>Tiklipy - The Best Teacher AI Assistant</title>
+          <title>${sitename.siteName} - The Best Teacher AI Assistant</title>
         </head>
         <body>
           ${document.getElementById(divId).innerHTML}
@@ -234,7 +236,7 @@
                             </div>
                         </div>
                         <Button @click.prevent="generate" type="submit" size="lg" class="mt-5 w-full bg-main-color hover:bg-secondary-color border-0 text-sm lg:text-[0.775rem] xl:text-lg font-semibold">
-                           Tiklipy Go!
+                            {{sitename.siteName}} Go!
                         </Button>
                     </div>
                     <div class="p-6 bg-white rounded-3xl animate__animated" v-if="generatedResource">

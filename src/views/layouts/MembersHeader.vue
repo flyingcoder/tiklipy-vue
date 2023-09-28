@@ -7,7 +7,9 @@
     import { useRoute } from 'vue-router';
     import 'animate.css';
     import 'flowbite';
+    import { useIdentityStore } from "../../stores/siteIdentity";
 
+    const sitename = useIdentityStore();
     const route = useRoute();
     const router = useRouter();
     const isMenuHidden = ref(true);
@@ -110,7 +112,7 @@
             </template>
             <template #center>
                 <router-link :to="{ name: 'dashboard' }" class="flex items-center m-auto sm:w-fit">
-                    <img src="/tiklipy-logo-black.png" class="h-12 ml-4 sm:mx-auto relative top-[5px]" alt="Tiklipy Logo" />
+                    <img :src="sitename.logoSrcBlack" class="h-12 ml-4 sm:mx-auto relative top-[5px]" alt="Tiklipy Logo" />
                 </router-link>
             </template>
             <template #left>

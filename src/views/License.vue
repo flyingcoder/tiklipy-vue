@@ -1,5 +1,7 @@
 <script setup>
+    import { useIdentityStore } from "../stores/siteIdentity";
 
+    const sitename = useIdentityStore();
 </script>
 
 <template>
@@ -10,17 +12,17 @@
             <p class="mb-6 text-center">Effective Date: August 29, 2023</p>
 
             <div class="mb-8">
-                <h2 class="text-xl font-semibold mb-4">Our Philosophy and the Tiklipy End-User License Agreement</h2>
+                <h2 class="text-xl font-semibold mb-4">Our Philosophy and the {{sitename.siteName}} End-User License Agreement</h2>
                 <p>Our approach to licensing sets us apart, creating a better experience for all. This end-user license
                     agreement (referred to as the "Agreement") establishes the understanding between the Subscriber and
-                    Tiklipy, a corporation based in Philippines. In this Agreement, "Subscriber" pertains to any entity that
-                    engages in a subscription arrangement with Tiklipy.</p>
+                    {{sitename.siteName}}, a corporation based in Philippines. In this Agreement, "Subscriber" pertains to any entity that
+                    engages in a subscription arrangement with {{sitename.siteName}}.</p>
             </div>
 
             <div class="mb-8">
                 <h2 class="text-2xl font-semibold mb-4">Simplified Licensing Approach</h2>
                 <p class="leading-loose">
-                    At Tiklipy, we grant every subscriber essential commercial rights. This empowers you with the assurance to seamlessly incorporate the generated content across diverse contexts, be it for your professional endeavors or personal projects. With an active Tiklipy subscription, the tools and content are yours to wield confidently.
+                    At {{sitename.siteName}}, we grant every subscriber essential commercial rights. This empowers you with the assurance to seamlessly incorporate the generated content across diverse contexts, be it for your professional endeavors or personal projects. With an active Tiklipy subscription, the tools and content are yours to wield confidently.
                 </p>
             </div>
 
@@ -35,14 +37,14 @@
             </div>
 
             <div class="mb-8">
-                <h2 class="text-2xl font-semibold mb-4">Tiklipy Individual End User License</h2>
-                <p class="mb-4">Important details about your Tiklipy License:</p>
+                <h2 class="text-2xl font-semibold mb-4">{{sitename.siteName}} Individual End User License</h2>
+                <p class="mb-4">Important details about your {{sitename.siteName}} License:</p>
                 <ol class="list-decimal ml-6 space-y-2">
                     <li class="leading-loose">
-                        For every generated response within your Tiklipy subscription, you hold a Single End User License. This license empowers you to employ the generated content individually, aligned with your vision, throughout the duration of your active Tiklipy subscription. This license is personal and cannot be transferred to others.
+                        For every generated response within your {{sitename.siteName}} subscription, you hold a Single End User License. This license empowers you to employ the generated content individually, aligned with your vision, throughout the duration of your active Tiklipy subscription. This license is personal and cannot be transferred to others.
                     </li>
                     <li class="leading-loose">
-                        The Single End User License provided by Tiklipy bestows upon the subscriber a non-exclusive, irrevocable, non-transferable, sub-licensable, worldwide, limited License. This License enables the usage of generated content within the parameters outlined below.
+                        The Single End User License provided by {{sitename.siteName}} bestows upon the subscriber a non-exclusive, irrevocable, non-transferable, sub-licensable, worldwide, limited License. This License enables the usage of generated content within the parameters outlined below.
                     </li>
                 </ol>
             </div>
@@ -83,7 +85,7 @@
                 <p>We may periodically update this License. Any updates will be marked with a revised date, and the new
                     version will take effect upon accessibility. If there are significant changes to this License, we may
                     inform you through prominent notices or direct notifications. We encourage you to regularly review
-                    this License to stay informed about using Tiklipy's services.</p>
+                    this License to stay informed about using {{sitename.siteName}}'s services.</p>
             </div>
         </div>
     </div>

@@ -1,36 +1,37 @@
 <script setup>
-    import { onMounted, ref } from "vue";
-    import Navigation from "../../components/Navigation.vue";
-    import { useAuthStore } from "../../stores/auth";
-    import { useUserStore } from "../../stores/user";
-    import { useRoute } from "vue-router";
-    import { useLoaderStore } from "../../stores/loader";
-    // import LiveChat from '../../components/LiveChat.vue';
-    
-    const isLoggedIn = ref(false);
-    const isMenuHidden = ref(true);
-    const dropdownMenu = ref(true);
-    const authStore = useAuthStore();
-    const userStore = useUserStore();
-    const loaderStore = useLoaderStore();
-    const route = useRoute();
+  import { onMounted, ref } from "vue";
+  import Navigation from "../../components/Navigation.vue";
+  import { useAuthStore } from "../../stores/auth";
+  import { useUserStore } from "../../stores/user";
+  import { useRoute } from "vue-router";
+  import { useLoaderStore } from "../../stores/loader";
+  import { useIdentityStore } from "../../stores/siteIdentity";
 
-    onMounted(() => {
-        isLoggedIn.value = authStore.user;
-    });
+  const sitename = useIdentityStore();
+  const isLoggedIn = ref(false);
+  const isMenuHidden = ref(true);
+  const dropdownMenu = ref(true);
+  const authStore = useAuthStore();
+  const userStore = useUserStore();
+  const loaderStore = useLoaderStore();
+  const route = useRoute();
 
-    const handleSignOut = async () => {
-        const success = await authStore.logout();
-        if(success) isLoggedIn.value = false;
-    };
+  onMounted(() => {
+    isLoggedIn.value = authStore.user;
+  });
 
-    const toggleMenu = () => {
-        isMenuHidden.value = !isMenuHidden.value;
-    };
+  const handleSignOut = async () => {
+    const success = await authStore.logout();
+    if (success) isLoggedIn.value = false;
+  };
 
-    const toggleDropdown = () => {
-        dropdownMenu.value = !dropdownMenu.value;
-    };
+  const toggleMenu = () => {
+    isMenuHidden.value = !isMenuHidden.value;
+  };
+
+  const toggleDropdown = () => {
+    dropdownMenu.value = !dropdownMenu.value;
+  };
 
 </script>
 <template>
@@ -59,7 +60,7 @@
             </template>
             <template #center>
                 <router-link :to="{ name: 'home' }" class="flex items-center">
-                    <img src="/tiklipy-logo-indigo.png" class="h-12 ml-4 sm:mx-auto relative top-[5px]" alt="Tiklipy Logo" />
+                    <img :src="sitename.logoSrc" class="h-12 ml-4 sm:mx-auto relative top-[5px]" alt="Tiklipy Logo" />
                 </router-link>
             </template>
             <template #left>
@@ -107,7 +108,7 @@
                                                     Blogs
                                                 </div>
                                                 <p class="font-light tracking-wide">
-                                                    Compelling Tales of Tiklipy: A Journey through Education and Teaching
+                                                    Compelling Tales of {{ sitename.siteName }}: A Journey through Education and Teaching
                                                 </p>
                                             </div>
                                         </li>

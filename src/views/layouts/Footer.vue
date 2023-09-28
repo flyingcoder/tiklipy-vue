@@ -3,7 +3,9 @@
     import { Input, Button } from 'flowbite-vue';
     import expressModel from "../../models/express";
     import { useRoute } from "vue-router";
+    import { useIdentityStore } from "../../stores/siteIdentity";
 
+    const sitename = useIdentityStore();
     const route = useRoute();
     const backEndModel = new expressModel();
     const email = ref('');
@@ -42,7 +44,7 @@
                         <div class="basis-full lg:basis-2/12">
                                 <div class="mb-6 md:mb-0">
                                     <router-link :to="{name:'home'}" class="max-xs:justify-center flex items-center">
-                                        <img src="/tiklipy-logo-indigo.png" height="48" width="150" class="mr-3" alt="Tiklipy Logo" />
+                                        <img :src="sitename.logoSrc"  height="48" width="150" class="mr-3" alt="Tiklipy Logo" />
                                     </router-link>
                                 </div>
                             </div>
@@ -106,7 +108,7 @@
                     <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:mb-8 mt-16" />
                     <div class="flex max-md:flex-col-reverse justify-between">
                         <div class="flex flex-wrap">
-                            <span class="md:mr-5 max-md:basis-full text-sm text-gray-500 max-md:text-center dark:text-gray-400 max-md:py-5">© 2023 <router-link :to="{name: 'home'}" class="hover:underline">Tiklipy™</router-link>.&nbsp; All Rights Reserved.</span>
+                            <span class="md:mr-5 max-md:basis-full text-sm text-gray-500 max-md:text-center dark:text-gray-400 max-md:py-5">© 2023 <router-link :to="{name: 'home'}" class="hover:underline">{{sitename.siteName}}™</router-link>.&nbsp; All Rights Reserved.</span>
                             <div class="max-md:basis-full flex flex-warp max-md:justify-center">
                                 <router-link :to="{name: 'terms'}">
                                     <a class="mx-1 block text-sm">Terms</a>

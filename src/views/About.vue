@@ -1,5 +1,7 @@
 <script setup>
+    import { useIdentityStore } from "../stores/siteIdentity";
 
+    const sitename = useIdentityStore();
 </script>
 <template>
     <div class="block pt-[0.1px] mt-0 text-black text-center ">
@@ -18,13 +20,13 @@
                     An organization characterized by empathy and dedication.
             </div>
             <div class="max-w-screen-sm pb-5 m-auto text-lg text-center text-gray-800 font-base">
-                    We formulated Tiklipy with a unique approach, distinguishing it from other educational companies.
+                    We formulated {{sitename.siteName}} with a unique approach, distinguishing it from other educational companies.
                 </div>
             <div class="flex flex-wrap justify-around mt-3">
                 <div class="block mt-5 w-96 bg-white rounded-lg  p-3 sm:p-10" >
                     <img src="/Boss.svg" class="mx-auto mb-4" alt="Gift" width="150" height="150">
                     <h2 class="mb-4 text-2xl font-semibold text-center text-gray-800">Crafted by a Teaching Professional</h2>
-                    <p class="text-lg text-center text-gray-500">Tiklipy was meticulously designed by an experienced educator who deeply understands the needs of fellow teachers.</p>
+                    <p class="text-lg text-center text-gray-500">{{sitename.siteName}} was meticulously designed by an experienced educator who deeply understands the needs of fellow teachers.</p>
                 </div>
                 <div class="block mt-5 w-96 bg-white rounded-lg  p-3 sm:p-10">
                     <img src="/Graduation-cap.svg" class="mx-auto mb-4" alt="Gift" width="150" height="150">
@@ -46,7 +48,7 @@
                 <div class="block py-4 lg:w-1/2 place-self-center mb-[50px]">
                     <h2 class="mb-4 mx-3 text-4xl font-semibold text-gray-800 lg:text-left">Words from the creators</h2>
                     <p class="mt-10 mx-3 md:mr-10 text-lg text-gray-500 lg:text-left">
-                        Greetings, we're the groups responsible for Tiklipy.<br><br>
+                        Greetings, we're the groups responsible for {{sitename.siteName}}.<br><br>
                         Embarking on this path more than three years ago, we were propelled by a vision to empower educators and transform the landscape of education. Our intuitive tools simplify tasks for teachers worldwide, and we're only at the beginning of our journey.<br><br>
                         Experience it firsthand. We're eagerly anticipating your feedback!
                     </p>
