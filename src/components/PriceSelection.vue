@@ -93,16 +93,16 @@
             <div v-for="(price, priceIndex) in product.prices"
                 :key="priceIndex + '-price'"
                 class="w-full max-w-sm p-4 mx-4 my-3 bg-white border border-gray-200 rounded-lg shadow max-midlg:mb-10 sm:p-8 dark:bg-gray-800 dark:border-gray-700">
-                <h5 class="mb-4 text-xl font-medium text-gray-500 capitalize dark:text-gray-400">
-                    Basic Plan
+                <h5 class=" text-xl font-medium text-gray-500 capitalize dark:text-gray-400">
+                    {{ price.tiers }}
                 </h5>
-                <p class="font-bold text-green-500 relative -m-3 text-xl top-2 left-7">399</p>
+                <p class="font-bold text-green-500 relative  text-xl top-2 left-7">{{ price.unit_sale }}</p>
                 <div class="flex items-baseline justify-center text-grey-600 dark:text-white">
                     <span class="text-2xl font-semibold text-gray-500">
                         ₱
                     </span>
                     <span class="text-5xl font-extrabold tracking-tight text-red-500 line-through">
-                        {{ price.unit_amount - 501 }}
+                        {{ price.unit_amount }}
                     </span>
                     <span class="ml-1 text-xl font-normal text-gray-500 dark:text-gray-400">
                         /{{ price.interval }}ly
@@ -116,47 +116,47 @@
                         <svg class="flex-shrink-0 w-5 h-5 text-main-color dark:text-main-color" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"/>
                         </svg>
-                        <span class="text-lg font-normal leading-tight text-gray-500 max-xs:text-sm dark:text-gray-400">
+                        <span class="text-left text-lg font-normal leading-tight text-gray-500 max-xs:text-sm dark:text-gray-400">
                             Get a whole month access for free
                         </span>
                     </li>
-                    <li class="flex py-2 space-x-3">
+                    <li class="flex items-center py-2 space-x-3">
                         <svg class="flex-shrink-0 w-5 h-5 text-main-color dark:text-main-color" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"/>
                         </svg>
-                        <span class="text-lg font-normal leading-tight text-gray-500 max-xs:text-sm dark:text-gray-400">
+                        <span class="text-left text-lg font-normal leading-tight text-gray-500 max-xs:text-sm dark:text-gray-400">
                             50+ more teaching tools
                         </span>
                     </li>
-                    <li class="flex py-2 space-x-3">
+                    <li class="flex items-center  py-2 space-x-3">
                         <svg class="flex-shrink-0 w-5 h-5 text-main-color dark:text-main-color" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"/>
                         </svg>
-                        <span class="text-lg font-normal leading-tight text-gray-500 max-xs:text-sm dark:text-gray-400">
+                        <span class="text-left text-lg font-normal leading-tight text-gray-500 max-xs:text-sm dark:text-gray-400">
                             Unlimited content generation
                         </span>
                     </li>
-                    <li class="flex py-2 space-x-3">
+                    <li class="flex items-center  py-2 space-x-3">
                         <svg class="flex-shrink-0 w-5 h-5 text-main-color dark:text-main-color" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"/>
                         </svg>
-                        <span class="text-lg font-normal leading-tight text-gray-500 max-xs:text-sm dark:text-gray-400">
+                        <span class="text-left text-lg font-normal leading-tight text-gray-500 max-xs:text-sm dark:text-gray-400">
                             Save, print and manage your work
                         </span>
                     </li>
-                    <li class="flex py-2 space-x-3">
+                    <li class="flex items-center  py-2 space-x-3">
                         <svg class="flex-shrink-0 w-5 h-5 text-main-color dark:text-main-color" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"/>
                         </svg>
-                        <span class="text-lg font-normal leading-tight text-gray-500 max-xs:text-sm dark:text-gray-400">
+                        <span class="text-left text-lg font-normal leading-tight text-gray-500 max-xs:text-sm dark:text-gray-400">
                             Secure banking/No hidden fees
                         </span>
                     </li>
-                    <li class="flex py-2 space-x-3">
+                    <li class="flex items-center  py-2 space-x-3">
                         <svg class="flex-shrink-0 w-5 h-5 text-main-color dark:text-main-color" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"/>
                         </svg>
-                        <span class="text-lg font-normal leading-tight text-gray-500 max-xs:text-sm dark:text-gray-400">
+                        <span class="text-left text-lg font-normal leading-tight text-gray-500 max-xs:text-sm dark:text-gray-400">
                             Cancel anytime
                         </span>
                     </li>
@@ -164,11 +164,84 @@
                 <!-- <button type="button" @click="emailLogin()" class="uppercase transition uppercase duration-240 hover:shadow-md hover:shadow-[#969cf9] hover:bg-secondary-color border-0 w-fit bg-main-color text-white focus:ring-4 focus:outline-none focus:ring-secondary-color dark:focus:ring-main-color font-semibold rounded-lg text-lg px-5 py-2.5 inline-flex justify-center text-center">
                     {{ authStore.user ? 'GO TO PORTAL' : 'REQUEST EARLY ACCESS' }}
                 </button> -->
-                <button :class="isLoading ? 'bg-gray-500 hover:bg-gra-500 cursor-not-allowed' : 'bg-main-color hover:bg-blue-700'" 
+                <button :class="isLoading ? 'bg-gray-500 hover:bg-gra-500 cursor-not-allowed' : 'bg-main-color hover:bg-secondary-color'" 
                     :disabled="!price.id || isLoading" @click="createSub(price.id)" type="button" 
                     class="text-white focus:ring-4 focus:outline-none focus:ring-blue-200 dark:focus:ring-blue-900 font-medium rounded-lg text-lg px-5 py-2.5 inline-flex justify-center w-full text-center">
                     {{ isLoading ? "Loading..." : "Buy Now" }}
                 </button>
+            </div>
+            <div class="w-full max-w-sm p-4 mx-4 my-3 bg-white border border-gray-200 rounded-lg shadow max-midlg:mb-10 sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+                <h5 class=" text-xl font-medium text-gray-500 capitalize dark:text-gray-400">
+                    Business Plan
+                </h5>
+                <p class="font-bold text-green-500 relative  text-xl top-2 left-7">&nbsp;</p>
+                <div class="flex items-baseline justify-center text-grey-600 dark:text-white">
+                    <span class="text-2xl font-semibold text-gray-500">
+                        
+                    </span>
+                    <span class="text-5xl font-extrabold tracking-tight text-green-500 ">
+                        Contact Us
+                    </span>
+                </div>
+                <ul role="list" class="space-y-5 my-7">
+                    <li class="items-center text-lg text-gray-500 max-xs:text-base">
+                        After 7-Day Free Trial
+                    </li>
+                    <li class="flex items-center py-2 space-x-3">
+                        <svg class="flex-shrink-0 w-5 h-5 text-main-color dark:text-main-color" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"/>
+                        </svg>
+                        <span class="text-left text-lg font-normal leading-tight text-gray-500 max-xs:text-sm dark:text-gray-400">
+                            Get a whole month access for free
+                        </span>
+                    </li>
+                    <li class="flex items-center py-2 space-x-3">
+                        <svg class="flex-shrink-0 w-5 h-5 text-main-color dark:text-main-color" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"/>
+                        </svg>
+                        <span class="text-left text-lg font-normal leading-tight text-gray-500 max-xs:text-sm dark:text-gray-400">
+                            50+ more teaching tools
+                        </span>
+                    </li>
+                    <li class="flex items-center  py-2 space-x-3">
+                        <svg class="flex-shrink-0 w-5 h-5 text-main-color dark:text-main-color" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"/>
+                        </svg>
+                        <span class="text-left text-lg font-normal leading-tight text-gray-500 max-xs:text-sm dark:text-gray-400">
+                            Unlimited content generation
+                        </span>
+                    </li>
+                    <li class="flex items-center  py-2 space-x-3">
+                        <svg class="flex-shrink-0 w-5 h-5 text-main-color dark:text-main-color" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"/>
+                        </svg>
+                        <span class="text-left text-lg font-normal leading-tight text-gray-500 max-xs:text-sm dark:text-gray-400">
+                            Save, print and manage your work
+                        </span>
+                    </li>
+                    <li class="flex items-center  py-2 space-x-3">
+                        <svg class="flex-shrink-0 w-5 h-5 text-main-color dark:text-main-color" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"/>
+                        </svg>
+                        <span class="text-left text-lg font-normal leading-tight text-gray-500 max-xs:text-sm dark:text-gray-400">
+                            Secure banking/No hidden fees
+                        </span>
+                    </li>
+                    <li class="flex items-center  py-2 space-x-3">
+                        <svg class="flex-shrink-0 w-5 h-5 text-main-color dark:text-main-color" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"/>
+                        </svg>
+                        <span class="text-left text-lg font-normal leading-tight text-gray-500 max-xs:text-sm dark:text-gray-400">
+                            Cancel anytime
+                        </span>
+                    </li>
+                </ul>
+                <!-- <button type="button" @click="emailLogin()" class="uppercase transition uppercase duration-240 hover:shadow-md hover:shadow-[#969cf9] hover:bg-secondary-color border-0 w-fit bg-main-color text-white focus:ring-4 focus:outline-none focus:ring-secondary-color dark:focus:ring-main-color font-semibold rounded-lg text-lg px-5 py-2.5 inline-flex justify-center text-center">
+                    {{ authStore.user ? 'GO TO PORTAL' : 'REQUEST EARLY ACCESS' }}
+                </button> -->
+                <router-link  :to="{ name: 'contact' }" class="bg-main-color hover:bg-secondary-color !text-white font-medium rounded-lg text-lg px-5 py-2.5 inline-flex justify-center w-full text-center">
+                    Contact Us
+                </router-link>  
             </div>
         </div>
     </div>

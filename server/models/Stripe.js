@@ -40,7 +40,7 @@ class StripeModel {
                 products.push({
                     id: product.id,
                     ...product.data(),
-                    prices: [prices[0]],
+                    prices: [prices[0],prices[1]],
                 });
             });
             await Promise.all(promises);
